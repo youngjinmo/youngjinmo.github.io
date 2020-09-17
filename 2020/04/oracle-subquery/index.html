@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Oracle - Sub Query | DevAndy</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="oracle,sql" />
+    
+    <meta name="description" content="서브쿼리란 쿼리 속 쿼리를 의미한다. 서브쿼리를 사용한 쿼리는 실행시 서브쿼리를 먼저 실행된다고 한다. SQL 퀴즈를 바탕으로 어떻게 사용되는지 알아보자. 1SMITH와 같은 부서에 근무중인 사원들의 사원번호(empno), 이름(ename), 급여액(sal), 부서이름(dname)을 가져온다.  ‘SMITH’ 이름을 갖는 사원의 emp 테이블과 이 사람">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Oracle - Sub Query">
+<meta property="og:url" content="http://youngjinmo.github.io/2020/04/oracle-subquery/index.html">
+<meta property="og:site_name" content="DevAndy">
+<meta property="og:description" content="서브쿼리란 쿼리 속 쿼리를 의미한다. 서브쿼리를 사용한 쿼리는 실행시 서브쿼리를 먼저 실행된다고 한다. SQL 퀴즈를 바탕으로 어떻게 사용되는지 알아보자. 1SMITH와 같은 부서에 근무중인 사원들의 사원번호(empno), 이름(ename), 급여액(sal), 부서이름(dname)을 가져온다.  ‘SMITH’ 이름을 갖는 사원의 emp 테이블과 이 사람">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://lh3.googleusercontent.com/d0ri4fOfnP6N5BPr-Uf9HHlKEUNN19MiAiCNc5qmOrVSo-dCPZj3pscHhOor6KPiYdItQOnD6ybfYxUSM67Qh2mViSEKSis9tg8Z4DkzjOheD3wkAEWabLKBK9Z9UdFgdSVnu9520Z9wkQ7VAK9vaKco-N-54vYq2MFxYAUKHXtIE-rZOysg7UIhNEEFf6Wowxt2TfXR0_eqkk_iBhMNI2nO8gXYkUgSddxYv1AYX1rhMR4VwT1kYdwccjKA7KGmptza15Ozgqp_bOG5imGrMAe8hSnCOkAVO2srUtrHlxsMfbtztJSXIspNiW6Dj7YeUqQJ65k9hK2gXZ13NRUKbJJR_gloAoIh3Ma-sfZtKyxAzggkZVEXn5gK57yBRI_lk4efFmXhDA-P8c02EK6CI_07fgs-yk628iJuQvUAKfyLSVLPbsa11xuQu1Np-Tg5L-7vj3hXiVceAx5Iz23zFci2CN1qAnJDj6qyA2jcK2JvvucJI14O6e12wJdVuCZEV0DJsTJ_sInJA48jVYcloV676EAN7MJJzq3ncl6Yee468mkwrrShqO59jUXV2FptMQHSbMCojxCvuwPbiuoFeFzsw5ZBh7_T-2oZ08v3fnlslpzXm_BnsxWRaXx8HlBADnUZN0K6PiwtlDF29c0Z4muNpawiv108MH4jP2YIsy6_9HmJ7uYjD1ZUdoJxhaTI8hjxVrGlh_TAwW2gOI4_2uPxdKHEkX1wwbQ08twab6MPgVsGvZjmCT4=w1024-h480-no">
+<meta property="article:published_time" content="2020-04-20T14:48:40.000Z">
+<meta property="article:modified_time" content="2020-09-13T01:53:28.232Z">
+<meta property="article:author" content="Youngjin Mo">
+<meta property="article:tag" content="oracle">
+<meta property="article:tag" content="sql">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lh3.googleusercontent.com/d0ri4fOfnP6N5BPr-Uf9HHlKEUNN19MiAiCNc5qmOrVSo-dCPZj3pscHhOor6KPiYdItQOnD6ybfYxUSM67Qh2mViSEKSis9tg8Z4DkzjOheD3wkAEWabLKBK9Z9UdFgdSVnu9520Z9wkQ7VAK9vaKco-N-54vYq2MFxYAUKHXtIE-rZOysg7UIhNEEFf6Wowxt2TfXR0_eqkk_iBhMNI2nO8gXYkUgSddxYv1AYX1rhMR4VwT1kYdwccjKA7KGmptza15Ozgqp_bOG5imGrMAe8hSnCOkAVO2srUtrHlxsMfbtztJSXIspNiW6Dj7YeUqQJ65k9hK2gXZ13NRUKbJJR_gloAoIh3Ma-sfZtKyxAzggkZVEXn5gK57yBRI_lk4efFmXhDA-P8c02EK6CI_07fgs-yk628iJuQvUAKfyLSVLPbsa11xuQu1Np-Tg5L-7vj3hXiVceAx5Iz23zFci2CN1qAnJDj6qyA2jcK2JvvucJI14O6e12wJdVuCZEV0DJsTJ_sInJA48jVYcloV676EAN7MJJzq3ncl6Yee468mkwrrShqO59jUXV2FptMQHSbMCojxCvuwPbiuoFeFzsw5ZBh7_T-2oZ08v3fnlslpzXm_BnsxWRaXx8HlBADnUZN0K6PiwtlDF29c0Z4muNpawiv108MH4jP2YIsy6_9HmJ7uYjD1ZUdoJxhaTI8hjxVrGlh_TAwW2gOI4_2uPxdKHEkX1wwbQ08twab6MPgVsGvZjmCT4=w1024-h480-no">
+<meta name="twitter:creator" content="@devandy_yj">
+    
+
+    
+        <link rel="alternate" href="/" title="DevAndy" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="../../../libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="../../../libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="../../../libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="../../../css/style.css">
+
+
+    
+<script src="../../../libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-177850483-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../index.html">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Articles/">Articles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/">Dev</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Devops/">Devops</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Html-Css/">Html/Css</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Javascript/">Javascript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Others/">Others</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Springboot/">Springboot</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Web/">Web</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Review/">Review</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Thought/">Thought</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Quiz/">Quiz</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../https:/github.com/youngjinmo">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="../../../js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Database/">Database</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="posts-oracle-subquery" class="article article-single article-type-posts" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Oracle - Sub Query
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="" class="article-date">
+       <time datetime="2020-04-20T14:48:40.000Z" itemprop="datePublished">2020-04-20</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="" class="article-date">
+     <time datetime="2020-09-13T01:53:28.232Z" itemprop="dateModified">2020-09-13</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="../../../tags/oracle/" rel="tag">oracle</a>, <a class="tag-link-link" href="../../../tags/sql/" rel="tag">sql</a>
+    </div>
+
+                
+
+                
+
+            </div>
+			<!-- 	count-time		 -->
+			<!-- <span class="reading-time" style="margin-left: 20px;">⏱ 11 min.</span>  -->
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <img src="https://lh3.googleusercontent.com/d0ri4fOfnP6N5BPr-Uf9HHlKEUNN19MiAiCNc5qmOrVSo-dCPZj3pscHhOor6KPiYdItQOnD6ybfYxUSM67Qh2mViSEKSis9tg8Z4DkzjOheD3wkAEWabLKBK9Z9UdFgdSVnu9520Z9wkQ7VAK9vaKco-N-54vYq2MFxYAUKHXtIE-rZOysg7UIhNEEFf6Wowxt2TfXR0_eqkk_iBhMNI2nO8gXYkUgSddxYv1AYX1rhMR4VwT1kYdwccjKA7KGmptza15Ozgqp_bOG5imGrMAe8hSnCOkAVO2srUtrHlxsMfbtztJSXIspNiW6Dj7YeUqQJ65k9hK2gXZ13NRUKbJJR_gloAoIh3Ma-sfZtKyxAzggkZVEXn5gK57yBRI_lk4efFmXhDA-P8c02EK6CI_07fgs-yk628iJuQvUAKfyLSVLPbsa11xuQu1Np-Tg5L-7vj3hXiVceAx5Iz23zFci2CN1qAnJDj6qyA2jcK2JvvucJI14O6e12wJdVuCZEV0DJsTJ_sInJA48jVYcloV676EAN7MJJzq3ncl6Yee468mkwrrShqO59jUXV2FptMQHSbMCojxCvuwPbiuoFeFzsw5ZBh7_T-2oZ08v3fnlslpzXm_BnsxWRaXx8HlBADnUZN0K6PiwtlDF29c0Z4muNpawiv108MH4jP2YIsy6_9HmJ7uYjD1ZUdoJxhaTI8hjxVrGlh_TAwW2gOI4_2uPxdKHEkX1wwbQ08twab6MPgVsGvZjmCT4=w1024-h480-no" width="650px" />
+
+<p>서브쿼리란 쿼리 속 쿼리를 의미한다. 서브쿼리를 사용한 쿼리는 실행시 서브쿼리를 먼저 실행된다고 한다.</p>
+<p>SQL 퀴즈를 바탕으로 어떻게 사용되는지 알아보자.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SMITH와 같은 부서에 근무중인 사원들의 사원번호(empno), 이름(ename), 급여액(sal), 부서이름(dname)을 가져온다.</span><br></pre></td></tr></table></figure>
+
+<p>‘SMITH’ 이름을 갖는 사원의 emp 테이블과 이 사람과 같은 부서에 근무중인 사원들에 대한 emp 테이블, 그리고 부서이름을 가져올 dept 테이블이 필요하다. 따라서 <code>FROM</code> 조건으로 emp e1, emp e2, dept d 3개의 테이블을 조회해야 한다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> e2.empno, e2.ename, e2.sal, d.dname</span><br><span class="line"><span class="keyword">FROM</span> emp e1, emp e2, dept d</span><br><span class="line"><span class="keyword">WHERE</span> e2.deptno = d.deptno </span><br><span class="line">    <span class="keyword">AND</span> e1.ename = <span class="string">&#x27;SMITH&#x27;</span></span><br><span class="line">    <span class="keyword">AND</span> e1.deptno = e2.deptno</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> e2.empno <span class="keyword">ASC</span>;</span><br></pre></td></tr></table></figure>
+
+<img src="https://lh3.googleusercontent.com/v-ck0bDFSj__TcD1pmO0vSaU-C3WmLRpi0_-3DVHQE5XG4W9wKp-qWKzaNcQwV7RwsUSxnwiOAhS-tQVVMZp4hKhiIkKBdYJzIMQaPiC9fJNmPRdzkF-wfs7hfPIDTbqDewW0SK-sMVZiLzhCYR-Wi5qMlTl5hG6e5PnAnSovhN4AJFPtO729vFR4lbqZQli40khA7_xRNFCfZVOJfRHFc9cunY_OUcf2NwdTe1nLAo37utVxiZ7AuR6Ymm9l6ftyP_ZAXXcdWHd2Tj4kbD1WM6fc05XDKBhDNkabpxpGbaQxGOyjmq2N5QADiJ0n7d42PwRxqcz120J72P7kjIadQi0DzVwXJ5VXFFUmfNF7KdtviEhG43V9GbSSe2dwGTA1sUUaD6-Vg2jLITNVssDZ3q88cTKcXFW5EJaz0-hREE-EHFa-MQN6KXXmBwCdR48YhAGg59RgcLNSrspbBxMm9YmI2wCCIrn4wby9eOQguW0xU7rXkHM0DOsFxtWiF5RueURY9qxNGRKBI3-L7s24X8oJ8qTd7lnyOco1eOIhEQ6PXJ4XEIrgQthK_T3wiN7tjOMr_6nw01K1ao-juZBXblywJry2FBkhD6EvL8KshStngZMsWkRqsZGF0U_S4RNZJFB0Rm1xaSO-Km7QgsrJvE92L6isTW-I9RSGvArCynuQKDj6_S63384olUzeONhmiqs2WDw10WK3NFZLyajNYxwW2K9UqKDtvyvb0am2HeDEvrNS_Xl-eE=w920-h722-no" style="width: 70%;" />
+
+<p>단순히 Join으로도 해결할 수 있는데, 이 쿼리를 서브쿼리로도 작성할 수 있다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> emp.empno, emp.ename, emp.sal, dept.dname</span><br><span class="line"><span class="keyword">FROM</span> emp, dept</span><br><span class="line"><span class="keyword">WHERE</span> emp.deptno = dept.deptno </span><br><span class="line">    <span class="keyword">AND</span> dept.deptno = (</span><br><span class="line">        <span class="keyword">SELECT</span> deptno</span><br><span class="line">        <span class="keyword">FROM</span> emp</span><br><span class="line">        <span class="keyword">WHERE</span> ename = <span class="string">&#x27;SMITH&#x27;</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> emp.empno <span class="keyword">ASC</span>;</span><br></pre></td></tr></table></figure>
+
+<img src="https://lh3.googleusercontent.com/bW2C_YnieoKCF51Df0Ke-ku29qmuaxG6nqYui63ABF6lSp9hnzwalr0pYOsF50UfjHjV7mFB29lC4jmcxCdpAYSQINdmruBqNpnuPgp8x6BbWAdlNjv6aCDHxfuwtAlEp-dRuMWwv8QsJYr3tZ7jfFs37ozlqx_L9p947CLwvztodSOYcrnZVXnG_c91fELcf0GhCY4yvbkg8ikJzJZ2Jh4syBmQCw3_6tX_G1pPZCwxLaUOc7vBh6uh-jOxkc78qrBZwQMDexrSn32cyB219a43xhiURUadd2WEtWdZHmuWp9aLEUeeIvXSM3scFw1yuBeSqrUiODhJeMsKrwEEjREe2HIyYw233Xz6KM7US4VdahL-EBFJj-BgQ9CsY1uRRl3zKqlmDoJER3O2TtVCtNyQEpIwvpkaRSZjiRcmeTNGRCvHZcSP90AwRb6g0JvgSqqqcwUkcTKsvh0cpuGL3CoZxE1UV3NFOJg6IC7UjelKSIyVno9rhCQvG90f9hHYk1bBjBhonLTMTLa4B9sl51hrbSlHIMBgFQ1IKcXfeRwGlRVCwmUsluEgTb_9nmaj_L9XusMEwLkPTEc9TztwKfoeDWLk4MEZ6laq1Lhd7I5CR2fGw-cl0ZiVdyYTjo7S9ATTY2U39MW-ZSvEboYbQgmXUHK4ITQRRW5TOP_-yYmlhAsQqmy0irLVwc2FC-TEmy3MnpavzQEKrSfbOOBHnuvjuGacnMEITymnGbNtwwe0mJUX9cpF4PA=w1002-h772-no" style="width: 70%;" />
+
+<p>완전히 동일한 결과이다. 코드 직관성은 서브쿼리가 더 나은것도 같지만, 간단한 데이터 조회여서 그런지 Join이 더 작성하기 쉽기도 했다. </p>
+<p>구글에 서브쿼리의 장단점에 대해 검색을 해서 Techwalla라는 웹사이트의 <a target="_blank" rel="noopener" href="https://www.techwalla.com/articles/what-are-the-advantages-disadvantages-of-a-join-or-a-subquery">문서</a>를 보니 서브쿼리에 대한 장단점을 다음과 같이 정리했다.</p>
+<blockquote>
+<p>서브 쿼리는 쿼리 구조를 이해하는데 도움이 된다. 단점으로는 테이블을 수정할 수 없고, 동일한 SQL 문에 있는 하위 쿼리 내의 동일한 테이블에서 선택할 수 없다는 것이다. 또한 database optimizer로 인하여 하위 쿼리를 Join보다 실행하는데 시간이 오래 걸릴 수 있다.</p>
+</blockquote>
+<br>
+
+<p>서브쿼리를 <code>AND</code> 키워드를 이용하여 다중사용도 가능하다. 아래의 퀴즈를 통해 확인해보자.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CHICAGO 지역에 근무중인 사원중 BLAKE가 직속상관인 사원들의</span><br><span class="line">사원번호(empno), 이름(ename), 직무(job)를 가져온다.</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> empno, ename, job</span><br><span class="line"><span class="keyword">FROM</span> emp</span><br><span class="line"><span class="keyword">WHERE</span> deptno = (</span><br><span class="line">		<span class="keyword">SELECT</span> deptno</span><br><span class="line">  	<span class="keyword">FROM</span> dept</span><br><span class="line">  	<span class="keyword">WHERE</span> loc = <span class="string">&#x27;CHICAGO&#x27;</span></span><br><span class="line">) <span class="keyword">AND</span> mgr = (</span><br><span class="line">		<span class="keyword">SELECT</span> empno</span><br><span class="line">  	<span class="keyword">FROM</span> emp</span><br><span class="line">  	<span class="keyword">WHERE</span> ename = <span class="string">&#x27;BLAKE&#x27;</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<img src="https://lh3.googleusercontent.com/Td8Z2OR7YCSRBHz-Xf1tUyQNtaDNtmktJJQl4rktPTf5aqKsW8rzzs5uG55fANg5rGq9P0NZyFxzTrBXsmXXHnEfhdZyGajAiWGQWWlN2U9L6HzhhSTH0O5k7sOv2ajrwq8jyt93lyOa7k9PW7QMoBIOwEMf2htEohF3eEHiFP8UyHugyvWg15vveBB70A12c2dVdi8_IdWaaoLzdsRQ5NsxjdMhcPddYliG5cbjBI6RwNsqmL0uCRilAfdxnBoHU1H34ULDdGBFh4J7v2QaLDTAJfLqdtXp4zTlUfC2xjAfnoSPJAVap6P3OloXCqAxSUORYy-Umbhjd8d91XPMhKzjCutOM41-yvXCztAbcdyP-Zh8_DnMzye5GWDblTd-odvf-ywwOMng0iceVEv-cG6BiZFu1VqQmWpkEuafSEozOGZFTgGJLuWlnsKfeIqHMM9_LHvvTbXfu4iHqSJfYcGVbdqyoex1O0BFdAFybrcRMsaLIM4a60MPTTuRPu-G-gATn8FXAgGc5AdFvC01RPPOiYEjJIkldvyzhoSMn95m0Fxb-oGxZ3uZmYVXyk9nGBckVN0P5-FOvxEjnsvKg135AFOi2KyP8fADHv7dGlLaXOn9DLGyADzZGKA9TPTpzblbMbKs8lYRvzHpdzWzgGBRAIjmFxujaNHuSTPFFur-tVCqz8xSW3BxGFsWwCxFYPxkSXlLHZK5AVOQrC9wNlW329liR3hjOSxE3souLEeeUghcX3WNlwQ=w996-h902-no" style="width: 70%;" />
+
+<br>
+
+<p>지금까지는 서브쿼리에 대한 결과, 데이터 컬럼이 하나일 때만에 해당했다. 그러나 서브쿼리에 대한 결과 데이터 컬럼이 2개 이상 조회된다면 어떨까? 아래의 퀴즈를 풀어보자</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3000 이상의 급여를 받는 사원들과 같은 부서에 근무하고 있는</span><br><span class="line">사원의 사원번호(empno), 이름(ename), 급여(sal)를 가져온다.</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> empno, ename, sal</span><br><span class="line"><span class="keyword">FROM</span> emp</span><br><span class="line"><span class="keyword">WHERE</span> deptno = (</span><br><span class="line">    <span class="keyword">SELECT</span> deptno</span><br><span class="line">    <span class="keyword">FROM</span> emp</span><br><span class="line">    <span class="keyword">WHERE</span> sal &gt;= <span class="number">3000</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p><strong>3천 이상의 급여를 받는 사원</strong> 과 같은 부서(deptno)를 갖는 <strong>사원 테이블</strong>을 조회하는 쿼리이다. 따라서 3천 이상의 급여를 받는 사원 테이블을 서브쿼리로 조회했고, 이 때 출력되는 결과를 deptno로 가져와서 이걸 <code>where</code> 조건절에 삽입했다. 그러나 결과는..?</p>
+<img src="https://lh3.googleusercontent.com/cSIDtLGwax9oM6mCSxsd4TLFVw51-gaSFN-HMM9eq9WSHpYJoax40rpQrg68EHNFU4DYUPdcDeLFLh1DP-3-rFXUNDxvlvqcUw6RY1YCusvGgVEDQ9E0r45cPlp0MM6u6f-xHh-jSawoyLA1sZQOVVPZ4fHXI9CWfAT9-Xjyk2Ij4-weZm6XfwQsm_MxXRPVBnhK5BvsDu6O5FtD51MCSIFsE1Zi8ciiIsZDZz3-r0R8jXaUeGFHNgjRBoRoKV9qwaPTs45EfJEXublkamlSnun55m1-73uZ_BV4BYexAHgCXDlT2p2U-fogNIJ1Y302F-gRFM-_9oYHW0LA0mB7FZgvwdoX19cos3g9k_zPQefvYVrw_InF7QFnWa9BMtqsBaGeDgRtS5a6ZM8hEMReO0FWvveYSHT8lAcvGCgHXM6n05WeXS8gkbY5SRooqkQnGOMk4dJdsXzFJ1JNkH8gzUUL5-eOn8StJ4hshLAoIJluEK5LDM8ngQ2VcUmJTN7ZNX9NKxtA5CM1Pbn_BoYAGQWBjjzF4qVZnWexPDBqGvucTZ6cFKziyZCFPAX-AwpB66k4klnZ0mfo361eoDxLBmXukssThNKaQzmfTZE6W2TzQtzfkmzfGdAvz17cGnIY0B8S-XZrxRfbPZMccws8lOPZemz48JGimwNXv3rkB4t25yaK-kkILMFT0pxuiaT-ziY1qUdIwQkN7JxyiHEaIuXUbQoFxqr-UnmE4I5gJnp7tDNZoJHYUVg=w1002-h658-no" style="width: 70%;" />
+
+<p>에러 메세지를 확인해보면, “single-row subquery returns more than one row” 라며, 한 줄 이상의 데이터가 반환되어 에러가 발생함을 알 수 있다. where 조건절에선 deptno가 하나의 row만 검증하도록 쿼리를 작성했는데, 서브쿼리를 통해 반환되는 row는 2개 이상이었기 때문이다.</p>
+<img src="https://lh3.googleusercontent.com/uIiZz4Y1ElAJbuJDjql7dbERlYJ0ohMV8EDU0BZwiYSjuiRnTjfgVrJnWOGDFh7vKEy7zct6PUkePyfGMdZIAxCriSC5B5oOvcthORot6HDVqK_GKBJFrrepIrsqxGcq9AkxYnhPnKBkarNACwKrysYakosbkNT23Kt0b15mr6AdmVDg5Sc76Je-rvzLB32JfnPMFTkROT4d5Go90lnfi7QOVyMoKOIi8qG0Uz9O9WQAm2-eXLokYGeg70-36pNqTRNZg0oy6yeIsdRHuJowsFTZiFsZ5guWj7ctfWHf6dbGIgRerne3oEHpOfIH3NuaYqWLkEp1Kb41eELZ-WvyzsX7ARrvG1utuzl2Fx2YPFWLSUK-uqppEyJ1ovSsW_3zrRJ7pFZClN6yIUw3nTc64QLRCOm39MtyjdQ_6HpljzNfeRcsrxSEaWgp6xUmTuBMpqOb4NQm9LjYMqjajMBPv7I-G0QS3tNDeM2EWG_g99E4rtb8mkmRWOznqFL_u0dIqqpOHsZscDbkWzupt_8Jp7Wcm8QojaAllwdv07YK2aa8xWap1lbrP4p-RUGlSNfbmzLnE7ovhaVC_U0_rEuqaVR_0sIyRrUsLU8vvgIgEzSmzhMwHzsd5lv0-0rEt_MgL5uNBGEcjmkjWsVCpQNmUaQHQz04wVVk0bOpUgLZR49YDxmNAtizJxKnIhSUqZEhy9_PFjf3tuMCgX9TVlkHchB39SwaJwJ0ELxvQho813r7uXR-V1kxT4g=w796-h526-no" style="zoom:60%;" />
+
+<p>확인해보니까 정말 서브쿼리에서 반환되는 데이터가 3개였다. 이 중 어떤 row를 deptno와 비교할지 오라클 데이터베이스가 인식하지 못해서 발생한 에러였던 것이다. </p>
+<p>이럴 때는 다음과 같이 <code>in</code> 키워드를 사용하여 서브쿼리에 대한 조건을 충족하는 데이터라면 모두 검증하도록 할 수 있다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> empno, ename, sal</span><br><span class="line"><span class="keyword">FROM</span> emp</span><br><span class="line"><span class="keyword">WHERE</span> deptno <span class="keyword">in</span> (</span><br><span class="line">    <span class="keyword">SELECT</span> deptno</span><br><span class="line">    <span class="keyword">FROM</span> emp</span><br><span class="line">    <span class="keyword">WHERE</span> sal &gt;= <span class="number">3000</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<img src="https://lh3.googleusercontent.com/jRmZRaZGsPO7CeQiIkA1VGfSIC2b18jPMctUWkZmc1C3bMNea0Y1pDF2Boc4BmDkPtJAqedHjqNedU4QZ5mLR2A-yEfv2olwzpuWwTzw7DFGF1owPEJPmF45r0u2s2nDtP2XntUAHTRx9IyeWlLSltECVFD636Jq3QYW1dSAqNG22hR4qQwV2fi9igSQ6P8qJMsyOQD1xnezsN5vKx69rZDO7yR31dlupKFVcCjHk881BnWA2DcLsLMKNJ9QvgPuQPzx5Y-WbD12G5qx31iij8-_zxmXL2MGCrz8FauuDmiNLo6Q9C74a5-a_fKrwUwlw17MzXUPJcn1LJvDJDk_QqbXGEvAWy0qCRMjGjVDeNiwfuBfDmfapH3vNiAnWcAH0pmVNvMGJlEWfUq9Pu0y2WmNN7uMmliHgZIhf14Pm3Iyi4PNHcthrIG0gQpJ-tt0xwi7QVQvsBP5jHyJuHGYYodqdeCoSq97wCugthUQpGX4CW2BfycP82CSV-ZLUYIK3c5vhAQkkRsFD8M2IoCH8ct6VTNiMZQ7yTpYVpnc_a8LfzPNQo6xjN4TeXakrOQHC5MPOIWH1Me879968cGyKoyxKo2tU-VzmOZRfTWkfmyRcxVAjr_I1OfVNv5se0-dO4rhmnEsaACDuVUT59OD4cp30pCVonG6vHe3GwtP-68HP0icJRW9RueTbR7SUm4pvjFo3FAbA0ol79ErcljWwDwzAMQjOLEaSXudM-7DJVtR2_io0FduTQU=w934-h906-no" style="width: 70%;" />
+
+<p>정상적으로 잘 출력된 걸 확인할 수 있다!</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://youngjinmo.github.io/2020/04/oracle-subquery/" data-id="ckf65ue5j00fsacgd9zpwag09" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Youngjin Mo"
+        },
+        "headline": "Oracle - Sub Query",
+        "image": "../../../http:/youngjinmo.github.iohttps:/lh3.googleusercontent.com/d0ri4fOfnP6N5BPr-Uf9HHlKEUNN19MiAiCNc5qmOrVSo-dCPZj3pscHhOor6KPiYdItQOnD6ybfYxUSM67Qh2mViSEKSis9tg8Z4DkzjOheD3wkAEWabLKBK9Z9UdFgdSVnu9520Z9wkQ7VAK9vaKco-N-54vYq2MFxYAUKHXtIE-rZOysg7UIhNEEFf6Wowxt2TfXR0_eqkk_iBhMNI2nO8gXYkUgSddxYv1AYX1rhMR4VwT1kYdwccjKA7KGmptza15Ozgqp_bOG5imGrMAe8hSnCOkAVO2srUtrHlxsMfbtztJSXIspNiW6Dj7YeUqQJ65k9hK2gXZ13NRUKbJJR_gloAoIh3Ma-sfZtKyxAzggkZVEXn5gK57yBRI_lk4efFmXhDA-P8c02EK6CI_07fgs-yk628iJuQvUAKfyLSVLPbsa11xuQu1Np-Tg5L-7vj3hXiVceAx5Iz23zFci2CN1qAnJDj6qyA2jcK2JvvucJI14O6e12wJdVuCZEV0DJsTJ_sInJA48jVYcloV676EAN7MJJzq3ncl6Yee468mkwrrShqO59jUXV2FptMQHSbMCojxCvuwPbiuoFeFzsw5ZBh7_T-2oZ08v3fnlslpzXm_BnsxWRaXx8HlBADnUZN0K6PiwtlDF29c0Z4muNpawiv108MH4jP2YIsy6_9HmJ7uYjD1ZUdoJxhaTI8hjxVrGlh_TAwW2gOI4_2uPxdKHEkX1wwbQ08twab6MPgVsGvZjmCT4=w1024-h480-no",
+        "keywords": "oracle sql",
+        "genre": "Dev Database",
+        "datePublished": "2020-04-20",
+        "dateCreated": "2020-04-20",
+        "dateModified": "2020-09-13",
+        "url": "../../../http:/youngjinmo.github.io/2020/04/oracle-subquery/",
+        "description": "
+
+서브쿼리란 쿼리 속 쿼리를 의미한다. 서브쿼리를 사용한 쿼리는 실행시 서브쿼리를 먼저 실행된다고 한다.
+SQL 퀴즈를 바탕으로 어떻게 사용되는지 알아보자.
+1SMITH와 같은 부서에 근무중인 사원들의 사원번호(empno), 이름(ename), 급여액(sal), 부서이름(dname)을 가져온다.
+
+‘SMITH’ 이름을 갖는 사원의 emp 테이블과 이 사람",
+        "wordCount": 653
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="../../../https:/github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="../java-main-args/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            main(String[] Args)에 대해 알아보자.
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="../java-object-instance/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">객체를 직접 호출하는 것과 인스턴스를 호출하는것의 차이 (메모리 주소값 비교)</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../09/xml-json-xmlhttprequest/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3f3uUiEllt7yZ2cz-TBQE53mDoXAvAbilDnTHnb0gUIYnX86czSpvvAGNC1uwJN3Mm543ae8FVwBXvYPyOcYzNVH-5fg0VXSmiORlQSYChhlqdO1jLRs_XhVOQYcySp_K_S3JbhAK4jHpeyRpXmh45Gqg=w640-h405-no?authuser=2)" alt="XML, JSON 그리고 XMLHttpRequest" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Others/">Others</a></p>
+                            <p class="item-title"><a href="../../09/xml-json-xmlhttprequest/" class="title">XML, JSON 그리고 XMLHttpRequest</a></p>
+                            <p class="item-date"><time datetime="2020-09-01T12:00:59.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/create-table-sequence/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3dnKjQpuvDEmVxFsIrKfVbq9RCZMjbbZPOtAWR0Etr5EfTkx58EYPQjjgLEiO8XYLsVu_1TWyNmpySsDRxXvCplY6aMPhIMQgNCaH0TBpVv0vxyI_-b6pK9x8qhVSSptzKgeu-dbMHYIt-eS1MUDQnkiw=w640-h427-no?authuser=0)" alt="Oracle - Sequence 생성하고 테이블에 삽입하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Database/">Database</a></p>
+                            <p class="item-title"><a href="../../08/create-table-sequence/" class="title">Oracle - Sequence 생성하고 테이블에 삽입하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-31T18:57:13.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/servlet-redirect-forward/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3cK_j9D5XupS1mIeAAwsE1cOAdZ05jfS290XghGTAfDNVmf1VDdldnidSEQpbEAPRe_aTchGC7U00h7lU9JKtTV3ltDyqUcofn0Xu4p0pm_ROewKfcnOG3UO4Yo4EgVG6ZeQfoemWHklC1hGMn-1DXYfQ=w640-h427-no?authuser=0)" alt="Servlet - Redirect와 Forward" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../../08/servlet-redirect-forward/" class="title">Servlet - Redirect와 Forward</a></p>
+                            <p class="item-date"><time datetime="2020-08-30T22:32:44.000Z" itemprop="datePublished">2020-08-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/leetcode-twosum/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://assets.leetcode.com/static_assets/public/images/LeetCode_Sharing.png)" alt="Leetcode - Twosum" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Quiz/">Quiz</a></p>
+                            <p class="item-title"><a href="../../08/leetcode-twosum/" class="title">Leetcode - Twosum</a></p>
+                            <p class="item-date"><time datetime="2020-08-24T14:28:47.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/run-mysql-with-docker/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3fdpC3xu5q4xnJRLLhSaWCrARbnQ1qdp_DpF0Z7BITrtrr6gZWGExKC4PcMlVo3AxVhVbYiFgDhNObWmtv3hGwoEtF_4zFb_1fQsdL6d1K3UNA0LRkczuC_nNvcEHERB8EIB3uvWOIps7j1iraX6DGLbQ=w720-h480-no?authuser=0)" alt="Docker로 MySQL 실행하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Devops/">Devops</a></p>
+                            <p class="item-title"><a href="../../08/run-mysql-with-docker/" class="title">Docker로 MySQL 실행하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-23T17:12:43.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 11.11px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/api/" style="font-size: 11.11px;">api</a> <a href="../../../tags/architecture/" style="font-size: 10px;">architecture</a> <a href="../../../tags/array/" style="font-size: 11.11px;">array</a> <a href="../../../tags/aws/" style="font-size: 12.22px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 12.22px;">career</a> <a href="../../../tags/casting/" style="font-size: 12.22px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/cloud/" style="font-size: 12.22px;">cloud</a> <a href="../../../tags/compiler/" style="font-size: 10px;">compiler</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/databse/" style="font-size: 10px;">databse</a> <a href="../../../tags/datastructure/" style="font-size: 12.22px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 13.33px;">docker</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 11.11px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generic/" style="font-size: 10px;">generic</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 10px;">github</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 13.33px;">http</a> <a href="../../../tags/ide/" style="font-size: 10px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 10px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 11.11px;">interface</a> <a href="../../../tags/interpreter/" style="font-size: 10px;">interpreter</a> <a href="../../../tags/io/" style="font-size: 12.22px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 15.56px;">java</a> <a href="../../../tags/java8/" style="font-size: 11.11px;">java8</a> <a href="../../../tags/jquery/" style="font-size: 11.11px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/jvm/" style="font-size: 10px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 10px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 10px;">mustache</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 16.67px;">oop</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 12.22px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 11.11px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 18.89px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/string/" style="font-size: 14.44px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/tip/" style="font-size: 17.78px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 13.33px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 11.11px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 18.89px;">weekly-review</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Youngjin Mo</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+    
+        
+<script src="../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="../../../js/main.js"></script>
+
+
+</body>
+</html>

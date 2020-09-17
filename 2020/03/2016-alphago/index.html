@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>구글 딥마인드 AlphaGo와 이세돌 9단 대국 리뷰(주관적) | DevAndy</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="alphago,leesedol,go,ai" />
+    
+    <meta name="description" content="이 글은 2016년 5월 11일, 알파고와 이세돌의 대국을 2국까지 마치고 나서 Medium에 작성한 글을 가져온 글이다.  15년~16정도 된 것같다. 바둑 대국을 관전한 것이. 중간에 기원에서 아마추어 바둑을 관전한 적은 몇 번 있지만, 프로 대국은 정말 오랜만에 관전하게 되었다. 인간계 최강이라 불리우는 이세돌 9단과 구글 딥마인드팀이 개발한 딥러">
+<meta property="og:type" content="article">
+<meta property="og:title" content="구글 딥마인드 AlphaGo와 이세돌 9단 대국 리뷰(주관적)">
+<meta property="og:url" content="http://youngjinmo.github.io/2020/03/2016-alphago/index.html">
+<meta property="og:site_name" content="DevAndy">
+<meta property="og:description" content="이 글은 2016년 5월 11일, 알파고와 이세돌의 대국을 2국까지 마치고 나서 Medium에 작성한 글을 가져온 글이다.  15년~16정도 된 것같다. 바둑 대국을 관전한 것이. 중간에 기원에서 아마추어 바둑을 관전한 적은 몇 번 있지만, 프로 대국은 정말 오랜만에 관전하게 되었다. 인간계 최강이라 불리우는 이세돌 9단과 구글 딥마인드팀이 개발한 딥러">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://lh3.googleusercontent.com/7dsIxA_Jr141Y9fGUQAE1DBjd-3Dwxgjp65iltCdhzhKtJ9p4K1TgffzkgeMU8ZVGHwG7eg2sctoL3dCI_TZ6gEvLOXHNG55FBiJcEG3nBHRPO7KKKjOG23vSiFuP_5Q16o_SUMkfQNPUDf9FPXwL41cywJsKs_uRiQRnpJcKVpGhXZYM9Av7_ggUt23KmnbG2KVVHaLtVF8dV0jzi2DXcaPphWKq4osYTB3MOfF2DcLQtbjdGt0BfLr7geYICXI0vu590MUQU81xOPyqYQa-DiLz2zqY6SGFM_C6uTV9A44EfLoi2CbOO4LocRiFjBp3kCRVkHyW4rAR-VDreA0QEThN8Cfan_fNVpiNyfOUWXVsO_szflElERzh_-lqa1AysAorefJGrvkCF5kRIT7bU053gmNNQ_yYvZJeUrveVfWkkaoJlYMMdzvIX1-Q1zTK4jhAWkKfXluuy4PtKtFGvE73Y3KXiVzSg29BI9fiZxpB_al-yEndwN96yR3EaVfUOt2dbTCEWUmRjoECxLiVv21vjmu_neSGgYboRLPVTXO4YKMloMkFAvCkMwWBv_TwYu52CHLJeJH7Wz1gD2bAwRMMBuGqxuZeAikVFErCFU6JaFmqsLJ0yIcLjhUJ0XVA1WdHbA8eE0AbLAKKTkIKf8-v5u7FzCpvWjwC_S-NiFxvQw5iq1384mCl4uJ1M1LXDsH2JbD5jk5jV0in_ZTIWbszvCBXOFjLhe-qojNvuzCGhPCLbK2THok=w800-h533-no">
+<meta property="article:published_time" content="2020-03-11T19:48:25.000Z">
+<meta property="article:modified_time" content="2020-09-13T01:53:29.880Z">
+<meta property="article:author" content="Youngjin Mo">
+<meta property="article:tag" content="alphago">
+<meta property="article:tag" content="leesedol">
+<meta property="article:tag" content="go">
+<meta property="article:tag" content="ai">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lh3.googleusercontent.com/7dsIxA_Jr141Y9fGUQAE1DBjd-3Dwxgjp65iltCdhzhKtJ9p4K1TgffzkgeMU8ZVGHwG7eg2sctoL3dCI_TZ6gEvLOXHNG55FBiJcEG3nBHRPO7KKKjOG23vSiFuP_5Q16o_SUMkfQNPUDf9FPXwL41cywJsKs_uRiQRnpJcKVpGhXZYM9Av7_ggUt23KmnbG2KVVHaLtVF8dV0jzi2DXcaPphWKq4osYTB3MOfF2DcLQtbjdGt0BfLr7geYICXI0vu590MUQU81xOPyqYQa-DiLz2zqY6SGFM_C6uTV9A44EfLoi2CbOO4LocRiFjBp3kCRVkHyW4rAR-VDreA0QEThN8Cfan_fNVpiNyfOUWXVsO_szflElERzh_-lqa1AysAorefJGrvkCF5kRIT7bU053gmNNQ_yYvZJeUrveVfWkkaoJlYMMdzvIX1-Q1zTK4jhAWkKfXluuy4PtKtFGvE73Y3KXiVzSg29BI9fiZxpB_al-yEndwN96yR3EaVfUOt2dbTCEWUmRjoECxLiVv21vjmu_neSGgYboRLPVTXO4YKMloMkFAvCkMwWBv_TwYu52CHLJeJH7Wz1gD2bAwRMMBuGqxuZeAikVFErCFU6JaFmqsLJ0yIcLjhUJ0XVA1WdHbA8eE0AbLAKKTkIKf8-v5u7FzCpvWjwC_S-NiFxvQw5iq1384mCl4uJ1M1LXDsH2JbD5jk5jV0in_ZTIWbszvCBXOFjLhe-qojNvuzCGhPCLbK2THok=w800-h533-no">
+<meta name="twitter:creator" content="@devandy_yj">
+    
+
+    
+        <link rel="alternate" href="/" title="DevAndy" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="../../../libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="../../../libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="../../../libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="../../../css/style.css">
+
+
+    
+<script src="../../../libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-177850483-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../index.html">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Articles/">Articles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/">Dev</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Devops/">Devops</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Html-Css/">Html/Css</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Javascript/">Javascript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Others/">Others</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Springboot/">Springboot</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Web/">Web</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Review/">Review</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Thought/">Thought</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Quiz/">Quiz</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../https:/github.com/youngjinmo">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="../../../js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../categories/Life/">Life</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Life/Review/">Review</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="posts-2016-alphago" class="article article-single article-type-posts" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        구글 딥마인드 AlphaGo와 이세돌 9단 대국 리뷰(주관적)
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="" class="article-date">
+       <time datetime="2020-03-11T19:48:25.000Z" itemprop="datePublished">2020-03-12</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="" class="article-date">
+     <time datetime="2020-09-13T01:53:29.880Z" itemprop="dateModified">2020-09-13</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="../../../tags/ai/" rel="tag">ai</a>, <a class="tag-link-link" href="../../../tags/alphago/" rel="tag">alphago</a>, <a class="tag-link-link" href="../../../tags/go/" rel="tag">go</a>, <a class="tag-link-link" href="../../../tags/leesedol/" rel="tag">leesedol</a>
+    </div>
+
+                
+
+                
+
+            </div>
+			<!-- 	count-time		 -->
+			<!-- <span class="reading-time" style="margin-left: 20px;">⏱ 11 min.</span>  -->
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <img src="https://lh3.googleusercontent.com/7dsIxA_Jr141Y9fGUQAE1DBjd-3Dwxgjp65iltCdhzhKtJ9p4K1TgffzkgeMU8ZVGHwG7eg2sctoL3dCI_TZ6gEvLOXHNG55FBiJcEG3nBHRPO7KKKjOG23vSiFuP_5Q16o_SUMkfQNPUDf9FPXwL41cywJsKs_uRiQRnpJcKVpGhXZYM9Av7_ggUt23KmnbG2KVVHaLtVF8dV0jzi2DXcaPphWKq4osYTB3MOfF2DcLQtbjdGt0BfLr7geYICXI0vu590MUQU81xOPyqYQa-DiLz2zqY6SGFM_C6uTV9A44EfLoi2CbOO4LocRiFjBp3kCRVkHyW4rAR-VDreA0QEThN8Cfan_fNVpiNyfOUWXVsO_szflElERzh_-lqa1AysAorefJGrvkCF5kRIT7bU053gmNNQ_yYvZJeUrveVfWkkaoJlYMMdzvIX1-Q1zTK4jhAWkKfXluuy4PtKtFGvE73Y3KXiVzSg29BI9fiZxpB_al-yEndwN96yR3EaVfUOt2dbTCEWUmRjoECxLiVv21vjmu_neSGgYboRLPVTXO4YKMloMkFAvCkMwWBv_TwYu52CHLJeJH7Wz1gD2bAwRMMBuGqxuZeAikVFErCFU6JaFmqsLJ0yIcLjhUJ0XVA1WdHbA8eE0AbLAKKTkIKf8-v5u7FzCpvWjwC_S-NiFxvQw5iq1384mCl4uJ1M1LXDsH2JbD5jk5jV0in_ZTIWbszvCBXOFjLhe-qojNvuzCGhPCLbK2THok=w800-h533-no" width="650px" />
+
+<p>이 글은 2016년 5월 11일, 알파고와 이세돌의 대국을 2국까지 마치고 나서 <a target="_blank" rel="noopener" href="https://medium.com/@devandy/%EA%B5%AC%EA%B8%80-%EB%94%A5%EB%A7%88%EC%9D%B8%EB%93%9C-alphago%EC%99%80-%EC%9D%B4%EC%84%B8%EB%8F%8C-9%EB%8B%A8-%EB%8C%80%EA%B5%AD-%EB%A6%AC%EB%B7%B0-%EA%BD%A4-%EA%B9%81%EB%8B%88%EB%8B%A4-aa10ead03f9a">Medium</a>에 작성한 글을 가져온 글이다.</p>
+<hr>
+15년~16정도 된 것같다. 바둑 대국을 관전한 것이. 중간에 기원에서 아마추어 바둑을 관전한 적은 몇 번 있지만, 프로 대국은 정말 오랜만에 관전하게 되었다. 인간계 최강이라 불리우는 이세돌 9단과 구글 딥마인드팀이 개발한 딥러닝 프로그램, AlphaGo와의 대국이었다.
+
+<p>이 대결은 <strong>현존하는 인공지능의 기술이 인간에 대항해 어디까지 진화해왔는지 볼 수 있는 흥미로우면서도 역사적인 매치업</strong>으로 전세계인의 주목을 받고있다. 어릴적 2년간을 바둑에 미치다싶을정도로 몰입을 했었으며, 현재는 인공지능(이하 AI)에 관심이 생기게된 나도 이 경기를 한 달 전부터 기다리며, 오랜만에 프로 바둑 대국을 관전하게 되었다.</p>
+<p><img src="https://lh3.googleusercontent.com/sz2vumT8oHEGNdJOyTvh17cruTD65poVB2DA9vqXBgiUu9f8Nz_kGosV2L07R-Gv1MclkC53kK8qvHq3N5St3TR8sMDyd7845nEr_gT_rFYudTn3Zy4b3UBYYqvP7Mmod9uA0r-A9TALDTJ9TBreNHwf6TKdQUKGwLXPpCWBwhD0y4aWk0ZSZepiWi46736KFH7L_EXhE7bA9sMd2qdXvSnf0OMvyb4YYuc6wQpMLN4G4NYY6KSNM0-SZo3Rgf76GnUVI69-lsx2Xcvk58gdoKBz_fFTvHstRyVnVLISWXdpVK6RHqfzOxyvcowagPgD7Myip-nYfu3PQjfYolNCISpu5HbrvE4QEmAN5PlMJ7g20ts7LhH2gOkrx5BUuSjL9lc4EuAdwMhTd1fw8h4SaI3Wth6FKfdMc0cZ_-5xoeFIJSv8oeSXlxxqK4guN0mlrgzAE4Xl6xEk_zRdNx_q3NRI23SZToH9sUAG71sgHhPbn2YUFvO3jvKf5n7ZKJdLJvK0VnAmr468vSRDi6wLP2GXLR7c_kNagMLq9GMtohRw6fjGZAyZetsimZGdusumtwO42AtITOU4r_Gt1w3DFh2vD8t_tKVqiItMh3vcJxUZgpG-Ls-e1AHzppCRc2mG2GmOLf_xUcXYNRRqH6ialEZ-QLNdeoRoGuVOxjFab1CVZ1BDLezckmz3gulCnJxwY9c6BlHLz-UnY2banetxrWy_8jAplDRunLBJIMb5gXtYpm3c=w707-h161-no"></p>
+<p>대국이 시작하기 전까지 수 많은 언론매체에서 프로바둑인들과 IT업계인들의 서로 다른 예상을 보도하였다. 과거엔 바둑을, 지금은 IT기술에 관심이 많은 나는 두 분야에 대해 비슷한 수준으로 이해하고 있다보니 감히 누가 이길 것 같다고 예상하기 힘들었다. 우선 주위에 계신 IT업계 분들의 의견과는 달리 AlphaGo가 이세돌 9단을 쉽게 이기지 못할거라고 예상한 배경에는 바둑이라는 게임의 룰에 있었다.</p>
+<p>이번 대결을 앞두고 이세돌 9단은 제한시간 2시간, 초읽기 1분 3회로 구글과 계약했다고 밝혔다. 이는 다시 말해 <strong>총 2시간 3분</strong>을 대국에 사용할 수 있다는 이야기이다. 물론 초읽기 시간마저 다 쓴다면 시간패가 선언된다.<br>(<em>그래서 초읽기에서 성급한 판단으로 실수가 나는 경우가 잦다고 한다.)</em></p>
+<p>워낙 오래전 기억이지만, 내 기억에 바둑의 승패를 알 수 있는 정도는 보통 200수를 넘어가면서 부터였다. 대략 200수에서 대국이 종료된다고 가정하면*(이세돌9단과 AlphaGo의 제 1대국도 200수정도에서 마무리되었다.)*, 각 플레이어당 착수하는 수는 100수로 예상 할 수 있다. 이를 제한시간으로 나누면 <strong>돌 하나를 착수하는 데에 평균적으로 72초를 사용해야한다는 계산이 나온다.</strong></p>
+<p>그렇다면 한 수를 두는데는 대체 얼마나 많은 경우의 수를 생각해야할까. 바둑판의 규격은 19x19므로 단순 계산하면 초수를 두는데에 고려해야 할 경우의수는 361가지이다. 그런데 바둑을 둘 때엔, 내가 어디에 돌을 놓을지만 판단하고 두지 않는다. 내가 어디에 착수하면, 상대가 어떻게 대응할 것이며, 그 이후의 전개까지도 고려해야 한다. 이를 <strong>수읽기</strong>라고 한다.<br>아마추어인 나의 경우는 기껏해야 5수 정도를 내다봤지만, 프로바둑기사는 10수~20수까지도 내다본다고 한다. 이번 매치업은 프로 바둑 대국이었으므로 프로수준으로 계산하면, AlphaGo와 이세돌 9단도 최소 10수를 수읽기 할 것으로 예상했다.</p>
+<p>그럼 한 수를 착수하기까지 10수를 수읽기하므로, 이를 바둑판에서의 경우의 수로 다시 계산해보면 361x360x359x358… 너무 길다.. 쉽게 풀어보자..</p>
+<p>대략적으로 한 수를 두는 데 경우의 수를 3x10²로 가정하면, 수읽기(10수)까지 고려한 <strong>착수에 대한 경우의 수는 3¹⁰x10²⁰으로 예상</strong> 할 수 있다.</p>
+<p><img src="https://lh3.googleusercontent.com/g9OS_KP_H3UyWJgrew8r9YO4VJxoUhI4z9utwjbssCA59CdPxPfdsUbeH4kDZ_woWx9XgmaaaVDBjSs_-yQbA5c-5atZ0ZBqXEhmL7-6DMNklyn8PFmgNMeXou5AwY2FwSlF_u8T_k92yWvKjn88IdWcIvdAGLGpKUS6FLsKSZGDcf8KA2Lk1Hzte3vN3eD95aY_J7CFRtzVucbs0yBsOgv_NCKQpCQaldv4TxdZIEPCzocmqqamKOmxAqvKVoJYCqqS-wEYutBi97S2U_YVOA3SjLUl5VZv6oEj8mR-JZhaol2cgHDFdawpm29PO45UmegHmPxDdFXDUgR3aImEnLH-hJg2X60h2_I3XqkkaaMHyClrto3owEk3tXl0AkPtawXf9rFI2BVInX-yaAqItpluCoPYxglfadd2j6h3v4zLj1mOGqQ1aWMF9b_GZvFeZiy6-_iUcyMMdUWZCr21aEoy-r3F7RYk3q3DqpKI9qtvkjqNM0IJgwuZQaGZKGLoWkyGbk_IiTmugG9txSniarkPWyQ0O1cxjoHRbeaOCLda4KdWgJjcjiJJ7abLWddCb1ne4Z1Pu00BOg38uqnanrMUceyH2muH44df5u2ABCkuAwcZhLoiduZU1UT8SldLsBmb5Xj429gjsWvM0DJ3C6bPTqM4zcOxbpVzaF_uJH39PdSqZfAUNtSZKfUuOYt1CNKvydzNIaAApiGtmcPX_2kenDoLSUX-WnE9LxS-tDSBK4Co=w620-h400-no"></p>
+<p>종합해보면, <strong>어떻게 읽어야 할 지도 모르는 이 방대한 양의 수*(3¹⁰x10²⁰)*를 단 72초만에 연산해야 겨우 한 수를 둘 수 있다는 계산이다.</strong></p>
+<p>여기까지만 읽으면, ‘연산속도’가 인간보다 압도적으로 빠른 컴퓨터, 즉 AlphaGo가 이세돌 9단을 쉽게 이길 수 있을 것으로 생각할 수 있다. 그러나 뒤집어보면, 컴퓨터는 그 존재가 탄생한 이래로 단 한 순간도 인간보다 연산속도가 느렸던 적이 없다.<br><em>(당연하게도 그러도록 개발했으니까..)</em></p>
+<p>그렇다면 <strong>왜 기존의 AI 바둑은 프로 바둑기사를 넘어 설 수 없었을까.</strong></p>
+<p>AI는 커녕 컴퓨터에 대해 잘 모르는 내가 감히 예상해보자면, 한 수를 착수하는데 필요한 72초의 시간동안 <strong>컴퓨터의 연산속도가 인간만이 보유한 ‘직관’을 뛰어넘지 못했기 때문으로 예상한다.</strong></p>
+<p>예를 들어 컴퓨터가 1부터 100까지의 모든 경우의 수를 빠르게 계산한다면, 인간은 1부터 100까지 모든 경우를 계산하지 않는다. <strong>본인이 직접 경험하고, 학습하며 생성된 ‘직관’</strong>이라는 능력을 통해 100가지 경우의 수 중 몇가지만 끄집어내서 계산하고 판단한다. 모든 경우의 수를 꼼꼼히 계산하지 않았음에도 인간의 이런 직관은 놀라운 성공률을 보여왔다.<br><em>(대표적인 분야가 ‘바둑’이라고 생각하며, 이때문에 구글 딥마인드가 AlphaGo의 인간에 대항한 첫 번째 종목으로 바둑을 선택한 것 같다.)</em></p>
+<p><img src="https://lh3.googleusercontent.com/OOjAVlT2ldZEuujPPE3UUfcvI89HTRzyLhMUBaT-pnJTxPb6rhVz-V5ng1HYZ1J7hAf8Vqwz9Y8U5l99U88xzi6iRXT5BNUuL7cTI7z8-8syAF8wam06irYQ4uEwPiVAKQ5vvIch-DvGL8cC3XFpDi_KYDUm8IeP147p79C4Wq7SjcT4wz7Doesz-QZ2aUxwwx6C4LvC1fysGf9Cl7isseqYdeN22WKcTrj_W829i5gg0QN16GjkFi8WEGEPktjyK9D3FWk9gLCvRtAoAnE3DjZmjFM0lDNZ0Gj4-UOLLw60UM07oXUz3yPLkNzpg6ywDClZDy9jALQT00eo6G7diith-dhqCV-Lp880--I7u5adEP3kGP53C8rQs7ltt957k8iwRUiCwTDitYX8tjiGYbW1NrSA50cyWrdVWK4bAPlt2YKkIHVQlmvivXsSBRXEofj7uIADigN3Hp_mx4gid1b8hIsaXXxgzNrjzIK_AJYrALcEEuwdJjhCyWZZCeyT3GUClwqGOrnfJIovClDXmvA3YUNt0LdWoa2urO6yEy82RVMP7C2wCJja0MmA6_xSyDSVuJXBYGwyXLju7rMBo6WWYyYs981xpGwV1O5itVVdY_8j4KzJSMzBgJ6ycYUqQWn3EyckHY_6qevMgTTWsFQX92x3DewQ_QDcNoiwu3Lu18mmngIwT8h3JH7isz4FhMED329lGMqMxd4nTiNPtKVDgyhs3AMRnHnqMsXn6RhHokve=w640-h360-no"></p>
+<p>지금까지 컴퓨터는 없고, 인간만이 보유한 이 ‘직관’은 인간조차 설명할 수 없는 놀라운 능력이었다. 그저 천억개가 넘는 뉴런이 보여주는 놀라운 퍼포먼스를 우리는 이유도 모른채 감사하게 사용할 뿐이다.<br><em>(참고로 현존하는 슈퍼컴퓨터는 약 백만개의 뉴런정보를 파악하고 동작할 수 있다고 한다. 하지만 이마저도 아직 완벽한 수준은 아니라고..)</em></p>
+<p>그래서 단순히 연산속도를 빠르게 하는 것만으로는 지금까지 AI가 바둑판에서 인간을 넘어설 수 없었던 것이다. 그러나 <strong>구글 딥마인드 팀이 개발한 AlphaGo는 지금까지의 AI와는 달랐다. 딥러딩<a target="_blank" rel="noopener" href="http://slownews.kr/41461">(Deep Learning)</a>을 통해 인간만이 보유한 ‘직관’이라는 능력에 도전장을 던진 것이다.</strong><br><em>(딥러닝은 빅데이터에서 발전한 기술로써, 컴퓨터 프로그램이 사람처럼 스스로 학습하는 것을 의미한다.. 정확한 설명은 위의 링크 참조)</em></p>
+<p><img src="https://lh3.googleusercontent.com/UPBTME2ZxXBQcyXFCCz9f8Vk8o1yITYzlKBi4RgFR-4QBuwyq8ymLyHyZDlHsJyUIG1KL13D5ERcO_nhMINjtqGtbD4DfHJWMKAXGi3iRCDviKUJ93wXXmUWrcVlCFsPvFjoNLwrr89hHe7MjR9Cqtfz_in5wk7kLkweC_hL8PIXYuuMQvhK-OOxSRHUvDcm65oAdnc8npSn_EksdC2N1k4Bjp1Ev-wb25zUMmpB3jBNkxczKp5NFn0VTYUx8FE14wACqdfPZiugnY5GYN3xx1caKfHI5uyAT5V2A2R4liEwKeVEUFs1GpNQsOmnOZaRkJDGdMgv06Z50gzkeQUle2O1U9Q1u5TTfucUWdja95d2t_hUsk2rzCp8jvej4JyzrzBi95IdhU33tkhYak_CEwPi699C1-d29VAYKYq_AJjGhb8Hb-95ykrf2B07TCkH1AyoGE7I-ca1_YJnoiD2lj-FDBvmOPhxT17hBXCLX6sjxUuEa9NPIzx-pRTj9Ntp8SStYeuFFnVvT4JSm5o-Hh_hcxZE_QkE5j4txjPm4ok9qWtm1cGqooRqZc_QWDid0cdybNwbvZm42TzvREagv8OTWuqaPjZqXL-I0h3CG1yVycF5BdQW2w6eimxP8YbMxeaU1rBPXoMEhw1DhQhkoTrOKfT_Np3Hez6aEZHgFU8NRrFs5oYKx5pekrHP-1K0xjNvpRfmRB4y2UMhJxf1ue3XiFy4uH-Mb1sIeJsE0kevoV-q=w1920-h1200-no"></p>
+<p>바둑대국 이후 인간과의 두번째 매치업으로 구글 딥마인드팀이 선정한 종목은 ‘스타 크래프트’이다. 스타 크래프트 역시 엄청난 경우의 수와 전략이 필요하다는 특성을 생각하면, 이 역시 ‘직관’을 활용하는 게임이라고 생각한다. 결국 구글 딥마인드가 보여주고 싶은 것은 <strong>자사가 개발한 AI가 이 만큼 빠른 연산속도를 지녔다는 것이 아닌, 인간만이 보유한 직관을 흉내내는, 혹은 그 이상을 실행하는 진정한 AI를 개발하고 있음을 홍보/테스트하고 싶음을 예상할 수 있다.</strong></p>
+<p>이 때문에 난 이번 구글 딥마인드 이벤트가 승패따위의 결과에 상관없이 인류 역사에 중요한 <a name="memorable"></a>Memorable day가 될 것 같다. <strong>인간이 개발한 인공지능이 드디어 인간만큼의 퍼포먼스를 보여준다는 것을 우리 눈으로 확인한 역사적인 순간이라고 평가한다.</strong></p>
+<p>추가로 경기에 대해서 조금 더 떠들어 보자면..<br>이세돌 9단과의 경기 이후, AlphaGo의 몇 수에 대해 <em>‘실수인가’</em>, <em>‘의도된 실수인가’</em> 혹은 <em>‘상대의 실수를 유발한 고도의 한 수인가’</em> 하는 말이 많다. 당시 경기를 프로기사 해설과 함께 시청하며 AlphaGo의 수를 이해하려 하고*(물론 실패..)*, 생각해봤는데 우선 컴퓨터가 인간과는 다르게 정확한 근거에 실행한다는 점을 고려하면, 그것이 어떤 수이든 실수는 아니었을 것으로 생각한다. 그러나 감정이 주입된 인격체가 아니므로 상대의 실수를 유발하려고 하는 심리전은 펼치지 못했을 것으로 생각한다. 그렇다면 생각해볼 수 있는 것은..<br><strong>Alphago의 바둑능력이 인간의 그것을 초월한 것으로 생각한다.</strong></p>
+<p><img src="https://lh3.googleusercontent.com/b1o-jVarVkvgysHaIpifa6KhCq7YXex4wHae6FVbaocFHneJ_-PpUSYOBwJwnHAgdhfwZ1fjJcnB7WkI3rvhyLs00_KxwVs4vvBKfo67D4vPxAa_2TyePv8GpDn6purD1Yi2sU0bJVgaGXE3Ku5soOfB4Rf8XAYwPm44MUc36Cbe5OSkghbox-79os3aAeckjKmkOOqstubcSxTThDnB4Wdvf-23_EltAvltIvhQrnRX5w3XWH-w-8rFJAhGgf4Lj8ChsoD6gDx00sYMTMlF5fDzgTaLtlnY1PsKT1ngp0FxhzrImfm2wrBb69-2gIOttdsoT7dCUmkd5g2zdKVAgzmRMe5LRs_MnqWTNQ-uNZcgcRYyMTlNgTupwWMG76AjbhehXpLCg71FV9I9uIi5lJnwM1io71ULb9R3NuvYI_s5xR8VNlMPP25EKbYNjahyqqxhPShe0ThwZz_N6WAPs6Dha2L8iO7LF_a_VbpLWW02oP0h9Q8KCRVgpC9MihQQ1oDcfQ5C0Vbm-AruqKjYnUWNpMmD0g2O0G5FHusCycTxLnVZDDslhPrX5bxPlq7VX-AwR46yGxRGTrrKXCN6lmYNwuarsRJ5Igmlkh24lLzTZowPsR6NCz6Wlhutwmz_E-GjaDox4J7aJrEc7nWtHJf9neDSX9u7QfXMYEHE-UxHvDgqWbcYpwuDxEsUcSbxGcPnpNcRVMWnH6bRUVWkUKv7nC2nUvV_oXlFajz4vqzeiyBm=w1024-h480-no" alt="당시 언론의 반응"></p>
+<p>제 2대국이 종료되고 나서는 몇몇 언론에서 패인도 모른채, 이세돌9단이 불계패하였다는 기사를 보도하였다. 실제로 프로바둑기사가 해설하는 방송에서도 AlphaGo의 묘수에 대해 뚜렷히 정의하지 못하고 있었다.<br><em>(참고로 사람간의 바둑대국이 종료되면,승자와 패자가 함께</em> <a target="_blank" rel="noopener" href="http://krdic.naver.com/detail.nhn?docid=17142500"><em>복기</em></a><em>하기 때문에 해석 못할 수는 존재하지 않았다.)</em></p>
+<p><em>(추가) 알파고가 이런 플레이를 할 수 있었던건 인간은 가지고 있지만, 컴퓨터는 가지지않은 <b>‘고정관념’</b>이라는 특성도 한 몫하지 않았을까 생각한다. 어쩌면 그래서 복기를해도 AlphaGo의 묘수를 이해하지 못하는 것일지도..</em></p>
+<p><img src="https://lh3.googleusercontent.com/EkSqSo3K74Yd6X5E30-fmIhdRNYqtPgEZsJ-W9lQjGO4P_B33f4CQWxObFJGZT1t3kQjgFLdprIuhCz5OT6v9WDbFwNhu4bTJ6eezMlZiRFBxC5NObkXTjvzA6RkX9ZaJB4S_ZRtQzra2KAKfSNlJ2v4hGEI25cxYGCdIN_MqgP6mEoR7gp4Dyvg0KtQf2ACsjMPDS-otOF-Bh0m2FRTJ2yoO4pSJGwZNAT8kQmHKQBYzZD7KlNTjOmnysaFFvbIqSme2S2IZg-2gL_fTrISm0ABja73oVChVWRPf99PC2MEZjtSv9d-TcjCPWfduijBM_yiukhB-KAC4Chu3vikyPWgT4esWDOKb0vR7wjDyg-7skuO3Bsdbhn8lvc0Oz-hUlBMWJgoG_dy93KmNpaIRqydO3_ipNo3EjlvioryCnHUpMxtM20fzp4DNwBHSFeh95AYUi2bQRovdUS3Pq8RDPGU2IOBmhDsII2PmATgL-mnsWkINaTeEpNZsbU_FvQW0vNzGCgqhVDRfqR61Tl5vUFbLKhSbrneSlLKvGCxdzEZX3uvAO0oRprJtxOEGURN0n0cRR5F9HraieyDrnpbDdA9uyOCEFfY1CbLZCfTbtVjZkcKk7IpRoQy7GcqDMd6mvqz0GRXWq24L7KMIja9GjK3wA5BA6njqw8tWtxHiVa1Qr4L89zXOPoLlQuR9y-Jm1DdWxNIYyG2k1YgSc3h6W_suf22HupfZ0nQcj2OeMZWRKzu=w640-h427-no"></p>
+<p>내가 어렸을 때 바둑학원에서 선생님께 가장 많이 들은 말씀이 있다.<br><strong>바둑에서는 모양이 중요하다는 말씀이다</strong>. 바둑이란, 결국 땅따먹기 싸움이기 때문에 소규모 전투에서부터 전체 형국을 아우르는 바둑알들의 모양이 분위기와 승패에 영향을 미친다고 배웠다.</p>
+<p>바둑을 모르시는 분들은 어떻게 하면 ‘신의 한 수’를 두는건지 궁금해 하시기도 하지만, ‘신의 한 수’란 대국이 종료된 후, 복기하는 과정에서 평가하는 수이지, 대국중에 ‘신의 한 수’로 평가할만한 수를 둘 수는 없다. <strong>인간은 전체결과를 예측하고 두지 못하기 때문에 적어도 인간에게는 대국중에 ‘신의 한 수’를 둘 만한 능력이 없다.</strong> 그렇기 때문에 ‘모양’으로 결과를 만들어나가고자 하는 것이라고 생각한다.</p>
+<p><strong>그런데 AlphaGo가 보여주는 바둑은 이와 정면으로 대치하는듯 보인다.</strong><br>모양이 아닌 오직 ‘정확한 결과’에만 초점을 맞추어 철저히 계산하고, 착수를 하는듯 하였다.<br><em>(제 2대국에서 초반 30수까지 보여준 플레이는 결과적으로 인간이 두는 포석과 같았지만, 그 순서(과정)가 인간과 달랐다고 한다.)</em></p>
+<p>앞서 나는 <strong>한 돌을 착수하는데 있어 3¹⁰x10²⁰의 경우의 수</strong>가 만들어진다고 했다. 그러나 인간은 이 경우의 수를 모두 따지지 않는다고도 했다. 그래서 ‘직관’이라는 능력을 믿고, 추상적인 결과를 그려가며 대국을 진행한다.<br>반면 프로기사들의 의견에 따르면, AlphaGo는 인간처럼 10~20수를 수읽기하는 것에서 그치지 않고, 전체 결과를 예측하고 한 수, 한 수를 둔 것같다고 분석하였다.<br><em>(과거형으로 쓴 이유는 경기중에는 어떤 기사들도 이런 의견을 내놓지 못했기 때문이다. 모두 경기 이후 분석에서 쏟아져 나온 의견이다.)</em></p>
+<p>인간이 지금까지 해왔던 바둑과 전혀 다른 스타일의 바둑을 보여주는 <strong>AlphaGo는 당장 바둑 역사를 획기적으로 바꿀 존재가 된 것은 분명해보인다.</strong><br><em>(대회 종료 이후, 세계 유수의 바둑연구가들이 Alphago를 중심으로 새로운 바둑연구를 많이 진행하지않을까…)</em></p>
+<p>오늘날의 이런 결과에 AI에 대한 공포심을 가질 필요는 없다고 생각한다. <strong>AI를 개발하는 주체가 인간이며, AI는 인간이 입력한 목적대로 실행 할 뿐이다.</strong></p>
+<p>이세돌9단이 2연속 불계패하자 SNS에서는 영화 터미네이터에 나왔던 ‘<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Skynet_(Terminator)">스카이넷</a>‘이 언급되고 있지만, 아직 이를 걱정하거나 논하기에는 너무 이를뿐더러 AlphaGo가 보여준 능력과는 다른 차원이라고 생각한다.</p>
+<p>AI가 스스로 인간의 통제에서 벗어나기 위해서는*(인간이 입력하지 않은 다른 차원의 행동)* 지금 수준의 딥러닝정도가 아니라 ‘감정’ 이 필요할 것으로 생각된다.<br>AI에게 감정을 입히는 것이 가능한건지, 만약 가능하다면 언제쯤 현실이 될지 궁금하다. 또한 그 존재가 인류에게도 도움이 되는 존재가 될지 역시도 궁금하다..</p>
+<p>이제 2국까지 종료하였고, 앞으로 3국이 남았다. 앞으로의 대국 관점 포인트는 무엇이 될까.</p>
+<p>이세돌 9단도 이 같은 사실을 완전히 모르지는 않을 것이다. 그는 인류를 대표하여 AI에 싸우고 있는 것이 아닌, 인류를 대표하여 AI를 바둑이라는 게임으로 테스트중이라고 생각한다. 그 역시 구글 딥마인드 팀만큼 AlphaGo의 능력이 궁금할 것이며, 이기기위해 이 이벤트에 참가하지는 않았을 것 같다. <strong>승패보다는 AlphaGo가 보여주는 퍼포먼스를 더 중요하게 볼 필요가 있지 않을까.</strong></p>
+<p><a target="_blank" rel="noopener" href="http://news.jtbc.joins.com/html/144/NB11178144.html">이세돌 9단의 인터뷰</a>를 들어보면, ‘5:0 승리가 아니면 의미없다.’ 라는 인터뷰를 들을 수 있는데, 이는 결코 이세돌 9단의 오만한 생각이 아니라고 생각한다. AI와 바둑, 그리고 이 대국이 갖는 의미를 이해한다면, 충분히 공감할 인터뷰라고 생각한다.<br>남은 대국에서도 이세돌 9단과 AlphaGo가 흥미로운 대국을 보여주길 기대한다.</p>
+<hr>
+2020년 03월 11일. 
+
+<p>4년 전의 내가 쓴 글이다. 그땐 개발을 하게 될지도 몰랐는데, 새삼 신기하다. 또 한편으론 중간중간 민망한 글 또는 표현때문에 글을 닫고 싶었다. 그래도 일부러 수정하기 보다 현재의 블로그에 박제를 하기로 했다. </p>
+<p>이 글을 썼던 이유는 <a href="#memorable">중간</a>에서 언급했듯 두고두고 기억할만한 이벤트 직후의 내 생각을 글로 남기고 싶었기 때문이다. 다시 읽으면서 민망하긴 했지만 그래도 ‘이런 이벤트 때에 내가 이런 생각을 했었구나’ 라고 회고할 수 있어서 좋았다. 앞으로도 이런 일이 생기면 글을 공개적으로 남겨야겠다.</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://youngjinmo.github.io/2020/03/2016-alphago/" data-id="ckf65uebk00i1acgdh2oo38w0" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Youngjin Mo"
+        },
+        "headline": "구글 딥마인드 AlphaGo와 이세돌 9단 대국 리뷰(주관적)",
+        "image": "../../../http:/youngjinmo.github.iohttps:/lh3.googleusercontent.com/7dsIxA_Jr141Y9fGUQAE1DBjd-3Dwxgjp65iltCdhzhKtJ9p4K1TgffzkgeMU8ZVGHwG7eg2sctoL3dCI_TZ6gEvLOXHNG55FBiJcEG3nBHRPO7KKKjOG23vSiFuP_5Q16o_SUMkfQNPUDf9FPXwL41cywJsKs_uRiQRnpJcKVpGhXZYM9Av7_ggUt23KmnbG2KVVHaLtVF8dV0jzi2DXcaPphWKq4osYTB3MOfF2DcLQtbjdGt0BfLr7geYICXI0vu590MUQU81xOPyqYQa-DiLz2zqY6SGFM_C6uTV9A44EfLoi2CbOO4LocRiFjBp3kCRVkHyW4rAR-VDreA0QEThN8Cfan_fNVpiNyfOUWXVsO_szflElERzh_-lqa1AysAorefJGrvkCF5kRIT7bU053gmNNQ_yYvZJeUrveVfWkkaoJlYMMdzvIX1-Q1zTK4jhAWkKfXluuy4PtKtFGvE73Y3KXiVzSg29BI9fiZxpB_al-yEndwN96yR3EaVfUOt2dbTCEWUmRjoECxLiVv21vjmu_neSGgYboRLPVTXO4YKMloMkFAvCkMwWBv_TwYu52CHLJeJH7Wz1gD2bAwRMMBuGqxuZeAikVFErCFU6JaFmqsLJ0yIcLjhUJ0XVA1WdHbA8eE0AbLAKKTkIKf8-v5u7FzCpvWjwC_S-NiFxvQw5iq1384mCl4uJ1M1LXDsH2JbD5jk5jV0in_ZTIWbszvCBXOFjLhe-qojNvuzCGhPCLbK2THok=w800-h533-no",
+        "keywords": "alphago leesedol go ai",
+        "genre": "Life Review",
+        "datePublished": "2020-03-12",
+        "dateCreated": "2020-03-12",
+        "dateModified": "2020-09-13",
+        "url": "../../../http:/youngjinmo.github.io/2020/03/2016-alphago/",
+        "description": "
+
+이 글은 2016년 5월 11일, 알파고와 이세돌의 대국을 2국까지 마치고 나서 Medium에 작성한 글을 가져온 글이다.
+
+15년~16정도 된 것같다. 바둑 대국을 관전한 것이. 중간에 기원에서 아마추어 바둑을 관전한 적은 몇 번 있지만, 프로 대국은 정말 오랜만에 관전하게 되었다. 인간계 최강이라 불리우는 이세돌 9단과 구글 딥마인드팀이 개발한 딥러",
+        "wordCount": 1276
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="../../../https:/github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="../do-you-know-crypto-currency/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            암호화폐, 제대로 알고 투자하시는건가요?
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="../h2-database/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">SpringBoot에서 H2 데이터베이스 사용하기</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../09/xml-json-xmlhttprequest/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3f3uUiEllt7yZ2cz-TBQE53mDoXAvAbilDnTHnb0gUIYnX86czSpvvAGNC1uwJN3Mm543ae8FVwBXvYPyOcYzNVH-5fg0VXSmiORlQSYChhlqdO1jLRs_XhVOQYcySp_K_S3JbhAK4jHpeyRpXmh45Gqg=w640-h405-no?authuser=2)" alt="XML, JSON 그리고 XMLHttpRequest" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Others/">Others</a></p>
+                            <p class="item-title"><a href="../../09/xml-json-xmlhttprequest/" class="title">XML, JSON 그리고 XMLHttpRequest</a></p>
+                            <p class="item-date"><time datetime="2020-09-01T12:00:59.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/create-table-sequence/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3dnKjQpuvDEmVxFsIrKfVbq9RCZMjbbZPOtAWR0Etr5EfTkx58EYPQjjgLEiO8XYLsVu_1TWyNmpySsDRxXvCplY6aMPhIMQgNCaH0TBpVv0vxyI_-b6pK9x8qhVSSptzKgeu-dbMHYIt-eS1MUDQnkiw=w640-h427-no?authuser=0)" alt="Oracle - Sequence 생성하고 테이블에 삽입하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Database/">Database</a></p>
+                            <p class="item-title"><a href="../../08/create-table-sequence/" class="title">Oracle - Sequence 생성하고 테이블에 삽입하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-31T18:57:13.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/servlet-redirect-forward/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3cK_j9D5XupS1mIeAAwsE1cOAdZ05jfS290XghGTAfDNVmf1VDdldnidSEQpbEAPRe_aTchGC7U00h7lU9JKtTV3ltDyqUcofn0Xu4p0pm_ROewKfcnOG3UO4Yo4EgVG6ZeQfoemWHklC1hGMn-1DXYfQ=w640-h427-no?authuser=0)" alt="Servlet - Redirect와 Forward" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../../08/servlet-redirect-forward/" class="title">Servlet - Redirect와 Forward</a></p>
+                            <p class="item-date"><time datetime="2020-08-30T22:32:44.000Z" itemprop="datePublished">2020-08-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/leetcode-twosum/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://assets.leetcode.com/static_assets/public/images/LeetCode_Sharing.png)" alt="Leetcode - Twosum" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Quiz/">Quiz</a></p>
+                            <p class="item-title"><a href="../../08/leetcode-twosum/" class="title">Leetcode - Twosum</a></p>
+                            <p class="item-date"><time datetime="2020-08-24T14:28:47.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/run-mysql-with-docker/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3fdpC3xu5q4xnJRLLhSaWCrARbnQ1qdp_DpF0Z7BITrtrr6gZWGExKC4PcMlVo3AxVhVbYiFgDhNObWmtv3hGwoEtF_4zFb_1fQsdL6d1K3UNA0LRkczuC_nNvcEHERB8EIB3uvWOIps7j1iraX6DGLbQ=w720-h480-no?authuser=0)" alt="Docker로 MySQL 실행하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Devops/">Devops</a></p>
+                            <p class="item-title"><a href="../../08/run-mysql-with-docker/" class="title">Docker로 MySQL 실행하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-23T17:12:43.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 11.11px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/api/" style="font-size: 11.11px;">api</a> <a href="../../../tags/architecture/" style="font-size: 10px;">architecture</a> <a href="../../../tags/array/" style="font-size: 11.11px;">array</a> <a href="../../../tags/aws/" style="font-size: 12.22px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 12.22px;">career</a> <a href="../../../tags/casting/" style="font-size: 12.22px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/cloud/" style="font-size: 12.22px;">cloud</a> <a href="../../../tags/compiler/" style="font-size: 10px;">compiler</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/databse/" style="font-size: 10px;">databse</a> <a href="../../../tags/datastructure/" style="font-size: 12.22px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 13.33px;">docker</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 11.11px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generic/" style="font-size: 10px;">generic</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 10px;">github</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 13.33px;">http</a> <a href="../../../tags/ide/" style="font-size: 10px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 10px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 11.11px;">interface</a> <a href="../../../tags/interpreter/" style="font-size: 10px;">interpreter</a> <a href="../../../tags/io/" style="font-size: 12.22px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 15.56px;">java</a> <a href="../../../tags/java8/" style="font-size: 11.11px;">java8</a> <a href="../../../tags/jquery/" style="font-size: 11.11px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/jvm/" style="font-size: 10px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 10px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 10px;">mustache</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 16.67px;">oop</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 12.22px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 11.11px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 18.89px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/string/" style="font-size: 14.44px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/tip/" style="font-size: 17.78px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 13.33px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 11.11px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 18.89px;">weekly-review</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Youngjin Mo</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+    
+        
+<script src="../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="../../../js/main.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>버전 관리의 시작.Git | DevAndy</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="" />
+    
+    <meta name="description" content="스마트폰을 이용하다 보면, 모바일 앱 업데이트를 경험하게 된다.아래 이미지는 명함관리 앱, 리멤버 앱의 앱스토어 버전 기록이다.   리멤버는 2.8.2 버전에서는 마이너 버그를 수정했고, 2.8.3에서는 ‘명함 지도’ 라는 기능을 추가했다. 이렇게 파일이나 프로그램을 수정하고, 각 수정 파일을 버전에 맞게 저장하고 관리하는 일을 **버전 관리(Versi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="버전 관리의 시작.Git">
+<meta property="og:url" content="http://youngjinmo.github.io/2019/02/git-started/index.html">
+<meta property="og:site_name" content="DevAndy">
+<meta property="og:description" content="스마트폰을 이용하다 보면, 모바일 앱 업데이트를 경험하게 된다.아래 이미지는 명함관리 앱, 리멤버 앱의 앱스토어 버전 기록이다.   리멤버는 2.8.2 버전에서는 마이너 버그를 수정했고, 2.8.3에서는 ‘명함 지도’ 라는 기능을 추가했다. 이렇게 파일이나 프로그램을 수정하고, 각 수정 파일을 버전에 맞게 저장하고 관리하는 일을 **버전 관리(Versi">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80">
+<meta property="article:published_time" content="2019-02-19T19:53:37.000Z">
+<meta property="article:modified_time" content="2020-09-13T01:53:28.876Z">
+<meta property="article:author" content="Youngjin Mo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80">
+<meta name="twitter:creator" content="@devandy_yj">
+    
+
+    
+        <link rel="alternate" href="/" title="DevAndy" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="../../../libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="../../../libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="../../../libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="../../../css/style.css">
+
+
+    
+<script src="../../../libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-177850483-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../index.html">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Articles/">Articles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/">Dev</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Devops/">Devops</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Html-Css/">Html/Css</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Javascript/">Javascript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Others/">Others</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Springboot/">Springboot</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Web/">Web</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Review/">Review</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Thought/">Thought</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Quiz/">Quiz</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../https:/github.com/youngjinmo">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="../../../js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Git/">Git</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="posts-git-started" class="article article-single article-type-posts" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        버전 관리의 시작.Git
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="" class="article-date">
+       <time datetime="2019-02-19T19:53:37.000Z" itemprop="datePublished">2019-02-20</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="" class="article-date">
+     <time datetime="2020-09-13T01:53:28.876Z" itemprop="dateModified">2020-09-13</time>
+  </a>
+</div>
+
+
+                
+
+                
+                
+
+                
+
+            </div>
+			<!-- 	count-time		 -->
+			<!-- <span class="reading-time" style="margin-left: 20px;">⏱ 4 min.</span>  -->
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80" width="650px" />
+
+<p>스마트폰을 이용하다 보면, 모바일 앱 업데이트를 경험하게 된다.<br>아래 이미지는 명함관리 앱, <a href="https://itunes.apple.com/kr/app/리멤버-국민-명함앱/id840553277" target="_blank">리멤버 앱</a>의 앱스토어 버전 기록이다.</p>
+<img src="https://lh3.googleusercontent.com/mLVn01jtUIsf5OTCsvitMAZns6MYB_iF9CNb_f-iOS2XlklbR7t-utzG_3XwqJQuSEZVZm3DDJspiBFVE4-2S1xHLM-DUQRBSyFVJXjSQKWt10g5phDnLwc7hkOWxtraynhxS-MRZQvBY40HvpgRmW29Tu6fk0aRoSOLpYyMyvD0JPnNRCptVa9hEsDy6YlOKgYQBXwKEDDJbrSNxGa4Dse27Mh1AObYu2LRTIKKuPTZVaN3IMujuJ-tsVBtbrgkjj8xoKZKVmrGIBDioszjcsawnr0DG5zV3QPHSk6IQyFVPbmiaSMN9aYrROrV6_ZeSMwXwXeyE8Mss8C2QQeUKEg38NtEhMNd9seuh3tIekCD5OEoc0B-YS85lW8nqHqF-YtIQ3AZBTSI2L9-UOOy9u426qe4GVf5tmR0bCRn7RX1hBlv7D6HrUieVj_RVR4o7b0DXGZtecOkGX4tmRqFUiL-yGiA2rK7c-yhCsVGqmItAd1QzEBwcZMaSvgcVhcPGdNlZIdjlR19kiLfOqDd0JyYht2wKSbkz9TP88sUvCcUDgdpLOTFtW05BtOpPlzhO1RQIbAvJ59QAEwYxHMVS0ZsQC4MNVSIsGjVN1f4368247N79GywrdauU8LmdUZGS-Pn5C77ObYDEOFO5pRGEodoKROOGqnC=w750-h680-no" alt="remember app" style="zoom:50%;" />
+
+<p>리멤버는 2.8.2 버전에서는 마이너 버그를 수정했고, 2.8.3에서는 ‘명함 지도’ 라는 기능을 추가했다. 이렇게 파일이나 프로그램을 수정하고, 각 수정 파일을 버전에 맞게 저장하고 관리하는 일을 **버전 관리(Version Control)**이라 한다. 이렇게 파일을 관리하면 돌아가고 싶은 버전으로 언제든지 돌아갈 수도 있다. 멋지지 않은가!</p>
+<p>그럼 버전 관리를 하면, 타임 머신같은 기능만 사용할 수 있는걸까? 당연히 아니다.</p>
+<p>버전 관리를 하게 되면, 효율적인 **협업 (Collaboration)**이 가능하다. 먼저 아래의 이미지부터 보자.</p>
+<p><img src="https://lh3.googleusercontent.com/7wd1fxMKZ15W0JwtEpdakoeBig9Ru5RRSWpL_GxgEODh0aOzzVIr0T84zONv82x1hcC6KRLHp6WB9WSamanj5JW3RUoNprKpHI2CAa1OzbyUuGAIUVHtw7S-j1TzIsEkzQWqwO_zLlCq6US-oXW25595EMCxUc3quqhTfesFhsnTR-4s1gCfRidMdtqTjmRBUL6lDm8g5ZVxgYJWoh1w0ypwXGUoUqF3lEbbuVEW8o7Jim7GOWKnzhnFjRwB5e979AOOkqLtPHbODrXH7x1-MK1357hUBM9RVDOoDJ8UaJaordZ4jnHMJHMz3DP_nzUn9FuN0Euf9Vuy3ldcPLaas94jCxC-h1JVO5I6dYIiB5HgWlIVYYYjE-cPUt3AKewfMxjlzwi2S9aA_2U0tlyw-W6qITfLN0tKKdxXUHtsKMFB8wso4dRdgE_a6Jy-HxmrvaM_bx6NdhvqbiFelCTSzAEWf4HHiWOYsg9lYcYc97RI2aQHIRX9zXXCT7QwqRtnnA3jXw1tuWd9VQM-fppBuJH-UFxereMAEPH3KwOacSLe4nynALl0Xo93I927EcnXfuApui68O2gxaS1IMENfulunTZesjnwkdLFFkLcm5EL15yK05RfTiwUDw_nWWEksVAaBFRxcGStGqWYMHjmIDxMOAFWE4xgG=w766-h448-no" alt="finalfinalfinal"></p>
+<p>이런 파일을 한 번도 본적이 없다면, 당신은 거짓말을 하고 있거나 매우 불성실한 사람일게다.</p>
+<p>분명 최종본을 만들었건만 최종본의 최종본은 얼마 지나지 않아 탄생하고, 에일리언 영화에서나 볼법한 엄청난 번식력으로 우리를 새벽까지 컴퓨터 앞에서 뜬 눈으로 지새게 한 바로 이 경험.</p>
+<p>버전 관리를 하게 되면, 이 과정을 최소화하여 효율적으로 코워킹 할 수 있다.</p>
+<p>자, 이제 상상을 해보자.</p>
+<p>A, B, C 세 사람이 있다고 가정하자.<br>A가 작업을 마치고, B가 작업을 하고, 마지막으로 C가 하는 순차적인 작업은 지나치게 비효율적이다. 심지어 C가 작업을 하고 있는데, A가 수정해야할 부분을 발견한다면 끔찍한 상황이 연출된다. </p>
+<p>그냥 각자 맡은 부분을 작성, 수정하고 이 파일들의 중복되지 않는 부분만 **병합(merge)**한다면 어떨까?</p>
+<p>그걸 가능케하는 마법같으면서도 지옥같은 <strong>Git</strong>의 이야기이다.   <br><em>버전관리에 대한 자세한 내용은 git <a href="https://git-scm.com/book/ko/v1/시작하기-버전-관리란%3F" target="_blank">여기</a>에서 확인바란다.</em></p>
+<br>
+
+<h3 id="Git-설치하기"><a href="#Git-설치하기" class="headerlink" title="Git 설치하기"></a>Git 설치하기</h3><p><img src="https://media.giphy.com/media/ZvLUtG6BZkBi0/giphy.gif" alt="giphy"></p>
+<ul>
+<li><strong>Mac</strong><ul>
+<li><a target="_blank" rel="noopener" href="http://git-scm.com/download/mac">http://git-scm.com/download/mac</a> </li>
+</ul>
+</li>
+<li><strong>Windows</strong><ul>
+<li><a target="_blank" rel="noopener" href="http://git-scm.com/download/win">http://git-scm.com/download/win</a></li>
+</ul>
+</li>
+</ul>
+<p>이외 리눅스거나 CLI 환경에서 명령어를 통해 설치를 원한다면, <a href="https://git-scm.com/book/ko/v2/시작하기-Git-설치" target="_blank">여기</a>를 확인바란다.</p>
+<br>
+
+<h3 id="Git-호스팅"><a href="#Git-호스팅" class="headerlink" title="Git 호스팅"></a>Git 호스팅</h3><p>git을 사용하면서 각 버전, 즉 파일을 관리할 서버가 필요하다. 이런 서버를 무료로 서비스해주는 제품들이 있는데, 대표적인 <a href="https://github.com/" target="_blank">Github</a>이다. </p>
+<p><img src="https://lh3.googleusercontent.com/5BE2NDYVWVP3jwjZB0mCCmTLdmbn8lV7oVZcMv9ysofssq1kEi4_xbStT-dVFSQ6poTDNy815mRu-5MWO40FgHBXFryGFX_7-rsxy0JfXmOs-tQk6ZEmCjh43brD7ghblcu70ENWQBkT63gwz96LNR1KzW74B2KSS7s61OsGw01-KFVja2TQL_w99xTG0_KDePzVNH6hCMTC8RMZSYUb38-9X2bMRxtAqxWWhNibYirtrvZgqsA9ky4QANdhQGNz1iRx-47W3dVA_s3RNGQITX1PIxrhL7ZJ27gK_0HwQh2RCJpUNmSkLzbQ-TTKa84dVeW3dSXk4WNVwt8iLDV6SwnUIu08tc-8hNMpmmwp6xxBdFyD6Mw41PCl_56_dRpIeEwjie2_j5q5xcOBljVAeRBEjgJX9noUdzbfvXzbIP5PybEUcQqDUD2Fqzd3lzq9vxHhXVB6ya2MEvA72XEOYxKaTaqQCrTouIcVIHIchlVAeGycVogwFGuBTbkGiiuY5GujKNU1ynxXWWWPm_oIwCrG9KD8DWK93FJI-NS8VfO_0pcbaGNBQlth7234LVbcYAz_UcSW-VQdnjFuvrUj_5N7cJu5fhDQ8S0EkACZuXDpyHW9GcGi3KmSONxzGE29S_rKZ5X-QDTNAlVZNquaf9w31eWl51Yce4sUJBzj-zaKjyNb9U_Xmt1y8_stw2Hk-DBxniyEe5aJNvZ_vCAcPAv7lcdBuzgsGH9txmuovvn3gHLNMyix-04=w325-h122-no" alt="Github"></p>
+<p>혹시 Github 대신 다른 호스팅 서비스를 쓰고 싶다면, <a href="https://www.git-tower.com/blog/git-hosting-services-compared/" target="_blank">링크</a>를 통해 비교해보고 자신에게 맞는 서비스를 이용하면 된다.</p>
+<p>원래 몇 개월 전만 하더라도 Github에서 무료 계정은 private repository를 이용할 수 없었다. 그러나 Microsoft가 무려 8조원에 달하는 거금으로 인수하면서 얼마 전 무료 계정에도 private repository를 만들수 있도록 허용해주었다.</p>
+<p><strong>Repository는 저장소</strong>를 의미한다. 줄여서 그냥 repo라고도 한다.</p>
+<p>private repo는 접근 권한을 갖고 있는 사람들만 소스코드에 접근 할 수 있는 권한을 의미하며, public repo는 누구나 해당 저장소에 접근해서 소스코드를 볼 수 있다. 따라서 오픈 소스의 경우에는 public repo를 이용하고, 상업적인 목적을 지닌 프로젝트를 할 경우에는 private repo에서 하면 된다. </p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://youngjinmo.github.io/2019/02/git-started/" data-id="ckf65udon008xacgd97b21je7" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Youngjin Mo"
+        },
+        "headline": "버전 관리의 시작.Git",
+        "image": "../../../http:/youngjinmo.github.iohttps:/images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80",
+        "keywords": "",
+        "genre": "Dev Git",
+        "datePublished": "2019-02-20",
+        "dateCreated": "2019-02-20",
+        "dateModified": "2020-09-13",
+        "url": "../../../http:/youngjinmo.github.io/2019/02/git-started/",
+        "description": "
+
+스마트폰을 이용하다 보면, 모바일 앱 업데이트를 경험하게 된다.아래 이미지는 명함관리 앱, 리멤버 앱의 앱스토어 버전 기록이다.
+
+
+리멤버는 2.8.2 버전에서는 마이너 버그를 수정했고, 2.8.3에서는 ‘명함 지도’ 라는 기능을 추가했다. 이렇게 파일이나 프로그램을 수정하고, 각 수정 파일을 버전에 맞게 저장하고 관리하는 일을 **버전 관리(Versi",
+        "wordCount": 339
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="../../../https:/github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="../git-create-repo/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Repository 생성.Git
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="../java-intro/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Intro .Java</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../2020/09/xml-json-xmlhttprequest/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3f3uUiEllt7yZ2cz-TBQE53mDoXAvAbilDnTHnb0gUIYnX86czSpvvAGNC1uwJN3Mm543ae8FVwBXvYPyOcYzNVH-5fg0VXSmiORlQSYChhlqdO1jLRs_XhVOQYcySp_K_S3JbhAK4jHpeyRpXmh45Gqg=w640-h405-no?authuser=2)" alt="XML, JSON 그리고 XMLHttpRequest" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Others/">Others</a></p>
+                            <p class="item-title"><a href="../../../2020/09/xml-json-xmlhttprequest/" class="title">XML, JSON 그리고 XMLHttpRequest</a></p>
+                            <p class="item-date"><time datetime="2020-09-01T12:00:59.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../2020/08/create-table-sequence/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3dnKjQpuvDEmVxFsIrKfVbq9RCZMjbbZPOtAWR0Etr5EfTkx58EYPQjjgLEiO8XYLsVu_1TWyNmpySsDRxXvCplY6aMPhIMQgNCaH0TBpVv0vxyI_-b6pK9x8qhVSSptzKgeu-dbMHYIt-eS1MUDQnkiw=w640-h427-no?authuser=0)" alt="Oracle - Sequence 생성하고 테이블에 삽입하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Database/">Database</a></p>
+                            <p class="item-title"><a href="../../../2020/08/create-table-sequence/" class="title">Oracle - Sequence 생성하고 테이블에 삽입하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-31T18:57:13.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../2020/08/servlet-redirect-forward/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3cK_j9D5XupS1mIeAAwsE1cOAdZ05jfS290XghGTAfDNVmf1VDdldnidSEQpbEAPRe_aTchGC7U00h7lU9JKtTV3ltDyqUcofn0Xu4p0pm_ROewKfcnOG3UO4Yo4EgVG6ZeQfoemWHklC1hGMn-1DXYfQ=w640-h427-no?authuser=0)" alt="Servlet - Redirect와 Forward" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../../../2020/08/servlet-redirect-forward/" class="title">Servlet - Redirect와 Forward</a></p>
+                            <p class="item-date"><time datetime="2020-08-30T22:32:44.000Z" itemprop="datePublished">2020-08-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../2020/08/leetcode-twosum/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://assets.leetcode.com/static_assets/public/images/LeetCode_Sharing.png)" alt="Leetcode - Twosum" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Quiz/">Quiz</a></p>
+                            <p class="item-title"><a href="../../../2020/08/leetcode-twosum/" class="title">Leetcode - Twosum</a></p>
+                            <p class="item-date"><time datetime="2020-08-24T14:28:47.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../2020/08/run-mysql-with-docker/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3fdpC3xu5q4xnJRLLhSaWCrARbnQ1qdp_DpF0Z7BITrtrr6gZWGExKC4PcMlVo3AxVhVbYiFgDhNObWmtv3hGwoEtF_4zFb_1fQsdL6d1K3UNA0LRkczuC_nNvcEHERB8EIB3uvWOIps7j1iraX6DGLbQ=w720-h480-no?authuser=0)" alt="Docker로 MySQL 실행하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Devops/">Devops</a></p>
+                            <p class="item-title"><a href="../../../2020/08/run-mysql-with-docker/" class="title">Docker로 MySQL 실행하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-23T17:12:43.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 11.11px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/api/" style="font-size: 11.11px;">api</a> <a href="../../../tags/architecture/" style="font-size: 10px;">architecture</a> <a href="../../../tags/array/" style="font-size: 11.11px;">array</a> <a href="../../../tags/aws/" style="font-size: 12.22px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 12.22px;">career</a> <a href="../../../tags/casting/" style="font-size: 12.22px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/cloud/" style="font-size: 12.22px;">cloud</a> <a href="../../../tags/compiler/" style="font-size: 10px;">compiler</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/databse/" style="font-size: 10px;">databse</a> <a href="../../../tags/datastructure/" style="font-size: 12.22px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 13.33px;">docker</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 11.11px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generic/" style="font-size: 10px;">generic</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 10px;">github</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 13.33px;">http</a> <a href="../../../tags/ide/" style="font-size: 10px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 10px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 11.11px;">interface</a> <a href="../../../tags/interpreter/" style="font-size: 10px;">interpreter</a> <a href="../../../tags/io/" style="font-size: 12.22px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 15.56px;">java</a> <a href="../../../tags/java8/" style="font-size: 11.11px;">java8</a> <a href="../../../tags/jquery/" style="font-size: 11.11px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/jvm/" style="font-size: 10px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 10px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 10px;">mustache</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 16.67px;">oop</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 12.22px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 11.11px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 18.89px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/string/" style="font-size: 14.44px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/tip/" style="font-size: 17.78px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 13.33px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 11.11px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 18.89px;">weekly-review</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Youngjin Mo</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+    
+        
+<script src="../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="../../../js/main.js"></script>
+
+
+</body>
+</html>

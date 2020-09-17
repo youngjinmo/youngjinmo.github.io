@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>메모리 구조 | DevAndy</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="datastructure" />
+    
+    <meta name="description" content="메모리는  Method Area - Call Stack - Heap 영역으로 구분된다. 각각의 영역이 어떤 역할을 수행하는지 알아보자.  Method Area  클래스 파일의 바이트 코드가 할당되는 영역이다. class 파일의 자바 애플리케이션 코드가 JVM에 의해 기계어로 변환되어 실행이 되는데, 이 때 변환된 기계어가 바이트 코드이다. static">
+<meta property="og:type" content="article">
+<meta property="og:title" content="메모리 구조">
+<meta property="og:url" content="http://youngjinmo.github.io/2020/04/java-memory/index.html">
+<meta property="og:site_name" content="DevAndy">
+<meta property="og:description" content="메모리는  Method Area - Call Stack - Heap 영역으로 구분된다. 각각의 영역이 어떤 역할을 수행하는지 알아보자.  Method Area  클래스 파일의 바이트 코드가 할당되는 영역이다. class 파일의 자바 애플리케이션 코드가 JVM에 의해 기계어로 변환되어 실행이 되는데, 이 때 변환된 기계어가 바이트 코드이다. static">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://www.baeldung.com/wp-content/uploads/2018/07/Stack-Memory-vs-Heap-Space-in-Java.jpg">
+<meta property="article:published_time" content="2020-04-06T00:38:55.000Z">
+<meta property="article:modified_time" content="2020-09-13T01:53:28.476Z">
+<meta property="article:author" content="Youngjin Mo">
+<meta property="article:tag" content="datastructure">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.baeldung.com/wp-content/uploads/2018/07/Stack-Memory-vs-Heap-Space-in-Java.jpg">
+<meta name="twitter:creator" content="@devandy_yj">
+    
+
+    
+        <link rel="alternate" href="/" title="DevAndy" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="../../../libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="../../../libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="../../../libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="../../../css/style.css">
+
+
+    
+<script src="../../../libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-177850483-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../index.html">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Articles/">Articles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/">Dev</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Devops/">Devops</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Html-Css/">Html/Css</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Javascript/">Javascript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Others/">Others</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Springboot/">Springboot</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Web/">Web</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Review/">Review</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Thought/">Thought</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Quiz/">Quiz</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../https:/github.com/youngjinmo">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="../../../js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Java/">Java</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="posts-java-memory" class="article article-single article-type-posts" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        메모리 구조
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="" class="article-date">
+       <time datetime="2020-04-06T00:38:55.000Z" itemprop="datePublished">2020-04-06</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="" class="article-date">
+     <time datetime="2020-09-13T01:53:28.476Z" itemprop="dateModified">2020-09-13</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="../../../tags/datastructure/" rel="tag">datastructure</a>
+    </div>
+
+                
+
+                
+
+            </div>
+			<!-- 	count-time		 -->
+			<!-- <span class="reading-time" style="margin-left: 20px;">⏱ 2 min.</span>  -->
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <img src="https://www.baeldung.com/wp-content/uploads/2018/07/Stack-Memory-vs-Heap-Space-in-Java.jpg" width="650px" alt="출처 : baeldung"/>
+
+<p>메모리는  <strong>Method Area - Call Stack - Heap</strong> 영역으로 구분된다. 각각의 영역이 어떤 역할을 수행하는지 알아보자.</p>
+<ul>
+<li><p><strong>Method Area</strong></p>
+<ul>
+<li>클래스 파일의 바이트 코드가 할당되는 영역이다. class 파일의 자바 애플리케이션 코드가 JVM에 의해 기계어로 변환되어 실행이 되는데, 이 때 변환된 기계어가 바이트 코드이다.</li>
+<li><code>static</code> 으로 선언된 클래스가 여기에 할당된다.</li>
+</ul>
+</li>
+<li><p><strong>Call Stack</strong> </p>
+<ul>
+<li>지역 변수와 매개변수가 <strong>임시로 할당</strong>되는 영역이다.</li>
+<li>메서드가 호출되면, 수행에 필요한만큼의 메모리를 스택에 할당</li>
+<li>메서드가 수행을 마치고 나면 사용했던 메모리를 반환, 스택에서 제거한다.<br>아까 지역변수와 매개변수가 <strong>임시로 할당</strong>된다고 이야기한 이유가 여기에 있다. 변수들을 호출하는 메서드가 사용되고 나면 해당 메서드의 모든 변수를 삭제하기 때문이다. 불필요한 메모리를 삭제하는 GC(Garbage Collector)가 작동되는 것으로 보인다.</li>
+<li>호출 스택의 제일 위에 있는 메서드가 현재 실행중인 메서드이며, 바로 아래에 있는 메서드가 현재의 메서드를 호출한 메서드이다. 일반적으로 <code>main()</code>가 실행되면서 애플리케이션이 실행되므로 가장 먼저 호출된 <code>main()</code> 이 Call Stack의 가장 아래에 위치하게 되며, 이 <code>main()</code>이 호출하는 메서드들이 <u>선입후출</u> 방식으로 Call Stack에 쌓이게 된다.</li>
+<li>**가장 나중에 실행된 메서드가 가장 먼저 종료하고, 가장 먼저 실행한 메서드가 가장 마지막으로 종료 (선입후출)**하여 자료구조에서는 이런 구조를 **스택(Stack)**이라 이야기한다.</li>
+</ul>
+</li>
+<li><p><strong>Heap</strong></p>
+<ul>
+<li>프로그램이 실행되면서 생성되는 <strong>모든 인스턴스가 할당되는 공간</strong>이다.</li>
+<li><code>new</code> 키워드로 생성된 인스턴스 변수들이 할당되는 곳이라고 이해하면 된다. </li>
+<li>Heap 메모리는 메서드 호출이 끝나도 인스턴스들이 계속 유지되는데, 그러다 참조하는 주소를 잃게되면 GC에 의해 지워지면서 Heap 메모리에서도 제거된다. 사용이 끝나도 계속 유지되는 Method Area와 다른 특징이다. <strong>Method Area에 할당하는 키워드는 <code>static</code>, Heap에 할당하는 키워드는 <code>new</code> 라는게 직관적으로 이해가 될 것 같다.</strong></li>
+</ul>
+</li>
+</ul>
+<br>
+
+<h3 id="정리하면"><a href="#정리하면" class="headerlink" title="정리하면,"></a>정리하면,</h3><p>컴파일되어 생성된 클래스 파일을 JVM이 실행하면 클래스 파일을 분석하여 <code>static</code> 키워드의 클래스 정보만을  JVM의 메모리 영역 중 Method Area에 저장한다. Method Area는 고정적(static)이므로 프로그램 종료시까지 언제든 사용가능하다.<br></p>
+<p>Call Stack에서는 <code>main()</code> 부터 실행하여 <code>main()</code>에서 실행한 다른 메서드를 호출한다. <br></p>
+<p>이 과정에서 생성되는 인스턴스는 Heap 메모리에 저장되고, 인스턴스라는 이름과 Heap 이라는 단어처럼 <mark>Heap 메모리에 저장된 인스턴스는 호출될 때에만 사용되고, 사용이 끝나면 바로 소멸되는 동적인(dynamic) 특징이 있다. 이는 정적인(static) Method Area와 대비되는 특징</mark>이다.</p>
+<br>
+
+<p>그럼 언제 인스턴스를 사용해야 하는걸까? </p>
+<h2 id="정적할당-vs-동적할당"><a href="#정적할당-vs-동적할당" class="headerlink" title="정적할당 vs 동적할당"></a>정적할당 vs 동적할당</h2><p><strong>인스턴스의 공통적인 데이터 또는 자주 사용해야하는 데이터의 경우는 고정적(static)일 필요</strong>가 있다. 이런 데이터는 <code>static</code> 키워드를 선언하여 Method Area에 한 번 할당해두면, 필요할 때마다 참조만 해서 사용할 수 있다. 메모리 관리에 효율적이다.</p>
+<p>그러나 Method Area에 할당되면 프로그램 종료시까지 메모리를 사용한다는 특징이 있다. 따라서 프로그램 종료시까지 지속적으로 필요한 데이터가 아닌 <strong>잠깐만 필요하거나 각 객체 별로 서로 다른 값을 저장</strong>하고 있어야 할 경우에는 <strong>Heap 메모리에 임시적으로 인스턴스를 생성</strong>하는 방법이 메모리 관리에 효율적이다. <strong>Heap 메모리는 Method Area와 달리 사용 후 즉시 폐기</strong>된다. </p>
+<br>
+
+<p><strong>One more thing.</strong></p>
+<p>Heap 영역에서 참조타입 변수인 객체나 배열을 <code>Null</code> 값으로 받으면, <code>NullPointException</code>이라는 예외가 떠서 사용할 수가 없다. 이 때엔 초기값을 넣어서 <code>Null</code>값을 없애야 한다.</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://youngjinmo.github.io/2020/04/java-memory/" data-id="ckf65udxa00ciacgd1sgy8w78" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Youngjin Mo"
+        },
+        "headline": "메모리 구조",
+        "image": "../../../http:/youngjinmo.github.iohttps:/www.baeldung.com/wp-content/uploads/2018/07/Stack-Memory-vs-Heap-Space-in-Java.jpg",
+        "keywords": "datastructure",
+        "genre": "Dev Java",
+        "datePublished": "2020-04-06",
+        "dateCreated": "2020-04-06",
+        "dateModified": "2020-09-13",
+        "url": "../../../http:/youngjinmo.github.io/2020/04/java-memory/",
+        "description": "
+
+메모리는  Method Area - Call Stack - Heap 영역으로 구분된다. 각각의 영역이 어떤 역할을 수행하는지 알아보자.
+
+Method Area
+
+클래스 파일의 바이트 코드가 할당되는 영역이다. class 파일의 자바 애플리케이션 코드가 JVM에 의해 기계어로 변환되어 실행이 되는데, 이 때 변환된 기계어가 바이트 코드이다.
+static ",
+        "wordCount": 399
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="../../../https:/github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="../java-object-instance/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            객체를 직접 호출하는 것과 인스턴스를 호출하는것의 차이 (메모리 주소값 비교)
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="../java-nestedClass/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">JAVA - 내부클래스(innerClass또는 nestedClass)</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../09/xml-json-xmlhttprequest/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3f3uUiEllt7yZ2cz-TBQE53mDoXAvAbilDnTHnb0gUIYnX86czSpvvAGNC1uwJN3Mm543ae8FVwBXvYPyOcYzNVH-5fg0VXSmiORlQSYChhlqdO1jLRs_XhVOQYcySp_K_S3JbhAK4jHpeyRpXmh45Gqg=w640-h405-no?authuser=2)" alt="XML, JSON 그리고 XMLHttpRequest" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Others/">Others</a></p>
+                            <p class="item-title"><a href="../../09/xml-json-xmlhttprequest/" class="title">XML, JSON 그리고 XMLHttpRequest</a></p>
+                            <p class="item-date"><time datetime="2020-09-01T12:00:59.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/create-table-sequence/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3dnKjQpuvDEmVxFsIrKfVbq9RCZMjbbZPOtAWR0Etr5EfTkx58EYPQjjgLEiO8XYLsVu_1TWyNmpySsDRxXvCplY6aMPhIMQgNCaH0TBpVv0vxyI_-b6pK9x8qhVSSptzKgeu-dbMHYIt-eS1MUDQnkiw=w640-h427-no?authuser=0)" alt="Oracle - Sequence 생성하고 테이블에 삽입하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Database/">Database</a></p>
+                            <p class="item-title"><a href="../../08/create-table-sequence/" class="title">Oracle - Sequence 생성하고 테이블에 삽입하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-31T18:57:13.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/servlet-redirect-forward/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3cK_j9D5XupS1mIeAAwsE1cOAdZ05jfS290XghGTAfDNVmf1VDdldnidSEQpbEAPRe_aTchGC7U00h7lU9JKtTV3ltDyqUcofn0Xu4p0pm_ROewKfcnOG3UO4Yo4EgVG6ZeQfoemWHklC1hGMn-1DXYfQ=w640-h427-no?authuser=0)" alt="Servlet - Redirect와 Forward" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../../08/servlet-redirect-forward/" class="title">Servlet - Redirect와 Forward</a></p>
+                            <p class="item-date"><time datetime="2020-08-30T22:32:44.000Z" itemprop="datePublished">2020-08-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/leetcode-twosum/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://assets.leetcode.com/static_assets/public/images/LeetCode_Sharing.png)" alt="Leetcode - Twosum" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Quiz/">Quiz</a></p>
+                            <p class="item-title"><a href="../../08/leetcode-twosum/" class="title">Leetcode - Twosum</a></p>
+                            <p class="item-date"><time datetime="2020-08-24T14:28:47.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/run-mysql-with-docker/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3fdpC3xu5q4xnJRLLhSaWCrARbnQ1qdp_DpF0Z7BITrtrr6gZWGExKC4PcMlVo3AxVhVbYiFgDhNObWmtv3hGwoEtF_4zFb_1fQsdL6d1K3UNA0LRkczuC_nNvcEHERB8EIB3uvWOIps7j1iraX6DGLbQ=w720-h480-no?authuser=0)" alt="Docker로 MySQL 실행하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Devops/">Devops</a></p>
+                            <p class="item-title"><a href="../../08/run-mysql-with-docker/" class="title">Docker로 MySQL 실행하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-23T17:12:43.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 11.11px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/api/" style="font-size: 11.11px;">api</a> <a href="../../../tags/architecture/" style="font-size: 10px;">architecture</a> <a href="../../../tags/array/" style="font-size: 11.11px;">array</a> <a href="../../../tags/aws/" style="font-size: 12.22px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 12.22px;">career</a> <a href="../../../tags/casting/" style="font-size: 12.22px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/cloud/" style="font-size: 12.22px;">cloud</a> <a href="../../../tags/compiler/" style="font-size: 10px;">compiler</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/databse/" style="font-size: 10px;">databse</a> <a href="../../../tags/datastructure/" style="font-size: 12.22px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 13.33px;">docker</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 11.11px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generic/" style="font-size: 10px;">generic</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 10px;">github</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 13.33px;">http</a> <a href="../../../tags/ide/" style="font-size: 10px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 10px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 11.11px;">interface</a> <a href="../../../tags/interpreter/" style="font-size: 10px;">interpreter</a> <a href="../../../tags/io/" style="font-size: 12.22px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 15.56px;">java</a> <a href="../../../tags/java8/" style="font-size: 11.11px;">java8</a> <a href="../../../tags/jquery/" style="font-size: 11.11px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/jvm/" style="font-size: 10px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 10px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 10px;">mustache</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 16.67px;">oop</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 12.22px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 11.11px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 18.89px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/string/" style="font-size: 14.44px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/tip/" style="font-size: 17.78px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 13.33px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 11.11px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 18.89px;">weekly-review</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Youngjin Mo</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+    
+        
+<script src="../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="../../../js/main.js"></script>
+
+
+</body>
+</html>

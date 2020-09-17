@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Java - JVM | DevAndy</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="jvm" />
+    
+    <meta name="description" content="자바 소스코드를 class 파일로 컴파일해주고 실행하는 **JVM(Java Virtual Machine)**의 메모리 구조에 대한 이야기이다. 왜 JVM이 필요한가? 자바로 프로그래밍된 파일을 실행하려면 JVM이 필수적이다. 자바 소스코드는 그 자체로 OS에서 즉시 실행할 수 없고 자바 런타임환경에서 실행될 수 있는데, 그러려면 JVM이 운영체제">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java - JVM">
+<meta property="og:url" content="http://youngjinmo.github.io/2020/07/java-jvm/index.html">
+<meta property="og:site_name" content="DevAndy">
+<meta property="og:description" content="자바 소스코드를 class 파일로 컴파일해주고 실행하는 **JVM(Java Virtual Machine)**의 메모리 구조에 대한 이야기이다. 왜 JVM이 필요한가? 자바로 프로그래밍된 파일을 실행하려면 JVM이 필수적이다. 자바 소스코드는 그 자체로 OS에서 즉시 실행할 수 없고 자바 런타임환경에서 실행될 수 있는데, 그러려면 JVM이 운영체제">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://lh3.googleusercontent.com/pw/ACtC-3e1wABVIxe20MsC2iZ5sxyWZP3UMB3BV5dP9qZVWb-F-rmC9TmXhvkDSYNodvT9Ysfg1QvAt6WgJa6tdkg5heBGQZSCs8OM2dkPqdaMn0d3obmoc1oehFLVquGR5H1sXupM5F4hCqhgvt1-oTyvA215AA=w720-h480-no?authuser=0">
+<meta property="article:published_time" content="2020-07-27T23:37:43.000Z">
+<meta property="article:modified_time" content="2020-09-13T01:53:28.552Z">
+<meta property="article:author" content="Youngjin Mo">
+<meta property="article:tag" content="jvm">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lh3.googleusercontent.com/pw/ACtC-3e1wABVIxe20MsC2iZ5sxyWZP3UMB3BV5dP9qZVWb-F-rmC9TmXhvkDSYNodvT9Ysfg1QvAt6WgJa6tdkg5heBGQZSCs8OM2dkPqdaMn0d3obmoc1oehFLVquGR5H1sXupM5F4hCqhgvt1-oTyvA215AA=w720-h480-no?authuser=0">
+<meta name="twitter:creator" content="@devandy_yj">
+    
+
+    
+        <link rel="alternate" href="/" title="DevAndy" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="../../../libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="../../../libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="../../../libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="../../../css/style.css">
+
+
+    
+<script src="../../../libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-177850483-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../index.html">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Articles/">Articles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/">Dev</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Devops/">Devops</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Html-Css/">Html/Css</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Javascript/">Javascript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Others/">Others</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Springboot/">Springboot</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Web/">Web</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Review/">Review</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Thought/">Thought</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Quiz/">Quiz</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../https:/github.com/youngjinmo">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="../../../js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Java/">Java</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="posts-java-jvm" class="article article-single article-type-posts" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Java - JVM
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="" class="article-date">
+       <time datetime="2020-07-27T23:37:43.000Z" itemprop="datePublished">2020-07-28</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="" class="article-date">
+     <time datetime="2020-09-13T01:53:28.552Z" itemprop="dateModified">2020-09-13</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="../../../tags/jvm/" rel="tag">jvm</a>
+    </div>
+
+                
+
+                
+
+            </div>
+			<!-- 	count-time		 -->
+			<!-- <span class="reading-time" style="margin-left: 20px;">⏱ 5 min.</span>  -->
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <div align="center">
+  <img src="https://lh3.googleusercontent.com/pw/ACtC-3e1wABVIxe20MsC2iZ5sxyWZP3UMB3BV5dP9qZVWb-F-rmC9TmXhvkDSYNodvT9Ysfg1QvAt6WgJa6tdkg5heBGQZSCs8OM2dkPqdaMn0d3obmoc1oehFLVquGR5H1sXupM5F4hCqhgvt1-oTyvA215AA=w720-h480-no?authuser=0"/>
+</div>
+
+<p>자바 소스코드를 class 파일로 컴파일해주고 실행하는 **JVM(Java Virtual Machine)**의 메모리 구조에 대한 이야기이다.</p>
+<h2 id="왜-JVM이-필요한가"><a href="#왜-JVM이-필요한가" class="headerlink" title="왜 JVM이 필요한가?"></a>왜 JVM이 필요한가?</h2><p><img src="https://lh3.googleusercontent.com/pw/ACtC-3eves8TGpNW27YOqU0U5C9CFzFrkP6JUEzhMXbFhYt9SfrYQKh3ZkjNXRIGkPTnqIYeyitKzKQRR1kJUbbQv9dv1uP6meWH9-ZPVq6Hz6py3i8t8EiH4QlzMNS3fUrncNtFj9oFxLNuYJFvn9PJRcsdmg=w995-h274-no?authuser=0"></p>
+<p>자바로 프로그래밍된 파일을 실행하려면 JVM이 필수적이다. 자바 소스코드는 그 자체로 OS에서 즉시 실행할 수 없고 자바 런타임환경에서 실행될 수 있는데, 그러려면 JVM이 운영체제에 맞게 바이트 코드로부터 기계어로 컴파일 해주어야 한다.</p>
+<h3 id="자바-애플리케이션-실행과정"><a href="#자바-애플리케이션-실행과정" class="headerlink" title="자바 애플리케이션 실행과정"></a>자바 애플리케이션 실행과정</h3><p><img src="https://lh3.googleusercontent.com/pw/ACtC-3fp4NDDdjAj7GndOA-Pr9PNm0l_cpTYBf3EyciNqe5PqVTqfKWw8UxVCmxNofj9_wNehW1yRnezeidg2prGrTUAtY_B65mS7nMzOf6h2JaHZ9SPMZY1ok8SnXfiV083ZBEUvsiINkq8wBaXw-cMB-lslA=w773-h502-no?authuser=0"></p>
+<p>운영체제에서 자바 프로그램을 실행하기 위한 과정은 다음과 같다. </p>
+<ol>
+<li>프로그래머가 작성한 소스코드(.java)를 JDK에 내장된 자바 컴파일러(javac)로 컴파일한다. 컴파일 결과로 바이트 코드(.class)가 생성된다. 컴파일 하는 목적은 JVM을 위함이다. JVM은 바이트 코드만 읽을 수 있기 때문이다.<br><em>(웹 개발시 Maven이나 Gradle로 빌드하면서 생성되는 jar파일은 이런 class 파일들의 집합이다.)</em></li>
+<li>자바 컴파일러(javac)로 컴파일한 class 파일은 JVM 에서 구동할 수 있다. 그럼 JVM은 바이트 코드로부터 실행환경(운영체제)에 맞는 기계어(binary)로 컴파일 한다.</li>
+<li>이렇게 컴파일된 기계어는 자바 런타임 환경(JRE)에서 애플리케이션(프로세스)으로 실행된다. </li>
+</ol>
+<p>OS에서 바로 실행하는 것이 아닌 JVM이라는 가상머신을 통해 구동하기 때문에 Java는 <a href="https://devyoungjin.github.io/2019/02/java-intro/#os-independent" target="_blank">플랫폼 독립적</a>이라는 특징을 가질 수 있는 것이다.</p>
+<p>JVM은 바이트 코드를 읽어서 프로세스로 동작시키는 것 외에도 가비지 컬렉터(GC)를 내장하고 있어서 GC가 메모리 관리를 해준다. 메모리 관리란, 이미 쓰임을 다한 메모리 주소를 반납하는 것을 의미하는데, C 계열의 언어에서는 프로그래머가 수동으로 해야하는 일이지만, 자바는 그럴 필요가 없다.</p>
+<p>JVM과 함께 언급되는 키워드로 JDK, JRE가 있는데, JDK와 JRE는 서로 다른 환경에서 필요하다. JDK는 자바 애플리케이션을 개발하는 환경에서 필요하며, JRE는 자바 애플리케이션을 실행하는 환경에서 필요한 자원이다.</p>
+<h3 id="Java와-C의-차이"><a href="#Java와-C의-차이" class="headerlink" title="Java와 C의 차이"></a>Java와 C의 차이</h3><p>자바는 소스 코드(.java)로부터 바이트 코드(.class)로 컴파일 하고, 다시 바이트 코드로부터 기계어로 컴파일하는 과정을 거치지만, C에서는 바이트 코드 변환과정없이 소스코드에서 곧바로 기계어로 번역된다. 그래서 C가 자바보다 실행 속도가 더 빠르다고 이야기되곤 한다. 그렇다면 자바는 왜 C처럼 소스 코드를 기계어로 바로 컴파일하지 않고, 바이트 코드로 컴파일하는 과정을 거치는 걸까?</p>
+<p>이유는 이미 위에 작성해두었다! ㅎㅎ</p>
+<br>
+
+<h2 id="JVM-구동-원리"><a href="#JVM-구동-원리" class="headerlink" title="JVM 구동 원리"></a>JVM 구동 원리</h2><p>위에서 자바 애플리케이션의 구동원리를 크게 두번의 과정으로 설명했는데, 위의 과정에서 2번을 좀 더 상세히 정리해보려고 한다. 즉, <strong>JVM에서 어떻게 프로세스로 변환되는지에 대한 과정</strong>이다.</p>
+<ol>
+<li>자바 애플리케이션이 실행되면, JVM은 이 애플리케이션의 실행에 필요한 메모리를 운영체제로부터 할당받는다. 이렇게 할당된 메모리는 용도에 따라 여러 영역으로 나누어 관리된다.</li>
+<li>그리고 JVM의 클래스 로더에 의해 class 파일(바이트 코드)들이 JVM으로 로딩된다.</li>
+<li>로딩된 class 파일은 Execution Engine을 통해 해석된다.</li>
+<li>해석된 바이트 코드들이 Runtime Data Areas로 배치되어 프로세스로써 실질적인 수행이 이루어진다.</li>
+</ol>
+<br>
+
+<h2 id="JVM의-구성"><a href="#JVM의-구성" class="headerlink" title="JVM의 구성"></a>JVM의 구성</h2><p><img src="https://static.wixstatic.com/media/b9ec8c_3b784efced29431bbb856c12d0ac1ee3~mv2.png"></p>
+<ol>
+<li><h3 id="ClassLoader"><a href="#ClassLoader" class="headerlink" title="ClassLoader"></a>ClassLoader</h3><ul>
+<li>Runtime 시에 동적으로 클래스 파일들을 JVM으로 로딩하는데 사용하는 서브 시스템이다. </li>
+<li>클래스 로더에서 발생하는 행위는 아래 3가지로 구분할 수 있다.<ul>
+<li>Loading - JVM으로 로딩한다.</li>
+<li>Linking - 필요한 영역으로 배치하는 역할을 수행.</li>
+<li>Initialization</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h3 id="Method-Area"><a href="#Method-Area" class="headerlink" title="Method Area"></a>Method Area</h3><ul>
+<li>클래스 정보를 메모리 공간에 처음 올릴 때 초기화되는 대상을 저장하기 위한 메모리 공간이다.</li>
+<li>올라가게 되는 메서드의 바이트 코드는 프로그램의 흐름을 구성하는 바이트 코드이다. 거의 모든 바이트 코드가 Method Area에 할당된다고 생각하면 된다.</li>
+<li>클래스 데이터를 위한 공간이라고 이해하면 좋다.</li>
+<li>Method Area는 Constant runtime pool이라는 관리 영역도 존재하는데, 이곳에서 상수형 자료형을 저장하고 참조하여 중복을 막는 역할을 수행한다.</li>
+</ul>
+</li>
+<li><h3 id="Heap"><a href="#Heap" class="headerlink" title="Heap"></a>Heap</h3><ul>
+<li>인스턴스 변수들과 배열 등 모든 변수가 Heap 에 저장된다.</li>
+<li>new 키워드로 생성된 인스턴스 변수들이 할당되는 곳이라고 이해하면 된다.</li>
+<li>Method Area가 클래스 데이터를 위한 공간이라면, Heap은 객체를 위한 공간이다.</li>
+</ul>
+</li>
+<li><h3 id="JVM-Language-Stacks"><a href="#JVM-Language-Stacks" class="headerlink" title="JVM Language Stacks"></a>JVM Language Stacks</h3><ul>
+<li>메서드 안에서 사용되는 변수(local variable)들을 저장하는 영역이다.</li>
+<li>자바 애플리케이션 실행 과정에서 임시로 할당되었다가 메서드를 빠져나가며 바로 소멸되는 특성의 데이터를 저장하기 위한 영역이다.</li>
+<li>메서드 호출시마다 각각의 스택 프레임(해당 메서드만을 위한 공간)이 생성된다.</li>
+<li>메서드 수행이 끝나면 스택 프레임 별로 삭제를 한다.</li>
+</ul>
+</li>
+<li><h3 id="PC-Register"><a href="#PC-Register" class="headerlink" title="PC Register"></a>PC Register</h3><ul>
+<li>현재 실행중인 JVM의 주소를 저장한다.</li>
+<li>쓰레드가 시작될 때 생성되는 공간으로 쓰레드마다 PC 레지스터를 각각 갖는다.</li>
+<li>쓰레드가 어떤 명령에 의해 어떤 부분을 실행해야하는지를 기록하는 영역이다.</li>
+</ul>
+</li>
+<li><h3 id="Native-Method-Stacks"><a href="#Native-Method-Stacks" class="headerlink" title="Native Method Stacks"></a>Native Method Stacks</h3><ul>
+<li>자바 애플리케이션이 컴파일되어 생성되는 바이트 코드가 아닌 실제 실행할 수 있는 기계어(바이너리)로 작성된 프로그램을 실행시키는 영역이다.</li>
+</ul>
+</li>
+<li><h3 id="Execution-Engine"><a href="#Execution-Engine" class="headerlink" title="Execution Engine"></a>Execution Engine</h3><ul>
+<li>클래스를 실행시키는 역할을 수행한다.</li>
+<li>클래스 로더가 JVM 내의 Runtime Data Area에 바이트 코드를 배치시키면, 이것이 실행 엔진에 의해 실행된다.</li>
+<li>실행 엔진은 바이트 코드를 JVM에서 실제로 기계가 실행할 수 있는 형태인 바이너리로 변경한다.</li>
+</ul>
+</li>
+<li><h3 id="Native-Method-Interface"><a href="#Native-Method-Interface" class="headerlink" title="Native Method Interface"></a>Native Method Interface</h3><ul>
+<li>JVM 에서 실행중인 자바 코드가 라이브러리와 네이티브 애플리케이션들에 의해 호출되도록 허용하는 역할을 수행한다.</li>
+</ul>
+</li>
+<li><h3 id="Native-Method-Libraries"><a href="#Native-Method-Libraries" class="headerlink" title="Native Method Libraries"></a>Native Method Libraries</h3><ul>
+<li>실행 엔진에 필요한 네이티브 라이브러리들의 모음(컬렉션)이다.</li>
+</ul>
+</li>
+<li><h3 id="Run-Time-Area"><a href="#Run-Time-Area" class="headerlink" title="Run Time Area"></a>Run Time Area</h3><ul>
+<li>자바 애플리케이션을 실행하기 위해 운영체제에서 할당받은 메모리 영역이다.</li>
+</ul>
+</li>
+</ol>
+<br>
+
+<p><strong>함께 읽으면 훠얼씬 좋은 글</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://yeon-kr.tistory.com/112">페페로니피자 - [Java]JVM Architecture란?</a></li>
+<li><a target="_blank" rel="noopener" href="https://asfirstalways.tistory.com/158">Jbee - JVM이란 무엇인가?</a></li>
+<li><a target="_blank" rel="noopener" href="https://asfirstalways.tistory.com/159">Jbee - GC/JVM 구동원리에 이어서</a></li>
+</ul>
+<br>
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://youngjinmo.github.io/2020/07/java-jvm/" data-id="ckf65udwx00c4acgddsbmemvl" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Youngjin Mo"
+        },
+        "headline": "Java - JVM",
+        "image": "../../../http:/youngjinmo.github.iohttps:/lh3.googleusercontent.com/pw/ACtC-3e1wABVIxe20MsC2iZ5sxyWZP3UMB3BV5dP9qZVWb-F-rmC9TmXhvkDSYNodvT9Ysfg1QvAt6WgJa6tdkg5heBGQZSCs8OM2dkPqdaMn0d3obmoc1oehFLVquGR5H1sXupM5F4hCqhgvt1-oTyvA215AA=w720-h480-no?authuser=0",
+        "keywords": "jvm",
+        "genre": "Dev Java",
+        "datePublished": "2020-07-28",
+        "dateCreated": "2020-07-28",
+        "dateModified": "2020-09-13",
+        "url": "../../../http:/youngjinmo.github.io/2020/07/java-jvm/",
+        "description": "
+  
+
+
+자바 소스코드를 class 파일로 컴파일해주고 실행하는 **JVM(Java Virtual Machine)**의 메모리 구조에 대한 이야기이다.
+왜 JVM이 필요한가?
+자바로 프로그래밍된 파일을 실행하려면 JVM이 필수적이다. 자바 소스코드는 그 자체로 OS에서 즉시 실행할 수 없고 자바 런타임환경에서 실행될 수 있는데, 그러려면 JVM이 운영체제",
+        "wordCount": 661
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="../../../https:/github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="../git-access-token/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Github Two-Factor 적용이후 Authenticatin Fail 발생할때
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="../enumeration-iterator/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Enumeration 인터페이스와 Iterator 인터페이스</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../09/xml-json-xmlhttprequest/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3f3uUiEllt7yZ2cz-TBQE53mDoXAvAbilDnTHnb0gUIYnX86czSpvvAGNC1uwJN3Mm543ae8FVwBXvYPyOcYzNVH-5fg0VXSmiORlQSYChhlqdO1jLRs_XhVOQYcySp_K_S3JbhAK4jHpeyRpXmh45Gqg=w640-h405-no?authuser=2)" alt="XML, JSON 그리고 XMLHttpRequest" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Others/">Others</a></p>
+                            <p class="item-title"><a href="../../09/xml-json-xmlhttprequest/" class="title">XML, JSON 그리고 XMLHttpRequest</a></p>
+                            <p class="item-date"><time datetime="2020-09-01T12:00:59.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/create-table-sequence/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3dnKjQpuvDEmVxFsIrKfVbq9RCZMjbbZPOtAWR0Etr5EfTkx58EYPQjjgLEiO8XYLsVu_1TWyNmpySsDRxXvCplY6aMPhIMQgNCaH0TBpVv0vxyI_-b6pK9x8qhVSSptzKgeu-dbMHYIt-eS1MUDQnkiw=w640-h427-no?authuser=0)" alt="Oracle - Sequence 생성하고 테이블에 삽입하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Database/">Database</a></p>
+                            <p class="item-title"><a href="../../08/create-table-sequence/" class="title">Oracle - Sequence 생성하고 테이블에 삽입하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-31T18:57:13.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/servlet-redirect-forward/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3cK_j9D5XupS1mIeAAwsE1cOAdZ05jfS290XghGTAfDNVmf1VDdldnidSEQpbEAPRe_aTchGC7U00h7lU9JKtTV3ltDyqUcofn0Xu4p0pm_ROewKfcnOG3UO4Yo4EgVG6ZeQfoemWHklC1hGMn-1DXYfQ=w640-h427-no?authuser=0)" alt="Servlet - Redirect와 Forward" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../../08/servlet-redirect-forward/" class="title">Servlet - Redirect와 Forward</a></p>
+                            <p class="item-date"><time datetime="2020-08-30T22:32:44.000Z" itemprop="datePublished">2020-08-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/leetcode-twosum/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://assets.leetcode.com/static_assets/public/images/LeetCode_Sharing.png)" alt="Leetcode - Twosum" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Quiz/">Quiz</a></p>
+                            <p class="item-title"><a href="../../08/leetcode-twosum/" class="title">Leetcode - Twosum</a></p>
+                            <p class="item-date"><time datetime="2020-08-24T14:28:47.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/run-mysql-with-docker/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3fdpC3xu5q4xnJRLLhSaWCrARbnQ1qdp_DpF0Z7BITrtrr6gZWGExKC4PcMlVo3AxVhVbYiFgDhNObWmtv3hGwoEtF_4zFb_1fQsdL6d1K3UNA0LRkczuC_nNvcEHERB8EIB3uvWOIps7j1iraX6DGLbQ=w720-h480-no?authuser=0)" alt="Docker로 MySQL 실행하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Devops/">Devops</a></p>
+                            <p class="item-title"><a href="../../08/run-mysql-with-docker/" class="title">Docker로 MySQL 실행하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-23T17:12:43.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 11.11px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/api/" style="font-size: 11.11px;">api</a> <a href="../../../tags/architecture/" style="font-size: 10px;">architecture</a> <a href="../../../tags/array/" style="font-size: 11.11px;">array</a> <a href="../../../tags/aws/" style="font-size: 12.22px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 12.22px;">career</a> <a href="../../../tags/casting/" style="font-size: 12.22px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/cloud/" style="font-size: 12.22px;">cloud</a> <a href="../../../tags/compiler/" style="font-size: 10px;">compiler</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/databse/" style="font-size: 10px;">databse</a> <a href="../../../tags/datastructure/" style="font-size: 12.22px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 13.33px;">docker</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 11.11px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generic/" style="font-size: 10px;">generic</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 10px;">github</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 13.33px;">http</a> <a href="../../../tags/ide/" style="font-size: 10px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 10px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 11.11px;">interface</a> <a href="../../../tags/interpreter/" style="font-size: 10px;">interpreter</a> <a href="../../../tags/io/" style="font-size: 12.22px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 15.56px;">java</a> <a href="../../../tags/java8/" style="font-size: 11.11px;">java8</a> <a href="../../../tags/jquery/" style="font-size: 11.11px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/jvm/" style="font-size: 10px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 10px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 10px;">mustache</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 16.67px;">oop</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 12.22px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 11.11px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 18.89px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/string/" style="font-size: 14.44px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/tip/" style="font-size: 17.78px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 13.33px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 11.11px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 18.89px;">weekly-review</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Youngjin Mo</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+    
+        
+<script src="../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="../../../js/main.js"></script>
+
+
+</body>
+</html>

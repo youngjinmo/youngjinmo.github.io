@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Java - String 클래스 메서드 정리 | DevAndy</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="string,object" />
+    
+    <meta name="description" content="String 클래스가 내장하고 있는 메서드들에 대해 정리해보았다.  append()  length()  concat()  substring()  indexOf()  lastIndexOf()  charAt()  isEmpty()  replace()  toUpperCase()  toLowerCase()  trim()  split()  toCharArray(">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java - String 클래스 메서드 정리">
+<meta property="og:url" content="http://youngjinmo.github.io/2020/05/java-string-methods/index.html">
+<meta property="og:site_name" content="DevAndy">
+<meta property="og:description" content="String 클래스가 내장하고 있는 메서드들에 대해 정리해보았다.  append()  length()  concat()  substring()  indexOf()  lastIndexOf()  charAt()  isEmpty()  replace()  toUpperCase()  toLowerCase()  trim()  split()  toCharArray(">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://images.unsplash.com/reserve/oIpwxeeSPy1cnwYpqJ1w_Dufer%20Collateral%20test.jpg?ixlib=rb-1.2.1&auto=format&fit=crop&w=1516&q=80">
+<meta property="article:published_time" content="2020-05-03T16:56:04.000Z">
+<meta property="article:modified_time" content="2020-09-13T01:53:28.408Z">
+<meta property="article:author" content="Youngjin Mo">
+<meta property="article:tag" content="string">
+<meta property="article:tag" content="object">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.unsplash.com/reserve/oIpwxeeSPy1cnwYpqJ1w_Dufer%20Collateral%20test.jpg?ixlib=rb-1.2.1&auto=format&fit=crop&w=1516&q=80">
+<meta name="twitter:creator" content="@devandy_yj">
+    
+
+    
+        <link rel="alternate" href="/" title="DevAndy" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="../../../libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="../../../libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="../../../libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="../../../css/style.css">
+
+
+    
+<script src="../../../libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-177850483-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../index.html">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Articles/">Articles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/">Dev</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Devops/">Devops</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Html-Css/">Html/Css</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Javascript/">Javascript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Others/">Others</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Springboot/">Springboot</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Web/">Web</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Review/">Review</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Thought/">Thought</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Quiz/">Quiz</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../https:/github.com/youngjinmo">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="../../../js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Java/">Java</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="posts-java-string-methods" class="article article-single article-type-posts" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Java - String 클래스 메서드 정리
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="" class="article-date">
+       <time datetime="2020-05-03T16:56:04.000Z" itemprop="datePublished">2020-05-04</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="" class="article-date">
+     <time datetime="2020-09-13T01:53:28.408Z" itemprop="dateModified">2020-09-13</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="../../../tags/object/" rel="tag">object</a>, <a class="tag-link-link" href="../../../tags/string/" rel="tag">string</a>
+    </div>
+
+                
+
+                
+
+            </div>
+			<!-- 	count-time		 -->
+			<!-- <span class="reading-time" style="margin-left: 20px;">⏱ 17 min.</span>  -->
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <img src="https://images.unsplash.com/reserve/oIpwxeeSPy1cnwYpqJ1w_Dufer%20Collateral%20test.jpg?ixlib=rb-1.2.1&auto=format&fit=crop&w=1516&q=80" width="650px" />
+
+<p>String 클래스가 내장하고 있는 메서드들에 대해 정리해보았다.</p>
+<ul>
+<li><p><a href="#append">append()</a></p>
+</li>
+<li><p><a href="#length">length()</a></p>
+</li>
+<li><p><a href="#concat">concat()</a></p>
+</li>
+<li><p><a href="#substring">substring()</a></p>
+</li>
+<li><p><a href="#indexof">indexOf()</a></p>
+</li>
+<li><p><a href="#lastindexof">lastIndexOf()</a></p>
+</li>
+<li><p><a href="#charat">charAt()</a></p>
+</li>
+<li><p><a href="#isempty">isEmpty()</a></p>
+</li>
+<li><p><a href="#replace">replace()</a></p>
+</li>
+<li><p><a href="#touppercase">toUpperCase()</a></p>
+</li>
+<li><p><a href="#tolowercase">toLowerCase()</a></p>
+</li>
+<li><p><a href="#trim">trim()</a></p>
+</li>
+<li><p><a href="#split">split()</a></p>
+</li>
+<li><p><a href="#tochararray">toCharArray()</a></p>
+</li>
+<li><p><a href="#getbytes">getBytes()</a></p>
+</li>
+</ul>
+<br>
+
+<h2 id="length"><a href="#length" class="headerlink" title="length()"></a><a name="length"></a>length()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  문자열 데이터의 길이를 반환하는 메서드이다.</span></span><br><span class="line"><span class="comment">  파라미터는 존재하지 않는다.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">String str = <span class="string">&quot;Hello Java&quot;</span>;</span><br><span class="line">System.out.println(str.length()); </span><br><span class="line"><span class="comment">// 출력결과 : 10</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="concat"><a href="#concat" class="headerlink" title="concat()"></a><a name="concat"></a>concat()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  문자열과 문자열을 결합하는 메서드이다.</span></span><br><span class="line"><span class="comment">  파라미터에 추가할 String형 데이터가 온다.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">String str = <span class="string">&quot;Hello &quot;</span>;</span><br><span class="line">String lang = <span class="string">&quot;Java&quot;</span>;</span><br><span class="line">System.out.println(str.concat(lang));</span><br><span class="line"><span class="comment">// 출력결과 : Hello Java</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="substring"><a href="#substring" class="headerlink" title="substring()"></a><a name="substring"></a>substring()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  문자열을 자르는 메서드이다.</span></span><br><span class="line"><span class="comment">  파라미터에 어디부터 어디까지 자를지 문자열의 인덱스가 와야한다.</span></span><br><span class="line"><span class="comment">  첫번째 파라미터가 시작 인덱스, 두번째 파라미터가 마지막 인덱스이며,</span></span><br><span class="line"><span class="comment">  파라미터를 하나만 넣을경우, 입력받은 인덱스부터 마지막까지 문자열을 자른다.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">String str = <span class="string">&quot;Hello Java&quot;</span>;</span><br><span class="line">String lang = str.substring(<span class="number">6</span>);</span><br><span class="line"></span><br><span class="line">System.out.println(lang);</span><br><span class="line"><span class="comment">// 출력 결과 : Java</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="indexOf"><a href="#indexOf" class="headerlink" title="indexOf()"></a><a name="indexof"></a>indexOf()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  문자가 위치한 인덱스를 반환하는 메서드이다.</span></span><br><span class="line"><span class="comment">  파라미터로 char형 문자를 입력받으며, 해당 문자와 일치하는 문자가 </span></span><br><span class="line"><span class="comment">  문자열에 존재할 경우 인덱스를 반환한다. </span></span><br><span class="line"><span class="comment">  만약 2개 이상 문자가 발견될 경우, 가장 먼저 오는 문자의 인덱스를 반환한다.</span></span><br><span class="line"><span class="comment">  문자가 존재하지 않는 경우엔 -1을 반환한다.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">String str = <span class="string">&quot;Hello Java&quot;</span>;</span><br><span class="line">System.out.println(str.indexOf(<span class="string">&#x27;a&#x27;</span>));</span><br><span class="line"><span class="comment">// 출력 결과 : 7</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="lastIndexOf"><a href="#lastIndexOf" class="headerlink" title="lastIndexOf()"></a><a name="lastindexof"></a>lastIndexOf()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  indexOf()와 비슷한 기능을 가진 메서드이다.</span></span><br><span class="line"><span class="comment">  문자열의 인덱스를 반환하는 것은 같으나 indexOf()와 달리</span></span><br><span class="line"><span class="comment">  뒤에서부터 조회해서 인덱스를 반환한다는 점이 특징이다.</span></span><br><span class="line"><span class="comment">  마지막 문자의 인덱스를 반환한다.</span></span><br><span class="line"><span class="comment">  파라미터로 인덱스 조회를 하고자하는 char형 문자를 입력받는다.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">String str = <span class="string">&quot;Hello Java&quot;</span>;</span><br><span class="line">System.out.println(str.lastIndexOf(<span class="string">&#x27;a&#x27;</span>));</span><br><span class="line"><span class="comment">// 출력 결과 : 9</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="charAt"><a href="#charAt" class="headerlink" title="charAt()"></a><a name="charat"></a>charAt()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  indexOf()와 반대의 메서드이다.</span></span><br><span class="line"><span class="comment">  인덱스에 위치한 문자를 반환하는 메서드이다.</span></span><br><span class="line"><span class="comment">  파라미터로는 int형 인덱스를 입력받는다.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">String str = <span class="string">&quot;Hello Java&quot;</span>;</span><br><span class="line">System.out.println(str.charAt(<span class="number">1</span>));</span><br><span class="line"><span class="comment">// 출력 결과 : e</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="isEmpty"><a href="#isEmpty" class="headerlink" title="isEmpty()"></a><a name="isempty"></a>isEmpty()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  해당 문자열이 빈 값인지 확인하는 메서드이다.</span></span><br><span class="line"><span class="comment">  문자열의 길이가 0인지 비교하여 boolean값을 반환한다.</span></span><br><span class="line"><span class="comment">  파라미터는 없다.</span></span><br><span class="line"><span class="comment">  문자열의 길이가 0이면, true</span></span><br><span class="line"><span class="comment">  문자열의 길이가 0이 아니면 false</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">String str = <span class="string">&quot;Hello Java&quot;</span>;</span><br><span class="line">System.out.println(str.isEmpty());</span><br><span class="line"><span class="comment">// 출력 결과 : false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="replace"><a href="#replace" class="headerlink" title="replace()"></a><a name="replace"></a>replace()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  문자열의 일부를 다른 문자열로 바꿔주는 메서드이다.</span></span><br><span class="line"><span class="comment">  파라미터로는 2개를 가지며, 첫째 파라미터로 바꿀 문자열,</span></span><br><span class="line"><span class="comment">  두번째 파라미터로 새로운 문자열을 입력한다.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">String str = <span class="string">&quot;Hello Java&quot;</span>;</span><br><span class="line">String newStr = str.replace(<span class="string">&quot;Java&quot;</span>, <span class="string">&quot;Python&quot;</span>);</span><br><span class="line"></span><br><span class="line">System.out.println(newStr);</span><br><span class="line"><span class="comment">// 출력 결과 : Hello Python</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="toUpperCase"><a href="#toUpperCase" class="headerlink" title="toUpperCase()"></a><a name="touppercase"></a>toUpperCase()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  문자열을 대문자로 바꿔주는 메서드이다.</span></span><br><span class="line"><span class="comment">  파라미터에 대문자로 바꿔줄 String 데이터를 입력한다.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">String str = <span class="string">&quot;hello java&quot;</span>;</span><br><span class="line">String strUp = str.toUpperCase();</span><br><span class="line"></span><br><span class="line">System.out.println(strUp);</span><br><span class="line"><span class="comment">// 출력 결과 : HELLO JAVA</span></span><br></pre></td></tr></table></figure>
+
+<p>toUpperCase()는 subString()과 함께 사용하면, String 클래스에는 없는 첫글자만 대문자로 바꾸는 capitalize를 구현할 수 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String str = <span class="string">&quot;hello java&quot;</span>;</span><br><span class="line">String newStr = str.subString(<span class="number">0</span>, <span class="number">1</span>).toUpperCase();</span><br><span class="line"><span class="comment">// subString으로 첫글자만 가져와서 toUpperCase()를 적용한 코드이다.</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="toLowerCase"><a href="#toLowerCase" class="headerlink" title="toLowerCase()"></a><a name="tolowercase"></a>toLowerCase()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  문자열로 소문자로 바꿔주는 메서드이다.</span></span><br><span class="line"><span class="comment">  파라미터에 소문자로 바꿔줄 String 데이터를 입력한다.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">String str = <span class="string">&quot;HELLO JAVA&quot;</span>;</span><br><span class="line">String strLo = str.toLowerCase();</span><br><span class="line"></span><br><span class="line">System.out.println(strLo);</span><br><span class="line"><span class="comment">// 출력 결과 : hello java</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="trim"><a href="#trim" class="headerlink" title="trim()"></a><a name="trim"></a>trim()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  문자열 앞뒤의 공백을 제거해주는 메서드이다.</span></span><br><span class="line"><span class="comment">  파라미터는 없다.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">String str = <span class="string">&quot;  Hellooo Java World   &quot;</span>;</span><br><span class="line">String trimStr = str.trim();</span><br><span class="line"></span><br><span class="line">System.out.println(trimStr);</span><br><span class="line"><span class="comment">// 출력 결과 : Hellooo Java World</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="split"><a href="#split" class="headerlink" title="split()"></a><a name="split"></a>split()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  문자열을 잘라서 배열로 반환하는 메서드이다.</span></span><br><span class="line"><span class="comment">  파라미터로 자를때 기준이 되는 문자열을 입력받는다.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">String str = <span class="string">&quot;Hello Java&quot;</span>;</span><br><span class="line">String[] arr = str.split(<span class="string">&quot;&quot;</span>);</span><br><span class="line"></span><br><span class="line">System.out.println(Arrays.toString(arr));</span><br><span class="line"><span class="comment">// 출력 결과 : [H, e, l, l, o,  , J, a, v, a]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="toCharArray"><a href="#toCharArray" class="headerlink" title="toCharArray()"></a><a name="tochararray"></a>toCharArray()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  split(&quot;&quot;)과 같은 기능이지만, 반환하는 배열의 타입이 문자열 배열이 아니라</span></span><br><span class="line"><span class="comment">  문자형(char[]) 배열이라는 차이가 있다.</span></span><br><span class="line"><span class="comment">  파라미터는 없다.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">String str = <span class="string">&quot;Hello Java&quot;</span>;</span><br><span class="line"><span class="keyword">char</span>[] cArr = str.toCharArray();</span><br><span class="line"></span><br><span class="line">System.out.println(cArr);</span><br><span class="line"><span class="comment">// 출력 결과 : Hello Java</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="getBytes"><a href="#getBytes" class="headerlink" title="getBytes()"></a><a name="getbytes"></a>getBytes()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  byte 배열로 반환하는 메서드이다.</span></span><br><span class="line"><span class="comment">  파라미터는 없다.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">String str = <span class="string">&quot;Hello Java&quot;</span>;</span><br><span class="line"><span class="keyword">byte</span>[] bytesArr = str.getBytes();</span><br><span class="line"></span><br><span class="line">System.out.println(Arrays.toString(bytesArr));</span><br><span class="line"><span class="comment">// 출력 결과 : [72, 101, 108, 108, 111, 32, 74, 97, 118, 97]</span></span><br></pre></td></tr></table></figure>
+
+<p>여기서 출력되는 byte코드는 <a target="_blank" rel="noopener" href="https://www.ascii-code.com/">아스키코드 테이블</a>을 보면 어떤 문자열을 의미하는지 알 수 있다.</p>
+<p><img src="https://lh3.googleusercontent.com/y82u1xMYdpei4fNvYZxEiUnbHuR5p8I0D29cSN0hWmN5uRLN7MLdjxyNj08j90655x6GgnD12StW5PKVZoS40f4-OWYGy-eG1qQ2hM0OOc46vw-sK-b4_hZwbO9rGe73U5RpSiEfHrRp7hmKp7QCQku47KwQkXU2Bb5MOB-r3-DRD7t4LlOkVxdL49YnkLGZZAgKiGSsRS-kyisPhgGfdQQTafl782mbM1un6zc-hwYD9HwkZQ1_rADp_7NQNH4aXFq7v_txuFF_PgkaNyeo41SyCZJoxArORrufHDFfwav8sgx4KUgtS1XES41ArL4ry1pDkeXB3-I9dEDI_DfnFFee3EjZDjJqkoVn2xzswlyg3lQNwOUcvTAVhL4XyL3baJk7AgW0SChvJ5wvTjnRVgC3erSDHM8rHCeOUdT8Rln29ic2S474gNGlCcKjBkZQ2OF4wh4iEH6U0U3CpbJA_pE05LCUNubY9x-QVt2nz4HYGDGfEfLJ6Et1UDXcyeRBigjyTBRIBYUH4yUZbLQesE9C3ZSEnI-W4C8BVWiU_3jiGxkFKOy_RQvRb2nQRNXndTSS0mW4B-bfmMB9iJypKpVU10OlLynm-z66U22aL5KsZyRo58d4pBGqdbumVIFSWKbQ2JzHnFx8DT34u4QR9pQyG6kFGitTaaGS6Rc81zet6mFNitL4hYZwfBQbVPJdWDgg9cfPv2dAJ1kk7IUSuVwPj51znMbdHhi-72X7wSYWLrbluRtt9W3M=w870-h240-no"></p>
+<p>아스키코드 테이블상 H라는 문자는 10진수 72와 매칭된다. 따라서 문자열 str 변수에서 H의 문자와 매칭되는 바이트 코드는 72라는 걸 알 수 있다.</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://youngjinmo.github.io/2020/05/java-string-methods/" data-id="ckf65udzp00d6acgddk628zxd" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Youngjin Mo"
+        },
+        "headline": "Java - String 클래스 메서드 정리",
+        "image": "../../../http:/youngjinmo.github.iohttps:/images.unsplash.com/reserve/oIpwxeeSPy1cnwYpqJ1w_Dufer%20Collateral%20test.jpg?ixlib=rb-1.2.1&auto=format&fit=crop&w=1516&q=80",
+        "keywords": "string object",
+        "genre": "Dev Java",
+        "datePublished": "2020-05-04",
+        "dateCreated": "2020-05-04",
+        "dateModified": "2020-09-13",
+        "url": "../../../http:/youngjinmo.github.io/2020/05/java-string-methods/",
+        "description": "
+
+String 클래스가 내장하고 있는 메서드들에 대해 정리해보았다.
+
+append()
+
+length()
+
+concat()
+
+substring()
+
+indexOf()
+
+lastIndexOf()
+
+charAt()
+
+isEmpty()
+
+replace()
+
+toUpperCase()
+
+toLowerCase()
+
+trim()
+
+split()
+
+toCharArray(",
+        "wordCount": 1068
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="../../../https:/github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="../install-jdk-ubuntu/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Ubuntu에서 JDK 설치하기
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="../../04/oracle-date/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Oracle - Date</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../09/xml-json-xmlhttprequest/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3f3uUiEllt7yZ2cz-TBQE53mDoXAvAbilDnTHnb0gUIYnX86czSpvvAGNC1uwJN3Mm543ae8FVwBXvYPyOcYzNVH-5fg0VXSmiORlQSYChhlqdO1jLRs_XhVOQYcySp_K_S3JbhAK4jHpeyRpXmh45Gqg=w640-h405-no?authuser=2)" alt="XML, JSON 그리고 XMLHttpRequest" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Others/">Others</a></p>
+                            <p class="item-title"><a href="../../09/xml-json-xmlhttprequest/" class="title">XML, JSON 그리고 XMLHttpRequest</a></p>
+                            <p class="item-date"><time datetime="2020-09-01T12:00:59.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/create-table-sequence/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3dnKjQpuvDEmVxFsIrKfVbq9RCZMjbbZPOtAWR0Etr5EfTkx58EYPQjjgLEiO8XYLsVu_1TWyNmpySsDRxXvCplY6aMPhIMQgNCaH0TBpVv0vxyI_-b6pK9x8qhVSSptzKgeu-dbMHYIt-eS1MUDQnkiw=w640-h427-no?authuser=0)" alt="Oracle - Sequence 생성하고 테이블에 삽입하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Database/">Database</a></p>
+                            <p class="item-title"><a href="../../08/create-table-sequence/" class="title">Oracle - Sequence 생성하고 테이블에 삽입하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-31T18:57:13.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/servlet-redirect-forward/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3cK_j9D5XupS1mIeAAwsE1cOAdZ05jfS290XghGTAfDNVmf1VDdldnidSEQpbEAPRe_aTchGC7U00h7lU9JKtTV3ltDyqUcofn0Xu4p0pm_ROewKfcnOG3UO4Yo4EgVG6ZeQfoemWHklC1hGMn-1DXYfQ=w640-h427-no?authuser=0)" alt="Servlet - Redirect와 Forward" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../../08/servlet-redirect-forward/" class="title">Servlet - Redirect와 Forward</a></p>
+                            <p class="item-date"><time datetime="2020-08-30T22:32:44.000Z" itemprop="datePublished">2020-08-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/leetcode-twosum/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://assets.leetcode.com/static_assets/public/images/LeetCode_Sharing.png)" alt="Leetcode - Twosum" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Quiz/">Quiz</a></p>
+                            <p class="item-title"><a href="../../08/leetcode-twosum/" class="title">Leetcode - Twosum</a></p>
+                            <p class="item-date"><time datetime="2020-08-24T14:28:47.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/run-mysql-with-docker/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3fdpC3xu5q4xnJRLLhSaWCrARbnQ1qdp_DpF0Z7BITrtrr6gZWGExKC4PcMlVo3AxVhVbYiFgDhNObWmtv3hGwoEtF_4zFb_1fQsdL6d1K3UNA0LRkczuC_nNvcEHERB8EIB3uvWOIps7j1iraX6DGLbQ=w720-h480-no?authuser=0)" alt="Docker로 MySQL 실행하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Devops/">Devops</a></p>
+                            <p class="item-title"><a href="../../08/run-mysql-with-docker/" class="title">Docker로 MySQL 실행하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-23T17:12:43.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 11.11px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/api/" style="font-size: 11.11px;">api</a> <a href="../../../tags/architecture/" style="font-size: 10px;">architecture</a> <a href="../../../tags/array/" style="font-size: 11.11px;">array</a> <a href="../../../tags/aws/" style="font-size: 12.22px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 12.22px;">career</a> <a href="../../../tags/casting/" style="font-size: 12.22px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/cloud/" style="font-size: 12.22px;">cloud</a> <a href="../../../tags/compiler/" style="font-size: 10px;">compiler</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/databse/" style="font-size: 10px;">databse</a> <a href="../../../tags/datastructure/" style="font-size: 12.22px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 13.33px;">docker</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 11.11px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generic/" style="font-size: 10px;">generic</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 10px;">github</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 13.33px;">http</a> <a href="../../../tags/ide/" style="font-size: 10px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 10px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 11.11px;">interface</a> <a href="../../../tags/interpreter/" style="font-size: 10px;">interpreter</a> <a href="../../../tags/io/" style="font-size: 12.22px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 15.56px;">java</a> <a href="../../../tags/java8/" style="font-size: 11.11px;">java8</a> <a href="../../../tags/jquery/" style="font-size: 11.11px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/jvm/" style="font-size: 10px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 10px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 10px;">mustache</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 16.67px;">oop</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 12.22px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 11.11px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 18.89px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/string/" style="font-size: 14.44px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/tip/" style="font-size: 17.78px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 13.33px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 11.11px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 18.89px;">weekly-review</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Youngjin Mo</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+    
+        
+<script src="../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="../../../js/main.js"></script>
+
+
+</body>
+</html>

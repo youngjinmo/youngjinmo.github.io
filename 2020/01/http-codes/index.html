@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>HTTP 상태코드 | DevAndy</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="http" />
+    
+    <meta name="description" content="현재 진행중인 프로젝트를 하다가 에러페이지를 다루는 과정에서 한 번 정리해볼 필요가 있을것 같아서 작성하게되었다. ToC   1xx        100     101     102        2xx        200     201     202     204        3xx        301     302     304        4xx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTTP 상태코드">
+<meta property="og:url" content="http://youngjinmo.github.io/2020/01/http-codes/index.html">
+<meta property="og:site_name" content="DevAndy">
+<meta property="og:description" content="현재 진행중인 프로젝트를 하다가 에러페이지를 다루는 과정에서 한 번 정리해볼 필요가 있을것 같아서 작성하게되었다. ToC   1xx        100     101     102        2xx        200     201     202     204        3xx        301     302     304        4xx">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://lh3.googleusercontent.com/SWgcgkpXv5_VtZumsognz31yfOvIWOzzsCGaT8idHl7fGmAE0rHpuGxaTirmxX0oWNQGj2Dho8F80cVMC9VxVN0KbeT0B-nI8zkDAMkD748kf95mRc2e-e1GYGCAFQaca0IV8daRsYYFpowZu6fVOiGOJGuMKeVWwBXP4H_bvMI0HhEHVlq2tYPIHDi9CNKdt6DlSJ_zTEG2uZqYEJRKTnD4ZLuva4n-NIHlmZVJ_JNCURxCk5u2KqPzknKt9sx2ybZZkIDqbTPhb5s9rZikA8Gl18Kyt4WMQWHy21eBGUTNGr6SFrCb07wnHEzl2LwuCqL6LyXPJ87HIYu6HUw8PDkfcrhQ-TnyZP2PB7X8uE7g5ylcVvgpyNxaSq0qPpOaNfAc2BLnaBIwdBG6U4MKgff0T6yygMSWWcQ5BK-16c_NKrvEMVqqxqHoLkq90HeF9UT_WCBq-v_FieSl2pcOHA3xsM8VT3s-DR1n8EbExDqKTgKuTWZqMdtRV_LyrBXLIspDIp0yD4guzH4mNsuL9sixV4P8NDB9p2OxKNuvVDZ77UKPsxwGQdacuTz_3Ylc6IecfxkY01wx3kz3U8m5exeY4_GgI19BkTk-Z-9HOCqFzUDP7mzN7MGvfS-XD4FIaMrWauYH7ZySjayTVf2VyuvkbeUU7JTgtxrMpniogtWq4WXnuA2rNFg60ZUnT4wryoA_tQcymnTbr7s3XkzeAEQEzz8Z4z3KxfkA5ncn53NDa89ORg=w550-h381-no">
+<meta property="article:published_time" content="2020-01-15T17:02:59.000Z">
+<meta property="article:modified_time" content="2020-09-13T01:53:28.688Z">
+<meta property="article:author" content="Youngjin Mo">
+<meta property="article:tag" content="http">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lh3.googleusercontent.com/SWgcgkpXv5_VtZumsognz31yfOvIWOzzsCGaT8idHl7fGmAE0rHpuGxaTirmxX0oWNQGj2Dho8F80cVMC9VxVN0KbeT0B-nI8zkDAMkD748kf95mRc2e-e1GYGCAFQaca0IV8daRsYYFpowZu6fVOiGOJGuMKeVWwBXP4H_bvMI0HhEHVlq2tYPIHDi9CNKdt6DlSJ_zTEG2uZqYEJRKTnD4ZLuva4n-NIHlmZVJ_JNCURxCk5u2KqPzknKt9sx2ybZZkIDqbTPhb5s9rZikA8Gl18Kyt4WMQWHy21eBGUTNGr6SFrCb07wnHEzl2LwuCqL6LyXPJ87HIYu6HUw8PDkfcrhQ-TnyZP2PB7X8uE7g5ylcVvgpyNxaSq0qPpOaNfAc2BLnaBIwdBG6U4MKgff0T6yygMSWWcQ5BK-16c_NKrvEMVqqxqHoLkq90HeF9UT_WCBq-v_FieSl2pcOHA3xsM8VT3s-DR1n8EbExDqKTgKuTWZqMdtRV_LyrBXLIspDIp0yD4guzH4mNsuL9sixV4P8NDB9p2OxKNuvVDZ77UKPsxwGQdacuTz_3Ylc6IecfxkY01wx3kz3U8m5exeY4_GgI19BkTk-Z-9HOCqFzUDP7mzN7MGvfS-XD4FIaMrWauYH7ZySjayTVf2VyuvkbeUU7JTgtxrMpniogtWq4WXnuA2rNFg60ZUnT4wryoA_tQcymnTbr7s3XkzeAEQEzz8Z4z3KxfkA5ncn53NDa89ORg=w550-h381-no">
+<meta name="twitter:creator" content="@devandy_yj">
+    
+
+    
+        <link rel="alternate" href="/" title="DevAndy" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="../../../libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="../../../libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="../../../libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="../../../css/style.css">
+
+
+    
+<script src="../../../libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-177850483-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../index.html">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Articles/">Articles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/">Dev</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Devops/">Devops</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Html-Css/">Html/Css</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Javascript/">Javascript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Others/">Others</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Springboot/">Springboot</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Web/">Web</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Review/">Review</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Thought/">Thought</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Quiz/">Quiz</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../https:/github.com/youngjinmo">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="../../../js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Web/">Web</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="posts-http-codes" class="article article-single article-type-posts" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        HTTP 상태코드
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="" class="article-date">
+       <time datetime="2020-01-15T17:02:59.000Z" itemprop="datePublished">2020-01-16</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="" class="article-date">
+     <time datetime="2020-09-13T01:53:28.688Z" itemprop="dateModified">2020-09-13</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="../../../tags/http/" rel="tag">http</a>
+    </div>
+
+                
+
+                
+
+            </div>
+			<!-- 	count-time		 -->
+			<!-- <span class="reading-time" style="margin-left: 20px;">⏱ 9 min.</span>  -->
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <img src="https://lh3.googleusercontent.com/SWgcgkpXv5_VtZumsognz31yfOvIWOzzsCGaT8idHl7fGmAE0rHpuGxaTirmxX0oWNQGj2Dho8F80cVMC9VxVN0KbeT0B-nI8zkDAMkD748kf95mRc2e-e1GYGCAFQaca0IV8daRsYYFpowZu6fVOiGOJGuMKeVWwBXP4H_bvMI0HhEHVlq2tYPIHDi9CNKdt6DlSJ_zTEG2uZqYEJRKTnD4ZLuva4n-NIHlmZVJ_JNCURxCk5u2KqPzknKt9sx2ybZZkIDqbTPhb5s9rZikA8Gl18Kyt4WMQWHy21eBGUTNGr6SFrCb07wnHEzl2LwuCqL6LyXPJ87HIYu6HUw8PDkfcrhQ-TnyZP2PB7X8uE7g5ylcVvgpyNxaSq0qPpOaNfAc2BLnaBIwdBG6U4MKgff0T6yygMSWWcQ5BK-16c_NKrvEMVqqxqHoLkq90HeF9UT_WCBq-v_FieSl2pcOHA3xsM8VT3s-DR1n8EbExDqKTgKuTWZqMdtRV_LyrBXLIspDIp0yD4guzH4mNsuL9sixV4P8NDB9p2OxKNuvVDZ77UKPsxwGQdacuTz_3Ylc6IecfxkY01wx3kz3U8m5exeY4_GgI19BkTk-Z-9HOCqFzUDP7mzN7MGvfS-XD4FIaMrWauYH7ZySjayTVf2VyuvkbeUU7JTgtxrMpniogtWq4WXnuA2rNFg60ZUnT4wryoA_tQcymnTbr7s3XkzeAEQEzz8Z4z3KxfkA5ncn53NDa89ORg=w550-h381-no" width="500px"/>
+
+<p>현재 진행중인 프로젝트를 하다가 <a target="_blank" rel="noopener" href="https://github.com/youngjinmo/TIL/blob/master/server-side/spring/spring-boot.md#error">에러페이지</a>를 다루는 과정에서 한 번 정리해볼 필요가 있을것 같아서 작성하게되었다.</p>
+<h3 id="ToC"><a href="#ToC" class="headerlink" title="ToC"></a>ToC</h3><details>
+  <summary><a href="#information">1xx</a></summary>
+  <ul>
+    <li><a href="#100">100</a></li>
+    <li><a href="#101">101</a></li>
+    <li><a href="#102">102</a></li>
+  </ul>
+</details>
+<details>
+  <summary><a href="#success">2xx</a></summary>
+  <ul>
+    <li><a href="#200">200</a></li>
+    <li><a href="#201">201</a></li>
+    <li><a href="#202">202</a></li>
+    <li><a href="#204">204</a></li>
+  </ul>
+</details>
+<details>
+  <summary><a href="#redirection">3xx</a></summary>
+  <ul>
+    <li><a href="#301">301</a></li>
+    <li><a href="#302">302</a></li>
+    <li><a href="#304">304</a></li>
+  </ul>
+</details>
+<details>
+  <summary><a href="#client-error">4xx</a></summary>
+  <ul>
+    <li><a href="#400">400</a></li>
+    <li><a href="#401">401</a></li>
+    <li><a href="#403">403</a></li>
+    <li><a href="#404">404</a></li>
+    <li><a href="#405">405</a></li>
+    <li><a href="#406">406</a></li>
+    <li><a href="#409">409</a></li>
+    <li><a href="#429">429</a></li>
+  </ul>
+</details>
+<details>
+  <summary><a href="#server-error">5xx</a></summary>
+  <ul>
+    <li><a href="#500">500</a></li>
+    <li><a href="#502">502</a></li>
+    <li><a href="#503">503</a></li>
+    <li><a href="#504">504</a></li>
+  </ul>
+</details>
+
+<br>
+
+<hr>
+<br>
+
+<h2 id="1xx-정보응답-Information-Responses"><a href="#1xx-정보응답-Information-Responses" class="headerlink" title="1xx - 정보응답 (Information Responses)"></a><a name="information"></a>1xx - 정보응답 (Information Responses)</h2><ul>
+<li><h3 id="100-Continue"><a href="#100-Continue" class="headerlink" title="100 : Continue"></a><a name="100"></a>100 : Continue</h3><ul>
+<li>진행중임을 나타내는 응답코드이며, 지금까지 상태가 OK임을 의미.</li>
+<li>클라이언트가 계속 요청하거나 이미 요청을 완료한 경우에 무시해도 되는 것을 알려준다.</li>
+</ul>
+</li>
+<li><h3 id="101-Switching-Protocol"><a href="#101-Switching-Protocol" class="headerlink" title="101 : Switching Protocol"></a><a name="101"></a>101 : Switching Protocol</h3><ul>
+<li>클라이언트가 보낸 업그레이드 요청 헤더에 대한 응답으로 보내진다.</li>
+<li>서버에서 프로토콜을 변경할 것임을 알려준다.</li>
+</ul>
+</li>
+<li><h3 id="102-Processing-WebDAV"><a href="#102-Processing-WebDAV" class="headerlink" title="102 : Processing (WebDAV)"></a><a name="102"></a>102 : Processing (WebDAV)</h3><ul>
+<li>서버가 요청을 수신하였으며 이를 처리하고 있지만, 아직 제대로된 응답을 알려줄 수 없는 상태임을 알려준다.</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<h2 id="2xx-성공응답-Successful-Responses"><a href="#2xx-성공응답-Successful-Responses" class="headerlink" title="2xx - 성공응답 (Successful Responses)"></a><a name="success"></a>2xx - 성공응답 (Successful Responses)</h2><ul>
+<li><h3 id="200-OK"><a href="#200-OK" class="headerlink" title="200 : OK"></a><a name="200"></a>200 : OK</h3><ul>
+<li>요청이 성공적으로 되었음을 나타내는 응답코드. HTTP 메서드에 따라 무엇을 성공했는지 의미가 달라진다.<ul>
+<li><code>GET</code> : 리소스를 불러와서 메세지 바디에 전송</li>
+<li><code>HEAD</code> : 개체 헤더가 메세지 바디에 존재</li>
+<li><code>PUT</code> or <code>POST</code> : 수행 결과에 대한 리소스가 메세지 바디에 전송</li>
+<li><code>TRACE</code> : 메세지 바디는 서버에서 수신한 요청 메세지를 포함</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h3 id="201-Created"><a href="#201-Created" class="headerlink" title="201 : Created"></a><a name="201"></a>201 : Created</h3><ul>
+<li>요청이 성공적이었으며, 그 결과로 새로운 리소스가 생성.</li>
+<li>일반적으로 <code>POST</code> 요청 또는 일부 <code>PUT</code> 요청 이후에 따라온다.</li>
+</ul>
+</li>
+<li><h3 id="202-Accepted"><a href="#202-Accepted" class="headerlink" title="202 : Accepted"></a><a name="202"></a>202 : Accepted</h3><ul>
+<li>요청을 수신하였지만 그에 응하여 행동할 수 없다.</li>
+<li>이 응답은 요청 처리에 대한 결과를 이후에 HTTP로 비동기 응답을 보내는 것에 대해서 명확하게 명시하지 않는다.</li>
+<li>다른 프로세스에서 처리 또는 서버가 요청을 다루고 있거나 배치 프로세스를 하고 있는 경우를 위해 만들어졌다.</li>
+</ul>
+</li>
+<li><h3 id="204-No-Content"><a href="#204-No-Content" class="headerlink" title="204 : No Content"></a><a name="204"></a>204 : No Content</h3><ul>
+<li>요청에 대해서 보내줄 수 있는 <u>컨텐츠가 없지만, 헤더는 의미있을 수 있다.</u></li>
+<li><code>user-agent</code>는 리소스가 캐시된 헤더를 새로운 것으로 업데이트할 수 있다.</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<h2 id="3xx-리다이렉션-메시지-Redirection-Message"><a href="#3xx-리다이렉션-메시지-Redirection-Message" class="headerlink" title="3xx - 리다이렉션 메시지 (Redirection Message)"></a><a name="redirection"></a>3xx - 리다이렉션 메시지 (Redirection Message)</h2><ul>
+<li><h3 id="301-Moved-Permanently"><a href="#301-Moved-Permanently" class="headerlink" title="301 : Moved Permanently"></a><a name="301"></a>301 : Moved Permanently</h3><ul>
+<li>이 응답 코드는 요청한 리소스의 <u>URI가 변경</u>되었음을 의미한다.</li>
+<li>새로운 URI가 응답에서 주어질 수 있다.</li>
+</ul>
+</li>
+<li><h3 id="302-Found"><a href="#302-Found" class="headerlink" title="302 : Found"></a><a name="302"></a>302 : Found</h3><ul>
+<li>클라이언트가 요청한 리소스가 헤더에 주어진 URL로 일시적으로 이동되었음을 가리키는 상태코드이다.</li>
+<li><a href="#301">301</a>과 다른 점은 302 상태코드는 검색엔진에서 페이지랭킹 또는 링크에 대한 점수를 새로운 URL로 옮기지 않고, 기존의 URL을 그대로 유지한다는 점이다. 즉 기존의 URL로 페이지랭킹 점수를 유지하면서도 컨텐츠만 새로운 URL에서 조회되도록 할 때 302 리다이렉트를 사용할 수 있다.</li>
+<li><a target="_blank" rel="noopener" href="https://nsinc.tistory.com/168">참고 포스트</a> </li>
+</ul>
+</li>
+<li><h3 id="304-Not-Modified"><a href="#304-Not-Modified" class="headerlink" title="304 : Not Modified"></a><a name="304"></a>304 : Not Modified</h3><ul>
+<li>캐시를 목적으로 사용된다.</li>
+<li>클라이언트에게 응답이 수정되지 않았음을 알려주며, 그래서 클라이언트는 계속해서 응답의 캐시된 버전을 사용할 수 있다.</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<h2 id="4xx-클라이언트-에러응답-Client-Error-Responses"><a href="#4xx-클라이언트-에러응답-Client-Error-Responses" class="headerlink" title="4xx - 클라이언트 에러응답(Client Error Responses)"></a><a name="client-error"></a>4xx - 클라이언트 에러응답(Client Error Responses)</h2><ul>
+<li><h3 id="400-Bad-Request"><a href="#400-Bad-Request" class="headerlink" title="400 : Bad Request"></a><a name="400"></a>400 : Bad Request</h3><ul>
+<li><u>잘못된 문법</u>으로 인하여 서버가 요청을 이해할 수 없음을 의미한다.</li>
+<li>따라서 서버가 클라이언트가 누구인지를 모르는 상태이다.</li>
+</ul>
+</li>
+<li><h3 id="401-Unauthorized"><a href="#401-Unauthorized" class="headerlink" title="401 : Unauthorized"></a><a name="401"></a>401 : Unauthorized</h3><ul>
+<li><u>비인증(unauthorized)</u>을 의미한다. 클라이언트는 요청한 응답을 받기 위해서 반드시 스스로를 인증해야한다.</li>
+</ul>
+</li>
+<li><h3 id="403-Forbidden"><a href="#403-Forbidden" class="headerlink" title="403 : Forbidden"></a><a name="403"></a>403 : Forbidden</h3><ul>
+<li>클라이언트가 컨텐츠에 <u>접근할 권리가 없음</u>을 의미한다.</li>
+<li>401과 다른 점은 서버가 클라이언트가 누구인지는 알고 있다는 점이다.</li>
+</ul>
+</li>
+<li><h3 id="404-Not-Found"><a href="#404-Not-Found" class="headerlink" title="404 : Not Found"></a><a name="404"></a>404 : Not Found</h3><ul>
+<li>서버는 <u>요청받은 리소스를 찾을 수 없다.</u></li>
+<li>브라우저에서 알려지지 않은 URL을 의미한다.</li>
+<li>서버는 인증받지 않은 클라이언트로부터 리소스를 숨기기위하여 403대신 404을 응답할 수도 있다.</li>
+</ul>
+</li>
+<li><h3 id="405-Method-Not-Allowed"><a href="#405-Method-Not-Allowed" class="headerlink" title="405 : Method Not Allowed"></a><a name="405"></a>405 : Method Not Allowed</h3><ul>
+<li><u>요청한 메서드는 서버에서 알고있지만, 제거되어서 더이상 사용할 수 없음</u>을 의미한다.</li>
+<li>필수적인 메서드인 <code>GET</code>과 <code>HEAD</code>는 제거될 수 없으며 이 에러 코드를 리턴할 수 없다.</li>
+</ul>
+</li>
+<li><h3 id="406-Not-Acceptable"><a href="#406-Not-Acceptable" class="headerlink" title="406 : Not Acceptable"></a><a name="406"></a>406 : Not Acceptable</h3><ul>
+<li>이 응답은 서버가 서버 주도 컨텐츠 협상을 수행한 이후, <u>사용자 에이전트에서 정해준 규격에 따른 어떠한 컨텐츠도 찾지 않았을때</u>, 웹서버가 보낸다.</li>
+</ul>
+</li>
+<li><h3 id="409-Conflict"><a href="#409-Conflict" class="headerlink" title="409 : Conflict"></a><a name="409"></a>409 : Conflict</h3><ul>
+<li><u>요청이 현재 서버의 상태와 충돌</u>될 때 보내진다.</li>
+</ul>
+</li>
+<li><h3 id="429-Too-Many-Requests"><a href="#429-Too-Many-Requests" class="headerlink" title="429 : Too Many Requests"></a><a name="429"></a>429 : Too Many Requests</h3><ul>
+<li>사용자가 지정된 시간에 너무 많은 요청을 보냈을 때 응답된다.</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<h2 id="5xx-서버-에러응답-Server-Error-Responses"><a href="#5xx-서버-에러응답-Server-Error-Responses" class="headerlink" title="5xx - 서버 에러응답 (Server Error Responses)"></a><a name="server-error"></a>5xx - 서버 에러응답 (Server Error Responses)</h2><ul>
+<li><h3 id="500-Internal-Server-Error"><a href="#500-Internal-Server-Error" class="headerlink" title="500 : Internal Server Error"></a><a name="500"></a>500 : Internal Server Error</h3><ul>
+<li><u>서버가 처리방법을 모르는 상황</u>을 의미한다.</li>
+</ul>
+</li>
+<li><h3 id="502-Not-Implemented"><a href="#502-Not-Implemented" class="headerlink" title="502 : Not Implemented"></a><a name="502"></a>502 : Not Implemented</h3><ul>
+<li>서버에서 지원되지 않아서 처리할 수 없는 상태이다.</li>
+<li>서버가 지원해야 하는 유일한 방법은 <code>GET</code>과 <code>HEAD</code>이다. </li>
+<li>이 코드는 반환하면 안된다.</li>
+</ul>
+</li>
+<li><h3 id="503-Service-Unavailable"><a href="#503-Service-Unavailable" class="headerlink" title="503 : Service Unavailable"></a><a name="503"></a>503 : Service Unavailable</h3><ul>
+<li>서버가 요청을 처리할 준비가 되지 않았을 때 응답된다.</li>
+<li>일반적으로 유지보수를 위해 서버 작동이 중단되거나 과부하가 걸렸을때 응답된다.</li>
+<li>이 때는 사용자 친화적인 페이지를 전송시켜서 어떠한 이유로 <code>503</code> 상태인지를 설명해야한다.</li>
+<li>이 응답은 임시조건에 사용되어야 하며, 일시적인 조건 응답을 캐시하지 않아야 하므로 이 응답과 함께 전송되는 캐싱 관련 헤더에 대해서도 주의해야한다.</li>
+</ul>
+</li>
+<li><h3 id="504-Gateway-Timeout"><a href="#504-Gateway-Timeout" class="headerlink" title="504 : Gateway Timeout"></a><a name="504"></a>504 : Gateway Timeout</h3><ul>
+<li>이 오류 응답은 서버가 게이트웨이 역할을 하고 있으며 적시에 응답을 받을 수 없을때 주어진다.</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<hr>
+<p>출처 : MDN - HTTP 상태 코드(<a target="_blank" rel="noopener" href="https://developer.mozilla.org/ko/docs/Web/HTTP/Status">https://developer.mozilla.org/ko/docs/Web/HTTP/Status</a>)</p>
+<p><a target="_blank" rel="noopener" href="https://www.kahena.com/wp-content/uploads/2013/12/seos-guide-to-http-status-codes.gif">https://www.kahena.com/wp-content/uploads/2013/12/seos-guide-to-http-status-codes.gif</a></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://youngjinmo.github.io/2020/01/http-codes/" data-id="ckf65uds300aeacgd1h5mgr45" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Youngjin Mo"
+        },
+        "headline": "HTTP 상태코드",
+        "image": "../../../http:/youngjinmo.github.iohttps:/lh3.googleusercontent.com/SWgcgkpXv5_VtZumsognz31yfOvIWOzzsCGaT8idHl7fGmAE0rHpuGxaTirmxX0oWNQGj2Dho8F80cVMC9VxVN0KbeT0B-nI8zkDAMkD748kf95mRc2e-e1GYGCAFQaca0IV8daRsYYFpowZu6fVOiGOJGuMKeVWwBXP4H_bvMI0HhEHVlq2tYPIHDi9CNKdt6DlSJ_zTEG2uZqYEJRKTnD4ZLuva4n-NIHlmZVJ_JNCURxCk5u2KqPzknKt9sx2ybZZkIDqbTPhb5s9rZikA8Gl18Kyt4WMQWHy21eBGUTNGr6SFrCb07wnHEzl2LwuCqL6LyXPJ87HIYu6HUw8PDkfcrhQ-TnyZP2PB7X8uE7g5ylcVvgpyNxaSq0qPpOaNfAc2BLnaBIwdBG6U4MKgff0T6yygMSWWcQ5BK-16c_NKrvEMVqqxqHoLkq90HeF9UT_WCBq-v_FieSl2pcOHA3xsM8VT3s-DR1n8EbExDqKTgKuTWZqMdtRV_LyrBXLIspDIp0yD4guzH4mNsuL9sixV4P8NDB9p2OxKNuvVDZ77UKPsxwGQdacuTz_3Ylc6IecfxkY01wx3kz3U8m5exeY4_GgI19BkTk-Z-9HOCqFzUDP7mzN7MGvfS-XD4FIaMrWauYH7ZySjayTVf2VyuvkbeUU7JTgtxrMpniogtWq4WXnuA2rNFg60ZUnT4wryoA_tQcymnTbr7s3XkzeAEQEzz8Z4z3KxfkA5ncn53NDa89ORg=w550-h381-no",
+        "keywords": "http",
+        "genre": "Dev Web",
+        "datePublished": "2020-01-16",
+        "dateCreated": "2020-01-16",
+        "dateModified": "2020-09-13",
+        "url": "../../../http:/youngjinmo.github.io/2020/01/http-codes/",
+        "description": "
+
+현재 진행중인 프로젝트를 하다가 에러페이지를 다루는 과정에서 한 번 정리해볼 필요가 있을것 같아서 작성하게되었다.
+ToC
+  1xx
+  
+    100
+    101
+    102
+  
+
+
+  2xx
+  
+    200
+    201
+    202
+    204
+  
+
+
+  3xx
+  
+    301
+    302
+    304
+  
+
+
+  4xx
+  ",
+        "wordCount": 888
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="../../../https:/github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="../git-add-p/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Git에서 변경사항 단위(Hunk)로 스테이징하기
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="../reg/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">정규표현식(Reg)</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../09/xml-json-xmlhttprequest/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3f3uUiEllt7yZ2cz-TBQE53mDoXAvAbilDnTHnb0gUIYnX86czSpvvAGNC1uwJN3Mm543ae8FVwBXvYPyOcYzNVH-5fg0VXSmiORlQSYChhlqdO1jLRs_XhVOQYcySp_K_S3JbhAK4jHpeyRpXmh45Gqg=w640-h405-no?authuser=2)" alt="XML, JSON 그리고 XMLHttpRequest" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Others/">Others</a></p>
+                            <p class="item-title"><a href="../../09/xml-json-xmlhttprequest/" class="title">XML, JSON 그리고 XMLHttpRequest</a></p>
+                            <p class="item-date"><time datetime="2020-09-01T12:00:59.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/create-table-sequence/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3dnKjQpuvDEmVxFsIrKfVbq9RCZMjbbZPOtAWR0Etr5EfTkx58EYPQjjgLEiO8XYLsVu_1TWyNmpySsDRxXvCplY6aMPhIMQgNCaH0TBpVv0vxyI_-b6pK9x8qhVSSptzKgeu-dbMHYIt-eS1MUDQnkiw=w640-h427-no?authuser=0)" alt="Oracle - Sequence 생성하고 테이블에 삽입하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Database/">Database</a></p>
+                            <p class="item-title"><a href="../../08/create-table-sequence/" class="title">Oracle - Sequence 생성하고 테이블에 삽입하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-31T18:57:13.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/servlet-redirect-forward/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3cK_j9D5XupS1mIeAAwsE1cOAdZ05jfS290XghGTAfDNVmf1VDdldnidSEQpbEAPRe_aTchGC7U00h7lU9JKtTV3ltDyqUcofn0Xu4p0pm_ROewKfcnOG3UO4Yo4EgVG6ZeQfoemWHklC1hGMn-1DXYfQ=w640-h427-no?authuser=0)" alt="Servlet - Redirect와 Forward" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../../08/servlet-redirect-forward/" class="title">Servlet - Redirect와 Forward</a></p>
+                            <p class="item-date"><time datetime="2020-08-30T22:32:44.000Z" itemprop="datePublished">2020-08-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/leetcode-twosum/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://assets.leetcode.com/static_assets/public/images/LeetCode_Sharing.png)" alt="Leetcode - Twosum" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Quiz/">Quiz</a></p>
+                            <p class="item-title"><a href="../../08/leetcode-twosum/" class="title">Leetcode - Twosum</a></p>
+                            <p class="item-date"><time datetime="2020-08-24T14:28:47.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/run-mysql-with-docker/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3fdpC3xu5q4xnJRLLhSaWCrARbnQ1qdp_DpF0Z7BITrtrr6gZWGExKC4PcMlVo3AxVhVbYiFgDhNObWmtv3hGwoEtF_4zFb_1fQsdL6d1K3UNA0LRkczuC_nNvcEHERB8EIB3uvWOIps7j1iraX6DGLbQ=w720-h480-no?authuser=0)" alt="Docker로 MySQL 실행하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Devops/">Devops</a></p>
+                            <p class="item-title"><a href="../../08/run-mysql-with-docker/" class="title">Docker로 MySQL 실행하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-23T17:12:43.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 11.11px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/api/" style="font-size: 11.11px;">api</a> <a href="../../../tags/architecture/" style="font-size: 10px;">architecture</a> <a href="../../../tags/array/" style="font-size: 11.11px;">array</a> <a href="../../../tags/aws/" style="font-size: 12.22px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 12.22px;">career</a> <a href="../../../tags/casting/" style="font-size: 12.22px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/cloud/" style="font-size: 12.22px;">cloud</a> <a href="../../../tags/compiler/" style="font-size: 10px;">compiler</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/databse/" style="font-size: 10px;">databse</a> <a href="../../../tags/datastructure/" style="font-size: 12.22px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 13.33px;">docker</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 11.11px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generic/" style="font-size: 10px;">generic</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 10px;">github</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 13.33px;">http</a> <a href="../../../tags/ide/" style="font-size: 10px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 10px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 11.11px;">interface</a> <a href="../../../tags/interpreter/" style="font-size: 10px;">interpreter</a> <a href="../../../tags/io/" style="font-size: 12.22px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 15.56px;">java</a> <a href="../../../tags/java8/" style="font-size: 11.11px;">java8</a> <a href="../../../tags/jquery/" style="font-size: 11.11px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/jvm/" style="font-size: 10px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 10px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 10px;">mustache</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 16.67px;">oop</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 12.22px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 11.11px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 18.89px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/string/" style="font-size: 14.44px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/tip/" style="font-size: 17.78px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 13.33px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 11.11px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 18.89px;">weekly-review</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Youngjin Mo</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+    
+        
+<script src="../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="../../../js/main.js"></script>
+
+
+</body>
+</html>

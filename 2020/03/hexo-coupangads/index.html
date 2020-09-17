@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Hexo 블로그에 쿠팡광고 적용하기 | DevAndy</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="" />
+    
+    <meta name="description" content="구글 애드센스를 일주일정도 적용해보았는데 클릭당 $ 0.1 이 수익으로 발생하는 것 같았다. 이 정도로는 지나치게 작은 수익을 위해 블로그의 분위기를 해치는(?) 광고를 삽입하는 것 같아서 다른 광고를 찾아보았다. 그래서 찾은게 쿠팡 파트너스이다.  쿠팡 파트너스는 구글 애드센스와 달리 클릭만으로는 수익을 지급하는 것과 달리 광고배너를 통해 접속한 유저가">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo 블로그에 쿠팡광고 적용하기">
+<meta property="og:url" content="http://youngjinmo.github.io/2020/03/hexo-coupangads/index.html">
+<meta property="og:site_name" content="DevAndy">
+<meta property="og:description" content="구글 애드센스를 일주일정도 적용해보았는데 클릭당 $ 0.1 이 수익으로 발생하는 것 같았다. 이 정도로는 지나치게 작은 수익을 위해 블로그의 분위기를 해치는(?) 광고를 삽입하는 것 같아서 다른 광고를 찾아보았다. 그래서 찾은게 쿠팡 파트너스이다.  쿠팡 파트너스는 구글 애드센스와 달리 클릭만으로는 수익을 지급하는 것과 달리 광고배너를 통해 접속한 유저가">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://lh3.googleusercontent.com/n4lJPqTwL2LsdLD8ZuLUq0L4ghAt7eYEx5UBcyOURqLviDZINt6HEuTqvkjCtYO47ARjdaSFmM8d0i4YbL1icd--BCr78CnM1zs2pk-4u8HwoNbNZ_VbA1dgozl14ypRX6BG7Exu1qNaYbnorp-Acow-LjOt5A-9ZfHEjbomm1z5Kok5fKUYdAG3gkLVnIuq_FHYsn2jhINOQ0lGhlX79ygRDaAox9GoxTYvSy8AreV422MEk8JaXxgMTOEOCRF4P2S87MeaHCTg31i2CX8Z82qd120hODGxhKj5GXEfxFPDPO5m20A0mxFBeTJU5YUQA4zhAhaf7QJlwtVlgyFN-KBK-PyKPrpBPNUay_QjuRyz0T6lHVF7EHZpHmupiXa-zQRtXLclg75Ktz_rURyLSiM6pFl6m_IdEyUqfrCV3k1tyGNl98IuQxDfIcbEJjyn6Xb1-jxLvJE4RYlqEG4YcJjByKc4T9NzaI4TYWb_N8ke-JuPiv12FFFlz9R5ZZkZzYDfVC3yvGnWPOsNE0NLtlIV2d5vDEIRDnNiWK0r18AV7m6q8q1TypWDOPti1I4kGdnLRp2HTcAz0tsmfZkTiCPUWGErM16u2dXnv7rpRHIRnH34CgrzQZcaXX3EpfZZwGz-onh4ifxDVcLlRkMVD4msnZex6Dmo_OWbC9Knztf4ZdDmQau2Hp3dOn_uZo_rSrcukzdrG-M7JepfybS2iDK0IyZReqcdj6y2xj8w-4rHZNOEig=w651-h314-no">
+<meta property="article:published_time" content="2020-03-02T18:36:17.000Z">
+<meta property="article:modified_time" content="2020-09-13T01:53:28.812Z">
+<meta property="article:author" content="Youngjin Mo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lh3.googleusercontent.com/n4lJPqTwL2LsdLD8ZuLUq0L4ghAt7eYEx5UBcyOURqLviDZINt6HEuTqvkjCtYO47ARjdaSFmM8d0i4YbL1icd--BCr78CnM1zs2pk-4u8HwoNbNZ_VbA1dgozl14ypRX6BG7Exu1qNaYbnorp-Acow-LjOt5A-9ZfHEjbomm1z5Kok5fKUYdAG3gkLVnIuq_FHYsn2jhINOQ0lGhlX79ygRDaAox9GoxTYvSy8AreV422MEk8JaXxgMTOEOCRF4P2S87MeaHCTg31i2CX8Z82qd120hODGxhKj5GXEfxFPDPO5m20A0mxFBeTJU5YUQA4zhAhaf7QJlwtVlgyFN-KBK-PyKPrpBPNUay_QjuRyz0T6lHVF7EHZpHmupiXa-zQRtXLclg75Ktz_rURyLSiM6pFl6m_IdEyUqfrCV3k1tyGNl98IuQxDfIcbEJjyn6Xb1-jxLvJE4RYlqEG4YcJjByKc4T9NzaI4TYWb_N8ke-JuPiv12FFFlz9R5ZZkZzYDfVC3yvGnWPOsNE0NLtlIV2d5vDEIRDnNiWK0r18AV7m6q8q1TypWDOPti1I4kGdnLRp2HTcAz0tsmfZkTiCPUWGErM16u2dXnv7rpRHIRnH34CgrzQZcaXX3EpfZZwGz-onh4ifxDVcLlRkMVD4msnZex6Dmo_OWbC9Knztf4ZdDmQau2Hp3dOn_uZo_rSrcukzdrG-M7JepfybS2iDK0IyZReqcdj6y2xj8w-4rHZNOEig=w651-h314-no">
+<meta name="twitter:creator" content="@devandy_yj">
+    
+
+    
+        <link rel="alternate" href="/" title="DevAndy" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="../../../libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="../../../libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="../../../libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="../../../css/style.css">
+
+
+    
+<script src="../../../libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-177850483-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../index.html">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Articles/">Articles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/">Dev</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Devops/">Devops</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Html-Css/">Html/Css</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Javascript/">Javascript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Others/">Others</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Springboot/">Springboot</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Web/">Web</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Review/">Review</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Thought/">Thought</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Quiz/">Quiz</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../https:/github.com/youngjinmo">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="../../../js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Hexo/">Hexo</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="posts-hexo-coupangads" class="article article-single article-type-posts" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Hexo 블로그에 쿠팡광고 적용하기
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="" class="article-date">
+       <time datetime="2020-03-02T18:36:17.000Z" itemprop="datePublished">2020-03-03</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="" class="article-date">
+     <time datetime="2020-09-13T01:53:28.812Z" itemprop="dateModified">2020-09-13</time>
+  </a>
+</div>
+
+
+                
+
+                
+                
+
+                
+
+            </div>
+			<!-- 	count-time		 -->
+			<!-- <span class="reading-time" style="margin-left: 20px;">⏱ 9 min.</span>  -->
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="https://lh3.googleusercontent.com/n4lJPqTwL2LsdLD8ZuLUq0L4ghAt7eYEx5UBcyOURqLviDZINt6HEuTqvkjCtYO47ARjdaSFmM8d0i4YbL1icd--BCr78CnM1zs2pk-4u8HwoNbNZ_VbA1dgozl14ypRX6BG7Exu1qNaYbnorp-Acow-LjOt5A-9ZfHEjbomm1z5Kok5fKUYdAG3gkLVnIuq_FHYsn2jhINOQ0lGhlX79ygRDaAox9GoxTYvSy8AreV422MEk8JaXxgMTOEOCRF4P2S87MeaHCTg31i2CX8Z82qd120hODGxhKj5GXEfxFPDPO5m20A0mxFBeTJU5YUQA4zhAhaf7QJlwtVlgyFN-KBK-PyKPrpBPNUay_QjuRyz0T6lHVF7EHZpHmupiXa-zQRtXLclg75Ktz_rURyLSiM6pFl6m_IdEyUqfrCV3k1tyGNl98IuQxDfIcbEJjyn6Xb1-jxLvJE4RYlqEG4YcJjByKc4T9NzaI4TYWb_N8ke-JuPiv12FFFlz9R5ZZkZzYDfVC3yvGnWPOsNE0NLtlIV2d5vDEIRDnNiWK0r18AV7m6q8q1TypWDOPti1I4kGdnLRp2HTcAz0tsmfZkTiCPUWGErM16u2dXnv7rpRHIRnH34CgrzQZcaXX3EpfZZwGz-onh4ifxDVcLlRkMVD4msnZex6Dmo_OWbC9Knztf4ZdDmQau2Hp3dOn_uZo_rSrcukzdrG-M7JepfybS2iDK0IyZReqcdj6y2xj8w-4rHZNOEig=w651-h314-no"></p>
+<p>구글 애드센스를 일주일정도 적용해보았는데 클릭당 $ 0.1 이 수익으로 발생하는 것 같았다. 이 정도로는 지나치게 작은 수익을 위해 블로그의 분위기를 해치는(?) 광고를 삽입하는 것 같아서 다른 광고를 찾아보았다. 그래서 찾은게 <a target="_blank" rel="noopener" href="https://partners.coupang.com/#affiliate/ws">쿠팡 파트너스</a>이다. </p>
+<p>쿠팡 파트너스는 구글 애드센스와 달리 클릭만으로는 수익을 지급하는 것과 달리 광고배너를 통해 접속한 유저가 실제로 구입하면 구매금액의 3% 정도가 지급된다고 한다. 애드센스 광고를 클릭하는것보다 차라리 쿠팡 광고를 통해 제품 하나 팔리는게 훨씬 이익이라고 생각했다. 또한 일정금액($100)을 초과해야 수익을 출금할 수 있는 애드센스와 달리 쿠팡은 캐시를 지급받아서 바로 쿠팡 쇼핑시에 사용할 수 있다는 장점이 있다. 100원만 수익을 내더라도 당장 다음 쇼핑때 사용할 수 있다는 이야기다.</p>
+<ul>
+<li><a href="#register">쿠팡 파트너스 가입/승인받기</a></li>
+<li><a href="#create">광고 배너 생성하기</a></li>
+<li><a href="#ejs">hexo에 적용하기 위한 ejs 파일 생성하기</a></li>
+<li><a href="#hexo">원하는 위치에 배너 적용하기</a></li>
+</ul>
+<h2 id="쿠팡-파트너스-가입-승인받기"><a href="#쿠팡-파트너스-가입-승인받기" class="headerlink" title="쿠팡 파트너스 가입/승인받기"></a><a name="register"></a>쿠팡 파트너스 가입/승인받기</h2><p>쿠팡 계정이 있어도 파트너스 가입은 따로 필요하다. </p>
+<p>양식대로 기입을 하고, 승인을 기다려야 한다. 쿠팡 광고를 개재할 수 있는 블로그인지 여부를 파악하는 과정이다. 혹시나 불법적인 웹사이트에서 쿠팡 광고가 악용될경우 자사의 평판을 해칠 수 있기 때문에 하는 일련의 과정이라고 생각한다. 하루 이틀정도면 승인이 되었던 것 같다.</p>
+<p>쿠팡 파트너스 가입시 추천인코드를 입력하면 첫 30일동안 1%의 수수료를 더 지급한다고하니 추천인코드를 입력하시길 바란다. <strong>추천인코드 : AF1391980</strong></p>
+<h2 id="광고-배너-생성하기"><a href="#광고-배너-생성하기" class="headerlink" title="광고 배너 생성하기"></a><a name="create"></a>광고 배너 생성하기</h2><p><img src="https://lh3.googleusercontent.com/dMTEINyLL2VWLq0BsXFZB9widfcMNNM1FROqjf4m8oB-1rQLHdt0DwVgQHN16s2FqmswjNluf-AHeuGN2UdxfwCZJVBF1OQXbGr_CtA-EpCrrikhwAhjpNlUtPv5scAV5BVmV4z4syJ5mzHv3kH_2w7Y9PyVu-4JjnlJm63Xp-AppLyawiW-eFcOmZ2kLJ6e-z6kNd9B3OxxfEwmSBj2VPuwGDrhAXG5DluYqPSwnf5HPBmTM1eSWp8MGIXi1BKwVY6Hgpc5MB35x3Ti1IdjvbNIANRaW0o30GGcsgLrItrkBdRVjUoPYoXqdr0-hU3aE9KUWIQeQx70VdEws5QKrrhwihXX8Bke2UfJf0YQo5plszmW724jHI8JBhPe31BtPwaRZcLYx6lFVa9d20FnT-GCd2vl6SAENBVcmRtmFtRtSRY0TA9rhnX6BhkedCIwrI2UPA-T4zEpxOR3BhxMrsBkpx0HB9HO-QV45VwpeU0MjzmqkbMBpYYJ6io5ly2ojW0AnATNmT4Vx8CQefUWPDK3nlO9E-eis0zlLjM8yLWtCZ06A5Py2mtkc47nrSJCKU49oDcBwNoS9DwYYmV0rkjVLpteivvH0OQPQH7SVfW_W8aHPNlsiKGKpYelXYllfDaR27iS0jsyJZ-6Y686X75b2HxtXQtfOmg-_xtU_KyNVZHoQ_hd2ez_FwFKQpB6H2PAJtub55stoU1d5obbklIHMuB0toFzQLRIeZxSaXmtAy12=w460-h328-no"></p>
+<p><strong>[링크 생성하기]</strong> - <strong>[다이내믹 배너]**로 접속한다. **[배너생성]</strong> 버튼을 클릭한다.</p>
+<p>그럼 이런 화면을 볼 수 있다.</p>
+<p><img src="https://lh3.googleusercontent.com/9xBfqiZ8RfTVDvkYsUdqDWjyfLffiK7XstLj3TkmlnTX14ho5wpXEw36Kg4bx9PJcYHDJfKB-VOdMkbwGBkmdvuaOnb1aDh5JwICmqZculVNC_61bU5BKRlU4ZiibpM2EJ_COKCPHlArUNgNTCEp-jn7ba79evzoJ-4_JEL2dvrrCFS5JwzA133zf5KLS4ggv_xCHQTbllX1nq9pVl3wZDcqo4T2UPai3fJ45nnRN2A8SFZuRF5RikMgGug8kR9q2qZPINiHt4PYM_lA6QUxw3RsAU9lJBnUpK1c3tIstnSSX1S5584YJGB9GrgQK62a9E4BV2Fsl2UMc1_S7smBtHt5owXYogNrZHCJXs2inp4WQJVKhFM9PM6xL6B_EEahMSjmo_KdI-YTdWyI_Gn_koLKgjzW089IjYgP3UT8IGPe0uN_OG8jhYq169ixs-SBLebE6gZaHkP3mRa7UkOYTKNbfkPlMqMaR4tWI8WUjeVsJIK19KWsIxvPQT7YljgqwT3A_qWeqkU80sJYQmpXztYhrEkM7Qv6kIHyoUlMsWzzjGZQEj95QY643k4-cno0Ct_ikdp55aYIAfj549VgqYY8ta_xGhvP7qPy4GX5Maj-9owR3Q81YYlQenV1EjaCDCe3Ik-qh0EO2Hb_rg8CJUffighil4_dX6VONfrMed5NJ87l1jzdJXCUgkGpk_90JWmL70KoRPzxzPq2lSkpqC-ufO3KBYvlQ5ctxNGYuzz3D9-S=w583-h384-no"></p>
+<p>이제 여기서부터 광고를 직접 만들수 있다. 필자의 블로그는 개발자들이 접속할 것이므로 생활용품 광고를 보여주기보다는 개발자들의 눈길을 끌만한 제품이 필요하다고 생각했다. 지난해 말 아이폰이 역대급 판매를 기록했으므로 아이폰에 필요한 악세서리들을 노출하는 광고배너를 만들어보자.</p>
+<p>배너타입에서 **[상품 직접 선택]**을 선택하면 배너에 노출시킬 제품을 직접 선택할 수 있다.</p>
+<p><img src="https://lh3.googleusercontent.com/BHEVejM0UpR-2KMgpc_KbOC8SfdM9XdlALQorNNh1e8vxrBn7zXcJLg9NZi06ORLJ-Lnyw2zEcRpO80IOWDfqcgw0HCUmmCYzIFsrUim_neDJsLO8EuUKSZ6urSP4JvLD8ZB53tR1ZQHT5_oUTxVfGaYBJgJCjaZXfsSXYdHaJ_QcrP9hbyErPYChCsOK9jprkRBSmTiPCvoa7YpnJV_54SA6sEAlJJyeQhDrdpE3ozIW8JCRjAbeeedyNFnS2b0Qqrim7747Rov6be-065x_5yNDEhyBG4C7TGmXnKm1iTL80EDWujRpuRptGwak6IVi4xxm37PdT1CB2yQfMPCg8gMO5v2FTNkSae1_uw0Vw3MVOZurGQEFyDxxhzHxANYGbMAAvhSQD2X-7jHn-SQunZ1lMiGdP1iHdG2BGmI_Q_6tswY50FYzfTg0mhKVg8myHmPI9oBvQ-YGtTfI3-MqAFV1hPMvD_H7ykOFVoqzwRluL8toxnCVTP6weRQZeNwFY-DxD6NhkM0RYtXsvgn-qWsKMrZoj2Jk6lKa1RwuH_33KxSjs0NJAqQAlkrDZw5yXShN_BGbTbNjUX7iazjoKQ-kuRZmYSp2xqh0BCOqMsxHNU7ahr4R2m1kffVeQebUSv98DeYCqLlfdXkL1gpQR8CiitcKqn7F-93rWnz2Bycsihf0Ixq-5uKLVZkAGs9Vzmbx9XTY-q4ope256lbR7Ej74sqJfqUeidqXz5Pvbvx2pwc=w1111-h500-no"></p>
+<p>최대 20개까지 상품을 선택할 수 있으므로 카테고리에 맞는 제품을 채우고 <strong>[배너 만들기]</strong> 버튼을 클릭하면 블로그나 웹사이트에 심을 수 있는 코드가 생성된다. 생성된 코드를 복사해두자.</p>
+<p><img src="https://lh3.googleusercontent.com/JFAQx0gMD9Az7YoR2pQnQR7bkSwB7TdWGHichejU3XJJ5vSqNJzbsygyd4jYqNZ0ybPAP6PWWtTYlkbLoGK9xxjAR69alyRwfTvUk-ngU1sd71QHFmoJAwJXEPaiQZ1ygngv8lKLTuaVUH4C3x4VDBCAv3mSik5ewzF4ethmrQ3LaEgRr5fgmOLjh9xm8bntKd2RBOf3JYFAcEjeF22w1nLgRiuP24lQ44WdbXTPjn2LeLvZCrUekHStsch1-QNVM5afNRa6A1JzpUJzclDGH5VhFXTsDXa7kJ7KgNd8A-yMRWcFODGgt-GJTF1BJQsaOgEO6d0vIu1lU_SOtSgu9zkwBqcIJF9k9E0wPH6hMWtqSpj8p-f5IQjBXI2WRivRtpdOsVSS7z3dVXBb5B4dMwMSJ_CmJ6oLu63JMdYzX2zlFOAK735Rdiv7JLeGebBKqN3aBdXFq0YnuBkK5l836uHjKU4v_xFwmrJt3Tq1MBj7vr6ItDlTMj_U1QzqRkNwTrx4y6mDxSSP3URzhTWsYPOKwIMv5Md7sBaESHfCYXrqkhPHVGHPr7t7vsIG39-bPwt_nA9vH4bKGqv65ncqbnBNdEsEcPkcnOgVGLz3RrpR66cHomNng5lprPdzpJRKSFJpb2vrF5kB7xCJbE2gzJKSEXoEGcldADL-KFuz2a-tTyQzcIamSzJFE14m202MU0JXA_YSMvUqlsSOdnlbgs3GyBJ5tFYfKH_AC8wR2m8H3b5x=w571-h389-no"></p>
+<h2 id="hexo에-적용하기-위한-ejs-파일-생성하기"><a href="#hexo에-적용하기-위한-ejs-파일-생성하기" class="headerlink" title="hexo에 적용하기 위한 ejs 파일 생성하기"></a><a name="ejs"></a>hexo에 적용하기 위한 ejs 파일 생성하기</h2><p>이제 hexo 소스코드가 저장된 저장소로 가자. <code>/themes/사용자테마/layout</code> 으로 이동하여 광고 소스코드만 저장할 폴더를 생성한다. 앞으로 쿠팡 배너든 모든 광고관련 소스코드는 해당 폴더에 저장하도록 하자. 그리고 방금 생성한 코드를 저장할 파일을 생성하고, 아까 복사해둔 코드를 붙여넣는다. 이 때 파일의 형식은 <code>.ejs</code>여야 한다. ejs는 자바스크립트가 내장된 html 파일이라고만 알아두자.</p>
+<p><strong>coupang-ad.ejs</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">&quot;https://ads-partners.coupang.com/g.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">new</span> PartnersCoupang.G(&#123;<span class="string">&quot;id&quot;</span>:your_coupang_partners_id,<span class="string">&quot;subId&quot;</span>:<span class="literal">null</span>&#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="원하는-위치에-배너-적용하기"><a href="#원하는-위치에-배너-적용하기" class="headerlink" title="원하는 위치에 배너 적용하기"></a><a name="hexo"></a>원하는 위치에 배너 적용하기</h2><p><img src="https://lh3.googleusercontent.com/YpfJ8vZMIv1bpGP_M7NumKYMc9JLghAvngiouEgV79BK-7ZJpRYiNCQCJI9aedQWpqxRfnVuzWFt8TB4nFMCMzDgldXmTrWu5wX49H6RwpOCgN_gmLa0sBJ2Pt-d52yupkuh7MF9J5f6KQpBRoGh10jY73R1oNlXVeaXBqu5OQBt2QFpuXVvbhSgVAJdsX3HanTCF8SDMDiHzAAonTtZwfVI8mh4Kdkv_J7FOBTiU6WWCNb38VBl4TwieyJXNl77rcZHeztW1p8MmWy0ijJ4dQLe_q3_7vyCXVcxBtRHkRD--v02Gc-7JwWF16MFSGyLrtdXRt_A50B1NurF3IObPi2EByZd-HXyq6SC7XBtNyCwttYDhbiu98bPKTcLnRNk0Gg1a4-ZckgwJ6rLnW_6Iv_TkMFf1xt2QV9mqsPsxzuT9fB45UMnozeVZTsQfq-zIze1W485OEj4Kq3dYUbABnF7dJxqAXDGoHZg5ELGg8TmitNBxpl_Kt76Smcu98DEY8giVi1ItjpN-V_8xLrilrTRI5CuZtTHOHSt_8szOIxbr_8RHFbRNH__Z272cg1SfsFhozwB0lbRZ0T5B46esQq6LW-qMhaPeSv_BuVtZO7JuQEc5rLzf-Q45lnUjSy2GRW38rbMtRlvvCS-KgyyC2H-3S0kw-PNe9fpSu1qL9P6YZyr7wiOLRVmMT0tKouF5F45PNscvG5wIS2xxFFs-gd7oWTgNuB7YFn7qWSSHrsNw9KT=w650-h336-no"></p>
+<p>이제 광고배너를 삽입할 위치를 결정할 차례다. 블로그의 index에서 navigation이 있는 하단부에 광고를 설치하고 싶다.  저 곳에 광고코드를 심으려면 어디에 심어야 할까? 파이어폭스의 요소검사(크롬에선 개발자도구)를 통해 포스트 썸네일이 출력되는 부분이 <code>archive</code> 라는 것을 알 수 있었다. 광고 코드는 이 <code>archive</code>의 하단부에 삽입하면 될 것 같다.</p>
+<p><img src="https://lh3.googleusercontent.com/Xbt9lRi_dLerWJJ8ZGbA1Nud_Zx6VBdIP5MD5xcbHa95zUZeL_CDVCFK5T0rjFdA3i_-eA3-UsLioxcyzwU69KUkBPFXw74VDHy3fva4JzJbCOl1jSyo7cqo-iTbi3UAD-d4xDKwBDVS93sBEjrkdiH8ti4tHa_MHvIfF_WqjBRtdqVKEzOfJHIEts2AX5JbOAth5HVlybGcEw7dlqZZ9EZAGfuhXgFDa3SHJGzKHtlZhf4FdIRdFOXXzgvgew1inPRVPkR_FtuyxIyRw8vrx1y1TnEtzOMWKhruIXLSNjHRJYjYfQBo5ohKII3dJj034hVVq-HoFbhcSxdAh3vDgyNb6IW0jMpu4SGtUB3l9rIFNf9Y9safsgviEifmR7rAT5yG7dRsWfB0Z5PIlu4vjLi2g1_jDk31UIgL-ocxYD8H5627GF5n0ofz4I93L3jydLxM3Na7cN4Ckzr9JYK5XAxpdMoKpFDIsQhpATh6ciGY-D5KeKdMDtUOLThtOqMIm90W1Q0vLONFL4FEaziy6fVI9yV9jEN8qwPwxyiDiNioEqKAMULcXSZcZY56bkX9Z3c3jG-jHZxN3tLcUnwN_0fQmR_dlR8ks5AMwU_op20n-5DWTsr3oEQuwGg7D1F4B7s_B9rufRy3gv2jaZlc_tyzPURgOyEmoRCvOyszTG_Ua5UKxa2Ra39xOwIHmNisWBGlTf5Y2voMzfUCf85rt9LqUfrOqLZ5d9WVYfwselTRAJAB=w1174-h474-no"></p>
+<p><code>/layout/common</code> 디렉토리 내에 <code>archive.ejs</code>있다. 여기서 id가 <code>page-nav</code> 인 nav 아래에 광고코드를 심으면 될 것 같다. 광고코드는 이미 <code>/layout/ads/coupang-ad.ejs</code> 에 작성되었으므로 이 파일을 가져오면 될 것 같다.</p>
+<p><img src="https://lh3.googleusercontent.com/UXEXzahRKaYjAEt-eK6wmZnv49jzH4tmpf8ZvNlgZKORfkPw-avNxccGY6SdsWF0tN1xGwp9wGTOUm2e7k8l1u8bb_nVsGZjoOR2dWQKGQBWMeC6EmnkCueZtC65UaJsr426osIc7lEuAd6K5QCuBq1DH7LtUXqTnz8cqjv7cJB2CB_iXFkUdEQYr6hWP_CpiicpL8BwHJrqHm4ib24i3VNQ_USciWg3EwiLKBxvkRPn-wT4KvSsfQqjCjv0uLM5kp72jS74jcdxan2W2ghQ8l_RmazFRYv3XoCTgKC1pJ-BHPn6KD1G_SzsnyIge4EgsxrKf8F_QbiDBhFjddadMLWQWfMprDmVWqB6634Avur7PEn6iGVBqvHtMy5Cqin63joBkoiNxRQMqIp5ghTbkPDC_gAxYP8KaZYSGKZGluhy5wkjxSihZvilHodBixZPX4RuplmPlmYcf-Oze-xW_SI0Glgd4iecSF7IJ_yKNcBXZ-4kugLYvp4jP8sV006lx08PDmVFzz63hVm0VyDoOP19MvrqZi87_WjK77DJ7ZPFyC6dZxUiHsdOD3GSvZqX8IZJjFrhg1AqXvKRbIPDDuuIdLg-n942t0-VPN-NGn1P9TQZAmmezTdjbHZBvSvpqCSS9CvXIZU_3U6IRuZ0ggN4b4AhjcBE78LrAHI2KsjrTNltWWGXioRnVHzMWix6bIKCTNoGfP_pXGVmw1HgXw9Z5nEAuTN8GYTM-Bvca09dLL1l=w992-h244-no"></p>
+<p>위 이미지처럼 <code>&lt;%- partial(&#39;&#39;) %&gt;</code> 코드를 통해 해당 코드를 가져올 수 있다. 여기에 쿠팡 광고코드가 담긴 파일의 경로를 입력하면 된다.</p>
+<p>그리고 로컬호스트(<code>hexo server</code>)로 확인해보자.</p>
+<p><img src="https://lh3.googleusercontent.com/8FZTxE8gTNNf1A3vZ3T_yT3GEfTAjQuaaUVYCObQ8Gq465W8tAddKBxBqxsyhV2BKOt3BviQXF-2FpvYeLPDc-PR_0jp9CqprhYS1rSuBYoIUOOeXecgqbWyog66JrCFGTVPkTZPt1AoLQ9MbILpyMvXKvS2KX1mpKOeSQjF74L3QBhc0bwseok4T8HPWEWozgYnxYGlTsy0hgWE9vj9xpX9m2giRHrLguHfmf5CB6P0q9r9FAT-9JkIvq8DG8ZRtJRGrMjkD1b41y5ab1gLfoSFFfvTTEXbmyjGY_D1CDr-ZSvEZsC0U4SNTKQaO_u16J84VgKFAHpAXKLVvhpXW9nAKzqWu1aGLfIbzQWUpUr7PTfsMgNwpjop9gy6xWkh717LUG_q4pFp0HNgJCoHmF8DN8uGgf0qJf46Pjxaik906NArB3URsPFfx3V1F6d8QsCSVZV3D7ekOUIaCNeGWVLFs06IhBtY_cNG73dP-zn8Cx2wxV_0D-5fwPBiWI7TSxHTsz6Yk5HaBGajGlLcBCz9kz1E1R4JNgEVhFIVegiuIOjHSwgipMV4OWaQqRjPuINsGtotojUsdh727Prxp2bnFSquLs16oA2_h7zSAS_GP4XkFNsytobeLLomyjiKTPAjOrX-EyD5gZ5X-Z74kArzZJT9bgwzspoS0JmLJ06DB8CO1ZFxTTSUz0Ch1sCe1cJA_WYdGIEQ2OTxiqCgOUzQHAN9LnHtStBz1h2hvPtwY2qh=w1030-h558-no"></p>
+<p>광고가 잘 삽입되었음을 알 수 있다. 이제 누군가가 이 배너를 통해서 제품을 구입할 수 있기를 바래보자…^^</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://youngjinmo.github.io/2020/03/hexo-coupangads/" data-id="ckf65udpk009macgd7jww9aw3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Youngjin Mo"
+        },
+        "headline": "Hexo 블로그에 쿠팡광고 적용하기",
+        "image": "../../../http:/youngjinmo.github.iohttps:/lh3.googleusercontent.com/n4lJPqTwL2LsdLD8ZuLUq0L4ghAt7eYEx5UBcyOURqLviDZINt6HEuTqvkjCtYO47ARjdaSFmM8d0i4YbL1icd--BCr78CnM1zs2pk-4u8HwoNbNZ_VbA1dgozl14ypRX6BG7Exu1qNaYbnorp-Acow-LjOt5A-9ZfHEjbomm1z5Kok5fKUYdAG3gkLVnIuq_FHYsn2jhINOQ0lGhlX79ygRDaAox9GoxTYvSy8AreV422MEk8JaXxgMTOEOCRF4P2S87MeaHCTg31i2CX8Z82qd120hODGxhKj5GXEfxFPDPO5m20A0mxFBeTJU5YUQA4zhAhaf7QJlwtVlgyFN-KBK-PyKPrpBPNUay_QjuRyz0T6lHVF7EHZpHmupiXa-zQRtXLclg75Ktz_rURyLSiM6pFl6m_IdEyUqfrCV3k1tyGNl98IuQxDfIcbEJjyn6Xb1-jxLvJE4RYlqEG4YcJjByKc4T9NzaI4TYWb_N8ke-JuPiv12FFFlz9R5ZZkZzYDfVC3yvGnWPOsNE0NLtlIV2d5vDEIRDnNiWK0r18AV7m6q8q1TypWDOPti1I4kGdnLRp2HTcAz0tsmfZkTiCPUWGErM16u2dXnv7rpRHIRnH34CgrzQZcaXX3EpfZZwGz-onh4ifxDVcLlRkMVD4msnZex6Dmo_OWbC9Knztf4ZdDmQau2Hp3dOn_uZo_rSrcukzdrG-M7JepfybS2iDK0IyZReqcdj6y2xj8w-4rHZNOEig=w651-h314-no",
+        "keywords": "",
+        "genre": "Dev Hexo",
+        "datePublished": "2020-03-03",
+        "dateCreated": "2020-03-03",
+        "dateModified": "2020-09-13",
+        "url": "../../../http:/youngjinmo.github.io/2020/03/hexo-coupangads/",
+        "description": "
+구글 애드센스를 일주일정도 적용해보았는데 클릭당 $ 0.1 이 수익으로 발생하는 것 같았다. 이 정도로는 지나치게 작은 수익을 위해 블로그의 분위기를 해치는(?) 광고를 삽입하는 것 같아서 다른 광고를 찾아보았다. 그래서 찾은게 쿠팡 파트너스이다. 
+쿠팡 파트너스는 구글 애드센스와 달리 클릭만으로는 수익을 지급하는 것과 달리 광고배너를 통해 접속한 유저가",
+        "wordCount": 478
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="../../../https:/github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="../hexo-conditional-ads/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            시간에 따라 광고배너 다르게 노출하기
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="../gitmessage/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">커밋 메세지 더 잘 작성하기 (A.k.a. Gitmessage)</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../09/xml-json-xmlhttprequest/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3f3uUiEllt7yZ2cz-TBQE53mDoXAvAbilDnTHnb0gUIYnX86czSpvvAGNC1uwJN3Mm543ae8FVwBXvYPyOcYzNVH-5fg0VXSmiORlQSYChhlqdO1jLRs_XhVOQYcySp_K_S3JbhAK4jHpeyRpXmh45Gqg=w640-h405-no?authuser=2)" alt="XML, JSON 그리고 XMLHttpRequest" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Others/">Others</a></p>
+                            <p class="item-title"><a href="../../09/xml-json-xmlhttprequest/" class="title">XML, JSON 그리고 XMLHttpRequest</a></p>
+                            <p class="item-date"><time datetime="2020-09-01T12:00:59.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/create-table-sequence/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3dnKjQpuvDEmVxFsIrKfVbq9RCZMjbbZPOtAWR0Etr5EfTkx58EYPQjjgLEiO8XYLsVu_1TWyNmpySsDRxXvCplY6aMPhIMQgNCaH0TBpVv0vxyI_-b6pK9x8qhVSSptzKgeu-dbMHYIt-eS1MUDQnkiw=w640-h427-no?authuser=0)" alt="Oracle - Sequence 생성하고 테이블에 삽입하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Database/">Database</a></p>
+                            <p class="item-title"><a href="../../08/create-table-sequence/" class="title">Oracle - Sequence 생성하고 테이블에 삽입하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-31T18:57:13.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/servlet-redirect-forward/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3cK_j9D5XupS1mIeAAwsE1cOAdZ05jfS290XghGTAfDNVmf1VDdldnidSEQpbEAPRe_aTchGC7U00h7lU9JKtTV3ltDyqUcofn0Xu4p0pm_ROewKfcnOG3UO4Yo4EgVG6ZeQfoemWHklC1hGMn-1DXYfQ=w640-h427-no?authuser=0)" alt="Servlet - Redirect와 Forward" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../../08/servlet-redirect-forward/" class="title">Servlet - Redirect와 Forward</a></p>
+                            <p class="item-date"><time datetime="2020-08-30T22:32:44.000Z" itemprop="datePublished">2020-08-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/leetcode-twosum/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://assets.leetcode.com/static_assets/public/images/LeetCode_Sharing.png)" alt="Leetcode - Twosum" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Quiz/">Quiz</a></p>
+                            <p class="item-title"><a href="../../08/leetcode-twosum/" class="title">Leetcode - Twosum</a></p>
+                            <p class="item-date"><time datetime="2020-08-24T14:28:47.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/run-mysql-with-docker/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3fdpC3xu5q4xnJRLLhSaWCrARbnQ1qdp_DpF0Z7BITrtrr6gZWGExKC4PcMlVo3AxVhVbYiFgDhNObWmtv3hGwoEtF_4zFb_1fQsdL6d1K3UNA0LRkczuC_nNvcEHERB8EIB3uvWOIps7j1iraX6DGLbQ=w720-h480-no?authuser=0)" alt="Docker로 MySQL 실행하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Devops/">Devops</a></p>
+                            <p class="item-title"><a href="../../08/run-mysql-with-docker/" class="title">Docker로 MySQL 실행하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-23T17:12:43.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 11.11px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/api/" style="font-size: 11.11px;">api</a> <a href="../../../tags/architecture/" style="font-size: 10px;">architecture</a> <a href="../../../tags/array/" style="font-size: 11.11px;">array</a> <a href="../../../tags/aws/" style="font-size: 12.22px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 12.22px;">career</a> <a href="../../../tags/casting/" style="font-size: 12.22px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/cloud/" style="font-size: 12.22px;">cloud</a> <a href="../../../tags/compiler/" style="font-size: 10px;">compiler</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/databse/" style="font-size: 10px;">databse</a> <a href="../../../tags/datastructure/" style="font-size: 12.22px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 13.33px;">docker</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 11.11px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generic/" style="font-size: 10px;">generic</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 10px;">github</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 13.33px;">http</a> <a href="../../../tags/ide/" style="font-size: 10px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 10px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 11.11px;">interface</a> <a href="../../../tags/interpreter/" style="font-size: 10px;">interpreter</a> <a href="../../../tags/io/" style="font-size: 12.22px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 15.56px;">java</a> <a href="../../../tags/java8/" style="font-size: 11.11px;">java8</a> <a href="../../../tags/jquery/" style="font-size: 11.11px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/jvm/" style="font-size: 10px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 10px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 10px;">mustache</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 16.67px;">oop</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 12.22px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 11.11px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 18.89px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/string/" style="font-size: 14.44px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/tip/" style="font-size: 17.78px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 13.33px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 11.11px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 18.89px;">weekly-review</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Youngjin Mo</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+    
+        
+<script src="../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="../../../js/main.js"></script>
+
+
+</body>
+</html>

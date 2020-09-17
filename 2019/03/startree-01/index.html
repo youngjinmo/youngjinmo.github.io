@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>별찍기(1).java | DevAndy</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="" />
+    
+    <meta name="description" content="중첩 for문에 익숙해지기위해 별찍기를 연습해봤다.   1) 왼쪽, 상단에서 하단으로 1234567891011121314151617181920212223import java.util.Scanner;public class star_1 &amp;#123;    public static void main(String[] args) &amp;#123;        Scanne">
+<meta property="og:type" content="article">
+<meta property="og:title" content="별찍기(1).java">
+<meta property="og:url" content="http://youngjinmo.github.io/2019/03/startree-01/index.html">
+<meta property="og:site_name" content="DevAndy">
+<meta property="og:description" content="중첩 for문에 익숙해지기위해 별찍기를 연습해봤다.   1) 왼쪽, 상단에서 하단으로 1234567891011121314151617181920212223import java.util.Scanner;public class star_1 &amp;#123;    public static void main(String[] args) &amp;#123;        Scanne">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://images.unsplash.com/photo-1495465798138-718f86d1a4bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80">
+<meta property="article:published_time" content="2019-03-02T15:03:15.000Z">
+<meta property="article:modified_time" content="2020-09-13T01:53:28.088Z">
+<meta property="article:author" content="Youngjin Mo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1495465798138-718f86d1a4bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80">
+<meta name="twitter:creator" content="@devandy_yj">
+    
+
+    
+        <link rel="alternate" href="/" title="DevAndy" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="../../../libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="../../../libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="../../../libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="../../../css/style.css">
+
+
+    
+<script src="../../../libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-177850483-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../index.html">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Articles/">Articles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/">Dev</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Devops/">Devops</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Html-Css/">Html/Css</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Javascript/">Javascript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Others/">Others</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Springboot/">Springboot</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Web/">Web</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Review/">Review</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Thought/">Thought</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Quiz/">Quiz</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../https:/github.com/youngjinmo">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="../../../js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Java/">Java</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-startree-01" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        별찍기(1).java
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="" class="article-date">
+       <time datetime="2019-03-02T15:03:15.000Z" itemprop="datePublished">2019-03-03</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="" class="article-date">
+     <time datetime="2020-09-13T01:53:28.088Z" itemprop="dateModified">2020-09-13</time>
+  </a>
+</div>
+
+
+                
+
+                
+                
+
+                
+
+            </div>
+			<!-- 	count-time		 -->
+			<!-- <span class="reading-time" style="margin-left: 20px;">⏱ 17 min.</span>  -->
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="https://images.unsplash.com/photo-1495465798138-718f86d1a4bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80"></p>
+<p>중첩 for문에 익숙해지기위해 별찍기를 연습해봤다.</p>
+<br>
+
+<h2 id="1-왼쪽-상단에서-하단으로"><a href="#1-왼쪽-상단에서-하단으로" class="headerlink" title="1) 왼쪽, 상단에서 하단으로"></a>1) 왼쪽, 상단에서 하단으로</h2><p><img src="https://lh3.googleusercontent.com/xsW9EUlnDRS2uPf-36dysYa1PcdGbTfflskoAgmdbTvjii-8IWWA7wrkw3mkswRThgoYBzqdA5oqpjEh_KolsImUU5FizRNOH7vv8c3rBHxJlGfGPdDMqUsWeVV7rr_HwZtiL3nxw4aoVJlY9PDWAodyHPnSxZUwRDraU9T9LX2IYscsiJpYuqknlAVsK52TZ-qHjEpmT5rgOClD05gg-LQ4o5ous9qiqAF6qpzrbE-HvPsMPZ07H7SlOoyIiQ3ZVJMsKgLTtA6cxoBzuF0D1PsRG5dvof6MVY48l2kTl5XSUEKDpNquxn2J1ypA6Rhvl7fC3Z_IbuE_WjREK43Q70BGCroeK7W1AcO6fXJimdYZOK3tqxKzpRLxI3Xw_2WD3bjTP2eSvQzIdWLBHMGzaus-GbXDt2EW_gzAGD2mD1X8FKtmP4VaHoFCZwl8qcMqlLEBaEVQdXewW5e-EYw0osEUd8nWY2TzXS04HiM8sUwVp7SQiMIAcTOT1PqI-Bulj_D4vQKEgDhbGjqic9WA2kVggyJtFP69qfYBvy4F5TNYl1Cvj6mk91O-bQKGFNcuzcJo2zxDNKXUnEAOSE0UHwtEOdIF9JjsWCwTnDyNG7PZMUejIvbX8X52jMVxcipgPHkyO3Ad5y529Qc1sItB5TGpZf0Hjg-k=w663-h252-no"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">star_1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner sc = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		</span><br><span class="line">        System.out.print(<span class="string">&quot;Input star length : &quot;</span>);</span><br><span class="line">        <span class="keyword">int</span> len = sc.nextInt();</span><br><span class="line">		</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;len; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;i+<span class="number">1</span>; j++) &#123;</span><br><span class="line">                System.out.print(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">&quot;&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 출력 결과 </span></span><br><span class="line"><span class="comment">// Input star length : 5</span></span><br><span class="line"><span class="comment">//  *</span></span><br><span class="line"><span class="comment">//  **</span></span><br><span class="line"><span class="comment">//  ***</span></span><br><span class="line"><span class="comment">//  ****</span></span><br><span class="line"><span class="comment">//  *****</span></span><br></pre></td></tr></table></figure>
+
+<p>왼쪽에 붙어있으면서 상단에서 하단으로 내려갈수록 별이 많아지는 별 트리이다.</p>
+<p>첫번째 for문, 즉 <strong>바깥쪽 for문은 Column</strong>에 해당한다. 입력받은 정수만큼의 별을 그대로 출력하면 되기 때문에 <code>for(int i=0; i&lt;len; i++) &#123;&#125;</code> 를 사용했다.</p>
+<p><img src="https://proxy.duckduckgo.com/iu/?u=https://keydifferences.com/wp-content/uploads/2016/09/rows-vs-column.jpg&f=1"></p>
+<p>두번째 for문이자 <strong>안쪽 for문은 Column을 작성하는 부분</strong>에 해당한다. 첫번째 줄(Row)부터 별이 하나씩 증가(row)하는 형태인데, <strong>증가하는 별은 Row 수에 비례해서 증가</strong>하고 있다. 따라서 두번째 for문의 반복조건은 첫번째 for문에서 사용한 iterator <code>i</code>만큼 반복되어야 한다. for문 조건식에서 <code>&lt;=</code> 을 사용하지 않고, <code>&lt;</code> 를 사용했기 때문에 반복조건에 +1을 해서  <code>for(int j=0; j&lt;i+1; j++) &#123;&#125;</code> 로 작성했다.</p>
+<p>별을 찍었으면, iterator <code>i</code>가 증가할 때마다 줄을 바꿔야 하기 때문에 <code>System.out.println(&quot;&quot;);</code> 을 바깥쪽 for문과 안쪽 for문 사이에 작성해준다.</p>
+<br>
+
+<h2 id="2-오른쪽-상단에서-하단으로"><a href="#2-오른쪽-상단에서-하단으로" class="headerlink" title="2) 오른쪽, 상단에서 하단으로"></a>2) 오른쪽, 상단에서 하단으로</h2><p><img src="https://lh3.googleusercontent.com/lw6Tvbgb0H5uCYM1HUx42g8Nm95t1WkqCHQPgT1U4tLPOpU0zTb5xywfx7Yw5xVi0O2R3yAgzAFmu3bPqwfzPaPM5_khmDGoPj4MG_5Tr_iXRhRBXv82R25V7fogzY7h-rVK8eEmy8wRhwOiKJU8Sqloe0_HfnjnClA8xGA7_sJK5hhJpCi_M6F1-vmlTT5i5I5lca1v72DJRYzfhCceQZL9lnEY_diKZcSeFmD7-haNvdmzRUNNO9JFLkSjP3qbwSSOogmuqm3ZHh6qvbpKb2TGF8dRfNCZhcmzP7GzqeU5_SNFG679X8LEEhMQk9FQMiCrvQbpVSgPTVryBErAf_ria6UQAuvZMCFLOXgddvFtiIL52jEcqZL4dM8ZLNEeykDq3ATsuRV4QjK3E9K_IShPaWCrPxuhJ0WD67jYxQ02pZ4y-x2676pSnwrNM5Am4WufuayLHVexi4nC9PZg3rGLhv4C3VJodROw0qxHn75of3uYdWHILVrgy3TTvuXQXAl0VbNM_sx2VwqbtX4gUxmKdlNqNvDE_UYLy_oIkcJTVd7NPQgnh20GCFCct88DEoXM74Fc2EP2m30xoP-QiZaAaICLT8O5i5gje4nNJb42wVqg1q6IhnWYUpYZCvmMugcCDuwZWSpwxZvlbIHgpQx8Ma3lzwNQ=w657-h259-no"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">star_3</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner sc = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">      </span><br><span class="line">        System.out.print(<span class="string">&quot;Input star length: &quot;</span>);</span><br><span class="line">        <span class="keyword">int</span> len = sc.nextInt();</span><br><span class="line">		</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;len; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;len-i; j++) &#123;</span><br><span class="line">                System.out.print(<span class="string">&quot; &quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;i+<span class="number">1</span>; j++) &#123;</span><br><span class="line">                System.out.print(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">&quot;&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line"><span class="comment">// 출력 결과</span></span><br><span class="line"><span class="comment">// Input star length: 5</span></span><br><span class="line"><span class="comment">// (1)     *</span></span><br><span class="line"><span class="comment">// (2)    **</span></span><br><span class="line"><span class="comment">// (3)   ***</span></span><br><span class="line"><span class="comment">// (4)  ****</span></span><br><span class="line"><span class="comment">// (5) *****</span></span><br></pre></td></tr></table></figure>
+
+<p>이번엔 1) 에서 했던 별을 오른쪽으로 밀어넣은 형태의 별 트리이다.</p>
+<p>1)의 반복문이 2개를 중첩함으로써 구현했다면, 2) 부터는 반복문 1 개에 2 개의 반복문을 중첩시킴으로써 구현해야 한다. <strong>1)에서는 신경쓰지 않아도 되었던 빈 칸을 임의로 만들어서 별의 위치를 오른쪽으로 고정시켜야 하기 때문이다.</strong> 빈 칸을 만들어내는 코드이다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;len; i++) &#123;</span><br><span class="line">   <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;len-i; j++) &#123;</span><br><span class="line">      System.out.print(<span class="string">&quot; &quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://lh3.googleusercontent.com/T1w4XebGkRqsIHQPUHGKc2uVVcmPRZhx4EGTwKQYrShvqafeeSJ0wdUNH9X43T3Q17N7Sbme1LRTqcV44u-oSeBjUTfID26xpF0NOU7DGbU1L7UCEi0PUWYvySz8jD1Wag2-fUvV0gzIBob1nZbG-s7a8lM0GF88DNbtbf2rFRAIG7oOgaVz5E3RI6LQcA3DZt4T8wHS4E-i51c72hKsNjcIo1VBqKDm0ChFVg40FdJ2tp2AplHvKGbLh_kYHwVsmprGwbpe1eNbK3VD9HyENAEXuj-8PgFRw-32CgqwA4m3plW0Sn6KFAbR3zaAzEFPRSCdvZ9X7xpSDoZF5B97I07XtBWPiQZigQ20hZjMT6uC1hA-5v_E9T4RHl8rjelnE7Q-S9sOWIMnKtKV-VEg2hINMM2wt4eBK-vAEIQ41XPTeoShVGlrdcq-NemYlSDilT9rdQuQTOtvzchKi62AjCYQLQqMnIk8aKIUX5hrzAu1p88T6fi1cjeXAUOx20EACHhuapuF95Dv2LwglHEeG-MRhz-lhaoVm6aNhlRJ8cBQg53fVOAnZECz2xtbeQSXXSNC_Fwv6e_dttL96FE_1WXiV_hvEHVFSlrLQyrMjgq-ONSPJwaTbEAps_NINvkPqbzfXAZrEvkPxfnh2KTKPi1LR0FoBI9s=w237-h168-no"></p>
+<p>여기서 반복문의 조건식이 중요하다. 빈 칸은 시작점은 0에서 똑같이 시작하나, 갯수가 점차 적어지는 형조건이어야한다. 따라서 iterator <code>j</code> 에 사용자로부터 입력받은 최댓값(<code>len</code>)을 선언해주어야 한다.</p>
+<p>그리고 한 줄씩 내려갈수록 빈칸의 갯수는 하나씩 줄어야 하므로 빈칸을 생성하는 안쪽 for문의 iterator <code>j</code> 의 시작 값을 <code>j=len-i</code> 로 만들어준다. 그러면 한 줄이 바뀔때마다 <code>i</code>의 값이 1씩 커지므로 이와반대로 <code>j</code>의 값은 1씩 줄어들면서 그 다음 for문으로 생성되는 별을 하나씩 앞당겨준다.</p>
+<br>
+
+<h2 id="3-왼쪽-하단에서-상단으로"><a href="#3-왼쪽-하단에서-상단으로" class="headerlink" title="3) 왼쪽, 하단에서 상단으로"></a>3) 왼쪽, 하단에서 상단으로</h2><p><img src="https://lh3.googleusercontent.com/q6JbPdl2kRTptr6zgVw_qf7m8GeasvIDqWw3SGOyvisZ_vimWy7Uou8a9R8qjksKhlwAuh7JzE2fICRTpyeywK23CmgSaH20NzTnEJ8QBCqDxu4yXEp3vNoZ9W4Xla3abWUeYdnaLdEKk3BUD5PRvudzIyclIHYbtLalu6CNvv2asYwO1_OKROP4z9poulacghLADRccyhF5-6pbriXDp0dpq3yQjatwmbNK6Fqrkjyu3Uh19kN1wHrSN4yxDI13IKoWC1Q3qF79nhOHe_n5tXfAT8LQmbCZCaiIVyzCCxyTXXNtap9cyPLJUA8Trc6o0Zyhh6b6KeEuV6GuOKjDit_Sihx_gNu041eKvn201vX-tjj926GyV-gPdvNGKojygP9n3agapFeKcQN6VU_MPZzfoNVQtKZYJ9-ndbJIYxpwhN4pK-g-zSMBLgaL5A7YXiBar-j4WSXRBZAHvDBbQl7qNqxkIMz_f0C8WhNNw6RfgYeBBLwVbA4eqGGUNsZItbvvZugR4cJwHbmL1NLQiZEWZSLpaDubPcnLSFmtshs4ZkUd2VGejfg3Egf2SovSpR_iCArUMGB12wu_GhLgsGgtAQ9iZzHYjjaAFig32FjlwhbIyxQIS0caZcj_IfoU7CkAJ_L9O5aB6Uvm7YXnTtVTW7FdeoQ0=w662-h258-no"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">star_3</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner sc = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		</span><br><span class="line">        System.out.print(<span class="string">&quot;Input star length: &quot;</span>);</span><br><span class="line">        <span class="keyword">int</span> len = sc.nextInt();</span><br><span class="line">		</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;len; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=n; j&gt;i; j--) &#123;</span><br><span class="line">                System.out.print(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">&quot;&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Input star length: 5</span></span><br><span class="line"><span class="comment">// (1) *****</span></span><br><span class="line"><span class="comment">// (2) **** </span></span><br><span class="line"><span class="comment">// (3) ***  </span></span><br><span class="line"><span class="comment">// (4) **   </span></span><br><span class="line"><span class="comment">// (5) *    </span></span><br></pre></td></tr></table></figure>
+
+<p>별을 사용자로부터 입력된 값만큼 출력하고 빈칸을 출력하는 프로그램이다.</p>
+<p>따라서 별을 출력하는 안쪽 첫번째 반복문은 0에서 시작해서 <code>len-i</code>가 될 때까지 별 출력을 반복한다. <strong>반복조건을 <code>len-i</code>로 작성한 이유는 바깥쪽 반복문의 iterator <code>i</code>가 하나씩 증가할 때마다 별이 하나씩 줄어야 하기 때문이다.</strong> </p>
+<br>
+
+<h2 id="4-오른쪽-하단에서-상단으로"><a href="#4-오른쪽-하단에서-상단으로" class="headerlink" title="4) 오른쪽, 하단에서 상단으로"></a>4) 오른쪽, 하단에서 상단으로</h2><p><img src="https://lh3.googleusercontent.com/rTYpXueYtpJ95b-CCKdcDPhNZjEJI7eeXiQgLbN2xTSmI-9bPZYTQqBAtLK7Tr9Osn4knavmINQt0hbNs2nSRfLu7aZ-W68o42RIYzqr8rZQZzXUz3_0MOXH4wI78NFOXHsePqVJvq4Da6IWaHJ_oxJfpeQ9ihnjDiR1ahx4N2ADEFygOpy9OWcJB69OIYos3gdXsFp-i8Jd1JNmqzE_xwXHS-fG4AFaKMK3kfEpIsqJuChnsl2MMpNEIDhTL9yT6jGrdiJ6eLLfe0rGaRbDr6Tmrx8Bi44Th0VCb5RLcZi8yxbSdik7T1wZP3jxakJPtlob4WGrpd4FRTSdrCoWBVFTG6JMvwrTLRZouKy4VYeAS3isQ2fGQYRDLM4kcBTOAWN-7cQV1PPvJ3-uVRug804hhzADWnQ6wZs6YasSQ_XEhW5kBsb7Kt9CWQVWmMbdAmtifDrigKJdVxa6gTYgnAOLDs46aOkzRAlQYG8FJEOUEOK9R_n41lIGcBL42DEio7HOrvx-MPOOVNO3ekFlk4G9h--cpeqGSinckIbI-tvr0TXQKX1Ea7G2dJ0vzSIa1ZdhQLyXtwXF0uRNtnmP7Dulgddhu7GVlu8OCNYb3P5GRqpCNFBve9b3d-BybshgERB2v5vh9oec2az1HmsSj9MiTCmI6oZh=w659-h257-no"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">star_2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner sc = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		</span><br><span class="line">        System.out.print(<span class="string">&quot;Input star length : &quot;</span>);</span><br><span class="line">        <span class="keyword">int</span> len = sc.nextInt();</span><br><span class="line">		</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;len; i++) &#123;</span><br><span class="line">            System.out.print(<span class="string">&quot;(&quot;</span>+(i+<span class="number">1</span>)+<span class="string">&quot;) &quot;</span>);  <span class="comment">// printout line number</span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;i; j++) &#123;</span><br><span class="line">                System.out.print(<span class="string">&quot; &quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;len-i; j++) &#123;</span><br><span class="line">                System.out.print(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">&quot;&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 출력 결과 </span></span><br><span class="line"><span class="comment">// Input star length : 5</span></span><br><span class="line"><span class="comment">// (1) *****</span></span><br><span class="line"><span class="comment">// (2)  ****</span></span><br><span class="line"><span class="comment">// (3)   ***</span></span><br><span class="line"><span class="comment">// (4)    **</span></span><br><span class="line"><span class="comment">// (5)     *</span></span><br></pre></td></tr></table></figure>
+
+<p>이번엔 반대로 3)의 별 트리를 오른쪽으로 밀어붙인 형태이다. 왼쪽이 빈 칸, 오른쪽이 별인 형태이다. </p>
+<p>안쪽 첫번째 반복문은 빈 칸을 작성하는 반복문이고, 안쪽 두번째 반복문은 별을 작성하는 반복문이다. </p>
+<p>안쪽 첫 번째 반복문부터 보면, 왼쪽이 빈 칸이므로 빈 칸을 작성하는 반복문을 작성하였다. 0에서 시작해서 바깥쪽 iterator <code>i</code>가 될 때까지 1씩 증가하는 조건으로 작성하였다.</p>
+<p>안쪽 두 번째 반복문은 빈 칸에 이어 별이 입력되는 반복문인데, 0에서 반복조건을 <code>k&lt;len-i</code> 로 작성하였다. <strong>별 트리의 넓이를 사용자로부터 입력받은 len 에 맞추고, 줄이 바뀔 때마다 별의 갯수가 하나씩 줄어들기 때문이다.</strong></p>
+<p><a target="_blank" rel="noopener" href="https://devyoungjin.github.io/2019/03/startree-02/">진짜 별사진으로 눈정화하고 별찍기(2) 보러가기 </a></p>
+<p><a target="_blank" rel="noopener" href="https://devyoungjin.github.io/2019/03/startree-02/"><img src="https://images.unsplash.com/photo-1487715224545-78f0cedc19bd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"></a></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://youngjinmo.github.io/2019/03/startree-01/" data-id="ckf65ue8v00h2acgd8ux38y3x" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Youngjin Mo"
+        },
+        "headline": "별찍기(1).java",
+        "image": "../../../http:/youngjinmo.github.iohttps:/images.unsplash.com/photo-1495465798138-718f86d1a4bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80",
+        "keywords": "",
+        "genre": "Dev Java",
+        "datePublished": "2019-03-03",
+        "dateCreated": "2019-03-03",
+        "dateModified": "2020-09-13",
+        "url": "../../../http:/youngjinmo.github.io/2019/03/startree-01/",
+        "description": "
+중첩 for문에 익숙해지기위해 별찍기를 연습해봤다.
+
+
+1) 왼쪽, 상단에서 하단으로
+1234567891011121314151617181920212223import java.util.Scanner;public class star_1 &#123;    public static void main(String[] args) &#123;        Scanne",
+        "wordCount": 1502
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="../../../https:/github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="../startree-02/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            별찍기(2).java
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="../how-to-learn-programming/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">개발자에게 공부란.</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../2020/09/xml-json-xmlhttprequest/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3f3uUiEllt7yZ2cz-TBQE53mDoXAvAbilDnTHnb0gUIYnX86czSpvvAGNC1uwJN3Mm543ae8FVwBXvYPyOcYzNVH-5fg0VXSmiORlQSYChhlqdO1jLRs_XhVOQYcySp_K_S3JbhAK4jHpeyRpXmh45Gqg=w640-h405-no?authuser=2)" alt="XML, JSON 그리고 XMLHttpRequest" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Others/">Others</a></p>
+                            <p class="item-title"><a href="../../../2020/09/xml-json-xmlhttprequest/" class="title">XML, JSON 그리고 XMLHttpRequest</a></p>
+                            <p class="item-date"><time datetime="2020-09-01T12:00:59.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../2020/08/create-table-sequence/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3dnKjQpuvDEmVxFsIrKfVbq9RCZMjbbZPOtAWR0Etr5EfTkx58EYPQjjgLEiO8XYLsVu_1TWyNmpySsDRxXvCplY6aMPhIMQgNCaH0TBpVv0vxyI_-b6pK9x8qhVSSptzKgeu-dbMHYIt-eS1MUDQnkiw=w640-h427-no?authuser=0)" alt="Oracle - Sequence 생성하고 테이블에 삽입하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Database/">Database</a></p>
+                            <p class="item-title"><a href="../../../2020/08/create-table-sequence/" class="title">Oracle - Sequence 생성하고 테이블에 삽입하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-31T18:57:13.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../2020/08/servlet-redirect-forward/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3cK_j9D5XupS1mIeAAwsE1cOAdZ05jfS290XghGTAfDNVmf1VDdldnidSEQpbEAPRe_aTchGC7U00h7lU9JKtTV3ltDyqUcofn0Xu4p0pm_ROewKfcnOG3UO4Yo4EgVG6ZeQfoemWHklC1hGMn-1DXYfQ=w640-h427-no?authuser=0)" alt="Servlet - Redirect와 Forward" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../../../2020/08/servlet-redirect-forward/" class="title">Servlet - Redirect와 Forward</a></p>
+                            <p class="item-date"><time datetime="2020-08-30T22:32:44.000Z" itemprop="datePublished">2020-08-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../2020/08/leetcode-twosum/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://assets.leetcode.com/static_assets/public/images/LeetCode_Sharing.png)" alt="Leetcode - Twosum" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Quiz/">Quiz</a></p>
+                            <p class="item-title"><a href="../../../2020/08/leetcode-twosum/" class="title">Leetcode - Twosum</a></p>
+                            <p class="item-date"><time datetime="2020-08-24T14:28:47.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../2020/08/run-mysql-with-docker/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3fdpC3xu5q4xnJRLLhSaWCrARbnQ1qdp_DpF0Z7BITrtrr6gZWGExKC4PcMlVo3AxVhVbYiFgDhNObWmtv3hGwoEtF_4zFb_1fQsdL6d1K3UNA0LRkczuC_nNvcEHERB8EIB3uvWOIps7j1iraX6DGLbQ=w720-h480-no?authuser=0)" alt="Docker로 MySQL 실행하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Devops/">Devops</a></p>
+                            <p class="item-title"><a href="../../../2020/08/run-mysql-with-docker/" class="title">Docker로 MySQL 실행하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-23T17:12:43.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 11.11px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/api/" style="font-size: 11.11px;">api</a> <a href="../../../tags/architecture/" style="font-size: 10px;">architecture</a> <a href="../../../tags/array/" style="font-size: 11.11px;">array</a> <a href="../../../tags/aws/" style="font-size: 12.22px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 12.22px;">career</a> <a href="../../../tags/casting/" style="font-size: 12.22px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/cloud/" style="font-size: 12.22px;">cloud</a> <a href="../../../tags/compiler/" style="font-size: 10px;">compiler</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/databse/" style="font-size: 10px;">databse</a> <a href="../../../tags/datastructure/" style="font-size: 12.22px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 13.33px;">docker</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 11.11px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generic/" style="font-size: 10px;">generic</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 10px;">github</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 13.33px;">http</a> <a href="../../../tags/ide/" style="font-size: 10px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 10px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 11.11px;">interface</a> <a href="../../../tags/interpreter/" style="font-size: 10px;">interpreter</a> <a href="../../../tags/io/" style="font-size: 12.22px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 15.56px;">java</a> <a href="../../../tags/java8/" style="font-size: 11.11px;">java8</a> <a href="../../../tags/jquery/" style="font-size: 11.11px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/jvm/" style="font-size: 10px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 10px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 10px;">mustache</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 16.67px;">oop</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 12.22px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 11.11px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 18.89px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/string/" style="font-size: 14.44px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/tip/" style="font-size: 17.78px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 13.33px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 11.11px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 18.89px;">weekly-review</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Youngjin Mo</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+    
+        
+<script src="../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="../../../js/main.js"></script>
+
+
+</body>
+</html>

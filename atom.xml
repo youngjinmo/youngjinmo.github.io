@@ -1,0 +1,888 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>DevAndy</title>
+  
+  <subtitle>개발블로그</subtitle>
+  <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
+  
+  <link href="http://youngjinmo.github.io/"/>
+  <updated>2020-09-13T01:53:27.932Z</updated>
+  <id>http://youngjinmo.github.io/</id>
+  
+  <author>
+    <name>Youngjin Mo</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>XML, JSON 그리고 XMLHttpRequest</title>
+    <link href="http://youngjinmo.github.io/2020/09/xml-json-xmlhttprequest/"/>
+    <id>http://youngjinmo.github.io/2020/09/xml-json-xmlhttprequest/</id>
+    <published>2020-09-01T12:00:59.000Z</published>
+    <updated>2020-09-13T01:53:27.932Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Others" scheme="http://youngjinmo.github.io/categories/Dev/Others/"/>
+    
+    
+    <category term="xml" scheme="http://youngjinmo.github.io/tags/xml/"/>
+    
+    <category term="json" scheme="http://youngjinmo.github.io/tags/json/"/>
+    
+    <category term="XMLHttpRequest" scheme="http://youngjinmo.github.io/tags/XMLHttpRequest/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Oracle - Sequence 생성하고 테이블에 삽입하기</title>
+    <link href="http://youngjinmo.github.io/2020/08/create-table-sequence/"/>
+    <id>http://youngjinmo.github.io/2020/08/create-table-sequence/</id>
+    <published>2020-08-31T18:57:13.000Z</published>
+    <updated>2020-09-13T01:53:29.136Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Database" scheme="http://youngjinmo.github.io/categories/Dev/Database/"/>
+    
+    
+    <category term="oracle" scheme="http://youngjinmo.github.io/tags/oracle/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Servlet - Redirect와 Forward</title>
+    <link href="http://youngjinmo.github.io/2020/08/servlet-redirect-forward/"/>
+    <id>http://youngjinmo.github.io/2020/08/servlet-redirect-forward/</id>
+    <published>2020-08-30T22:32:44.000Z</published>
+    <updated>2020-09-13T01:53:28.160Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+    <category term="servlet" scheme="http://youngjinmo.github.io/tags/servlet/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode - Twosum</title>
+    <link href="http://youngjinmo.github.io/2020/08/leetcode-twosum/"/>
+    <id>http://youngjinmo.github.io/2020/08/leetcode-twosum/</id>
+    <published>2020-08-24T14:28:47.000Z</published>
+    <updated>2020-09-13T01:53:28.332Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;TwoSum&quot;&gt;&lt;a href=&quot;#TwoSum&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Quiz" scheme="http://youngjinmo.github.io/categories/Quiz/"/>
+    
+    
+    <category term="algorithms" scheme="http://youngjinmo.github.io/tags/algorithms/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Docker로 MySQL 실행하기</title>
+    <link href="http://youngjinmo.github.io/2020/08/run-mysql-with-docker/"/>
+    <id>http://youngjinmo.github.io/2020/08/run-mysql-with-docker/</id>
+    <published>2020-08-23T17:12:43.000Z</published>
+    <updated>2020-09-13T01:53:28.192Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Devops" scheme="http://youngjinmo.github.io/categories/Dev/Devops/"/>
+    
+    
+    <category term="docker" scheme="http://youngjinmo.github.io/tags/docker/"/>
+    
+    <category term="mysql" scheme="http://youngjinmo.github.io/tags/mysql/"/>
+    
+    <category term="database" scheme="http://youngjinmo.github.io/tags/database/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java - Generic</title>
+    <link href="http://youngjinmo.github.io/2020/08/java-generic/"/>
+    <id>http://youngjinmo.github.io/2020/08/java-generic/</id>
+    <published>2020-08-19T16:24:46.000Z</published>
+    <updated>2020-09-13T01:53:28.596Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+    <category term="generic" scheme="http://youngjinmo.github.io/tags/generic/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Github Two-Factor 적용이후 Authenticatin Fail 발생할때</title>
+    <link href="http://youngjinmo.github.io/2020/07/git-access-token/"/>
+    <id>http://youngjinmo.github.io/2020/07/git-access-token/</id>
+    <published>2020-07-31T21:49:35.000Z</published>
+    <updated>2020-09-13T01:53:28.928Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Git" scheme="http://youngjinmo.github.io/categories/Dev/Git/"/>
+    
+    
+    <category term="github" scheme="http://youngjinmo.github.io/tags/github/"/>
+    
+    <category term="git" scheme="http://youngjinmo.github.io/tags/git/"/>
+    
+    <category term="error" scheme="http://youngjinmo.github.io/tags/error/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java - JVM</title>
+    <link href="http://youngjinmo.github.io/2020/07/java-jvm/"/>
+    <id>http://youngjinmo.github.io/2020/07/java-jvm/</id>
+    <published>2020-07-27T23:37:43.000Z</published>
+    <updated>2020-09-13T01:53:28.552Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align=&quot;center&quot;&gt;
+  &lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+    <category term="jvm" scheme="http://youngjinmo.github.io/tags/jvm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Enumeration 인터페이스와 Iterator 인터페이스</title>
+    <link href="http://youngjinmo.github.io/2020/07/enumeration-iterator/"/>
+    <id>http://youngjinmo.github.io/2020/07/enumeration-iterator/</id>
+    <published>2020-07-05T16:39:14.000Z</published>
+    <updated>2020-09-13T01:53:28.948Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+    <category term="enumeration" scheme="http://youngjinmo.github.io/tags/enumeration/"/>
+    
+    <category term="iterator" scheme="http://youngjinmo.github.io/tags/iterator/"/>
+    
+    <category term="interface" scheme="http://youngjinmo.github.io/tags/interface/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Servlet - 서블릿 생명주기와 HttpServletRequest, HttpServletResponse</title>
+    <link href="http://youngjinmo.github.io/2020/07/servlet-lifecycle/"/>
+    <id>http://youngjinmo.github.io/2020/07/servlet-lifecycle/</id>
+    <published>2020-07-02T19:55:33.000Z</published>
+    <updated>2020-09-13T01:53:28.180Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+    <category term="http" scheme="http://youngjinmo.github.io/tags/http/"/>
+    
+    <category term="servlet" scheme="http://youngjinmo.github.io/tags/servlet/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Servlet - 서블릿 튜토리얼</title>
+    <link href="http://youngjinmo.github.io/2020/07/servlet-tutorial/"/>
+    <id>http://youngjinmo.github.io/2020/07/servlet-tutorial/</id>
+    <published>2020-07-02T19:55:30.000Z</published>
+    <updated>2020-09-13T01:53:28.116Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+    <category term="http" scheme="http://youngjinmo.github.io/tags/http/"/>
+    
+    <category term="servlet" scheme="http://youngjinmo.github.io/tags/servlet/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java8 - 람다와 함수형 인터페이스</title>
+    <link href="http://youngjinmo.github.io/2020/06/java8-lambda-functional-interface/"/>
+    <id>http://youngjinmo.github.io/2020/06/java8-lambda-functional-interface/</id>
+    <published>2020-06-29T21:49:09.000Z</published>
+    <updated>2020-09-13T01:53:28.364Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+    <category term="java8" scheme="http://youngjinmo.github.io/tags/java8/"/>
+    
+    <category term="lambda" scheme="http://youngjinmo.github.io/tags/lambda/"/>
+    
+    <category term="functional interface" scheme="http://youngjinmo.github.io/tags/functional-interface/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>자바8의 신규 기능</title>
+    <link href="http://youngjinmo.github.io/2020/06/java8-new-features/"/>
+    <id>http://youngjinmo.github.io/2020/06/java8-new-features/</id>
+    <published>2020-06-22T21:03:51.000Z</published>
+    <updated>2020-09-13T01:53:28.352Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+    <category term="java8" scheme="http://youngjinmo.github.io/tags/java8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java - File 읽고(Read) 출력(Write)하기</title>
+    <link href="http://youngjinmo.github.io/2020/06/java-file-io/"/>
+    <id>http://youngjinmo.github.io/2020/06/java-file-io/</id>
+    <published>2020-06-20T17:18:47.000Z</published>
+    <updated>2020-09-13T01:53:28.600Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+    <category term="io" scheme="http://youngjinmo.github.io/tags/io/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>REST</title>
+    <link href="http://youngjinmo.github.io/2020/06/rest-api/"/>
+    <id>http://youngjinmo.github.io/2020/06/rest-api/</id>
+    <published>2020-06-18T20:29:48.000Z</published>
+    <updated>2020-09-13T01:53:28.208Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Web" scheme="http://youngjinmo.github.io/categories/Dev/Web/"/>
+    
+    
+    <category term="api" scheme="http://youngjinmo.github.io/tags/api/"/>
+    
+    <category term="architecture" scheme="http://youngjinmo.github.io/tags/architecture/"/>
+    
+    <category term="rest" scheme="http://youngjinmo.github.io/tags/rest/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>웹서버와 WAS</title>
+    <link href="http://youngjinmo.github.io/2020/06/webserver-was/"/>
+    <id>http://youngjinmo.github.io/2020/06/webserver-was/</id>
+    <published>2020-06-15T22:05:56.000Z</published>
+    <updated>2020-09-13T01:53:28.048Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Web" scheme="http://youngjinmo.github.io/categories/Dev/Web/"/>
+    
+    
+    <category term="jar" scheme="http://youngjinmo.github.io/tags/jar/"/>
+    
+    <category term="war" scheme="http://youngjinmo.github.io/tags/war/"/>
+    
+    <category term="webserver" scheme="http://youngjinmo.github.io/tags/webserver/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git - Stash 활용법</title>
+    <link href="http://youngjinmo.github.io/2020/06/git-stash/"/>
+    <id>http://youngjinmo.github.io/2020/06/git-stash/</id>
+    <published>2020-06-13T13:06:10.000Z</published>
+    <updated>2020-09-13T01:53:28.864Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Git" scheme="http://youngjinmo.github.io/categories/Dev/Git/"/>
+    
+    
+    <category term="stash" scheme="http://youngjinmo.github.io/tags/stash/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>String 객체 연산시 StringBuffer를 사용해야하는 이유</title>
+    <link href="http://youngjinmo.github.io/2020/05/java-stringbuffer-better-than-string/"/>
+    <id>http://youngjinmo.github.io/2020/05/java-stringbuffer-better-than-string/</id>
+    <published>2020-05-16T09:11:06.000Z</published>
+    <updated>2020-09-13T01:53:28.396Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+    <category term="string" scheme="http://youngjinmo.github.io/tags/string/"/>
+    
+    <category term="io" scheme="http://youngjinmo.github.io/tags/io/"/>
+    
+    <category term="stringbuffer" scheme="http://youngjinmo.github.io/tags/stringbuffer/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java - Exception</title>
+    <link href="http://youngjinmo.github.io/2020/05/java-exception/"/>
+    <id>http://youngjinmo.github.io/2020/05/java-exception/</id>
+    <published>2020-05-13T21:10:26.000Z</published>
+    <updated>2020-09-13T01:53:28.604Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+    <category term="exception" scheme="http://youngjinmo.github.io/tags/exception/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu에서 JDK 설치하기</title>
+    <link href="http://youngjinmo.github.io/2020/05/install-jdk-ubuntu/"/>
+    <id>http://youngjinmo.github.io/2020/05/install-jdk-ubuntu/</id>
+    <published>2020-05-08T22:42:37.000Z</published>
+    <updated>2020-09-13T01:53:28.648Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Linux" scheme="http://youngjinmo.github.io/categories/Dev/Linux/"/>
+    
+    
+    <category term="ubuntu" scheme="http://youngjinmo.github.io/tags/ubuntu/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java - String 클래스 메서드 정리</title>
+    <link href="http://youngjinmo.github.io/2020/05/java-string-methods/"/>
+    <id>http://youngjinmo.github.io/2020/05/java-string-methods/</id>
+    <published>2020-05-03T16:56:04.000Z</published>
+    <updated>2020-09-13T01:53:28.408Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+    <category term="string" scheme="http://youngjinmo.github.io/tags/string/"/>
+    
+    <category term="object" scheme="http://youngjinmo.github.io/tags/object/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Oracle - Date</title>
+    <link href="http://youngjinmo.github.io/2020/04/oracle-date/"/>
+    <id>http://youngjinmo.github.io/2020/04/oracle-date/</id>
+    <published>2020-04-26T14:57:07.000Z</published>
+    <updated>2020-09-13T01:53:28.308Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Database" scheme="http://youngjinmo.github.io/categories/Dev/Database/"/>
+    
+    
+    <category term="oracle" scheme="http://youngjinmo.github.io/tags/oracle/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Oracle - LIKE 연산자</title>
+    <link href="http://youngjinmo.github.io/2020/04/oracle-like/"/>
+    <id>http://youngjinmo.github.io/2020/04/oracle-like/</id>
+    <published>2020-04-26T13:42:51.000Z</published>
+    <updated>2020-09-13T01:53:28.264Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Database" scheme="http://youngjinmo.github.io/categories/Dev/Database/"/>
+    
+    
+    <category term="oracle" scheme="http://youngjinmo.github.io/tags/oracle/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>main(String[] Args)에 대해 알아보자.</title>
+    <link href="http://youngjinmo.github.io/2020/04/java-main-args/"/>
+    <id>http://youngjinmo.github.io/2020/04/java-main-args/</id>
+    <published>2020-04-23T18:53:54.000Z</published>
+    <updated>2020-09-13T01:53:28.548Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Oracle - Sub Query</title>
+    <link href="http://youngjinmo.github.io/2020/04/oracle-subquery/"/>
+    <id>http://youngjinmo.github.io/2020/04/oracle-subquery/</id>
+    <published>2020-04-20T14:48:40.000Z</published>
+    <updated>2020-09-13T01:53:28.232Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Database" scheme="http://youngjinmo.github.io/categories/Dev/Database/"/>
+    
+    
+    <category term="oracle" scheme="http://youngjinmo.github.io/tags/oracle/"/>
+    
+    <category term="sql" scheme="http://youngjinmo.github.io/tags/sql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>객체를 직접 호출하는 것과 인스턴스를 호출하는것의 차이 (메모리 주소값 비교)</title>
+    <link href="http://youngjinmo.github.io/2020/04/java-object-instance/"/>
+    <id>http://youngjinmo.github.io/2020/04/java-object-instance/</id>
+    <published>2020-04-08T14:56:01.000Z</published>
+    <updated>2020-09-13T01:53:28.452Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+    <category term="oop" scheme="http://youngjinmo.github.io/tags/oop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>메모리 구조</title>
+    <link href="http://youngjinmo.github.io/2020/04/java-memory/"/>
+    <id>http://youngjinmo.github.io/2020/04/java-memory/</id>
+    <published>2020-04-06T00:38:55.000Z</published>
+    <updated>2020-09-13T01:53:28.476Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+    <category term="datastructure" scheme="http://youngjinmo.github.io/tags/datastructure/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JAVA - 내부클래스(innerClass또는 nestedClass)</title>
+    <link href="http://youngjinmo.github.io/2020/04/java-nestedClass/"/>
+    <id>http://youngjinmo.github.io/2020/04/java-nestedClass/</id>
+    <published>2020-04-05T22:48:25.000Z</published>
+    <updated>2020-09-13T01:53:28.452Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;img src=&quot;&quot; width=&quot;650px&quot; /&gt;
+
+
+
+
+&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+    <category term="oop" scheme="http://youngjinmo.github.io/tags/oop/"/>
+    
+    <category term="inner class" scheme="http://youngjinmo.github.io/tags/inner-class/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>인텔리J에서 Gradle 프로젝트 인식안될때</title>
+    <link href="http://youngjinmo.github.io/2020/04/intellij-reimport-gradle/"/>
+    <id>http://youngjinmo.github.io/2020/04/intellij-reimport-gradle/</id>
+    <published>2020-04-05T16:49:27.000Z</published>
+    <updated>2020-09-13T01:53:28.636Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;img src=&quot;&quot; width=&quot;650px&quot; /&gt;
+
+
+
+
+&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+    <category term="error" scheme="http://youngjinmo.github.io/tags/error/"/>
+    
+    <category term="springboot" scheme="http://youngjinmo.github.io/tags/springboot/"/>
+    
+    <category term="intellij" scheme="http://youngjinmo.github.io/tags/intellij/"/>
+    
+    <category term="ide" scheme="http://youngjinmo.github.io/tags/ide/"/>
+    
+    <category term="gradle" scheme="http://youngjinmo.github.io/tags/gradle/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java - 인터페이스(Interface)</title>
+    <link href="http://youngjinmo.github.io/2020/04/java-interface/"/>
+    <id>http://youngjinmo.github.io/2020/04/java-interface/</id>
+    <published>2020-04-04T17:49:23.000Z</published>
+    <updated>2020-09-13T01:53:28.584Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+    <category term="oop" scheme="http://youngjinmo.github.io/tags/oop/"/>
+    
+    <category term="interface" scheme="http://youngjinmo.github.io/tags/interface/"/>
+    
+  </entry>
+  
+</feed>

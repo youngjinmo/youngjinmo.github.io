@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Hexo 블로그에 Utterances 적용하기 | DevAndy</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="hexo" />
+    
+    <meta name="description" content="Hexo 블로그를 운영하며, 댓글 라이브러리로 Disqus를 사용했었는데, 현재 내 블로그를 접속하는 사람들은 아마도 개발자들일 것이고, 개발자들이라면 Github UI가 익숙할 것 같다는 생각이 들었다. 그래서 Disqus대신 Github UI를 경험할 수 있는 Utterances 라이브러리를 블로그 댓글로 사용해보기로 결정하였다.     아웃사이더님">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo 블로그에 Utterances 적용하기">
+<meta property="og:url" content="http://youngjinmo.github.io/2020/02/hexo-utterances/index.html">
+<meta property="og:site_name" content="DevAndy">
+<meta property="og:description" content="Hexo 블로그를 운영하며, 댓글 라이브러리로 Disqus를 사용했었는데, 현재 내 블로그를 접속하는 사람들은 아마도 개발자들일 것이고, 개발자들이라면 Github UI가 익숙할 것 같다는 생각이 들었다. 그래서 Disqus대신 Github UI를 경험할 수 있는 Utterances 라이브러리를 블로그 댓글로 사용해보기로 결정하였다.     아웃사이더님">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://lh3.googleusercontent.com/ZPV6ThGID6rOwa_gal1M-QlPM0tSG26WTMGHTyXrJd53WS2625px_qo9Jy7PY0ojA5-du_n2EkbazIpbCWEJ2-M_7OKdFIV6fyOzwu0kYoYgH-Zn4dsISWPHp_fNlUoVEtadBGz-uyaif5YrPSAXA-REnYcpbqnmZmpSyCRhSDIAdQygg1IVIFErP53X-F1cAaw281CA8tCkpWXVLBtEwFPkn4unjiAMhz0lzXWyPdQfimxvbrFoYow2UFMALRKKFro6D2l5ZZbrf-NUazxC-bu2CPuIz8gISM7nEiBhc7TeLtaXow_POU0sSecBlSBOAzlbwQITfYCn7hYIjNUVmKx6pGl71Ji9Tne2wHVUTliwtkYhT7EQ_ln5dx2LpwGU1_8gHYMt0WjiUA8EXw-4wd1b9-k6Izvt5WEK9qbwRjHZevnn68Q303M-8Cmgi36nYSb3ej5uW6WhIZrMMMivyOidI_Kyw5xDCvrQSeshhfVeZJKQcwBL6__RntSk0GqKZZy1yJiLaIhsexUbvK__IRUkaIYTiYCm3THVzOa_e6VmMP7bAKOhIaCTum_J7lTJ-qVuFcDZMwn-euHFOzHliP2EFJ7mvlNo-Eqb-6SAjlCeBsOfgLiy6sb9zWb_luata4KJGyzxZnBHxl0FUrqg8eLbuVtYYMHaALWGJEi_3pcEr6LjZmOn91c2Wx09fKgGAU_s1X56I8RL2Kbc8essADxut2KH9s_oEdGivrVUtgVrX-nt0g=w651-h332-no">
+<meta property="article:published_time" content="2020-02-26T16:16:52.000Z">
+<meta property="article:modified_time" content="2020-09-13T01:53:28.780Z">
+<meta property="article:author" content="Youngjin Mo">
+<meta property="article:tag" content="hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lh3.googleusercontent.com/ZPV6ThGID6rOwa_gal1M-QlPM0tSG26WTMGHTyXrJd53WS2625px_qo9Jy7PY0ojA5-du_n2EkbazIpbCWEJ2-M_7OKdFIV6fyOzwu0kYoYgH-Zn4dsISWPHp_fNlUoVEtadBGz-uyaif5YrPSAXA-REnYcpbqnmZmpSyCRhSDIAdQygg1IVIFErP53X-F1cAaw281CA8tCkpWXVLBtEwFPkn4unjiAMhz0lzXWyPdQfimxvbrFoYow2UFMALRKKFro6D2l5ZZbrf-NUazxC-bu2CPuIz8gISM7nEiBhc7TeLtaXow_POU0sSecBlSBOAzlbwQITfYCn7hYIjNUVmKx6pGl71Ji9Tne2wHVUTliwtkYhT7EQ_ln5dx2LpwGU1_8gHYMt0WjiUA8EXw-4wd1b9-k6Izvt5WEK9qbwRjHZevnn68Q303M-8Cmgi36nYSb3ej5uW6WhIZrMMMivyOidI_Kyw5xDCvrQSeshhfVeZJKQcwBL6__RntSk0GqKZZy1yJiLaIhsexUbvK__IRUkaIYTiYCm3THVzOa_e6VmMP7bAKOhIaCTum_J7lTJ-qVuFcDZMwn-euHFOzHliP2EFJ7mvlNo-Eqb-6SAjlCeBsOfgLiy6sb9zWb_luata4KJGyzxZnBHxl0FUrqg8eLbuVtYYMHaALWGJEi_3pcEr6LjZmOn91c2Wx09fKgGAU_s1X56I8RL2Kbc8essADxut2KH9s_oEdGivrVUtgVrX-nt0g=w651-h332-no">
+<meta name="twitter:creator" content="@devandy_yj">
+    
+
+    
+        <link rel="alternate" href="/" title="DevAndy" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="../../../libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="../../../libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="../../../libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="../../../css/style.css">
+
+
+    
+<script src="../../../libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-177850483-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../index.html">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Articles/">Articles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/">Dev</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Devops/">Devops</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Html-Css/">Html/Css</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Javascript/">Javascript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Others/">Others</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Springboot/">Springboot</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Web/">Web</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Review/">Review</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Thought/">Thought</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Quiz/">Quiz</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../https:/github.com/youngjinmo">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="../../../js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Hexo/">Hexo</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="posts-hexo-utterances" class="article article-single article-type-posts" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Hexo 블로그에 Utterances 적용하기
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="" class="article-date">
+       <time datetime="2020-02-26T16:16:52.000Z" itemprop="datePublished">2020-02-27</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="" class="article-date">
+     <time datetime="2020-09-13T01:53:28.780Z" itemprop="dateModified">2020-09-13</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="../../../tags/hexo/" rel="tag">hexo</a>
+    </div>
+
+                
+
+                
+
+            </div>
+			<!-- 	count-time		 -->
+			<!-- <span class="reading-time" style="margin-left: 20px;">⏱ 7 min.</span>  -->
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <img src="https://lh3.googleusercontent.com/ZPV6ThGID6rOwa_gal1M-QlPM0tSG26WTMGHTyXrJd53WS2625px_qo9Jy7PY0ojA5-du_n2EkbazIpbCWEJ2-M_7OKdFIV6fyOzwu0kYoYgH-Zn4dsISWPHp_fNlUoVEtadBGz-uyaif5YrPSAXA-REnYcpbqnmZmpSyCRhSDIAdQygg1IVIFErP53X-F1cAaw281CA8tCkpWXVLBtEwFPkn4unjiAMhz0lzXWyPdQfimxvbrFoYow2UFMALRKKFro6D2l5ZZbrf-NUazxC-bu2CPuIz8gISM7nEiBhc7TeLtaXow_POU0sSecBlSBOAzlbwQITfYCn7hYIjNUVmKx6pGl71Ji9Tne2wHVUTliwtkYhT7EQ_ln5dx2LpwGU1_8gHYMt0WjiUA8EXw-4wd1b9-k6Izvt5WEK9qbwRjHZevnn68Q303M-8Cmgi36nYSb3ej5uW6WhIZrMMMivyOidI_Kyw5xDCvrQSeshhfVeZJKQcwBL6__RntSk0GqKZZy1yJiLaIhsexUbvK__IRUkaIYTiYCm3THVzOa_e6VmMP7bAKOhIaCTum_J7lTJ-qVuFcDZMwn-euHFOzHliP2EFJ7mvlNo-Eqb-6SAjlCeBsOfgLiy6sb9zWb_luata4KJGyzxZnBHxl0FUrqg8eLbuVtYYMHaALWGJEi_3pcEr6LjZmOn91c2Wx09fKgGAU_s1X56I8RL2Kbc8essADxut2KH9s_oEdGivrVUtgVrX-nt0g=w651-h332-no" width="650px" />
+
+<p>Hexo 블로그를 운영하며, 댓글 라이브러리로 Disqus를 사용했었는데, 현재 내 블로그를 접속하는 사람들은 아마도 개발자들일 것이고, 개발자들이라면 Github UI가 익숙할 것 같다는 생각이 들었다. 그래서 Disqus대신 Github UI를 경험할 수 있는 <a target="_blank" rel="noopener" href="https://utteranc.es/">Utterances</a> 라이브러리를 블로그 댓글로 사용해보기로 결정하였다.</p>
+<img src="https://lh3.googleusercontent.com/6B7uHAkNB5ITzSuObJmGEfOOBxiDTCb7f8IjI_kaBRZMdMSMoeMb0pArZlV-ly_obqqfh4_2zBeje_JYvZBtqlnDKB7Fz06tsukk8nYiF8JrYillEk7iNYjJyc1cXYlmMR-AY0AvRe2cttk7zET95WEBd9rut4oAJ0JcooCbqdQo4awSTxknuuLHovI41cHofghIMh6L-pP-XYOAuZNe1mH38N_luFJjrrg3WT7rmweshFsblY5gtOe8JW4hRJ9fl9kPPUPeIbrlkp8acuTiSKgx7STnDc06W5e0lxfNiwKxpx0oAVZNpoNdiQT6W_3C__gFX3Apg-B4oz2WyrdhTmCi41GzWWZuUP0Ygegzye_PtG6C4O-vDGdahWHh1iaBlZP1UZzEqzYFttgZk12ResdCNehKaYvFv8CnTFjRAxKF10fcfjnmDTymmXnwPVtIbQcOYehVTHZ9ldmPH6olC2jwMegHMbctYhpWKRjCMzK8AaAjWDXUmKLC3D9z3aQA5MLkQjLw5SR_3SNQ7ZmlwcQ9P7kI6N_c2yyGaUkqGeSPx4kEzj3W0sJPRUkm26PaagUnRwOD5dtQWgO9V23XMwq8kGMeIPp4Lvh9jYK_-GG0980d_TbB964UPKMZtfPOKEbwCBDbb-AFU2bhIXKowSrqAeKyZk0_ypmphXjRXmIwysoQgvcjNtix5e9eycOvWu0fxUkZi1Y6s-TCuEteMDTJcsA5oNrwqcYaLS7QtdyIWOVg=w1060-h448-no" alt="utterances 댓글" style="zoom:40%;" />
+
+
+
+<p>아웃사이더님의 블로그 글(<a target="_blank" rel="noopener" href="https://blog.outsider.ne.kr/1356">페이스북 댓글을 utterances로 교체했습니다</a>)에 의하면 Utterance는 Github의 이슈검색 API를 사용한다고 한다. Utterances를 사용하기 위해서는 Github에 댓글을 위한 repo를 만들어야 하는데, 댓글이 작성되면 이 repo에 이슈로 등록이 된다. </p>
+<p>Github에서 repo를 만들었다면, 아래 Utterances 코드([ENTER REPO HERE])에 해당 저장소 주소를 작성하면 된다.</p>
+<p>그리고 아래 Utterances 코드(<code>[ENTER REPO HERE]</code>)에 해당 저장소 주소(예: <code>youngjinmo/hexo-utterances</code>)를 작성하면 된다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">&quot;https://utteranc.es/client.js&quot;</span></span><br><span class="line">        repo=<span class="string">&quot;[ENTER REPO HERE]&quot;</span></span><br><span class="line">        issue-term=<span class="string">&quot;pathname&quot;</span></span><br><span class="line">        theme=<span class="string">&quot;github-light&quot;</span></span><br><span class="line">        crossorigin=<span class="string">&quot;anonymous&quot;</span></span><br><span class="line">        <span class="keyword">async</span>&gt;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>hexo는 레이아웃에 따라 코드가 분리되어 있다. utterances는 댓글에 해당하므로 댓글 라이브러리들이 저장되어 있는 디렉토리에 utterances 코드를 저장해야 한다. </p>
+<h3 id="utterances-ejs-생성"><a href="#utterances-ejs-생성" class="headerlink" title="utterances.ejs 생성"></a>utterances.ejs 생성</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- utterance comment --&gt;</span><br><span class="line">&lt;% <span class="keyword">if</span> (config.utterances.enable == <span class="literal">true</span>) &#123; %&gt;</span><br><span class="line">&lt;script src=<span class="string">&quot;https://utteranc.es/client.js&quot;</span></span><br><span class="line">        repo=<span class="string">&quot;[ENTER REPO HERE]&quot;</span></span><br><span class="line">        issue-term=<span class="string">&quot;pathname&quot;</span></span><br><span class="line">        theme=<span class="string">&quot;github-light&quot;</span></span><br><span class="line">        crossorigin=<span class="string">&quot;anonymous&quot;</span></span><br><span class="line">        <span class="keyword">async</span>&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+
+<p>이 코드를 hexo 블로그 디렉토리내 <code>/themes/[your theme]/layout/comment/</code> 에 파일을 만들어서 저장하는데, 이 때 파일명은 <code>utterances.ejs</code> 로 저장한다. </p>
+<p><code>_config.yml</code>에서 utterances의 enable 상태가 <code>true</code>로 전환일 때만 utterances가 사용되는 코드이다. </p>
+<h3 id="config-yml에-utterances-설정-추가"><a href="#config-yml에-utterances-설정-추가" class="headerlink" title="_config.yml에 utterances 설정 추가"></a>_config.yml에 utterances 설정 추가</h3><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Utterances for comment</span></span><br><span class="line"><span class="attr">utterances:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">repo:</span> [<span class="string">ENTER</span> <span class="string">REPO</span> <span class="string">HERE</span>]</span><br><span class="line">  <span class="attr">issue-term:</span> <span class="string">title</span></span><br><span class="line">  <span class="attr">theme:</span> <span class="string">github-light</span></span><br></pre></td></tr></table></figure>
+
+<p>hexo 블로그가 저장되어 있는 디렉토리에 가면 <code>_config.yml</code> 파일이 있다. 여기서 가장 아래쪽에 utterances 설정을 담은 코드를 작성해주자.</p>
+<h3 id="post-ejs에-utterances-추가"><a href="#post-ejs에-utterances-추가" class="headerlink" title="post.ejs에 utterances 추가"></a>post.ejs에 utterances 추가</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- Comment - utterances --&gt;</span><br><span class="line">&lt;%- partial(<span class="string">&#x27;comment/utterances&#x27;</span>) %&gt;</span><br></pre></td></tr></table></figure>
+
+<p>이제 게시글을 작성할때 utterances가 적용되어야 하므로 <code>/themes/[your theme]/layout/</code> 에 있는 <code>post.ejs</code> 파일에 위의 코드를 추가한다. <code>&lt;%- partial(&#39;&#39;) %&gt;</code>에 넣는 주소는 utterances.ejs가 저장되어 있는 경로를 의미한다.</p>
+<p>여기까지 마무리하고 <code>hexo g</code> 를 통해 블로그에 최종적용하면 된다.  </p>
+<p>테스트로 이 포스트에 댓글을 작성해보았다. 댓글을 작성하면 아래처럼 Github을 통해 알람을 확인할 수 있다.</p>
+<img src="https://lh3.googleusercontent.com/4LRTmS8ONJ92PgsVsIGwHO5LllSyrMD1sE6Ko3G2hXQ81ygO78k52dtb91Kqn4gQ4c9Y16Vnja-uVib0Kt_8RW0JlY7_CiMxQ_uwaJzD6rxTvz6WsqvFb8N1--xvSTAZEGtiaa7I68DqzNpHICVkwyJyEvJZWq95sGiVLIlzToO-8B5m9M5nzlw4HbcDDeYx6ujS1pNY_htSjMbKWORtmESJKH09Gc_ByJ2xjEQgaAEgjFOLMvz8h6iwFGih1YndLP9p_4oX9AYaSrWdOqkw6lovimzFRK_J4Hzs74JfY0Wi2m8ovwnWvpisXlzpOUs-tCJ8b2wsoTM780IUSe06V8wFR6dp6FMCmKJ-Z2hl3yyttE2n3MWqnYy7jxvhBDFIzUkjoRy4uZHTyuQewUzxdLKcYhmBgJboNH93vXiUkW67mlFGAZkDD1BPTFfZ-ZQQraATFkw4FJpoayIIFW8OIYLkomL41a0Fkz6h0S6PUgrHkpxbDt3DH6O68wojooZeKXyw1eqWdd0YBXPd6C9jwSwoqNXL8Z9jSRcuv6m5ovFy8Y8RCUykVizYdkz-TGMcnOB5wqfukhNou88Hiyr7h1QoViPY1hwV31-Sbasq2Xoa8JQfePHV0mJrVU-hN6xr6d8ocOY9eiFsHwcae9yJmyP1XhIThMUAULdMCWgj0pBpJQNRbbytlaaHWgFxhdadAMOhHDBstIm6A8Z2wsm6ldNBsHrgO3T4z8AK9EV5btWlo6gtsA=w972-h390-no" style="zoom:45%;" />
+
+
+
+<p>그리고 댓글 저장소에는 이 댓글이 이슈로 등록이된다.</p>
+<img src="https://lh3.googleusercontent.com/o2uGj_GsHJAqd7POzAIo5DOUkmy2y1HFZblU9xX7xD_dodI0gUBdLlcKhgwY9ph-bxkoeDClvAnY8QUQoDREA8TrfuPGSDRCP_S-lN_fBD4bTnceb5iBBcWI6Mh7L96rKjFxaafQjWLNyMEmi1MWakNnyv2s7i3RcbaDVw4SmkaJKPWukvy_kRx-2_VcYJn9GN7aPPLHooMbruoynwoz0ZzEtcVoW-dfzfNSl0oEj2gndtgqZ8KXaaOGzWrrRzrumCp7Mkb07iiLfnZL6gI5OR0ljjqNFrM1e02iUMluLWN0XROMjl9S4QWai6zuIpQX6qFR9gIsIM69G6yG-T4QiFJz-WVNx9xHjWe2NO9tneHDhQfvZJyRv4ZeIhUASWyOAEpuTV2DDMZGf8o1vKXPNtiD6h9ncnspgKYVIDjP7gz5GZB1-Iqjvx6in-UwjffjPwwvOi04iZt_R8JZhYviyAcnEYSZGOCqh0N2gAuU5PZGeIMNSmd5Kamk_JyrwhGM-SDZOSG6axfnprRi30oJ8mQItRIxDNcCnL9g856xZKP0xC4B7-LwOgQ1DqH7OfP5geUmVFBBjVuHHIw0pJNQnp8O4dFH8zbPyJPYiWt0q9NEQ2RBBMY1DcEzgXOs-30yuTH15Q-0ckfPF3qdg4pZ7S5w7oXgn_M8glyk5T59hpSMZje2kDAszJLMBXbn7d6seAxTdxbwMvBHtf2bYeu3LOjaVizjiYbYAPGEEfA8k0del6mFMg=w720-h768-no" style="zoom:60%;" />
+
+
+
+<p>utterances로 댓글 적용 완료!</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://youngjinmo.github.io/2020/02/hexo-utterances/" data-id="ckf65udri009wacgdgrlh8uki" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Youngjin Mo"
+        },
+        "headline": "Hexo 블로그에 Utterances 적용하기",
+        "image": "../../../http:/youngjinmo.github.iohttps:/lh3.googleusercontent.com/ZPV6ThGID6rOwa_gal1M-QlPM0tSG26WTMGHTyXrJd53WS2625px_qo9Jy7PY0ojA5-du_n2EkbazIpbCWEJ2-M_7OKdFIV6fyOzwu0kYoYgH-Zn4dsISWPHp_fNlUoVEtadBGz-uyaif5YrPSAXA-REnYcpbqnmZmpSyCRhSDIAdQygg1IVIFErP53X-F1cAaw281CA8tCkpWXVLBtEwFPkn4unjiAMhz0lzXWyPdQfimxvbrFoYow2UFMALRKKFro6D2l5ZZbrf-NUazxC-bu2CPuIz8gISM7nEiBhc7TeLtaXow_POU0sSecBlSBOAzlbwQITfYCn7hYIjNUVmKx6pGl71Ji9Tne2wHVUTliwtkYhT7EQ_ln5dx2LpwGU1_8gHYMt0WjiUA8EXw-4wd1b9-k6Izvt5WEK9qbwRjHZevnn68Q303M-8Cmgi36nYSb3ej5uW6WhIZrMMMivyOidI_Kyw5xDCvrQSeshhfVeZJKQcwBL6__RntSk0GqKZZy1yJiLaIhsexUbvK__IRUkaIYTiYCm3THVzOa_e6VmMP7bAKOhIaCTum_J7lTJ-qVuFcDZMwn-euHFOzHliP2EFJ7mvlNo-Eqb-6SAjlCeBsOfgLiy6sb9zWb_luata4KJGyzxZnBHxl0FUrqg8eLbuVtYYMHaALWGJEi_3pcEr6LjZmOn91c2Wx09fKgGAU_s1X56I8RL2Kbc8essADxut2KH9s_oEdGivrVUtgVrX-nt0g=w651-h332-no",
+        "keywords": "hexo",
+        "genre": "Dev Hexo",
+        "datePublished": "2020-02-27",
+        "dateCreated": "2020-02-27",
+        "dateModified": "2020-09-13",
+        "url": "../../../http:/youngjinmo.github.io/2020/02/hexo-utterances/",
+        "description": "
+
+Hexo 블로그를 운영하며, 댓글 라이브러리로 Disqus를 사용했었는데, 현재 내 블로그를 접속하는 사람들은 아마도 개발자들일 것이고, 개발자들이라면 Github UI가 익숙할 것 같다는 생각이 들었다. 그래서 Disqus대신 Github UI를 경험할 수 있는 Utterances 라이브러리를 블로그 댓글로 사용해보기로 결정하였다.
+
+
+
+
+아웃사이더님",
+        "wordCount": 458
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="../../../https:/github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="../../03/gitmessage/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            커밋 메세지 더 잘 작성하기 (A.k.a. Gitmessage)
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="../wget/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Ubuntu에서 Wget으로 파일 다운로드하기</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../09/xml-json-xmlhttprequest/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3f3uUiEllt7yZ2cz-TBQE53mDoXAvAbilDnTHnb0gUIYnX86czSpvvAGNC1uwJN3Mm543ae8FVwBXvYPyOcYzNVH-5fg0VXSmiORlQSYChhlqdO1jLRs_XhVOQYcySp_K_S3JbhAK4jHpeyRpXmh45Gqg=w640-h405-no?authuser=2)" alt="XML, JSON 그리고 XMLHttpRequest" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Others/">Others</a></p>
+                            <p class="item-title"><a href="../../09/xml-json-xmlhttprequest/" class="title">XML, JSON 그리고 XMLHttpRequest</a></p>
+                            <p class="item-date"><time datetime="2020-09-01T12:00:59.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/create-table-sequence/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3dnKjQpuvDEmVxFsIrKfVbq9RCZMjbbZPOtAWR0Etr5EfTkx58EYPQjjgLEiO8XYLsVu_1TWyNmpySsDRxXvCplY6aMPhIMQgNCaH0TBpVv0vxyI_-b6pK9x8qhVSSptzKgeu-dbMHYIt-eS1MUDQnkiw=w640-h427-no?authuser=0)" alt="Oracle - Sequence 생성하고 테이블에 삽입하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Database/">Database</a></p>
+                            <p class="item-title"><a href="../../08/create-table-sequence/" class="title">Oracle - Sequence 생성하고 테이블에 삽입하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-31T18:57:13.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/servlet-redirect-forward/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3cK_j9D5XupS1mIeAAwsE1cOAdZ05jfS290XghGTAfDNVmf1VDdldnidSEQpbEAPRe_aTchGC7U00h7lU9JKtTV3ltDyqUcofn0Xu4p0pm_ROewKfcnOG3UO4Yo4EgVG6ZeQfoemWHklC1hGMn-1DXYfQ=w640-h427-no?authuser=0)" alt="Servlet - Redirect와 Forward" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../../08/servlet-redirect-forward/" class="title">Servlet - Redirect와 Forward</a></p>
+                            <p class="item-date"><time datetime="2020-08-30T22:32:44.000Z" itemprop="datePublished">2020-08-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/leetcode-twosum/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://assets.leetcode.com/static_assets/public/images/LeetCode_Sharing.png)" alt="Leetcode - Twosum" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Quiz/">Quiz</a></p>
+                            <p class="item-title"><a href="../../08/leetcode-twosum/" class="title">Leetcode - Twosum</a></p>
+                            <p class="item-date"><time datetime="2020-08-24T14:28:47.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/run-mysql-with-docker/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3fdpC3xu5q4xnJRLLhSaWCrARbnQ1qdp_DpF0Z7BITrtrr6gZWGExKC4PcMlVo3AxVhVbYiFgDhNObWmtv3hGwoEtF_4zFb_1fQsdL6d1K3UNA0LRkczuC_nNvcEHERB8EIB3uvWOIps7j1iraX6DGLbQ=w720-h480-no?authuser=0)" alt="Docker로 MySQL 실행하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Devops/">Devops</a></p>
+                            <p class="item-title"><a href="../../08/run-mysql-with-docker/" class="title">Docker로 MySQL 실행하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-23T17:12:43.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 11.11px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/api/" style="font-size: 11.11px;">api</a> <a href="../../../tags/architecture/" style="font-size: 10px;">architecture</a> <a href="../../../tags/array/" style="font-size: 11.11px;">array</a> <a href="../../../tags/aws/" style="font-size: 12.22px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 12.22px;">career</a> <a href="../../../tags/casting/" style="font-size: 12.22px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/cloud/" style="font-size: 12.22px;">cloud</a> <a href="../../../tags/compiler/" style="font-size: 10px;">compiler</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/databse/" style="font-size: 10px;">databse</a> <a href="../../../tags/datastructure/" style="font-size: 12.22px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 13.33px;">docker</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 11.11px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generic/" style="font-size: 10px;">generic</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 10px;">github</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 13.33px;">http</a> <a href="../../../tags/ide/" style="font-size: 10px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 10px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 11.11px;">interface</a> <a href="../../../tags/interpreter/" style="font-size: 10px;">interpreter</a> <a href="../../../tags/io/" style="font-size: 12.22px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 15.56px;">java</a> <a href="../../../tags/java8/" style="font-size: 11.11px;">java8</a> <a href="../../../tags/jquery/" style="font-size: 11.11px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/jvm/" style="font-size: 10px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 10px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 10px;">mustache</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 16.67px;">oop</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 12.22px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 11.11px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 18.89px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/string/" style="font-size: 14.44px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/tip/" style="font-size: 17.78px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 13.33px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 11.11px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 18.89px;">weekly-review</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Youngjin Mo</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+    
+        
+<script src="../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="../../../js/main.js"></script>
+
+
+</body>
+</html>

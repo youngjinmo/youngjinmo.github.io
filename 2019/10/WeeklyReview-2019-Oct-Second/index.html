@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>WeeklyReview - 10월 2주차 | DevAndy</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="weekly-review" />
+    
+    <meta name="description" content="목차 한 주 간의 TIL 한 주간 무엇을 했는가 무엇을 읽었는가 무엇을 보았는가 다음주엔 무엇을 하겠는가    한 주 간의 TIL 2019.10.08      Math 클래스를 안쓰고 반올림하는 방법                             Math클래스를 쓰는것보다 복잡해서 생산성은 떨어지는 방식이지만, 반올림에 대한 메카니즘(?)을 이해할">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WeeklyReview - 10월 2주차">
+<meta property="og:url" content="http://youngjinmo.github.io/2019/10/WeeklyReview-2019-Oct-Second/index.html">
+<meta property="og:site_name" content="DevAndy">
+<meta property="og:description" content="목차 한 주 간의 TIL 한 주간 무엇을 했는가 무엇을 읽었는가 무엇을 보았는가 다음주엔 무엇을 하겠는가    한 주 간의 TIL 2019.10.08      Math 클래스를 안쓰고 반올림하는 방법                             Math클래스를 쓰는것보다 복잡해서 생산성은 떨어지는 방식이지만, 반올림에 대한 메카니즘(?)을 이해할">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://www.mediafire.com/convkey/80e7/89jfgzggjnlka4czg.jpg">
+<meta property="article:published_time" content="2019-10-13T20:16:52.000Z">
+<meta property="article:modified_time" content="2020-09-13T01:53:29.676Z">
+<meta property="article:author" content="Youngjin Mo">
+<meta property="article:tag" content="weekly-review">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.mediafire.com/convkey/80e7/89jfgzggjnlka4czg.jpg">
+<meta name="twitter:creator" content="@devandy_yj">
+    
+
+    
+        <link rel="alternate" href="/" title="DevAndy" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="../../../libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="../../../libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="../../../libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="../../../css/style.css">
+
+
+    
+<script src="../../../libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-177850483-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../index.html">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Articles/">Articles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/">Dev</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Devops/">Devops</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Html-Css/">Html/Css</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Javascript/">Javascript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Others/">Others</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Springboot/">Springboot</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Web/">Web</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Review/">Review</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Thought/">Thought</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Quiz/">Quiz</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../https:/github.com/youngjinmo">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="../../../js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../categories/Life/">Life</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Life/Thought/">Thought</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="posts-WeeklyReview-2019-Oct-Second" class="article article-single article-type-posts" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        WeeklyReview - 10월 2주차
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="" class="article-date">
+       <time datetime="2019-10-13T20:16:52.000Z" itemprop="datePublished">2019-10-14</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="" class="article-date">
+     <time datetime="2020-09-13T01:53:29.676Z" itemprop="dateModified">2020-09-13</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="../../../tags/weekly-review/" rel="tag">weekly-review</a>
+    </div>
+
+                
+
+                
+
+            </div>
+			<!-- 	count-time		 -->
+			<!-- <span class="reading-time" style="margin-left: 20px;">⏱ 10 min.</span>  -->
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <img src="http://www.mediafire.com/convkey/80e7/89jfgzggjnlka4czg.jpg" width="650px" />
+
+<h2 id="목차"><a href="#목차" class="headerlink" title="목차"></a>목차</h2><ul>
+<li><a href="#til">한 주 간의 TIL</a></li>
+<li><a href="#did">한 주간 무엇을 했는가</a></li>
+<li><a href="#read">무엇을 읽었는가</a></li>
+<li><a href="#watched">무엇을 보았는가</a></li>
+<li><a href="#todo">다음주엔 무엇을 하겠는가</a></li>
+</ul>
+<br>
+
+<h2 id="한-주-간의-TIL"><a href="#한-주-간의-TIL" class="headerlink" title="한 주 간의 TIL"></a><a name="til"></a>한 주 간의 TIL</h2><details>
+<summary>2019.10.08</summary>
+<ul>
+    <li>Math 클래스를 안쓰고 반올림하는 방법</li>
+        <ul>
+            <li><img src='http://www.mediafire.com/convkey/b87f/hvb7nrdlepnmex0zg.jpg' alt='' referrerPolicy='no-referrer' /></li>
+      <li>Math클래스를 쓰는것보다 복잡해서 생산성은 떨어지는 방식이지만, 반올림에 대한 메카니즘(?)을 이해할 수 있었다.</li>
+        </ul>
+  <li>자바에서 문자열 <code>String</code>은 클래스였다. 원래 <code>String</code>형 변수를 선언할 때에 객체를 생성하듯이 <code>new</code> 키워드(예약어)를 사용해야 하지만 생략이 가능하다.</li>
+      <ul>
+      <li><code lang='java'>String str1 = new String(&quot;abc&quot;);</code><br>
+<code lang='java'>String str2 = &quot;abc&quot;;</code><br>
+<code lang='java'>boolean test = str.equals(str2);  // true</code><br>
+</code></li>
+      </ul>
+    <li><code>git checkout</code> 은 branch가 아니라 head를 변경한다. 정확히는 head의 방향!</li>
+    <li><code>git reset</code> 은 head가 가리키는 branch를 변경</li>
+    <ul>
+    <li>git에선 아무것도 삭제하지 않다. 모든 기록을 저장할 뿐.</li>
+    <li><code>git reflog</code>를 통해 모든 활동을 확인할 수 있다. merge, checkout 등.</li>
+    </ul>
+    <li>auto-merge 되는 커밋이 많을 수록 버전관리가 잘되고 있는 것이다. 프로그래머가 직접 <code>merge</code>하는 일은 코드의 양이나 파일의 양에 따라 매우 어려운 일.</li>
+    <li>3-way-merge</li>
+    <ul>
+    <li>두 개의 커밋이 동일한 파일을 변경한 상태에서 <code>merge</code> 할 경우 어떤 변경사항을 새로운 커밋에 담을지 git에서 물어보는데, 이 때 두 커밋이 공통으로 바라보는 원래의 커밋 즉 BASE를 기준으로 match하는 코드와 match하지 않는 코드를 비교.</li>
+    <li><code>git config --global merge.conflictstyle diff3</code></li>
+    <li><img src="https://i.stack.imgur.com/uZDVo.png" style="zoom:80%;"></li>
+    </ul>
+    <li>웹 페이지에서 데이터 긁어오는 법 (a.k.a <code>curl</code>)</li>
+    <ul>
+    <li>CLI에서 web browser가 아니어서 데이터를 못 긁어올 경우, 클라이언트 정보를 추가해서 입력할 경우 서버를 속여서 가져올 수 있음.</li>
+    <li><code>curl -H "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.89 Safari/537.36" <url address></code></li>
+</ul>
+</ul>
+<br>
+</details>
+<details>
+<summary>2019.10.09</summary>
+  <ul>
+    <li>자바에서 문자열 비교시엔 <code>==</code> 대신 <code>equals()</code> 를 써야 한다.</li>
+    <li>자바에서 <code>String</code> 은 단순 데이터 타입이 아니라 클래스인데 여기서 비교 연산자 <code>==</code> 를 사용하면 값을 비교하기 앞서 클래스를 비교하기 때문에 의도한 값이 반환되지 않을 수 있다.</li>
+        <ul>
+        <li>그러나 <code>equals()</code> 를 사용하면 클래스 비교없이 값만을 비교할 수 있다.</li>
+    </ul>
+    <li>배열도 문자열 처럼 비교할 수 있다. <code>Arrays.equals(arr1, arr2)</code></li>
+  </ul>
+  <br>
+</details>
+<details>
+<summary>2019.10.10</summary>
+<ul>
+    <li><code>git add -f</code></li>
+        <ul>
+            <li>강제로 staging area에 올리고 싶은 파일이 있을 때, <code>-f</code> 사용.</li>
+            <li><code>.gitignore</code> 를 생성했는데 sourceTree에서 파일이 안보이길래 명령어 강제해서 stagaing area에 올림.</li>
+        </ul>
+</ul>
+<br>
+</details>
+<details>
+<summary>2019.10.11</summary>
+<ul>
+    <li><b>42 Seoul 설명회 참석</b></li>
+    <ul>
+        <li>예전에 NHN Next를 떠올리게 할만큼 매력적인 교육기관이다. 다른 것은 강사가 없고 강의가 없다는 것이다. 매주 과제가 주어지고 이를 학생들 스스로가 해결하는 과정이다. </li>
+    <li>교육비X, 강사X, 교재X 전통적인 교육방식의 대학과는 완전히 다른 기관이다. 정부지원으로 운영되며, 파리에 있는 <a target="_blank" rel="noopener" href="https://news.joins.com/article/21965611">에꼴42</a>의 프로그램을 그대로 가져오는 프로그램이다. 이름에서 알 수 있듯 이들 독립적으로 운영되는게 아니라 이들 네트워크가 활용될 것으로 예상된다. </li>
+    <li>2년의 교육과정과 내 나이를 고려했을 때, 솔직히 초반만 하더라도 <i>"내가 여기 참여했을 때 충분한 가치를 얻어올 수 있을까?"</i> 라는 질문에 시원하게 YES를 못하고 있었는데 이 과정이 전달하고자 하는 가치가 수료증이 아니라 교육 그 자체에 있으며, 이로인해 열정 있는 학생들과 성장할 수 있다는 점이 내게 엄청 큰 베네핏으로 다가왔다. 현재 실력으로 SI 중소기업에 입사하는 것보다 이 과정을 이수하며 좋은 동료를 얻는 것이 비교할 수 없는 큰 가치라고 생각했다.<br>되든 안되든 무조건 지원해볼 생각이다.</li>
+    </ul>
+    <li><code>wget</code></li>
+        <ul>
+      <li>도커로 우분투 컨테이너를 생성해서 우분투 환경에서 <a target="_blank" rel="noopener" href="https://youtu.be/XmaW6EyY5QI">웹서버를 구축중</a>이다. 이과정에서 알게된 명령어인데, <code>apt-get</code> 과는 좀 다른 명령어이다. <code>apt-get</code> 이 우분투 기본 패키지 매니저라면, <code>wget</code> 은 웹 상에서 파일을 다운받아올 때 쓰는 명령어라고 한다.</li>
+      <li>참고 문서 : <a target="_blank" rel="noopener" href="https://askubuntu.com/questions/277665/apt-get-vs-wget">ask ubuntu - Apt-get vs Wget</a></li>
+        </ul>
+  <li><b>Way to install java in ubuntu</b></li>
+  <ol start="1">
+    <li>check ubuntu version</li>
+    <ul>
+      <li><code>uname -a</code></li>
+    </ul>
+    <li>get download link from oracle <a target="_blank" rel="noopener" href="https://www.oracle.com/technetwork/java/javase/downloads/java-archive-javase8-2177648.html">old version</a></li>
+    <li>install java via <b>wget</b> from command line</li>
+    <ol start="1">
+      <li><code>wget --header "Cookie: oraclelicense=accept-securebackup-cookie" https://download.oracle.com/otn/java/jdk/8u202-b08/1961070e4c9b4e26a04e7f5a083f551e/jdk-8u202-linux-x64.tar.gz</code></li>
+    </ol>
+    <li><a target="_blank" rel="noopener" href="https://askubuntu.com/questions/536134/install-specific-java-version-for-12-04">ask ubuntu - install specific java version for 12.04</a></li>
+  </ol>
+</ul>
+<br>
+</details>
+<details>
+<summary>2019.10.12</summary>
+<ul>
+    <li><b>생활코딩 강의를 통해 배운 리눅스 명령어들</b></li>
+    <ul>
+        <li><code>--help</code> & <code>man</code></li>
+        <ul>
+            <li><code>--help</code>는 궁금한 커맨드의 뒤에 붙여서 입력하면 현재 입력창에서 간단히 볼 수 있는 설명서</li>
+            <li><code>man</code>은 궁금한 커맨드의 앞에 붙여서 입력하면 다른 창으로 넘어가서 더 상세한 설명서를 볼 수 있음.</li>
+        </ul>
+        <li>문서에서 키워드 검색하기</li>
+        <ul>
+            <li><code>/</code>뒤에 찾고 싶은 키워드를 입력하면 현재 보고있는 문서에서 키워드를 검색해서 보여준다. 여기서 <code>N</code>을 입력하면 이동하면서 다음 키워드를 보여준다.</li>
+        </ul>
+    <li>디렉토리 계층구조 생성</li>
+    <ul>
+      <li><code>mkdir -p [directory1/directory2]</code></li>
+    </ul>
+    <li>디렉토리를 이동하지 않고도 디렉토리 내 파일확인하기</li>
+    <ul>
+      <li><code>ls -l [directory]</code></li>
+    </ul>
+    <li>내가 자주 사용하는 리눅스 명령어 조회</li>
+    <ul>
+      <li><code>history | awk '&#123;a[$2]++&#125;END&#123;for(i in a)&#123;print a[i] " "i&#125;&#125;' | sort -rn |head -10</code></li>
+      <li><img src="http://www.mediafire.com/convkey/3f07/dq91nnbhekt3759zg.jpg" width="450"/></li>
+    </ul>
+    </ul>
+</ul>
+  <li>개발에 필요한 패키지 설치한 도커 이미지 생성하여 배포함</li>
+  <ul>
+    <li>도커헙에 있는 우분투 공식 이미지는 거의 패키지가 없다시피한 기본 이미지였다. 즉시 개발하기엔 필요한 apt-get, sudo, git, vi 등이 없어서 개발에 필요한 이들 패키지들을 설치 후, 도커 이미지로 생성하여 도커헙에 <a target="_blank" rel="noopener" href="https://cloud.docker.com/repository/registry-1.docker.io/youngjindev/ubuntu-starter" >배포</a>해두었다.앞으로 우분투 웹 서버가 필요할 때 이 <a target="_blank" rel="noopener" href="https://cloud.docker.com/repository/registry-1.docker.io/youngjindev/ubuntu-starter" >이미지</a>를 불러와서 개발하면 편할 것 같다.</li>
+  </ul>
+  <br>
+</details>
+
+<br>
+
+<h2 id="무엇을-했는가"><a href="#무엇을-했는가" class="headerlink" title="무엇을 했는가"></a><a name="did"></a>무엇을 <span style="color:red">했는가</span></h2><ul>
+<li><strong>자바의정석 뽀개기(?) 중</strong></li>
+</ul>
+<p>자바를 좀 제대로 공부하기 위해서 책을 정독…까지는 아니지만 거의 정독에 이를만큼 다시 읽고있다. 이전에는 백과사전처럼 두고 필요한것만 빼서 읽곤 했는데 그러니까 지식이 듬성듬성 채워진것 같아서 예제 코드까지 함께 상세하게 읽고 있는데 아직 챕터 3까지밖에 정리하진 못했지만 이 부분에서도 새로 알게된것들이 있어서 도움이 되고 있다. </p>
+<p>책의 뒷부분에서는 아는 것보다 모르는 부분이 더 많기 때문에 더 도움이 될 것 같다.</p>
+<br>
+
+<ul>
+<li><strong>이고잉님의 지옥에서 온 Git 오프라인 강의 참여</strong></li>
+</ul>
+<p>이고잉님이 주최하신 지옥에서 온 Git 오프라인 강의를 참석하고 왔다. 그래도 평소에 Git에 어느정도 안다고 자부했지만, 막상 강의를 들으니까 이 또한 작은 오만이었음이 금방 드러났다. <code>3-way-merge를</code> 배웠는데 아직 익숙치 않은 개념이다. 하지만 지금까지 <code>merge</code>할 때 충돌이 발생할 것을 우려해 최대한 충돌을 피하거나 <code>reset</code>을 하곤 했는데, <code>merge</code>가 어떻게 이뤄지는지 다시 배우게 된 것 같다.</p>
+<img src="http://www.mediafire.com/convkey/ac44/3gr6x864ngxnarazg.jpg" style="zoom:50%;" />
+
+<br>
+
+<ul>
+<li><strong>42서울 설명회 참석</strong></li>
+</ul>
+<p><img src="http://www.mediafire.com/convkey/53ae/k0frmxq74yylbj5zg.jpg"></p>
+<p>프랑스의 <a target="_blank" rel="noopener" href="https://news.joins.com/article/21965611">에꼴42</a>를 벤치마킹한 프로그램이 한국에서도 진행한다고해서 설명회를 다녀왔다. 강사도, 교재도, 수업비도 없는 프로그램이며, 매주 과제를 수행하며 과제를 수행하기 위해 스스로 또는 협력해서 학습을 해야한다고 했다. 정해진 커리큘럼에 종속되기보다 자주적으로 학습하는 걸 좋아하는 내게 좋은 기회라는 생각이 들었다. </p>
+<p>수능을 마친 학생들도 와서 설명회를 듣는걸보니 조금 더 이른 나이에 이런 기회가 있었으면 좋았겠다라는 생각도 들었다. 그러나 일단 지나간 시간은 어쩔수 없고, 지나간 시간 동안에도 배운게 많으므로 앞으로의 미래를 생각해보면, 1년에서 2년정도를 이 프로그램에 투자하는건 투자대비 아웃풋이 더 큰 프로그램이 될 것 같았다. 무엇보다 문턱이 낮지않기 때문에 열정적인 사람들을 많이 만날 수 있을것 같았다. 이들과 함께 성장하고 네트워크를 형성하는 일은 돈을 주고도 못하는 일이기 때문에 1-2년 투자는 아깝지 않은 투자라는 생각이 든다. 그래서 지원해보려고 한다.</p>
+<br>
+
+<ul>
+<li><strong>주말 스터디 개편(?)</strong></li>
+</ul>
+<p><a href="https://youngjinmo.github.io/2019/10/WeeklyReview-2019-Oct-First/">지난 주말</a> 스터디가 열리지 않았다. 모든 멤버들로부터 스터디 약속시간의 1시간 전에 일시에 불참 통보를 받으면서 캔슬이 되었다. 솔직히 이 스터디가 유지될것 같지않았고, 여기에 리소스를 투입하는 것이 후회스러울 것 같았다. 그래도 한 번만 더 노력해보자라고 생각을 돌려보았다. </p>
+<p>학원에서 면접 할 때 받을 수 있는 질문 중 하나로 “어려움을 어떻게 극복하였는가” 라는 질문을 받을 수 있다고 알려주셨는데, <em>‘과연 이 스터디도 쉽게 포기한다면 이 질문에 내가 어떻게 답할 수 있을까’</em> 생각해보니 내가 할 수 있는한 최선을 다해보고, 그래도 안되면 결과를 받아들이는 것으로 생각을 바꾸었다.</p>
+<p><strong>현 스터디의 문제 그리고 해결방안.</strong></p>
+<p>❗️우선 우리의 스터디는 테헤란로에서만 진행하고 있는데, 이곳이 접근성이 좋다기보다는 그나마 상충한 지역이 여기밖에 없었기 때문이다. 기취업자 두 사람은 대중교통 기준 테헤란로에서 1시간 거리에 거주하고 있다. 때문에 평일까지 회사일을 마치고 토요일 아침에 1시간 가량의 거리를 오는 것은 쉬운 일이 아닐거라고 판단했다. </p>
+<ul>
+<li>💡 오프라인을 고집하기보다 온라인 미팅을 제안했다. 오프라인만큼 학습 효율이 있을지는 모르지만 오프라인이기 때문에 발생할 수 있는 이동시간, 식사시간 등의 낭비를 절약할 수 있을거라고 생각했다. OS 제약이 없고, 무료이며 N:N 화상미팅 및 스크린 공유가 가능한 서비스가 필요했고, 이 모든 조건을 충족하는 <a target="_blank" rel="noopener" href="https://hangouts.google.com/">Hangout</a>을 솔루션으로 결정했다. 다음주 주말 스터디는 Hangout으로 원격으로 진행해보기로 했다.</li>
+</ul>
+<p>❗️또 하나는 시간대였다. 앞서 설명했듯 평일까지 일을 마치고 주말 오전에 일시에 오는 피로감을 모르지 않다. 때문에 기취업자들을 고려하여 토요일 오전 대신 일요일 오전으로 시간대를 변경하기로 했다. 상대적으로 여유가 있을 거라고 생각했다. </p>
+<ul>
+<li>💡 토요일 오전 대신 일요일 오전으로 변경했다. 토요일 오전에 몰려오는 피로감을 피할 수 있고, 오전에 스터디를 마침으로써 오후엔 개인시간을 편하게 쓸 수 있다는 점 때문에 일요일로 결정했다.<br>개인적으로 평일로 제안했지만, 현재 기취업자들의 회사 특성상 랩탑 소지가 불가능하고, 회사에서 집까지의 거리를 고려했을 때 평일 회의참여 시간이 저녁 10시를 넘기는 것이 불가피하고 이는 스터디에도, 다음날 출근에도 영향을 미칠 수 있다고 판단하여 일요일 오전으로 결정했다.</li>
+</ul>
+<p>❗️스터디의 방향이 불명확한 것이 동기부여에 영향을 주었다고 생각했다. 백기선님 영상을 보면서 스터디의 목표를 분명하게 하는 것이 좋겠다는 생각이 들었다. 리더가 없는 스터디를 효과적으로 진행하기 위해서는 각자가 분담해서 공부한걸 리뷰하기 보다는 모두 같은 영역을 공부해서 서로 리뷰하면 토론도 할 수 있고, 이를 통해 더 단단히 배울 수 있을거라고 의견이 모였다. </p>
+<ul>
+<li>💡 그래서 서로 같은 영역을 공부할 수 있는 책을 선정해서 스터디를 하기로 했으며, 책은 <a target="_blank" rel="noopener" href="https://book.naver.com/bookdb/book_detail.nhn?bid=7006516">토비의 스프링</a>으로 결정했다.</li>
+</ul>
+<p>❗️스터디에 불참하면 다른 스터디원들에게 미안해하고, 스터디에 참석한 사람들은 불참한 사람들 때문에 학습기회를 상실하는 지난 주의 경험이 다시 발생하지 않도록 하기 위해 스터디에 대한 책임을 아예 없애보려고 한다. 스터디에는 자유롭게 참석이 가능하되, 스터디에 참여하는 것이 이익이 되게끔 방향을 바꾸어보려고 한다. </p>
+<ul>
+<li>💡 그래서 책을 읽어보고 각자 추가로 공부를 해와서 이에 대한 리뷰를 공유하고, 한 주간 새로배운 지식을 공유하는 시간도 가져보려고 한다. 이를 통해 스터디에 참석하면 얻어가는 것이 있고, 참석하지 않으면 이를 포기하는 프레임을 갖춰보려고 한다.</li>
+</ul>
+<br>
+
+<h2 id="무엇을-읽었는가"><a href="#무엇을-읽었는가" class="headerlink" title="무엇을 읽었는가"></a><a name="read"></a>무엇을 <span style="color:red">읽었는가</span></h2><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.naver.com/ityoonha/220180863835">IT썸남썸녀 - 자바 예약어/키워드 정리</a></li>
+</ul>
+<p>자바의 정석을 다시 읽어보면서 자바 예약어나 키워드를 정리하면 좋겠다라는 생각이 들었는데, 역시 구글링해보니까 누가 정리해주신 글이 있었다. 일단 이 글을 보면서 책을 읽었는데 나중엔 내가 작성해서 블로그에 정리해볼 생각이다.</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.instapaper.com/read/1242049409">로지스팟 - 코드리뷰의 진짜 목적은 따로있다.</a></li>
+</ul>
+<p>코드리뷰에 대해 쓴 글인데, 코드리뷰를 왜 해야하는가에 대한 고찰에 가까운 글이다. </p>
+<p>코드 리뷰는 모두가 코드를 함께 리뷰함으로써 문제를 일찍 파악하는데에 그치지않고 <mark>코드에 대한 책임을 작성자 한 사람에게만 향하지 않고, 리뷰에 참여한 모두에게 향한다는 문화</mark>를 만들 수 있다고 한다.</p>
+<p>문화뿐 아니라 코드 리뷰를 통해 다른 사람이 작성한 코드와의 중복을 방지할 수 있다고 한다. 또 다른 사람의 코드를 리뷰함으로써 <em>‘이렇게 작성할 수 있구나’</em> 하며 배우는 부분도 크다고 한다.</p>
+<p>코드리뷰를 시작하기 앞서 주의해야 할 점은 <mark>경력이 높은 사람이 경력이 낮은 사람을 일방적으로 알려주려고 하기보다는 모두가 똑같이 다른 사람의 코드를 통해 배울 수 있음을 인지하고 오픈된 시각에서 코드 리뷰를 해야함</mark>을 강조했다.</p>
+<br>
+
+<h2 id="무엇을-보았는가"><a href="#무엇을-보았는가" class="headerlink" title="무엇을 보았는가."></a><a name="watched"></a>무엇을 <span style="color:red">보았는가.</span></h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=orv5ibWzkMg&t=4s">백기선 - 내가 컨퍼런스에 다니는 이유</a></li>
+</ul>
+<p>동기부여에 대한 이야기였다. 백기선님 말씀대로 정말 컨퍼런스에 다니는 사람들은 “코딩안하고 놀러다니는” 사람들이 아니라 새로운 것을 배우고, 사람들을 통해 배우려는 열망이 큰 사람들이다. 아직 큰 컨퍼런스에 참여해본적은 없지만 나도 코엑스에서 열리는 큰 컨퍼런스에 참여해서 사람들을 만나보고 싶다.</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=NyhbNtOq0Bc">우아한Tech - [10분 테크토크]희봉의 웹서버 vs WAS</a></li>
+</ul>
+<p>영상 중 <a target="_blank" rel="noopener" href="https://youtu.be/NyhbNtOq0Bc?t=411">여기</a>서부터 웹 어플리케이션과 WAS가 어떻게 동작하는지 방법을 알 수 있었다. 항상 우아한Tech로부터 많이 배우는 것 같다. 여기 크루분들도 크루들과 함께, 그리고 유튜브에 올라가는 영상을 위해 준비하면서 정말 많이 배우겠다라는 생각이들었다.</p>
+<br>
+
+<h2 id="다음주엔-무엇을-하겠는가"><a href="#다음주엔-무엇을-하겠는가" class="headerlink" title="다음주엔 무엇을 하겠는가"></a><a name="todo"></a>다음주엔 무엇을 <span style="color:red">하겠는가</span></h2><p>이번주에 알고리즘 문제를 많이 못풀었다. 이달 말에 프로그래머스에서 주관하는 윈터코딩 테스트에 신청했으니 여기에 맞춰 조금 더 많이 풀어봐야겠다. 문제만 풀기보다는 이번주부터 알고리즘을 같이 공부하면서 풀어보려고 한다. </p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://youngjinmo.github.io/2019/10/WeeklyReview-2019-Oct-Second/" data-id="ckf65uebm00i4acgd8n4t4p0j" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Youngjin Mo"
+        },
+        "headline": "WeeklyReview - 10월 2주차",
+        "image": "../../../http:/youngjinmo.github.iohttp:/www.mediafire.com/convkey/80e7/89jfgzggjnlka4czg.jpg",
+        "keywords": "weekly-review",
+        "genre": "Life Thought",
+        "datePublished": "2019-10-14",
+        "dateCreated": "2019-10-14",
+        "dateModified": "2020-09-13",
+        "url": "../../../http:/youngjinmo.github.io/2019/10/WeeklyReview-2019-Oct-Second/",
+        "description": "
+
+목차
+한 주 간의 TIL
+한 주간 무엇을 했는가
+무엇을 읽었는가
+무엇을 보았는가
+다음주엔 무엇을 하겠는가
+
+
+
+한 주 간의 TIL
+2019.10.08
+
+    Math 클래스를 안쓰고 반올림하는 방법
+        
+            
+      Math클래스를 쓰는것보다 복잡해서 생산성은 떨어지는 방식이지만, 반올림에 대한 메카니즘(?)을 이해할 ",
+        "wordCount": 2024
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="../../../https:/github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="../commands-of-vim/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Vim 에디터 주요 명령어
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="../WeeklyReview-2019-Oct-First/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Weekly Review - 10월 1주차</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../2020/09/xml-json-xmlhttprequest/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3f3uUiEllt7yZ2cz-TBQE53mDoXAvAbilDnTHnb0gUIYnX86czSpvvAGNC1uwJN3Mm543ae8FVwBXvYPyOcYzNVH-5fg0VXSmiORlQSYChhlqdO1jLRs_XhVOQYcySp_K_S3JbhAK4jHpeyRpXmh45Gqg=w640-h405-no?authuser=2)" alt="XML, JSON 그리고 XMLHttpRequest" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Others/">Others</a></p>
+                            <p class="item-title"><a href="../../../2020/09/xml-json-xmlhttprequest/" class="title">XML, JSON 그리고 XMLHttpRequest</a></p>
+                            <p class="item-date"><time datetime="2020-09-01T12:00:59.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../2020/08/create-table-sequence/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3dnKjQpuvDEmVxFsIrKfVbq9RCZMjbbZPOtAWR0Etr5EfTkx58EYPQjjgLEiO8XYLsVu_1TWyNmpySsDRxXvCplY6aMPhIMQgNCaH0TBpVv0vxyI_-b6pK9x8qhVSSptzKgeu-dbMHYIt-eS1MUDQnkiw=w640-h427-no?authuser=0)" alt="Oracle - Sequence 생성하고 테이블에 삽입하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Database/">Database</a></p>
+                            <p class="item-title"><a href="../../../2020/08/create-table-sequence/" class="title">Oracle - Sequence 생성하고 테이블에 삽입하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-31T18:57:13.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../2020/08/servlet-redirect-forward/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3cK_j9D5XupS1mIeAAwsE1cOAdZ05jfS290XghGTAfDNVmf1VDdldnidSEQpbEAPRe_aTchGC7U00h7lU9JKtTV3ltDyqUcofn0Xu4p0pm_ROewKfcnOG3UO4Yo4EgVG6ZeQfoemWHklC1hGMn-1DXYfQ=w640-h427-no?authuser=0)" alt="Servlet - Redirect와 Forward" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../../../2020/08/servlet-redirect-forward/" class="title">Servlet - Redirect와 Forward</a></p>
+                            <p class="item-date"><time datetime="2020-08-30T22:32:44.000Z" itemprop="datePublished">2020-08-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../2020/08/leetcode-twosum/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://assets.leetcode.com/static_assets/public/images/LeetCode_Sharing.png)" alt="Leetcode - Twosum" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Quiz/">Quiz</a></p>
+                            <p class="item-title"><a href="../../../2020/08/leetcode-twosum/" class="title">Leetcode - Twosum</a></p>
+                            <p class="item-date"><time datetime="2020-08-24T14:28:47.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../2020/08/run-mysql-with-docker/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3fdpC3xu5q4xnJRLLhSaWCrARbnQ1qdp_DpF0Z7BITrtrr6gZWGExKC4PcMlVo3AxVhVbYiFgDhNObWmtv3hGwoEtF_4zFb_1fQsdL6d1K3UNA0LRkczuC_nNvcEHERB8EIB3uvWOIps7j1iraX6DGLbQ=w720-h480-no?authuser=0)" alt="Docker로 MySQL 실행하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Devops/">Devops</a></p>
+                            <p class="item-title"><a href="../../../2020/08/run-mysql-with-docker/" class="title">Docker로 MySQL 실행하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-23T17:12:43.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 11.11px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/api/" style="font-size: 11.11px;">api</a> <a href="../../../tags/architecture/" style="font-size: 10px;">architecture</a> <a href="../../../tags/array/" style="font-size: 11.11px;">array</a> <a href="../../../tags/aws/" style="font-size: 12.22px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 12.22px;">career</a> <a href="../../../tags/casting/" style="font-size: 12.22px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/cloud/" style="font-size: 12.22px;">cloud</a> <a href="../../../tags/compiler/" style="font-size: 10px;">compiler</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/databse/" style="font-size: 10px;">databse</a> <a href="../../../tags/datastructure/" style="font-size: 12.22px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 13.33px;">docker</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 11.11px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generic/" style="font-size: 10px;">generic</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 10px;">github</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 13.33px;">http</a> <a href="../../../tags/ide/" style="font-size: 10px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 10px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 11.11px;">interface</a> <a href="../../../tags/interpreter/" style="font-size: 10px;">interpreter</a> <a href="../../../tags/io/" style="font-size: 12.22px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 15.56px;">java</a> <a href="../../../tags/java8/" style="font-size: 11.11px;">java8</a> <a href="../../../tags/jquery/" style="font-size: 11.11px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/jvm/" style="font-size: 10px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 10px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 10px;">mustache</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 16.67px;">oop</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 12.22px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 11.11px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 18.89px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/string/" style="font-size: 14.44px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/tip/" style="font-size: 17.78px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 13.33px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 11.11px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 18.89px;">weekly-review</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Youngjin Mo</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+    
+        
+<script src="../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="../../../js/main.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>REST | DevAndy</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="api,architecture,rest" />
+    
+    <meta name="description" content="회사에서 REST에 대한 강의를 들을 기회가 있어, 강의를 듣고 정리해보았다. ToC REST란? Why REST? RESTful API? REST API 특징 Rest API 디자인 가이드 URI 설계 가이드 Five clues that your api isn’t RESTful. REST 약점    RESTREST를 한 문장으로 정의하면, REST는">
+<meta property="og:type" content="article">
+<meta property="og:title" content="REST">
+<meta property="og:url" content="http://youngjinmo.github.io/2020/06/rest-api/index.html">
+<meta property="og:site_name" content="DevAndy">
+<meta property="og:description" content="회사에서 REST에 대한 강의를 들을 기회가 있어, 강의를 듣고 정리해보았다. ToC REST란? Why REST? RESTful API? REST API 특징 Rest API 디자인 가이드 URI 설계 가이드 Five clues that your api isn’t RESTful. REST 약점    RESTREST를 한 문장으로 정의하면, REST는">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://lh3.googleusercontent.com/pw/ACtC-3epNTvVcqt_yUGAWuMtMoi55gBkx1SGwoMgnW0RZ7_mS_XupcooKE8d7FrcxgcYBnJ8GpWhOWOrK_TsCBmiIb_nIHseUWK5pQhrg2N_kP6loYwgus4NmeVl_GSHVh9XDTkQy7g9V6PVN-C67THENYdN8A=w914-h571-no?authuser=0">
+<meta property="article:published_time" content="2020-06-18T20:29:48.000Z">
+<meta property="article:modified_time" content="2020-09-13T01:53:28.208Z">
+<meta property="article:author" content="Youngjin Mo">
+<meta property="article:tag" content="api">
+<meta property="article:tag" content="architecture">
+<meta property="article:tag" content="rest">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lh3.googleusercontent.com/pw/ACtC-3epNTvVcqt_yUGAWuMtMoi55gBkx1SGwoMgnW0RZ7_mS_XupcooKE8d7FrcxgcYBnJ8GpWhOWOrK_TsCBmiIb_nIHseUWK5pQhrg2N_kP6loYwgus4NmeVl_GSHVh9XDTkQy7g9V6PVN-C67THENYdN8A=w914-h571-no?authuser=0">
+<meta name="twitter:creator" content="@devandy_yj">
+    
+
+    
+        <link rel="alternate" href="/" title="DevAndy" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="../../../libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="../../../libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="../../../libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="../../../css/style.css">
+
+
+    
+<script src="../../../libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-177850483-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../index.html">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Articles/">Articles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/">Dev</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Devops/">Devops</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Html-Css/">Html/Css</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Javascript/">Javascript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Others/">Others</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Springboot/">Springboot</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Web/">Web</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Review/">Review</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Thought/">Thought</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Quiz/">Quiz</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../https:/github.com/youngjinmo">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="../../../js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Web/">Web</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="posts-rest-api" class="article article-single article-type-posts" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        REST
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="" class="article-date">
+       <time datetime="2020-06-18T20:29:48.000Z" itemprop="datePublished">2020-06-19</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="" class="article-date">
+     <time datetime="2020-09-13T01:53:28.208Z" itemprop="dateModified">2020-09-13</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="../../../tags/api/" rel="tag">api</a>, <a class="tag-link-link" href="../../../tags/architecture/" rel="tag">architecture</a>, <a class="tag-link-link" href="../../../tags/rest/" rel="tag">rest</a>
+    </div>
+
+                
+
+                
+
+            </div>
+			<!-- 	count-time		 -->
+			<!-- <span class="reading-time" style="margin-left: 20px;">⏱ 6 min.</span>  -->
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <img src="https://lh3.googleusercontent.com/pw/ACtC-3epNTvVcqt_yUGAWuMtMoi55gBkx1SGwoMgnW0RZ7_mS_XupcooKE8d7FrcxgcYBnJ8GpWhOWOrK_TsCBmiIb_nIHseUWK5pQhrg2N_kP6loYwgus4NmeVl_GSHVh9XDTkQy7g9V6PVN-C67THENYdN8A=w914-h571-no?authuser=0" width="650px" />
+
+<p>회사에서 REST에 대한 강의를 들을 기회가 있어, 강의를 듣고 정리해보았다.</p>
+<h3 id="ToC"><a href="#ToC" class="headerlink" title="ToC"></a>ToC</h3><ul>
+<li><a href="#rest">REST란?</a></li>
+<li><a href="#why">Why REST?</a></li>
+<li><a href="#restful-api">RESTful API?</a></li>
+<li><a href="#features">REST API 특징</a></li>
+<li><a href="#design-guide">Rest API 디자인 가이드</a></li>
+<li><a href="#uri-guide">URI 설계 가이드</a></li>
+<li><a href="#lorna">Five clues that your api isn’t RESTful.</a></li>
+<li><a href="#weakness">REST 약점</a></li>
+</ul>
+<br>
+
+<h2 id="REST"><a href="#REST" class="headerlink" title="REST"></a><a name="rest"></a>REST</h2><p>REST를 한 문장으로 정의하면, <strong>REST는 HTTP 프로토콜을 사용하는 아키텍처</strong>이다. </p>
+<p>REST란 일반적으로 HTTP method와 URI까지를 이야기한다.</p>
+<br>
+
+<h2 id="Why-REST"><a href="#Why-REST" class="headerlink" title="Why REST?"></a><a name="why"></a>Why REST?</h2><img src="https://miro.medium.com/max/1276/0*GN2n0rtrVwEN5XlM" style="zoom:70%;" />
+
+<blockquote>
+<p>How do I imporve HTTP without breaking the Web</p>
+</blockquote>
+<p>HTTP의 주요 저자중 한 사람인 Roy Fielding이 HTTP 설계의 우수성에 비해 제대로 사용되어지지 못하는 모습에 안타까워하여 <strong><u>HTTP의 장점을 최대한 활용하는 아키텍처</u>**로써 박사학위 논문에서 소개한 아키텍처이다.<br>한 문장으로 정리한다면, **API 역할에 따라 HTTP 스펙을 더 잘 사용하기 위한 아키텍쳐가 REST</strong>라고 할 수 있다.</p>
+<br>
+
+<h2 id="REST-특징"><a href="#REST-특징" class="headerlink" title="REST 특징"></a><a name="features"></a>REST 특징</h2><ol>
+<li><strong>Uniform Interface</strong><ul>
+<li>자원의 위치가 아닌 HTTP 메서드로 접근하는 대상이 무엇인지를 구체적이고, 명확히 표현한다.</li>
+</ul>
+</li>
+<li><strong>무상태성 (Stateless)</strong><ul>
+<li>세션, 쿠키없이 HTTP로만 독릭적으로 통신이 가능해야한다.</li>
+</ul>
+</li>
+<li><strong>캐시가능 (Cacheable)</strong><ul>
+<li>REST의 가장 큰 특징 중 하나는 HTTP라는 기존 웹 표준을 그대로 사용하기 때문에 웹에서 사용하는 기존 인프라를 그대로 활용이 가능하다는 점이다. 따라서 HTTP가 가진 캐싱을 적용가능하다.</li>
+</ul>
+</li>
+<li><strong>자체 표현구조 (Self-descriptiveness)</strong><ul>
+<li>REST의 또 다른 큰 특징 중 하나는 REST API 메세지만 보고도 이를 쉽게 이해할 수 있는 표현이어야 한다.</li>
+</ul>
+</li>
+<li><strong>Client - Server 구조</strong><ul>
+<li>REST 서버는 API 제공, 클라이언트는 사용자 인증이나 컨텍스트(세션, 로그인 정보) 등을 직접 관리하는 구조로 각각의 역할이 </li>
+</ul>
+</li>
+<li><strong>계층형 구조 (Hierarchical Structure)</strong><ul>
+<li>REST 서버는 다중 계층으로 구성될 수 있으며 보안, 로드 밸런싱, 암호화 계층을 추가해 구조상의 유연성을 둘 수 있으며 Proxy, 게이트웨이 같은 네트워크 기반의 중간매체를 사용할 수 있게한다.</li>
+</ul>
+</li>
+</ol>
+<br>
+
+<h2 id="REST-API-디자인-가이드"><a href="#REST-API-디자인-가이드" class="headerlink" title="REST API 디자인 가이드"></a><a name="api-guide"></a>REST API 디자인 가이드</h2><p>REST API 설계시 신경써야할 두가지 설계 가이드이다.</p>
+<ol>
+<li>URI는 리소스를 표현해야 한다.</li>
+<li>리소스에 대한 행위는 HTTP method로 표현한다.</li>
+</ol>
+<br>
+
+<h2 id="URI-설계-가이드"><a href="#URI-설계-가이드" class="headerlink" title="URI 설계 가이드"></a><a name="uri-guide"></a>URI 설계 가이드</h2><p>REST의 뜻인 Representational State Transfer에서 알 수 있듯이 REST는 어떻게 표현되는가가 중요한 아키텍처이다. </p>
+<p>REST는 HTTP method만 사용한다고 REST라고 할 수 없다. URI 설계를 잘해야 RESTful API라고 할 수 있다. <strong>URI만으로 이 API 메세지의 의도를 개발자가 직관적으로 이해할 수 있을 때, RESTful API라고 할 수 있다.</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HTTP-method &#123;service-name&#125;&#x2F;&#123;api-version&#125;&#x2F;&#123;resource-category&#125;&#x2F;&#123;resource-path&#125;&#x2F;&#123;path-variable&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET tmap&#x2F;2.1&#x2F;location</span><br></pre></td></tr></table></figure>
+
+
+
+<p>RESTful API를 위한 URI 작성 규칙은 다음과 같다.</p>
+<ol>
+<li><strong>명사(noun)</strong><ul>
+<li>HTTP methods가 동사(verb)이므로 URI마저 동사로 작성한다면, API 의미가 직관적이지 이지 않게된다. </li>
+<li><code>GET /fruits/bananas</code></li>
+<li>요청한다. 과일들 중 바나나를.</li>
+</ul>
+</li>
+<li><strong>복수형(mutiple)</strong><ul>
+<li>API는 특성상 리소스들이 하나기보다는 복수형일 수 있다. 위의 API를 해석하면, 과일 중 바나나를 요청한다고 했을때, 바나나가 1개만 조회될리 없기 때문이다. </li>
+</ul>
+</li>
+<li><strong>구체적(specifically)</strong><ul>
+<li>URI 만으로 해당 API가 RESTful한지 아닌지를 판단할 수 있기 때문에 URI는 추상적이지 않고 구체적일수록 좋다. </li>
+<li>과일을 요청하는게 아니라 바나나를 요청해야한다.</li>
+</ul>
+</li>
+</ol>
+<br>
+
+<h2 id="RESTful-API"><a href="#RESTful-API" class="headerlink" title="RESTful API?"></a><a name="restful-api"></a>RESTful API?</h2><p>RESTful하다는 표현과 REST를 아키텍쳐라고 표현한 부분에서 알 수 있듯이 REST는 규약(protocol)이 아니다. 따라서 REST는 이분법적으로 판단할 수 없으며, 추상적으로 판단할 수 밖에 없다. <strong>REST의 조건을 충분히 충족시키는 API를 RESTful</strong> 하다는 다소 추상적인 표현을 하는 이유이다.</p>
+<br>
+
+<h2 id="Five-clues-that-your-api-isn’t-RESTful"><a href="#Five-clues-that-your-api-isn’t-RESTful" class="headerlink" title="Five clues that your api isn’t RESTful."></a><a name="lorna"></a>Five clues that your api isn’t RESTful.</h2><img src="https://i.ytimg.com/vi/hC5dPhM_LFo/maxresdefault.jpg" style="zoom:40%;" />
+PHP 개발자인 Lorna Mitchell이 작성한 *당신의 API가 RESTful 하지 않다는 다섯가지 증거*라는 제목으로 작성한 글이다. Lorna Mitchell이 언급한 API가 RESTful하지 않은 5가지 증거는 아래에 정리해두었다.
+
+<ol>
+<li><strong>It has a single endpoint.</strong><ul>
+<li><code>GET /phones</code></li>
+<li>이런 API는 RESTful 하지 않는 API이다. 아래의 API가 더 직관적이며, RESTful API라고 할 수 있는 API이다.</li>
+<li><code>GET /devices/phones</code></li>
+</ul>
+</li>
+<li><strong>All requests are POSTs.</strong><ul>
+<li>무조건 POST method로만 API를 작성하는 것도 RESTful하지 않은 방식이다. API의 기능에 따라 HTTP method를 다양하게 활용할 수 있어야 한다. <ul>
+<li>POST로만 s</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Response meta data is in the body.</strong><ul>
+<li>메타 데이터는 최대한 HTTP header에 포함해야한다.</li>
+<li>status는 body로 보낼 필요가 없는 데이터이다.</li>
+<li>response 메타데이터(결과 값, 세션 키)는 body가 아니라 header에 포함되어야 한다.<ul>
+<li>요청 경로에 리소스가 없을때 : 404</li>
+<li>요청 정보가 정확하지 않을때 : 400</li>
+<li>인증에 실패했을때 : 401</li>
+<li>요청에 성공했을때 : 200 </li>
+</ul>
+</li>
+<li>body에는 결과 값이나 인증 키같은 메타데이터가 아니라 순수 데이터만 포함시켜야 한다.</li>
+</ul>
+</li>
+<li><strong>There are verbs in the URL.</strong><ul>
+<li>HTTP method가 이미 동사(verb)기 때문에 URI이 명사(noun)로 작성되어야 API가 더 직관적으로 표현된다.</li>
+</ul>
+</li>
+<li><strong>The URL includes method names.</strong><ul>
+<li>REST는 resource를 표현하는 아키텍처라고 설명했다. 따라서 URL에 메서드명을 노출하는건 RESTful하지 않은 방식이다. </li>
+<li>더군다나 url 작성 규칙과 프로그래밍 언어단에서의 메서드 작성 규칙은 다르기 때문에 메서드명이 url에 등록이 되면 안된다.</li>
+</ul>
+</li>
+</ol>
+<br>
+
+<h2 id="REST-약점"><a href="#REST-약점" class="headerlink" title="REST 약점"></a><a name="weakness"></a>REST 약점</h2><ul>
+<li>HTTP 메서드를 사용하기 때문에 모바일/웹 등 사용할 수 있다는 인프라 범위가 넓다는 장점이 있지만, HTTP 메서드를 사용하기 때문에 제한적이라는 단점 또한 존재한다.</li>
+<li>표준이 존재하지 않기때문에 REST API 디자인 가이드가 따로 존재하지 않는다. 그래서 Lorna Mitchell이 작성한 글(Five clues that your api isn’t festful)처럼 RESTful API를 위한 약속들만 존재한다.</li>
+</ul>
+<br>
+
+<h3 id="참고-문서-및-함께-보면-좋은-글-영상"><a href="#참고-문서-및-함께-보면-좋은-글-영상" class="headerlink" title="참고 문서 및 함께 보면 좋은 글/영상"></a><a name="references"></a>참고 문서 및 함께 보면 좋은 글/영상</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=iOueE9AXDQQ">(Youtube) 얄팍한 코딩사전 - REST API가 뭔가요?</a></li>
+<li><a target="_blank" rel="noopener" href="https://meetup.toast.com/posts/92">NHN Toast - REST API 제대로 알고 사용하기</a></li>
+<li><a target="_blank" rel="noopener" href="https://lornajane.net/posts/2013/five-clues-that-your-api-isnt-restful">Lorna Jane - Five Clues That Your API isn’t RESTful</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=RP_f5dMoHFc">(Youtube) 2017 DEVIEW - 그런 REST API로 괜찮은가</a></li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://youngjinmo.github.io/2020/06/rest-api/" data-id="ckf65ue5q00g2acgdfgenh68i" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Youngjin Mo"
+        },
+        "headline": "REST",
+        "image": "../../../http:/youngjinmo.github.iohttps:/lh3.googleusercontent.com/pw/ACtC-3epNTvVcqt_yUGAWuMtMoi55gBkx1SGwoMgnW0RZ7_mS_XupcooKE8d7FrcxgcYBnJ8GpWhOWOrK_TsCBmiIb_nIHseUWK5pQhrg2N_kP6loYwgus4NmeVl_GSHVh9XDTkQy7g9V6PVN-C67THENYdN8A=w914-h571-no?authuser=0",
+        "keywords": "api architecture rest",
+        "genre": "Dev Web",
+        "datePublished": "2020-06-19",
+        "dateCreated": "2020-06-19",
+        "dateModified": "2020-09-13",
+        "url": "../../../http:/youngjinmo.github.io/2020/06/rest-api/",
+        "description": "
+
+회사에서 REST에 대한 강의를 들을 기회가 있어, 강의를 듣고 정리해보았다.
+ToC
+REST란?
+Why REST?
+RESTful API?
+REST API 특징
+Rest API 디자인 가이드
+URI 설계 가이드
+Five clues that your api isn’t RESTful.
+REST 약점
+
+
+
+RESTREST를 한 문장으로 정의하면, REST는 ",
+        "wordCount": 719
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="../../../https:/github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="../java-file-io/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Java - File 읽고(Read) 출력(Write)하기
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="../webserver-was/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">웹서버와 WAS</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../09/xml-json-xmlhttprequest/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3f3uUiEllt7yZ2cz-TBQE53mDoXAvAbilDnTHnb0gUIYnX86czSpvvAGNC1uwJN3Mm543ae8FVwBXvYPyOcYzNVH-5fg0VXSmiORlQSYChhlqdO1jLRs_XhVOQYcySp_K_S3JbhAK4jHpeyRpXmh45Gqg=w640-h405-no?authuser=2)" alt="XML, JSON 그리고 XMLHttpRequest" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Others/">Others</a></p>
+                            <p class="item-title"><a href="../../09/xml-json-xmlhttprequest/" class="title">XML, JSON 그리고 XMLHttpRequest</a></p>
+                            <p class="item-date"><time datetime="2020-09-01T12:00:59.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/create-table-sequence/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3dnKjQpuvDEmVxFsIrKfVbq9RCZMjbbZPOtAWR0Etr5EfTkx58EYPQjjgLEiO8XYLsVu_1TWyNmpySsDRxXvCplY6aMPhIMQgNCaH0TBpVv0vxyI_-b6pK9x8qhVSSptzKgeu-dbMHYIt-eS1MUDQnkiw=w640-h427-no?authuser=0)" alt="Oracle - Sequence 생성하고 테이블에 삽입하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Database/">Database</a></p>
+                            <p class="item-title"><a href="../../08/create-table-sequence/" class="title">Oracle - Sequence 생성하고 테이블에 삽입하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-31T18:57:13.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/servlet-redirect-forward/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3cK_j9D5XupS1mIeAAwsE1cOAdZ05jfS290XghGTAfDNVmf1VDdldnidSEQpbEAPRe_aTchGC7U00h7lU9JKtTV3ltDyqUcofn0Xu4p0pm_ROewKfcnOG3UO4Yo4EgVG6ZeQfoemWHklC1hGMn-1DXYfQ=w640-h427-no?authuser=0)" alt="Servlet - Redirect와 Forward" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../../08/servlet-redirect-forward/" class="title">Servlet - Redirect와 Forward</a></p>
+                            <p class="item-date"><time datetime="2020-08-30T22:32:44.000Z" itemprop="datePublished">2020-08-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/leetcode-twosum/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://assets.leetcode.com/static_assets/public/images/LeetCode_Sharing.png)" alt="Leetcode - Twosum" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Quiz/">Quiz</a></p>
+                            <p class="item-title"><a href="../../08/leetcode-twosum/" class="title">Leetcode - Twosum</a></p>
+                            <p class="item-date"><time datetime="2020-08-24T14:28:47.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/run-mysql-with-docker/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3fdpC3xu5q4xnJRLLhSaWCrARbnQ1qdp_DpF0Z7BITrtrr6gZWGExKC4PcMlVo3AxVhVbYiFgDhNObWmtv3hGwoEtF_4zFb_1fQsdL6d1K3UNA0LRkczuC_nNvcEHERB8EIB3uvWOIps7j1iraX6DGLbQ=w720-h480-no?authuser=0)" alt="Docker로 MySQL 실행하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Devops/">Devops</a></p>
+                            <p class="item-title"><a href="../../08/run-mysql-with-docker/" class="title">Docker로 MySQL 실행하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-23T17:12:43.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 11.11px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/api/" style="font-size: 11.11px;">api</a> <a href="../../../tags/architecture/" style="font-size: 10px;">architecture</a> <a href="../../../tags/array/" style="font-size: 11.11px;">array</a> <a href="../../../tags/aws/" style="font-size: 12.22px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 12.22px;">career</a> <a href="../../../tags/casting/" style="font-size: 12.22px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/cloud/" style="font-size: 12.22px;">cloud</a> <a href="../../../tags/compiler/" style="font-size: 10px;">compiler</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/databse/" style="font-size: 10px;">databse</a> <a href="../../../tags/datastructure/" style="font-size: 12.22px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 13.33px;">docker</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 11.11px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generic/" style="font-size: 10px;">generic</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 10px;">github</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 13.33px;">http</a> <a href="../../../tags/ide/" style="font-size: 10px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 10px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 11.11px;">interface</a> <a href="../../../tags/interpreter/" style="font-size: 10px;">interpreter</a> <a href="../../../tags/io/" style="font-size: 12.22px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 15.56px;">java</a> <a href="../../../tags/java8/" style="font-size: 11.11px;">java8</a> <a href="../../../tags/jquery/" style="font-size: 11.11px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/jvm/" style="font-size: 10px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 10px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 10px;">mustache</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 16.67px;">oop</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 12.22px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 11.11px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 18.89px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/string/" style="font-size: 14.44px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/tip/" style="font-size: 17.78px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 13.33px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 11.11px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 18.89px;">weekly-review</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Youngjin Mo</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+    
+        
+<script src="../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="../../../js/main.js"></script>
+
+
+</body>
+</html>

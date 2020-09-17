@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Mustache로 Updateform 구현하기 | DevAndy</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="java,mustache" />
+    
+    <meta name="description" content="Mustache로 update form을 구현할 일이 구현하면서 정리해본다.  update form의 특징이라면, 사용자가 수정하기 위해서는 수정이 필요한 데이터를 먼저 보여주어야 한다. 그러려면 Model 데이터를 불러와서 input 박스의 value로 자동으로 채워넣어줘야 한다. 이 과정에서 mustache 문법이 어떻게 사용되는지를 알아보자.  H">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mustache로 Updateform 구현하기">
+<meta property="og:url" content="http://youngjinmo.github.io/2020/03/create-updateform-mustache/index.html">
+<meta property="og:site_name" content="DevAndy">
+<meta property="og:description" content="Mustache로 update form을 구현할 일이 구현하면서 정리해본다.  update form의 특징이라면, 사용자가 수정하기 위해서는 수정이 필요한 데이터를 먼저 보여주어야 한다. 그러려면 Model 데이터를 불러와서 input 박스의 value로 자동으로 채워넣어줘야 한다. 이 과정에서 mustache 문법이 어떻게 사용되는지를 알아보자.  H">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://images.unsplash.com/photo-1565839412225-98641b2d7b5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80">
+<meta property="article:published_time" content="2020-03-18T15:57:27.000Z">
+<meta property="article:modified_time" content="2020-09-13T01:53:29.108Z">
+<meta property="article:author" content="Youngjin Mo">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="mustache">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1565839412225-98641b2d7b5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80">
+<meta name="twitter:creator" content="@devandy_yj">
+    
+
+    
+        <link rel="alternate" href="/" title="DevAndy" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="../../../libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="../../../libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="../../../libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="../../../css/style.css">
+
+
+    
+<script src="../../../libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-177850483-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../index.html">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Articles/">Articles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/">Dev</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Devops/">Devops</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Html-Css/">Html/Css</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Javascript/">Javascript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Others/">Others</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Springboot/">Springboot</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Web/">Web</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Review/">Review</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Thought/">Thought</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Quiz/">Quiz</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../https:/github.com/youngjinmo">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="../../../js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Springboot/">Springboot</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="posts-create-updateform-mustache" class="article article-single article-type-posts" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Mustache로 Updateform 구현하기
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="" class="article-date">
+       <time datetime="2020-03-18T15:57:27.000Z" itemprop="datePublished">2020-03-19</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="" class="article-date">
+     <time datetime="2020-09-13T01:53:29.108Z" itemprop="dateModified">2020-09-13</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="../../../tags/java/" rel="tag">java</a>, <a class="tag-link-link" href="../../../tags/mustache/" rel="tag">mustache</a>
+    </div>
+
+                
+
+                
+
+            </div>
+			<!-- 	count-time		 -->
+			<!-- <span class="reading-time" style="margin-left: 20px;">⏱ 21 min.</span>  -->
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <img src="https://images.unsplash.com/photo-1565839412225-98641b2d7b5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" width="650px" />
+
+<p>Mustache로 update form을 구현할 일이 구현하면서 정리해본다. </p>
+<p>update form의 특징이라면, 사용자가 수정하기 위해서는 수정이 필요한 데이터를 먼저 보여주어야 한다. 그러려면 <strong>Model 데이터를 불러와서 input 박스의 value로 자동으로 채워넣어줘야 한다.</strong> 이 과정에서 mustache 문법이 어떻게 사용되는지를 알아보자.</p>
+<blockquote>
+<p>Hexo 에서는 mustache의 <code>&#123;</code> <code>&#123;id&#125;</code> <code>&#125;</code>사용할 경우 화면에 출력되지 않아 이렇게 표기를 하게되었다..</p>
+</blockquote>
+<br>
+
+<h3 id="update-html로-id값-전달하기"><a href="#update-html로-id값-전달하기" class="headerlink" title="update.html로 id값 전달하기"></a>update.html로 id값 전달하기</h3><p>update form 페이지로 이동하기 위해서는 <code>a</code> 태그를 이용해서 페이지를 전달하는게 기본적이다. </p>
+<p>개인정보 수정 기능을 하는 update form을 구현하기 위해서는 <strong>어떤 사용자의 정보</strong>를 수정하고자 하는지를 알아야 한다. 그래야 서버에서 사용자 정보를 가져와서 수정하고 다시 서버에 저장할 수 있기 때문이다. 이 때 사용되는게 <strong>id값</strong>이다. 그리고 이 id값을 전달받아야 repository에서도 사용자 정보를 꺼내어서 model을 이용해 화면에 사용자 정보를 전달할 수 있다.</p>
+<p>그러려면 <code>a</code>태그의 <code>href</code> 속성값에 mustache 문법으로 id값을 전달해줘야 한다.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/user/&#123;&#123;id&#125;&#125;/update&quot;</span> <span class="attr">class</span>=<span class="string">&quot;btn btn-success&quot;</span> <span class="attr">role</span>=<span class="string">&quot;button&quot;</span>&gt;</span>개인정보 수정하기<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>그럼 이렇게 update form 페이지로 이동했을 때 사용자 정보를 불러와서 화면에 전달해서 보여준다.</p>
+<p><img src="https://lh3.googleusercontent.com/q-99Q1PVirLazawTg_npWns51IwNyIVUxotnSspEeIdxnCLjmVpIXTRzDNSfw9fH_iQfsqrZCgIQLIf3EjhVdv0XCr-9YI1Exn_-ZhRQsTk-blBBOuPwUDlSI1EKDEYFUOnXfkN6FJglOwsWunTrTuG6g73HM_eavyYk9OW6bjSnjnwTKrCLHU2JCH7tVgmwh0T7Nt7GQ0w4CRq3kUuOG73ZztdnGVMbc9VPjREX8TMstB7mXItGF-4g6TieJ9yzaCqEuAGoGaAt31RjtiNCU_qZ5f3woTxAaealNqDLNyCQyjpsHugKqJ-W90eiXqlq6P7LQhe-Gd9Hrjdow9HH8dUDivmznI0kZkY4Xb9xjMpOnA7cWpZ2bjAXEyuYWJlV2v_i5vo3IuPw3hGZ5PEM14sUZZBW0yXncXJniBbzLjJgLbuWMT9Np1M8xdIMwn0Hdi3LMd2x0VOUo4WMordrrhrBlufSEd_geZc7gDVK74cEkO1ofzjavRUQ-BECHEMej3jP7tgSOuTxKcqiu0JS_A1D4Ddb1b8FabKErivQLpOlx2JIzs2VWLjCCLuuxn6udmGeuZS8c7uX_NBamKYqoGH4a3jc3wnlAn5GW3uaIetQEEzP7xkSyluqEdGJ4r-iKItuqBi1kOBHirYCSaglFyFQiZKEhW47SZQ8VV_IeTHD31QUfHyeO9cABSP7gyB0cz6fECm2muf6CYMhviKCR_pG12LlbW4rxbHKwU4OjClYO3FqS5w6tvt6=w500-h282-no"></p>
+<br>
+
+<h3 id="user-id-update-URI-맵핑-메서드-작성"><a href="#user-id-update-URI-맵핑-메서드-작성" class="headerlink" title="/user{id}/update  URI 맵핑 메서드 작성"></a><code>/user&#123;id&#125;/update</code>  URI 맵핑 메서드 작성</h3><p><code>a</code> 태그를 통해 <code>/user&#123;id&#125;/update</code> URI를 처리해줄 메서드가 컨트롤러에서 필요하다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.ui.Model;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.GetMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.PathVariable;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/user&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">userController</span> </span>&#123;</span><br><span class="line">  </span><br><span class="line">   ...</span><br><span class="line">   </span><br><span class="line">   <span class="meta">@GetMapping(&quot;/update/&#123;id&#125;&quot;)</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">update</span><span class="params">(<span class="meta">@PathVariable</span> Long id, Model model)</span> </span>&#123;</span><br><span class="line">      model.addAttribute(<span class="string">&quot;users&quot;</span>, userRepository.findById(id).get());</span><br><span class="line">      <span class="keyword">return</span> <span class="string">&quot;user/update&quot;</span>;</span><br><span class="line">   &#125;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>userController의 경우 URI에 공통적으로 <code>/user/</code> 가 사용되므로 <code>@RequestMapping(&quot;/user&quot;)</code> 어노테이션을 사용해서 리팩토링하였다.</p>
+<p>update 메서드를 들여다보면..<br>화면에 데이터를 뿌려줄 <code>model</code> 객체에 데이터를 추가하고 있는데, 이 데이터는 전체 사용자 정보가 담긴 <code>userRepository</code> 에서 어노테이션 파라미터로 입력된 <code>id</code> 에 해당하는 사용자 정보를 찾아서(<code>findById()</code>) 가져오는(<code>get()</code>) 역할을 수행하고 있다. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model.addAttribute(<span class="string">&quot;users&quot;</span>, userRepository.findById(id).get());</span><br></pre></td></tr></table></figure>
+
+<p>그리고 마지막으로 updatem.html을 return하고 있다.</p>
+<p>컨트롤러(<code>class</code>)와 화면(<code>html</code>)에서의 특징이 하나 있다. 이것때문에 삽질을 좀 오래했었는데….<br>html페이지에서는 id값을 가져올 때 <code>&#123;</code> <code>&#123;id&#125;</code> <code>&#125;</code>  로 표기하지만, 컨트롤러에서 맵핑하는 URI에는 <code>&#123;id&#125;</code> 로 표기해야 정상적으로 작동한다.</p>
+<br>
+
+<h3 id="html-페이지에-mustache-문법-작성"><a href="#html-페이지에-mustache-문법-작성" class="headerlink" title="html 페이지에 mustache 문법 작성"></a>html 페이지에 mustache 문법 작성</h3><p>컨트롤러에서 가져온 사용자 정보가 담긴 <code>model</code> 을 가져오려면 mustache의 문법을 알아야 한다. mustache에서는 model을 가져와서 화면에 맵핑할 때 아래와 같은 형식을 사용한다.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;#model&#125;&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">&quot;&quot;</span> <span class="attr">action</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">   ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">&#123;&#123;/#model&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>여기에 User에 저장한 사용자 정보의 컬럼을 <code>&#123;</code> <code>&#123;id&#125;</code> <code>&#125;</code>  으로 감싸서 input 박스의 <code>value</code>로 넣어주면 된다.</p>
+<p>필자의 유저 컬럼은 다음과 같이 지정되어 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.persistence.Column;</span><br><span class="line"><span class="keyword">import</span> javax.persistence.Entity;</span><br><span class="line"><span class="keyword">import</span> javax.persistence.GeneratedValue;</span><br><span class="line"><span class="keyword">import</span> javax.persistence.Id;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">  <span class="meta">@Id</span></span><br><span class="line">  <span class="meta">@GeneratedValue</span></span><br><span class="line">  <span class="keyword">private</span> Long id;</span><br><span class="line">	</span><br><span class="line">  <span class="meta">@Column(nullable = false)</span></span><br><span class="line">  <span class="keyword">public</span> String userEmail;</span><br><span class="line">  <span class="keyword">public</span> String userName;</span><br><span class="line">  <span class="keyword">public</span> String userPassword;</span><br><span class="line">  </span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>여기서 수정에 필요한 데이터 컬럼인 userEmail, userName, userPassword를 사용할 것이다.</p>
+<p>이를 적용하면 수정하는 페이지(update.html)에서 작성해야할 코드는 다음과 같다. <code>form</code> 태그 안의 속성값(<code>method</code>, <code>action</code>)에 주목하자. </p>
+<p><strong>/user/update.html</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;#users&#125;&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span> <span class="attr">action</span>=<span class="string">&quot;/user/&#123;&#123;id&#125;&#125;&quot;</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--이메일 주소 입력 칸--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;form-group&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;userEmail&quot;</span>&gt;</span>이메일<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;email&quot;</span> <span class="attr">class</span>=<span class="string">&quot;form-control&quot;</span> </span></span><br><span class="line"><span class="tag">      <span class="attr">id</span>=<span class="string">&quot;userEmail&quot;</span> <span class="attr">name</span>=<span class="string">&quot;userEmail&quot;</span> </span></span><br><span class="line"><span class="tag">      <span class="attr">value</span>=<span class="string">&quot;&#123;&#123;userEmail&#125;&#125;&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      </span><br><span class="line">  <span class="comment">&lt;!--이름 입력 칸--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;form-group&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;userName&quot;</span>&gt;</span>이름<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">&quot;form-control&quot;</span> </span></span><br><span class="line"><span class="tag">      <span class="attr">id</span>=<span class="string">&quot;userName&quot;</span> <span class="attr">name</span>=<span class="string">&quot;userName&quot;</span> </span></span><br><span class="line"><span class="tag">      <span class="attr">value</span>=<span class="string">&quot;&#123;&#123;userName&#125;&#125;&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      </span><br><span class="line">  <span class="comment">&lt;!--비밀번호 입력 칸--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;form-group&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;userPassword&quot;</span>&gt;</span>비밀번호<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">class</span>=<span class="string">&quot;form-control&quot;</span> </span></span><br><span class="line"><span class="tag">      <span class="attr">id</span>=<span class="string">&quot;userPassword&quot;</span> <span class="attr">name</span>=<span class="string">&quot;userPassword&quot;</span> &gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 비밀번호의 경우 value를 가져오기보다 --&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 새비밀번호를 덮어씌워서 바로 수정이 가능하도록 하자 --&gt;</span></span><br><span class="line">      </span><br><span class="line">  <span class="comment">&lt;!--수정완료 버튼--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">class</span>=<span class="string">&quot;btn btn-success clearfix pull-right&quot;</span>&gt;</span></span><br><span class="line">      정보수정</span><br><span class="line">  <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;clearfix&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">&#123;&#123;/users&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>model로 가져온 값을 보여줄때 사용하는 mustache 문법은 마찬가지로 <code>value</code>를 <code>/user/&#123;id&#125;</code> 로 감싸서 보여준다.</p>
+<p>여기까지 작성하면 아래 이미지를 구현할 수 있다.</p>
+<p><img src="https://lh3.googleusercontent.com/q-99Q1PVirLazawTg_npWns51IwNyIVUxotnSspEeIdxnCLjmVpIXTRzDNSfw9fH_iQfsqrZCgIQLIf3EjhVdv0XCr-9YI1Exn_-ZhRQsTk-blBBOuPwUDlSI1EKDEYFUOnXfkN6FJglOwsWunTrTuG6g73HM_eavyYk9OW6bjSnjnwTKrCLHU2JCH7tVgmwh0T7Nt7GQ0w4CRq3kUuOG73ZztdnGVMbc9VPjREX8TMstB7mXItGF-4g6TieJ9yzaCqEuAGoGaAt31RjtiNCU_qZ5f3woTxAaealNqDLNyCQyjpsHugKqJ-W90eiXqlq6P7LQhe-Gd9Hrjdow9HH8dUDivmznI0kZkY4Xb9xjMpOnA7cWpZ2bjAXEyuYWJlV2v_i5vo3IuPw3hGZ5PEM14sUZZBW0yXncXJniBbzLjJgLbuWMT9Np1M8xdIMwn0Hdi3LMd2x0VOUo4WMordrrhrBlufSEd_geZc7gDVK74cEkO1ofzjavRUQ-BECHEMej3jP7tgSOuTxKcqiu0JS_A1D4Ddb1b8FabKErivQLpOlx2JIzs2VWLjCCLuuxn6udmGeuZS8c7uX_NBamKYqoGH4a3jc3wnlAn5GW3uaIetQEEzP7xkSyluqEdGJ4r-iKItuqBi1kOBHirYCSaglFyFQiZKEhW47SZQ8VV_IeTHD31QUfHyeO9cABSP7gyB0cz6fECm2muf6CYMhviKCR_pG12LlbW4rxbHKwU4OjClYO3FqS5w6tvt6=w500-h282-no"></p>
+<br>
+
+<p><code>form</code> 태그 안의 <code>action</code>은 해당 form이 실행해서 어떤 URI로 값을 전달하는지를 알려준다. 위의 코드는 <code>/user/</code> <code>&#123;</code> <code>&#123;id&#125;</code> <code>&#125;</code> 로 값을 전달할 것이다. 따라서 해당 URI를 맵핑하는 컨트롤러를 작성해주어야 한다.</p>
+<h3 id="user-id-URI-맵핑하는-메서드-작성"><a href="#user-id-URI-맵핑하는-메서드-작성" class="headerlink" title="/user/{id} URI 맵핑하는 메서드 작성"></a><code>/user/&#123;id&#125;</code> URI 맵핑하는 메서드 작성</h3><p>지금까지 update.html 페이지를 작성하고, 여기에서 요구하는 URI를 처리하는 메서드(컨트롤러)를 만드는 방식으로 진행되고 있음을 알 수 있다.</p>
+<p><strong>/controller/userController.class</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.devandy.controller;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.ui.Model;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.GetMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.PathVariable;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.PostMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.devandy.domain.User;</span><br><span class="line"><span class="keyword">import</span> com.devandy.repository.UserRepository;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/user&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">userController</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> UserRepository userRepository;</span><br><span class="line">	</span><br><span class="line">	...</span><br><span class="line">  </span><br><span class="line">	<span class="meta">@GetMapping(&quot;/&#123;id&#125;/update&quot;)</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">update</span><span class="params">(<span class="meta">@PathVariable</span> Long id, Model model)</span> </span>&#123;</span><br><span class="line">		model.addAttribute(<span class="string">&quot;users&quot;</span>, userRepository.findById(id).get());</span><br><span class="line">		<span class="keyword">return</span> <span class="string">&quot;user/update&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">  <span class="comment">// 추가로 작성한 메서드</span></span><br><span class="line">	<span class="meta">@PostMapping(&quot;/&#123;id&#125;&quot;)</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">update</span><span class="params">(<span class="meta">@PathVariable</span> Long id, User updatedUser)</span> </span>&#123;</span><br><span class="line">		User user =  userRepository.findById(id).get(); <span class="comment">// 업데이트 전의 프로필</span></span><br><span class="line">		user.update(updatedUser); <span class="comment">// User 정보 업데이트</span></span><br><span class="line">		userRepository.save(user); <span class="comment">// 업데이트된 user정보 userRepository에 저장</span></span><br><span class="line">		<span class="keyword">return</span> <span class="string">&quot;redirect:/user/list&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>아까 작성한 get요청을 처리하는 메서드 아래에 post요청을 처리하는 메서드를 작성했다. id값은 노출되도 상관이 없기 때문에 get요청으로 처리했지만, <code>id</code>값 외의 사용자 정보는 유출되면 안되므로 값을 노출하지 않고 전달할 수 있는 post요청으로 처리한다.</p>
+<p>메서드 이름이 같아도 상관은없다. <i><span style="color: gray;">(진짜 상관이 없는건지는 모르겠으나 아직 문제를 발견하지 못했다.)</span></i></p>
+<p>이번엔 <code>User</code> 객체의 인스턴스를 2개 생성해서 사용했다. 하나는 DB(<code>repository</code>)에서 가져온 사용자 정보, 즉 업데이트 전의 사용자 정보(<code>user</code>), 다른 하나는 화면에서 생성해서 전달받은 새로운 사용자 정보(<code>updatedUser</code>).</p>
+<p>메서드의 작동과정은 다음과 같다.</p>
+<p>URI를 통해 전달받은 id에 해당하는 사용자를 DB(<code>repository</code>)에서 찾아서</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User user =  userRepository.findById(id).get();</span><br></pre></td></tr></table></figure>
+
+
+
+<p>아직 생성하지 않았지만, User 도메인의 <code>update</code> 메서드를 통해 파라미터로 전달받은 새로운 사용자정보로 수정한다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">user.update(updatedUser);</span><br></pre></td></tr></table></figure>
+
+
+
+<p><code>update</code>된 사용자정보를 다시 DB(<code>repository</code>)에 저장한다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">userRepository.save(user);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>그리고 원래의 페이지였던 list.html로 리다이렉트 보낸다.</p>
+<p>이제 데이터를 불러와서 수정하는 일이 끝났다. 이렇게 <code>id</code>값 1번에 해당하는 사용자 정보중 devandy라는 이름을 andy로 수정할 수 있다.</p>
+<p><img src="https://lh3.googleusercontent.com/yALf5fWSOouJT6U9JhV7qANP7b42ZLtVvmta3tWAGqd5Ma3yfb38_dZoFS3Z24CsNkPE0a51nodYvrJ7OyS5CO1TYB8oB0b2DFa5nU2oH-BE7zlobJcLQC6a0TawoxY4E4pHJ5zNQT_YoDlIgvAq6Lw3m5inqas_X1BnlxjHHb9npp90YHV2K3LA-mWT7N5mWfyTactB5Tmb3CSE1ZnJrDPCSyNC8nvln9yRmXrfYskvCx2Y5nich-TExW1kKbybNRedP9NRb9E-MEk5WCUj6efmb0e6w_6sWrrRu8AYNKpWBOgtn-XVgRKHaxgbeoht5NhO78xIXFmtO96gEqHs-n4oN_N9XH6Vb5BkDBqOSNwH5bEvSC5FSzNbmFglVByX7bmbIxboH-MreOZsDrQkjJLXJOadIj8qXMTkfDnOHKlufPPlqv0ZLyozMZT71Xci0bCIKqTRAM4m-fbnA2v2zGDnyLeXRIBEwWz2KLEgIu7zWiZNlfYfyBlfCWv7hL3TooSl2croTA1SEb4-Zi0eKTuksnZXl__OjSXKQRRrIh-P2vqKph3cqXcX234qNsqo0QGK1IvyyizNDa8Kb9hNPhMlW_MykVon8DrsmruFh-_Ef9QrDwiKqLQoI8H-ZAH7S-UkXhkA7eW86wVKB-d5fP17ksmq6Sb34NjnKTK9DOuFtclp7HEV_zXkOlUrnHfXSlBXqCyPP43avbN1MVY38_-560MWCjvronmNLta2S8LxR1bu2UNyHeJz=w500-h308-no"></p>
+<br>
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://youngjinmo.github.io/2020/03/create-updateform-mustache/" data-id="ckf65ucx60035acgdexsh3ujx" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Youngjin Mo"
+        },
+        "headline": "Mustache로 Updateform 구현하기",
+        "image": "../../../http:/youngjinmo.github.iohttps:/images.unsplash.com/photo-1565839412225-98641b2d7b5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
+        "keywords": "java mustache",
+        "genre": "Dev Springboot",
+        "datePublished": "2020-03-19",
+        "dateCreated": "2020-03-19",
+        "dateModified": "2020-09-13",
+        "url": "../../../http:/youngjinmo.github.io/2020/03/create-updateform-mustache/",
+        "description": "
+
+Mustache로 update form을 구현할 일이 구현하면서 정리해본다. 
+update form의 특징이라면, 사용자가 수정하기 위해서는 수정이 필요한 데이터를 먼저 보여주어야 한다. 그러려면 Model 데이터를 불러와서 input 박스의 value로 자동으로 채워넣어줘야 한다. 이 과정에서 mustache 문법이 어떻게 사용되는지를 알아보자.
+
+H",
+        "wordCount": 1279
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="../../../https:/github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="../extensions-for-netflix/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            넷플릭스를 더 유용하게 즐길 수 있는 크롬 익스텐션 4종
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="../install-commandlinetools-without-xcode/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">맥에서 Xcode 설치하지 않고, Command Line Tools 설치하기</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../09/xml-json-xmlhttprequest/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3f3uUiEllt7yZ2cz-TBQE53mDoXAvAbilDnTHnb0gUIYnX86czSpvvAGNC1uwJN3Mm543ae8FVwBXvYPyOcYzNVH-5fg0VXSmiORlQSYChhlqdO1jLRs_XhVOQYcySp_K_S3JbhAK4jHpeyRpXmh45Gqg=w640-h405-no?authuser=2)" alt="XML, JSON 그리고 XMLHttpRequest" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Others/">Others</a></p>
+                            <p class="item-title"><a href="../../09/xml-json-xmlhttprequest/" class="title">XML, JSON 그리고 XMLHttpRequest</a></p>
+                            <p class="item-date"><time datetime="2020-09-01T12:00:59.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/create-table-sequence/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3dnKjQpuvDEmVxFsIrKfVbq9RCZMjbbZPOtAWR0Etr5EfTkx58EYPQjjgLEiO8XYLsVu_1TWyNmpySsDRxXvCplY6aMPhIMQgNCaH0TBpVv0vxyI_-b6pK9x8qhVSSptzKgeu-dbMHYIt-eS1MUDQnkiw=w640-h427-no?authuser=0)" alt="Oracle - Sequence 생성하고 테이블에 삽입하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Database/">Database</a></p>
+                            <p class="item-title"><a href="../../08/create-table-sequence/" class="title">Oracle - Sequence 생성하고 테이블에 삽입하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-31T18:57:13.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/servlet-redirect-forward/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3cK_j9D5XupS1mIeAAwsE1cOAdZ05jfS290XghGTAfDNVmf1VDdldnidSEQpbEAPRe_aTchGC7U00h7lU9JKtTV3ltDyqUcofn0Xu4p0pm_ROewKfcnOG3UO4Yo4EgVG6ZeQfoemWHklC1hGMn-1DXYfQ=w640-h427-no?authuser=0)" alt="Servlet - Redirect와 Forward" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../../08/servlet-redirect-forward/" class="title">Servlet - Redirect와 Forward</a></p>
+                            <p class="item-date"><time datetime="2020-08-30T22:32:44.000Z" itemprop="datePublished">2020-08-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/leetcode-twosum/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://assets.leetcode.com/static_assets/public/images/LeetCode_Sharing.png)" alt="Leetcode - Twosum" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Quiz/">Quiz</a></p>
+                            <p class="item-title"><a href="../../08/leetcode-twosum/" class="title">Leetcode - Twosum</a></p>
+                            <p class="item-date"><time datetime="2020-08-24T14:28:47.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/run-mysql-with-docker/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3fdpC3xu5q4xnJRLLhSaWCrARbnQ1qdp_DpF0Z7BITrtrr6gZWGExKC4PcMlVo3AxVhVbYiFgDhNObWmtv3hGwoEtF_4zFb_1fQsdL6d1K3UNA0LRkczuC_nNvcEHERB8EIB3uvWOIps7j1iraX6DGLbQ=w720-h480-no?authuser=0)" alt="Docker로 MySQL 실행하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Devops/">Devops</a></p>
+                            <p class="item-title"><a href="../../08/run-mysql-with-docker/" class="title">Docker로 MySQL 실행하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-23T17:12:43.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 11.11px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/api/" style="font-size: 11.11px;">api</a> <a href="../../../tags/architecture/" style="font-size: 10px;">architecture</a> <a href="../../../tags/array/" style="font-size: 11.11px;">array</a> <a href="../../../tags/aws/" style="font-size: 12.22px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 12.22px;">career</a> <a href="../../../tags/casting/" style="font-size: 12.22px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/cloud/" style="font-size: 12.22px;">cloud</a> <a href="../../../tags/compiler/" style="font-size: 10px;">compiler</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/databse/" style="font-size: 10px;">databse</a> <a href="../../../tags/datastructure/" style="font-size: 12.22px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 13.33px;">docker</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 11.11px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generic/" style="font-size: 10px;">generic</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 10px;">github</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 13.33px;">http</a> <a href="../../../tags/ide/" style="font-size: 10px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 10px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 11.11px;">interface</a> <a href="../../../tags/interpreter/" style="font-size: 10px;">interpreter</a> <a href="../../../tags/io/" style="font-size: 12.22px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 15.56px;">java</a> <a href="../../../tags/java8/" style="font-size: 11.11px;">java8</a> <a href="../../../tags/jquery/" style="font-size: 11.11px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/jvm/" style="font-size: 10px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 10px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 10px;">mustache</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 16.67px;">oop</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 12.22px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 11.11px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 18.89px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/string/" style="font-size: 14.44px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/tip/" style="font-size: 17.78px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 13.33px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 11.11px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 18.89px;">weekly-review</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Youngjin Mo</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+    
+        
+<script src="../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="../../../js/main.js"></script>
+
+
+</body>
+</html>

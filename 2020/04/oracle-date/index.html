@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Oracle - Date | DevAndy</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="oracle" />
+    
+    <meta name="description" content="오라클 DBMS에선 날짜함수를 사용할 수 있다. 현재 날짜(OS 기준 날짜 출력)를 출력하고 싶다면, 아래의 명령어로 조회할 수 있다. dual 테이블에 대한 설명은 이 글을 참고바란다. 12SELECT sysdateFROM dual;    목록 날짜 연산 날짜간 월(months)수 조회 월(months) 연산 날짜를 문자열로 변환하기 문자를 날짜로 변">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Oracle - Date">
+<meta property="og:url" content="http://youngjinmo.github.io/2020/04/oracle-date/index.html">
+<meta property="og:site_name" content="DevAndy">
+<meta property="og:description" content="오라클 DBMS에선 날짜함수를 사용할 수 있다. 현재 날짜(OS 기준 날짜 출력)를 출력하고 싶다면, 아래의 명령어로 조회할 수 있다. dual 테이블에 대한 설명은 이 글을 참고바란다. 12SELECT sysdateFROM dual;    목록 날짜 연산 날짜간 월(months)수 조회 월(months) 연산 날짜를 문자열로 변환하기 문자를 날짜로 변">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://images.unsplash.com/photo-1541232876724-6e25c6dfa788?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80">
+<meta property="article:published_time" content="2020-04-26T14:57:07.000Z">
+<meta property="article:modified_time" content="2020-09-13T01:53:28.308Z">
+<meta property="article:author" content="Youngjin Mo">
+<meta property="article:tag" content="oracle">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1541232876724-6e25c6dfa788?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80">
+<meta name="twitter:creator" content="@devandy_yj">
+    
+
+    
+        <link rel="alternate" href="/" title="DevAndy" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="../../../libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="../../../libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="../../../libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="../../../css/style.css">
+
+
+    
+<script src="../../../libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-177850483-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../index.html">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Articles/">Articles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/">Dev</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Devops/">Devops</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Html-Css/">Html/Css</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Javascript/">Javascript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Others/">Others</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Springboot/">Springboot</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Web/">Web</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Review/">Review</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Thought/">Thought</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Quiz/">Quiz</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../https:/github.com/youngjinmo">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="../../../js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Database/">Database</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="posts-oracle-date" class="article article-single article-type-posts" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Oracle - Date
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="" class="article-date">
+       <time datetime="2020-04-26T14:57:07.000Z" itemprop="datePublished">2020-04-26</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="" class="article-date">
+     <time datetime="2020-09-13T01:53:28.308Z" itemprop="dateModified">2020-09-13</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="../../../tags/oracle/" rel="tag">oracle</a>
+    </div>
+
+                
+
+                
+
+            </div>
+			<!-- 	count-time		 -->
+			<!-- <span class="reading-time" style="margin-left: 20px;">⏱ 23 min.</span>  -->
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <img src="https://images.unsplash.com/photo-1541232876724-6e25c6dfa788?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80" width="650px" />
+
+<p>오라클 DBMS에선 날짜함수를 사용할 수 있다. 현재 날짜(OS 기준 날짜 출력)를 출력하고 싶다면, 아래의 명령어로 조회할 수 있다. dual 테이블에 대한 설명은 <a target="_blank" rel="noopener" href="https://devyoungjin.github.io/2019/07/oracle-function-number/#dual">이 글</a>을 참고바란다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">sysdate</span></span><br><span class="line"><span class="keyword">FROM</span> dual;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="목록"><a href="#목록" class="headerlink" title="목록"></a>목록</h3><ul>
+<li><a href="#operation">날짜 연산</a></li>
+<li><a href="#months-between">날짜간 월(months)수 조회</a></li>
+<li><a href="#add-months">월(months) 연산</a></li>
+<li><a href="#tochar">날짜를 문자열로 변환하기</a></li>
+<li><a href="#todate">문자를 날짜로 변환</a></li>
+<li><a href="#extract">날짜에서 년/월/일 추출하기</a></li>
+<li><a href="#extract-from-timestamp">날짜에서 시/분/초 추출하기</a></li>
+<li><a href="#round">날짜 반올림</a></li>
+</ul>
+<br>
+
+<h2 id="날짜-연산"><a href="#날짜-연산" class="headerlink" title="날짜 연산"></a><a name="operation"></a>날짜 연산</h2><p>날짜 데이터는 연산도 가능하다. 현재 날짜에서 1,000일 뒤의 날짜를 조회해보았다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">sysdate</span>, <span class="keyword">sysdate</span> + <span class="number">1000</span> <span class="keyword">as</span> <span class="string">&quot;After 1000 days&quot;</span></span><br><span class="line"><span class="keyword">FROM</span> dual;</span><br></pre></td></tr></table></figure>
+
+<img src="https://lh3.googleusercontent.com/Yj-CQYTEBBiyWlhDbbI3Yg4d2YQUuZCDi1Q0DD6Y6dlrWJoG2tiYRaULqs80Igqj9pm2Hvjc6z4e4UVr48M1_L5F6OyIGHUbINpbDxrjNfa3C4TCshHHTDEnFQoWm4qs9Bs7-n9Yhke-mDzgdts_rpSaZkLiZZG3xA6OlZ3C2RUceNXB1QVO95kYipq9pSXt2x9YNbp7ui7X17VAQMymqWuRREnzWRsM3wd3u0ZB7uyExRz-ZxL93hm4_F7A7HT9AhMayyAA2UthEBIaFEQiyRYogblpjDB_U9jQMFZTQa1wFc7l-am8CJoD85qp504KrovT_0O3U5NjlSZkESgZ47jThrM844E0ICDw0MvRfXggTs8p4KBt4RNeyJxxdaRvsegQtmeTW6EdY99LLnzpbCQyAQ7BK3oJBOphPUBRspRW_wZECW-xbbF0FMAaz_OaA6HqFzkQ_OsoIHgbp7JTd-xD3VnHQodwbAHddPYwGjfooLk4M7jpva0qe3I7THIx376BVxh56hdxV6Cljlj9bDhuSNB-p01WNBnx5Gaj1wBDzDyhM8GpT9y27AbaHbEhSkPuWXTTu4jsS_JknZZUbBCPzO6S9nBzW9MFvnw6oPMlrRblJRkVkWIBDnQgjVd8iaAEbv0piRo0EjIs8kUQvgNLwPsBet-ZuW-sHHK5AOkPfvMnwzZZh5zPe_N0Dic-n_IGvMEbrX7vtOs_xiMw4DmvGNGsR2vghotUqWnyNY5g61XaBBONgG6q=w1032-h392-no" style="width: 80%;" />
+
+<p>이 때 연산되는 숫자는 일(day)를 기준으로 연산처리된다. </p>
+<p>날짜와 날짜 역시 연산할 수 있다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> hiredate, <span class="keyword">sysdate</span>-hiredate <span class="keyword">as</span> <span class="string">&quot;long service&quot;</span></span><br><span class="line"><span class="keyword">FROM</span> emp;</span><br></pre></td></tr></table></figure>
+
+<img src="https://lh3.googleusercontent.com/NqnDDogwbuMuXs1L3azP4uMbavgHHklvIReQl6yFYheRUYyc3bUs4QLtIOUQum2fs0kCuUL6JlcxZo7xVUH_6IQhaKgSgxSitQ1SVM_BlNlzzkt1Xqabi-fieedL7c8hGc6BNXebQ16_B6smdK2iLix7zQ9XUAYULnXBue_LdFqi9_jodBrk68uTt65YdQdIqWud5rtLohWSYaGfYdlruZmKadutpw66QIZUcMZ0YCu2g5HFL1O0kbC1GwMRJLR9nA7YOrS6UI2_ruX6e3tBuoBzCbH3acYv7fucOeZiCfCXa3-oGVYeza6jl9QTHXZEsX4GHMp2fxHOLGspUerkiQTPSRjp5HtvB8pe80MsSxapcNd07_IylP7XgFhnUg9dSFFBT59gRRu7cKCuZTQWColcLL3xp3GLtgZj8D0h2u9vks9Vp6aRzwObeurJ9K_4AiwRDEAbJ-Bc_WD8krhatHLABGJ_FOcwuIeM2wQC-TcnY6c3eayElCejRkjI1CDUeuT9rsPhpd7pMlxuRNh6EpRrwWo2-8SU849_4t1RaoY7I0SN3UPAmdR4tmsWMHRfWBfI0wFmoF4B2COXKA9yZoIjp2DfKXxOzhnB3AWy652JhVahkSjUj8eciIjhosc0Ct3fEjaywzpnkbMrztlV_TbvWvnKNkqUy3XmOIorY7dntkWFomCX0asEOTQsDi1xWKzaissUiEqbQt6wW0TufjY_KmnmGqRpjYtfcKRt8tf95DrdhIk9io8R=w1020-h860-no" style="width: 75%;" />
+
+<p>그러나 연산 결과가 이상하게 출력된다. 날짜인데 왜 소숫점이 찍히는걸까. 알고보니 정수 영역은 day를 의미하며, 소숫점은 시간을 의미한다고 한다. 따라서 시간은 제외하고 순수 근속일만 계산하고자 한다면 숫자함수중 버림역할을 수행하는 <code>trunc()</code> 를 사용하면 된다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> hiredate, trunc(<span class="keyword">sysdate</span>-hiredate) <span class="keyword">as</span> <span class="string">&quot;long service&quot;</span></span><br><span class="line"><span class="keyword">FROM</span> emp;</span><br></pre></td></tr></table></figure>
+
+<img src="https://lh3.googleusercontent.com/Is-Vm_2wevUbeU27fX10fxz2cvm3JwwOqFtpqDsRJNnQEyZBIwgyexvgll0Jr_AGh-wTP87mey4DFQB7VCqQESByllVr2Wr9Lp388NZRSAoH4Wxg580xK9uvdMQK_4-7CkVWv5QEFslUGFMDGFaWnIJ7pW6aGA-LXOKzXW00XClcBZMQb3c525b3jU4oQV42IjSCBqbwiBqf-MQw4Zv3Xf_Q1Lsp3dAsWtuZ9QRHtr-ROtSuX4YA700ej1tMPBVZJIaiLtnPcadCzTRNX6fJ3P3Xdn8bsA4kqE9Se10O9PWSA6BmaC4J0GZ4Wq0Do4REpbxDrnf2Vh6p0uy24s1Popswj7Lj7M4rCg_XVB1o3A70KgIYWsbN9oaK8eHzzaWW0lrgE1Y2FvGSO_K-jbJ68_UbVY9CCV6jyPN7OQCnAy6TA-TBMbpfz2kpmSDwnsdVjVbSVtEVONnk-BukJXfsxLSV1_jfrPinozSSGw6bn1sZHucSsHky1tkhFXsAIDEV-4lbuztT2Yujo90_v1z20lgfKLEgFqO-rwPYGBfzsJTO7cBt_--RJdKe64qSy57TvRZBjm-nYoFavGAjb16YprEw_cWTDtqTtPiv28WE8WxwLz6Y18Rh0bfoLoC8TdboHhFrlekIOFX-2gikLFKEr6k0D-6kkqDl66zabjr16f1JFwYvmt3rfTJT9pCPvYGF1w93wv42vcDwM5BkLr9u_3emuWevGoY3RimmrhoWl6scVebEA3WZ7b8U=w894-h886-no" style="width: 75%;" />
+
+<p>이를 응용해서 현재의 날짜를 기준으로 내가 얼마나 산지를 조회해보았다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="string">&#x27;1991/03/23&#x27;</span> <span class="keyword">AS</span> <span class="string">&quot;내 생일&quot;</span>,</span><br><span class="line">      trunc(<span class="keyword">sysdate</span> - <span class="keyword">to_date</span>(<span class="string">&#x27;19910323&#x27;</span>, <span class="string">&#x27;YYYYMMDD&#x27;</span>)) || <span class="string">&#x27;일&#x27;</span> <span class="keyword">AS</span> <span class="string">&quot;내가 산 날&quot;</span></span><br><span class="line"><span class="keyword">FROM</span> dual;</span><br></pre></td></tr></table></figure>
+
+<img src="https://lh3.googleusercontent.com/62VciJGV2vbVEcMyaBcAadBuFriwxv7QSQcgtLs4f3VkLGiFNAfWHJbLeT2OFf321FLn_WGP8C23qxjgMtA4Dz22ji-4STJGlpgXmzRlE0ESn2sB2JQE67k8lCLsdmUmDW6zKUbMEUVBM5P3inlcxqd9vW3sZafnLUARFfGzxdWwX0vJt6NgXAtoLUTxTHjkPOXfU_9QQvpjsVbSPLNGdz3PL_ya85KJE_yi1EZFbD-ZajlRJsqgiMR4azE_Wg3fktv2CcjOGXmTzmJaf9M1CMc_oEk2Qnf67u7dLmIImjJYZvB3aBlw58DwlQkWmCWSDrc9kAHVecOvyDfc9GYD1CKfrGOF_rGnOLMvWeNbKDpGn5amC4EswQi9KWqCwxm7qSgXA84klxLG_896fYix7v4zXrcaQyGipWRd8IHiNGhl9upe3Lj9WVwuEBYtLYDZEg4g7i9od2s6XnCWSYgAsb9ZP8eikYXuW_-kNbR5z9Ie1B1-C4DTVXeWKSzerHtX8WoJJ50qpdsS1wMQ4DeeV9Bs3W5tMpkYAMM_0DAYXoAciGPB8QuBBDjfvquLyg79Z7-4gn2C1WzgeCuZ5zK2B29bXGJEdone43i9iE44YkFSSqsZnzuSaSCRnW2xY71j9DjE3rt_TdsdkIoPWx8E_teBCmbP_VfAWGzFGc8mN3YzzB0lLdgPBiumdfXGO0zZUwiH5bgu8xMF6zI1GUJ4VM46UFEA0B6HIkrUgT3zt5bhWtX9ZmiZXPLE=w1226-h442-no" style="width: 80%;" />
+
+<br>
+
+<h2 id="날짜간-월-months-수-조회"><a href="#날짜간-월-months-수-조회" class="headerlink" title="날짜간 월(months)수 조회"></a><a name="months-between"></a>날짜간 월(months)수 조회</h2><p>날짜와 날짜를 비교하여 몇개월의 차이가 발생하는지 조회할때 사용하는 날짜 함수이다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> months_between(날짜<span class="number">1</span>, 날짜<span class="number">2</span>)</span><br><span class="line"><span class="keyword">FROM</span> dual;</span><br></pre></td></tr></table></figure>
+
+<p>파라미터로 2개의 날짜를 입력받으며, <code>날짜1-날짜2</code>의 결과를 월(months)로 조회한다. 아래 퀴즈에 대한 쿼리를 보면서 확인하자.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">emp 테이블에서 입사일(hiredate)로부터 현재(sysdate)까지 몇개월 근무했는지 조회하시오.</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> empno, ename, trunc(months_between(<span class="keyword">sysdate</span>, hiredate)) <span class="keyword">as</span> <span class="string">&quot;근속 월 수&quot;</span></span><br><span class="line"><span class="keyword">FROM</span> emp</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> months_between(<span class="keyword">sysdate</span>, hiredate);</span><br></pre></td></tr></table></figure>
+
+<img src="https://lh3.googleusercontent.com/faQ61ipFOiCsDrMmF0KDcRSj_pqjXtA5H47XCkNrsFPhQJcgDF4QCvk3TZWzHSkGUOLHXKiFmdjE1YxjSvOCSuhZiJ8naFNeRyZ4nYSPuwGsHA0gziUvhQPwcMSt9MLLjonEJhrsGiRF3KFWFj4lJGqmT_W1H3DiRv4Aob6Y2pn3HbF5dWXZFxTXm0W_HchFxC8exT_noXQkuIhh43D_xRy_IVKbvDdQ0zMIPQHrhV__tPfKHXPsx2of4zDX8--q5bmvK7SdwXqTfWusUC7q1lkL5MCfC-ll4DRf-JEPoltSCEkkeeOVxzh2OZTsVrYxLahqmGjr4r2uCintIBj0WJBrkpCvcyaC0W9BAXqlLIWMziIiD7e-_bvP9cvmI9AmsNE0GzSbcaXfHHsx_BggwmwME8nvht9pCjkFaWEcsRbkQyZoMPuxqIX4Q4kwZ8J9c8CjvOfLHzbyy2R1efVOhwwzdVVi97d33EADTFYL-jhUE8_NkHi4o8j_N1FPmSuUPWEIbDB5mEr53GxNkuzJDQt0aOF4AdmEGsFBA1C2BrlTX27PCokNzS6G2ESnTuW5VLUX0h_xsFb5ebFj9xoHqj9joG3EOd008tUQXEmg1G-P8hTYq3rhh_JH10XVu3O0kezofnXqoP5y02Rmr42OaAM6X801Pfk4Ef_b9vpJt_7a6gDAu-LOlOdtEMnNTCMAc9oJPS8EUIbA1l6L2HSsk96G0qlfuVa2Cuci0mnrEZ04g-mExP-O7qVT=w1240-h964-no" style="width: 80%;" />
+
+<br>
+
+<h2 id="월-months-연산"><a href="#월-months-연산" class="headerlink" title="월(months) 연산"></a><a name="add-months"></a>월(months) 연산</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> add_months(날짜, 연산하고자하는 월(<span class="keyword">months</span>))</span><br><span class="line"><span class="keyword">FROM</span> dual;</span><br></pre></td></tr></table></figure>
+
+<p>기존에 날짜에 연산을 할 경우 기본으로 일(days)이 연산이되는데, add_months()는 월(months)을 기준으로 연산하도록 하는 날짜함수이다.</p>
+<p>emp 테이블에서 hiredate에 36개월을 더했다. 연산이 잘 된다면, 연도만 3년 추가될 것이다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ename, hiredate, add_months(hiredate, <span class="number">36</span>) <span class="keyword">as</span> <span class="string">&quot;3년후&quot;</span></span><br><span class="line"><span class="keyword">FROM</span> emp;</span><br></pre></td></tr></table></figure>
+
+<img src="https://lh3.googleusercontent.com/_pIi7TBtRzpLqAGcKrccvXPFtYMHF-cjPTe-jcU6lKcEvZXxYcH_XVXK1LNTgSbgSvrtKQ4m_iJapbYsONEaW8vBRfL9QCikginYzQC26zVJeD3dPrDOdEIOFwv8knY63xH5iqbr8sWf7JyDu1ENJyRAbXzVLGTeZJucXtGS27MSLEnib2fH13IpF6wjF6S-3BXVF3yaLOUblHr96k61Q0Qi-fOhhIiwZVpcl2uynv16sftf3E9LFilMFlTVhPPSblo3xJWSqbQDNy6Rj9y6DI7L6T3c0Jr-AWXJF1o5KB4LnpG5CW8-YZ-M2EcC5p58785DgAXAz4emXbBiUzAH2JcnGL5r8Oi3XHPsDw0k8cWUFwKAgzp2XXBuLsZLgjNVyHRqfLT0XuYN5rkVs54CrNeR0sD3wjAH0kgdvMW_7RIf31q2PGfO6CeHB8iPuQutU-U3E-eJDOxwgmKuxao1ZwYnIMvl4gko44pzvIB3hFjhPnaiOb7nx0FiVRn4wYBTUdA1n--UeP8rweJVzeka3B3rtQ6eBzFelOXi-6OmCmtRIcUz-nLMiFYrXpHnQzPX2awFNwCLmiEE8kT4upBywCJXlomwpmW96QF4DKAQcuhmYnMRpbzD9jAwfbSGF--kx7tIZlTi-v6g3gHO_k6MVPMXq3IRTCJav08NeLjt6s042-cue-j53FrBsh6Vmk4MAqfVeh90XrrdvII6WJJ8obVCcBoZo8KJtt7J7BPx6LXWET3CZij8pmi5=w1188-h872-no" style="width: 80%;" />
+
+<br>
+
+<h2 id="날짜를-문자열로-변환하기"><a href="#날짜를-문자열로-변환하기" class="headerlink" title="날짜를 문자열로 변환하기"></a><a name="tochar"></a>날짜를 문자열로 변환하기</h2><p>dual 테이블에서 sysdate를 조회하면, 년/월/일 포맷으로만 조회가 된다. 그러나 변환함수를 사용하면 sysdate안에 포함된 시/분/초까지 출력할 수 있다. 날짜와 관련한 변환함수가 2개인데, 먼저 소개할 변환함수는 <code>to_char()</code>이다.</p>
+<p><code>to_char()</code> 의 형식은 다음과 같다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> to_char(날짜, 형식) <span class="keyword">FROM</span> dual;</span><br></pre></td></tr></table></figure>
+
+<p>위의 형식대로 작성하면, 형식에 맞춰 날짜가 조회된다. sysdate를 원하는 형식대로 조회해보겠다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> to_char(<span class="keyword">sysdate</span>, <span class="string">&#x27;YYYY:MM:DD:(MON, DY):HH:MI:SS&#x27;</span>) <span class="keyword">as</span> <span class="string">&quot;Today&quot;</span></span><br><span class="line"><span class="keyword">FROM</span> dual;</span><br></pre></td></tr></table></figure>
+
+<img src="https://lh3.googleusercontent.com/oVN3DOnOgtTkUlFCXwKHM-MLQXNnG2Taf7UprHjvpniSVHpgBRRH2hokIHSZwKL_8grRMPQrDEMgzWBXEiiw6GsbB4eoQ34RRlgVqVMq011m02uGU7iBGbG_WkebZ306FFuWISkBlTMZ0awgY69xIe6mCc7Onca7eOCGrzEYFysVhLtmeejy9uJipI04uci7HnWVZxdotX_DZFtmnNZQjV7gbSTAzHc_yOy_nfQl4cCcHSqaDLbsBj6u_w6PMfiLI2NIJzNBnR8kzKqM-TtDL2GABu3LSuzraMktHekVj286SczLbp7o_j54WwgVZDt8pAKs40FLeeLl5Yj6hOszgWXF-xB3FJ9gQ9cJ76dihMcF7pup00mo_zxjvxJ-zXOATGpY2Y4xmm2Fhy6fSQRHDnt8u2_BD8cALvVs6p4rf6Z8I1mhpZnFDV82IgS2vjajK5-Q65mnTL0sWAy2ptkAuxQjveoBRiMTmc_323Qc1tb80nGpPzvoDyENBDmwWNdRDU9KbpJJwCQLivO8jVSbFwUubu1zkseke7fHkTpkvCCDDv2BlR_rMb6Q7RsphoSbRbTSzau5ECmYFVE4JsEB7zeuqHUalnLTRJbkhKlFrL_BlOL8a0EP_i-t1B3yNtoNOVaFvuKEI-HpZKeFrinFWp63ByhAaKY_0DbKhsMz57nxto2_ch74F7MR-odBQsZrwyeX5OaBv2jpwoMpJxMmBJkVPa-e3VQutUloXXrd1hNT-ywZqsJ8-nao=w1420-h1090-no" style="width:80%;" />
+
+<p><em><span style="color: gray">맥OS 시간과는 차이가 있어보인다. 왜 이런 차이가 발생하는지는 모르겠다…</span></em></p>
+<p>date 포맷에 대해 알아보자. </p>
+<table>
+<thead>
+<tr>
+<th>symbol</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>YYYY</td>
+<td>연도</td>
+</tr>
+<tr>
+<td>MM</td>
+<td>월</td>
+</tr>
+<tr>
+<td>DD</td>
+<td>일</td>
+</tr>
+<tr>
+<td>MON</td>
+<td>Month</td>
+</tr>
+<tr>
+<td>DY</td>
+<td>축약된 요일</td>
+</tr>
+<tr>
+<td>DAY</td>
+<td>완전한 요일</td>
+</tr>
+<tr>
+<td>HH</td>
+<td>hour</td>
+</tr>
+<tr>
+<td>HH24</td>
+<td>24시를 기준으로한 hour</td>
+</tr>
+<tr>
+<td>PM/AM</td>
+<td>PM 또는 AM을 쿼리에 작성하면, AM/PM이 계산되어 조회</td>
+</tr>
+<tr>
+<td>MI</td>
+<td>minute</td>
+</tr>
+<tr>
+<td>SS</td>
+<td>second</td>
+</tr>
+</tbody></table>
+<br>
+
+<h2 id="문자를-날짜로-변환"><a href="#문자를-날짜로-변환" class="headerlink" title="문자를 날짜로 변환"></a><a name="todate"></a>문자를 날짜로 변환</h2><p><code>to_char()</code> 함수가 날짜 데이터를 문자열로 변환하는 변환함수였다면, <code>to_date()</code> 함수는 문자열 데이터를 날짜 데이터로 변환하는 변환함수이다. </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">to_date</span>(문자열, 날짜형식) <span class="keyword">FROM</span> dual;</span><br></pre></td></tr></table></figure>
+
+<p>첫번째 파라미터로 문자열 데이터를 받아서 두번째 파라미터로 들어오는 날짜형식에 맞춰서 문자열 데이터를 날짜로 변환 조회한다. 아래 예제 쿼리를 확인해보자.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">to_date</span>(<span class="string">&#x27;2020/04/02 11:45:20 AM&#x27;</span>, <span class="string">&#x27;YYYY/MM/DD HH:MI:SS PM&#x27;</span>)</span><br><span class="line"><span class="keyword">FROM</span> dual;</span><br></pre></td></tr></table></figure>
+
+<img src="https://lh3.googleusercontent.com/1ssJsYnmgsprY7Z8Rl4M_e4QeisC4FrRtARCz87eUjmDKHU5N7R5k-mB8jJ8JrqVTjv3la1lTi990anbyk7odhmNmxoyH63bt0McGz8xT5k-USRd455GWvQaq-9R9zAcofXeLcOxIAZ1KhPEyBtPDVBCCw7xq7hNEiNzV0-a15uB4jkL4ObKxNrEEWegMlEDOnWPG7hpl2hMIV60pHfuyg_Fm8UVcQ9n-LslxtPgkkJW76rhVIcmcJBl8aEL9CT6E7FhoT6IRW2RVtxd2jt1wObwAAfysvFqLCjury6OTp7S3XLE34qkNGIvJjJRyha8UDBWBgPXLia1S6REr8pjwQ69LJAummNv12FqZmgT4xaJSGd2J0PIiJWPCqzL_1HUGpP8JpdCFKpowJQm7x4F6MHm1zqLspKPxK96iBQ2wKnKsTt0-qgceMGP9n0YnpkGaNhH985zXkRsVRfd6Gl_oupL1n10wVRQrmSUPXWt3dTEF3l01aQ7rw0WLcKjMCZNa-lY8iuWWWvbOPmB8R9SS7cfk8IwgrVnsT6pPrSaWN4Y-inWR0PawGmsow98ItJsewZJRnSr74bQbmfyw0tUAGr08bTzzXal6ziwSDGJYyWBtBoL4weO0uKbw7RdqRgAuWn1szHza71qNxxqZ50dh2ULzHGIInygQ5S5upNeXg2WwAAMXwYTc6TjlWrSY5cZfQJ8SO6_8JfAsuiyaDOz6YZvl4QzmoaFVtFFJ7ZQpW2pl2FBEapJ8gTh=w1292-h466-no" style="width: 80%;" />
+
+<p>데이터 타입이 바뀌는 것일뿐 기본적으로 <code>to_date()</code> 와 사용법이 같다. 첫번째 파라미터로 받는 문자열의 형식에 맞게끔 date 포맷을 작성하면 문자열을 날짜 데이터로 변환한다.</p>
+<br>
+
+<h2 id="날짜에서-년-월-일-추출하기"><a href="#날짜에서-년-월-일-추출하기" class="headerlink" title="날짜에서 년/월/일 추출하기"></a><a name="extract"></a>날짜에서 년/월/일 추출하기</h2><p>날짜에서 원하는 포맷만 출력하고 싶을땐 <code>EXTRACT()</code> 함수를 사용한다.</p>
+<p>현재 날짜에서 월(month)만 추출하고 싶다면 아래의 쿼리를 입력해보면 된다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">EXTRACT</span>(<span class="keyword">month</span> <span class="keyword">FROM</span> <span class="keyword">sysdate</span>)</span><br><span class="line"><span class="keyword">FROM</span> dual;</span><br></pre></td></tr></table></figure>
+
+<img src="https://lh3.googleusercontent.com/IqZBQFRjEBT-aOY60um0BjgLQcilRmPyg9mI2yGuwl8bv4EkHTbHT4Qb0DV9wmZUSN9TQ9O6wZ_p9Nf-DtFjuPLK1dPkQ73v6kKQVD8utJtRcV2et0lOWmb2WypAEfhzx3FIQFbUpsWnTOViuek3zWKmR4N0pFL5p1LV8j_IiCu1dCWEm2cPzT_OntoDOzXymuvIMMgaoeA8gUpEndCWWUAK0Mpu48ZipJgo7Rd3hVsQ4XdtjtW4JfJMttkAofZWB6kUukpEHuahGN66iwaRTftv0fY2kSXfK6WHV24ozBq7VyN2QGIyKgwiu6zViXHtP0sFQK0P0yNYso3aUbZDDyNy0imu2AviaF8uG4MPMIRKkyl8TIzclc4LLGDdhibatsYo8iyhrgEfEqPgx3rKSpdHfGGEG0rfRofnzOmnEFeYr8UzjQNRRrvF8oyKx2rETUg84z0gdzQbJ1qJfQp5sNYY-OdKLEw-SyPmFt4uiqidRt8cLcicJtc9YSS1bSUO6lnyzCK7cB9_kngXLlL5u-5s-5BRs3a8uaJP1lRzcsqQi22tP7y3JV2rDoIgAIe8Mt5JiZTt-6tnHT1AdW1FubH8cOSThuLsz1c3PmG7no6bEU2P9OfEPdX6vuLO_TLA_CDq3RyP_r9Z_9PznhEcNExpr60A-qSrA6DPSir924tqfkJn5X1Qwxdx2q9UcLWga4VE7GCyy39ORI4p7ZrBNAtJAlxRmzVnxxk6Afz_sMI4Ar4R7VtMADRq=w792-h408-no" style="width: 60%;" />
+
+<p>위와 같은 방식으로 년도를 출력하고 싶다면, </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">EXTRACT</span>(<span class="keyword">year</span> <span class="keyword">FROM</span> <span class="keyword">sysdate</span>)</span><br><span class="line"><span class="keyword">FROM</span> dual;</span><br></pre></td></tr></table></figure>
+
+<p>일을 출력하고 싶다면,</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">EXTRACT</span>(<span class="keyword">day</span> <span class="keyword">FROM</span> <span class="keyword">sysdate</span>)</span><br><span class="line"><span class="keyword">FROM</span> dual;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="날짜에서-시-분-초-추출하기"><a href="#날짜에서-시-분-초-추출하기" class="headerlink" title="날짜에서 시/분/초 추출하기"></a><a name="extract-from-timestamp"></a>날짜에서 시/분/초 추출하기</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">extract</span>(<span class="keyword">hour</span> <span class="keyword">from</span> <span class="keyword">sysdate</span>)</span><br><span class="line"><span class="keyword">FROM</span> dual;</span><br></pre></td></tr></table></figure>
+
+<p><code>EXTRACT()</code> 함수를 사용하면 년/월/일은 추출이 가능한데, 시간/분/초는 추출이 되지 않았다. 왜냐하면 해당 날짜 데이터에 시간데이터, 즉 timestamp가 존재하지 않을수 있기 때문이다. 따라서 이 경우엔 프로그래머가 임의로 날짜 데이터를 시간 데이터로 형변환(cast)해줘야 한다.</p>
+<p>형변환시 사용하는 함수는 <code>cast()</code>이며, 형식은 아래와 같다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cast(날짜 AS timestamp)</span><br></pre></td></tr></table></figure>
+
+<p>이를 적용하여, 다시 쿼리를 수정하면,</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">extract</span>(<span class="keyword">hour</span> <span class="keyword">from</span> <span class="keyword">cast</span>(<span class="keyword">sysdate</span> <span class="keyword">AS</span> <span class="built_in">timestamp</span>))</span><br><span class="line"><span class="keyword">FROM</span> dual</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">extract</span>(<span class="keyword">hour</span> <span class="keyword">from</span> <span class="keyword">cast</span>(<span class="keyword">sysdate</span> <span class="keyword">AS</span> <span class="built_in">timestamp</span>));</span><br></pre></td></tr></table></figure>
+
+<p>sysdate와 비교하기 위하여 쿼리를 다시 수정하고 조회해보았다.</p>
+<img src="https://lh3.googleusercontent.com/cVb7700_Yu0S_9NqINo9M8pOFoMsuFCl2DKcEiw6cTLRAtu5KpGKWQ1Er-IInGy6Vl7dQj8YhjRlftcG-qi1kiOUBkuuRVjQBjGlK1c7Gj0I5Py6ezlP43NUFE7GyiuUWgcxGNPNq5bx-elEeU5iNL2bakQ1JJgfBmPloKuepV2GSy9euKzaPww7o5AEVFmXe-bJFshiG9fnROSCa-5ohrZYC6565Dffc4BeiCgCStHChcZYlRJ8t6iW-wNxaWYMQaFZAK2SpW0jbdzsqR7x7bHaltMe5VQ2BlLDGc7UIDF5jlAolBfzZaHc73NjD2ZgPJHo_BGA99INdQKrvMC6um4Qf7BEZa56s1N7jtaLQZ1irVLq7htU4ed10NLr3o5iGwJm3pojbMYKxbj6XkdyEy_Fell5HYSrYEL0HJnwMockJWPTqm681nIXiNOIchLwjUbGqKdrcl34pRaOcor_5OsgrS2JyNIQWNAwItwezgRbJ1dU0NGkfRUdZ-_K-dOua1WyXLINjJZaw0BUD9zMsIKt26NLWQiR2j3sa24XbKZO-kq2Ed5XXmR8Lq_0UjFXSGY7qnFttWpt-Ga59AmUCExhHFBMsKHfoIv0ecuYd9t3kaEr9MGQvRUaXB1dThEzgBCfZIV8fz1G4dafOCJiAJzDbAl_fAzNnTVQIp4N4lkfUT50LqSm5PRb_xPnYUzdPDZ9bfngkoXNww9NvQ0Jg3J2V5APuMYA-z8QPqPuFRh_3P5af7WmHtZ3=w1250-h478-no" style="width: 90%;" />
+
+<p>현재 오후 2시인데, 시간추출이 14로 나왔으니 제대로 출력된걸 알 수 있다!</p>
+<br>
+
+<h2 id="날짜-반올림"><a href="#날짜-반올림" class="headerlink" title="날짜 반올림"></a><a name="round"></a>날짜 반올림</h2><p>날짜는 각각(연도, 월, 일, ..)을 기준으로 <code>round()</code> 함수로 반올림이 가능하다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">sysdate</span>,</span><br><span class="line">   <span class="keyword">round</span>(<span class="keyword">sysdate</span>, <span class="string">&#x27;CC&#x27;</span>) <span class="keyword">as</span> <span class="string">&quot;year 두자리 기준&quot;</span>,</span><br><span class="line">   <span class="keyword">round</span>(<span class="keyword">sysdate</span>, <span class="string">&#x27;YYYY&#x27;</span>) <span class="keyword">as</span> <span class="string">&quot;month 기준&quot;</span>,</span><br><span class="line">   <span class="keyword">round</span>(<span class="keyword">sysdate</span>, <span class="string">&#x27;DAY&#x27;</span>) <span class="keyword">as</span> <span class="string">&quot;week 기준&quot;</span>,</span><br><span class="line">   <span class="keyword">round</span>(<span class="keyword">sysdate</span>, <span class="string">&#x27;MM&#x27;</span>) <span class="keyword">as</span> <span class="string">&quot;day 기준&quot;</span>,</span><br><span class="line">   <span class="keyword">round</span>(<span class="keyword">sysdate</span>, <span class="string">&#x27;DDD&#x27;</span>) <span class="keyword">as</span> <span class="string">&quot;hour 기준&quot;</span>,</span><br><span class="line">   <span class="keyword">round</span>(<span class="keyword">sysdate</span>, <span class="string">&#x27;HH&#x27;</span>) <span class="keyword">as</span> <span class="string">&quot;minute 기준&quot;</span>,</span><br><span class="line">   <span class="keyword">round</span>(<span class="keyword">sysdate</span>, <span class="string">&#x27;MI&#x27;</span>) <span class="keyword">as</span> <span class="string">&quot;second 기준&quot;</span>,</span><br><span class="line"><span class="keyword">FROM</span> dual;</span><br></pre></td></tr></table></figure>
+
+<img src="https://lh3.googleusercontent.com/Ut3Ys4e09vUd5dNCKDC6ieGpldcMBSeutUEoghqwnWWnNwjrnFCvRRJDag24AQtrjuy2j_t5d32j-QuqKkoSuYf8oZgo3MbPvsQHArkY8hBWJQRVKqNBj-dIAQiGV0QSbGvlSIy4nmc_1fMZhBz3f3d41SRpNFuWFWNf3Tz_zBOg1Buo6V3zMWCcCpc3jx3DwkD8O1lJHlGi0BFi03Hm4RX1DZBahtz1E8jewgChRTv7Je9Yh9gyYX-bg7NgcoLgdRx4K5J3bbSFKgsJdTtiaZAyv02iG-c9ssS_QttzJmD_tFCOHIus12O4Aw_8KrweZYzNEPMV8qjY4k-b3P6g9IiyHY-6LYVUHYeP7lO6BhLVZykH9KWxrO7BUNV0Svq1DR2aQXO_nD7jDoSHxDX6HPGvvOVU4zRKm3VEBWYHF7-brDBE2ys7xzv9tnnW8ALb9MDp-GS3AfsgCmtkQlLLZE0IGovaYFjcw8df0FtXTJNZewujV9du3R3xWh03VqBTQ4XfRxteRo7vxgWlkqcz3LCktWlwAOLltw7nVu1-zaEhcIxa7m1-8w8lXsplNwz4qeWwZM7PsTW9StzGOnsSeTUrwsZdPWtfdQFG10ZMCYXQdTQW1Taa9aiheh8IEj4l13YuJvFl4ZYbrjuT1xleEyAF4ekR81QgWX1p-GncpHuxTICz540RgxYp8ZA8yQIH7jk7dMpliIihchiZfuhpdb2C7BAM_uTlCCW-YxHiGYDcVdIzY-FSRkpP=w1440-h690-no" style="width:80%;" />
+
+<p><code>round()</code> 함수 조건으로 삽입하는 포맷보다 하나 뒤의 date 포맷을 기준으로 반올림하여 조회되는 것을 알 수 있다. </p>
+<p>일(day)을 기준으로 반올림하고 싶다면, 일(DDD)이 아닌 월(MM)을 기준으로 반올림해야 한다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">sysdate</span> <span class="keyword">AS</span> <span class="string">&quot;오늘&quot;</span>, <span class="keyword">round</span>(<span class="keyword">sysdate</span>, <span class="string">&#x27;MM&#x27;</span>) <span class="keyword">AS</span> <span class="string">&quot;일 기준 반올림&quot;</span></span><br><span class="line"><span class="keyword">FROM</span> dual;</span><br></pre></td></tr></table></figure>
+
+<img src="https://lh3.googleusercontent.com/A3qz1rsUArLnZ1_xI0PbbFX_qG45VnZGkeN3eEXRfhN1rNpM7-TkJH6sSeye0mH9d0Zb1VAnI676ECJ76t16ovm3YdWAv-bUJwwNqnpn4pF2bm8PO8bnd4ZrsexSE_mn17UeN723QJgbtTImyu1WAXxRjbNBEFykbgBuXbPpLbeVtSUyr_dN8mkJ9lvxOHiPAbK6AlNJd1mASeMvjZJhGb0SbRSc8HKLq57nni30KT0hU1kpgPA1cc4TMclF_X_umYmVI95S0jLce9KnuDju5KD9CDc60p5-HkZjV2IWOBEvaDo6mPF0NxaiW1C9PNxG8F6OXa_h6gYj4Hg8L3l1Cp1tKCXbk5F7SkG_CUc3pjqcxAW5CVi6Zm0gp8VMyg71zUgPyRa1Md4cGlnXDp2a9XJFkihSPj1oO-TYqsv_cEpIzww4qUI--ZaLaS0YjOEDC7Kqe7pWcFzwVBYvC_suvRl4AvK04d4_6R6c-XcU-rmfSUf2vHZjV0PVhcjS6QUNlYi9y8_JKiWV02J3FUIBSPcGRr8p8jP5tPfSR0ojZk_Pnce-hY3k9M-LpULcATockRv3si0gkbq7QF1CDV-EKOOeppBLLdL6A4D2x72rLeCs7ZrT1CE_kDCeriw2-VD966uSH52s4xEQcoYGX3X6NncYjNAB42keIavPgc2G0PdJXwn99Gv4XrUDnx_zUvTtq3zn_1V--w8D6ELIEeqyAYgaFtKy0opqzgXeegtEqfj29UViRncWAs_1=w948-h446-no" style="width: 80%;" />
+
+<p>현재 날짜가 4월보다 5월에 가까운 26일이므로 5월로 반올림되어 조회된 것을 확인할 수 있다. </p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://youngjinmo.github.io/2020/04/oracle-date/" data-id="ckf65uej600o3acgd97jgfgmf" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Youngjin Mo"
+        },
+        "headline": "Oracle - Date",
+        "image": "../../../http:/youngjinmo.github.iohttps:/images.unsplash.com/photo-1541232876724-6e25c6dfa788?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80",
+        "keywords": "oracle",
+        "genre": "Dev Database",
+        "datePublished": "2020-04-26",
+        "dateCreated": "2020-04-26",
+        "dateModified": "2020-09-13",
+        "url": "../../../http:/youngjinmo.github.io/2020/04/oracle-date/",
+        "description": "
+
+오라클 DBMS에선 날짜함수를 사용할 수 있다. 현재 날짜(OS 기준 날짜 출력)를 출력하고 싶다면, 아래의 명령어로 조회할 수 있다. dual 테이블에 대한 설명은 이 글을 참고바란다.
+12SELECT sysdateFROM dual;
+
+
+
+목록
+날짜 연산
+날짜간 월(months)수 조회
+월(months) 연산
+날짜를 문자열로 변환하기
+문자를 날짜로 변",
+        "wordCount": 1050
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="../../../https:/github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="../../05/java-string-methods/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Java - String 클래스 메서드 정리
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="../oracle-like/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Oracle - LIKE 연산자</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../09/xml-json-xmlhttprequest/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3f3uUiEllt7yZ2cz-TBQE53mDoXAvAbilDnTHnb0gUIYnX86czSpvvAGNC1uwJN3Mm543ae8FVwBXvYPyOcYzNVH-5fg0VXSmiORlQSYChhlqdO1jLRs_XhVOQYcySp_K_S3JbhAK4jHpeyRpXmh45Gqg=w640-h405-no?authuser=2)" alt="XML, JSON 그리고 XMLHttpRequest" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Others/">Others</a></p>
+                            <p class="item-title"><a href="../../09/xml-json-xmlhttprequest/" class="title">XML, JSON 그리고 XMLHttpRequest</a></p>
+                            <p class="item-date"><time datetime="2020-09-01T12:00:59.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/create-table-sequence/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3dnKjQpuvDEmVxFsIrKfVbq9RCZMjbbZPOtAWR0Etr5EfTkx58EYPQjjgLEiO8XYLsVu_1TWyNmpySsDRxXvCplY6aMPhIMQgNCaH0TBpVv0vxyI_-b6pK9x8qhVSSptzKgeu-dbMHYIt-eS1MUDQnkiw=w640-h427-no?authuser=0)" alt="Oracle - Sequence 생성하고 테이블에 삽입하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Database/">Database</a></p>
+                            <p class="item-title"><a href="../../08/create-table-sequence/" class="title">Oracle - Sequence 생성하고 테이블에 삽입하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-31T18:57:13.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/servlet-redirect-forward/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3cK_j9D5XupS1mIeAAwsE1cOAdZ05jfS290XghGTAfDNVmf1VDdldnidSEQpbEAPRe_aTchGC7U00h7lU9JKtTV3ltDyqUcofn0Xu4p0pm_ROewKfcnOG3UO4Yo4EgVG6ZeQfoemWHklC1hGMn-1DXYfQ=w640-h427-no?authuser=0)" alt="Servlet - Redirect와 Forward" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../../08/servlet-redirect-forward/" class="title">Servlet - Redirect와 Forward</a></p>
+                            <p class="item-date"><time datetime="2020-08-30T22:32:44.000Z" itemprop="datePublished">2020-08-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/leetcode-twosum/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://assets.leetcode.com/static_assets/public/images/LeetCode_Sharing.png)" alt="Leetcode - Twosum" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Quiz/">Quiz</a></p>
+                            <p class="item-title"><a href="../../08/leetcode-twosum/" class="title">Leetcode - Twosum</a></p>
+                            <p class="item-date"><time datetime="2020-08-24T14:28:47.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/run-mysql-with-docker/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3fdpC3xu5q4xnJRLLhSaWCrARbnQ1qdp_DpF0Z7BITrtrr6gZWGExKC4PcMlVo3AxVhVbYiFgDhNObWmtv3hGwoEtF_4zFb_1fQsdL6d1K3UNA0LRkczuC_nNvcEHERB8EIB3uvWOIps7j1iraX6DGLbQ=w720-h480-no?authuser=0)" alt="Docker로 MySQL 실행하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Devops/">Devops</a></p>
+                            <p class="item-title"><a href="../../08/run-mysql-with-docker/" class="title">Docker로 MySQL 실행하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-23T17:12:43.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 11.11px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/api/" style="font-size: 11.11px;">api</a> <a href="../../../tags/architecture/" style="font-size: 10px;">architecture</a> <a href="../../../tags/array/" style="font-size: 11.11px;">array</a> <a href="../../../tags/aws/" style="font-size: 12.22px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 12.22px;">career</a> <a href="../../../tags/casting/" style="font-size: 12.22px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/cloud/" style="font-size: 12.22px;">cloud</a> <a href="../../../tags/compiler/" style="font-size: 10px;">compiler</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/databse/" style="font-size: 10px;">databse</a> <a href="../../../tags/datastructure/" style="font-size: 12.22px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 13.33px;">docker</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 11.11px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generic/" style="font-size: 10px;">generic</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 10px;">github</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 13.33px;">http</a> <a href="../../../tags/ide/" style="font-size: 10px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 10px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 11.11px;">interface</a> <a href="../../../tags/interpreter/" style="font-size: 10px;">interpreter</a> <a href="../../../tags/io/" style="font-size: 12.22px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 15.56px;">java</a> <a href="../../../tags/java8/" style="font-size: 11.11px;">java8</a> <a href="../../../tags/jquery/" style="font-size: 11.11px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/jvm/" style="font-size: 10px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 10px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 10px;">mustache</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 16.67px;">oop</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 12.22px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 11.11px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 18.89px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/string/" style="font-size: 14.44px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/tip/" style="font-size: 17.78px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 13.33px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 11.11px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 18.89px;">weekly-review</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Youngjin Mo</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+    
+        
+<script src="../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="../../../js/main.js"></script>
+
+
+</body>
+</html>

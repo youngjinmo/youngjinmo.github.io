@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Git - Commit | DevAndy</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="" />
+    
+    <meta name="description" content="본 포스트는 코드 스쿼드의 커밋하면 스테이지의 내용은 어디로 갈까를 시청하고 정리한 포스트입니다.   목차 Intro git status git commit   버전관리 소트트웨어인 Git은 객체로 구성되어 있다. Git을 구성하는 객체는 다음과 같다.   Commit 우리가 가장 신경써야할 Commit(커밋) 이다.   Tree 커밋에 포함된 파일 목록.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git - Commit">
+<meta property="og:url" content="http://youngjinmo.github.io/2019/04/git-commit/index.html">
+<meta property="og:site_name" content="DevAndy">
+<meta property="og:description" content="본 포스트는 코드 스쿼드의 커밋하면 스테이지의 내용은 어디로 갈까를 시청하고 정리한 포스트입니다.   목차 Intro git status git commit   버전관리 소트트웨어인 Git은 객체로 구성되어 있다. Git을 구성하는 객체는 다음과 같다.   Commit 우리가 가장 신경써야할 Commit(커밋) 이다.   Tree 커밋에 포함된 파일 목록.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://images.unsplash.com/photo-1477949331575-2763034b5fb5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80">
+<meta property="article:published_time" content="2019-04-30T14:30:11.000Z">
+<meta property="article:modified_time" content="2020-09-13T01:53:28.912Z">
+<meta property="article:author" content="Youngjin Mo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1477949331575-2763034b5fb5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80">
+<meta name="twitter:creator" content="@devandy_yj">
+    
+
+    
+        <link rel="alternate" href="/" title="DevAndy" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="../../../libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="../../../libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="../../../libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="../../../css/style.css">
+
+
+    
+<script src="../../../libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-177850483-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../index.html">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Articles/">Articles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/">Dev</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Devops/">Devops</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Html-Css/">Html/Css</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Javascript/">Javascript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Others/">Others</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Springboot/">Springboot</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Web/">Web</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Review/">Review</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Thought/">Thought</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Quiz/">Quiz</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../https:/github.com/youngjinmo">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="../../../js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Git/">Git</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="posts-git-commit" class="article article-single article-type-posts" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Git - Commit
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="" class="article-date">
+       <time datetime="2019-04-30T14:30:11.000Z" itemprop="datePublished">2019-04-30</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="" class="article-date">
+     <time datetime="2020-09-13T01:53:28.912Z" itemprop="dateModified">2020-09-13</time>
+  </a>
+</div>
+
+
+                
+
+                
+                
+
+                
+
+            </div>
+			<!-- 	count-time		 -->
+			<!-- <span class="reading-time" style="margin-left: 20px;">⏱ 5 min.</span>  -->
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p>본 포스트는 <a href="https://www.youtube.com/watch?v=x8P_jDOcl-8&feature=youtu.be" target="_blank">코드 스쿼드의 커밋하면 스테이지의 내용은 어디로 갈까</a>를 시청하고 정리한 포스트입니다.</p>
+<hr>
+
+<h3 id="목차"><a href="#목차" class="headerlink" title="목차"></a>목차</h3><ul>
+<li><a href="#intro">Intro</a></li>
+<li><a href="#status">git status</a></li>
+<li><a href="#commit">git commit</a></li>
+</ul>
+<p><img src="https://images.unsplash.com/photo-1477949331575-2763034b5fb5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"></p>
+<p><a name="intro"></a>버전관리 소트트웨어인 Git은 객체로 구성되어 있다. Git을 구성하는 객체는 다음과 같다. </p>
+<ul>
+<li><a href="#commit"><strong>Commit</strong></a><ul>
+<li>우리가 가장 신경써야할 Commit(커밋) 이다.</li>
+</ul>
+</li>
+<li><a href="#git-tree">Tree</a><ul>
+<li>커밋에 포함된 파일 목록.</li>
+</ul>
+</li>
+<li><a href="#git-blob">Blob</a><ul>
+<li>파일의 내용</li>
+<li>파일 내용 변경되면, 객체주소 변경되면서 <code>git status</code> 에서  <code>modified</code> 메세지 출력.</li>
+<li><code>git hash-object file.txt</code> 로  file의 객체주소 확인 가능</li>
+</ul>
+</li>
+<li>Tag</li>
+<li>reference<ul>
+<li>branch</li>
+<li>HEAD</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<h2 id="Git-status"><a href="#Git-status" class="headerlink" title="Git status"></a><a name="status"></a>Git status</h2><p><a href="https://git-scm.com/book/ko/v2/%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0-CLI" target="_blank">CLI</a> 환경에서 <code>git status</code> 명령어를 입력하면 알 수 있는 것들이다.</p>
+<ul>
+<li>작업 디렉토리</li>
+<li>스테이지</li>
+<li>Commit <code>&lt;HEAD&gt;</code></li>
+</ul>
+<p>status 명령어를 통해서는 local repo에 어떤 파일이 올라갔고, 어떤 파일이 아직 local repo에 동기화되지 않은지를 볼 수 있다. 이를 위해서는 우선 Git에서 데이터가 어떻게 이동되는지 경로를 먼저 보도록 하자.</p>
+<div align="center">
+  <a name="git-transport"></a>
+  <img src="https://i.stack.imgur.com/caci5.png" width="450px" />
+</div>
+
+<p>workspace는 프로그래머가 작업하고 있는 공간을 의미한다. git이 추적하지 않는 상태이다. </p>
+<p>git을 설치하고, git에 의해 추적하길 원한다면 <code>git add &lt;file&gt;</code> 명령어를 통해 파일들을 index에 올려두어야 한다. index에 있는 파일들만 local repository로 커밋할 수 있기 때문이다.</p>
+<p>local repository는 작업이 끝난 파일들이 저장된 최종 저장소라고 할 수 있다. 이를 원격 저장소와 연동하여 <code>push</code> 명령어로 서버에 git을 보낼 수 있다.</p>
+<p>터미널에서 직접 보도록 하자.</p>
+<p>opentutorials_git 이라는 폴더를 생성 후, code.txt, code2.txt, code3.txt  파일을 각각 생성하여 각기 다른 상황을 만들어보았다. 현재 파일들의 상태는 다음과 같다.</p>
+<ul>
+<li><p><strong>code.txt</strong></p>
+<ul>
+<li><p>파일 생성</p>
+<ul>
+<li><code>vim code.txt</code></li>
+</ul>
+</li>
+<li><p>stage에 add후, 커밋 </p>
+<ul>
+<li><code>git add code.txt</code></li>
+<li><code>git commit -m &quot;add code.txt&quot;</code></li>
+</ul>
+</li>
+<li><p>파일 수정</p>
+</li>
+<li><p>다시 stage에 올려둠 </p>
+<ul>
+<li><code>git add code.txt</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>code2.txt</strong><ul>
+<li>파일 생성<ul>
+<li><code>vim code2.txt</code></li>
+</ul>
+</li>
+<li>stage에 add후, 커밋<ul>
+<li><code>git add code2.txt</code></li>
+<li><code>git commit -m &quot;add code2.txt&quot; </code></li>
+</ul>
+</li>
+<li>파일 수정</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>code3.txt</strong></p>
+<ul>
+<li>파일 생성</li>
+<li>파일 수정</li>
+</ul>
+</li>
+</ul>
+<div align="center">
+  <a name="example"></a>
+  <img src="http://www.mediafire.com/convkey/4295/vsjncogu6l2yz5gzg.jpg" width="600px" />
+</div>
+
+<p>위 이미지를 보면 의도한대로 세 파일 모두 전부 다르게 git에 의해 tracking(추적)되고 있음을 알 수 있다. 먼저 code.txt부터 살펴보도록 하자. </p>
+<p>code.txt는 커밋한 이후 파일에 변경이 발생하여, 다시 stage에 올려두어 커밋할 준비가 되어있는 상태의 파일이다. 커밋할 준비가 되어 있는 파일, <strong>즉 stage에 올라가 있고 변경사항이없는 최신상태일 경우 파일이름은 초록색으로 표시된다.</strong></p>
+<p>code2.txt는 커밋한 이후 파일에 변경이 발생했지만 아직 stage에 올려두진 않은 상태다. <strong>변경이 발생한 파일이 커밋할 준비가 되어 있지 않기 때문에 code.txt와 달리 빨간색으로 파일 이름이 표시됨을 알 수 있다.</strong></p>
+<p>code3.txt는 파일 생성 직후, git 명령어를 입력하지않은 상태에서 한 차례 수정한 파일이다. <strong>git에 의해 추적되지 않고 있기 때문에 code.txt나 code2.txt와 달리 파일에 변경사항이 발생했음에도 불구하고 modified라는 표시가 출력되지 않는다.</strong> 그래서 <code>(use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)</code> 라는 메세지를 친절하게 출력하여 git에 의해 파일이 추적되도록 stage에 파일을 올릴것을 의도한다.</p>
+<p>위의 이야기를 제대로 이해하기 위해서는 커밋(Commit)이 객체라는 사실을 숙지해야만 한다.</p>
+<div align="center">
+  <img src="https://media.giphy.com/media/xksAgXS9jSouPVdH0z/giphy.gif" width="300px" /><br>괜찮다. 포기할거면 지금 포기해도 좋다.<br>나중에 다시 필요해졌을 때 돌아오자..
+</div>
+
+
+
+<h2 id="Git-Commit"><a href="#Git-Commit" class="headerlink" title="Git Commit"></a><a name="commit"></a>Git Commit</h2><p>커밋(Commit)은 Git에서 작업단위를 의미한다. 파일 하나를 수정할 때마다 커밋을 하는게 아니라, login기능을 구현했다면 login 기능을 구현하는데 사용한 파일들을 묶어서 하나의 커밋 객체를 생성하는 방식이다.</p>
+<p><code>git commit</code> 이라는 명령어를 통한 제어는 다음과 같은 일을 수행한다.</p>
+<ul>
+<li><strong>스테이지에 있는 내용을 가지고 새로운 커밋 객체를 생성</strong></li>
+<li><strong>이전 HEAD가 가리키는 커밋이 새로운 커밋의 부모가 됨</strong></li>
+<li>Commit에 포함된 정보<ul>
+<li>Commit Message</li>
+<li>Tree-blobs</li>
+<li>Parent Commit</li>
+</ul>
+</li>
+<li>커밋 이후엔 작업 디렉토리와 스테이지, HEAD 커밋의 내용이 모두 같아진다</li>
+</ul>
+<p>git의 원리를 파악하는데 유용한 소프트웨어, <a href="https://youtu.be/KyGfapLpWhY" target="_blank">Gistory</a>를 통해 위에서 만든 git의 객체들을 구경해보자.</p>
+<p>Gistory로 git의 객체를 확인하려면, 당연하게도 git의 객체를 생성해야 한다. 따라서 위의 <a href="#example">예제 상황</a>에서 code.txt를 “changed code.txt”라는 메세지와 함께 커밋하였다.</p>
+<div align="center">
+  <a name="git-tree"></a>
+  <img src="http://www.mediafire.com/convkey/66d8/k9ac4f88g0rggugzg.jpg" width="450px" />
+</div>
+
+<p>이미지를 보면, 객체가 생성되었음을 알 수 있다. 커밋 메세지도 볼 수 있다.</p>
+<p>여기서 tree와 parent를 살펴볼건데, 위의 이미지는 해당 객체의 tree를 클릭했을 때 볼 수 있는 화면이다. 해당 객체가 어떤 파일들을 포함하고 있는지를 보여준다. blob은 <a href="#intro">위에서</a> 파일 객체라고 하였다. 이를 클릭하면 아래처럼 파일의 내용을 볼 수 있다.</p>
+<div align="center">
+  <a name="git-blob"></a>
+  <img src="http://www.mediafire.com/convkey/025e/wcgxv9g4re74hv2zg.jpg" width="450px" />
+</div>
+
+<p>code.txt에 입력한 코드 두 줄이 보인다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">code1</span><br><span class="line">changed</span><br></pre></td></tr></table></figure>
+
+
+
+<p>이제 parent를 클릭해보자.</p>
+<div align="center">
+  <img src="http://www.mediafire.com/convkey/a9a9/mv53vw3fc0p7l9xzg.jpg" width="450px" />
+</div>
+
+<p>해당 커밋 객체의 부모 객체를 보여준다. code.txt를 커밋하기 전의 커밋은 code.txt와 code2.txt를 “add code.txt and code2.txt” 라는 메세지와 함께 커밋을 한 것이다. 이 메세지를 부모 객체에서 확인할 수 있다.</p>
+<p>그리고 ./logs/HEAD/를 들어가면 git으로 제어하고 있는 워크스페이스 즉 local repository에서 생성된 모든 커밋 객체를 확인할 수 있다. 커밋 객체들이 HEAD의 노드임을 알 수 있다.</p>
+<div align="center">
+  <a name="git-head"></a>
+  <img src="http://www.mediafire.com/convkey/3aec/i4zhys5u3ycbp8dzg.jpg" width="450px" />
+</div>
+
+
+<p>오래 전 커밋한 객체도 보이고, 멘 아래 방금 커밋한 메세지의 커밋 객체도 볼 수 있다.</p>
+<p>다소 복잡하지만 git을 이해하기 위해 필요한 필수 과정이라고 생각한다. 원리를 이해해야 협업과정에서 발생할 수 있는 여러가지 충돌에 대응할 수 있다고 생각한다.</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://youngjinmo.github.io/2019/04/git-commit/" data-id="ckf65udm3008gacgd51qa01av" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Youngjin Mo"
+        },
+        "headline": "Git - Commit",
+        "image": "../../../http:/youngjinmo.github.iohttps:/images.unsplash.com/photo-1477949331575-2763034b5fb5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80",
+        "keywords": "",
+        "genre": "Dev Git",
+        "datePublished": "2019-04-30",
+        "dateCreated": "2019-04-30",
+        "dateModified": "2020-09-13",
+        "url": "../../../http:/youngjinmo.github.io/2019/04/git-commit/",
+        "description": "본 포스트는 코드 스쿼드의 커밋하면 스테이지의 내용은 어디로 갈까를 시청하고 정리한 포스트입니다.
+
+
+목차
+Intro
+git status
+git commit
+
+
+버전관리 소트트웨어인 Git은 객체로 구성되어 있다. Git을 구성하는 객체는 다음과 같다. 
+
+Commit
+우리가 가장 신경써야할 Commit(커밋) 이다.
+
+
+Tree
+커밋에 포함된 파일 목록.",
+        "wordCount": 668
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="../../../https:/github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="../datastructure-array/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            자료구조 - 배열
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="../java-systemoutprint/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">System.out.print의 정체</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../2020/09/xml-json-xmlhttprequest/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3f3uUiEllt7yZ2cz-TBQE53mDoXAvAbilDnTHnb0gUIYnX86czSpvvAGNC1uwJN3Mm543ae8FVwBXvYPyOcYzNVH-5fg0VXSmiORlQSYChhlqdO1jLRs_XhVOQYcySp_K_S3JbhAK4jHpeyRpXmh45Gqg=w640-h405-no?authuser=2)" alt="XML, JSON 그리고 XMLHttpRequest" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Others/">Others</a></p>
+                            <p class="item-title"><a href="../../../2020/09/xml-json-xmlhttprequest/" class="title">XML, JSON 그리고 XMLHttpRequest</a></p>
+                            <p class="item-date"><time datetime="2020-09-01T12:00:59.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../2020/08/create-table-sequence/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3dnKjQpuvDEmVxFsIrKfVbq9RCZMjbbZPOtAWR0Etr5EfTkx58EYPQjjgLEiO8XYLsVu_1TWyNmpySsDRxXvCplY6aMPhIMQgNCaH0TBpVv0vxyI_-b6pK9x8qhVSSptzKgeu-dbMHYIt-eS1MUDQnkiw=w640-h427-no?authuser=0)" alt="Oracle - Sequence 생성하고 테이블에 삽입하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Database/">Database</a></p>
+                            <p class="item-title"><a href="../../../2020/08/create-table-sequence/" class="title">Oracle - Sequence 생성하고 테이블에 삽입하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-31T18:57:13.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../2020/08/servlet-redirect-forward/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3cK_j9D5XupS1mIeAAwsE1cOAdZ05jfS290XghGTAfDNVmf1VDdldnidSEQpbEAPRe_aTchGC7U00h7lU9JKtTV3ltDyqUcofn0Xu4p0pm_ROewKfcnOG3UO4Yo4EgVG6ZeQfoemWHklC1hGMn-1DXYfQ=w640-h427-no?authuser=0)" alt="Servlet - Redirect와 Forward" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../../../2020/08/servlet-redirect-forward/" class="title">Servlet - Redirect와 Forward</a></p>
+                            <p class="item-date"><time datetime="2020-08-30T22:32:44.000Z" itemprop="datePublished">2020-08-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../2020/08/leetcode-twosum/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://assets.leetcode.com/static_assets/public/images/LeetCode_Sharing.png)" alt="Leetcode - Twosum" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Quiz/">Quiz</a></p>
+                            <p class="item-title"><a href="../../../2020/08/leetcode-twosum/" class="title">Leetcode - Twosum</a></p>
+                            <p class="item-date"><time datetime="2020-08-24T14:28:47.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../2020/08/run-mysql-with-docker/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3fdpC3xu5q4xnJRLLhSaWCrARbnQ1qdp_DpF0Z7BITrtrr6gZWGExKC4PcMlVo3AxVhVbYiFgDhNObWmtv3hGwoEtF_4zFb_1fQsdL6d1K3UNA0LRkczuC_nNvcEHERB8EIB3uvWOIps7j1iraX6DGLbQ=w720-h480-no?authuser=0)" alt="Docker로 MySQL 실행하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Devops/">Devops</a></p>
+                            <p class="item-title"><a href="../../../2020/08/run-mysql-with-docker/" class="title">Docker로 MySQL 실행하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-23T17:12:43.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 11.11px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/api/" style="font-size: 11.11px;">api</a> <a href="../../../tags/architecture/" style="font-size: 10px;">architecture</a> <a href="../../../tags/array/" style="font-size: 11.11px;">array</a> <a href="../../../tags/aws/" style="font-size: 12.22px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 12.22px;">career</a> <a href="../../../tags/casting/" style="font-size: 12.22px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/cloud/" style="font-size: 12.22px;">cloud</a> <a href="../../../tags/compiler/" style="font-size: 10px;">compiler</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/databse/" style="font-size: 10px;">databse</a> <a href="../../../tags/datastructure/" style="font-size: 12.22px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 13.33px;">docker</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 11.11px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generic/" style="font-size: 10px;">generic</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 10px;">github</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 13.33px;">http</a> <a href="../../../tags/ide/" style="font-size: 10px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 10px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 11.11px;">interface</a> <a href="../../../tags/interpreter/" style="font-size: 10px;">interpreter</a> <a href="../../../tags/io/" style="font-size: 12.22px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 15.56px;">java</a> <a href="../../../tags/java8/" style="font-size: 11.11px;">java8</a> <a href="../../../tags/jquery/" style="font-size: 11.11px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/jvm/" style="font-size: 10px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 10px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 10px;">mustache</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 16.67px;">oop</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 12.22px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 11.11px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 18.89px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/string/" style="font-size: 14.44px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/tip/" style="font-size: 17.78px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 13.33px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 11.11px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 18.89px;">weekly-review</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Youngjin Mo</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+    
+        
+<script src="../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="../../../js/main.js"></script>
+
+
+</body>
+</html>

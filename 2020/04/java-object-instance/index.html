@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>객체를 직접 호출하는 것과 인스턴스를 호출하는것의 차이 (메모리 주소값 비교) | DevAndy</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="oop" />
+    
+    <meta name="description" content="객체지향에 대해서 정확히 이해하고 있지 못한것 같아서 인프런에서 객체지향 프로그래밍 입문와 생활코딩에서 JAVA 객체지향 프로그래밍 수업을 정주행하다가 정리한다. 10분 짜리 영상을 정말 거의 10번 가까이 재생하면서 계속 이해하려고 노력했고, 그러고나서도 다시 포스팅하려고 하니까 더 긴 시간이 걸렸다. 하지만 이렇게 정리하고 나니까 조금 뿌듯하다 :)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="객체를 직접 호출하는 것과 인스턴스를 호출하는것의 차이 (메모리 주소값 비교)">
+<meta property="og:url" content="http://youngjinmo.github.io/2020/04/java-object-instance/index.html">
+<meta property="og:site_name" content="DevAndy">
+<meta property="og:description" content="객체지향에 대해서 정확히 이해하고 있지 못한것 같아서 인프런에서 객체지향 프로그래밍 입문와 생활코딩에서 JAVA 객체지향 프로그래밍 수업을 정주행하다가 정리한다. 10분 짜리 영상을 정말 거의 10번 가까이 재생하면서 계속 이해하려고 노력했고, 그러고나서도 다시 포스팅하려고 하니까 더 긴 시간이 걸렸다. 하지만 이렇게 정리하고 나니까 조금 뿌듯하다 :)">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://images.unsplash.com/photo-1573307838698-8aad85a83a33?ixlib=rb-1.2.1&auto=format&fit=crop&w=1266&q=80">
+<meta property="article:published_time" content="2020-04-08T14:56:01.000Z">
+<meta property="article:modified_time" content="2020-09-13T01:53:28.452Z">
+<meta property="article:author" content="Youngjin Mo">
+<meta property="article:tag" content="oop">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1573307838698-8aad85a83a33?ixlib=rb-1.2.1&auto=format&fit=crop&w=1266&q=80">
+<meta name="twitter:creator" content="@devandy_yj">
+    
+
+    
+        <link rel="alternate" href="/" title="DevAndy" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="../../../libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="../../../libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="../../../libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="../../../css/style.css">
+
+
+    
+<script src="../../../libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-177850483-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../index.html">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Articles/">Articles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/">Dev</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Devops/">Devops</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Html-Css/">Html/Css</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Javascript/">Javascript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Others/">Others</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Springboot/">Springboot</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Web/">Web</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Review/">Review</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Thought/">Thought</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Quiz/">Quiz</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../https:/github.com/youngjinmo">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="../../../js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Java/">Java</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="posts-java-object-instance" class="article article-single article-type-posts" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        객체를 직접 호출하는 것과 인스턴스를 호출하는것의 차이 (메모리 주소값 비교)
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="" class="article-date">
+       <time datetime="2020-04-08T14:56:01.000Z" itemprop="datePublished">2020-04-08</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="" class="article-date">
+     <time datetime="2020-09-13T01:53:28.452Z" itemprop="dateModified">2020-09-13</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="../../../tags/oop/" rel="tag">oop</a>
+    </div>
+
+                
+
+                
+
+            </div>
+			<!-- 	count-time		 -->
+			<!-- <span class="reading-time" style="margin-left: 20px;">⏱ 10 min.</span>  -->
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <img src="https://images.unsplash.com/photo-1573307838698-8aad85a83a33?ixlib=rb-1.2.1&auto=format&fit=crop&w=1266&q=80" width="650px" />
+
+<p>객체지향에 대해서 정확히 이해하고 있지 못한것 같아서 인프런에서 <a target="_blank" rel="noopener" href="https://www.inflearn.com/course/%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EC%9E%85%EB%AC%B8/dashboard">객체지향 프로그래밍 입문</a>와 생활코딩에서 <a target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PLuHgQVnccGMAb-e41kXPSIpmoz1RvHyN4">JAVA 객체지향 프로그래밍</a> 수업을 정주행하다가 정리한다. 10분 짜리 영상을 정말 거의 10번 가까이 재생하면서 계속 이해하려고 노력했고, 그러고나서도 다시 포스팅하려고 하니까 더 긴 시간이 걸렸다. 하지만 이렇게 정리하고 나니까 조금 뿌듯하다 :)</p>
+<p>그동안은 외부 클래스의 메서드를 사용하기 위하여 항상 인스턴스를 생성했었는데, 메서드가 static으로 선언되어 있다면, 인스턴스 생성없이도 해당 객체를 직접 호출해서 사용할 수 있었다. 사실 작성하고 나니 당연한 것이었는데, 그동안 별 생각없이 인스턴스만 생성해서 사용했던것 같다. </p>
+<p>두 개의 클래스 파일을 생성해보았다. 하나는 객체를 담았고, 하나는 콘솔로 출력하기 위한 클래스이다.</p>
+<p><strong>exam.class</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">exam</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String classVar = <span class="string">&quot;class 변수&quot;</span>;</span><br><span class="line">    <span class="keyword">public</span> String instanceVar = <span class="string">&quot;instance 변수&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>classVar는 <code>static</code>으로 선언한 변수이고, instanceVar는 키워드 없이 생성한 변수이다.</p>
+<p><strong>Main.class</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 인스턴스 생성</span></span><br><span class="line">        exam ex1 = <span class="keyword">new</span> exam();</span><br><span class="line">        exam ex2 = <span class="keyword">new</span> exam();</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;ex1.instanceVar : &quot;</span>+ex1.instanceVar);</span><br><span class="line">        System.out.println(<span class="string">&quot;ex2.instanceVar : &quot;</span>+ex2.instanceVar);</span><br><span class="line">      </span><br><span class="line">        ex1.instanceVar = <span class="string">&quot; changed by instance&quot;</span>;</span><br><span class="line">        System.out.println(<span class="string">&quot;ex1.instanceVar : &quot;</span>+ex1.instanceVar);</span><br><span class="line">        System.out.println(<span class="string">&quot;ex2.instanceVar : &quot;</span>+ex2.instanceVar);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>exam 클래스로부터 두개의 인스턴스를 생성했고, 그 중 ex1 인스턴스의 변수만 값을 변경해보았다. 출력 결과는 다음과 같다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 출력 결과</span><br><span class="line">ex1.instanceVar : instance 변수</span><br><span class="line">ex2.instanceVar : instance 변수</span><br><span class="line">ex1.instanceVar : changed by instance</span><br><span class="line">ex2.instanceVar : instance 변수</span><br></pre></td></tr></table></figure>
+
+<p><code>ex1.instanceVar</code> 값을 변경하고, ex1과 ex2의 instanceVar을 각각 출력해봤더니 ex1에만 변경된 값이 적용된걸 알 수 있다. </p>
+<p>이를 통해 인스턴스를 생성하면 같은 객체로부터 생성되었다하더라도 바라보는 주소값이 다르다는 걸 알 수 있다. 실제로 확인해보면 다음과 같다.</p>
+<p><img src="https://lh3.googleusercontent.com/VhBDNt2yuwJ2mAFCl9TZWBfLBkKRBO3y6FtpmibNJXNws4QPZLGU8binIk7PvtA9V9Bs0gfDda6jIu8W6gWhGpr-gJxhGPBQqvTKRNPGrCJKve6Lb0Jnro2S87H1389ZS_vVM0EwgDslk1RgfTjkWm6hnRBHh2HEBnXZubgvL3kRX6bzOubhwKEIR2e729NurB8Cq5m6AfDsGCIqYcpOh_lGm47OwCZae7UU61DvBBQHbqub1LcdIXmc8KzyPImuqamFJzOi_9YVS9124Uf_LUwYWOt5UkcvIUt5MOqHZqj15Bl615lu6DylI_-sddBV-LXOmTtoC2rwu5WkJzI3--4nu6ONLagzsXSukIJ5PjN_jiwauKcdqNGWrySTX9hD2Drx2X-nqK9FFqTmDdTnP_VvdT8g7jJWWRqOZ-wTkO6fqxW_1tQEyOssu-Mi2bsyIaJL2edQUImSt7_ursefoDUG3wHQY_tEDYeGvjugs1zGUpgj318XKrxFhjxxjDbi-c3-GXq3oi46SUBl-7DfEys2sX9b9h5gAWye9_MA25lSZhtuJjDDxTLy3BUqM7sWWrOx6LZfRciMlIlqkYOCaQfLZz-KaJR-NiS0U5Ka9VjkhNs9tEK3zaDbpwxUhv9kbOvw-7_aQjTWhKQoptSh8E-cPeEkd606-190P4lzcaB3NPPFZUnsm3v9l5Nomz1ThTH_PvVW3pHPwWStQKfN5H8UAm_2QkumW31XD6K943OYrfwpvQ7Fw5Ra=w1812-h560-no"></p>
+<p><code>System.identityHashCode()</code>는 OS(System)에서 가지는 주소값을 보여준다. 두 객체는 서로 다른 주소값을 참조하고 있기 때문에 ex1 인스턴스의 값을 변경하더라도 독립적으로 값을 유지할 수 있었다.</p>
+<p>관련 내용 참조 : <a target="_blank" rel="noopener" href="https://datamod.tistory.com/57">https://datamod.tistory.com/57</a></p>
+<br>
+
+<p>이번엔 객체를 그대로 호출해서 사용해보았다. 아까 작성한 exam 클래스에서 static으로 선언한 변수를 호출해보겠다.</p>
+<p><strong>exam.class</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">exam</span> </span>&#123;</span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">static</span> String classVar = <span class="string">&quot;class 변수&quot;</span>;</span><br><span class="line">   <span class="keyword">public</span> String instanceVar = <span class="string">&quot;instance 변수&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>main.class</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      <span class="comment">// 인스턴스 생성</span></span><br><span class="line">      exam ex1 = <span class="keyword">new</span> exam();</span><br><span class="line">      exam ex2 = <span class="keyword">new</span> exam();</span><br><span class="line">      </span><br><span class="line">      System.out.println(<span class="string">&quot;ex.classVar : &quot;</span>+ex1.classVar);</span><br><span class="line">      System.out.println(<span class="string">&quot;ex.classVar : &quot;</span>+ex2.classVar);</span><br><span class="line"></span><br><span class="line">      ex1.classVar = <span class="string">&quot; changed by class&quot;</span>;</span><br><span class="line">      System.out.println(<span class="string">&quot;ex.classVar : &quot;</span>+ex1.classVar);</span><br><span class="line">      System.out.println(<span class="string">&quot;ex.classVar : &quot;</span>+ex2.classVar);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 출력 결과</span><br><span class="line">ex1.classVar : class 변수</span><br><span class="line">ex2.classVar : class 변수</span><br><span class="line">ex1.classVar :  changed by class</span><br><span class="line">ex2.classVar :  changed by class</span><br></pre></td></tr></table></figure>
+
+<p>이번엔 다른 결과가 출력되었다. <code>ex1.classVar</code>의 값만 바꿨을 뿐인데, ex2의 값도 바뀐걸 알 수 있다. 왜 그럴까?</p>
+<p>마찬가지로 이번에도 <code>System.identityHashCode()</code>를 사용하여 각각 인스턴스들이 어떤 주소값을 참조중인지 확인해보았다.</p>
+<p><img src="https://lh3.googleusercontent.com/CY4-c64Dasyhpm7-aPMlJkcM1vVDj7PVs0aVFi5ivHfGyyt2WM1wphDuIdo6oi06sXm4oy2R2sV6R1U1ayHDo8OEVIehYs9_fEO3XB5twdSAMTfz7I-hIkYtkSR-S0CLoh32Pb2X9LUXGV2iqc1zzkF_obg09qq-FXqucYw83FzxBbcFFUxzY7sFNGucNPbdANEzJQIVAvo9_FhXeq-oEsJwnkkTF2kzncsy7YtlH6hB5FM_Ryu-f0sWvkz-21lyHAnag5W3fu7MGXYSWpNNYNJGMDDfC6h_ov5YCXQtYT0fDg9qIKWMkePyveyxxOKfMVf0qJIOVGsP69rLd3toomhVEg_bDvPkg9wD6rjSqQcGH3rxjwL1KY7pTElhZi9xfKuIhIalsiXRkqat1xwJssjZMN9fBM8atXiOqfTAqOIIfTGgt-ojDygDERHExnm_0L3HCIt_O5W1GlhVwlHQ7bzAaLwHZKdpMCcjPBvdFgQYK5nG-ca08EBsnmz1MXqiduhGV7iKjwbLp0DSwmLTb1qcB8TJ3WJT4p5vWFJNtZEf4fEZt0FB2aWa3ulzus5zeGX2tqHw-K68N58G8v8cqrRMiQgAdPTCCwruc9GhuAtJBQB3X_hAxx8Oz9AaWnlBfiNwvRH79QtJ5B81XTCQec_cJ665lKdF8Ec29MPDJ9wsC9lQ1tCSJvaPJ-_F5a68Wa2P3kcl4mUJ5WJyeFnscxzZGc2OcaK7PLUEKazwOYYU94D7IPEKzBT5=w1820-h612-no"></p>
+<p>모든 인스턴스 값이 참조하고 있는 주소가 같은 주소를 참조하고 있는걸 확인할 수 있다. 따라서 하나 인스턴스만 바꾸더라도 모든 인스턴스에서 값이 변경되는걸 알 수 있다.</p>
+<br>
+
+<p>static 변수을 가져와서 사용하는것과 인스턴스를 사용하는 것의 차이는 다음 그림으로 설명할 수 있다.</p>
+<p><img src="https://lh3.googleusercontent.com/zCGEjOCWmhOBv8g1TS3QewtLzoRqT69lUd0Nmy7XQqFy4nr5hE8AwJ7MviASmGzHy3OR1EjxK0FcVlrqQe-enRRQR24cC7rRvehqJTAs49q4ka1AqxqpEgiGB4-fSMIU0jLlKSXeMK6eRbAdejI_831WMVDqvdtakaV1nvHIgxQHEo2sOLIK8YgGQo3LLPNxhYI9QYUpjhJUTMuW4uHwd8l98csjVOKS6z1yNeP8k6VmVjbqGlYz1k8xPyKYhfllFwsLp7yNvREdwoUgzJeUMvC-QatLfr2vpjXsNcD5CHSniCxARr9rs5XX8xZ7hABWc1mEHRmhRCfSq_O7zG2nBtJ5iQikO5FAS7nf7ZkIW8YfhDkiIeXdsPetM8sBDlmQghxoqewKLFZZFhe6KhaBfFcaepH9PgjbMCrJ7vEXaNFhBAwMgbW2NWnjml1O6V6vCYwArrLGzGlEllFpbPIHNb2_zfcm_iFCCc7ohDL17A6ZdSKX0xTqh-890_EWpZ2HMj3Q0l7XCg71u5Gs74kAGRX01kh-tGpKVSb4uPO6X4b7KjyewQZajNVuKKIVBqwPDTBLA8eML43FdMUuILpB5EvL3-gnna7G_TGFNCnQN0Bl1uexXSOgmUF9QiwGdB_e5MGS59eFCOeMowswx3Hfthg_x5TwjmJHEchvY2uFLYSc19_XgDiUNbcOx-wd8yq-DLLfl-JTdVSe4Nee5LRGy7KamWK324xnovEK_71tj9X8wy_pLY1heeWh=w1024-h340-no"></p>
+<p>인스턴스를 생성해서 사용하면 사용하면 인스턴스마다 새로운 주소값을 참조하게 되기 때문에 값을 변경(=주소값 변경)하더라도 다른 인스턴스에 영향을 주지 않는다.</p>
+<p><img src="https://lh3.googleusercontent.com/pw/ACtC-3cotST5KpyGdXIUogASHnfmjdh40deZ7R3Q8hfXDT8CGGkPo_JwVuzsVFSOpddsRppwHlRziD9JbirTBftodeLOYdS-bvPHjyu2ekCTIuxVc_1-XswZAnIe0Y1Btsr6ad5vhfaSktwHJwvUgueUfDQqxw=w721-h240-no?authuser=0"></p>
+<p>반면 static 변수를 사용할 경우에는 같은 주소값을 서로 참조하고 있으므로 값이 바뀌면(주소값 변경), 당연히 사용하는 모든 인스턴스의 값도 변경되는 것이다.</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://youngjinmo.github.io/2020/04/java-object-instance/" data-id="ckf65udxi00cpacgd6g9g95w0" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Youngjin Mo"
+        },
+        "headline": "객체를 직접 호출하는 것과 인스턴스를 호출하는것의 차이 (메모리 주소값 비교)",
+        "image": "../../../http:/youngjinmo.github.iohttps:/images.unsplash.com/photo-1573307838698-8aad85a83a33?ixlib=rb-1.2.1&auto=format&fit=crop&w=1266&q=80",
+        "keywords": "oop",
+        "genre": "Dev Java",
+        "datePublished": "2020-04-08",
+        "dateCreated": "2020-04-08",
+        "dateModified": "2020-09-13",
+        "url": "../../../http:/youngjinmo.github.io/2020/04/java-object-instance/",
+        "description": "
+
+객체지향에 대해서 정확히 이해하고 있지 못한것 같아서 인프런에서 객체지향 프로그래밍 입문와 생활코딩에서 JAVA 객체지향 프로그래밍 수업을 정주행하다가 정리한다. 10분 짜리 영상을 정말 거의 10번 가까이 재생하면서 계속 이해하려고 노력했고, 그러고나서도 다시 포스팅하려고 하니까 더 긴 시간이 걸렸다. 하지만 이렇게 정리하고 나니까 조금 뿌듯하다 :)",
+        "wordCount": 728
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="../../../https:/github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="../oracle-subquery/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Oracle - Sub Query
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="../java-memory/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">메모리 구조</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../09/xml-json-xmlhttprequest/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3f3uUiEllt7yZ2cz-TBQE53mDoXAvAbilDnTHnb0gUIYnX86czSpvvAGNC1uwJN3Mm543ae8FVwBXvYPyOcYzNVH-5fg0VXSmiORlQSYChhlqdO1jLRs_XhVOQYcySp_K_S3JbhAK4jHpeyRpXmh45Gqg=w640-h405-no?authuser=2)" alt="XML, JSON 그리고 XMLHttpRequest" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Others/">Others</a></p>
+                            <p class="item-title"><a href="../../09/xml-json-xmlhttprequest/" class="title">XML, JSON 그리고 XMLHttpRequest</a></p>
+                            <p class="item-date"><time datetime="2020-09-01T12:00:59.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/create-table-sequence/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3dnKjQpuvDEmVxFsIrKfVbq9RCZMjbbZPOtAWR0Etr5EfTkx58EYPQjjgLEiO8XYLsVu_1TWyNmpySsDRxXvCplY6aMPhIMQgNCaH0TBpVv0vxyI_-b6pK9x8qhVSSptzKgeu-dbMHYIt-eS1MUDQnkiw=w640-h427-no?authuser=0)" alt="Oracle - Sequence 생성하고 테이블에 삽입하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Database/">Database</a></p>
+                            <p class="item-title"><a href="../../08/create-table-sequence/" class="title">Oracle - Sequence 생성하고 테이블에 삽입하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-31T18:57:13.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/servlet-redirect-forward/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3cK_j9D5XupS1mIeAAwsE1cOAdZ05jfS290XghGTAfDNVmf1VDdldnidSEQpbEAPRe_aTchGC7U00h7lU9JKtTV3ltDyqUcofn0Xu4p0pm_ROewKfcnOG3UO4Yo4EgVG6ZeQfoemWHklC1hGMn-1DXYfQ=w640-h427-no?authuser=0)" alt="Servlet - Redirect와 Forward" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../../08/servlet-redirect-forward/" class="title">Servlet - Redirect와 Forward</a></p>
+                            <p class="item-date"><time datetime="2020-08-30T22:32:44.000Z" itemprop="datePublished">2020-08-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/leetcode-twosum/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://assets.leetcode.com/static_assets/public/images/LeetCode_Sharing.png)" alt="Leetcode - Twosum" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Quiz/">Quiz</a></p>
+                            <p class="item-title"><a href="../../08/leetcode-twosum/" class="title">Leetcode - Twosum</a></p>
+                            <p class="item-date"><time datetime="2020-08-24T14:28:47.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/run-mysql-with-docker/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3fdpC3xu5q4xnJRLLhSaWCrARbnQ1qdp_DpF0Z7BITrtrr6gZWGExKC4PcMlVo3AxVhVbYiFgDhNObWmtv3hGwoEtF_4zFb_1fQsdL6d1K3UNA0LRkczuC_nNvcEHERB8EIB3uvWOIps7j1iraX6DGLbQ=w720-h480-no?authuser=0)" alt="Docker로 MySQL 실행하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Devops/">Devops</a></p>
+                            <p class="item-title"><a href="../../08/run-mysql-with-docker/" class="title">Docker로 MySQL 실행하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-23T17:12:43.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 11.11px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/api/" style="font-size: 11.11px;">api</a> <a href="../../../tags/architecture/" style="font-size: 10px;">architecture</a> <a href="../../../tags/array/" style="font-size: 11.11px;">array</a> <a href="../../../tags/aws/" style="font-size: 12.22px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 12.22px;">career</a> <a href="../../../tags/casting/" style="font-size: 12.22px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/cloud/" style="font-size: 12.22px;">cloud</a> <a href="../../../tags/compiler/" style="font-size: 10px;">compiler</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/databse/" style="font-size: 10px;">databse</a> <a href="../../../tags/datastructure/" style="font-size: 12.22px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 13.33px;">docker</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 11.11px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generic/" style="font-size: 10px;">generic</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 10px;">github</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 13.33px;">http</a> <a href="../../../tags/ide/" style="font-size: 10px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 10px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 11.11px;">interface</a> <a href="../../../tags/interpreter/" style="font-size: 10px;">interpreter</a> <a href="../../../tags/io/" style="font-size: 12.22px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 15.56px;">java</a> <a href="../../../tags/java8/" style="font-size: 11.11px;">java8</a> <a href="../../../tags/jquery/" style="font-size: 11.11px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/jvm/" style="font-size: 10px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 10px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 10px;">mustache</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 16.67px;">oop</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 12.22px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 11.11px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 18.89px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/string/" style="font-size: 14.44px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/tip/" style="font-size: 17.78px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 13.33px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 11.11px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 18.89px;">weekly-review</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Youngjin Mo</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+    
+        
+<script src="../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="../../../js/main.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>AWS 튜토리얼(2) - Ec2인스턴스에 프로젝트 배포하기 | DevAndy</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="tutorial,aws,cloud" />
+    
+    <meta name="description" content="이전 글 - AWS 배포하기 - ec2 생성하기  앞에서 생성한 EC2 인스턴스를 ssh로 실행할 것이다.   키페어 권한변경 ec2인스턴스 ssh진입 JDK 설치하기 프로젝트 클론하기 메이븐 빌드하기 jar 파일 실행    키페어 권한변경터미널에서 ssh로 ec2를 접속할 때 보안그룹을 생성할 때 다운받은 키페어를 사용해서 들어가야 한다. 그런데 바">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AWS 튜토리얼(2) - Ec2인스턴스에 프로젝트 배포하기">
+<meta property="og:url" content="http://youngjinmo.github.io/2020/03/aws-tutorial-launch-ec2/index.html">
+<meta property="og:site_name" content="DevAndy">
+<meta property="og:description" content="이전 글 - AWS 배포하기 - ec2 생성하기  앞에서 생성한 EC2 인스턴스를 ssh로 실행할 것이다.   키페어 권한변경 ec2인스턴스 ssh진입 JDK 설치하기 프로젝트 클론하기 메이븐 빌드하기 jar 파일 실행    키페어 권한변경터미널에서 ssh로 ec2를 접속할 때 보안그룹을 생성할 때 다운받은 키페어를 사용해서 들어가야 한다. 그런데 바">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://lh3.googleusercontent.com/qhdDFWnctJLKcX23nrRJ8SPeDluLDJ2T49Qdrd5qUyu0oAeDiJtkjP9IpgMUd1rQneENw9-3aPVXXxob9cvptQexHXxlpEkiV2DEVh7kjTWzLrEZfm33eIcmgCLvn9RabrYkpcRd88bwDHVs1BtKeKLSjdbSAo0TE1LlvQ2KDVb5c1s_mO8KVbeMf60EMfzm3JKFYzJxzp9Z0Rb5-Lx7gBhNlUpttCjHH0B4LN0_qDK9-H3DG0YzD5SExkz7hfGAztWiysUAqfxFIj2x2ykLyLp0XgZW28v19Q0nh9fk0azHj4eUQGnS-F-pA4YYxBtWBOHDOBU0nralDG0kJE8LlzsM4Ug_lQ0dfFSt27Nf3TKbsm5LsvLLcYtti0b4Nmx1Z8xuktbgY-FkthYPGMRuQw8xepxBb-sWV5ZVG6CCb0yuksVbr_nXtolsp7A7IlJM3kxp9mX1t49zIhGbFNBy_J4iRc_0VHBc70uWiJT30E5Uy8SrLzzG3Q9CJo5NQujLz6TPe1ExrqsW0MYYxhVJ6bcwaL13earne2IqoD4g1Dq3eNs9w8phZUZKD2KMySw-FftnVmZJtOF1A9ngR_77n-wU5p5wN47sMtVBHKQY3nA-mde0qoLdp-k86_sr19bzogwxxF1vL_z1RrQIiC6fQx8mq061LiMdYVX3PeJ4xmbcTQq672ttiP7CSDl8Q_d28J9tFtBVK23dQPRyUJZ6HTSziTw7tGkiWWAKsppCpWydZFqNNK7tJ0Gw=w543-h273-no">
+<meta property="article:published_time" content="2020-03-15T22:32:26.000Z">
+<meta property="article:modified_time" content="2020-09-13T01:53:29.452Z">
+<meta property="article:author" content="Youngjin Mo">
+<meta property="article:tag" content="tutorial">
+<meta property="article:tag" content="aws">
+<meta property="article:tag" content="cloud">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lh3.googleusercontent.com/qhdDFWnctJLKcX23nrRJ8SPeDluLDJ2T49Qdrd5qUyu0oAeDiJtkjP9IpgMUd1rQneENw9-3aPVXXxob9cvptQexHXxlpEkiV2DEVh7kjTWzLrEZfm33eIcmgCLvn9RabrYkpcRd88bwDHVs1BtKeKLSjdbSAo0TE1LlvQ2KDVb5c1s_mO8KVbeMf60EMfzm3JKFYzJxzp9Z0Rb5-Lx7gBhNlUpttCjHH0B4LN0_qDK9-H3DG0YzD5SExkz7hfGAztWiysUAqfxFIj2x2ykLyLp0XgZW28v19Q0nh9fk0azHj4eUQGnS-F-pA4YYxBtWBOHDOBU0nralDG0kJE8LlzsM4Ug_lQ0dfFSt27Nf3TKbsm5LsvLLcYtti0b4Nmx1Z8xuktbgY-FkthYPGMRuQw8xepxBb-sWV5ZVG6CCb0yuksVbr_nXtolsp7A7IlJM3kxp9mX1t49zIhGbFNBy_J4iRc_0VHBc70uWiJT30E5Uy8SrLzzG3Q9CJo5NQujLz6TPe1ExrqsW0MYYxhVJ6bcwaL13earne2IqoD4g1Dq3eNs9w8phZUZKD2KMySw-FftnVmZJtOF1A9ngR_77n-wU5p5wN47sMtVBHKQY3nA-mde0qoLdp-k86_sr19bzogwxxF1vL_z1RrQIiC6fQx8mq061LiMdYVX3PeJ4xmbcTQq672ttiP7CSDl8Q_d28J9tFtBVK23dQPRyUJZ6HTSziTw7tGkiWWAKsppCpWydZFqNNK7tJ0Gw=w543-h273-no">
+<meta name="twitter:creator" content="@devandy_yj">
+    
+
+    
+        <link rel="alternate" href="/" title="DevAndy" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="../../../libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="../../../libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="../../../libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="../../../css/style.css">
+
+
+    
+<script src="../../../libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-177850483-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../index.html">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Articles/">Articles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/">Dev</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Devops/">Devops</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Html-Css/">Html/Css</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Javascript/">Javascript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Others/">Others</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Springboot/">Springboot</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Web/">Web</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Review/">Review</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Thought/">Thought</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Quiz/">Quiz</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../https:/github.com/youngjinmo">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="../../../js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/DevOps/">DevOps</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="posts-aws-tutorial-launch-ec2" class="article article-single article-type-posts" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        AWS 튜토리얼(2) - Ec2인스턴스에 프로젝트 배포하기
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="" class="article-date">
+       <time datetime="2020-03-15T22:32:26.000Z" itemprop="datePublished">2020-03-16</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="" class="article-date">
+     <time datetime="2020-09-13T01:53:29.452Z" itemprop="dateModified">2020-09-13</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="../../../tags/aws/" rel="tag">aws</a>, <a class="tag-link-link" href="../../../tags/cloud/" rel="tag">cloud</a>, <a class="tag-link-link" href="../../../tags/tutorial/" rel="tag">tutorial</a>
+    </div>
+
+                
+
+                
+
+            </div>
+			<!-- 	count-time		 -->
+			<!-- <span class="reading-time" style="margin-left: 20px;">⏱ 11 min.</span>  -->
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <img src="https://lh3.googleusercontent.com/qhdDFWnctJLKcX23nrRJ8SPeDluLDJ2T49Qdrd5qUyu0oAeDiJtkjP9IpgMUd1rQneENw9-3aPVXXxob9cvptQexHXxlpEkiV2DEVh7kjTWzLrEZfm33eIcmgCLvn9RabrYkpcRd88bwDHVs1BtKeKLSjdbSAo0TE1LlvQ2KDVb5c1s_mO8KVbeMf60EMfzm3JKFYzJxzp9Z0Rb5-Lx7gBhNlUpttCjHH0B4LN0_qDK9-H3DG0YzD5SExkz7hfGAztWiysUAqfxFIj2x2ykLyLp0XgZW28v19Q0nh9fk0azHj4eUQGnS-F-pA4YYxBtWBOHDOBU0nralDG0kJE8LlzsM4Ug_lQ0dfFSt27Nf3TKbsm5LsvLLcYtti0b4Nmx1Z8xuktbgY-FkthYPGMRuQw8xepxBb-sWV5ZVG6CCb0yuksVbr_nXtolsp7A7IlJM3kxp9mX1t49zIhGbFNBy_J4iRc_0VHBc70uWiJT30E5Uy8SrLzzG3Q9CJo5NQujLz6TPe1ExrqsW0MYYxhVJ6bcwaL13earne2IqoD4g1Dq3eNs9w8phZUZKD2KMySw-FftnVmZJtOF1A9ngR_77n-wU5p5wN47sMtVBHKQY3nA-mde0qoLdp-k86_sr19bzogwxxF1vL_z1RrQIiC6fQx8mq061LiMdYVX3PeJ4xmbcTQq672ttiP7CSDl8Q_d28J9tFtBVK23dQPRyUJZ6HTSziTw7tGkiWWAKsppCpWydZFqNNK7tJ0Gw=w543-h273-no" width="650px" />
+
+<ul>
+<li><a target="_blank" rel="noopener" href="https://devyoungjin.github.io/2020/03/aws-tutorial-create-ec2/">이전 글 - AWS 배포하기 - ec2 생성하기</a></li>
+</ul>
+<p>앞에서 생성한 EC2 인스턴스를 ssh로 실행할 것이다. </p>
+<ul>
+<li><a href="#chmod">키페어 권한변경</a></li>
+<li><a href="#ssh-ec2">ec2인스턴스 ssh진입</a></li>
+<li><a href="#install-jdk">JDK 설치하기</a></li>
+<li><a href="#git-clone">프로젝트 클론하기</a></li>
+<li><a href="#mvnw">메이븐 빌드하기</a></li>
+<li><a href="#java-jar">jar 파일 실행</a></li>
+</ul>
+<br>
+
+<h2 id="키페어-권한변경"><a href="#키페어-권한변경" class="headerlink" title="키페어 권한변경"></a><a name="chmod"></a>키페어 권한변경</h2><p>터미널에서 ssh로 ec2를 접속할 때 보안그룹을 생성할 때 다운받은 키페어를 사용해서 들어가야 한다. 그런데 바로 실행하면 키페어의 권한때문에 접속이 되지 않을 것이다. 키페어의 권한을 바꿔주는 명령어를 입력해두자.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chmod 600 key.pem</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="ec2인스턴스-ssh진입"><a href="#ec2인스턴스-ssh진입" class="headerlink" title="ec2인스턴스 ssh진입"></a><a name="ssh-ec2"></a>ec2인스턴스 ssh진입</h2><p>ec2 인스턴스 접속에 필요한 주소가 2개 있다.</p>
+<p>우선 접속에 필요한 <strong>키페어의 경로</strong>가 필요하다.</p>
+<p>그리고 우리가 들어갈 인스턴스의 IPv4 퍼블릭 IP 주소를 복사해두자.  </p>
+<p><img src="https://lh3.googleusercontent.com/3Kn5taO6ytEygRTpy65qfcgQnXgkp4yToVx38K086YfPdH2NEVoau1vJqNTQHbkrkTPYn7lLwf-ZeCYEpF4mbjdL9ej--ekwel9sJIuR_K6Ay_BeZwpLUH7cYtmUzkDAuvFKjn2MuHIY1bajD5mKemcgxzfXYWZOfddKxEc-jU7UI4v7nNWTz7GYsBg5OnnXayF5uZ74ecAsm8zI7QuYSDD5-FkDrwapkoT3OdR8Ya_6bd2GRSc1LAjhIwx28fwdUK3l_5H0LLgC1e7PfNRGyGHqFNv_w7CzCujJ5nNxw0r3AfKH5l888-adBNIz8VxAAblosRgyUJ5CrOFKTw9RAUw7Lok2ZGiamG9yPloKzGBRVc8ewaC5QIFLgsg-0kahyQ7wftWtVibcaKG0h6ULadyJ9C0wCSE7NmuGUn3GJ4bIruEPTTzoMJTmAaFRoLI9G2jAGxYlA8TkZ7-kZA8xPNLHOwKRWgPZ3aYUhlWfDske3X1UX04Vp_3_EQ0376Z4P4a03RNQWwdyj9YEP_pjzCwd9XQcs6-t6A-XT-1ziiiGH43cp9HJikuMbAhe8SzCKOd1ZPAllx4Sg7aSpTFkGX18BTdfM2Wvu_CNVFuqbDBuN-9Fyp0xkSuay2WRTazwB74FThHKc1yzv0D9Agk0hWio69SU50uGXnyKhF6asXDdC2hv4VzrPnnxjvtfIWB_kjrwJPXlSD0Mc5-5War2bROMXLL5TLEZMupr-K1O6nwEc3fbSG7Zj7tC=w1152-h602-no"></p>
+<p>아래 명령어에서 방금 복사한 퍼블릭 ip주소를 붙여넣어서 터미널에 명령하면 된다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -i [키페어 경로] ec2-user@[public ip 주소]</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://lh3.googleusercontent.com/yPvwxHmknS1kVxQLRom4oaFVyJ7wlBsz-hUYedi3ZrtCe8LKvmKmZASVLVfIcYlfj2kD39IvKZEkYryEw7L9eM27wwrR-tghlZBovTJWPIMmMtJdzZPaAMHQD0YOzztlTQEKrUZFQ4315mDfSopoZEO6nhpPyKRFgzkNF57SysahCADXuI5z4CSApoQ_HnsgI3ihKAC0A3jqzFIikPhUXC2u3uVl--rvQ_jIrAzcAjhplRh_VcEB1l5nawHKoeocI6a29dm4Gsr-zipaMCuLVnxe8t6_uh1cNue_czQTAM5anR4D5_1tKuCk9bDh-3LX650ovPPDiMCIRcvPzNVYKqEfSM3DdRKs8gHwr8D8NGRbQFbsqAMFw5co4_kLrx9lDm-cOU5LHjJhs5R6qI7VK94YZuksQhj755_WDn2Rjl2LeeDiIbBZYgKqiEpTCDvYwJNfTnWiIn92QKdgiL4Vi07c3JKM1sJ2ui9NzyR6OLYrORSEMeP6zAh9Pvges__T62GirNd0lfhg9MAlbVQwkqcnNX_Db7Nc3EkyJBsxcaU0ki8BqWLuReT6ddzDSnoaSsHTj6kVNWgSL3Q0cpQE9SC_xzhtUKXHcUmG70ME86PxmvrQZpaxeplilTC9IYU-tNRATH0IAIauGawuGerfzPUc9bkVJnfZ5mOyFSFEBChF21CGtTZ6qfJKLv6a3X5rSIowcX4H8LNNFOZzS1qwv9iYywSsEpVhCuZAb7D5s-yPSVs5-pTPNFvC=w957-h368-no"></p>
+<p>혹시나 계속 진행할 것인지 묻는 메세지가 출력된다면 yes를 입력하고 엔터를 입력하면 위의 이미지처럼 인스턴스 내부로 진입이 완료된다. </p>
+<p>만약 권한 이슈가 계속 발생한다면, 커맨드 명령어를 잘못입력했거나 키페어의 권한설정이 잘못되었을 수 있다. 위로 올라가서 다시 천천히 설정해보자.</p>
+<br>
+
+<h2 id="JDK-설치하기"><a href="#JDK-설치하기" class="headerlink" title="JDK 설치하기"></a><a name="install-jdk"></a>JDK 설치하기</h2><p>아마존 리눅스에는 기본적으로 jdk가 설치되어 있긴하나 1.7버전이 설치되어 있을 것이다. 따라서 명령어로 1.8 버전의 jdk를 설치하고, 사용하지 않을 구버전의 jdk는 삭제할 것이다.</p>
+<p>먼저 1.8 버전의 jdk를 설치하자.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum install -y java-1.8.0-openjdk-devel.x86_64</span><br></pre></td></tr></table></figure>
+
+<p>이제 jdk 버전을 방금 설치한 1.8버전으로 변경한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo &#x2F;usr&#x2F;sbin&#x2F;alternatives --config java</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://lh3.googleusercontent.com/yVY0fMVAiHUxPyw_Ibscv8iF7A2aMWi7KkYjKPEQPFOc3n8t_l1dfEynwFkf1evz-6kvnGS7IVbE80qJXj1K3KVPikynKJiaD9kP90a7BtB2lrjPZZ_FIlYmdaDTAxiCBtUdKQGuiusbffVp1rYVzRctbojT47UWGH-GjYSYeZHZJV7iHSU9dE071-WBW5YPpo5PDotYB1evn8ybBPkFXXmkIffEXnK1aoMXLF23bIQ8YoW1os7YrtdNXvBEyDmowDl9v8YOlqXYSG2JUiVxOGaCyLqwYsCrHDcxbu6f51g5Cor3mrUwRFfB4cuCK7pSipv49tvEeEi3N-1HYJpxr96g0XTnWc2HIxcg13A70QbFgXM9rIbHCuan6erypb5HoWdFw3TfWlfyNsxViYduzuonN-drZ2u-TLGEk06zxpA0YPp3v9ei7wv8965nlkR8VsBwd3jjAg-_oD0CinmWBHBYxNli0hdJmkKemSKZmJGYgdo9I6q2K_lSpUU7EfwjO81xfr8Qs4OkvBqoZPSCq1LDZ3b26zg2SLTxMCl1RsTdghlHHuJLc2Q54z_6Yk4T3Qrg9--yzJw_nLi8mmxdaIZHuiF6tIm6q3TfifwIECuilXWD31Yb8XBxUgMaUHp7Zu2uCXrGf51-d7f2-2f7-XALqnGbpolnR0R8m1VooFPbpp9GJmMG6_1UUTu2D9yl1lLCtEUzcorM53MvDOLbMZbB-czhbnjS11WzLavLYeNKviTo8qm5rKhx=w1097-h505-no"></p>
+<p>+가 바라보는 곳이 현재의 자바 버전이다. 변경하고자 하는 버전의 숫자를 입력하면 해당 버전으로 자바가 변경된다.</p>
+<p>이제 사용하지 않을 버전의 jdk는 삭제하자.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum remove java-1.7.0-openjdk</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="프로젝트-클론하기"><a href="#프로젝트-클론하기" class="headerlink" title="프로젝트 클론하기"></a><a name="git-clone"></a>프로젝트 클론하기</h2><p>아마존 리눅스에서는 <code>yum</code>이라는 패키지 툴을 이용할 것이다. git을 설치하기 전 패키지 툴을 최신버전으로 업데이트하고, git을 설치할 것이다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum update</span><br><span class="line">$ sudo yum install git</span><br></pre></td></tr></table></figure>
+
+<p>약 10초가 조금 지나면 설치가 완료된다.</p>
+<br>
+
+<p>그리고 프로젝트가 저장된 깃허브 웹페이지로 가서 https주소를 가져오자.</p>
+<p><img src="https://lh3.googleusercontent.com/ukC3LTG9G3Od0hZbIUWLw2GTmTZjjDWtHR-lz3Gv35U8K6ikT2vmLthldNAriF2dxS5Jqh_oYgwdDORZsYDXCXOyqyY6aELFVkL7WFtmgWJXvZS9gOsG5skJUqHmZMhSLFSe44M4aSHteW2sC1s-PlTPgN-QIBeuLtWffKXT8eyNiqXJapwS7oaGJ--Abri4FYMJ30j2dnf-Ge7OLHx0kRyhkZhpl-vgBOaU_JeGDxSPGYxpYV6cayxxB-e9GPCGMohESsOi_k9765H1mMgbf0miSe6JMTeX-X5_--t437Bz-Fi4Kz4mnRmjxyr57vqonGR7PuIp7NE8G67ACC8fTb0RRFM6XZG1jeKFHsI5gRjRCG79ineEcizc84vIjSjOmXpRvS7d-wooyFJw1WCbA3cUYzsSZJDQ_dq81XmnDFSZQDJSm3L8nToxtJ-ZPQAwDW5tbUjtXnXvufn1u5IxrHF01APDA48Po48Oi8g5A70BroXOfyounqT_ml-_GBl265e_KBfmCXwJWOQErAh_OUhdUtNcldizq7DlvmOI1n4NJVUYwba3fO8WVRUEcZxj0t2WOMW-NHWobK7Sms66AJ9F8XwfmIkBOhfSZ_erL1h2qODzIWh01tEjVvFWJo8q1wQDb97F_ZK2KHjUrOAGl4Y6Rj_h5QQ1YNa2_0lrVtl8qtqnW2ucJKSOq75lUm-Z2cYNizsGki-hoOrlEJx767QfHUcpD9ZH_Yd06CUmaGTFPSZJa1q0Oubv=w1257-h602-no"></p>
+<p>이 주소로 ec2 인스턴스 내부에서 클론하면 된다. 프로젝트를 가져올 디렉토리를 먼저 생성하자. 필자는 <code>/home/ec2-user</code> 디렉토리 내부에 <code>app</code> 폴더를 생성해서 이 안에 프로젝트를 가져올 것이다. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone [git-clone-https-address]</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://lh3.googleusercontent.com/dx-mYOzFt3z0Z8UzVs14sTyICzQJzvax_rGY6kzXbMGBbQU4vg-1QxIEFuwYtr6OCsar1E94XUgQRWgaUPQRyxjTSxSIQFB4HWa0NEfmevefd6EHWvJN8VQr-pCmOLAlgNx0V83Wn5eKi9ZJOKpYDtigj5bWvEMAm7y8bNCQkBBar3qYjyEKB2Y4ykTe6PFOfbvJ3IpTw8nBA6k9S1PS91K54EowsAcSNp7V3CyP8jciO2ZDXb1RmOEkfVj0M7z5mZ9LF3R8H1gH5wF2wtM_arUyf315ZzW50uE4lJaStLbyCuq26IY9vbydzof6pUhljxOmOGeGmManTJdvHPBlFHTYwzVEQlauo0vn4eFj42D05A0zMwDEa_4kY50Hjw9yD-524TKvWDgXUVqBGwUEgdLK-5nQn4aRenC02iOTS_ACfDAtqOnrykynMtZq0plD8gr2aqpnGqq1eb7SogThcOrw1rLIuZsaA8xxITrWljaCeq3LQtbZ62zCZJvPpPuTNlEvIGhp1-tDXJT96aeF-mKm6tqaRTHCEKwGFA2aIbGjbg_N80gNit5LC0m6hPHdtB3iPujdbITckue5b43-PfNjr5x3Uom45e753vSsm1_XPcv8T9WgVTEW8n1YJDvSHADJaHtsldw5mVOwXZF3zhy_p4T7wiIOzin9HS3csMwT4eKfa5tsIfkwGnnUohpIsg8FMMbLu1ZOvuZDCjvxxpqQn72Fc1hStTc025fWRfvAV9_Na7xp_9Y0=w960-h182-no"></p>
+<br>
+
+<h2 id="메이븐-빌드하기"><a href="#메이븐-빌드하기" class="headerlink" title="메이븐 빌드하기"></a><a name="mvnw"></a>메이븐 빌드하기</h2><p>이 프로젝트는 빌드 툴로 메이븐을 사용한다. 메이븐을 이용해 프로젝트를 빌드해서 jar파일을 생성해보자.</p>
+<p>메이븐도 권한을 변경하고 빌드한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ chmod +x .&#x2F;mvnw</span><br><span class="line">$ .&#x2F;mvnw clean package</span><br></pre></td></tr></table></figure>
+
+<p>처음 프로젝트를 빌드하는데는 시간이 좀 걸릴 것이다. 대략 2-3분 정도의 시간이 소요될 수 있다. 다음에 다시 빌드를 할 때는 이정도로 소요되지는 않는다.</p>
+<p>빌드가 완료되면 다음과 같은 성공 메세지를 볼 수 있다.</p>
+<p><img src="https://lh3.googleusercontent.com/zJdGocxwqgiIlHKXESU5XLVDKS6fuZkpXHX2vbaG_RTNPc4rPAlWQupN7S-Cx5F0K5ZYrdw7BYMkZWWo7o_Zike4AxIz0UbnruoY21WJW63Zm3JCWrUejR29QgPhzUScfXFbPolvZJNJu4Pwplg-U2Lh3CnKv_IF2Fcn9a5RK8t3AFEppg9xuGaKE3TCC4JnzH53pWjbHZ7bCH__qPWmjT9CgnGareKpTOOLoyL629dVWdMB0RuAwFgzxDRrba_nvwpE19bjYPnMNzsHEj7QKs179kgrSySrAtt6MiClfCZjsVsNwwJTXglU5neSdc7Emos0wSAgPuCfd9CYqj-uwdMRNEvfqKJnCAnFpObc-cYNqjfk2GpcTjtOwIwRrxslVFNH2Os280uYXyJcQpe2vyjrbOCyX9mhjegcA2k98b1703HqUz3Jixfd41Q31nXQRAZyCtl9cKGyD-PiJ35PJfcaSC6i5a4M5Y78ngJgXhiUkwE4WkPKez_D8zkr6SuUgxdi_y6qGEoiuGIXoio6wuLjDwI4ONXfe6JugV2UxgsxhFzi_saogdP4sPbFUGgrdXghFh_2O6ZDZ5ZONLakrAjohZVzUxLy1cPYQ1u0Z_2QeZrkgbBsNuAU8J0aFacRmY80aDxnbd2XoYvMdWZkgCmaRYd01f4BQayId3e1aYOzBYgtG0YQbjyEM1rHrFZv6jWCuVGYHkJuLTWT8jIJ2t_D6JTCwgHhz5Y5ylQ-hMj7dN76KDKrC_5k=w959-h510-no"></p>
+<p>만약 빌드에 실패한다면, jdk 이슈일 가능성이 높다. jdk가 설치되어 있지 않거나, 프로젝트에서 사용한 자바 버전과 다르기 때문일 것이다.</p>
+<br>
+
+<h2 id="jar-파일-실행"><a href="#jar-파일-실행" class="headerlink" title="jar 파일 실행"></a><a name="java-jar"></a>jar 파일 실행</h2><p>위에서 메이븐으로 빌드했다면, jar파일은 <code>/target</code> 디렉토리 안에 생성됬을 것이다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ java -jar target&#x2F; .jar</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://lh3.googleusercontent.com/JM4GiONuVPpi7qrdI025vQjux7q_g3K9FTNRSoyCUss-sNfmAgT6xpIhLy_jtbtWxL75mTFT1gmP0mQivAFs0jWK82nXUfRkNBwpXSPH6Bv0DcrOIw40uSZQ7RAax-cFxRL8uMJXotxDjNg0ffEnBJoAv7pKf1YPvL2Pux_hl6yzURe8A96-lOxSs-ZkNJJcdmAL2mgyxaEHKTUsNqXd4fJdcZzL5NAX9lipfA9v5LQdaYc3agFsxcnTZsxebYfuV0nwwosR-2MDvtMmLBgbdmysTHWft4Eb_1bSiYjmk4a1DZCUhiAxicr9JzigFuvY1SJhHmp3LXmaXwtc8sM29TFqYoaUVc2p0HW3jUbci2YdMUciBKd7Zq5CslGzT5cdEGfzFbpi_TAyrPDjjw3zzH5lkkIOooy-2asVXdEbY2oyCjf3d7LvKfvDQB-gtLPpHKhdRSgEsd86JEAzlXdaxriqCP9XHxf7J_8G2mljiRZYsrvwpbwl9V2VyIy8NNWE99uiEnpEN2lclkEa29a5gUXZJ5-HhIOXS0VWB_QvRqSASw0ECMYJ7CQsZr-jlmjzyQErkdCUD0P_BpK2VCVu8DGB27NzJQ_0-Y09Cj2Oc7fNOg-deiphy4_elX3jXyb_RDA5EONgKS5d4WkeBg2JgADNqkbGTAMwCN6_X8gQaWLv45XBVVwwfxPQ5uYCGNCA-Yb6n442M7pIKW4nAHIEEMQP-UQMrJEoN2G--ctrLgUDwbSsS2qkFLHo=w957-h487-no"></p>
+<p>스프링 로고가 출력되고 마지막에 <code>Started 프로젝트명 in seconds</code> 메세지가 출력된다면 이제 배포가 성공적으로 마친 것이다. 웹 브라우저로 가즈아!</p>
+<p>ec2 인스턴스를 생성할 때 보안그룹설정에서 custom TCP 프로토콜에 설정한 포트로 접속하면 된다. ec2 인스턴스 퍼블릭 ip주소에 위의 포트번호를 입력하면된다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[public-dns-ip]:8080</span><br></pre></td></tr></table></figure>
+
+<p>그럼 브라우저에서 프로젝트를 볼 수 있을 것이다. 혹시 프로젝트가 열리지 않는다면, 포트번호 맵핑이 잘못되었을 확률이 있다. 그렇다면 보안그룹을 다시 살펴보자. </p>
+<p>EC2 대시보드에서 [작업] 버튼을 클릭해서 EC2 인스턴스와 관련된 여러가지 설정을 변경할 수 있다.</p>
+<p><img src="https://lh3.googleusercontent.com/L4WCMTb3h1ay96mRX2N2OnpdLnvixemnc3I_8zSovK5F-YnFSzyQBqMa8502ZNlSRL5IkkASYN1oOFH3Uy8pcX3NPnsGq9fF73IxWBz0OwuhxrcKJSVoIkpW4MrL3MMn5Kie6Iee1NhrjH7g_V1ucoLg0S_wK0u0Xw0BuOWAhtKuqed279nU3wTwM2aEnfPFTcRyQ6uIG4ojwxvw6t9f41iquW_TFyXK49fMDRJ-gXvNXzi0Q4T4ymc5LK1pAHhArgdOQeJiJZGdFXLyOn6fFGwQJBGj50Ak-DvAGYqwjpp6DvbWmHbszQmc6ZY8G4e6Wvu3305bgQSWqKyik8KwmFApBfKFRtWe0V_RclwgcvTCQtI_CoQGgLNpTOOmzQ-2Q_a__r0xj_ulDxXZVfYnnrSW14bXPOks_V6veMKKQFQxzOkoy5sX_v9fug9sPmherz4Rf73EAkEPS_PbHrH58BxNJvBcDbOLMIG_1eyPe2lEiY0teJ-442r69asFidmRCQ4XGW7N_34kwJjZaLTJ82bWDCDc_kJONDCmRNw5HhMFqW-Y6e3y8G7YRvN-EsjTvfQdaE24JK4L0B9C-aP1tNs9dufC1V9CkwYvGiR83nUWwtchgJbS4OBfAzSYPmiE_0d7jvfGovBaviicuJDejF-POA_DPWNj2mSm-lE27eD8Ibhl23upY-VayPNV5KHIRDTynU2-KITRMS1kFOSPmBJtcCyKayyXu47yQEtaPnpvN02xzmGl1deS=w1259-h601-no"></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://youngjinmo.github.io/2020/03/aws-tutorial-launch-ec2/" data-id="ckf65ucuz002iacgd5wj67wvk" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Youngjin Mo"
+        },
+        "headline": "AWS 튜토리얼(2) - Ec2인스턴스에 프로젝트 배포하기",
+        "image": "../../../http:/youngjinmo.github.iohttps:/lh3.googleusercontent.com/qhdDFWnctJLKcX23nrRJ8SPeDluLDJ2T49Qdrd5qUyu0oAeDiJtkjP9IpgMUd1rQneENw9-3aPVXXxob9cvptQexHXxlpEkiV2DEVh7kjTWzLrEZfm33eIcmgCLvn9RabrYkpcRd88bwDHVs1BtKeKLSjdbSAo0TE1LlvQ2KDVb5c1s_mO8KVbeMf60EMfzm3JKFYzJxzp9Z0Rb5-Lx7gBhNlUpttCjHH0B4LN0_qDK9-H3DG0YzD5SExkz7hfGAztWiysUAqfxFIj2x2ykLyLp0XgZW28v19Q0nh9fk0azHj4eUQGnS-F-pA4YYxBtWBOHDOBU0nralDG0kJE8LlzsM4Ug_lQ0dfFSt27Nf3TKbsm5LsvLLcYtti0b4Nmx1Z8xuktbgY-FkthYPGMRuQw8xepxBb-sWV5ZVG6CCb0yuksVbr_nXtolsp7A7IlJM3kxp9mX1t49zIhGbFNBy_J4iRc_0VHBc70uWiJT30E5Uy8SrLzzG3Q9CJo5NQujLz6TPe1ExrqsW0MYYxhVJ6bcwaL13earne2IqoD4g1Dq3eNs9w8phZUZKD2KMySw-FftnVmZJtOF1A9ngR_77n-wU5p5wN47sMtVBHKQY3nA-mde0qoLdp-k86_sr19bzogwxxF1vL_z1RrQIiC6fQx8mq061LiMdYVX3PeJ4xmbcTQq672ttiP7CSDl8Q_d28J9tFtBVK23dQPRyUJZ6HTSziTw7tGkiWWAKsppCpWydZFqNNK7tJ0Gw=w543-h273-no",
+        "keywords": "tutorial aws cloud",
+        "genre": "Dev DevOps",
+        "datePublished": "2020-03-16",
+        "dateCreated": "2020-03-16",
+        "dateModified": "2020-09-13",
+        "url": "../../../http:/youngjinmo.github.io/2020/03/aws-tutorial-launch-ec2/",
+        "description": "
+
+
+이전 글 - AWS 배포하기 - ec2 생성하기
+
+앞에서 생성한 EC2 인스턴스를 ssh로 실행할 것이다. 
+
+키페어 권한변경
+ec2인스턴스 ssh진입
+JDK 설치하기
+프로젝트 클론하기
+메이븐 빌드하기
+jar 파일 실행
+
+
+
+키페어 권한변경터미널에서 ssh로 ec2를 접속할 때 보안그룹을 생성할 때 다운받은 키페어를 사용해서 들어가야 한다. 그런데 바",
+        "wordCount": 518
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="../../../https:/github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="../install-commandlinetools-without-xcode/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            맥에서 Xcode 설치하지 않고, Command Line Tools 설치하기
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="../aws-tutorial-create-ec2/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">AWS 튜토리얼(1) - Ec2 생성하기</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../09/xml-json-xmlhttprequest/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3f3uUiEllt7yZ2cz-TBQE53mDoXAvAbilDnTHnb0gUIYnX86czSpvvAGNC1uwJN3Mm543ae8FVwBXvYPyOcYzNVH-5fg0VXSmiORlQSYChhlqdO1jLRs_XhVOQYcySp_K_S3JbhAK4jHpeyRpXmh45Gqg=w640-h405-no?authuser=2)" alt="XML, JSON 그리고 XMLHttpRequest" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Others/">Others</a></p>
+                            <p class="item-title"><a href="../../09/xml-json-xmlhttprequest/" class="title">XML, JSON 그리고 XMLHttpRequest</a></p>
+                            <p class="item-date"><time datetime="2020-09-01T12:00:59.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/create-table-sequence/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3dnKjQpuvDEmVxFsIrKfVbq9RCZMjbbZPOtAWR0Etr5EfTkx58EYPQjjgLEiO8XYLsVu_1TWyNmpySsDRxXvCplY6aMPhIMQgNCaH0TBpVv0vxyI_-b6pK9x8qhVSSptzKgeu-dbMHYIt-eS1MUDQnkiw=w640-h427-no?authuser=0)" alt="Oracle - Sequence 생성하고 테이블에 삽입하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Database/">Database</a></p>
+                            <p class="item-title"><a href="../../08/create-table-sequence/" class="title">Oracle - Sequence 생성하고 테이블에 삽입하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-31T18:57:13.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/servlet-redirect-forward/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3cK_j9D5XupS1mIeAAwsE1cOAdZ05jfS290XghGTAfDNVmf1VDdldnidSEQpbEAPRe_aTchGC7U00h7lU9JKtTV3ltDyqUcofn0Xu4p0pm_ROewKfcnOG3UO4Yo4EgVG6ZeQfoemWHklC1hGMn-1DXYfQ=w640-h427-no?authuser=0)" alt="Servlet - Redirect와 Forward" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../../08/servlet-redirect-forward/" class="title">Servlet - Redirect와 Forward</a></p>
+                            <p class="item-date"><time datetime="2020-08-30T22:32:44.000Z" itemprop="datePublished">2020-08-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/leetcode-twosum/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://assets.leetcode.com/static_assets/public/images/LeetCode_Sharing.png)" alt="Leetcode - Twosum" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Quiz/">Quiz</a></p>
+                            <p class="item-title"><a href="../../08/leetcode-twosum/" class="title">Leetcode - Twosum</a></p>
+                            <p class="item-date"><time datetime="2020-08-24T14:28:47.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/run-mysql-with-docker/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3fdpC3xu5q4xnJRLLhSaWCrARbnQ1qdp_DpF0Z7BITrtrr6gZWGExKC4PcMlVo3AxVhVbYiFgDhNObWmtv3hGwoEtF_4zFb_1fQsdL6d1K3UNA0LRkczuC_nNvcEHERB8EIB3uvWOIps7j1iraX6DGLbQ=w720-h480-no?authuser=0)" alt="Docker로 MySQL 실행하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Devops/">Devops</a></p>
+                            <p class="item-title"><a href="../../08/run-mysql-with-docker/" class="title">Docker로 MySQL 실행하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-23T17:12:43.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 11.11px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/api/" style="font-size: 11.11px;">api</a> <a href="../../../tags/architecture/" style="font-size: 10px;">architecture</a> <a href="../../../tags/array/" style="font-size: 11.11px;">array</a> <a href="../../../tags/aws/" style="font-size: 12.22px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 12.22px;">career</a> <a href="../../../tags/casting/" style="font-size: 12.22px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/cloud/" style="font-size: 12.22px;">cloud</a> <a href="../../../tags/compiler/" style="font-size: 10px;">compiler</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/databse/" style="font-size: 10px;">databse</a> <a href="../../../tags/datastructure/" style="font-size: 12.22px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 13.33px;">docker</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 11.11px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generic/" style="font-size: 10px;">generic</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 10px;">github</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 13.33px;">http</a> <a href="../../../tags/ide/" style="font-size: 10px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 10px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 11.11px;">interface</a> <a href="../../../tags/interpreter/" style="font-size: 10px;">interpreter</a> <a href="../../../tags/io/" style="font-size: 12.22px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 15.56px;">java</a> <a href="../../../tags/java8/" style="font-size: 11.11px;">java8</a> <a href="../../../tags/jquery/" style="font-size: 11.11px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/jvm/" style="font-size: 10px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 10px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 10px;">mustache</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 16.67px;">oop</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 12.22px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 11.11px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 18.89px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/string/" style="font-size: 14.44px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/tip/" style="font-size: 17.78px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 13.33px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 11.11px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 18.89px;">weekly-review</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Youngjin Mo</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+    
+        
+<script src="../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="../../../js/main.js"></script>
+
+
+</body>
+</html>

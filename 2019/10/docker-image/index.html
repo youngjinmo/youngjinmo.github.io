@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Docker - 이미지 생성/배포하기 | DevAndy</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="docker" />
+    
+    <meta name="description" content="목차 배포할 도커 이미지 생성하기 도커 이미지 배포하기    이전 포스트에서 도커 이미지는 컨테이너를 생성하고 실행하기 위해 필요한 요소라고 했습니다. 이번 포스트에서는 도커 이미지를 직접 생성하고 배포하는 것을 해보겠습니다.   배포할 도커 이미지 생성하기아직 도커를 어떻게 쓰면 좋을지 모르기 때문에 책을 참고하여 이미지를 생성해보았습니다. 우분투를">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker - 이미지 생성&#x2F;배포하기">
+<meta property="og:url" content="http://youngjinmo.github.io/2019/10/docker-image/index.html">
+<meta property="og:site_name" content="DevAndy">
+<meta property="og:description" content="목차 배포할 도커 이미지 생성하기 도커 이미지 배포하기    이전 포스트에서 도커 이미지는 컨테이너를 생성하고 실행하기 위해 필요한 요소라고 했습니다. 이번 포스트에서는 도커 이미지를 직접 생성하고 배포하는 것을 해보겠습니다.   배포할 도커 이미지 생성하기아직 도커를 어떻게 쓰면 좋을지 모르기 때문에 책을 참고하여 이미지를 생성해보았습니다. 우분투를">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://www.spkaa.com/wp-content/uploads/2016/03/docker-image.png">
+<meta property="article:published_time" content="2019-10-02T18:15:29.000Z">
+<meta property="article:modified_time" content="2020-09-13T01:53:28.968Z">
+<meta property="article:author" content="Youngjin Mo">
+<meta property="article:tag" content="docker">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.spkaa.com/wp-content/uploads/2016/03/docker-image.png">
+<meta name="twitter:creator" content="@devandy_yj">
+    
+
+    
+        <link rel="alternate" href="/" title="DevAndy" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="../../../libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="../../../libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="../../../libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="../../../css/style.css">
+
+
+    
+<script src="../../../libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-177850483-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../index.html">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Articles/">Articles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/">Dev</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Devops/">Devops</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Html-Css/">Html/Css</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Javascript/">Javascript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Others/">Others</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Springboot/">Springboot</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Web/">Web</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Review/">Review</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Thought/">Thought</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Quiz/">Quiz</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../https:/github.com/youngjinmo">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="../../../js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/DevOps/">DevOps</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="posts-docker-image" class="article article-single article-type-posts" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Docker - 이미지 생성/배포하기
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="" class="article-date">
+       <time datetime="2019-10-02T18:15:29.000Z" itemprop="datePublished">2019-10-03</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="" class="article-date">
+     <time datetime="2020-09-13T01:53:28.968Z" itemprop="dateModified">2020-09-13</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="../../../tags/docker/" rel="tag">docker</a>
+    </div>
+
+                
+
+                
+
+            </div>
+			<!-- 	count-time		 -->
+			<!-- <span class="reading-time" style="margin-left: 20px;">⏱ 9 min.</span>  -->
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <img src="http://www.spkaa.com/wp-content/uploads/2016/03/docker-image.png" width="550px" >
+
+<h2 id="목차"><a href="#목차" class="headerlink" title="목차"></a>목차</h2><ul>
+<li><a href="#commit">배포할 도커 이미지 생성하기</a></li>
+<li><a href="#push">도커 이미지 배포하기</a></li>
+</ul>
+<br>
+
+<p><a target="_blank" rel="noopener" href="https://devyoungjin.github.io/2019/09/docker-intro/">이전 포스트</a>에서 도커 이미지는 컨테이너를 생성하고 실행하기 위해 필요한 요소라고 했습니다.</p>
+<p>이번 포스트에서는 도커 이미지를 직접 생성하고 배포하는 것을 해보겠습니다.</p>
+<br>
+
+<h2 id="배포할-도커-이미지-생성하기"><a href="#배포할-도커-이미지-생성하기" class="headerlink" title="배포할 도커 이미지 생성하기"></a><a name="commit"></a>배포할 도커 이미지 생성하기</h2><p>아직 도커를 어떻게 쓰면 좋을지 모르기 때문에 <a href="#references">책</a>을 참고하여 이미지를 생성해보았습니다.</p>
+<p>우분투를 설치해서 ubuntu 환경에 변경사항을 만들고 이를 이미지로 생성해보겠습니다.</p>
+<p>적용할 변경사항은 아래와 같습니다.</p>
+<ul>
+<li>apt-get 업데이트</li>
+<li>git 설치하기</li>
+<li>github 프로젝트 clone 하기</li>
+</ul>
+<p>먼저 우분투를 이미지를 설치하겠습니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker pull ubuntu</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>컨테이너를 생성하겠습니다.</p>
+<p>컨테이너와 호스트OS간 82번 포트로 마주보는 “custom_ubuntu”라는 이름의 컨테이너를 생성했습니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker create -it --name myubuntu -p 82:82 ubuntu </span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>이제 생성한 컨테이너를 실행하고, bash shell 모드로 컨테이너 내부로 들어가겠습니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker start custom_ubuntu</span><br><span class="line">$ docker exec -it custom_ubuntu bash</span><br></pre></td></tr></table></figure>
+
+<p>혹시 여기서 <code>-it</code> 의 의미가 기억나지 않으신다면 <a href="https://youngjinmo.github.io/2019/09/docker-intro/#port">여기</a>서 다시 확인하실 수 있습니다 ​​🙂</p>
+<br>
+
+<p>지금부터는 컨테이너 내에 변경사항을 만드는 작업입니다. 이 부분을 건너뛰고 바로 이미지 생성하는 부분이 궁금한 분들은 여기를 <a href="#skip">클릭</a>해주세요.</p>
+<hr>
+
+<p>현재 컨테이너에서 git을 설치하려면 apt-get을 업데이트 해야합니다. 여기서 <a target="_blank" rel="noopener" href="https://help.ubuntu.com/community/AptGet/Howto">apt-get(Advanced Packaging Tool)</a>이란, 우분투에서 사용가능한 패키지 매니저입니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;# apt-get update </span><br></pre></td></tr></table></figure>
+
+<p>패키지 매니저인 apt-get을 최신화 했으니 이제 git을 설치할 수 있습니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;# apt-get install git</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>이제 마지막으로 Github에서 저장소를 하나 불러오겠습니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;# mkdir project_folder &#x2F;&#x2F; 폴더 생성</span><br><span class="line">&#x2F;# cd mkdir  &#x2F;&#x2F; 디렉토리 이동 </span><br><span class="line">&#x2F;# git clone https:&#x2F;&#x2F;github.com&#x2F;autho&#x2F;project.git &#x2F;&#x2F; git clone</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<hr>
+
+<p><a name="skip"></a>원하는 변경사항을 모두 만들었으므로 현재 상태에서 이미지를 생성하겠습니다. 먼저 컨테이너에서 빠져나와서 아래 명령어를 입력해보겠습니다.</p>
+<p>아래의 명령어는 다음과 같은 구조로 구성되어 있습니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker commit &lt;option&gt; container &lt;repository&gt;:&lt;tag&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ docker commit \</span><br><span class="line">-a &quot;devandy&quot; \</span><br><span class="line">-m &quot;created&quot; \</span><br><span class="line">custom_ubuntu \</span><br><span class="line">custom_ubuntu:first</span><br></pre></td></tr></table></figure>
+
+<p>위의 명령어는 <code>\</code> 를 통해 줄을 띄어써서 작성한 것입니다. 아래의 명령어와 정확히 일치하는 명령어입니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker commit -a &quot;devandy&quot; -m &quot;created&quot; custom_ubuntu custom_ubuntu:first</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>이제 생성된 도커 이미지를 확인해보겠습니다.</p>
+<p><img src="http://www.mediafire.com/convkey/64b5/u77g395gzftb53ozg.jpg"></p>
+<p>저는 위에서 언급한 변경사항을 두번으로 나눠서 적용하면서 커밋을 두번해서 두번째 TAG를 second로 두었습니다. 어쨋든 원래의 도커 이미지였던 ubuntu와 IMAGE ID도, SIZE도 다른 새로운 이미지가 생성되었음을 확인할 수 있을겁니다.</p>
+<p>두 이미지의 용량이 다른 이유는 저희가 git을 설치하기도 했고, git 저장소를 컨테이너 내부에 설치했기 때문에 차이가 발생하고 있습니다.</p>
+<p>생성한 이미지에서 다시 새로운 이미지를 생성하려면, 또 커밋을 하면 됩니다만 변경사항이 있을 때에만 커밋을 할 수 있습니다. 컨테이너 내부에 파일 하나라도 변경사항이 있을 때에만 커밋을 해서 새로운 이미지를 생성하는 것이 가능합니다. </p>
+<p>저는 현재 상태에서 apt-get으로 vim을 설치하고 다시 커밋을 해보았습니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ docker commit \</span><br><span class="line">-a &quot;devandy&quot;</span><br><span class="line">-m &quot;updated&quot;</span><br><span class="line">custom_ubuntu</span><br><span class="line">custom_ubuntu:third</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://www.mediafire.com/convkey/cd37/h6gvz83gxzi25phzg.jpg"></p>
+<p>vim을 설치하고 새로 생성한 이미지의 용량이 이전의 이미지 대비해서 더 커졌음을 확인하였습니다.</p>
+<br>
+
+<p>삭제하고 싶은 이미지가 있다면 IMAGE ID를 통해 삭제할 수 있습니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker rmi &lt;IMAGE ID&gt;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>이미지를 생성할 때 마다 <code>sha256:</code> 로 시작하는 16진수 해시값이 콘솔창에 출력하는데 <code>docker inspect &lt;IMAGE NAME&gt;</code> 을 통해 “Layers” 를 확인해보면, 각 버전 모두에서 공통되는 해시값이 있고, 각 버전마다 하나씩의 해시값이 생성되었음을 알 수 있습니다.</p>
+<br>
+
+<h2 id="도커-이미지-배포하기"><a href="#도커-이미지-배포하기" class="headerlink" title="도커 이미지 배포하기"></a><a name="push"></a>도커 이미지 배포하기</h2><p><u>배포는 아니지만</u> 현재의 <strong>이미지를 파일로 추출</strong>하는 방법도 있습니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker save -o myubuntu.tar custom_ubuntu:third</span><br></pre></td></tr></table></figure>
+
+<p>이렇게 하면 <code>.tar</code> 를 확장자로 갖는 압축파일이 생성됩니다. 디렉토리를 설정하지 않았을 때 저의 경우(Mac OS: Catalina)는 /Documents 에 압축파일이 생성되었습니다.</p>
+<p>이 파일로 도커 이미지를 불러오려면 아래의 명령어로 불러올 수 있습니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker load -i myubuntu.tar</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>이제 진짜 **<u>이미지를 배포</u>**해보겠습니다.</p>
+<p>도커 이미지를 배포하는 방법으로는 도커 허브<a target="_blank" rel="noopener" href="https://dockerhub.com/">(dockerhub.com)</a>를 이용하는 것과 사설 레지스트리를 이용하는 방법이 있다고 합니다. 사설 레지스트리의 경우 회사 내부망을 의미하는 것 같습니다. 저는 도커 허브를 통해 도커 이미지를 배포해보겠습니다.</p>
+<p>도커허브에 접속해서 <strong>create repository</strong>를 클릭하면 다음과 같은 창을 볼 수 있습니다.</p>
+<p><img src="http://www.mediafire.com/convkey/ad1d/0an2db9u2w8209xzg.jpg"></p>
+<p>저는 위 이미지에서 볼 수 있듯 Github 계정 연동을 다시 해야하는 상황이어서 먼저 Github 계정을 다시 연동하고 도커허브 저장소를 생성했습니다.</p>
+<p>도커허브에 저장소가 생겼다면, 도커 허브에 올릴 이미지를 생성해야 합니다. 형식에 맞춰 명령어를 작성해야 합니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker tag custom_ubuntu:third youngjindev&#x2F;testrepo_ubuntu:0.0</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://www.mediafire.com/convkey/9462/115lbhuxzrhk55mzg.jpg"></p>
+<p>IMAGE ID를 보면 완전히 같은 이미지면서 이름만 다른 이미지가 생성되었음을 알 수 있습니다.</p>
+<br>
+
+<p>이제 도커 허브 서버에 로그인합니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker login</span><br></pre></td></tr></table></figure>
+
+<p>도커 허브에서 가입할 때 사용한 이메일과 비밀번호를 입력하면 로그인에 성공합니다.</p>
+<p>도커 로그인 정보는 <code>/&lt;username&gt;/.docker/config.json</code> 파일에 저장됩니다.</p>
+<br>
+
+<p>이제 도커허브의 원격 저장소에 이미지를 배포하는 명령어를 입력하겠습니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker push youngjindev&#x2F;testrepo_ubuntu:0.0</span><br></pre></td></tr></table></figure>
+
+<img src="http://www.mediafire.com/convkey/4f33/7rlhkuv8i4km5przg.jpg" style="zoom:60%;" >
+
+<p>도커 허브에서 확인해보면 다음과 같이 변한걸 확인할 수 있습니다.</p>
+<img src="http://www.mediafire.com/convkey/33e3/2pvm4s6ww14yjcazg.jpg" style="zoom:60%;" >
+
+<p>성공적으로 이미지가 <a target="_blank" rel="noopener" href="https://cloud.docker.com/repository/registry-1.docker.io/youngjindev/testrepo_ubuntu">배포</a>되었습니다. 이제 <code>docker pull</code>  명령어를 통해 이를 설치할 수 있습니다.</p>
+<p>지금까지 생성한 이미지를 모두 지우고, 터미널을 통해 제가 방금 배포한 이미지를 검색해보았습니다.</p>
+<p><img src="http://www.mediafire.com/convkey/803c/rdeexn682osbceezg.jpg"></p>
+<p>반가운 이미지..!! 이제 당겨오겠습니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker pull youngjindev&#x2F;testrepo_ubuntu</span><br></pre></td></tr></table></figure>
+
+<p>이렇게 하니까 이런 에러 메세지를 출력합니다..</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error response from daemon: manifest for youngjindev&#x2F;testrepo_ubuntu:latest not found: manifest unknown: manifest unknown</span><br></pre></td></tr></table></figure>
+
+<p>버전을 찾을 수 없다는 내용이므로 버전까지 명확하게 입력해서 다시 시도했습니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker pull youngjindev&#x2F;testrepo_ubuntu:0.0</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://www.mediafire.com/convkey/3c3b/w3z16pf0s5incxpzg.jpg"></p>
+<p>제가 생성하고 배포한 이미지를 성공적으로 가져온걸 확인했습니다!</p>
+<p>테스트로 아파치 웹서버를 우분투환경에서 설치해서 이미지를 <a target="_blank" rel="noopener" href="https://cloud.docker.com/repository/registry-1.docker.io/youngjindev/devandy_apache">도커 허브</a>에 배포해놓았습니다.</p>
+<img src="https://media.giphy.com/media/4xpB3eE00FfBm/giphy.gif" width="200">
+
+<br>
+
+<p><a name="references"></a><strong>참고 문서 및 도서</strong></p>
+<hr>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=106596706">&lt;시작하세요! 도커&gt; 위키북스, 용찬호</a></li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://youngjinmo.github.io/2019/10/docker-image/" data-id="ckf65uczo003oacgd27tq8rw7" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Youngjin Mo"
+        },
+        "headline": "Docker - 이미지 생성/배포하기",
+        "image": "../../../http:/youngjinmo.github.iohttp:/www.spkaa.com/wp-content/uploads/2016/03/docker-image.png",
+        "keywords": "docker",
+        "genre": "Dev DevOps",
+        "datePublished": "2019-10-03",
+        "dateCreated": "2019-10-03",
+        "dateModified": "2020-09-13",
+        "url": "../../../http:/youngjinmo.github.io/2019/10/docker-image/",
+        "description": "
+
+목차
+배포할 도커 이미지 생성하기
+도커 이미지 배포하기
+
+
+
+이전 포스트에서 도커 이미지는 컨테이너를 생성하고 실행하기 위해 필요한 요소라고 했습니다.
+이번 포스트에서는 도커 이미지를 직접 생성하고 배포하는 것을 해보겠습니다.
+
+
+배포할 도커 이미지 생성하기아직 도커를 어떻게 쓰면 좋을지 모르기 때문에 책을 참고하여 이미지를 생성해보았습니다.
+우분투를 ",
+        "wordCount": 812
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="../../../https:/github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="../WeeklyReview-2019-Oct-First/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Weekly Review - 10월 1주차
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="../../09/WeeklyReview-2019-Sep-Fourth/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Weekly Review - 9월 4주차</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../2020/09/xml-json-xmlhttprequest/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3f3uUiEllt7yZ2cz-TBQE53mDoXAvAbilDnTHnb0gUIYnX86czSpvvAGNC1uwJN3Mm543ae8FVwBXvYPyOcYzNVH-5fg0VXSmiORlQSYChhlqdO1jLRs_XhVOQYcySp_K_S3JbhAK4jHpeyRpXmh45Gqg=w640-h405-no?authuser=2)" alt="XML, JSON 그리고 XMLHttpRequest" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Others/">Others</a></p>
+                            <p class="item-title"><a href="../../../2020/09/xml-json-xmlhttprequest/" class="title">XML, JSON 그리고 XMLHttpRequest</a></p>
+                            <p class="item-date"><time datetime="2020-09-01T12:00:59.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../2020/08/create-table-sequence/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3dnKjQpuvDEmVxFsIrKfVbq9RCZMjbbZPOtAWR0Etr5EfTkx58EYPQjjgLEiO8XYLsVu_1TWyNmpySsDRxXvCplY6aMPhIMQgNCaH0TBpVv0vxyI_-b6pK9x8qhVSSptzKgeu-dbMHYIt-eS1MUDQnkiw=w640-h427-no?authuser=0)" alt="Oracle - Sequence 생성하고 테이블에 삽입하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Database/">Database</a></p>
+                            <p class="item-title"><a href="../../../2020/08/create-table-sequence/" class="title">Oracle - Sequence 생성하고 테이블에 삽입하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-31T18:57:13.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../2020/08/servlet-redirect-forward/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3cK_j9D5XupS1mIeAAwsE1cOAdZ05jfS290XghGTAfDNVmf1VDdldnidSEQpbEAPRe_aTchGC7U00h7lU9JKtTV3ltDyqUcofn0Xu4p0pm_ROewKfcnOG3UO4Yo4EgVG6ZeQfoemWHklC1hGMn-1DXYfQ=w640-h427-no?authuser=0)" alt="Servlet - Redirect와 Forward" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../../../2020/08/servlet-redirect-forward/" class="title">Servlet - Redirect와 Forward</a></p>
+                            <p class="item-date"><time datetime="2020-08-30T22:32:44.000Z" itemprop="datePublished">2020-08-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../2020/08/leetcode-twosum/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://assets.leetcode.com/static_assets/public/images/LeetCode_Sharing.png)" alt="Leetcode - Twosum" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Quiz/">Quiz</a></p>
+                            <p class="item-title"><a href="../../../2020/08/leetcode-twosum/" class="title">Leetcode - Twosum</a></p>
+                            <p class="item-date"><time datetime="2020-08-24T14:28:47.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../2020/08/run-mysql-with-docker/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3fdpC3xu5q4xnJRLLhSaWCrARbnQ1qdp_DpF0Z7BITrtrr6gZWGExKC4PcMlVo3AxVhVbYiFgDhNObWmtv3hGwoEtF_4zFb_1fQsdL6d1K3UNA0LRkczuC_nNvcEHERB8EIB3uvWOIps7j1iraX6DGLbQ=w720-h480-no?authuser=0)" alt="Docker로 MySQL 실행하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Devops/">Devops</a></p>
+                            <p class="item-title"><a href="../../../2020/08/run-mysql-with-docker/" class="title">Docker로 MySQL 실행하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-23T17:12:43.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 11.11px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/api/" style="font-size: 11.11px;">api</a> <a href="../../../tags/architecture/" style="font-size: 10px;">architecture</a> <a href="../../../tags/array/" style="font-size: 11.11px;">array</a> <a href="../../../tags/aws/" style="font-size: 12.22px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 12.22px;">career</a> <a href="../../../tags/casting/" style="font-size: 12.22px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/cloud/" style="font-size: 12.22px;">cloud</a> <a href="../../../tags/compiler/" style="font-size: 10px;">compiler</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/databse/" style="font-size: 10px;">databse</a> <a href="../../../tags/datastructure/" style="font-size: 12.22px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 13.33px;">docker</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 11.11px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generic/" style="font-size: 10px;">generic</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 10px;">github</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 13.33px;">http</a> <a href="../../../tags/ide/" style="font-size: 10px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 10px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 11.11px;">interface</a> <a href="../../../tags/interpreter/" style="font-size: 10px;">interpreter</a> <a href="../../../tags/io/" style="font-size: 12.22px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 15.56px;">java</a> <a href="../../../tags/java8/" style="font-size: 11.11px;">java8</a> <a href="../../../tags/jquery/" style="font-size: 11.11px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/jvm/" style="font-size: 10px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 10px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 10px;">mustache</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 16.67px;">oop</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 12.22px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 11.11px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 18.89px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/string/" style="font-size: 14.44px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/tip/" style="font-size: 17.78px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 13.33px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 11.11px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 18.89px;">weekly-review</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Youngjin Mo</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+    
+        
+<script src="../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="../../../js/main.js"></script>
+
+
+</body>
+</html>

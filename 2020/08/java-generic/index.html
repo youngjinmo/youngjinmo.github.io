@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Java - Generic | DevAndy</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="generic" />
+    
+    <meta name="description" content="ToC 제네릭이란? 타입 매개변수 제네릭의 효용 - 타입 안정성 제네릭의 특징   제네릭 메서드 왜 제네릭 메서드가 필요한가? 제네릭 메서드에서 타입 매개변수를 제한하고 싶을때   컴파일러의 제네릭 타입 추론 제한된 제네릭 와일드 카드 와일드카드 종류 제한된 제네릭과 와일드 카드의 차이?      제네릭(Generic)제네릭은 클래스 내부에서 사용하는">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java - Generic">
+<meta property="og:url" content="http://youngjinmo.github.io/2020/08/java-generic/index.html">
+<meta property="og:site_name" content="DevAndy">
+<meta property="og:description" content="ToC 제네릭이란? 타입 매개변수 제네릭의 효용 - 타입 안정성 제네릭의 특징   제네릭 메서드 왜 제네릭 메서드가 필요한가? 제네릭 메서드에서 타입 매개변수를 제한하고 싶을때   컴파일러의 제네릭 타입 추론 제한된 제네릭 와일드 카드 와일드카드 종류 제한된 제네릭과 와일드 카드의 차이?      제네릭(Generic)제네릭은 클래스 내부에서 사용하는">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://lh3.googleusercontent.com/pw/ACtC-3fn4AUZCP7DphMah-Ogllwhz_L06lNtzs3GoJWLDwpu-Vub96QgCRxQzRapGka1rL8juttdvUSHa3_GaAOo74OBU9xOrM9mS84zWgiU3Q4aY0BusSSwDdQRBzKekr_dx10JzOyLbSC3UACtRhG6PxEYyw=w720-h478-no?authuser=0">
+<meta property="article:published_time" content="2020-08-19T16:24:46.000Z">
+<meta property="article:modified_time" content="2020-09-13T01:53:28.596Z">
+<meta property="article:author" content="Youngjin Mo">
+<meta property="article:tag" content="generic">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lh3.googleusercontent.com/pw/ACtC-3fn4AUZCP7DphMah-Ogllwhz_L06lNtzs3GoJWLDwpu-Vub96QgCRxQzRapGka1rL8juttdvUSHa3_GaAOo74OBU9xOrM9mS84zWgiU3Q4aY0BusSSwDdQRBzKekr_dx10JzOyLbSC3UACtRhG6PxEYyw=w720-h478-no?authuser=0">
+<meta name="twitter:creator" content="@devandy_yj">
+    
+
+    
+        <link rel="alternate" href="/" title="DevAndy" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="../../../libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="../../../libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="../../../libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="../../../css/style.css">
+
+
+    
+<script src="../../../libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-177850483-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../index.html">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Articles/">Articles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/">Dev</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Devops/">Devops</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Html-Css/">Html/Css</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Javascript/">Javascript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Others/">Others</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Springboot/">Springboot</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Web/">Web</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Review/">Review</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Thought/">Thought</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Quiz/">Quiz</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../https:/github.com/youngjinmo">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="../../../js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Java/">Java</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="posts-java-generic" class="article article-single article-type-posts" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Java - Generic
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="" class="article-date">
+       <time datetime="2020-08-19T16:24:46.000Z" itemprop="datePublished">2020-08-20</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="" class="article-date">
+     <time datetime="2020-09-13T01:53:28.596Z" itemprop="dateModified">2020-09-13</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="../../../tags/generic/" rel="tag">generic</a>
+    </div>
+
+                
+
+                
+
+            </div>
+			<!-- 	count-time		 -->
+			<!-- <span class="reading-time" style="margin-left: 20px;">⏱ 56 min.</span>  -->
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="https://lh3.googleusercontent.com/pw/ACtC-3fn4AUZCP7DphMah-Ogllwhz_L06lNtzs3GoJWLDwpu-Vub96QgCRxQzRapGka1rL8juttdvUSHa3_GaAOo74OBU9xOrM9mS84zWgiU3Q4aY0BusSSwDdQRBzKekr_dx10JzOyLbSC3UACtRhG6PxEYyw=w720-h478-no?authuser=0"></p>
+<ul>
+<li><h2 id="ToC"><a href="#ToC" class="headerlink" title="ToC"></a>ToC</h2><ul>
+<li><a href="#generic">제네릭이란?</a><ul>
+<li><a href="#type-variable">타입 매개변수</a></li>
+<li><a href="#type-safety">제네릭의 효용 - 타입 안정성</a></li>
+<li><a href="#features">제네릭의 특징</a></li>
+</ul>
+</li>
+<li><a href="#generic-method">제네릭 메서드</a><ul>
+<li><a href="#why-generic-method">왜 제네릭 메서드가 필요한가?</a></li>
+<li><a href="#limited-parameter">제네릭 메서드에서 타입 매개변수를 제한하고 싶을때</a></li>
+</ul>
+</li>
+<li><a href="#type-inference">컴파일러의 제네릭 타입 추론</a></li>
+<li><a href="#limited-generic">제한된 제네릭</a></li>
+<li><a href="#wildcard">와일드 카드</a><ul>
+<li><a href="#types-of-generics">와일드카드 종류</a></li>
+<li><a href="#difference-between-limitedgeneric-and-wildcard">제한된 제네릭과 와일드 카드의 차이?</a></li>
+</ul>
+</li>
+</ul>
+<br>
+
+<h1 id="제네릭-Generic"><a href="#제네릭-Generic" class="headerlink" title="제네릭(Generic)"></a><a name="generic"></a>제네릭(Generic)</h1><p>제네릭은 클래스 내부에서 사용하는 데이터 타입을 외부에서 지정하는 기법이다.</p>
+<p><img src="https://lh3.googleusercontent.com/pw/ACtC-3cjPbh-GitRFWPeHgyuGu-0f4G8W8vIrDmg4nbSFu-umvUXae4UsczpCAVAZ6Gsho2KaY3u6ptn2YP6fhobdhdfH4xpyi26upLVQQnFKfJuWybbOgQtao7Jugs0RveD2Ia4fchc3GrPoOknTWGXDV_vXw=w676-h246-no?authuser=0"></p>
+<p>오픈튜토리얼스에서 이고잉님이 설명하신 제네릭 이미지를 인용한다.<br>제네릭 클래스 Person을 사용하여 인스턴스를 만들때 타입 매개변수로 <code>String</code>을 주입했다. 이렇게 하면, 인스턴스 <code>p1</code>은 <code>String</code>형 Person 객체에 대한 인스턴스로 생성된다. 마찬가지로 인스턴스 <code>p2</code>는 <code>StringBuilder</code>형 Person 객체에 대한 인스턴스로 생성된다.</p>
+<p>하나의 객체의 인스턴스를 생성하며 다양한 타입의 인스턴스로 생성할 수 있는 것이다.</p>
+<p>다른 예제 코드도 함께 첨부한다.</p>
+<p><strong>Person.class</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> &lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">   <span class="keyword">public</span> T id;</span><br><span class="line">  </span><br><span class="line">   <span class="function"><span class="keyword">public</span> T <span class="title">getId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> id;</span><br><span class="line">   &#125;</span><br><span class="line">  </span><br><span class="line">   <span class="function"><span class="keyword">public</span> T <span class="title">setId</span><span class="params">(T id)</span> </span>&#123;</span><br><span class="line">     <span class="keyword">this</span>.id = id;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>PersonExam.class</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PersonExam</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      Person&lt;String&gt; t1 = <span class="keyword">new</span> Person&lt;String&gt;();</span><br><span class="line">      t1.setId(<span class="string">&quot;DevAndy&quot;</span>);</span><br><span class="line">      System.out.println( t1.getId() );</span><br><span class="line">     </span><br><span class="line">      Person&lt;Integer&gt; t2 = <span class="keyword">new</span> Person&lt;Integer&gt;();</span><br><span class="line">      t2.setId(<span class="number">123456789</span>);</span><br><span class="line">      System.out.println( t2.getId() );</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 출력결과</span><br><span class="line">DevAndy</span><br><span class="line">123456789</span><br></pre></td></tr></table></figure>
+
+<p>Person 클래스의 멤버필드 <code>id</code>는 따로 데이터타입을 지정하지 않았다. 그냥 <code>T</code> 라는 기호를 붙여뒀을뿐인데, 이 <code>T</code>는 **타입 매개변수(Type variable)**이라 하며, 클래스에서 파라미터를 통해 가져오는 데이터 타입이다. </p>
+<p>외부에서 Person 클래스를 사용할때 데이터 타입을 지정하면 이 때 지정한 데이터 타입이 파라미터를 통해 멤버필드의 타입으로 주입되는 것이다.</p>
+<br>
+
+<h2 id="타입-매개변수"><a href="#타입-매개변수" class="headerlink" title="타입 매개변수"></a><a name="type-variable"></a>타입 매개변수</h2><p>위에서 타입 매개변수라고 했는데, 일반적으로 타입 매개변수로 <code>T</code>를 많이 사용하긴 하나 왜 <code>T</code>를 사용하는지 몰랐다. 그러나 이 타입 매개변수를 작성하는데에도 관례가 존재했다.</p>
+<p>원칙이나 표준은 아니기에 타입 매개변수는 조직 내에서 약속된 범위내에서 자유롭게 쓸수 있을거라고 생각한다.</p>
+<table>
+<thead>
+<tr>
+<th>Type Variable</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>T</td>
+<td>Type</td>
+</tr>
+<tr>
+<td>S, U, V</td>
+<td>2nd, 3rd, 4th..</td>
+</tr>
+<tr>
+<td>E</td>
+<td>Element</td>
+</tr>
+<tr>
+<td>K</td>
+<td>Key</td>
+</tr>
+<tr>
+<td>V</td>
+<td>Value</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Number</td>
+</tr>
+</tbody></table>
+<br>
+
+<h2 id="제네릭의-효용-타입-안정성"><a href="#제네릭의-효용-타입-안정성" class="headerlink" title="제네릭의 효용 - 타입 안정성"></a><a name="type-safety"></a>제네릭의 효용 - 타입 안정성</h2><p>자, 근데 그래서 이걸 왜 쓰는걸까..? 아니 그냥 선언할때 데이터 타입 지정하면 외부에서 가져다 쓸때도 편하지 않을까? 굳이 데이터 타입 명시하는 일을 외부에 넘기는 이유가 뭘까?</p>
+<p>Java에서 <code>List</code>를 사용하면 IDE에서 자동으로 제네릭을 사용하는걸 경험해봤을 것이다. 자료구조 특징상 같은 데이터 타입의 데이터를 저장할 것이기에 제네릭으로 데이터 타입을 고정하여 <strong>타입 안정성</strong>을 높힌 것이다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; stringList = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line"></span><br><span class="line">stringList.add(<span class="number">1</span>)    <span class="comment">// compile error</span></span><br><span class="line">stringList.add(<span class="string">&quot;2&quot;</span>)  <span class="comment">// ok</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<p>  아래의 예제 코드를 통해 타입 안정성이 무슨 말인지 알아보자.</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">itemBox</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      List items = <span class="keyword">new</span> ArrayList();</span><br><span class="line"></span><br><span class="line">      items.add(<span class="string">&quot;ABC&quot;</span>);  <span class="comment">// unchecked</span></span><br><span class="line">      items.add(<span class="number">123</span>);    <span class="comment">// unchecked</span></span><br><span class="line"></span><br><span class="line">      <span class="keyword">for</span>(Object obj : items)&#123;</span><br><span class="line">         System.out.println(obj);</span><br><span class="line">      &#125;   </span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  <code>List</code>를 선언하면서 제네릭을 사용하지 않았다. 이때에 <code>List</code>는 기본적으로 <code>Object</code> 타입이므로 모든 객체 타입을 받아들일 수 있다. 즉 <code>String</code> 형 데이터도 add 할 수 있고, <code>int</code> 형 데이터도 add 할 수 있는 것이다.</p>
+<p>  이런 경우가 타입 안정성이 검증되지 않았다고 이야기할 수 있다. 어떤 타입의 데이터가 <code>List</code>에 add될지 알 수 없으므로 개발자가 의도하지 않은 에러가 런타임시에 발생할 수도 있는 불확실성이 존재한다. </p>
+<p>  <code>List</code>는 자바에서 자료구조 인터페이스에 해당한다. 따라서 다른 타입의 데이터가 같은 리스트에 묶이기 보다는 서로 같은 타입의 데이터가 묶여야 한다.</p>
+<p>  그러나 위 코드에서 제네릭을 적용한다면,</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ItemBox</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      List&lt;String&gt; items = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line"></span><br><span class="line">      items.add(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">      items.add(<span class="string">&quot;generic!&quot;</span>);</span><br><span class="line">      <span class="comment">// items.add(123);    // compile error</span></span><br><span class="line"></span><br><span class="line">      <span class="keyword">for</span>(String str : items)&#123;</span><br><span class="line">         System.out.println(str);</span><br><span class="line">      &#125;   </span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 출력 결과</span><br><span class="line">hello</span><br><span class="line">generic!</span><br></pre></td></tr></table></figure>
+
+<p>  <code>String</code> 형만 add 할 수 있으므로 다른 데이터 타입을 <code>List</code>에 add 하려고 하면, 컴파일 에러를 유발하게 된다. 이렇게 제네릭을 사용하면 개발자가 의도하지 않은 데이터 타입이 <code>List</code>에 추가될시 컴파일 단계에서 이 문제를 인지할 수 있게된다.</p>
+<p>  제네릭의 이런 특징을 <strong>타입 안정성을 보장</strong> 한다고 표현한다. 런타임시에 발생할 수 있는 에러를 컴파일 시에 발생하도록 유도하여 안정적인 개발을 돕는 것이다.</p>
+  <br>
+
+<h2 id="제네릭의-특징"><a href="#제네릭의-특징" class="headerlink" title="제네릭의 특징"></a><a name="features"></a>제네릭의 특징</h2><h3 id="기본형-타입은-타입-매개변수에서-불가능"><a href="#기본형-타입은-타입-매개변수에서-불가능" class="headerlink" title="기본형 타입은 타입 매개변수에서 불가능"></a>기본형 타입은 타입 매개변수에서 불가능</h3><p>  제네릭에서 타입 매개변수에 들어올 수 있는 데이터 타입으로 기본형 타입은 쓸 수 없다.</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>&lt;<span class="title">T</span>, <span class="title">S</span>&gt; </span>&#123;</span><br><span class="line">   <span class="keyword">public</span> T num;</span><br><span class="line">   <span class="keyword">public</span> S name;</span><br><span class="line">    </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(T num, S name)</span></span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.num = num;</span><br><span class="line">      <span class="keyword">this</span>.name = name;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PersonExam</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      <span class="comment">// Person&lt;int, String&gt; p1 = new Person&lt;int, String&gt;(10, &quot;devandy&quot;);</span></span><br><span class="line">      <span class="comment">// compile error</span></span><br><span class="line">     </span><br><span class="line">     System.out.println(p1.name);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  위의 코드처럼 제네릭 클래스를 사용하는 외부 클래스에서 타입으로 <a target="_blank" rel="noopener" href="https://github.com/devyoungjin/Wiki/blob/master/languages/java.md#java-type">기본형 타입</a>을 사용할 수 없다는 이야기이다. 기본형 타입을 사용하고자 한다면, 직접 사용할 순 없고 기본형 데이터 타입을 객체화하는 <a target="_blank" rel="noopener" href="https://github.com/devyoungjin/Wiki/blob/master/languages/java.md#wrapper-class">Wrapper 클래스</a>를 사용해야 한다.</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>&lt;<span class="title">T</span>, <span class="title">S</span>&gt; </span>&#123;</span><br><span class="line">   <span class="keyword">public</span> T num;</span><br><span class="line">   <span class="keyword">public</span> S name;</span><br><span class="line">    </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(T num, S name)</span></span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.num = num;</span><br><span class="line">      <span class="keyword">this</span>.name = name;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PersonExam</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      Person&lt;Integer, String&gt; p1 = <span class="keyword">new</span> Person&lt;Integer, String&gt;(<span class="number">10</span>, <span class="string">&quot;devandy&quot;</span>);</span><br><span class="line">      System.out.println(p1.name);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 출력 결과</span><br><span class="line">devandy</span><br></pre></td></tr></table></figure>
+
+  <br>
+
+<h1 id="제네릭-메서드"><a href="#제네릭-메서드" class="headerlink" title="제네릭 메서드"></a><a name="generic-method"></a>제네릭 메서드</h1><p>  제네릭은 클래스뿐만 아니라 메서드에서도 사용가능하다.</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> &lt;T&gt; <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(List&lt;T&gt; list)</span></span>&#123; &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>&lt;T&gt;</code> : 타입 매개변수</p>
+</li>
+<li><p><code>void</code> : 리턴 타입</p>
+</li>
+<li><p><code>foo</code> : 메서드 명</p>
+</li>
+<li><p><code>List&lt;T&gt; list</code> :  매개변수</p>
+<p>메서드를 제네릭 메서드로 선언하기 위해서는 접근제한자와 리턴타입 사이에 타입 매개변수를 작성해야 컴파일러에서 이 메서드를 제네릭 메서드로 인식하여 컴파일시 파라미터로 들어오는 타입 매개변수를통해 타입 추론을 할 수 있다.<br>이 내용은 <a href="#type-inference">아래</a>에서 더 정리를 했다!</p>
+<br>
+
+<h2 id="왜-제네릭-메서드가-필요한가"><a href="#왜-제네릭-메서드가-필요한가" class="headerlink" title="왜 제네릭 메서드가 필요한가?"></a><a name="why-generic-method"></a>왜 제네릭 메서드가 필요한가?</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">add</span><span class="params">(List&lt;String&gt; list, String element)</span></span>&#123;</span><br><span class="line">   list.add(element);</span><br><span class="line">   <span class="keyword">return</span> list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>add()</code>는 <code>String</code>형 <code>List</code>에만 대응할 수 있는 메서드이다. 그런데 만약 <code>String</code>형뿐만 아니라 <code>Integer</code> 등 다른 타입의 <code>List</code>도 대응하고 싶다면, 위의 메서드에서 <code>List</code>의 타입을 제네릭으로 바꿔야한다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> &lt;T&gt; <span class="function">List&lt;T&gt; <span class="title">add</span><span class="params">(List&lt;T&gt; list, T element)</span></span>&#123;</span><br><span class="line">   list.add(element);</span><br><span class="line">   <span class="keyword">return</span> list;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>이렇게 하면, 다양한 데이터 타입의 <code>List</code>에 대응할 수 있는 <code>add()</code>로 변경된다.</p>
+<p>예제 코드</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GenericMethodEx</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 일반 메서드</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">add</span><span class="params">(List&lt;String&gt; list, String element)</span></span>&#123;</span><br><span class="line">        list.add(element);</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 제네릭 메서드</span></span><br><span class="line">    <span class="keyword">public</span> &lt;T&gt; <span class="function">List&lt;T&gt; <span class="title">add</span><span class="params">(List&lt;T&gt; list, T element)</span></span>&#123;</span><br><span class="line">        list.add(element);</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        GenericMethodEx ex = <span class="keyword">new</span> GenericMethodEx();</span><br><span class="line">        </span><br><span class="line">        List&lt;String&gt; strList = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        strList.add(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">        strList.add(<span class="string">&quot;world&quot;</span>);</span><br><span class="line">        </span><br><span class="line">        List&lt;Integer&gt; intList = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">        intList.add(<span class="number">123</span>);</span><br><span class="line">        intList.add(<span class="number">456</span>);</span><br><span class="line">        </span><br><span class="line">        System.out.println(ex.add(strList, <span class="string">&quot;!&quot;</span>));</span><br><span class="line">        System.out.println(ex.add(intList, <span class="number">1000</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 출력 결과</span><br><span class="line">[hello, world, !]</span><br><span class="line">[123, 456, 1000]</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="제네릭-메서드에서-타입-매개변수를-제한하고-싶을때"><a href="#제네릭-메서드에서-타입-매개변수를-제한하고-싶을때" class="headerlink" title="제네릭 메서드에서 타입 매개변수를 제한하고 싶을때"></a><a name="limited-parameter"></a>제네릭 메서드에서 타입 매개변수를 제한하고 싶을때</h2><p>메서드로 전달되는 타입 매개변수의 범위를 제한하고자 한다면 아래처럼 입력할 수 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> &lt;T extends Fruit&gt; <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(List&lt;T&gt; list)</span></span>&#123;</span><br><span class="line">   <span class="comment">// success </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>그러나 아래처럼 메서드의 파라미터 안에서 <code>extends</code> 키워드를 사용한다면 이는 컴파일 에러가 발생한다. 파라미터가 아니라 메서드 리턴 타입에서 제한을 시켜야만 제네릭을 인자로 불러올 수 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> &lt;T&gt; <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(List&lt;T extends Fruit&gt; list)</span></span>&#123;</span><br><span class="line">   <span class="comment">// compile error</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h1 id="컴파일러의-제네릭-타입-추론"><a href="#컴파일러의-제네릭-타입-추론" class="headerlink" title="컴파일러의 제네릭 타입 추론"></a><a name="type-inference"></a>컴파일러의 제네릭 타입 추론</h1><p>Java를 처음 공부할때엔 접근제한자, 리턴 타입, 메서드명, 파라미터 순으로 메서드에 대한 정의가 제대로 이루어져야만 컴파일이 된다고 배웠다. 당연히 그도 그럴 것이, 컴파일러가 해당 메서드가 호출되는 시점에 메모리에 올리려면 정확한 객체 정보가 필요하기 때문이다.</p>
+<p>그런데 제네릭을 사용하면, 대체 컴파일러는 어떻게 타입을 추론하는걸까?</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GenericEx01</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">genericSample</span><span class="params">(T param)</span></span>&#123;</span><br><span class="line">      System.out.println(param);</span><br><span class="line">   &#125;</span><br><span class="line">    </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      genericEx01&lt;String&gt; ex = <span class="keyword">new</span> genericEx01&lt;String&gt;();</span><br><span class="line">       </span><br><span class="line">      ex.genericSample(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 출력결과</span><br><span class="line">hello</span><br></pre></td></tr></table></figure>
+
+<p>위의 코드는 제네릭 클래스 GenericEx의 인스턴스를 생성해서 <code>genericSample()</code>을 호출하는 코드이다.</p>
+<p><code>genericSample()</code>은 제네릭 타입의 파라미터를 받고 있는데, <code>main()</code>에서 인스턴스를 생성하면서 데이터 타입을 String으로 전달했기 때문에 컴파일러가 데이터 타입을 추론할 수 있었다.</p>
+<p>이제 여기서 변화를 줘보겠다. GenericEx를 제네릭 클래스에서 일반 클래스로 바꿔보겠다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GenericEx02</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">genericSample</span><span class="params">(T param)</span></span>&#123;</span><br><span class="line">      System.out.println(param);</span><br><span class="line">   &#125;</span><br><span class="line">    </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      genericEx02 ex = <span class="keyword">new</span> genericEx02();</span><br><span class="line">       </span><br><span class="line">      ex.genericSample(<span class="string">&quot;hello&quot;</span>);  <span class="comment">// compile error</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 출력결과</span><br><span class="line">Error: Unable to initialize main class genericExDevAndy.genericEx02</span><br><span class="line">Caused by: java.lang.NoClassDefFoundError: T</span><br></pre></td></tr></table></figure>
+
+<p><code>T</code>라는 클래스를 찾을수 없다는 메세지와 함께 컴파일 에러가 발생했다.</p>
+<p>왜 컴파일러는 타입 추론을 하지 못한걸까?</p>
+<p>위의 코드를 다시 훑어보면, <code>genericSample()</code>의 파라미터로 들어오는 <code>T</code>라는 타입을 컴파일러 입장에서 추론할 수 있는 방법이 없다. 인스턴스를 통해 전달된 데이터 타입이 없기 때문에 컴파일러가 타입 매개변수 <code>T</code>가 어떤 타입인지 추론하지 못하는 것이다.</p>
+<p>그래서 컴파일러에게 이 <code>T</code> 가 제네릭 타입 매개변수임을 알려주기 위해 <code>genericSample()</code>이 있는 클래스를 제네릭 클래스로 바꾸던, 메서드 자체를 제네릭 메서드로 바꾸던 해주어야 한다. 그럼 컴파일러는 <code>T</code>를 제네릭 타입 매개변수로 인지하고 이 객체를 사용하는쪽에서 주입하는 데이터 타입으로 맞춰서 호출해준다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ok</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GenericEx03</span> </span>&#123;</span><br><span class="line">   <span class="keyword">public</span> &lt;T&gt; <span class="function"><span class="keyword">void</span> <span class="title">genericSample</span><span class="params">(T param)</span> </span>&#123;</span><br><span class="line">      System.out.println(param);</span><br><span class="line">   &#125;</span><br><span class="line">	</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      GenericEx03 ex = <span class="keyword">new</span> GenericEx03();</span><br><span class="line">      ex.genericSample(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 출력결과</span></span><br><span class="line">hello</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ok</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GenericEx04</span>&lt;제네릭&gt; </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">genericSample</span><span class="params">(제네릭 param)</span> </span>&#123;</span><br><span class="line">		System.out.println(param);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		GenericEx04&lt;String&gt; ex = <span class="keyword">new</span> GenericEx04&lt;String&gt;();</span><br><span class="line">		ex.genericSample(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 출력결과</span></span><br><span class="line">hello</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>지금까지는 일반 메서드 예제코드를 다뤄봤다. 그렇다면 <code>static</code> 메서드에서는 어떨까. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GenericEx05</span></span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">genericSample</span><span class="params">(T param)</span></span>&#123;</span><br><span class="line">      <span class="comment">// compile error. 타입 추론 불가.</span></span><br><span class="line">   &#125;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>static</code> 키워드를 사용함으로써 런타임시 heap 메모리에 바로 객체를 올려두어야 하는데, 런타임시에는 이 파라미터의 데이터 타입을 알 수 없으므로 heap 메모리에 객체를 올릴수가 없게된다. </p>
+<p>따라서 이 경우엔 <code>static</code> 메서드를 <a href="#generic-method">제네릭 메서드</a>로 바꿔주어야만 컴파일이 가능해진다. 그냥 리턴 타입 앞에 제네릭 타입 변수를 명시해주면 된다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GenericEx06</span> </span>&#123;</span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function"><span class="keyword">void</span> <span class="title">genericSample</span><span class="params">(T param)</span></span>&#123;</span><br><span class="line">      <span class="comment">// ok. 타입 추론 가능.</span></span><br><span class="line">   &#125;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>이렇게 제네릭 메서드로 바꾸면, 컴파일러에서 타입 추론이 가능해진다. </p>
+<p>컴파일러는 <code>genericSample()</code> 가 타입 매개변수 <code>T</code>를 사용하는 제네릭 메서드라는걸 알고 있고, 제네릭 메서드 타입 매개변수와 같은 타입 매개변수가 파라미터로 들어왔기 때문에 컴파일러가 이 타입을 추론할 수 있는 것이다.</p>
+<p>만약 아래의 코드처럼 파라미터의 타입 매개변수와 제네릭 메서드의 타입 매개변수가 다르면, 컴파일러에서 타입 추론이불가능해지기 때문에 이 역시 컴파일 에러를 유발한다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GenericEx07</span> </span>&#123;</span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function"><span class="keyword">void</span> <span class="title">genericSample</span><span class="params">(S param)</span></span>&#123;</span><br><span class="line">      <span class="comment">// compile error.</span></span><br><span class="line">      <span class="comment">// T cannot be resolved to a type</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>타입 매개변수 <code>T</code>를 기대했지만, 파라미터로 들어온 타입 매개변수는 <code>S</code>이기 때문이다.</p>
+<br>
+
+<h1 id="제한된-제네릭"><a href="#제한된-제네릭" class="headerlink" title="제한된 제네릭"></a><a name="limited-generic"></a>제한된 제네릭</h1><p>제네릭 클래스는 이를 인스턴스로 생성해서 사용하는 쪽에서 타입 변수로 아무런 데이터 타입을 넣어서 사용할 수 있다. 그러나 이 타입변수에 <code>extends</code> 키워드를 사용하면, 특정 클래스를 상속받는 클래스로만 타입 변수를 제한할 수 있다. 이를 제한된 제네릭이라고 한다.</p>
+<p>예제 코드를 살펴보자.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Box</span>&lt;<span class="title">T</span> <span class="keyword">extends</span> <span class="title">Fruit</span>&gt; </span>&#123;</span><br><span class="line">   List&lt;T&gt; items = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">  </span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(T item)</span></span>&#123;</span><br><span class="line">      items.add(item);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>위의 코드처럼 타입 매개변수 뒤에 <code>extends</code> 키워드를 사용하면, 이 제네릭 클래스는 특정 클래스를 상속받는 타입 변수만 허용된다는 제한 조건이 성립된다. 따라서 타입변수 <code>T</code> 에 아무 데이터 타입이 들어올 수 없게 된 것이다.</p>
+<br>
+
+<h2 id="제한된-제네릭의-특징"><a href="#제한된-제네릭의-특징" class="headerlink" title="제한된 제네릭의 특징"></a>제한된 제네릭의 특징</h2><p>제한된 제네릭에선 타입 매개변수의 제한조건으로 <code>extends</code> 키워드만 사용할 수 있다. 설사 인터페이스를 구현하는 제약을 추가하려고 해도 <code>implement</code>대신 반드시 <code>extends</code> 만 사용해야 한다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Eatable</span> </span>&#123; &#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">sample</span>&lt;<span class="title">T</span> <span class="keyword">extends</span> <span class="title">Eatable</span>&gt; </span>&#123; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>추가로 클래스 Fruit의 자식이면서 인터페이스 Eatable도 구현해야한다면 <code>&amp;</code> 기호를 사용한다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FruitBox</span>&lt;<span class="title">T</span> <span class="keyword">extends</span> <span class="title">Fruit</span> &amp; <span class="title">Eatable</span>&gt;</span>&#123; &#125;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>제한된 제네릭 사용예제 코드</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Eatable</span> </span>&#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fruit</span> <span class="keyword">implements</span> <span class="title">Eatable</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> <span class="string">&quot;Fruit&quot;</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Apple</span> <span class="keyword">extends</span> <span class="title">Fruit</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> <span class="string">&quot;Apple&quot;</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Grape</span> <span class="keyword">extends</span> <span class="title">Fruit</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> <span class="string">&quot;Grape&quot;</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Toy</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> <span class="string">&quot;Toy&quot;</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Box</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">   List&lt;T&gt; list = <span class="keyword">new</span> ArrayList&lt;T&gt;();</span><br><span class="line">	</span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(T item)</span> </span>&#123; list.add(item); &#125;</span><br><span class="line">	</span><br><span class="line">   <span class="function">T <span class="title">get</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123; <span class="keyword">return</span> list.get(i); &#125;</span><br><span class="line">	</span><br><span class="line">   <span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> list.size(); &#125;</span><br><span class="line">	</span><br><span class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> list.toString(); &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FruitBox</span>&lt;<span class="title">T</span> <span class="keyword">extends</span> <span class="title">Fruit</span> &amp; <span class="title">Eatable</span>&gt; <span class="keyword">extends</span> <span class="title">Box</span>&lt;<span class="title">T</span>&gt; </span>&#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FruitBoxEx</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      FruitBox&lt;Fruit&gt; fruitBox = <span class="keyword">new</span> FruitBox&lt;Fruit&gt;();</span><br><span class="line">      FruitBox&lt;Apple&gt; appleBox = <span class="keyword">new</span> FruitBox&lt;Apple&gt;();</span><br><span class="line">      FruitBox&lt;Grape&gt; grapeBox = <span class="keyword">new</span> FruitBox&lt;Grape&gt;();  </span><br><span class="line">		</span><br><span class="line">      <span class="comment">// FruitBox&lt;Grape&gt; grapeBox2 = new FruitBox&lt;Apple&gt;();  // compile error. 타입 불일치.</span></span><br><span class="line">      <span class="comment">// FruitBox&lt;Grape&gt; grapeBox2 = new FruitBox&lt;Fruit&gt;();  // compile error. 타입 불일치.</span></span><br><span class="line">      <span class="comment">// FruitBox&lt;Toy&gt; toyBox = new FruitBox&lt;Toy&gt;();   // compile error. FruitBox의 제한조건에 부합하지 않으므로.</span></span><br><span class="line">		</span><br><span class="line">      fruitBox.add(<span class="keyword">new</span> Fruit());   </span><br><span class="line">      fruitBox.add(<span class="keyword">new</span> Apple());   <span class="comment">// appleBox의 타입 Apple이 FruitBox의 타입인 Fruit의 자식 객체이므로 Ok.</span></span><br><span class="line">      fruitBox.add(<span class="keyword">new</span> Grape());   <span class="comment">// Grape가 FruitBox의 타입인 Fruit의 자식 객체이므로 Ok.</span></span><br><span class="line">      appleBox.add(<span class="keyword">new</span> Apple());   </span><br><span class="line">      <span class="comment">// applpeBox.add(new Grape());  // appleBox의 타입 Apple과 Grape는 서로 상속관계가 아님. 타입 불일치.</span></span><br><span class="line">      grapeBox.add(<span class="keyword">new</span> Grape());   </span><br><span class="line">		</span><br><span class="line">      System.out.println(<span class="string">&quot;fruitbox : &quot;</span>+fruitBox);</span><br><span class="line">      System.out.println(<span class="string">&quot;appleBox : &quot;</span>+appleBox);</span><br><span class="line">      System.out.println(<span class="string">&quot;grapeBox : &quot;</span>+grapeBox);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 출력 결과</span><br><span class="line">fruitbox : [Fruit, Apple, Grape]</span><br><span class="line">appleBox : [Apple]</span><br><span class="line">grapeBox : [Grape]</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://repl.it/@youngjinmo/genericsSample">Repl에서 실행해보기</a></p>
+<br>
+
+<h1 id="와일드-카드"><a href="#와일드-카드" class="headerlink" title="와일드 카드"></a><a name="wildcard"></a>와일드 카드</h1><p>와일드 카드란 제네릭 타입을 파라미터나 리턴 타입으로 사용할 때 구체적인 타입 대신 사용하는 문법이다.</p>
+<p>예제 코드를 따라가보자.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GenericsWildCards</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">intSum</span><span class="params">(List&lt;? extends Number&gt; list)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">      </span><br><span class="line">      <span class="keyword">for</span>(Numer num : list)&#123;</span><br><span class="line">          sum += num.doubleValue();</span><br><span class="line">      &#125;</span><br><span class="line">       </span><br><span class="line">      <span class="keyword">return</span> sum;</span><br><span class="line">   &#125;</span><br><span class="line">    </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      GenericsWildCards generic = <span class="keyword">new</span> GenericsWildCards();</span><br><span class="line">       </span><br><span class="line">      List&lt;Integer&gt; intNums = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">      List&lt;String&gt; stringWords = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">       </span><br><span class="line">      intNums.add(<span class="number">3</span>);</span><br><span class="line">      intNums.add(<span class="number">5</span>);</span><br><span class="line">      intNums.add(<span class="number">10</span>);</span><br><span class="line">       </span><br><span class="line">      <span class="keyword">int</span> sum1 = generic.intSum(intNums);</span><br><span class="line">      <span class="keyword">int</span> sum2 = generic.intSum(stringWords); <span class="comment">// compile error. 와일드카드 조건에 불일치.</span></span><br><span class="line">       </span><br><span class="line">      System.out.println(<span class="string">&quot;sum of integers : &quot;</span>+sum1);</span><br><span class="line">      System.out.println(<span class="string">&quot;Sum of doubles : &quot;</span>+sum2);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>위의 코드를 보면, <code>sum2</code>를 선언하는 코드에서 컴파일 에러가 발생한다.</p>
+<p><img src="https://lh3.googleusercontent.com/pw/ACtC-3deMKzWikqhQOlYx02oYhd5DdfqSqf-oiLK9a1woQaOIa4MbkQ05phOhpyGlHGM-HbPwvtwmAu4lzpEp9TR6HfB10T1DcKPrc3wfqoPMSmq1qlvilz_-kW9LJquHhH6ERP-x6Luy3EFAP9uoizQ9t9qWA=w768-h132-no?authuser=0"></p>
+<p>원인은 <code>sum2</code>를 선언하는 과정에서사용한 <code>intSum()</code> 의 파라미터로 들어간 타입이  <code>generic</code> 인스턴스 객체의 와일드카드  조건에 부합하지 않은 인자(argument)로 들어왔다는 경고 문구이다.</p>
+<p><code>intSum()</code>을 보면 다음과 같이 와일드 카드를 사용하고 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">intSum</span><span class="params">(List&lt;? extends Number&gt; list)</span> </span>&#123; &#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>intSum()</code> 파라미터로 List형을 받을 수 있는데, List의 타입은 <code>Number</code>를 상속하는 자식객체 타입으로 사용을 제한하는 와일드카드가 선언되어 있다. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GenericsWildCards generic = <span class="keyword">new</span> GenericsWildCards();</span><br><span class="line">List&lt;String&gt; stringWords = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line"><span class="keyword">int</span> sum2 = generic.intSum(stringWords);</span><br></pre></td></tr></table></figure>
+
+<p>그런데 <code>intSum()</code>의 파라미터로 <code>String</code>형 List를 인자로 사용하니 컴파일 에러가 발생한 거였다.</p>
+<br>
+
+<h2 id="와일드카드-종류"><a href="#와일드카드-종류" class="headerlink" title="와일드카드 종류"></a><a name="types-of-generics"></a>와일드카드 종류</h2><p>제네릭에서 와일드 카드는 크게 3가지로 분류할 수 있다.</p>
+<h3 id="와일드-카드-Unbounded-Wildcards"><a href="#와일드-카드-Unbounded-Wildcards" class="headerlink" title="와일드 카드 (Unbounded Wildcards)"></a>와일드 카드 (Unbounded Wildcards)</h3></li>
+<li><p><code>&lt;?&gt;</code></p>
+</li>
+<li><p>제한이 없기때문에 모든 클래스나 인터페이스 타입이 올 수 있다.</p>
+</li>
+<li><p>사실상 <code>&lt;? extends Object&gt;</code>와 같다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">intSum</span><span class="params">(List&lt;?&gt; list)</span> </span>&#123; &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="와일드-카드의-하위-클래스-제한-Upper-Bounded-Wildcards"><a href="#와일드-카드의-하위-클래스-제한-Upper-Bounded-Wildcards" class="headerlink" title="와일드 카드의 하위 클래스 제한(Upper Bounded Wildcards)"></a>와일드 카드의 하위 클래스 제한(Upper Bounded Wildcards)</h3></li>
+<li><p><code>&lt;? extends T&gt;</code></p>
+</li>
+<li><p>타입 매개변수 <code>T</code>와 그 자식 객체들을 구현한 매개변수만 가능</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">intSum</span><span class="params">(List&lt;? extends T&gt; list)</span> </span>&#123; &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="와일드-카드의-상위-클래스-제한-Lower-Bounded-Wildcards"><a href="#와일드-카드의-상위-클래스-제한-Lower-Bounded-Wildcards" class="headerlink" title="와일드 카드의 상위 클래스 제한 (Lower Bounded Wildcards)"></a>와일드 카드의 상위 클래스 제한 (Lower Bounded Wildcards)</h3></li>
+<li><p><code>&lt;? super T&gt;</code></p>
+</li>
+<li><p>타입 매개변수 <code>T</code>와 그 부모 객체들을 구현한 매개변수만 가능</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">intSum</span><span class="params">(List&lt;? <span class="keyword">super</span> T&gt; list)</span> </span>&#123; &#125;    </span><br></pre></td></tr></table></figure>
+
+<p>와일드카드 예제 코드</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GenericWildcards</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 와일드카드 unbounded wildcard</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printData</span><span class="params">(List&lt;?&gt; list)</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(Object obj : list)&#123;</span><br><span class="line">            System.out.println(obj+<span class="string">&quot; ::&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 와일드카드 상위클래스 제한 lower bounded wildcard</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">addInteger</span><span class="params">(List&lt;? <span class="keyword">super</span> Integer&gt; list)</span></span>&#123;</span><br><span class="line">        list.add(<span class="number">120</span>);</span><br><span class="line">        System.out.println(list);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 와일드카드 하위클래스 제한 upper bounded wildcard</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">sum</span><span class="params">(List&lt;? extends Number&gt; list)</span></span>&#123;</span><br><span class="line">        <span class="keyword">double</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(Number n : list)&#123;</span><br><span class="line">            sum += n.doubleValue();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        List&lt;Integer&gt; intNums = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">        List&lt;String&gt; stringWords = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        </span><br><span class="line">        intNums.add(<span class="number">3</span>);</span><br><span class="line">        intNums.add(<span class="number">10</span>);</span><br><span class="line">        intNums.add(<span class="number">200</span>);</span><br><span class="line">        </span><br><span class="line">        stringWords.add(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">        stringWords.add(<span class="string">&quot;generic&quot;</span>);</span><br><span class="line">        stringWords.add(<span class="string">&quot;widlcard&quot;</span>);</span><br><span class="line">        </span><br><span class="line">        printData(stringWords);</span><br><span class="line">        addInteger(intNums);</span><br><span class="line">        System.out.println(sum(intNums));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;   출력 결과</span><br><span class="line">hello ::</span><br><span class="line">generic ::</span><br><span class="line">wildcard ::</span><br><span class="line">[3, 10, 200, 120]</span><br><span class="line">333.0</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://repl.it/@youngjinmo/java-generic-wildcard-sample-codes">Repl에서 실행하기</a></p>
+<br>
+
+<h2 id="제한된-제네릭과-와일드-카드의-차이"><a href="#제한된-제네릭과-와일드-카드의-차이" class="headerlink" title="제한된 제네릭과 와일드 카드의 차이?"></a><a name="difference-between-limitedgeneric-and-wildcard"></a>제한된 제네릭과 와일드 카드의 차이?</h2><p>제네릭을 공부하다보니 제한된 제네릭과 와일드카드가 헷갈렸다. 아래의 글을 읽고 관점을 구분해서 바라보니 그 차이를 조금씩 이해할 수 있었다.</p>
+<table>
+  <tr>
+      <th style="width:10%; text-align: center;"></th>
+      <th style="width:40%; text-align: center;">제한된 제네릭</th>
+      <th style="width:50%; text-align: center;">와일드카드</th>
+  </tr>
+  <tr>
+      <td style="text-align: center;">관점</td>
+      <td>제네릭 클래스를 선언하는 개발자</td>
+      <td>메서드를 만드는 개발자</td>
+  </tr>
+  <tr>
+      <td style="text-align: center;">목적</td>
+      <td>객체 생성시 사용될 객체를 제한</td>
+      <td>메서드에 사용될 매개변수가 제네릭 클래스를 구현한 객체일때 그 제네릭 클래스의 타입 매개변수를 제한</td>
+  </tr>
+</table>
+
+
+</li>
+</ul>
+<p>  이제 코드 작성시 제한된 제네릭과 와일드카드의 차이를 살펴보겠다.</p>
+<p>  제네릭 메서드는 파라미터에서 제한된 제네릭을 사용할 수 없었다.</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> &lt;T&gt; <span class="function"><span class="keyword">void</span> <span class="title">genericMethodEx01</span><span class="params">(List&lt;T extends Fruit&gt; list)</span></span>&#123;</span><br><span class="line">    <span class="comment">// compile error.</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> &lt;T extends Fruit&gt; <span class="function"><span class="keyword">void</span> <span class="title">genericMethodEx02</span><span class="params">(List&lt;T&gt; list)</span></span>&#123;</span><br><span class="line">    <span class="comment">// ok.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  반면, 와일드카드는 파라미터에서 제한된 제네릭을 사용하는게 가능하다.</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">genericMethodEx03</span><span class="params">(List&lt;? extends Fruit&gt; list)</span></span>&#123;</span><br><span class="line">    <span class="comment">// ok.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+  <br>
+
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://opentutorials.org/course/2518/6237">생활코딩 - 제네릭</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=n28M8iryFPw">10분 테코톡 - 💫두강의 Generics</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=SjlnP1N0R4o">한빛미디어 - 이것이 자바다 13.1 왜 제네릭을 사용해야 하는가</a></li>
+<li><a target="_blank" rel="noopener" href="https://yaboong.github.io/java/2019/01/19/java-generics-1/">YABOONG - 자바 제네릭 이해하기</a></li>
+<li><a target="_blank" rel="noopener" href="https://siyoon210.tistory.com/16">Siyoon210 - 제네릭스(Generics) 와일드카드&lt;?&gt;</a></li>
+<li><a target="_blank" rel="noopener" href="https://link.coupang.com/re/CSHARESDP?lptag=CFM65897625&pageKey=57799011&itemId=200423111&vendorItemId=71077819740">Java의 정석</a></li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://youngjinmo.github.io/2020/08/java-generic/" data-id="ckf65uej500o2acgdg3ehems0" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Youngjin Mo"
+        },
+        "headline": "Java - Generic",
+        "image": "../../../http:/youngjinmo.github.iohttps:/lh3.googleusercontent.com/pw/ACtC-3fn4AUZCP7DphMah-Ogllwhz_L06lNtzs3GoJWLDwpu-Vub96QgCRxQzRapGka1rL8juttdvUSHa3_GaAOo74OBU9xOrM9mS84zWgiU3Q4aY0BusSSwDdQRBzKekr_dx10JzOyLbSC3UACtRhG6PxEYyw=w720-h478-no?authuser=0",
+        "keywords": "generic",
+        "genre": "Dev Java",
+        "datePublished": "2020-08-20",
+        "dateCreated": "2020-08-20",
+        "dateModified": "2020-09-13",
+        "url": "../../../http:/youngjinmo.github.io/2020/08/java-generic/",
+        "description": "
+
+ToC
+제네릭이란?
+타입 매개변수
+제네릭의 효용 - 타입 안정성
+제네릭의 특징
+
+
+제네릭 메서드
+왜 제네릭 메서드가 필요한가?
+제네릭 메서드에서 타입 매개변수를 제한하고 싶을때
+
+
+컴파일러의 제네릭 타입 추론
+제한된 제네릭
+와일드 카드
+와일드카드 종류
+제한된 제네릭과 와일드 카드의 차이?
+
+
+
+
+
+제네릭(Generic)제네릭은 클래스 내부에서 사용하는 ",
+        "wordCount": 4828
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="../../../https:/github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="../run-mysql-with-docker/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Docker로 MySQL 실행하기
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="../../07/git-access-token/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Github Two-Factor 적용이후 Authenticatin Fail 발생할때</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../09/xml-json-xmlhttprequest/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3f3uUiEllt7yZ2cz-TBQE53mDoXAvAbilDnTHnb0gUIYnX86czSpvvAGNC1uwJN3Mm543ae8FVwBXvYPyOcYzNVH-5fg0VXSmiORlQSYChhlqdO1jLRs_XhVOQYcySp_K_S3JbhAK4jHpeyRpXmh45Gqg=w640-h405-no?authuser=2)" alt="XML, JSON 그리고 XMLHttpRequest" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Others/">Others</a></p>
+                            <p class="item-title"><a href="../../09/xml-json-xmlhttprequest/" class="title">XML, JSON 그리고 XMLHttpRequest</a></p>
+                            <p class="item-date"><time datetime="2020-09-01T12:00:59.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../create-table-sequence/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3dnKjQpuvDEmVxFsIrKfVbq9RCZMjbbZPOtAWR0Etr5EfTkx58EYPQjjgLEiO8XYLsVu_1TWyNmpySsDRxXvCplY6aMPhIMQgNCaH0TBpVv0vxyI_-b6pK9x8qhVSSptzKgeu-dbMHYIt-eS1MUDQnkiw=w640-h427-no?authuser=0)" alt="Oracle - Sequence 생성하고 테이블에 삽입하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Database/">Database</a></p>
+                            <p class="item-title"><a href="../create-table-sequence/" class="title">Oracle - Sequence 생성하고 테이블에 삽입하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-31T18:57:13.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../servlet-redirect-forward/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3cK_j9D5XupS1mIeAAwsE1cOAdZ05jfS290XghGTAfDNVmf1VDdldnidSEQpbEAPRe_aTchGC7U00h7lU9JKtTV3ltDyqUcofn0Xu4p0pm_ROewKfcnOG3UO4Yo4EgVG6ZeQfoemWHklC1hGMn-1DXYfQ=w640-h427-no?authuser=0)" alt="Servlet - Redirect와 Forward" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../servlet-redirect-forward/" class="title">Servlet - Redirect와 Forward</a></p>
+                            <p class="item-date"><time datetime="2020-08-30T22:32:44.000Z" itemprop="datePublished">2020-08-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../leetcode-twosum/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://assets.leetcode.com/static_assets/public/images/LeetCode_Sharing.png)" alt="Leetcode - Twosum" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Quiz/">Quiz</a></p>
+                            <p class="item-title"><a href="../leetcode-twosum/" class="title">Leetcode - Twosum</a></p>
+                            <p class="item-date"><time datetime="2020-08-24T14:28:47.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../run-mysql-with-docker/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3fdpC3xu5q4xnJRLLhSaWCrARbnQ1qdp_DpF0Z7BITrtrr6gZWGExKC4PcMlVo3AxVhVbYiFgDhNObWmtv3hGwoEtF_4zFb_1fQsdL6d1K3UNA0LRkczuC_nNvcEHERB8EIB3uvWOIps7j1iraX6DGLbQ=w720-h480-no?authuser=0)" alt="Docker로 MySQL 실행하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Devops/">Devops</a></p>
+                            <p class="item-title"><a href="../run-mysql-with-docker/" class="title">Docker로 MySQL 실행하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-23T17:12:43.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 11.11px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/api/" style="font-size: 11.11px;">api</a> <a href="../../../tags/architecture/" style="font-size: 10px;">architecture</a> <a href="../../../tags/array/" style="font-size: 11.11px;">array</a> <a href="../../../tags/aws/" style="font-size: 12.22px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 12.22px;">career</a> <a href="../../../tags/casting/" style="font-size: 12.22px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/cloud/" style="font-size: 12.22px;">cloud</a> <a href="../../../tags/compiler/" style="font-size: 10px;">compiler</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/databse/" style="font-size: 10px;">databse</a> <a href="../../../tags/datastructure/" style="font-size: 12.22px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 13.33px;">docker</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 11.11px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generic/" style="font-size: 10px;">generic</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 10px;">github</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 13.33px;">http</a> <a href="../../../tags/ide/" style="font-size: 10px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 10px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 11.11px;">interface</a> <a href="../../../tags/interpreter/" style="font-size: 10px;">interpreter</a> <a href="../../../tags/io/" style="font-size: 12.22px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 15.56px;">java</a> <a href="../../../tags/java8/" style="font-size: 11.11px;">java8</a> <a href="../../../tags/jquery/" style="font-size: 11.11px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/jvm/" style="font-size: 10px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 10px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 10px;">mustache</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 16.67px;">oop</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 12.22px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 11.11px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 18.89px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/string/" style="font-size: 14.44px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/tip/" style="font-size: 17.78px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 13.33px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 11.11px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 18.89px;">weekly-review</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Youngjin Mo</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+    
+        
+<script src="../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="../../../js/main.js"></script>
+
+
+</body>
+</html>

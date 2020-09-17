@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>jQuery - DOM, CDN | DevAndy</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="jquery" />
+    
+    <meta name="description" content="목차 intro $ DOM CDN  IntrojQuery는 특별한 기술이나 프로그래밍 언어가 아니라 Java Script의 라이브러리이다. 라이브러리는 자주 사용하는 로직들을 재사용(Reuse)을 가능하도록 만든 로직들의 묶음이다. 자바스크립트는 이런 라이브러리가 많은데, 그 중 가장 많이 쓰이는 라이브러리가 jQuery이다.       웹에서 Elemen">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery - DOM, CDN">
+<meta property="og:url" content="http://youngjinmo.github.io/2019/06/jquery-dom-cdn/index.html">
+<meta property="og:site_name" content="DevAndy">
+<meta property="og:description" content="목차 intro $ DOM CDN  IntrojQuery는 특별한 기술이나 프로그래밍 언어가 아니라 Java Script의 라이브러리이다. 라이브러리는 자주 사용하는 로직들을 재사용(Reuse)을 가능하도록 만든 로직들의 묶음이다. 자바스크립트는 이런 라이브러리가 많은데, 그 중 가장 많이 쓰이는 라이브러리가 jQuery이다.       웹에서 Elemen">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://uniformjs.com/pics/js-jquery.png">
+<meta property="article:published_time" content="2019-06-01T21:35:21.000Z">
+<meta property="article:modified_time" content="2020-09-13T01:53:28.336Z">
+<meta property="article:author" content="Youngjin Mo">
+<meta property="article:tag" content="jquery">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://uniformjs.com/pics/js-jquery.png">
+<meta name="twitter:creator" content="@devandy_yj">
+    
+
+    
+        <link rel="alternate" href="/" title="DevAndy" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="../../../libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="../../../libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="../../../libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="../../../css/style.css">
+
+
+    
+<script src="../../../libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-177850483-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../index.html">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Articles/">Articles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/">Dev</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Devops/">Devops</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Html-Css/">Html/Css</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Javascript/">Javascript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Others/">Others</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Springboot/">Springboot</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Web/">Web</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Review/">Review</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Thought/">Thought</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Quiz/">Quiz</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../https:/github.com/youngjinmo">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="../../../js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Javascript/">Javascript</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="posts-jquery-dom-cdn" class="article article-single article-type-posts" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        jQuery - DOM, CDN
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="" class="article-date">
+       <time datetime="2019-06-01T21:35:21.000Z" itemprop="datePublished">2019-06-02</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="" class="article-date">
+     <time datetime="2020-09-13T01:53:28.336Z" itemprop="dateModified">2020-09-13</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="../../../tags/jquery/" rel="tag">jquery</a>
+    </div>
+
+                
+
+                
+
+            </div>
+			<!-- 	count-time		 -->
+			<!-- <span class="reading-time" style="margin-left: 20px;">⏱ 8 min.</span>  -->
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <h3 id="목차"><a href="#목차" class="headerlink" title="목차"></a>목차</h3><ul>
+<li><a href="#jquery">intro</a></li>
+<li><a href="#$">$</a></li>
+<li><a href="#dom">DOM</a></li>
+<li><a href="#cdn">CDN</a></li>
+</ul>
+<h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a><a name="jquery"></a>Intro</h2><p>jQuery는 특별한 기술이나 프로그래밍 언어가 아니라 <strong>Java Script의 라이브러리</strong>이다.</p>
+<p>라이브러리는 자주 사용하는 로직들을 재사용(Reuse)을 가능하도록 만든 로직들의 묶음이다.</p>
+<p>자바스크립트는 이런 라이브러리가 많은데, 그 중 가장 많이 쓰이는 라이브러리가 jQuery이다.</p>
+<div align="center">
+  <img src="http://uniformjs.com/pics/js-jquery.png" width="500px" />
+</div>
+
+<p><strong>웹에서 Element를 선택하는 방법</strong>과 <strong>선택된 Element를 효율적으로 제어</strong>할 수 있는 **<u>JavaScript 라이브러리</u>**이다.</p>
+<p>jQuery 라이브러리를 사용하기 위해서는 <a href="http://jquery.org" target="_blank">jQuery 공식 사이트</a>에서 코드를 다운받아서 웹서버에 올려서 사용하거나 아래 코드처럼 구글에서 제공하는 라이브러리를 불러와서 사용할 수 있다. 이렇게 사용하는 방식을 <a href="#cdn">CDN</a>이라고 한다.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// Google Hosted Library</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">// jQuery CDN</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://code.jquery.com/jquery-2.2.4.min.js&quot;</span> &gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>CDN에 대한 <a href="#cdn">설명</a>은 아래에 정리했다.</p>
+<p>jQuery의 구조는 다음과 같다. </p>
+<img src="https://lh3.googleusercontent.com/DXJwULeoNn9FDzmIE1c9L8R8t68dnNJ2BfGw5WigQg50UU7ow5vNPJJFY8IbGkMPpr_n1M3TyJyFtX6IQh0JoROREQTpuStW88Mq64cpQuyc2xT_Yv4VSSoNk_jEA-rI7F8lfOzw8gBN2h1BjJxQOp_RMR3VJjUOW5LB2MJzreT3nN-OwOvIkwqYsIumfbVvlIxR3OFVcB_PLX-11FguNgP40IR9MFezY0IV5AAGJJGLlmDIhB1M7yMvIUtT868UFX1cNKqM0r_WQ1pkE--t3rZeCL39b5Rpzn_Ui9wf5lcDk_Eegm5ZzIi_zKGcJvdhknSYazZZ1jmrhIAlI0i0YcUiKDjiBa7ShvsB9xKb_cAIY_rvZbyAZhgIYxdfIpnGGIUv0B51hrV2s0ToaJUrCZTjrFi025FLGwgUUbXWVacrvvdwsen-fyTeAAOzRNTEgISxy6jA-LXqT3l0MS3iJOKLsPcOjtB5V58Ona9NPt_gct_BUNsA0bWBLYGClNcKYwiefzH7UqRLcHaNIw-kt2YV-KjHaHLwFZpMHRvBXzsGvOz9ZbiPFHOJx4KEFPErO0-n_oxkM1bjDp0_JMW6PxcG6aqm15f7tCNSdB3bdPAK-xMLKGt9sGeqxFGxMB4meUdtixOIlA9-y3wiFrUSI19VtvgWHTpO=w672-h233-no" height="100px" />
+
+<p>제어할 Element를 선택하고, 선택된 Element에 전달할 제어 명령어를 <code>.</code> 으로 이어서 작성하는 방식이다. 한 줄에 한 가지 제어만 가능한게 아니고, <code>.</code> 으로 여러개의 제어를 동시에 입력할 수 있다.</p>
+<p>jQuery의 데이터타입은 <strong>Function</strong>이면서 <strong>Object</strong>이다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&#x27;#div-section_1&#x27;</span>).setAlign();</span><br></pre></td></tr></table></figure>
+
+<p>위 코드에서 <code>$</code> 가 jQuery의 <strong>객체</strong>, <code>&#39;#div-section_1&#39;</code>이 <strong>selector</strong>에 해당한다. 이 문자열들을 jQuery 선택자(selector)라고 한다. </p>
+<p>참고로 Element를 선택할 때는 어떤걸 선택하느냐에 따라 사용법이 조금 다른데, DOM구조의 기본 Element라면 그냥 <code> $(&#39;body&#39;)</code> 이런 식으로 사용이 가능하나 class를 선택하려면, <code>$(&#39;#classSelector&#39;)</code>, id를 선택하려면 <code>$(&#39;.idSelector&#39;)</code> 로 사용해야 한다. </p>
+<br>
+
+<h2 id=""><a href="#" class="headerlink" title="$"></a><a name="$"></a>$</h2><p>앞서 jQuery는 <u>Element를 선택해서 효율적으로 제어</u>하는 JavaScript 라이브러리라고 했다. 이를 선택자(Selector)라고 한다. 따라서 jQuery가 HTML에서 하는 역할은 선택자에 해당한다고 이야기 할 수 있다.</p>
+<p>여기서 Element를 선택할 때 사용하는 선택자를  <code>jQuery</code> 또는 <code>$</code> 라고 한다. 일반적으로는 <code>jQuery</code>보다 사용하기 편하고, 가독성이 높아서<code>$</code> 를 사용한다.</p>
+<p><code>$</code> 는 정확히 <code>jQuery</code>와 역할이 일치하므로 <code>$</code> 의 데이터타입 또한 Function이면서 Object라는 특징을 갖는다. </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;welcome&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javscript&quot;</span>&gt;</span></span><br><span class="line"><span class="javascript">         <span class="comment">// &quot;welcome&quot; class를 선택해서 html코드와 css코드를 명령한다.</span></span></span><br><span class="line"><span class="javascript">         $(<span class="string">&quot;welcome&quot;</span>).html(<span class="string">&quot;hello world!&quot;</span>).css(<span class="string">&quot;background-color&quot;</span>, <span class="string">&quot;yellow&quot;</span>);</span></span><br><span class="line"><span class="javascript">        <span class="comment">// 아래 코드와 정확히 일치한다.</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">// jQuery(&quot;welcome&quot;).html(&quot;hello world!&quot;).css(&quot;background-color&quot;, &quot;yellow&quot;);</span></span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a><a name="dom"></a>DOM</h2><p>웹 문서의 구조를 표현하는 개념이다. 데이터 스트럭쳐와 유사하다.</p>
+<p>DOM은 Document Object Model의 약자로써 문서 객체 모델을 의미한다. 웹 페이지의 객체 지향적 표현이며, HTML, XML문서를 구조화함으로써 **<u>자바스크립트와 같은 프로그래밍 언어로 보다 쉽게 제어할 수 있도록 돕는 모델</u>**이다. </p>
+<div align="center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/DOM-model.svg/1920px-DOM-model.svg.png" width="400px" />
+</div>
+
+<p>DOM을 구현하는 기준을 ‘웹 표준’이라고 하는데, 그동안 W3C, WHATWG 이라는 단체에서 웹 표준에 대한 문서를 발간했었고, 전 세계 웹 개발자들이 이를 적용하여 개발하고 있었다. 그런데 2019년 5월 28일 <a href="https://www.w3.org/blog/2019/05/w3c-and-whatwg-to-work-together-to-advance-the-open-web-platform/" target="_blank">W3C 블로그</a>에 WHATWG와 W3C가 이제 하나의 웹 표준을  지향할 수 있게 되었다는 글이 올라오면서 변화를 맞이하게 되었다. 원문을 읽어보면, WHATWG는 HTML과 DOM에 대한 기준을 유지하며, W3C는 독립적인 문서 발간을 중지한다고 밝혔다. 두 단체간의 웹 표준 전쟁에서 WHATWG가 이긴 것처럼 보인다. 아래 한글 기사를 첨부하지만, 내용이 어수선한 관계로 꼭 원문도 함께 읽기를 바란다.</p>
+<ul>
+<li><a href="http://www.zdnet.co.kr/view/?no=20190531184644" target="blank">지디넷 기사 : 둘로 나뉜 웹 표준, 하나로 합쳐진다.</a></li>
+<li><a href="https://www.w3.org/blog/2019/05/w3c-and-whatwg-to-work-together-to-advance-the-open-web-platform/" target="blank">원문 : W3C and WHATWG to work together to advance the open Web platform</a></li>
+</ul>
+<br>
+
+<h2 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a><a name="cdn"></a>CDN</h2><p>CDN은 Content Delivery Network의 약자로써 다양한 컨텐츠를 복잡한 네트워크 환경에서 사용자에게 안정적으로 전송해주는 서비스라고 이해 할 수 있다. 네이버 지식백과를 인용하면 다음과 같다.</p>
+<p style="color: gray">
+  <i>인터넷 사용자들로부터 멀리 떨어져 있는 컨텐츠 제공자의 웹 서버에 집중되어 있는 컨텐츠들 중 그림, 배너, 비디오, 오디오와 같이 용량이 크거나 사용자들의 요구가 많은 컨텐츠를 여러 인터넷 서비스 사업자(ISP)의 POP들에 설치한 CDN 서버에 미리 저장해 놓고, 컨텐츠 요구 발생 시 가장 최적의 CDN 서버로부터 신속한 경로를 통해 사용자에게 컨텐츠를 전달해주는 새로운 개념의 데이터 전송 서비스를 의미한다.</i>
+</p>
+
+
+
+<ul>
+<li>컨텐츠(자료)를 효율적으로 전달하기 위해 준비된 네트워크</li>
+<li>클라이언트의 컨텐츠 요청의 병목현상을 해결한다</li>
+<li>서버의 불필요한 트래픽을 주링고 반복작업을 줄여준다</li>
+<li>자주 사용디는 컨텐트를 네트워크 중간중간에 복사해두고 클라이언트의 요청을 받으면 적절한 위치의 컨텐츠를 전송하는 시스템</li>
+</ul>
+<p>jQuery CDN을 이용하면 자체 서로 호스팅하는 것보다 빠르고, <strong>브라우저 캐싱을 지원</strong>한다는 장점이 있다. </p>
+<p style="color: gray">
+  <i><b>브라우저 캐싱</b>이란, 웹 페이지를 로드할 때마다 페이지를 표시하기 위해 필요한 웹 파일을 다운받게 되는데 매 번 웹 페이지에 접속할 때마다 모든 웹 파일을 다운받으면 통신 속도에 부담을 줄수도 있고, 비효율적이기도 하다. 따라서 한 번 접속해서 다운받은 웹 파일을 로컬에 유지시켜서 다음에 해당 웹 페이지에 접속할때마다 새로 다운받을 필요없이 로컬에 저장된 웹 파일을 이용하여 보다 빠르게 웹 페이지에 접속할 수 있다.</i>
+</p>
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://youngjinmo.github.io/2019/06/jquery-dom-cdn/" data-id="ckf65ue0c00dyacgd3ibed7xd" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Youngjin Mo"
+        },
+        "headline": "jQuery - DOM, CDN",
+        "image": "../../../http:/youngjinmo.github.iohttp:/uniformjs.com/pics/js-jquery.png",
+        "keywords": "jquery",
+        "genre": "Dev Javascript",
+        "datePublished": "2019-06-02",
+        "dateCreated": "2019-06-02",
+        "dateModified": "2020-09-13",
+        "url": "../../../http:/youngjinmo.github.io/2019/06/jquery-dom-cdn/",
+        "description": "목차
+intro
+$
+DOM
+CDN
+
+IntrojQuery는 특별한 기술이나 프로그래밍 언어가 아니라 Java Script의 라이브러리이다.
+라이브러리는 자주 사용하는 로직들을 재사용(Reuse)을 가능하도록 만든 로직들의 묶음이다.
+자바스크립트는 이런 라이브러리가 많은데, 그 중 가장 많이 쓰이는 라이브러리가 jQuery이다.
+
+  
+
+
+웹에서 Elemen",
+        "wordCount": 760
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="../../../https:/github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="../oracle-intro/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            데이터베이스 - Oracle
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="../../05/javascript-object/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">JavaScript - Object</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../2020/09/xml-json-xmlhttprequest/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3f3uUiEllt7yZ2cz-TBQE53mDoXAvAbilDnTHnb0gUIYnX86czSpvvAGNC1uwJN3Mm543ae8FVwBXvYPyOcYzNVH-5fg0VXSmiORlQSYChhlqdO1jLRs_XhVOQYcySp_K_S3JbhAK4jHpeyRpXmh45Gqg=w640-h405-no?authuser=2)" alt="XML, JSON 그리고 XMLHttpRequest" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Others/">Others</a></p>
+                            <p class="item-title"><a href="../../../2020/09/xml-json-xmlhttprequest/" class="title">XML, JSON 그리고 XMLHttpRequest</a></p>
+                            <p class="item-date"><time datetime="2020-09-01T12:00:59.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../2020/08/create-table-sequence/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3dnKjQpuvDEmVxFsIrKfVbq9RCZMjbbZPOtAWR0Etr5EfTkx58EYPQjjgLEiO8XYLsVu_1TWyNmpySsDRxXvCplY6aMPhIMQgNCaH0TBpVv0vxyI_-b6pK9x8qhVSSptzKgeu-dbMHYIt-eS1MUDQnkiw=w640-h427-no?authuser=0)" alt="Oracle - Sequence 생성하고 테이블에 삽입하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Database/">Database</a></p>
+                            <p class="item-title"><a href="../../../2020/08/create-table-sequence/" class="title">Oracle - Sequence 생성하고 테이블에 삽입하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-31T18:57:13.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../2020/08/servlet-redirect-forward/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3cK_j9D5XupS1mIeAAwsE1cOAdZ05jfS290XghGTAfDNVmf1VDdldnidSEQpbEAPRe_aTchGC7U00h7lU9JKtTV3ltDyqUcofn0Xu4p0pm_ROewKfcnOG3UO4Yo4EgVG6ZeQfoemWHklC1hGMn-1DXYfQ=w640-h427-no?authuser=0)" alt="Servlet - Redirect와 Forward" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../../../2020/08/servlet-redirect-forward/" class="title">Servlet - Redirect와 Forward</a></p>
+                            <p class="item-date"><time datetime="2020-08-30T22:32:44.000Z" itemprop="datePublished">2020-08-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../2020/08/leetcode-twosum/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://assets.leetcode.com/static_assets/public/images/LeetCode_Sharing.png)" alt="Leetcode - Twosum" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Quiz/">Quiz</a></p>
+                            <p class="item-title"><a href="../../../2020/08/leetcode-twosum/" class="title">Leetcode - Twosum</a></p>
+                            <p class="item-date"><time datetime="2020-08-24T14:28:47.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../2020/08/run-mysql-with-docker/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3fdpC3xu5q4xnJRLLhSaWCrARbnQ1qdp_DpF0Z7BITrtrr6gZWGExKC4PcMlVo3AxVhVbYiFgDhNObWmtv3hGwoEtF_4zFb_1fQsdL6d1K3UNA0LRkczuC_nNvcEHERB8EIB3uvWOIps7j1iraX6DGLbQ=w720-h480-no?authuser=0)" alt="Docker로 MySQL 실행하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Devops/">Devops</a></p>
+                            <p class="item-title"><a href="../../../2020/08/run-mysql-with-docker/" class="title">Docker로 MySQL 실행하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-23T17:12:43.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 11.11px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/api/" style="font-size: 11.11px;">api</a> <a href="../../../tags/architecture/" style="font-size: 10px;">architecture</a> <a href="../../../tags/array/" style="font-size: 11.11px;">array</a> <a href="../../../tags/aws/" style="font-size: 12.22px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 12.22px;">career</a> <a href="../../../tags/casting/" style="font-size: 12.22px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/cloud/" style="font-size: 12.22px;">cloud</a> <a href="../../../tags/compiler/" style="font-size: 10px;">compiler</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/databse/" style="font-size: 10px;">databse</a> <a href="../../../tags/datastructure/" style="font-size: 12.22px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 13.33px;">docker</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 11.11px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generic/" style="font-size: 10px;">generic</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 10px;">github</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 13.33px;">http</a> <a href="../../../tags/ide/" style="font-size: 10px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 10px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 11.11px;">interface</a> <a href="../../../tags/interpreter/" style="font-size: 10px;">interpreter</a> <a href="../../../tags/io/" style="font-size: 12.22px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 15.56px;">java</a> <a href="../../../tags/java8/" style="font-size: 11.11px;">java8</a> <a href="../../../tags/jquery/" style="font-size: 11.11px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/jvm/" style="font-size: 10px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 10px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 10px;">mustache</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 16.67px;">oop</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 12.22px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 11.11px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 18.89px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/string/" style="font-size: 14.44px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/tip/" style="font-size: 17.78px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 13.33px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 11.11px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 18.89px;">weekly-review</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Youngjin Mo</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+    
+        
+<script src="../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="../../../js/main.js"></script>
+
+
+</body>
+</html>

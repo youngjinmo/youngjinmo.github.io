@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>터미널 녹화기 Asciinema | DevAndy</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="python" />
+    
+    <meta name="description" content="터미널 화면을 녹화하는 Asciinema 패키지를 알게되서 정리하게 되었다. Asciinema를 사용해서 녹화한 화면은 아래와 같다.    설치 회원 가입 녹화    설치Ubuntu 123sudo apt-add-repository ppa:zanchey&#x2F;asciinemasudo apt-get updatesudo apt-get install asc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="터미널 녹화기 Asciinema">
+<meta property="og:url" content="http://youngjinmo.github.io/2020/03/asciinema/index.html">
+<meta property="og:site_name" content="DevAndy">
+<meta property="og:description" content="터미널 화면을 녹화하는 Asciinema 패키지를 알게되서 정리하게 되었다. Asciinema를 사용해서 녹화한 화면은 아래와 같다.    설치 회원 가입 녹화    설치Ubuntu 123sudo apt-add-repository ppa:zanchey&#x2F;asciinemasudo apt-get updatesudo apt-get install asc">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://ubuntunext.com/wp-content/uploads/2016/04/asciinema1.jpg">
+<meta property="article:published_time" content="2020-03-15T12:01:04.000Z">
+<meta property="article:modified_time" content="2020-09-13T01:53:29.520Z">
+<meta property="article:author" content="Youngjin Mo">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://ubuntunext.com/wp-content/uploads/2016/04/asciinema1.jpg">
+<meta name="twitter:creator" content="@devandy_yj">
+    
+
+    
+        <link rel="alternate" href="/" title="DevAndy" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="../../../libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="../../../libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="../../../libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="../../../css/style.css">
+
+
+    
+<script src="../../../libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-177850483-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../index.html">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Articles/">Articles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/">Dev</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Devops/">Devops</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Html-Css/">Html/Css</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Javascript/">Javascript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Others/">Others</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Springboot/">Springboot</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Web/">Web</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Review/">Review</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Thought/">Thought</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Quiz/">Quiz</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../https:/github.com/youngjinmo">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="../../../js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Others/">Others</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="posts-asciinema" class="article article-single article-type-posts" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        터미널 녹화기 Asciinema
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="" class="article-date">
+       <time datetime="2020-03-15T12:01:04.000Z" itemprop="datePublished">2020-03-15</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="" class="article-date">
+     <time datetime="2020-09-13T01:53:29.520Z" itemprop="dateModified">2020-09-13</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="../../../tags/python/" rel="tag">python</a>
+    </div>
+
+                
+
+                
+
+            </div>
+			<!-- 	count-time		 -->
+			<!-- <span class="reading-time" style="margin-left: 20px;">⏱ 5 min.</span>  -->
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <img src="http://ubuntunext.com/wp-content/uploads/2016/04/asciinema1.jpg" width="650px" />
+
+<p>터미널 화면을 녹화하는 <a target="_blank" rel="noopener" href="https://asciinema.org/">Asciinema</a> 패키지를 알게되서 정리하게 되었다. Asciinema를 사용해서 녹화한 화면은 아래와 같다.</p>
+<script id="asciicast-170142" src="https://asciinema.org/a/170142.js" async></script>
+
+<ul>
+<li><a href="#install">설치</a></li>
+<li><a href="#signup">회원 가입</a></li>
+<li><a href="#rec">녹화</a></li>
+</ul>
+<br>
+
+<h2 id="설치"><a href="#설치" class="headerlink" title="설치"></a><a name="install"></a>설치</h2><p><strong>Ubuntu</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-add-repository ppa:zanchey&#x2F;asciinema</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install asciinema</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>MacOS (Homebrew)</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install asciinema</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="회원가입"><a href="#회원가입" class="headerlink" title="회원가입"></a><a name="signup"></a>회원가입</h2><p>asciinema를 통해 생성되는 파일(.cast)은 일반적인 미디어 플레이로 재생할 수 없다. 재생하려면 asciinema를 통해서만 가능한데, 이를 asciinema에 업로드하면, embed링크를 통해 어디서나 재생할 수 있게된다. 따라서 회원가입을 하는것을 추천한다.</p>
+<p>웹에서 회원가입이 끝났다면, 터미널로 다시 돌아가서 asciinema 로그인 상태를 전달하자.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ asciinema auth</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://lh3.googleusercontent.com/hdbRY9R91_sYu4aup6TB2KqdfbBbWMvrv_txe_EFeNqQtAT08KQendVrtxZbQhWj1bXzOs4fm7brartKOXoVGW18HgxaALauhpHmZ40b4TN5mgmB_Avo2P2DMPppISwcLHC26tLQpbAp67aPSBVtaYwfBBVDiPADRgGTH1o2iZsFyPuCLlL9mUd2ebrcNb_2rsy3KKnk9B0JcRyiaIc3XzR7VFowtfs3_mVlUTmNTBBBO2SH1qETrPNX5PcLT0xJfU9ymGMBopZONhx9ZUnvOzD3pwO9a31ws5yZVVKtqV4M2AelbvyoNPHAXRU7GmyyWn4Y_pAMspogksfEG0krM4YuePcbQBq7HxWMAg6Gjtgg_cOZkc_mRM6VnyO6g-KeFb4pKSiTAY9XiTqb4DQriZM2pD7a3-znIf2kSEgnJi9FiDYV4en4i2kmlVIaxaCts_NOIsk-h2yj-TrV4R67gCljT9Y3DPxX9VujhGc-30a_ePYBTv7SDpGoux81KvwTjJOLpO1L6-r9zvvrr01ymjlCYDGDWAWYcWrDODH6pebwN67MXXM2ww39JX9DVj2VVAYDtRT2ZrVV2WR0wwpkCV379Fis5XhGRbeaulmvUEnPaafHP-Rb-gNlagLC3jTQeg0yX45NsHndE64be6Dv1MZzUHcyZyvAvKI7MF_C2tT3-fmCkz2P09MknQJjfklkhZdmGKTcwlGS48SfXwWQQLvG1DDgFLjZGjZdj13p0fniiq8KIQ=w807-h264-no"></p>
+<p>그럼 url이 하나 생성되는데, 생성된 url로 웹브라우저로 접속해서 로그인하면, 앞으로 터미널에서 asciinema를 통해 녹화되는 영상을 클라우드(asciinema.org)로 업로드할 수 있게 된다.</p>
+<br>
+
+<h2 id="녹화"><a href="#녹화" class="headerlink" title="녹화"></a><a name="rec"></a>녹화</h2><p>터미널을 녹화하는 커맨드 명령어를 알아보자.</p>
+<p><img src="https://lh3.googleusercontent.com/q4e5VsIPKE5ZVDF4qXmDRJCtNck9I4-icrkuRGiLceMBNbB_k_E5MWQXEYBHcYWuSU1zxgwgzt4Q2GyBHAyygEYUtgaDSVECS7z4Zd2SaBm3Nm1jsfrZKvFSuwwjrJGLZKqf2299Zmk2UA9AYj66dXPNJ9nGFLf6tKnwvzeM6n57I5tOfsMfzJK0Guy2PLwXffcp9ZjeNkKxlYRETx2-mtBiWkCW34zWLAU5XiHbWICM0JBuMwTekGLdyG0yUcYvWtTwqntFii2FSMqOoSAggXztKXMhABh2-upd4lfKKPhRsY29UUPIGBS-TmVj2T-2Dh_n_yed-B_CtcvwoNCXYFywCmiFucnVMIfzYbEiRREliHOQdjOLid9vmKIuehTuAffabpffVbinrGQHfzZaQKD-xq_fj1FzbT2NQNZu9V7jycYzaHWRsjwVJ3kZI4zrv0QhvUU6SrzxNt_ABz2MIEizOyravTNjEDB_Ww8zkTZ51v1UGKTI20aHxqOfcAW0_r5mhN1v2R1RBaby639CNqqSK_2sFOFOMBZIhUw0hJHzv8H-P9KH6CZ643gyISVzoR014B8cL9V_iuwBqix8g67Be4oOIBc2r144w2xkRJbs7q9laJYTmQN1HrBf-eiq6zOZl6SwrZnZDj62zXL5KfxHsH54UZR7EFy9eZCSIp4p4XW9F8A8mSmWUMHfXbiF0ZpGuhtgDFdDjyDOwSX66cgRQOLs-ZCeTd-Uxiu7Iwrvbul8mgxxy9Rm=w809-h530-no"></p>
+<p>저장할 때 파일의 명령을 지정하면서 저장하는 명령어는 다음과 같다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ asciinema rec -t &quot;new-file&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>녹화를 중지하고 싶으면 exit를 입력하면 된다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ exit</span><br></pre></td></tr></table></figure>
+
+
+
+<p>그럼 녹화 영상을 asciinema.org로 업로드할지, 로컬에 저장할지를 묻는다. 업로드를 원한다면, Enter 로컬에만 저장을 원한다면 ctrl+c를 입력하면 된다.</p>
+<p><strong>로컬에 저장했을 때.</strong></p>
+<p><img src="https://lh3.googleusercontent.com/ZiqelRnS6wLSQZvYAG2uqSdfdPgxVzNKr3dqG2h1PaQoWBRe-UrAMhAP-YDzVGFiUuEE3r0wbV173inj0OvF2ImfS6v--PKNOqMd5Nwvlm4_t93KpNrozmxiEoZjdDExlw1bzvRHDLtnZlXRYEw9bfmtejxC4W5hvFpxWQMMDJiMKC_r8MHkHGe7Z7E6ujJPRk4vcsGvZwR6mQO6-lHucP0V3pyNQGQpF9QL-d4CzmSi4Hik8nnLuQzANFPnFDStbX_vm8XY13n2ZH1iB648sU4r1olRx-NKX2B_Vbx1csP4oro9e45f7L-8bUfA4U2C4bbKVnpPJdnbu1qHRHFHfD8vZBAiRGu3zIm-riQo7Qc1o5g3fmmsphVTdQEp97xigYZWurf_TfK1uqKI0bsgGmtMQcwOSYx_AA3w_yZZmluyUYt5yRYEeVMFnPaPMYKOrppy8O1HBk_dlyWg76M8DZdNHwOowaOOE99xZ3XCWN_GKh1YjSI7mZDMaOlTqdNId29_zIWblcfb-UMxYtlRNw8yDZzQmpD9AmgptQjN7GIj7pfSluqvkQWvFqdpjjaeim0cnZmCJ1BCh-VMa3sHRUMHCcF40SpQd9YrtZaIvi3u4MCVYiWbpd2LDfZSGCSdtg-boN-Rmc_hHqi1hFEyydeVRbmn2JoQvBk848f1ZUxnCzssHKC-ToIDt3vmcuer4xJ91j3C0qOnMEpUaDhhQPVnW6B3-TWdZLrfVhouSzIHOLZdtiMaTNvb=w739-h143-no"></p>
+<p><strong>업로드했을 때.</strong></p>
+<p><img src="https://lh3.googleusercontent.com/UmAK-Ni3DUpBwxxg_5KpEverW_G4yriZIDT5-UejiPdojSJEQXGd8XWA6c8i25ZrF2FYkD4qGfDdkoobvLitPBcRW0frsNqB32IKbd0l23mIeoouwxQa6PxZO1gSBJoOEyOVjJ_LFRg5SDrt3umvo4Kd4_xT4Ge83MtW2Fz5hnPkmiOjS3drbtop-O4Rw4AwMy9EHUXbWw4Q4ruuULcZCQfG_TDTju3MMwLFatx6H7RfObc22U1ijQhewnj4M0w4pXW2z0y1F00YWtyNoElJnv-re-CD0rR59gPFpgNv9iGE0uGNpfhFqeg7f5XETzZe_fqfsOMYS3sTMuxGoPwBQOcGAv8-7OD1T7T5jKpTt8TId4qe417VpLz54BAJ4-cP3efv6Qf2uvI4K86rQ_EgWMkorfr2f4Ez_Sk_EybRj2N7xeLmxubHRvVmjCkFQ13EnD35L2vZrGMdHWizcKlCyQrK8Twh-nev8mKxRBYLhfTk8OixY7SWSCzTd60lj2ibATrZIQ5IndFk7jw8Os5fC9_WK6wCq26mCxsaOtudgV3h6pkh2Gs2iSu5M_r8OZxWe3oOxqOyDXK9KsbX_Q2p-lObBuxqSyDGgpDXxiZjXRZPpiQ5AOSmVXOL9mUtbK4Hg2ZtiPUEYfpuuV9XGAM6KcCX00FD9GrX9ZbbB5s64kDuTMgi70Bxnu8SyP2Vf0qGK_s7l5kOq1xiIzL2BcY9Wr8EKUPGHTckGfhl_J17bO4U5bXjlw=w810-h218-no"></p>
+<p>위 링크로 접속하면 방금 녹화한 영상을 확인할 수 있다.</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://youngjinmo.github.io/2020/03/asciinema/" data-id="ckf65ucux002facgd40w1aj9o" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Youngjin Mo"
+        },
+        "headline": "터미널 녹화기 Asciinema",
+        "image": "../../../http:/youngjinmo.github.iohttp:/ubuntunext.com/wp-content/uploads/2016/04/asciinema1.jpg",
+        "keywords": "python",
+        "genre": "Dev Others",
+        "datePublished": "2020-03-15",
+        "dateCreated": "2020-03-15",
+        "dateModified": "2020-09-13",
+        "url": "../../../http:/youngjinmo.github.io/2020/03/asciinema/",
+        "description": "
+
+터미널 화면을 녹화하는 Asciinema 패키지를 알게되서 정리하게 되었다. Asciinema를 사용해서 녹화한 화면은 아래와 같다.
+
+
+
+설치
+회원 가입
+녹화
+
+
+
+설치Ubuntu
+123sudo apt-add-repository ppa:zanchey&#x2F;asciinemasudo apt-get updatesudo apt-get install asc",
+        "wordCount": 193
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="../../../https:/github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="../aws-tutorial-create-ec2/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            AWS 튜토리얼(1) - Ec2 생성하기
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="../hexo-donation-card/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Hexo 블로그에 카카오페이 후원버튼 삽입하기</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../09/xml-json-xmlhttprequest/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3f3uUiEllt7yZ2cz-TBQE53mDoXAvAbilDnTHnb0gUIYnX86czSpvvAGNC1uwJN3Mm543ae8FVwBXvYPyOcYzNVH-5fg0VXSmiORlQSYChhlqdO1jLRs_XhVOQYcySp_K_S3JbhAK4jHpeyRpXmh45Gqg=w640-h405-no?authuser=2)" alt="XML, JSON 그리고 XMLHttpRequest" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Others/">Others</a></p>
+                            <p class="item-title"><a href="../../09/xml-json-xmlhttprequest/" class="title">XML, JSON 그리고 XMLHttpRequest</a></p>
+                            <p class="item-date"><time datetime="2020-09-01T12:00:59.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/create-table-sequence/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3dnKjQpuvDEmVxFsIrKfVbq9RCZMjbbZPOtAWR0Etr5EfTkx58EYPQjjgLEiO8XYLsVu_1TWyNmpySsDRxXvCplY6aMPhIMQgNCaH0TBpVv0vxyI_-b6pK9x8qhVSSptzKgeu-dbMHYIt-eS1MUDQnkiw=w640-h427-no?authuser=0)" alt="Oracle - Sequence 생성하고 테이블에 삽입하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Database/">Database</a></p>
+                            <p class="item-title"><a href="../../08/create-table-sequence/" class="title">Oracle - Sequence 생성하고 테이블에 삽입하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-31T18:57:13.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/servlet-redirect-forward/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3cK_j9D5XupS1mIeAAwsE1cOAdZ05jfS290XghGTAfDNVmf1VDdldnidSEQpbEAPRe_aTchGC7U00h7lU9JKtTV3ltDyqUcofn0Xu4p0pm_ROewKfcnOG3UO4Yo4EgVG6ZeQfoemWHklC1hGMn-1DXYfQ=w640-h427-no?authuser=0)" alt="Servlet - Redirect와 Forward" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../../08/servlet-redirect-forward/" class="title">Servlet - Redirect와 Forward</a></p>
+                            <p class="item-date"><time datetime="2020-08-30T22:32:44.000Z" itemprop="datePublished">2020-08-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/leetcode-twosum/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://assets.leetcode.com/static_assets/public/images/LeetCode_Sharing.png)" alt="Leetcode - Twosum" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Quiz/">Quiz</a></p>
+                            <p class="item-title"><a href="../../08/leetcode-twosum/" class="title">Leetcode - Twosum</a></p>
+                            <p class="item-date"><time datetime="2020-08-24T14:28:47.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/run-mysql-with-docker/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3fdpC3xu5q4xnJRLLhSaWCrARbnQ1qdp_DpF0Z7BITrtrr6gZWGExKC4PcMlVo3AxVhVbYiFgDhNObWmtv3hGwoEtF_4zFb_1fQsdL6d1K3UNA0LRkczuC_nNvcEHERB8EIB3uvWOIps7j1iraX6DGLbQ=w720-h480-no?authuser=0)" alt="Docker로 MySQL 실행하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Devops/">Devops</a></p>
+                            <p class="item-title"><a href="../../08/run-mysql-with-docker/" class="title">Docker로 MySQL 실행하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-23T17:12:43.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 11.11px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/api/" style="font-size: 11.11px;">api</a> <a href="../../../tags/architecture/" style="font-size: 10px;">architecture</a> <a href="../../../tags/array/" style="font-size: 11.11px;">array</a> <a href="../../../tags/aws/" style="font-size: 12.22px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 12.22px;">career</a> <a href="../../../tags/casting/" style="font-size: 12.22px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/cloud/" style="font-size: 12.22px;">cloud</a> <a href="../../../tags/compiler/" style="font-size: 10px;">compiler</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/databse/" style="font-size: 10px;">databse</a> <a href="../../../tags/datastructure/" style="font-size: 12.22px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 13.33px;">docker</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 11.11px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generic/" style="font-size: 10px;">generic</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 10px;">github</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 13.33px;">http</a> <a href="../../../tags/ide/" style="font-size: 10px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 10px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 11.11px;">interface</a> <a href="../../../tags/interpreter/" style="font-size: 10px;">interpreter</a> <a href="../../../tags/io/" style="font-size: 12.22px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 15.56px;">java</a> <a href="../../../tags/java8/" style="font-size: 11.11px;">java8</a> <a href="../../../tags/jquery/" style="font-size: 11.11px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/jvm/" style="font-size: 10px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 10px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 10px;">mustache</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 16.67px;">oop</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 12.22px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 11.11px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 18.89px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/string/" style="font-size: 14.44px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/tip/" style="font-size: 17.78px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 13.33px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 11.11px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 18.89px;">weekly-review</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Youngjin Mo</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+    
+        
+<script src="../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="../../../js/main.js"></script>
+
+
+</body>
+</html>

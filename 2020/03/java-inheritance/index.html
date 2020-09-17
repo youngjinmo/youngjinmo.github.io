@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Java - 상속 (Extends) | DevAndy</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="oop" />
+    
+    <meta name="description" content="상속은 부모 클래스를 상속받은 자식 클래스가 기능을 물려받는 걸 의미한다. 아래 예제 코드를 보자. Bus 클래스는 아무것도 선언되지 않았지만, Car 클래스를 상속받고 있으며, passenger 클래스에서 Bus 클래스의 인스턴스를 생성해서 Car 클래스의 메서드 run()을 실행하는 코드이다.  Car.java 1234567package devand">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java - 상속 (Extends)">
+<meta property="og:url" content="http://youngjinmo.github.io/2020/03/java-inheritance/index.html">
+<meta property="og:site_name" content="DevAndy">
+<meta property="og:description" content="상속은 부모 클래스를 상속받은 자식 클래스가 기능을 물려받는 걸 의미한다. 아래 예제 코드를 보자. Bus 클래스는 아무것도 선언되지 않았지만, Car 클래스를 상속받고 있으며, passenger 클래스에서 Bus 클래스의 인스턴스를 생성해서 Car 클래스의 메서드 run()을 실행하는 코드이다.  Car.java 1234567package devand">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://lh3.googleusercontent.com/TyUk47LCOAA6ZovnFa85hJwToTN96xco_8r0436hrCI25FZWouRIfUy9vyxX6sgJgILJyRwuoOVdnp4cpcOSsm-KyGh3Z9C_nQ6_63ANYI6Jhm0HvZkEL9dKj0t9_rSVmBcYFH8KymYdXWj2UXeu04ldXITFr7fcwpxfKMki_mAFVPZI_S179AdO01VrKuGt-m3CVGPviiC5nCzgI86aV8Hxsrabd-XaWRnTLI6Pa4FmWX-NxfeMLf8ud3snwymPxIcsxMqmlEuTikk9JQHMYZDvyYijY3sfpG2pO-Ul9BWOV_Glrvg4xZ90mISBeQFMcgnYDXcQRBr4Q8QwUXWzOdssvYyZgwJQ1G5ipjYUTqICdd4nikm-zgGYahljdlWI8Wlz_hUy-2LlTFSZCLlXhN7m22idcKqItAJawgbHniHHgp9V4oZ_gFR1Ar12wWJjjagI2hQy_SZ1SRpKqAJTIiLVvXoYgWUMZx8_36rVbXq1iyDCkVIQbNDUPIFYNyO8eCHtPSgyB-Rm7rylW6PVEFtlPOlqvDo5DWdQvjQOweSEjVcRY9rFdLn0atRkvwlUPiJ4muxoyID0NUuFbTHk8IK7wYXWuIpa8GA2oYPheX83c10useeRVYQIDfAi_a8GhACmaYFfLVQvmcWx1RWW_AV6N3cat1yYDEZygKDx5PytofwFAhpMSko64JwGFNnO2BrZprcuJ_jbiGDQA_XatREaxHNDqhYWpOudzmCV07_l3xxzKYMmNKM3=w988-h632-no">
+<meta property="article:published_time" content="2020-03-28T19:20:17.000Z">
+<meta property="article:modified_time" content="2020-09-13T01:53:28.592Z">
+<meta property="article:author" content="Youngjin Mo">
+<meta property="article:tag" content="oop">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lh3.googleusercontent.com/TyUk47LCOAA6ZovnFa85hJwToTN96xco_8r0436hrCI25FZWouRIfUy9vyxX6sgJgILJyRwuoOVdnp4cpcOSsm-KyGh3Z9C_nQ6_63ANYI6Jhm0HvZkEL9dKj0t9_rSVmBcYFH8KymYdXWj2UXeu04ldXITFr7fcwpxfKMki_mAFVPZI_S179AdO01VrKuGt-m3CVGPviiC5nCzgI86aV8Hxsrabd-XaWRnTLI6Pa4FmWX-NxfeMLf8ud3snwymPxIcsxMqmlEuTikk9JQHMYZDvyYijY3sfpG2pO-Ul9BWOV_Glrvg4xZ90mISBeQFMcgnYDXcQRBr4Q8QwUXWzOdssvYyZgwJQ1G5ipjYUTqICdd4nikm-zgGYahljdlWI8Wlz_hUy-2LlTFSZCLlXhN7m22idcKqItAJawgbHniHHgp9V4oZ_gFR1Ar12wWJjjagI2hQy_SZ1SRpKqAJTIiLVvXoYgWUMZx8_36rVbXq1iyDCkVIQbNDUPIFYNyO8eCHtPSgyB-Rm7rylW6PVEFtlPOlqvDo5DWdQvjQOweSEjVcRY9rFdLn0atRkvwlUPiJ4muxoyID0NUuFbTHk8IK7wYXWuIpa8GA2oYPheX83c10useeRVYQIDfAi_a8GhACmaYFfLVQvmcWx1RWW_AV6N3cat1yYDEZygKDx5PytofwFAhpMSko64JwGFNnO2BrZprcuJ_jbiGDQA_XatREaxHNDqhYWpOudzmCV07_l3xxzKYMmNKM3=w988-h632-no">
+<meta name="twitter:creator" content="@devandy_yj">
+    
+
+    
+        <link rel="alternate" href="/" title="DevAndy" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="../../../libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="../../../libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="../../../libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="../../../css/style.css">
+
+
+    
+<script src="../../../libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-177850483-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../index.html">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Articles/">Articles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/">Dev</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Devops/">Devops</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Html-Css/">Html/Css</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Javascript/">Javascript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Others/">Others</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Springboot/">Springboot</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Web/">Web</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Review/">Review</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Thought/">Thought</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Quiz/">Quiz</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../https:/github.com/youngjinmo">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="../../../js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Java/">Java</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="posts-java-inheritance" class="article article-single article-type-posts" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Java - 상속 (Extends)
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="" class="article-date">
+       <time datetime="2020-03-28T19:20:17.000Z" itemprop="datePublished">2020-03-29</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="" class="article-date">
+     <time datetime="2020-09-13T01:53:28.592Z" itemprop="dateModified">2020-09-13</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="../../../tags/oop/" rel="tag">oop</a>
+    </div>
+
+                
+
+                
+
+            </div>
+			<!-- 	count-time		 -->
+			<!-- <span class="reading-time" style="margin-left: 20px;">⏱ 17 min.</span>  -->
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <img src="https://lh3.googleusercontent.com/TyUk47LCOAA6ZovnFa85hJwToTN96xco_8r0436hrCI25FZWouRIfUy9vyxX6sgJgILJyRwuoOVdnp4cpcOSsm-KyGh3Z9C_nQ6_63ANYI6Jhm0HvZkEL9dKj0t9_rSVmBcYFH8KymYdXWj2UXeu04ldXITFr7fcwpxfKMki_mAFVPZI_S179AdO01VrKuGt-m3CVGPviiC5nCzgI86aV8Hxsrabd-XaWRnTLI6Pa4FmWX-NxfeMLf8ud3snwymPxIcsxMqmlEuTikk9JQHMYZDvyYijY3sfpG2pO-Ul9BWOV_Glrvg4xZ90mISBeQFMcgnYDXcQRBr4Q8QwUXWzOdssvYyZgwJQ1G5ipjYUTqICdd4nikm-zgGYahljdlWI8Wlz_hUy-2LlTFSZCLlXhN7m22idcKqItAJawgbHniHHgp9V4oZ_gFR1Ar12wWJjjagI2hQy_SZ1SRpKqAJTIiLVvXoYgWUMZx8_36rVbXq1iyDCkVIQbNDUPIFYNyO8eCHtPSgyB-Rm7rylW6PVEFtlPOlqvDo5DWdQvjQOweSEjVcRY9rFdLn0atRkvwlUPiJ4muxoyID0NUuFbTHk8IK7wYXWuIpa8GA2oYPheX83c10useeRVYQIDfAi_a8GhACmaYFfLVQvmcWx1RWW_AV6N3cat1yYDEZygKDx5PytofwFAhpMSko64JwGFNnO2BrZprcuJ_jbiGDQA_XatREaxHNDqhYWpOudzmCV07_l3xxzKYMmNKM3=w988-h632-no" width="650px" />
+
+<p>상속은 부모 클래스를 상속받은 자식 클래스가 기능을 물려받는 걸 의미한다. 아래 예제 코드를 보자.</p>
+<p><code>Bus</code> 클래스는 아무것도 선언되지 않았지만, <code>Car</code> 클래스를 상속받고 있으며, <code>passenger</code> 클래스에서 <code>Bus</code> 클래스의 인스턴스를 생성해서 <code>Car</code> 클래스의 메서드 <code>run()</code>을 실행하는 코드이다. </p>
+<p><strong>Car.java</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> devandy.java.inheritance;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot; 탑승하다.&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Bus.java</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> devandy.java.inheritance;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Bus</span> <span class="keyword">extends</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>passenger.java</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> devandy.java.inheritance;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Passenger</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    Bus b = <span class="keyword">new</span> Bus();</span><br><span class="line">    b.run();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>실행결과는 다음과 같다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">탑승하다.</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://lh3.googleusercontent.com/w1BF2mQefbHlwNOSpKvthKwo3pYPXiddTTmLJDt1eECymADq-megKNZ-ZTjxH3M6jQfevajSvfB0mJT0W41S_AE8SBeLas6gIej3Sw99CbYZb9T81D2T9ItHrFdvDE5ouJ2o7xGZ_TkMj_H0ACzOgW3fxHavbcsi3V9Ad5fravaejW5k9n5FEQoaHHbCQ1CEecxaip0efsHSKxeDRWtiAyMRy4jQ7Zh-7RVhejE-lBAfAeWNPnp4nSqfhg_tmGvXMe9c_vBdBU-ueHFexXSm-tv4rv-qY0EECGQKMLnYDAgY55JzOeG6NpcuPhZTCvbaTvOl_FxVgClOe4USCsYVhvLRbiD_fnaYST_i30mYWUMDp-0lb8WsLAfaiFgvT_yIwVOwqEEoTmCfkRm8r4Hq9AYxlnlCTvE2Uv_fuuxf-rp1r83ffBKah5dPd69cjRu6Uu2lgwViKfReRbJl6B5LjJVvgp-tov_zmxUss1DOa1Muw3-n_psxTkO5emcKiHiKP022wy_xp4v1O9loJMEGYsCQuaFhrWi0BW6vxOKVu7untFGM1Ul7I8iGiSLrzo-8DQ1MJlYx_bzjsA2TwSsBbnIeEXfGiRiwakgRxgHWbi1kFpdpg8kVF1wye3nH2TPuFvR7nPRbkSeZMzl_mhDhTcqh4wq4kQU9w80cfxcriSi68YSYAlaLZQ02flL24BI4DqRwG1gj88Zvi-Y5pMV5FTBNd2rdjR8Jc1qtrZn61biNwIN5EH0OpYQ=w1251-h541-no"></p>
+<p>아무것도 선언하지 않은 빈껍데기 일뿐인 <code>Bus</code> 클래스의 인스턴스를 생성했는데, 인스턴스에서 메서드를 호출할 수 있었다.</p>
+<img src="https://lh3.googleusercontent.com/ZbzP5QBDYEGAgJ8Cb9IEHXDefjr6puaLgB5ugAV1jzebLj7phGTVYtVi3Dx9cjKsF1EpOzEAdWpZ_WejANtZQ03JHQtbjXX1AqrfH6gO-IIeEEiTVn7Gqb5NzP-ln8mBk1DRawHVRc0yvi49WFaT3I214GX7KGbx3zVvFWtXM_tPuycY0w6RCaiyWYOWm0VCRSZUb23cYIiNptjs_9L9sV5U63CXGFHpNstOaYa7pMnKR7Rqrm2hSVA1Ozu9GvwSKdfMNuQXlrqP7J8VTAjsYTTjt87bn9O7k9HmWg9Cf9mGjtLMrgmOCmoFNLnnIZZfsTEjMm0V_y517SNC_N4zzjBCi2eFMCqll8-Y7Kk6hLOnH6TikoKm9twC2fYpX1X6Piam8B7am8UpVlGLCHwnZw74dS2scqtb3Rglq_BY5hNb3zQhDbLFTMrGildomaHO-Q_P9g9lB-JGR6TOUk1EcLeK81zTJ-CSigTcXSL-fX_AO90KIBWghXr_Y4vGhLAn1KgrPyqb954YVRsBHvFOcT0H6onFgdKPjGXAqiiErDq3xasEVkpXLKtaZuW3_QKh-c_o5Lv3UFGhcfm-RcibwCFSuOVQlTW5r87zFDnZFV1QGknIdQs0icd9Ytr0GlCni5vhuwWeODLXCi0VGdEfKMG0rQONDuKiO1ig5wa8Pd1d9DqoDPhlXug2aPTT41l8Or66wxdJQtY2bGxcg9oRNzXSlVTcoFgws95azO1mpK_vRwSXli-_mXk=w589-h379-no" style="zoom:60%;" />
+
+<p><code>Bus</code> 클래스가 <code>Car</code> 클래스를 상속받으면서 <code>Car</code> 클래스에 선언된 기능(메서드)들도 사용할 수 있게된 것이다.</p>
+<p><b>상속을 활용하면 중복코드를 줄일 수 있는 장점이 있다. 또 이런 특징때문에 객체지향 프로그래밍의 핵심적인 개념으로 사용되기도 한다.</b></p>
+<p>추가로 서브 클래스에서 수퍼 클래스의 기능을 직접 호출하고 싶을땐 <code>super</code> 키워드를 통해 사용할 수 있다. 위의 코드에서 passenger 클래스에서 <code>run()</code>을 호출하는 것이 아니라 Bus 클래스에서 <code>run()</code>을 호출하고 싶다면, 아래처럼 작성하면 된다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> devandy.java.inheritance;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Bus</span> <span class="keyword">extends</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">   <span class="keyword">super</span>.run();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>위의 예제코드를 활용하여 생성자를 추가하는 것으로 조금 변형을 해보았다.<br><code>Bus</code> 클래스에서 생성자를 만들어보았다. 이 생성자는 숫자를 파라미터로 받아서 <code>number+&quot; 번 버스&quot;</code>라는 문장을 출력한다. <code>passenger</code> 클래스에서 숫자를 인자값으로 넣는 인스턴스를 생성후, <code>run()</code>을 실행했다.</p>
+<p><strong>Car.java</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> devandy.java.inheritance;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot; 탑승하다.&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Bus.java</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> devandy.java.inheritance;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Bus</span> <span class="keyword">extends</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">   <span class="keyword">int</span> number;</span><br><span class="line">  </span><br><span class="line">   Bus(<span class="keyword">int</span> number)&#123;</span><br><span class="line">      <span class="keyword">this</span>.number = number;</span><br><span class="line">      System.out.print(number+<span class="string">&quot;번 버스&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>passenger.java</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> devandy.java.inheritance;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Passenger</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      Bus b = <span class="keyword">new</span> Bus(<span class="number">1415</span>);</span><br><span class="line">      b.run();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>실행결과이다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1415번 버스 탑승하다.</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://lh3.googleusercontent.com/n0j-c_wIM9Yla2TTYzwjmBNkX0DcI3cgAgifCeVvC5racBeCN2IkYkP2Iv21ck6jmfULGmt40OMXU85PZ78lZ53Y5aCOLsfyg3Mt3w9hIeRBLTypbqBFihh3UEzkCwQEWikcuGgbK6Adl2agtzdydJF5ECzHZdtK8bJ_3hNSABZHGu5jLRyBQWcksE5KkRk9WKGKmZdG4XN2oSf1p-bh-rOrCDUON105shAxmDne-1npo8UKmUeWfot81dKwf7PiTWnuEJlkzW-nqanv2FK4uRmcBe5M64F4vINC4ACVRfpwbMi2WCi2B74a_YNFGI1B7FXy5580CKgfDsRYF_9ajR7okCVNb8ogvTSMtfcW5rJD1QMvVuaFK6SJGFzUHHD6yNKSQLzzfR5vLdyMscQKpusm2WCu3vUeuw1LjNWM99M_8f2lg6hSZuAu_RGTehneKwkpnnRCyFQcfy_SSQK-S6HxMlZrJyWT2o09cCZzHjZxEgm0VDTr_5sfhTujatV1sLds0vSW9OE5V-zdxcD9kGYI4gkTo3VW22lrtFCprfvRa7rxV1K8QwoeO5HeSea4satkGmGvmHuzaQDXbmA4XZQzI7buF1_9AowZxBN5As47S510GMW8fE0H02Mv_pC4JsnG9sbgZHWsVG0Jh1MJVoCN73p4Onbj2tFcATa-fVykn5nK2UNDXB-_Q7PshnXdRSHIrZV8AkwWFp13MQAaXchcE4pTFB_3xdFJJMzJ3alvJ1maT8Ec3oM=w1384-h537-no"></p>
+<p>위의 프로그램이 JVM에서 작동하는 순서는 다음과 같다. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Bus b = <span class="keyword">new</span> Bus(<span class="number">1415</span>);</span><br></pre></td></tr></table></figure>
+
+<p>우선 <code>passenger</code> 클래스의 <code>main()</code>이 실행되고, <code>main()</code>에서 호출한 <code>Bus</code> 클래스의 생성자가 실행된다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b.run();</span><br></pre></td></tr></table></figure>
+
+<p>그리고 인스턴스의 메서드를 실행하기 위해 인스턴스의 클래스 타입인 <code>Bus</code> 클래스가 호출되고, 찾는 메서드가 <code>Bus</code> 클래스에 없으므로 수퍼 클래스인  <code>Car</code> 클래스에서 찾아서 호출된다.</p>
+<p>예제코드로 확인해보자.</p>
+<p><strong>Car.java</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> devandy.java.inheritance;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">   Car() &#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;Super 클래스, Car 생성자입니다.&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Bus.java</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> devandy.java.inheritance;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Bus</span> <span class="keyword">extends</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">   Bus() &#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;Sub 클래스, Bus 생성자입니다.&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>CarExam.java</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> devandy.java.inheritance;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CarExam</span></span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      Bus b = <span class="keyword">new</span> Bus();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>실행결과는 다음과 같다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Super 클래스, Car 생성자입니다.</span><br><span class="line">Sub 클래스, Bus 생성자입니다.</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://lh3.googleusercontent.com/Ee3gfRR3Xg582QHqjfaX7PetC31OTP4sZJ3d2VoReBdgI-348DwaiWUzVWDXGXhFp5xGJK_FfBxRe1XRowrsREfxkgep7KR5Y5ptlX1S43vvPpaRIu4eSwQR_Xru0ccCwgMgmStt4ssbX76BrTEduqMtkXZmNRisX0440MmMb2kN5P__ORKzJYbu5Z_v6rG6d7g24VSYsNTQEgK5kPiFKHXQ7VrVfAlDmT5IG_i4RwflJG1QaVBDLBUQJm9loPttH4f728dIVbEtE1ItrEiCnvnep6kqaDDBwgkEpuHPneCN7wwKvzxanFwi7ByY2mQbPO_DHxnbdNMEcG8I8yJV6K9Ntd-MUQZ6kntkqkpKcJ-3yQq7t7a7N8FyGuM3K2h2pxTZIegZV1bxNFWDsqiVFt0LlAJBznLibnP8T-XV5xjPCChkES-gbZGfTWeWB9pGVZnqfI5CYzsP0ALW8uf39yvN5zizngFc1J4XrKejLxSsp6ZqsV0vqNQzNyyad0YJWg5zUGN407RS6gTpXh_5di9PnaXYjSPCsSl873US1dcIR5Eh9hvxnQv0fdQTN0FrJ9pQdRAnTMJ7ywzhu5Ne6By3ySnGFyOSVPEjI7EeuI7Hc065ylnc72tiHu0Tdb_7bbnX6g_h1LHvl8MpRdX-OI4KrgfH26wIz1Qf6TkLY4ecrWydqZxoLHT1YKb12Er8A7E6RaYNnSkeSjU3arBxNR9rCxoc9tlCJ-W3DpBxCjaweFh92Xoucrk=w1049-h553-no"></p>
+<p><code>Bus</code> 클래스의 인스턴스를 선언했을뿐인데, <code>Bus</code> 클래스의 <strong>수퍼 클래스인 <code>Car</code> 클래스의 생성자가 먼저 호출</strong>되고, <code>Bus</code> 클래스의 생성자가 호출된걸 확인할 수 있다.</p>
+<p>서브 클래스에 해당하는 객체를 호출하면, JVM에서 자동으로 해당 객체의 수퍼 클래스를 호출하는데, 이는 **<u>JVM에서 서브 클래스에 <code>super()</code> 를 자동으로 생성</u>**했기 때문이다.</p>
+<p>위의 코드는 정확히 아래의 코드와 같다.</p>
+<p><img src="https://lh3.googleusercontent.com/tavQZlcHE083eVVugW47d69aa0HhmRdIVHf4nC91K78PHYm4k13swsmwbIhjYA8vNaIXvP2NrYCVwLfWAHwo9tVqKroA16TEvys6m--812PmZt6t7WqCO_fVeNyvAbGysrENL9FjYSTBT3XwvVob82lRvrQGEhph9dccp0ZI-XVX-k5nYXvPwaLQUWPvs24pV7aleWNHvD13KnuRk_HNenr1xYr7lnx6DqP9TsaEVyaRCkcwWXp81ZDOvvK0-j0wzkXLYU0QbaAidRmWPHu-N4HjIKOMuqpb2-u5knUYkLhDzAIZg6BngIK0tnjjFFS_XFIK5OPZWJG8hZqGEO6AR0_8GkXoOEmND7R24sdEMDmuXSqO_YyP9EazOUM70scuZXuom7efa0FIYTDKQJxxHmnq5IDiC3k3CLn8_xFwADXG80bgo0ZSzQcuTq2ATMx2O71Sf242f0aMqc3_z-P2N5Ci7jy98_YbQUQgU0wXy0SJ_ZTIPIYjGplosSMOy7g0GgU7IbuFPIYYMAlGEXd-geX5DK4PX3gJuAufSwbNHX8X1CConFTrLOdBBJeW9NEq0HkiKK6nNMgMNyU5hGdQVR8rKRVyrwh6iMp2jwH7IJFcYnYCayb0FFE8ROsNGzu2qTc-LCVs-ZM41LkOFHzfLkP1Ub70m4L1FzVC7AT0T2j-W56jkhyBYKv5oUvcy2_sZEyHsAtRIFxJzURw1vL9tskZCCJIX-72lYgU5dKbYDl0b_XdWGmMGtM=w1056-h538-no"></p>
+<p>달라진 거라곤 서브 클래스에 해당하는 <code>Bus</code> 클래스의 생성자에 <code>super()</code> 를 추가한 것 뿐이다. </p>
+<p>아까는 수퍼 클래스인 <code>Car</code> 클래스의 생성자가 <strong>기본 생성자</strong>였기 때문에 프로그래머가  <code>super()</code>를 생략하더라도, <strong>JVM에서 서브클래스에 자동으로 <code>super()</code>를 생성</strong>해주면서 수퍼 클래스의 생성자를 먼저 호출할 수 있었다.</p>
+<p>반대로 수퍼 클래스의 생성자가 기본 생성자가 아닐 경우에는 프로그래머가 임의로  <code>super()</code>를 작성해주어야 한다.</p>
+<p><img src="https://lh3.googleusercontent.com/zqpaX4jV95gkUv0gBy9j-E9u9HnVfZjB_bSfJjcSYhD_90MHMJHuIbVLO_HLYPq9DB_tO1xnTkhoKrcoZT7uOlymn769AzLXoTede7s7uFnzAhtBTIe-nks46SRlpRrAX_LOI7Wt8dVWCKOX52k7sdCrKH2HibKJzSddG50-82WkL7--LUcxiCryPT3EHY3nF5dWe1JSTZClBEmn2-uXm4fmbMA2kSFCeUZQUrCVDQMwxOW8TR5GWAtyzh_XlRBhATk9f4ZLk1k61v5HHazzNTGX2DK3OBiUBFR8hnAPqeqTTvZB5vatwta-zXEugvtaz2Q31ONTpjzO9RDAzCMN3QNE3LGlEUQdMLFhy7fSEb-W-LDofZYmwgj2wbAUGq2__w_zfdCu806fVUckLP3z-XNHMTuFpTdvPetnefnz4y6PL8LzHXUoxMGQ1aHsSstKQoj-UkqSihZDrniSqL7ecySy8WXiEXOxaTVpDJGj-PgtrxzuwX1Hmb_OuOIJnJZBYzxe1VYap5UGjjF-cdLJSHP9XIffIM5SoI6_HQham92RJtVASuKP3DHN8a4dij92-BM0lEzS9jkw5Tskd1AtjxID3cQy8bjjh5RfX2IcR7j0_Aytg2oMBYBbFirHCVaM-1xikuan9sR_OdwI4lbpD58lnTgRlJqZaqxVJmY124MRgqYUpFLyBBzoErbiPVAhughgW3s_KpMwXxIDS2zgnkdFpbLwkcSanxO2XCpDz9KkB6fLxjbrEtI=w1034-h426-no"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Implicit super constructor Car() is underfined. Must explicityly invoke another constructor </span><br></pre></td></tr></table></figure>
+
+<p>수퍼 클래스의 생성자를 기본 생성자에서 파라미터를 받는 생성자로 바꾸자 위와 같은 경고 메세지가 출력되었다.<br>수퍼 클래스인 <code>Car()</code>가 정의되지 않았으며, 다른 생성자를 반드시 명쾌하게 적용하라고 한다.</p>
+<p><img src="https://lh3.googleusercontent.com/czEAAssjODQcCg0dwXWtv4T7FpjkfhczyfEvWo9WALSO1C0YUqYOjMqLgePutEFwY7Hax5NAmzOLSicZrwdVzOPEzmRRUSHbp0xwTTPle5moyJUBzZGtjDgT9HcQ6_Su0wBXo-qjorynbFlikrtWeCox6q4IR6LIt7W05-uH8FA5RxnKiInpd21Bqg5HQhIehmaskyIro87hJlsefZh_3zx9woXP8-lXpjSgXVGKIjU6dgoJn1-XB6rim59Ads0vlw53qHq1xSw_f7_V8h3mb6qjH4zAWB7v1bRTfLLm-FlFWMhrWWJhVm5Q_L2Hdf-T3vp-UOwcNYRgxVaAFfVW_aLhHokcvNDiYR2N9UJNW-hmkGBISrgB4WefTtMKf5TFG0AqEIZMuxgmG1ggag-93fNCIOp8abXyOQZsDAix9RhX40_xG80pyXal9RpUjwcMD-eddw94Mel8nD1zqQYISegX745vsJh_bJmDsENozp-vf-k0i2gpNH1EYuiwjKacIzbN7W9zMtYsHOsaMB56Yi8V-oEHv0ruWP1IrlxUXLfpi6tCA6m2SH4kVm9T187B8TM9T_7ByWMc5WDZOxpFiLttxJPplBib2OazHyPv6ophNL7t9Gm9nJ_L5rEfaTPhe-LqnwhFa6NijsH6nDd_uVLSr5Tm7KIt2Cv9a-OzMLOHLqBWkSAlzL3i6EjKuUyyu3Pfi4lF19LmVVsmIX94TMHbO8DClTVESAvLeGkA38upaHf4vyQ6pqQ=w1030-h537-no"></p>
+<p>서브 클래스인 <code>Bus</code> 클래스의 생성자 내부에 임의로 <code>super()</code>를 생성하고, 여기에 수퍼 클래스의 생성자에 주입할 수 있는 문자열을 인자값으로 넣어주었다. 그리고 서브 클래스에서 입력받은 인자값을 출력할 수 있도록 Car 클래스의 생성자 속 출력문도 수정을 해주었다. 정상적으로 출력된 걸 확인할 수 있다.</p>
+<p>이를 통해, <strong>수퍼 클래스의 생성자가 기본 생성자일 경우</strong>는 프로그래머가 따로 호출하지 않아도 JVM에서 서브클래스의 생성자에 <code>super()</code> 를 생성해주어 서브클래스를 호출하는 것만으로 수퍼 클래스까지 함께 호출할 수 있었다. 또 <strong>수퍼 클래스의 생성자가 기본생성자가 아닐 경우</strong>에는 프로그래머가 서브 클래스의 생성자 내부에 <code>super()</code> 를 명시함으로써 마찬가지로 수퍼클래스를 호출할 수 있었다.</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://youngjinmo.github.io/2020/03/java-inheritance/" data-id="ckf65udv900buacgdcur864bg" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Youngjin Mo"
+        },
+        "headline": "Java - 상속 (Extends)",
+        "image": "../../../http:/youngjinmo.github.iohttps:/lh3.googleusercontent.com/TyUk47LCOAA6ZovnFa85hJwToTN96xco_8r0436hrCI25FZWouRIfUy9vyxX6sgJgILJyRwuoOVdnp4cpcOSsm-KyGh3Z9C_nQ6_63ANYI6Jhm0HvZkEL9dKj0t9_rSVmBcYFH8KymYdXWj2UXeu04ldXITFr7fcwpxfKMki_mAFVPZI_S179AdO01VrKuGt-m3CVGPviiC5nCzgI86aV8Hxsrabd-XaWRnTLI6Pa4FmWX-NxfeMLf8ud3snwymPxIcsxMqmlEuTikk9JQHMYZDvyYijY3sfpG2pO-Ul9BWOV_Glrvg4xZ90mISBeQFMcgnYDXcQRBr4Q8QwUXWzOdssvYyZgwJQ1G5ipjYUTqICdd4nikm-zgGYahljdlWI8Wlz_hUy-2LlTFSZCLlXhN7m22idcKqItAJawgbHniHHgp9V4oZ_gFR1Ar12wWJjjagI2hQy_SZ1SRpKqAJTIiLVvXoYgWUMZx8_36rVbXq1iyDCkVIQbNDUPIFYNyO8eCHtPSgyB-Rm7rylW6PVEFtlPOlqvDo5DWdQvjQOweSEjVcRY9rFdLn0atRkvwlUPiJ4muxoyID0NUuFbTHk8IK7wYXWuIpa8GA2oYPheX83c10useeRVYQIDfAi_a8GhACmaYFfLVQvmcWx1RWW_AV6N3cat1yYDEZygKDx5PytofwFAhpMSko64JwGFNnO2BrZprcuJ_jbiGDQA_XatREaxHNDqhYWpOudzmCV07_l3xxzKYMmNKM3=w988-h632-no",
+        "keywords": "oop",
+        "genre": "Dev Java",
+        "datePublished": "2020-03-29",
+        "dateCreated": "2020-03-29",
+        "dateModified": "2020-09-13",
+        "url": "../../../http:/youngjinmo.github.io/2020/03/java-inheritance/",
+        "description": "
+
+상속은 부모 클래스를 상속받은 자식 클래스가 기능을 물려받는 걸 의미한다. 아래 예제 코드를 보자.
+Bus 클래스는 아무것도 선언되지 않았지만, Car 클래스를 상속받고 있으며, passenger 클래스에서 Bus 클래스의 인스턴스를 생성해서 Car 클래스의 메서드 run()을 실행하는 코드이다. 
+Car.java
+1234567package devand",
+        "wordCount": 940
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="../../../https:/github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="../java-conversion-of-class/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            JAVA - 클래스의 형변환
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="../java-overload-override/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Java - 오버로딩과 오버라이딩</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../09/xml-json-xmlhttprequest/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3f3uUiEllt7yZ2cz-TBQE53mDoXAvAbilDnTHnb0gUIYnX86czSpvvAGNC1uwJN3Mm543ae8FVwBXvYPyOcYzNVH-5fg0VXSmiORlQSYChhlqdO1jLRs_XhVOQYcySp_K_S3JbhAK4jHpeyRpXmh45Gqg=w640-h405-no?authuser=2)" alt="XML, JSON 그리고 XMLHttpRequest" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Others/">Others</a></p>
+                            <p class="item-title"><a href="../../09/xml-json-xmlhttprequest/" class="title">XML, JSON 그리고 XMLHttpRequest</a></p>
+                            <p class="item-date"><time datetime="2020-09-01T12:00:59.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/create-table-sequence/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3dnKjQpuvDEmVxFsIrKfVbq9RCZMjbbZPOtAWR0Etr5EfTkx58EYPQjjgLEiO8XYLsVu_1TWyNmpySsDRxXvCplY6aMPhIMQgNCaH0TBpVv0vxyI_-b6pK9x8qhVSSptzKgeu-dbMHYIt-eS1MUDQnkiw=w640-h427-no?authuser=0)" alt="Oracle - Sequence 생성하고 테이블에 삽입하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Database/">Database</a></p>
+                            <p class="item-title"><a href="../../08/create-table-sequence/" class="title">Oracle - Sequence 생성하고 테이블에 삽입하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-31T18:57:13.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/servlet-redirect-forward/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3cK_j9D5XupS1mIeAAwsE1cOAdZ05jfS290XghGTAfDNVmf1VDdldnidSEQpbEAPRe_aTchGC7U00h7lU9JKtTV3ltDyqUcofn0Xu4p0pm_ROewKfcnOG3UO4Yo4EgVG6ZeQfoemWHklC1hGMn-1DXYfQ=w640-h427-no?authuser=0)" alt="Servlet - Redirect와 Forward" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../../08/servlet-redirect-forward/" class="title">Servlet - Redirect와 Forward</a></p>
+                            <p class="item-date"><time datetime="2020-08-30T22:32:44.000Z" itemprop="datePublished">2020-08-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/leetcode-twosum/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://assets.leetcode.com/static_assets/public/images/LeetCode_Sharing.png)" alt="Leetcode - Twosum" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Quiz/">Quiz</a></p>
+                            <p class="item-title"><a href="../../08/leetcode-twosum/" class="title">Leetcode - Twosum</a></p>
+                            <p class="item-date"><time datetime="2020-08-24T14:28:47.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/run-mysql-with-docker/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3fdpC3xu5q4xnJRLLhSaWCrARbnQ1qdp_DpF0Z7BITrtrr6gZWGExKC4PcMlVo3AxVhVbYiFgDhNObWmtv3hGwoEtF_4zFb_1fQsdL6d1K3UNA0LRkczuC_nNvcEHERB8EIB3uvWOIps7j1iraX6DGLbQ=w720-h480-no?authuser=0)" alt="Docker로 MySQL 실행하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Devops/">Devops</a></p>
+                            <p class="item-title"><a href="../../08/run-mysql-with-docker/" class="title">Docker로 MySQL 실행하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-23T17:12:43.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 11.11px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/api/" style="font-size: 11.11px;">api</a> <a href="../../../tags/architecture/" style="font-size: 10px;">architecture</a> <a href="../../../tags/array/" style="font-size: 11.11px;">array</a> <a href="../../../tags/aws/" style="font-size: 12.22px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 12.22px;">career</a> <a href="../../../tags/casting/" style="font-size: 12.22px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/cloud/" style="font-size: 12.22px;">cloud</a> <a href="../../../tags/compiler/" style="font-size: 10px;">compiler</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/databse/" style="font-size: 10px;">databse</a> <a href="../../../tags/datastructure/" style="font-size: 12.22px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 13.33px;">docker</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 11.11px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generic/" style="font-size: 10px;">generic</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 10px;">github</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 13.33px;">http</a> <a href="../../../tags/ide/" style="font-size: 10px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 10px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 11.11px;">interface</a> <a href="../../../tags/interpreter/" style="font-size: 10px;">interpreter</a> <a href="../../../tags/io/" style="font-size: 12.22px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 15.56px;">java</a> <a href="../../../tags/java8/" style="font-size: 11.11px;">java8</a> <a href="../../../tags/jquery/" style="font-size: 11.11px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/jvm/" style="font-size: 10px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 10px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 10px;">mustache</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 16.67px;">oop</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 12.22px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 11.11px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 18.89px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/string/" style="font-size: 14.44px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/tip/" style="font-size: 17.78px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 13.33px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 11.11px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 18.89px;">weekly-review</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Youngjin Mo</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+    
+        
+<script src="../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="../../../js/main.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Servlet - 서블릿 튜토리얼 | DevAndy</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="http,servlet" />
+    
+    <meta name="description" content="스프링을 공부하다가 모호한 부분이 많아서 시작하게된 공부이다.  스프링 기반기술이 서블릿인데 사실 자바 언어를 사용하며 웹 애플리케이션을 개발하기 위해서는 반드시 서블릿을 사용할 수 밖에 없다. 웹 애플리케이션을 개발하기 위해서는 Http로 통신하는 애플리케이션을 개발해야하는데 서블릿은 HttpServlet 클래스를 상속받아서 Http 프로토콜로 요청과">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Servlet - 서블릿 튜토리얼">
+<meta property="og:url" content="http://youngjinmo.github.io/2020/07/servlet-tutorial/index.html">
+<meta property="og:site_name" content="DevAndy">
+<meta property="og:description" content="스프링을 공부하다가 모호한 부분이 많아서 시작하게된 공부이다.  스프링 기반기술이 서블릿인데 사실 자바 언어를 사용하며 웹 애플리케이션을 개발하기 위해서는 반드시 서블릿을 사용할 수 밖에 없다. 웹 애플리케이션을 개발하기 위해서는 Http로 통신하는 애플리케이션을 개발해야하는데 서블릿은 HttpServlet 클래스를 상속받아서 Http 프로토콜로 요청과">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://lh3.googleusercontent.com/pw/ACtC-3cdgEabesS1rs-zetUO966emZ6pab2BifVkCVUqOfrED9ahd2kwxk6B-qv48z7cc1-aRHRIXvyPcj8NcEe3vVlPxm0SYdUOktLpceAoShJ7BwZxOx2LgNUO4IDRzOK3stfi9QIuGEJqq-anZvlHOM5FjQ=w720-h480-no?authuser=0">
+<meta property="article:published_time" content="2020-07-02T19:55:30.000Z">
+<meta property="article:modified_time" content="2020-09-13T01:53:28.116Z">
+<meta property="article:author" content="Youngjin Mo">
+<meta property="article:tag" content="http">
+<meta property="article:tag" content="servlet">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lh3.googleusercontent.com/pw/ACtC-3cdgEabesS1rs-zetUO966emZ6pab2BifVkCVUqOfrED9ahd2kwxk6B-qv48z7cc1-aRHRIXvyPcj8NcEe3vVlPxm0SYdUOktLpceAoShJ7BwZxOx2LgNUO4IDRzOK3stfi9QIuGEJqq-anZvlHOM5FjQ=w720-h480-no?authuser=0">
+<meta name="twitter:creator" content="@devandy_yj">
+    
+
+    
+        <link rel="alternate" href="/" title="DevAndy" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="../../../libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="../../../libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="../../../libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="../../../css/style.css">
+
+
+    
+<script src="../../../libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-177850483-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../index.html">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Articles/">Articles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/">Dev</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Devops/">Devops</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Html-Css/">Html/Css</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Javascript/">Javascript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Others/">Others</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Springboot/">Springboot</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Web/">Web</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Review/">Review</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Thought/">Thought</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Quiz/">Quiz</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../https:/github.com/youngjinmo">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="../../../js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Java/">Java</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="posts-servlet-tutorial" class="article article-single article-type-posts" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Servlet - 서블릿 튜토리얼
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="" class="article-date">
+       <time datetime="2020-07-02T19:55:30.000Z" itemprop="datePublished">2020-07-03</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="" class="article-date">
+     <time datetime="2020-09-13T01:53:28.116Z" itemprop="dateModified">2020-09-13</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="../../../tags/http/" rel="tag">http</a>, <a class="tag-link-link" href="../../../tags/servlet/" rel="tag">servlet</a>
+    </div>
+
+                
+
+                
+
+            </div>
+			<!-- 	count-time		 -->
+			<!-- <span class="reading-time" style="margin-left: 20px;">⏱ 7 min.</span>  -->
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <img src="https://lh3.googleusercontent.com/pw/ACtC-3cdgEabesS1rs-zetUO966emZ6pab2BifVkCVUqOfrED9ahd2kwxk6B-qv48z7cc1-aRHRIXvyPcj8NcEe3vVlPxm0SYdUOktLpceAoShJ7BwZxOx2LgNUO4IDRzOK3stfi9QIuGEJqq-anZvlHOM5FjQ=w720-h480-no?authuser=0"/>
+
+<p>스프링을 공부하다가 모호한 부분이 많아서 시작하게된 공부이다. </p>
+<p>스프링 기반기술이 서블릿인데 사실 자바 언어를 사용하며 웹 애플리케이션을 개발하기 위해서는 반드시 서블릿을 사용할 수 밖에 없다. 웹 애플리케이션을 개발하기 위해서는 Http로 통신하는 애플리케이션을 개발해야하는데 서블릿은 <code>HttpServlet</code> 클래스를 상속받아서 Http 프로토콜로 요청과 응답을 구현하는, WAS에서 동작하는 클래스이기 때문이다.</p>
+<p>요즘은 개발자가 직접 서블릿을 생성할 필요가 없는데 스프링 프레임워크와 스프링부트처럼 간단하게 웹 개발할 수 있는 프레임워크가 존재하기 때문이다. 그러나 개발자가 직접 생성하지 않을뿐이지 결국 이런 자바 기반의 웹 개발 프레임워크 모두 서블릿 기반의 프레임워크라는 사실을 잊어서는 안된다.</p>
+<p>서블릿은 WAS에서 동작하는 자바 클래스이다.</p>
+<br>
+
+<h2 id="Servlet-만들어보기"><a href="#Servlet-만들어보기" class="headerlink" title="Servlet 만들어보기"></a><a name="tutorial"></a>Servlet 만들어보기</h2><p><strong>프로젝트(Dynamic Web Project) 생성하기</strong></p>
+<p><img src="https://lh3.googleusercontent.com/pw/ACtC-3e_WfwceYdP5cuuZ95jeXvaHFqdZ8k2LOpFJ4l2HvbJmbDTlgfmhKFL1CmmXiDKsdmMNoomt7nS0vY6SxdVx21TpAG4i_PoZfV8vMC52z3uNQMT4KcoZKbRPRlmHohpYFxPNtHw5zOw8h9pxnQPwjzKFg=w1442-h401-no?authuser=0"></p>
+<p>서블릿은 정적 웹(Static Web)이 아닌 동적인 웹(Dynamic Web)을 위해 탄생한 기술이다. 따라서 이클립스에서 <strong>[File] - [New] - [Other]**를 클릭하고, **[Dynamic Web Project]</strong> 선택한다.</p>
+<p>앞서 서블릿은 WAS에서 작동하는 자바 클래스라고 했다. 따라서 설정할때 어디서 실행될지(Terget runtime)를 정해야한다. 필자는 Apache Tomcat 9.0을 WAS로 지정했다. 이렇게 WAS를 지정하고, Next로 넘어간다.</p>
+<br>
+
+<p><strong>서블릿 클래스 생성하기</strong></p>
+<p><img src="https://lh3.googleusercontent.com/pw/ACtC-3d7U5AOmeMcSWTnBMQk0-S2cDNLYNYeMa74m4yWO1v4TwSuKAdgBXWgusWOWlBAJrPt2ow6yjvY6VVDAo5cvrnp3yzlECxyCegqVGXT5qnvQ03SwsTcPqtVWCslGwuwUNroepVnWpse4c0mFEWrJ-fXrg=w1442-h731-no?authuser=0"></p>
+<p> 프로젝트가 생성되었으니 이제 프로젝트에서 서블릿 클래스를 생성할 차례이다. src 디렉토리 하위에 패키지를 하나 생성하고(생성하지 않아도 상관은 없다. default package가 생성될 것이다.) 생성된 패키지 하위에 **[New] - [Web] - [Servlet]**을 선택해서 서블릿 클래스를 생성한다. </p>
+<br>
+
+<p><strong>서블릿 클래스 작성하기</strong></p>
+<p>서블릿 클래스를 생성하면, 자동으로 <code>doGet()</code>, <code>doPost()</code> 가 완성된 클래스 파일이 생성된다. 현 상태로도 브라우저에서 화면을 출력할 수 있지만, 상징적인 의미로 Hello World를 찍어보겠다.</p>
+<p>서블릿의 동작원리는 다음과 같다. </p>
+<ol>
+<li><p>java 코드를 작성하고, Run on Server를 실행하면, </p>
+</li>
+<li><p>IDE(Eclipse)에서 java코드를 class코드로 컴파일. </p>
+</li>
+<li><p>컴파일한 코드를 톰캣(서블릿 컨테이너)에서 서블릿 규칙에 따라 코드를 실행하고 결과를 서버에 전달.</p>
+</li>
+<li><p>전달받은 서버는 클라이언트로부터 정해진 요청(HttpServletRequest)이 들어올 경우, 해당 요청에 맞는 응답(HttpServletResponse)을 HTTP 프로토콜을 통해 브라우저로 전송한다.</p>
+</li>
+</ol>
+<p>따라서 <code>doGet()</code> 에 코드를 작성해보겠다.</p>
+<p><a target="_blank" rel="noopener" href="https://gist.github.com/devyoungjin/8e0c24b10bf70e9c2ba87d8ac2a5a3a1">전체 코드 보기</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">    <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">    PrintWriter out = response.getWriter();</span><br><span class="line">    out.println(<span class="string">&quot;&lt;h1&gt;Hello World&lt;/h1&gt;&quot;</span>);</span><br><span class="line">    out.println(<span class="string">&quot;My &lt;span style=\&quot;color: red;\&quot;&gt;First&lt;/span&gt; Servlet!&quot;</span>);</span><br><span class="line">		</span><br><span class="line">    response.getWriter().append(<span class="string">&quot;Served at: &quot;</span>).append(request.getContextPath());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>그리고 서버를 실행하면, 브라우저가 자동으로 실행되며 다음과 같은 화면을 뿌려줄 것이다. 서버를 실행할 때 어떤 서버에서 실행할지 실행환경을, 즉 WAS를 물어보는데 이 때 서버를 선택하고 Next로 넘어가면 된다. 아래 Always user thie server 라는 체크박스를 체크하면, 다음부터 서블릿을 실행하면 자동으로 해당 WAS로 서블릿을 실행하게 된다. </p>
+<p><img src="https://lh3.googleusercontent.com/pw/ACtC-3fyvjOK-IiC_a3kqWJ8ExHTcV4hP0Y-vttBTsg7tIgiv2me8cqnk96tQzmODde_v23teU-3Rnx9FRy4DkGAffzOzTphHO6Pf2ZMo673j2WxFXMUtx7fbTtyGgMUUgcyG0lJsoTZdtWx2nMZjPpUHtZAkw=w1442-h828-no?authuser=0"></p>
+<p><img src="https://lh3.googleusercontent.com/pw/ACtC-3fEx_pDV-1cFUA1J_XXS9YnExDOLt3Yr1t3MHskvgWuEA8QefNIMn7tCstFTavm7qTNhP6olILbOg1tmViYNwUXVJpI9J6Z4znlu7OACzw8Qu_otPDWxcqsvxf5maishI7QmH8voZ0RjE8es9DjE3q9lw=w936-h566-no?authuser=0"></p>
+<p>만약 브라우저가 안열린다면 이클립스의 Preference에서 browser 설정을 다음처럼 바꿔준다.</p>
+<p><img src="https://lh3.googleusercontent.com/pw/ACtC-3eEN70TZdzfsc7LO4DMRseiIvGvZp5ngHHtcd-h1wpbhe1wKPOiRLRwvBws74VN4GeRDZrIivawyiIkebUnQTLs9S67YwLWj_pkot-i8qc8Ds9-_b-0Tu3_N0T7iL5Z9KpMM5fTkVwcUoB3gfT9WSV4aw=w1442-h1105-no?authuser=0"></p>
+<p>클라이언트로부터 요청을 받아야 서버가 응답을 한다고 했는데, 어떤 요청을 했길래 웹 서버가 자동으로 결과를 뿌려준걸까? 여기서 사용자가 한 요청은 웹 브라우저 주소창에 있는 URL이다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;localhost:8080&#x2F;&#123;server-name&#125;&#x2F;&#123;annotation&#125;</span><br></pre></td></tr></table></figure>
+
+<p>로컬 환경에서 작업중이기 때문에 localhost:8080까지는 알겠는데, server-name은 어디서 알 수 있는걸까?</p>
+<p>이클립스의 Servers 탭에서 서버를 더블클릭한다. (이미지에서 표기한 Servers탭 말고 해당 탭에 있는 로컬서버를 클릭하셔야한다.)</p>
+<p><img src="https://lh3.googleusercontent.com/pw/ACtC-3exwOtqdnQ5csGQUNSB10kqNonLSXYuMrTA97j3xJVhiHuyoHYFBUC9rtxt8Ggf7gqtk0NN58_Z8ilTbylxeJz1t9uGM2AWO9qiHni8MxElilgNN3ubbQemLy3dW0ZxDv0cu3VlEcQl_SjJqBSsyKzK7A=w480-h218-no?authuser=0"></p>
+<p>그리고 서버 환경설정 화면이 나오면, 하단 메뉴에서 Modules를 클릭한다.</p>
+<p><img src="https://lh3.googleusercontent.com/pw/ACtC-3eTJN6_o9tSvEvBY_JThIgeN6RkGLBgWwQK7JsSYi0t9-RA6dlIrNnVRCSYpx6-s65c0RZOM08y3Iijh68tvatblyNjI2I2ZZTyjvhNZvmyXMssqg3KQnSDDx-dCcDaBfwO8yJMqskYtYpzxAsW52M73A=w720-h201-no?authuser=0"></p>
+<p>그럼 위와 같이 Web Modules에서 현재 서버의 Path를 볼 수 있다. 이 Path가 우리가 서블릿으로 만든 웹서버에 접속할 수 있는 요청을 할 URL에 포함시켜야할 주소이다.</p>
+<p>간단하게 서블릿 작업만 하고 싶다면, 위의 Path를 그냥 <code>/</code> 로 바꾸는게 편할 수 있다.</p>
+<p>위의 주소로 입력하면, 내장 톰캣 서버가 해당 요청에 맞는 응답을 클라이언트로 response하는 건데, 이 과정은 다음과 같다.</p>
+<p>서블릿 클래스에서<code>@WebServlet(&quot;/HelloServlet&quot;)</code> 이라는 어노테이션을 작성하면, 어노테이션의 파라미터로 들어간 URI(“/HelloServlet”)로 접속을 하면, 서블릿 클래스에 작성된 로직이 실행되는 것이다. 그리고 이 서블릿 클래스 중에서도 <code>doGet()</code>에 작성된 로직이 웹 서버에 요청되면서 아까 <code>PrinterWriter</code> 객체로 작성한 html 코드가 브라우저로 반환된 것이다.</p>
+<br>
+
+<h2 id="파라미터-담아서-요청하기"><a href="#파라미터-담아서-요청하기" class="headerlink" title="파라미터 담아서 요청하기"></a><a name="request-with-parameters"></a>파라미터 담아서 요청하기</h2><p>URL에 파라미터를 붙여서 요청할 수도 있다. 요청할 URL에 <code>?</code>를 붙이고 파라미터 이름과 파라미터 값을 추가하면 된다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;localhost:8080&#x2F;&#123;server-name&#125;&#x2F;&#123;annotation&#125;?&#123;parameter1&#125;&#x3D;&#123;value1&#125;&amp;&#123;parameter2&#125;&#x3D;&#123;value2&#125;</span><br></pre></td></tr></table></figure>
+
+<p>이렇게 브라우저 주소창에 입력한 파라미터를 웹서버에서 요청받고, 응답하려면 서블릿 클래스에도 파라미터를 받아줄 코드를 작성해주어야 한다.</p>
+<p><code>doGet()</code>에서 <strong>HttpServletRequest</strong> 객체의 <code>getParameter()</code>를 이용하면 URI로 넘어오는 인자값을 서버에서 받아서 처리할 수 있게 된다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String name = request.getParameter(<span class="string">&quot;name&quot;</span>);</span><br><span class="line">out.printWriter(<span class="string">&quot;Hello, &quot;</span>+name);</span><br></pre></td></tr></table></figure>
+
+<p>그럼 이렇게 요청받은 인자값을 서버에서 받아서 다시 화면에 출력한 걸 확인할 수 있다.</p>
+<p><img src="https://lh3.googleusercontent.com/pw/ACtC-3c2y7yWuFE2xynmetTmsFmQc3KGwF1YIWbpIbpZwEVS6MDrb_DUR1SaPDG0DYkACXKCve2UpCF2QEJBiBGWIASe8HyjjyxjOYbH6xpE0uONEKhv_naItNbUPTX1ophkwFwhamZ4QzPRfq4hL6X3XgQYug=w1120-h348-no?authuser=0"></p>
+<br>
+
+<p>다음 포스트에서는 이 간단한 실습때 사용했던 서블릿의 개념들에 대해 조금 더 알아보자.<br><a target="_blank" rel="noopener" href="https://devyoungjin.github.io/2020/07/servlet-02/">다음 포스트 읽으러 가기</a></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://youngjinmo.github.io/2020/07/servlet-tutorial/" data-id="ckf65ue8k00gracgdana7f9q9" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Youngjin Mo"
+        },
+        "headline": "Servlet - 서블릿 튜토리얼",
+        "image": "../../../http:/youngjinmo.github.iohttps:/lh3.googleusercontent.com/pw/ACtC-3cdgEabesS1rs-zetUO966emZ6pab2BifVkCVUqOfrED9ahd2kwxk6B-qv48z7cc1-aRHRIXvyPcj8NcEe3vVlPxm0SYdUOktLpceAoShJ7BwZxOx2LgNUO4IDRzOK3stfi9QIuGEJqq-anZvlHOM5FjQ=w720-h480-no?authuser=0",
+        "keywords": "http servlet",
+        "genre": "Dev Java",
+        "datePublished": "2020-07-03",
+        "dateCreated": "2020-07-03",
+        "dateModified": "2020-09-13",
+        "url": "../../../http:/youngjinmo.github.io/2020/07/servlet-tutorial/",
+        "description": "
+
+스프링을 공부하다가 모호한 부분이 많아서 시작하게된 공부이다. 
+스프링 기반기술이 서블릿인데 사실 자바 언어를 사용하며 웹 애플리케이션을 개발하기 위해서는 반드시 서블릿을 사용할 수 밖에 없다. 웹 애플리케이션을 개발하기 위해서는 Http로 통신하는 애플리케이션을 개발해야하는데 서블릿은 HttpServlet 클래스를 상속받아서 Http 프로토콜로 요청과",
+        "wordCount": 630
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="../../../https:/github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="../servlet-lifecycle/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Servlet - 서블릿 생명주기와 HttpServletRequest, HttpServletResponse
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="../../06/java8-lambda-functional-interface/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Java8 - 람다와 함수형 인터페이스</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../09/xml-json-xmlhttprequest/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3f3uUiEllt7yZ2cz-TBQE53mDoXAvAbilDnTHnb0gUIYnX86czSpvvAGNC1uwJN3Mm543ae8FVwBXvYPyOcYzNVH-5fg0VXSmiORlQSYChhlqdO1jLRs_XhVOQYcySp_K_S3JbhAK4jHpeyRpXmh45Gqg=w640-h405-no?authuser=2)" alt="XML, JSON 그리고 XMLHttpRequest" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Others/">Others</a></p>
+                            <p class="item-title"><a href="../../09/xml-json-xmlhttprequest/" class="title">XML, JSON 그리고 XMLHttpRequest</a></p>
+                            <p class="item-date"><time datetime="2020-09-01T12:00:59.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/create-table-sequence/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3dnKjQpuvDEmVxFsIrKfVbq9RCZMjbbZPOtAWR0Etr5EfTkx58EYPQjjgLEiO8XYLsVu_1TWyNmpySsDRxXvCplY6aMPhIMQgNCaH0TBpVv0vxyI_-b6pK9x8qhVSSptzKgeu-dbMHYIt-eS1MUDQnkiw=w640-h427-no?authuser=0)" alt="Oracle - Sequence 생성하고 테이블에 삽입하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Database/">Database</a></p>
+                            <p class="item-title"><a href="../../08/create-table-sequence/" class="title">Oracle - Sequence 생성하고 테이블에 삽입하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-31T18:57:13.000Z" itemprop="datePublished">2020-09-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/servlet-redirect-forward/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3cK_j9D5XupS1mIeAAwsE1cOAdZ05jfS290XghGTAfDNVmf1VDdldnidSEQpbEAPRe_aTchGC7U00h7lU9JKtTV3ltDyqUcofn0Xu4p0pm_ROewKfcnOG3UO4Yo4EgVG6ZeQfoemWHklC1hGMn-1DXYfQ=w640-h427-no?authuser=0)" alt="Servlet - Redirect와 Forward" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../../08/servlet-redirect-forward/" class="title">Servlet - Redirect와 Forward</a></p>
+                            <p class="item-date"><time datetime="2020-08-30T22:32:44.000Z" itemprop="datePublished">2020-08-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/leetcode-twosum/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://assets.leetcode.com/static_assets/public/images/LeetCode_Sharing.png)" alt="Leetcode - Twosum" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Quiz/">Quiz</a></p>
+                            <p class="item-title"><a href="../../08/leetcode-twosum/" class="title">Leetcode - Twosum</a></p>
+                            <p class="item-date"><time datetime="2020-08-24T14:28:47.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../08/run-mysql-with-docker/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3fdpC3xu5q4xnJRLLhSaWCrARbnQ1qdp_DpF0Z7BITrtrr6gZWGExKC4PcMlVo3AxVhVbYiFgDhNObWmtv3hGwoEtF_4zFb_1fQsdL6d1K3UNA0LRkczuC_nNvcEHERB8EIB3uvWOIps7j1iraX6DGLbQ=w720-h480-no?authuser=0)" alt="Docker로 MySQL 실행하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Devops/">Devops</a></p>
+                            <p class="item-title"><a href="../../08/run-mysql-with-docker/" class="title">Docker로 MySQL 실행하기</a></p>
+                            <p class="item-date"><time datetime="2020-08-23T17:12:43.000Z" itemprop="datePublished">2020-08-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 11.11px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/api/" style="font-size: 11.11px;">api</a> <a href="../../../tags/architecture/" style="font-size: 10px;">architecture</a> <a href="../../../tags/array/" style="font-size: 11.11px;">array</a> <a href="../../../tags/aws/" style="font-size: 12.22px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 12.22px;">career</a> <a href="../../../tags/casting/" style="font-size: 12.22px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/cloud/" style="font-size: 12.22px;">cloud</a> <a href="../../../tags/compiler/" style="font-size: 10px;">compiler</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/databse/" style="font-size: 10px;">databse</a> <a href="../../../tags/datastructure/" style="font-size: 12.22px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 13.33px;">docker</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 11.11px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generic/" style="font-size: 10px;">generic</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 10px;">github</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 13.33px;">http</a> <a href="../../../tags/ide/" style="font-size: 10px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 10px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 11.11px;">interface</a> <a href="../../../tags/interpreter/" style="font-size: 10px;">interpreter</a> <a href="../../../tags/io/" style="font-size: 12.22px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 15.56px;">java</a> <a href="../../../tags/java8/" style="font-size: 11.11px;">java8</a> <a href="../../../tags/jquery/" style="font-size: 11.11px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/jvm/" style="font-size: 10px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 10px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 10px;">mustache</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 16.67px;">oop</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 12.22px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 11.11px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 18.89px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/string/" style="font-size: 14.44px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/tip/" style="font-size: 17.78px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 13.33px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 11.11px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 18.89px;">weekly-review</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Youngjin Mo</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+    
+        
+<script src="../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="../../../js/main.js"></script>
+
+
+</body>
+</html>
