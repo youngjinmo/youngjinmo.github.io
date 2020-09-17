@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>DevAndy</title>
+  <title>DevAndy - 개발자앤디의 개발블로그</title>
   
   <subtitle>개발블로그</subtitle>
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2020-09-13T01:53:27.932Z</updated>
+  <updated>2020-09-01T03:00:59.000Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -20,8 +20,8 @@
     <title>XML, JSON 그리고 XMLHttpRequest</title>
     <link href="http://youngjinmo.github.io/2020/09/xml-json-xmlhttprequest/"/>
     <id>http://youngjinmo.github.io/2020/09/xml-json-xmlhttprequest/</id>
-    <published>2020-09-01T12:00:59.000Z</published>
-    <updated>2020-09-13T01:53:27.932Z</updated>
+    <published>2020-09-01T03:00:59.000Z</published>
+    <updated>2020-09-01T03:00:59.000Z</updated>
     
     
       
@@ -51,8 +51,8 @@
     <title>Oracle - Sequence 생성하고 테이블에 삽입하기</title>
     <link href="http://youngjinmo.github.io/2020/08/create-table-sequence/"/>
     <id>http://youngjinmo.github.io/2020/08/create-table-sequence/</id>
-    <published>2020-08-31T18:57:13.000Z</published>
-    <updated>2020-09-13T01:53:29.136Z</updated>
+    <published>2020-08-31T09:57:13.000Z</published>
+    <updated>2020-08-31T09:57:13.000Z</updated>
     
     
       
@@ -78,8 +78,8 @@
     <title>Servlet - Redirect와 Forward</title>
     <link href="http://youngjinmo.github.io/2020/08/servlet-redirect-forward/"/>
     <id>http://youngjinmo.github.io/2020/08/servlet-redirect-forward/</id>
-    <published>2020-08-30T22:32:44.000Z</published>
-    <updated>2020-09-13T01:53:28.160Z</updated>
+    <published>2020-08-30T13:32:44.000Z</published>
+    <updated>2020-08-30T13:32:44.000Z</updated>
     
     
       
@@ -105,8 +105,8 @@
     <title>Leetcode - Twosum</title>
     <link href="http://youngjinmo.github.io/2020/08/leetcode-twosum/"/>
     <id>http://youngjinmo.github.io/2020/08/leetcode-twosum/</id>
-    <published>2020-08-24T14:28:47.000Z</published>
-    <updated>2020-09-13T01:53:28.332Z</updated>
+    <published>2020-08-24T05:28:47.000Z</published>
+    <updated>2020-08-24T05:28:47.000Z</updated>
     
     
       
@@ -130,8 +130,8 @@
     <title>Docker로 MySQL 실행하기</title>
     <link href="http://youngjinmo.github.io/2020/08/run-mysql-with-docker/"/>
     <id>http://youngjinmo.github.io/2020/08/run-mysql-with-docker/</id>
-    <published>2020-08-23T17:12:43.000Z</published>
-    <updated>2020-09-13T01:53:28.192Z</updated>
+    <published>2020-08-23T08:12:43.000Z</published>
+    <updated>2020-08-23T08:12:43.000Z</updated>
     
     
       
@@ -161,8 +161,8 @@
     <title>Java - Generic</title>
     <link href="http://youngjinmo.github.io/2020/08/java-generic/"/>
     <id>http://youngjinmo.github.io/2020/08/java-generic/</id>
-    <published>2020-08-19T16:24:46.000Z</published>
-    <updated>2020-09-13T01:53:28.596Z</updated>
+    <published>2020-08-19T07:24:46.000Z</published>
+    <updated>2020-08-19T07:24:46.000Z</updated>
     
     
       
@@ -188,8 +188,8 @@
     <title>Github Two-Factor 적용이후 Authenticatin Fail 발생할때</title>
     <link href="http://youngjinmo.github.io/2020/07/git-access-token/"/>
     <id>http://youngjinmo.github.io/2020/07/git-access-token/</id>
-    <published>2020-07-31T21:49:35.000Z</published>
-    <updated>2020-09-13T01:53:28.928Z</updated>
+    <published>2020-07-31T12:49:35.000Z</published>
+    <updated>2020-07-31T12:49:35.000Z</updated>
     
     
       
@@ -219,8 +219,8 @@
     <title>Java - JVM</title>
     <link href="http://youngjinmo.github.io/2020/07/java-jvm/"/>
     <id>http://youngjinmo.github.io/2020/07/java-jvm/</id>
-    <published>2020-07-27T23:37:43.000Z</published>
-    <updated>2020-09-13T01:53:28.552Z</updated>
+    <published>2020-07-27T14:37:43.000Z</published>
+    <updated>2020-07-27T14:37:43.000Z</updated>
     
     
       
@@ -247,8 +247,8 @@
     <title>Enumeration 인터페이스와 Iterator 인터페이스</title>
     <link href="http://youngjinmo.github.io/2020/07/enumeration-iterator/"/>
     <id>http://youngjinmo.github.io/2020/07/enumeration-iterator/</id>
-    <published>2020-07-05T16:39:14.000Z</published>
-    <updated>2020-09-13T01:53:28.948Z</updated>
+    <published>2020-07-05T07:39:14.000Z</published>
+    <updated>2020-07-05T07:39:14.000Z</updated>
     
     
       
@@ -278,8 +278,8 @@
     <title>Servlet - 서블릿 생명주기와 HttpServletRequest, HttpServletResponse</title>
     <link href="http://youngjinmo.github.io/2020/07/servlet-lifecycle/"/>
     <id>http://youngjinmo.github.io/2020/07/servlet-lifecycle/</id>
-    <published>2020-07-02T19:55:33.000Z</published>
-    <updated>2020-09-13T01:53:28.180Z</updated>
+    <published>2020-07-02T10:55:33.000Z</published>
+    <updated>2020-07-02T10:55:33.000Z</updated>
     
     
       
@@ -307,8 +307,8 @@
     <title>Servlet - 서블릿 튜토리얼</title>
     <link href="http://youngjinmo.github.io/2020/07/servlet-tutorial/"/>
     <id>http://youngjinmo.github.io/2020/07/servlet-tutorial/</id>
-    <published>2020-07-02T19:55:30.000Z</published>
-    <updated>2020-09-13T01:53:28.116Z</updated>
+    <published>2020-07-02T10:55:30.000Z</published>
+    <updated>2020-07-02T10:55:30.000Z</updated>
     
     
       
@@ -336,8 +336,8 @@
     <title>Java8 - 람다와 함수형 인터페이스</title>
     <link href="http://youngjinmo.github.io/2020/06/java8-lambda-functional-interface/"/>
     <id>http://youngjinmo.github.io/2020/06/java8-lambda-functional-interface/</id>
-    <published>2020-06-29T21:49:09.000Z</published>
-    <updated>2020-09-13T01:53:28.364Z</updated>
+    <published>2020-06-29T12:49:09.000Z</published>
+    <updated>2020-06-29T12:49:09.000Z</updated>
     
     
       
@@ -367,8 +367,8 @@
     <title>자바8의 신규 기능</title>
     <link href="http://youngjinmo.github.io/2020/06/java8-new-features/"/>
     <id>http://youngjinmo.github.io/2020/06/java8-new-features/</id>
-    <published>2020-06-22T21:03:51.000Z</published>
-    <updated>2020-09-13T01:53:28.352Z</updated>
+    <published>2020-06-22T12:03:51.000Z</published>
+    <updated>2020-06-22T12:03:51.000Z</updated>
     
     
       
@@ -394,8 +394,8 @@
     <title>Java - File 읽고(Read) 출력(Write)하기</title>
     <link href="http://youngjinmo.github.io/2020/06/java-file-io/"/>
     <id>http://youngjinmo.github.io/2020/06/java-file-io/</id>
-    <published>2020-06-20T17:18:47.000Z</published>
-    <updated>2020-09-13T01:53:28.600Z</updated>
+    <published>2020-06-20T08:18:47.000Z</published>
+    <updated>2020-06-20T08:18:47.000Z</updated>
     
     
       
@@ -421,8 +421,8 @@
     <title>REST</title>
     <link href="http://youngjinmo.github.io/2020/06/rest-api/"/>
     <id>http://youngjinmo.github.io/2020/06/rest-api/</id>
-    <published>2020-06-18T20:29:48.000Z</published>
-    <updated>2020-09-13T01:53:28.208Z</updated>
+    <published>2020-06-18T11:29:48.000Z</published>
+    <updated>2020-06-18T11:29:48.000Z</updated>
     
     
       
@@ -452,8 +452,8 @@
     <title>웹서버와 WAS</title>
     <link href="http://youngjinmo.github.io/2020/06/webserver-was/"/>
     <id>http://youngjinmo.github.io/2020/06/webserver-was/</id>
-    <published>2020-06-15T22:05:56.000Z</published>
-    <updated>2020-09-13T01:53:28.048Z</updated>
+    <published>2020-06-15T13:05:56.000Z</published>
+    <updated>2020-06-15T13:05:56.000Z</updated>
     
     
       
@@ -483,8 +483,8 @@
     <title>Git - Stash 활용법</title>
     <link href="http://youngjinmo.github.io/2020/06/git-stash/"/>
     <id>http://youngjinmo.github.io/2020/06/git-stash/</id>
-    <published>2020-06-13T13:06:10.000Z</published>
-    <updated>2020-09-13T01:53:28.864Z</updated>
+    <published>2020-06-13T04:06:10.000Z</published>
+    <updated>2020-06-13T04:06:10.000Z</updated>
     
     
       
@@ -510,8 +510,8 @@
     <title>String 객체 연산시 StringBuffer를 사용해야하는 이유</title>
     <link href="http://youngjinmo.github.io/2020/05/java-stringbuffer-better-than-string/"/>
     <id>http://youngjinmo.github.io/2020/05/java-stringbuffer-better-than-string/</id>
-    <published>2020-05-16T09:11:06.000Z</published>
-    <updated>2020-09-13T01:53:28.396Z</updated>
+    <published>2020-05-16T00:11:06.000Z</published>
+    <updated>2020-05-16T00:11:06.000Z</updated>
     
     
       
@@ -541,8 +541,8 @@
     <title>Java - Exception</title>
     <link href="http://youngjinmo.github.io/2020/05/java-exception/"/>
     <id>http://youngjinmo.github.io/2020/05/java-exception/</id>
-    <published>2020-05-13T21:10:26.000Z</published>
-    <updated>2020-09-13T01:53:28.604Z</updated>
+    <published>2020-05-13T12:10:26.000Z</published>
+    <updated>2020-05-13T12:10:26.000Z</updated>
     
     
       
@@ -568,8 +568,8 @@
     <title>Ubuntu에서 JDK 설치하기</title>
     <link href="http://youngjinmo.github.io/2020/05/install-jdk-ubuntu/"/>
     <id>http://youngjinmo.github.io/2020/05/install-jdk-ubuntu/</id>
-    <published>2020-05-08T22:42:37.000Z</published>
-    <updated>2020-09-13T01:53:28.648Z</updated>
+    <published>2020-05-08T13:42:37.000Z</published>
+    <updated>2020-05-08T13:42:37.000Z</updated>
     
     
       
@@ -595,8 +595,8 @@
     <title>Java - String 클래스 메서드 정리</title>
     <link href="http://youngjinmo.github.io/2020/05/java-string-methods/"/>
     <id>http://youngjinmo.github.io/2020/05/java-string-methods/</id>
-    <published>2020-05-03T16:56:04.000Z</published>
-    <updated>2020-09-13T01:53:28.408Z</updated>
+    <published>2020-05-03T07:56:04.000Z</published>
+    <updated>2020-05-03T07:56:04.000Z</updated>
     
     
       
@@ -624,8 +624,8 @@
     <title>Oracle - Date</title>
     <link href="http://youngjinmo.github.io/2020/04/oracle-date/"/>
     <id>http://youngjinmo.github.io/2020/04/oracle-date/</id>
-    <published>2020-04-26T14:57:07.000Z</published>
-    <updated>2020-09-13T01:53:28.308Z</updated>
+    <published>2020-04-26T05:57:07.000Z</published>
+    <updated>2020-04-26T05:57:07.000Z</updated>
     
     
       
@@ -651,8 +651,8 @@
     <title>Oracle - LIKE 연산자</title>
     <link href="http://youngjinmo.github.io/2020/04/oracle-like/"/>
     <id>http://youngjinmo.github.io/2020/04/oracle-like/</id>
-    <published>2020-04-26T13:42:51.000Z</published>
-    <updated>2020-09-13T01:53:28.264Z</updated>
+    <published>2020-04-26T04:42:51.000Z</published>
+    <updated>2020-04-26T04:42:51.000Z</updated>
     
     
       
@@ -678,8 +678,8 @@
     <title>main(String[] Args)에 대해 알아보자.</title>
     <link href="http://youngjinmo.github.io/2020/04/java-main-args/"/>
     <id>http://youngjinmo.github.io/2020/04/java-main-args/</id>
-    <published>2020-04-23T18:53:54.000Z</published>
-    <updated>2020-09-13T01:53:28.548Z</updated>
+    <published>2020-04-23T09:53:54.000Z</published>
+    <updated>2020-04-23T09:53:54.000Z</updated>
     
     
       
@@ -703,8 +703,8 @@
     <title>Oracle - Sub Query</title>
     <link href="http://youngjinmo.github.io/2020/04/oracle-subquery/"/>
     <id>http://youngjinmo.github.io/2020/04/oracle-subquery/</id>
-    <published>2020-04-20T14:48:40.000Z</published>
-    <updated>2020-09-13T01:53:28.232Z</updated>
+    <published>2020-04-20T05:48:40.000Z</published>
+    <updated>2020-04-20T05:48:40.000Z</updated>
     
     
       
@@ -732,8 +732,8 @@
     <title>객체를 직접 호출하는 것과 인스턴스를 호출하는것의 차이 (메모리 주소값 비교)</title>
     <link href="http://youngjinmo.github.io/2020/04/java-object-instance/"/>
     <id>http://youngjinmo.github.io/2020/04/java-object-instance/</id>
-    <published>2020-04-08T14:56:01.000Z</published>
-    <updated>2020-09-13T01:53:28.452Z</updated>
+    <published>2020-04-08T05:56:01.000Z</published>
+    <updated>2020-04-08T05:56:01.000Z</updated>
     
     
       
@@ -759,8 +759,8 @@
     <title>메모리 구조</title>
     <link href="http://youngjinmo.github.io/2020/04/java-memory/"/>
     <id>http://youngjinmo.github.io/2020/04/java-memory/</id>
-    <published>2020-04-06T00:38:55.000Z</published>
-    <updated>2020-09-13T01:53:28.476Z</updated>
+    <published>2020-04-05T15:38:55.000Z</published>
+    <updated>2020-04-05T15:38:55.000Z</updated>
     
     
       
@@ -786,8 +786,8 @@
     <title>JAVA - 내부클래스(innerClass또는 nestedClass)</title>
     <link href="http://youngjinmo.github.io/2020/04/java-nestedClass/"/>
     <id>http://youngjinmo.github.io/2020/04/java-nestedClass/</id>
-    <published>2020-04-05T22:48:25.000Z</published>
-    <updated>2020-09-13T01:53:28.452Z</updated>
+    <published>2020-04-05T13:48:25.000Z</published>
+    <updated>2020-04-05T13:48:25.000Z</updated>
     
     
       
@@ -820,8 +820,8 @@
     <title>인텔리J에서 Gradle 프로젝트 인식안될때</title>
     <link href="http://youngjinmo.github.io/2020/04/intellij-reimport-gradle/"/>
     <id>http://youngjinmo.github.io/2020/04/intellij-reimport-gradle/</id>
-    <published>2020-04-05T16:49:27.000Z</published>
-    <updated>2020-09-13T01:53:28.636Z</updated>
+    <published>2020-04-05T07:49:27.000Z</published>
+    <updated>2020-04-05T07:49:27.000Z</updated>
     
     
       
@@ -860,8 +860,8 @@
     <title>Java - 인터페이스(Interface)</title>
     <link href="http://youngjinmo.github.io/2020/04/java-interface/"/>
     <id>http://youngjinmo.github.io/2020/04/java-interface/</id>
-    <published>2020-04-04T17:49:23.000Z</published>
-    <updated>2020-09-13T01:53:28.584Z</updated>
+    <published>2020-04-04T08:49:23.000Z</published>
+    <updated>2020-04-04T08:49:23.000Z</updated>
     
     
       

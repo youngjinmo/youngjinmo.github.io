@@ -6,7 +6,7 @@
     
 
     
-    <title>데이터베이스 - Oracle | DevAndy</title>
+    <title>데이터베이스 - Oracle | DevAndy - 개발자앤디의 개발블로그</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
@@ -16,12 +16,11 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="데이터베이스 - Oracle">
 <meta property="og:url" content="http://youngjinmo.github.io/2019/06/oracle-intro/index.html">
-<meta property="og:site_name" content="DevAndy">
+<meta property="og:site_name" content="DevAndy - 개발자앤디의 개발블로그">
 <meta property="og:description" content="이번엔 데이터베이스를 정리하고자 한다. 사실 정리라기보다는 이제 막 발을 떼고 공부를 시작했다는 표현이 더 맞을 것 같다. 데이터를 어떻게 관리하는지를 어느정도 머릿속에 정리하기위해 작성해본다. 본 포스트는 인프런 - Oracle SQL Database 11g PL&#x2F;SQL Developer를 수강하고 작성했다. 목차 Intro Features Advan">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://www.techdonut.co.uk/sites/default/files/managed-server-hosting-your-server-in-the-cloud-523968604.jpg">
-<meta property="article:published_time" content="2019-06-28T20:21:50.000Z">
-<meta property="article:modified_time" content="2020-09-13T01:53:28.276Z">
+<meta property="article:published_time" content="2019-06-28T11:21:50.000Z">
 <meta property="article:author" content="Youngjin Mo">
 <meta property="article:tag" content="oracle">
 <meta property="article:tag" content="sql">
@@ -31,7 +30,7 @@
     
 
     
-        <link rel="alternate" href="/" title="DevAndy" type="application/atom+xml" />
+        <link rel="alternate" href="/" title="DevAndy - 개발자앤디의 개발블로그" type="application/atom+xml" />
     
 
     
@@ -190,17 +189,10 @@ ga('send', 'pageview');
   <div class="article-date">
     <i class="fa fa-calendar"></i>
     <a href="" class="article-date">
-       <time datetime="2019-06-28T20:21:50.000Z" itemprop="datePublished">2019-06-29</time>
+       <time datetime="2019-06-28T11:21:50.000Z" itemprop="datePublished">2019-06-28</time>
     </a>
   </div>
 
-
-<div class="article-date">
-  <i class="fa fa-calendar-plus-o"></i>
-  <a href="" class="article-date">
-     <time datetime="2020-09-13T01:53:28.276Z" itemprop="dateModified">2020-09-13</time>
-  </a>
-</div>
 
 
                 
@@ -360,70 +352,14 @@ ga('send', 'pageview');
 
         </div>
         <footer class="article-footer">
-            
-
-
-
-    <a data-url="http://youngjinmo.github.io/2019/06/oracle-intro/" data-id="ckf65ue2x00exacgd4sz9cu20" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
+            <script src="https://utteranc.es/client.js"
+        repo="youngjinmo/githubpages-comment"
+        issue-term="url"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
 </script>
-
         </footer>
     </div>
     <script type="application/ld+json">
@@ -438,9 +374,9 @@ ga('send', 'pageview');
         "image": "../../../http:/youngjinmo.github.iohttps:/www.techdonut.co.uk/sites/default/files/managed-server-hosting-your-server-in-the-cloud-523968604.jpg",
         "keywords": "oracle sql",
         "genre": "Dev Database",
-        "datePublished": "2019-06-29",
-        "dateCreated": "2019-06-29",
-        "dateModified": "2020-09-13",
+        "datePublished": "2019-06-28",
+        "dateCreated": "2019-06-28",
+        
         "url": "../../../http:/youngjinmo.github.io/2019/06/oracle-intro/",
         "description": "
 
@@ -472,24 +408,8 @@ Advan",
             
                 
                 <li>
-                    <a class="social-tooltip" title="twitter" href="../../../index.html" target="_blank" rel="noopener">
+                    <a class="social-tooltip" title="twitter" href="../../../https:/twitter.com/devandy_yj" target="_blank" rel="noopener">
                         <i class="icon fa fa-twitter"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="facebook" href="../../../index.html" target="_blank" rel="noopener">
-                        <i class="icon fa fa-facebook"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="stack-overflow" href="../../../index.html" target="_blank" rel="noopener">
-                        <i class="icon fa fa-stack-overflow"></i>
                     </a>
                 </li>
                 
@@ -498,14 +418,6 @@ Advan",
                 <li>
                     <a class="social-tooltip" title="github" href="../../../https:/github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
                         <i class="icon fa fa-github"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="weibo" href="../../../index.html" target="_blank" rel="noopener">
-                        <i class="icon fa fa-weibo"></i>
                     </a>
                 </li>
                 
@@ -572,7 +484,7 @@ Advan",
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Others/">Others</a></p>
                             <p class="item-title"><a href="../../../2020/09/xml-json-xmlhttprequest/" class="title">XML, JSON 그리고 XMLHttpRequest</a></p>
-                            <p class="item-date"><time datetime="2020-09-01T12:00:59.000Z" itemprop="datePublished">2020-09-01</time></p>
+                            <p class="item-date"><time datetime="2020-09-01T03:00:59.000Z" itemprop="datePublished">2020-09-01</time></p>
                         </div>
                     </li>
                 
@@ -592,7 +504,7 @@ Advan",
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Database/">Database</a></p>
                             <p class="item-title"><a href="../../../2020/08/create-table-sequence/" class="title">Oracle - Sequence 생성하고 테이블에 삽입하기</a></p>
-                            <p class="item-date"><time datetime="2020-08-31T18:57:13.000Z" itemprop="datePublished">2020-09-01</time></p>
+                            <p class="item-date"><time datetime="2020-08-31T09:57:13.000Z" itemprop="datePublished">2020-08-31</time></p>
                         </div>
                     </li>
                 
@@ -612,7 +524,7 @@ Advan",
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
                             <p class="item-title"><a href="../../../2020/08/servlet-redirect-forward/" class="title">Servlet - Redirect와 Forward</a></p>
-                            <p class="item-date"><time datetime="2020-08-30T22:32:44.000Z" itemprop="datePublished">2020-08-31</time></p>
+                            <p class="item-date"><time datetime="2020-08-30T13:32:44.000Z" itemprop="datePublished">2020-08-30</time></p>
                         </div>
                     </li>
                 
@@ -632,7 +544,7 @@ Advan",
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Quiz/">Quiz</a></p>
                             <p class="item-title"><a href="../../../2020/08/leetcode-twosum/" class="title">Leetcode - Twosum</a></p>
-                            <p class="item-date"><time datetime="2020-08-24T14:28:47.000Z" itemprop="datePublished">2020-08-24</time></p>
+                            <p class="item-date"><time datetime="2020-08-24T05:28:47.000Z" itemprop="datePublished">2020-08-24</time></p>
                         </div>
                     </li>
                 
@@ -652,7 +564,7 @@ Advan",
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Devops/">Devops</a></p>
                             <p class="item-title"><a href="../../../2020/08/run-mysql-with-docker/" class="title">Docker로 MySQL 실행하기</a></p>
-                            <p class="item-date"><time datetime="2020-08-23T17:12:43.000Z" itemprop="datePublished">2020-08-24</time></p>
+                            <p class="item-date"><time datetime="2020-08-23T08:12:43.000Z" itemprop="datePublished">2020-08-23</time></p>
                         </div>
                     </li>
                 

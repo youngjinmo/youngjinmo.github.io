@@ -6,7 +6,7 @@
     
 
     
-    <title>Oracle - LIKE 연산자 | DevAndy</title>
+    <title>Oracle - LIKE 연산자 | DevAndy - 개발자앤디의 개발블로그</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
@@ -16,12 +16,11 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Oracle - LIKE 연산자">
 <meta property="og:url" content="http://youngjinmo.github.io/2020/04/oracle-like/index.html">
-<meta property="og:site_name" content="DevAndy">
+<meta property="og:site_name" content="DevAndy - 개발자앤디의 개발블로그">
 <meta property="og:description" content="문자열을 검색할 때 사용하는 키워드이다. WHERE 조건절에 함께 사용하는 키워드이다. 123SELECT ename, empnoFROM empWHERE ename LIKE &amp;#x27;FORD&amp;#x27;;    LIKE 키워드에 포함하는 문자열을 가진 모든 문자열을 조회하는 방법이 있다. 두번째 글자가 A인 사원의 이름을 emp 테이블에서 조회하는 쿼리이">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://lh3.googleusercontent.com/G4N6J9eaf6r0piKxIOmPEpOfGooYGk3_GXnppvsswvfgVVJf7A97uOvbKJkIcSK0WrZ1TZ1Ibnv3hyXMAcQExR2t57ZpPEbbfMxxqEnwufFfHoGYfzChFHHvN6QhrcBiTATaiNtweHz8VqEKFd_yvIE3125kYPcQQNL8FjQDZw2-W__dj7KPqvisr4HKLBALyLMZuU7KIgL1L3LgeUZ2OOA11K5i_m6QYCiDH2bhJnTU08P1klA2TvUxt4s6aejZkEXzb1-1_nn5dMZXt9bl3yzDyFFikNfNj1bX71rO9LetjKzZ0gFek2a8X2jaDYUs320jFq5gim6XgOJVsdBr4MYQcrf70Ag2Inw5pl8R99_rJ3ALqJFnQLf4wKa-q-rroGoLHBemhWVjyHo6FV_BnoCDnGC1QJTSZx20hqM1bOqUOBgcIwd9oXF6wlKl4Qw2JCohJJBBnUOcav5hZUEW3kSlQMf0yL0hsMth7SB-o434hLCHcQFtNzEa0XwbkohQ_6Dvk5vHMExr_QAcV54hcLuqjRqVqzDT23Rqc-wND919btp7Cw_7nl1kYgYPn79uUIFglmJ9aKf-IkjqjuwREwXH7SFSzqk-pNTz83AIjOJ0FeCs2yUiZisNPJkAZE8xNlXf1OmyWpBSam7VqIY5FlzBCECwFs0_a7PM4ieB2XZl3erGS9Do6ye3OcshefMjlsjMed7c6oM_YeaxXf5Llle18k-LsEWbbfAufAWOrxZU19sxvLGsomKZ=w1024-h480-no">
-<meta property="article:published_time" content="2020-04-26T13:42:51.000Z">
-<meta property="article:modified_time" content="2020-09-13T01:53:28.264Z">
+<meta property="article:published_time" content="2020-04-26T04:42:51.000Z">
 <meta property="article:author" content="Youngjin Mo">
 <meta property="article:tag" content="oracle">
 <meta name="twitter:card" content="summary">
@@ -30,7 +29,7 @@
     
 
     
-        <link rel="alternate" href="/" title="DevAndy" type="application/atom+xml" />
+        <link rel="alternate" href="/" title="DevAndy - 개발자앤디의 개발블로그" type="application/atom+xml" />
     
 
     
@@ -189,17 +188,10 @@ ga('send', 'pageview');
   <div class="article-date">
     <i class="fa fa-calendar"></i>
     <a href="" class="article-date">
-       <time datetime="2020-04-26T13:42:51.000Z" itemprop="datePublished">2020-04-26</time>
+       <time datetime="2020-04-26T04:42:51.000Z" itemprop="datePublished">2020-04-26</time>
     </a>
   </div>
 
-
-<div class="article-date">
-  <i class="fa fa-calendar-plus-o"></i>
-  <a href="" class="article-date">
-     <time datetime="2020-09-13T01:53:28.264Z" itemprop="dateModified">2020-09-13</time>
-  </a>
-</div>
 
 
                 
@@ -257,70 +249,14 @@ ga('send', 'pageview');
 
         </div>
         <footer class="article-footer">
-            
-
-
-
-    <a data-url="http://youngjinmo.github.io/2020/04/oracle-like/" data-id="ckf65ue3200f3acgdebok4nus" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
+            <script src="https://utteranc.es/client.js"
+        repo="youngjinmo/githubpages-comment"
+        issue-term="url"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
 </script>
-
         </footer>
     </div>
     <script type="application/ld+json">
@@ -337,7 +273,7 @@ ga('send', 'pageview');
         "genre": "Dev Database",
         "datePublished": "2020-04-26",
         "dateCreated": "2020-04-26",
-        "dateModified": "2020-09-13",
+        
         "url": "../../../http:/youngjinmo.github.io/2020/04/oracle-like/",
         "description": "
 
@@ -369,24 +305,8 @@ LIKE 키워드에 포함하는 문자열을 가진 모든 문자열을 조회하
             
                 
                 <li>
-                    <a class="social-tooltip" title="twitter" href="../../../index.html" target="_blank" rel="noopener">
+                    <a class="social-tooltip" title="twitter" href="../../../https:/twitter.com/devandy_yj" target="_blank" rel="noopener">
                         <i class="icon fa fa-twitter"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="facebook" href="../../../index.html" target="_blank" rel="noopener">
-                        <i class="icon fa fa-facebook"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="stack-overflow" href="../../../index.html" target="_blank" rel="noopener">
-                        <i class="icon fa fa-stack-overflow"></i>
                     </a>
                 </li>
                 
@@ -395,14 +315,6 @@ LIKE 키워드에 포함하는 문자열을 가진 모든 문자열을 조회하
                 <li>
                     <a class="social-tooltip" title="github" href="../../../https:/github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
                         <i class="icon fa fa-github"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="weibo" href="../../../index.html" target="_blank" rel="noopener">
-                        <i class="icon fa fa-weibo"></i>
                     </a>
                 </li>
                 
@@ -469,7 +381,7 @@ LIKE 키워드에 포함하는 문자열을 가진 모든 문자열을 조회하
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Others/">Others</a></p>
                             <p class="item-title"><a href="../../09/xml-json-xmlhttprequest/" class="title">XML, JSON 그리고 XMLHttpRequest</a></p>
-                            <p class="item-date"><time datetime="2020-09-01T12:00:59.000Z" itemprop="datePublished">2020-09-01</time></p>
+                            <p class="item-date"><time datetime="2020-09-01T03:00:59.000Z" itemprop="datePublished">2020-09-01</time></p>
                         </div>
                     </li>
                 
@@ -489,7 +401,7 @@ LIKE 키워드에 포함하는 문자열을 가진 모든 문자열을 조회하
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Database/">Database</a></p>
                             <p class="item-title"><a href="../../08/create-table-sequence/" class="title">Oracle - Sequence 생성하고 테이블에 삽입하기</a></p>
-                            <p class="item-date"><time datetime="2020-08-31T18:57:13.000Z" itemprop="datePublished">2020-09-01</time></p>
+                            <p class="item-date"><time datetime="2020-08-31T09:57:13.000Z" itemprop="datePublished">2020-08-31</time></p>
                         </div>
                     </li>
                 
@@ -509,7 +421,7 @@ LIKE 키워드에 포함하는 문자열을 가진 모든 문자열을 조회하
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
                             <p class="item-title"><a href="../../08/servlet-redirect-forward/" class="title">Servlet - Redirect와 Forward</a></p>
-                            <p class="item-date"><time datetime="2020-08-30T22:32:44.000Z" itemprop="datePublished">2020-08-31</time></p>
+                            <p class="item-date"><time datetime="2020-08-30T13:32:44.000Z" itemprop="datePublished">2020-08-30</time></p>
                         </div>
                     </li>
                 
@@ -529,7 +441,7 @@ LIKE 키워드에 포함하는 문자열을 가진 모든 문자열을 조회하
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Quiz/">Quiz</a></p>
                             <p class="item-title"><a href="../../08/leetcode-twosum/" class="title">Leetcode - Twosum</a></p>
-                            <p class="item-date"><time datetime="2020-08-24T14:28:47.000Z" itemprop="datePublished">2020-08-24</time></p>
+                            <p class="item-date"><time datetime="2020-08-24T05:28:47.000Z" itemprop="datePublished">2020-08-24</time></p>
                         </div>
                     </li>
                 
@@ -549,7 +461,7 @@ LIKE 키워드에 포함하는 문자열을 가진 모든 문자열을 조회하
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Devops/">Devops</a></p>
                             <p class="item-title"><a href="../../08/run-mysql-with-docker/" class="title">Docker로 MySQL 실행하기</a></p>
-                            <p class="item-date"><time datetime="2020-08-23T17:12:43.000Z" itemprop="datePublished">2020-08-24</time></p>
+                            <p class="item-date"><time datetime="2020-08-23T08:12:43.000Z" itemprop="datePublished">2020-08-23</time></p>
                         </div>
                     </li>
                 

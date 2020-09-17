@@ -6,7 +6,7 @@
     
 
     
-    <title>정규표현식(Reg) | DevAndy</title>
+    <title>정규표현식(Reg) | DevAndy - 개발자앤디의 개발블로그</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
@@ -16,12 +16,11 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="정규표현식(Reg)">
 <meta property="og:url" content="http://youngjinmo.github.io/2020/01/reg/index.html">
-<meta property="og:site_name" content="DevAndy">
+<meta property="og:site_name" content="DevAndy - 개발자앤디의 개발블로그">
 <meta property="og:description" content="정규표현식프로그래머스 정규표현식 강의를 들으면서 작성한 노트이다. 강의는 파이썬으로 진행되었다. ToC 숫자 대표문자 (한 글자만) 글자 대표문자 (한 글자만) 문자 여러개 0개 이상 x가 있을수도 있고, 없을 수도 있고 x 또는 y가 있을수도 있고, 없을 수도 있고 특정 글자 수의 문자만 조회 글자 수 조건 추가하여 문자 조회 특정 문자만 조회 소문자">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://camo.githubusercontent.com/8cc5696b910ded5d34286c50716cfab36e2ebb0d/687474703a2f2f322e62702e626c6f6773706f742e636f6d2f2d2d7438363079735a4745382f5556725741366e4f334c492f41414141414141414176672f396f61446d596d4434466f2f73313630302f726567756c61722d65787072657373696f6e732d63686561742d73686565742e706e67">
-<meta property="article:published_time" content="2020-01-12T19:31:24.000Z">
-<meta property="article:modified_time" content="2020-09-13T01:53:28.216Z">
+<meta property="article:published_time" content="2020-01-12T10:31:24.000Z">
 <meta property="article:author" content="Youngjin Mo">
 <meta property="article:tag" content="reg">
 <meta name="twitter:card" content="summary">
@@ -30,7 +29,7 @@
     
 
     
-        <link rel="alternate" href="/" title="DevAndy" type="application/atom+xml" />
+        <link rel="alternate" href="/" title="DevAndy - 개발자앤디의 개발블로그" type="application/atom+xml" />
     
 
     
@@ -189,17 +188,10 @@ ga('send', 'pageview');
   <div class="article-date">
     <i class="fa fa-calendar"></i>
     <a href="" class="article-date">
-       <time datetime="2020-01-12T19:31:24.000Z" itemprop="datePublished">2020-01-13</time>
+       <time datetime="2020-01-12T10:31:24.000Z" itemprop="datePublished">2020-01-12</time>
     </a>
   </div>
 
-
-<div class="article-date">
-  <i class="fa fa-calendar-plus-o"></i>
-  <a href="" class="article-date">
-     <time datetime="2020-09-13T01:53:28.216Z" itemprop="dateModified">2020-09-13</time>
-  </a>
-</div>
 
 
                 
@@ -381,70 +373,14 @@ ga('send', 'pageview');
 
         </div>
         <footer class="article-footer">
-            
-
-
-
-    <a data-url="http://youngjinmo.github.io/2020/01/reg/" data-id="ckf65ue5o00fzacgd10xeh1do" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
+            <script src="https://utteranc.es/client.js"
+        repo="youngjinmo/githubpages-comment"
+        issue-term="url"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
 </script>
-
         </footer>
     </div>
     <script type="application/ld+json">
@@ -459,9 +395,9 @@ ga('send', 'pageview');
         "image": "../../../http:/youngjinmo.github.iohttps:/camo.githubusercontent.com/8cc5696b910ded5d34286c50716cfab36e2ebb0d/687474703a2f2f322e62702e626c6f6773706f742e636f6d2f2d2d7438363079735a4745382f5556725741366e4f334c492f41414141414141414176672f396f61446d596d4434466f2f73313630302f726567756c61722d65787072657373696f6e732d63686561742d73686565742e706e67",
         "keywords": "reg",
         "genre": "Dev Others",
-        "datePublished": "2020-01-13",
-        "dateCreated": "2020-01-13",
-        "dateModified": "2020-09-13",
+        "datePublished": "2020-01-12",
+        "dateCreated": "2020-01-12",
+        
         "url": "../../../http:/youngjinmo.github.io/2020/01/reg/",
         "description": "
 
@@ -499,24 +435,8 @@ x 또는 y가 있을수도 있고, 없을 수도 있고
             
                 
                 <li>
-                    <a class="social-tooltip" title="twitter" href="../../../index.html" target="_blank" rel="noopener">
+                    <a class="social-tooltip" title="twitter" href="../../../https:/twitter.com/devandy_yj" target="_blank" rel="noopener">
                         <i class="icon fa fa-twitter"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="facebook" href="../../../index.html" target="_blank" rel="noopener">
-                        <i class="icon fa fa-facebook"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="stack-overflow" href="../../../index.html" target="_blank" rel="noopener">
-                        <i class="icon fa fa-stack-overflow"></i>
                     </a>
                 </li>
                 
@@ -525,14 +445,6 @@ x 또는 y가 있을수도 있고, 없을 수도 있고
                 <li>
                     <a class="social-tooltip" title="github" href="../../../https:/github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
                         <i class="icon fa fa-github"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="weibo" href="../../../index.html" target="_blank" rel="noopener">
-                        <i class="icon fa fa-weibo"></i>
                     </a>
                 </li>
                 
@@ -599,7 +511,7 @@ x 또는 y가 있을수도 있고, 없을 수도 있고
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Others/">Others</a></p>
                             <p class="item-title"><a href="../../09/xml-json-xmlhttprequest/" class="title">XML, JSON 그리고 XMLHttpRequest</a></p>
-                            <p class="item-date"><time datetime="2020-09-01T12:00:59.000Z" itemprop="datePublished">2020-09-01</time></p>
+                            <p class="item-date"><time datetime="2020-09-01T03:00:59.000Z" itemprop="datePublished">2020-09-01</time></p>
                         </div>
                     </li>
                 
@@ -619,7 +531,7 @@ x 또는 y가 있을수도 있고, 없을 수도 있고
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Database/">Database</a></p>
                             <p class="item-title"><a href="../../08/create-table-sequence/" class="title">Oracle - Sequence 생성하고 테이블에 삽입하기</a></p>
-                            <p class="item-date"><time datetime="2020-08-31T18:57:13.000Z" itemprop="datePublished">2020-09-01</time></p>
+                            <p class="item-date"><time datetime="2020-08-31T09:57:13.000Z" itemprop="datePublished">2020-08-31</time></p>
                         </div>
                     </li>
                 
@@ -639,7 +551,7 @@ x 또는 y가 있을수도 있고, 없을 수도 있고
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
                             <p class="item-title"><a href="../../08/servlet-redirect-forward/" class="title">Servlet - Redirect와 Forward</a></p>
-                            <p class="item-date"><time datetime="2020-08-30T22:32:44.000Z" itemprop="datePublished">2020-08-31</time></p>
+                            <p class="item-date"><time datetime="2020-08-30T13:32:44.000Z" itemprop="datePublished">2020-08-30</time></p>
                         </div>
                     </li>
                 
@@ -659,7 +571,7 @@ x 또는 y가 있을수도 있고, 없을 수도 있고
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Quiz/">Quiz</a></p>
                             <p class="item-title"><a href="../../08/leetcode-twosum/" class="title">Leetcode - Twosum</a></p>
-                            <p class="item-date"><time datetime="2020-08-24T14:28:47.000Z" itemprop="datePublished">2020-08-24</time></p>
+                            <p class="item-date"><time datetime="2020-08-24T05:28:47.000Z" itemprop="datePublished">2020-08-24</time></p>
                         </div>
                     </li>
                 
@@ -679,7 +591,7 @@ x 또는 y가 있을수도 있고, 없을 수도 있고
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Devops/">Devops</a></p>
                             <p class="item-title"><a href="../../08/run-mysql-with-docker/" class="title">Docker로 MySQL 실행하기</a></p>
-                            <p class="item-date"><time datetime="2020-08-23T17:12:43.000Z" itemprop="datePublished">2020-08-24</time></p>
+                            <p class="item-date"><time datetime="2020-08-23T08:12:43.000Z" itemprop="datePublished">2020-08-23</time></p>
                         </div>
                     </li>
                 

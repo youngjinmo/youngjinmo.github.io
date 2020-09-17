@@ -6,7 +6,7 @@
     
 
     
-    <title>SpringSecurity에서 패스워드 암호화하기(A.k.a.passwordEncoder) | DevAndy</title>
+    <title>SpringSecurity에서 패스워드 암호화하기(A.k.a.passwordEncoder) | DevAndy - 개발자앤디의 개발블로그</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
@@ -16,12 +16,11 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringSecurity에서 패스워드 암호화하기(A.k.a.passwordEncoder)">
 <meta property="og:url" content="http://youngjinmo.github.io/2019/11/springsecurity-passwordencoder/index.html">
-<meta property="og:site_name" content="DevAndy">
+<meta property="og:site_name" content="DevAndy - 개발자앤디의 개발블로그">
 <meta property="og:description" content="SpringBoot로 프로젝트를 하면서 비밀번호를 암호화하는 작업을 배웠다. 기록을 위해 남겨둔다. 사용자는 패스워드를 평문 문자로 회원가입&#x2F;로그인을 한다. 여기서 평문 문자(Plain text)란 암호화되지 않은 문자열 데이터를 말한다. 사용자의 패스워드는 서버에 저장되는데, 이 때 평문 문자로 저장이 되면, 서버를 관리하는 사람이 임의로 사용자들의">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80">
-<meta property="article:published_time" content="2019-11-18T18:36:20.000Z">
-<meta property="article:modified_time" content="2020-09-13T01:53:28.092Z">
+<meta property="article:published_time" content="2019-11-18T09:36:20.000Z">
 <meta property="article:author" content="Youngjin Mo">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="spring-security">
@@ -31,7 +30,7 @@
     
 
     
-        <link rel="alternate" href="/" title="DevAndy" type="application/atom+xml" />
+        <link rel="alternate" href="/" title="DevAndy - 개발자앤디의 개발블로그" type="application/atom+xml" />
     
 
     
@@ -190,17 +189,10 @@ ga('send', 'pageview');
   <div class="article-date">
     <i class="fa fa-calendar"></i>
     <a href="" class="article-date">
-       <time datetime="2019-11-18T18:36:20.000Z" itemprop="datePublished">2019-11-19</time>
+       <time datetime="2019-11-18T09:36:20.000Z" itemprop="datePublished">2019-11-18</time>
     </a>
   </div>
 
-
-<div class="article-date">
-  <i class="fa fa-calendar-plus-o"></i>
-  <a href="" class="article-date">
-     <time datetime="2020-09-13T01:53:28.092Z" itemprop="dateModified">2020-09-13</time>
-  </a>
-</div>
 
 
                 
@@ -250,70 +242,14 @@ ga('send', 'pageview');
 
         </div>
         <footer class="article-footer">
-            
-
-
-
-    <a data-url="http://youngjinmo.github.io/2019/11/springsecurity-passwordencoder/" data-id="ckf65ue8t00gyacgd6uz90fol" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
+            <script src="https://utteranc.es/client.js"
+        repo="youngjinmo/githubpages-comment"
+        issue-term="url"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
 </script>
-
         </footer>
     </div>
     <script type="application/ld+json">
@@ -328,9 +264,9 @@ ga('send', 'pageview');
         "image": "../../../http:/youngjinmo.github.iohttps:/images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
         "keywords": "java spring-security",
         "genre": "Dev Springboot",
-        "datePublished": "2019-11-19",
-        "dateCreated": "2019-11-19",
-        "dateModified": "2020-09-13",
+        "datePublished": "2019-11-18",
+        "dateCreated": "2019-11-18",
+        
         "url": "../../../http:/youngjinmo.github.io/2019/11/springsecurity-passwordencoder/",
         "description": "
 
@@ -358,24 +294,8 @@ SpringBoot로 프로젝트를 하면서 비밀번호를 암호화하는 작업�
             
                 
                 <li>
-                    <a class="social-tooltip" title="twitter" href="../../../index.html" target="_blank" rel="noopener">
+                    <a class="social-tooltip" title="twitter" href="../../../https:/twitter.com/devandy_yj" target="_blank" rel="noopener">
                         <i class="icon fa fa-twitter"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="facebook" href="../../../index.html" target="_blank" rel="noopener">
-                        <i class="icon fa fa-facebook"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="stack-overflow" href="../../../index.html" target="_blank" rel="noopener">
-                        <i class="icon fa fa-stack-overflow"></i>
                     </a>
                 </li>
                 
@@ -384,14 +304,6 @@ SpringBoot로 프로젝트를 하면서 비밀번호를 암호화하는 작업�
                 <li>
                     <a class="social-tooltip" title="github" href="../../../https:/github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
                         <i class="icon fa fa-github"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="weibo" href="../../../index.html" target="_blank" rel="noopener">
-                        <i class="icon fa fa-weibo"></i>
                     </a>
                 </li>
                 
@@ -458,7 +370,7 @@ SpringBoot로 프로젝트를 하면서 비밀번호를 암호화하는 작업�
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Others/">Others</a></p>
                             <p class="item-title"><a href="../../../2020/09/xml-json-xmlhttprequest/" class="title">XML, JSON 그리고 XMLHttpRequest</a></p>
-                            <p class="item-date"><time datetime="2020-09-01T12:00:59.000Z" itemprop="datePublished">2020-09-01</time></p>
+                            <p class="item-date"><time datetime="2020-09-01T03:00:59.000Z" itemprop="datePublished">2020-09-01</time></p>
                         </div>
                     </li>
                 
@@ -478,7 +390,7 @@ SpringBoot로 프로젝트를 하면서 비밀번호를 암호화하는 작업�
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Database/">Database</a></p>
                             <p class="item-title"><a href="../../../2020/08/create-table-sequence/" class="title">Oracle - Sequence 생성하고 테이블에 삽입하기</a></p>
-                            <p class="item-date"><time datetime="2020-08-31T18:57:13.000Z" itemprop="datePublished">2020-09-01</time></p>
+                            <p class="item-date"><time datetime="2020-08-31T09:57:13.000Z" itemprop="datePublished">2020-08-31</time></p>
                         </div>
                     </li>
                 
@@ -498,7 +410,7 @@ SpringBoot로 프로젝트를 하면서 비밀번호를 암호화하는 작업�
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
                             <p class="item-title"><a href="../../../2020/08/servlet-redirect-forward/" class="title">Servlet - Redirect와 Forward</a></p>
-                            <p class="item-date"><time datetime="2020-08-30T22:32:44.000Z" itemprop="datePublished">2020-08-31</time></p>
+                            <p class="item-date"><time datetime="2020-08-30T13:32:44.000Z" itemprop="datePublished">2020-08-30</time></p>
                         </div>
                     </li>
                 
@@ -518,7 +430,7 @@ SpringBoot로 프로젝트를 하면서 비밀번호를 암호화하는 작업�
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Quiz/">Quiz</a></p>
                             <p class="item-title"><a href="../../../2020/08/leetcode-twosum/" class="title">Leetcode - Twosum</a></p>
-                            <p class="item-date"><time datetime="2020-08-24T14:28:47.000Z" itemprop="datePublished">2020-08-24</time></p>
+                            <p class="item-date"><time datetime="2020-08-24T05:28:47.000Z" itemprop="datePublished">2020-08-24</time></p>
                         </div>
                     </li>
                 
@@ -538,7 +450,7 @@ SpringBoot로 프로젝트를 하면서 비밀번호를 암호화하는 작업�
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Devops/">Devops</a></p>
                             <p class="item-title"><a href="../../../2020/08/run-mysql-with-docker/" class="title">Docker로 MySQL 실행하기</a></p>
-                            <p class="item-date"><time datetime="2020-08-23T17:12:43.000Z" itemprop="datePublished">2020-08-24</time></p>
+                            <p class="item-date"><time datetime="2020-08-23T08:12:43.000Z" itemprop="datePublished">2020-08-23</time></p>
                         </div>
                     </li>
                 

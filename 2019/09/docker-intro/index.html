@@ -6,7 +6,7 @@
     
 
     
-    <title>Docker 시작하기 | DevAndy</title>
+    <title>Docker 시작하기 | DevAndy - 개발자앤디의 개발블로그</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
@@ -16,12 +16,11 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker 시작하기">
 <meta property="og:url" content="http://youngjinmo.github.io/2019/09/docker-intro/index.html">
-<meta property="og:site_name" content="DevAndy">
+<meta property="og:site_name" content="DevAndy - 개발자앤디의 개발블로그">
 <meta property="og:description" content="스터디원들과 공유하기 위해 여러 문서와 책을 참고하여 작성한 도커 입문서. 나도 아직 잘 모르기 때문에 시간이 되는대로 조금씩 공부해볼 생각. 목차 Docker? 가상머신 vs 도커 그래서 왜 도커? 도커 엔진 종류 도커 설치 도커 이미지, 그리고 컨테이너 생성 bash모드로 컨테이너 진입하기    Docker?  도커란, 리눅스 컨테이너에 여러 기능을 추">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://logz.io/wp-content/uploads/2016/01/docker-facebook.png">
-<meta property="article:published_time" content="2019-09-25T20:03:13.000Z">
-<meta property="article:modified_time" content="2020-09-13T01:53:28.964Z">
+<meta property="article:published_time" content="2019-09-25T11:03:13.000Z">
 <meta property="article:author" content="Youngjin Mo">
 <meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary">
@@ -30,7 +29,7 @@
     
 
     
-        <link rel="alternate" href="/" title="DevAndy" type="application/atom+xml" />
+        <link rel="alternate" href="/" title="DevAndy - 개발자앤디의 개발블로그" type="application/atom+xml" />
     
 
     
@@ -189,17 +188,10 @@ ga('send', 'pageview');
   <div class="article-date">
     <i class="fa fa-calendar"></i>
     <a href="" class="article-date">
-       <time datetime="2019-09-25T20:03:13.000Z" itemprop="datePublished">2019-09-26</time>
+       <time datetime="2019-09-25T11:03:13.000Z" itemprop="datePublished">2019-09-25</time>
     </a>
   </div>
 
-
-<div class="article-date">
-  <i class="fa fa-calendar-plus-o"></i>
-  <a href="" class="article-date">
-     <time datetime="2020-09-13T01:53:28.964Z" itemprop="dateModified">2020-09-13</time>
-  </a>
-</div>
 
 
                 
@@ -367,70 +359,14 @@ ga('send', 'pageview');
 
         </div>
         <footer class="article-footer">
-            
-
-
-
-    <a data-url="http://youngjinmo.github.io/2019/09/docker-intro/" data-id="ckf65udjr007qacgd0otxflyq" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
+            <script src="https://utteranc.es/client.js"
+        repo="youngjinmo/githubpages-comment"
+        issue-term="url"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
 </script>
-
         </footer>
     </div>
     <script type="application/ld+json">
@@ -445,9 +381,9 @@ ga('send', 'pageview');
         "image": "../../../http:/youngjinmo.github.iohttps:/logz.io/wp-content/uploads/2016/01/docker-facebook.png",
         "keywords": "docker",
         "genre": "Dev DevOps",
-        "datePublished": "2019-09-26",
-        "dateCreated": "2019-09-26",
-        "dateModified": "2020-09-13",
+        "datePublished": "2019-09-25",
+        "dateCreated": "2019-09-25",
+        
         "url": "../../../http:/youngjinmo.github.io/2019/09/docker-intro/",
         "description": "스터디원들과 공유하기 위해 여러 문서와 책을 참고하여 작성한 도커 입문서. 나도 아직 잘 모르기 때문에 시간이 되는대로 조금씩 공부해볼 생각.
 목차
@@ -486,24 +422,8 @@ Docker?
             
                 
                 <li>
-                    <a class="social-tooltip" title="twitter" href="../../../index.html" target="_blank" rel="noopener">
+                    <a class="social-tooltip" title="twitter" href="../../../https:/twitter.com/devandy_yj" target="_blank" rel="noopener">
                         <i class="icon fa fa-twitter"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="facebook" href="../../../index.html" target="_blank" rel="noopener">
-                        <i class="icon fa fa-facebook"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="stack-overflow" href="../../../index.html" target="_blank" rel="noopener">
-                        <i class="icon fa fa-stack-overflow"></i>
                     </a>
                 </li>
                 
@@ -512,14 +432,6 @@ Docker?
                 <li>
                     <a class="social-tooltip" title="github" href="../../../https:/github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
                         <i class="icon fa fa-github"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="weibo" href="../../../index.html" target="_blank" rel="noopener">
-                        <i class="icon fa fa-weibo"></i>
                     </a>
                 </li>
                 
@@ -586,7 +498,7 @@ Docker?
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Others/">Others</a></p>
                             <p class="item-title"><a href="../../../2020/09/xml-json-xmlhttprequest/" class="title">XML, JSON 그리고 XMLHttpRequest</a></p>
-                            <p class="item-date"><time datetime="2020-09-01T12:00:59.000Z" itemprop="datePublished">2020-09-01</time></p>
+                            <p class="item-date"><time datetime="2020-09-01T03:00:59.000Z" itemprop="datePublished">2020-09-01</time></p>
                         </div>
                     </li>
                 
@@ -606,7 +518,7 @@ Docker?
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Database/">Database</a></p>
                             <p class="item-title"><a href="../../../2020/08/create-table-sequence/" class="title">Oracle - Sequence 생성하고 테이블에 삽입하기</a></p>
-                            <p class="item-date"><time datetime="2020-08-31T18:57:13.000Z" itemprop="datePublished">2020-09-01</time></p>
+                            <p class="item-date"><time datetime="2020-08-31T09:57:13.000Z" itemprop="datePublished">2020-08-31</time></p>
                         </div>
                     </li>
                 
@@ -626,7 +538,7 @@ Docker?
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
                             <p class="item-title"><a href="../../../2020/08/servlet-redirect-forward/" class="title">Servlet - Redirect와 Forward</a></p>
-                            <p class="item-date"><time datetime="2020-08-30T22:32:44.000Z" itemprop="datePublished">2020-08-31</time></p>
+                            <p class="item-date"><time datetime="2020-08-30T13:32:44.000Z" itemprop="datePublished">2020-08-30</time></p>
                         </div>
                     </li>
                 
@@ -646,7 +558,7 @@ Docker?
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Quiz/">Quiz</a></p>
                             <p class="item-title"><a href="../../../2020/08/leetcode-twosum/" class="title">Leetcode - Twosum</a></p>
-                            <p class="item-date"><time datetime="2020-08-24T14:28:47.000Z" itemprop="datePublished">2020-08-24</time></p>
+                            <p class="item-date"><time datetime="2020-08-24T05:28:47.000Z" itemprop="datePublished">2020-08-24</time></p>
                         </div>
                     </li>
                 
@@ -666,7 +578,7 @@ Docker?
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Devops/">Devops</a></p>
                             <p class="item-title"><a href="../../../2020/08/run-mysql-with-docker/" class="title">Docker로 MySQL 실행하기</a></p>
-                            <p class="item-date"><time datetime="2020-08-23T17:12:43.000Z" itemprop="datePublished">2020-08-24</time></p>
+                            <p class="item-date"><time datetime="2020-08-23T08:12:43.000Z" itemprop="datePublished">2020-08-23</time></p>
                         </div>
                     </li>
                 

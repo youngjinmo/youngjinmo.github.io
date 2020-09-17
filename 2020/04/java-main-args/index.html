@@ -6,7 +6,7 @@
     
 
     
-    <title>main(String[] Args)에 대해 알아보자. | DevAndy</title>
+    <title>main(String[] Args)에 대해 알아보자. | DevAndy - 개발자앤디의 개발블로그</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
@@ -16,20 +16,20 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="main(String[] Args)에 대해 알아보자.">
 <meta property="og:url" content="http://youngjinmo.github.io/2020/04/java-main-args/index.html">
-<meta property="og:site_name" content="DevAndy">
+<meta property="og:site_name" content="DevAndy - 개발자앤디의 개발블로그">
 <meta property="og:description" content="자바로 그 어떤 프로그램이라도 작성을 하게 되면, 반드시 작성하게 되는 메서드이자 모든 자바 애플리케이션의 시작점인 main(). 항상 입력하면서도 여기에 대해 자세히 알려고 했던적이 있었나 싶다. 한 번 쯤 정리하고 싶어서 이번에 정리하게 되었다. 우선 main 메서드는 다음과 같은 구조로 구성되어 있다. 1public static void main(">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://lh3.googleusercontent.com/saamq3sICZFLhrmGP0hmftYS4JsZPwlVZxDo8GfLSvCNQB1adqeWGxU3zJU42bzKenPFv13HYSYV5tQUjuKlSb3P7jJJpkkceCxqK6x_1CKQ4O9205bKavDQHOE8EIIloiNBKOynmW8pcnEfL8FSg59ZNY2mmNwpHNVsxOwBwZdltt8GpsLr4OXsq2n1QwBaahO5eTzuCbnXQycJervvDBEuK1NUB_EinIykcJv2FIj8YnKDS8MigxQto09fg8B9yR6lka0F2yD5dmNZxR-lCR_OnFoEuTQmshIGKf7sN6nHIlXBT_JVVSksKgsVYRkSMmdBaYNkXVUieBGGev-VS2uQ80GFkuHfLJc4KAfOjc5HXxIEXXy88KoFnN1Wzk0qACPfrG27otBEuIAu54LcaoTelhgVPLX6m-GkUdKbBxlrtMror79kZ3F4-yFQKyZUGZsZZPl3rm0zjoKvFZzOZ25H66V1JTxvV4a8wWsz_ti-GFN5KE4waEBdWEsnSvKfiB6bxaRqV44OiRGcdZPIR3GwKKt5Vkb_pBrCNUOoa3vvyMmELmj36o1kqLjTyAQ5Zu96oYFNcRVGWRyvZF7GIudlFjZqZj0XX6Xf8x_xSAqxtbu8FdWd7N2G7NI-nrVdeamgKaVLjsfLTMIVjPF6dPmuYNu76IrxzzWvP8i78QpO1I7LPSdS86x2E_TEaL3RLEGypYyVE5lw4pqY9193vssU7VWZluAi70KkLxotkrFo3IVkyH-eHBSY=w992-h626-no">
-<meta property="article:published_time" content="2020-04-23T18:53:54.000Z">
-<meta property="article:modified_time" content="2020-09-13T01:53:28.548Z">
+<meta property="article:published_time" content="2020-04-23T09:53:54.000Z">
 <meta property="article:author" content="Youngjin Mo">
+<meta property="article:tag" content="java, spring boot, spring framework, developer, programmer, 개발자, 스프링부트, 자바">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://lh3.googleusercontent.com/saamq3sICZFLhrmGP0hmftYS4JsZPwlVZxDo8GfLSvCNQB1adqeWGxU3zJU42bzKenPFv13HYSYV5tQUjuKlSb3P7jJJpkkceCxqK6x_1CKQ4O9205bKavDQHOE8EIIloiNBKOynmW8pcnEfL8FSg59ZNY2mmNwpHNVsxOwBwZdltt8GpsLr4OXsq2n1QwBaahO5eTzuCbnXQycJervvDBEuK1NUB_EinIykcJv2FIj8YnKDS8MigxQto09fg8B9yR6lka0F2yD5dmNZxR-lCR_OnFoEuTQmshIGKf7sN6nHIlXBT_JVVSksKgsVYRkSMmdBaYNkXVUieBGGev-VS2uQ80GFkuHfLJc4KAfOjc5HXxIEXXy88KoFnN1Wzk0qACPfrG27otBEuIAu54LcaoTelhgVPLX6m-GkUdKbBxlrtMror79kZ3F4-yFQKyZUGZsZZPl3rm0zjoKvFZzOZ25H66V1JTxvV4a8wWsz_ti-GFN5KE4waEBdWEsnSvKfiB6bxaRqV44OiRGcdZPIR3GwKKt5Vkb_pBrCNUOoa3vvyMmELmj36o1kqLjTyAQ5Zu96oYFNcRVGWRyvZF7GIudlFjZqZj0XX6Xf8x_xSAqxtbu8FdWd7N2G7NI-nrVdeamgKaVLjsfLTMIVjPF6dPmuYNu76IrxzzWvP8i78QpO1I7LPSdS86x2E_TEaL3RLEGypYyVE5lw4pqY9193vssU7VWZluAi70KkLxotkrFo3IVkyH-eHBSY=w992-h626-no">
 <meta name="twitter:creator" content="@devandy_yj">
     
 
     
-        <link rel="alternate" href="/" title="DevAndy" type="application/atom+xml" />
+        <link rel="alternate" href="/" title="DevAndy - 개발자앤디의 개발블로그" type="application/atom+xml" />
     
 
     
@@ -188,17 +188,10 @@ ga('send', 'pageview');
   <div class="article-date">
     <i class="fa fa-calendar"></i>
     <a href="" class="article-date">
-       <time datetime="2020-04-23T18:53:54.000Z" itemprop="datePublished">2020-04-24</time>
+       <time datetime="2020-04-23T09:53:54.000Z" itemprop="datePublished">2020-04-23</time>
     </a>
   </div>
 
-
-<div class="article-date">
-  <i class="fa fa-calendar-plus-o"></i>
-  <a href="" class="article-date">
-     <time datetime="2020-09-13T01:53:28.548Z" itemprop="dateModified">2020-09-13</time>
-  </a>
-</div>
 
 
                 
@@ -244,70 +237,14 @@ ga('send', 'pageview');
 
         </div>
         <footer class="article-footer">
-            
-
-
-
-    <a data-url="http://youngjinmo.github.io/2020/04/java-main-args/" data-id="ckf65udx400cbacgdcncwhha4" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
+            <script src="https://utteranc.es/client.js"
+        repo="youngjinmo/githubpages-comment"
+        issue-term="url"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
 </script>
-
         </footer>
     </div>
     <script type="application/ld+json">
@@ -322,9 +259,9 @@ ga('send', 'pageview');
         "image": "../../../http:/youngjinmo.github.iohttps:/lh3.googleusercontent.com/saamq3sICZFLhrmGP0hmftYS4JsZPwlVZxDo8GfLSvCNQB1adqeWGxU3zJU42bzKenPFv13HYSYV5tQUjuKlSb3P7jJJpkkceCxqK6x_1CKQ4O9205bKavDQHOE8EIIloiNBKOynmW8pcnEfL8FSg59ZNY2mmNwpHNVsxOwBwZdltt8GpsLr4OXsq2n1QwBaahO5eTzuCbnXQycJervvDBEuK1NUB_EinIykcJv2FIj8YnKDS8MigxQto09fg8B9yR6lka0F2yD5dmNZxR-lCR_OnFoEuTQmshIGKf7sN6nHIlXBT_JVVSksKgsVYRkSMmdBaYNkXVUieBGGev-VS2uQ80GFkuHfLJc4KAfOjc5HXxIEXXy88KoFnN1Wzk0qACPfrG27otBEuIAu54LcaoTelhgVPLX6m-GkUdKbBxlrtMror79kZ3F4-yFQKyZUGZsZZPl3rm0zjoKvFZzOZ25H66V1JTxvV4a8wWsz_ti-GFN5KE4waEBdWEsnSvKfiB6bxaRqV44OiRGcdZPIR3GwKKt5Vkb_pBrCNUOoa3vvyMmELmj36o1kqLjTyAQ5Zu96oYFNcRVGWRyvZF7GIudlFjZqZj0XX6Xf8x_xSAqxtbu8FdWd7N2G7NI-nrVdeamgKaVLjsfLTMIVjPF6dPmuYNu76IrxzzWvP8i78QpO1I7LPSdS86x2E_TEaL3RLEGypYyVE5lw4pqY9193vssU7VWZluAi70KkLxotkrFo3IVkyH-eHBSY=w992-h626-no",
         "keywords": "",
         "genre": "Dev Java",
-        "datePublished": "2020-04-24",
-        "dateCreated": "2020-04-24",
-        "dateModified": "2020-09-13",
+        "datePublished": "2020-04-23",
+        "dateCreated": "2020-04-23",
+        
         "url": "../../../http:/youngjinmo.github.io/2020/04/java-main-args/",
         "description": "
 
@@ -353,24 +290,8 @@ ga('send', 'pageview');
             
                 
                 <li>
-                    <a class="social-tooltip" title="twitter" href="../../../index.html" target="_blank" rel="noopener">
+                    <a class="social-tooltip" title="twitter" href="../../../https:/twitter.com/devandy_yj" target="_blank" rel="noopener">
                         <i class="icon fa fa-twitter"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="facebook" href="../../../index.html" target="_blank" rel="noopener">
-                        <i class="icon fa fa-facebook"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="stack-overflow" href="../../../index.html" target="_blank" rel="noopener">
-                        <i class="icon fa fa-stack-overflow"></i>
                     </a>
                 </li>
                 
@@ -379,14 +300,6 @@ ga('send', 'pageview');
                 <li>
                     <a class="social-tooltip" title="github" href="../../../https:/github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
                         <i class="icon fa fa-github"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="weibo" href="../../../index.html" target="_blank" rel="noopener">
-                        <i class="icon fa fa-weibo"></i>
                     </a>
                 </li>
                 
@@ -453,7 +366,7 @@ ga('send', 'pageview');
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Others/">Others</a></p>
                             <p class="item-title"><a href="../../09/xml-json-xmlhttprequest/" class="title">XML, JSON 그리고 XMLHttpRequest</a></p>
-                            <p class="item-date"><time datetime="2020-09-01T12:00:59.000Z" itemprop="datePublished">2020-09-01</time></p>
+                            <p class="item-date"><time datetime="2020-09-01T03:00:59.000Z" itemprop="datePublished">2020-09-01</time></p>
                         </div>
                     </li>
                 
@@ -473,7 +386,7 @@ ga('send', 'pageview');
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Database/">Database</a></p>
                             <p class="item-title"><a href="../../08/create-table-sequence/" class="title">Oracle - Sequence 생성하고 테이블에 삽입하기</a></p>
-                            <p class="item-date"><time datetime="2020-08-31T18:57:13.000Z" itemprop="datePublished">2020-09-01</time></p>
+                            <p class="item-date"><time datetime="2020-08-31T09:57:13.000Z" itemprop="datePublished">2020-08-31</time></p>
                         </div>
                     </li>
                 
@@ -493,7 +406,7 @@ ga('send', 'pageview');
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
                             <p class="item-title"><a href="../../08/servlet-redirect-forward/" class="title">Servlet - Redirect와 Forward</a></p>
-                            <p class="item-date"><time datetime="2020-08-30T22:32:44.000Z" itemprop="datePublished">2020-08-31</time></p>
+                            <p class="item-date"><time datetime="2020-08-30T13:32:44.000Z" itemprop="datePublished">2020-08-30</time></p>
                         </div>
                     </li>
                 
@@ -513,7 +426,7 @@ ga('send', 'pageview');
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Quiz/">Quiz</a></p>
                             <p class="item-title"><a href="../../08/leetcode-twosum/" class="title">Leetcode - Twosum</a></p>
-                            <p class="item-date"><time datetime="2020-08-24T14:28:47.000Z" itemprop="datePublished">2020-08-24</time></p>
+                            <p class="item-date"><time datetime="2020-08-24T05:28:47.000Z" itemprop="datePublished">2020-08-24</time></p>
                         </div>
                     </li>
                 
@@ -533,7 +446,7 @@ ga('send', 'pageview');
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Devops/">Devops</a></p>
                             <p class="item-title"><a href="../../08/run-mysql-with-docker/" class="title">Docker로 MySQL 실행하기</a></p>
-                            <p class="item-date"><time datetime="2020-08-23T17:12:43.000Z" itemprop="datePublished">2020-08-24</time></p>
+                            <p class="item-date"><time datetime="2020-08-23T08:12:43.000Z" itemprop="datePublished">2020-08-23</time></p>
                         </div>
                     </li>
                 
