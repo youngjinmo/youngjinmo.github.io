@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>오픈소스 기여한 경험</title>
+      <link href="2020/09/github-contribution/"/>
+      <url>2020/09/github-contribution/</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://opensource.guide/assets/images/cards/contribute.png"></p><p>뭐 엄청 작은부분이지만, 그래도 첫 오픈소스 기여를 기념하여 그 과정을 기록한다.</p><p>오픈소스를 기여하는 방법은 4가지 정도로 생각할 수 있다.</p><ol><li>오픈소스 프로젝트 후원하기</li><li>문서 번역하기</li><li>버그 수정해서 PR하기</li><li>새로운 기능 제안하기</li></ol><p>난 이 중 2번인 문서 번역을 선택했다. 막연히 오픈소스에 기여해보고 싶던차에 1년 넘게 잘 사용하고 있는 깃헙 블로그 테마인 <a href="https://github.com/ppoffice/hexo-theme-hueman">Hueman 프로젝트</a>를 살펴봤다. 아직까지 사용하며 버그를 발견하지는 못했고, 새로운 기능을 제안하기 앞서 먼저 문서를 살펴봤다. 여러가지 언어를 지원하는데, 한글 컨텐츠 중에 일부가 번역이 되있지 않은걸 확인했다. 그래서 이 부분을 번역해서 PR하기로 했다.</p><p>그럼 이제부터 오픈소스에 참여하는 절차를 정리해보자.</p><ol><li>저장소 fork하기</li><li>로컬에 프로젝트 clone</li><li>개발 하기</li><li>Commit &amp; Push</li><li>Pull Request</li><li>Merge</li></ol><h2 id="1-저장소-fork하기"><a href="#1-저장소-fork하기" class="headerlink" title="1. 저장소 fork하기"></a>1. 저장소 fork하기</h2><p>참여하고 싶은 오픈소스 저장소를 내 github 저장소로 fork를 한다. 우측 상단에 보면 fork버튼이 있다. 이걸 클릭하면 내 저장소로 저장소를 그대로 복제한다.</p><p><img src="https://user-images.githubusercontent.com/33862991/93561912-fbfdb780-f9bf-11ea-8bb5-c6e54899b4de.PNG"></p><p> <a href="https://cli.github.com/">Github CLI</a> 명령어는 다음과 같다.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gh repo fork [repository][flags]</span><br></pre></td></tr></table></figure><p>fork한 이후 생긴 저장소이다.</p><p><img src="https://user-images.githubusercontent.com/33862991/93561916-fd2ee480-f9bf-11ea-8b42-bb202644127c.PNG"></p><h2 id="2-로컬에-프로젝트-clone"><a href="#2-로컬에-프로젝트-clone" class="headerlink" title="2. 로컬에 프로젝트 clone"></a>2. 로컬에 프로젝트 clone</h2><p>이제 저장소를 로컬환경으로 clone한다.</p><p><img src="https://user-images.githubusercontent.com/33862991/93562197-880fdf00-f9c0-11ea-8dcf-639447471161.PNG"></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gh repo <span class="built_in">clone</span> &lt;repository&gt; [&lt;directory&gt;] [-- &lt;gitflags&gt;...]</span><br></pre></td></tr></table></figure><h2 id="3-개발하기"><a href="#3-개발하기" class="headerlink" title="3. 개발하기"></a>3. 개발하기</h2><p>내가 한 작업은 개발이 아닌 번역 수준이지만, 어쨋든 코드를 작성한다.</p><h2 id="4-Commit-amp-Push"><a href="#4-Commit-amp-Push" class="headerlink" title="4. Commit &amp; Push"></a>4. Commit &amp; Push</h2><p>혼자만 볼게 아니라 나중에 프로젝트 관리자가 리뷰를 할 것이므로 가급적이면 커밋도 작게 나누도록 하자.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -am <span class="string">&quot;commit-message&quot;</span> &amp;&amp; git push -u origin [branch-name]</span><br></pre></td></tr></table></figure><p><img src="https://lh3.googleusercontent.com/pw/ACtC-3c9Oa4DWRkARjB_zHlZ0Tn-TNkRxzbvj3vgpf0U0qnbwam5bgUgCDKNPK4Dfw47vYGI2mp7vJa35HCRe16gTUaKZ5bkP11MA7GUOB1oYCo2vahTi-v-ebG6jplcZsCpy04J8TqJP3b_hclesPWLU7jAmA=w1379-h782-no?authuser=2"></p><h2 id="5-Pull-Request"><a href="#5-Pull-Request" class="headerlink" title="5. Pull Request"></a>5. Pull Request</h2><p>push한 저장소로 웹에 접속하면, 아래의 이미지처럼 오리지널 저장소와 비교하고 Pull Request할 수 있는 버튼이 활성화된걸 볼 수 있다.</p><p><img src="https://lh3.googleusercontent.com/pw/ACtC-3eZXCNTftk68g0JLGt5VCiiRWXdnQVk5gwoHujn_-1IlO3-ceXAS_y58J-VEHMdJJOWQh3ambi7w_iDKNWa0rEQpQjoKq-dpUqnTzGOtzBZCXXkR4E_0824okPSIauZuEez8LX9SAKiM5Gehe7UxQ7vAg=w1226-h334-no?authuser=1"></p><p>개발자분이 쉽게 이해하실수 있도록 신경써서 PR 메세지를 작성하도록 하자.<br><img src="https://lh3.googleusercontent.com/pw/ACtC-3fGHQB2k8ntWqnrljws_K-tmhQz5STtIsH2dSSa8OrpoHlyWhcgIt-JIptCDs22tUwrPLhaHM1mWw3TCGGr-iM4jvv3ctgci-6vSxMagwAfLiEMdjHl5qJtrLfAbqJYGhgCAF9h3N6sdfhK3kzA5ZVTdA=w1226-h695-no?authuser=1"></p><p>당연히 Github CLI로도 PR을 할 수 있다.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gh pr create [flags]</span><br></pre></td></tr></table></figure><p>오픈소스 저장소 Pull Request에 들어가면 방금 올린 PR을 확인할 수 있다.</p><p><img src="https://lh3.googleusercontent.com/pw/ACtC-3cjXe5IkCuZu9x_HIOi3OUia_ry8hbSFuukgUjj3y8XaBkndpb0qb9AOTNA2bEwJO8cBROTo3oc5yIUPMhKGMx_P5mGk5yJbbxXPCgI6TVFA2AhLthF0PNfYK4vj6fNqkRBr_WZCxW06npsR5rSlzax9g=w1226-h699-no?authuser=1"></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gh pr list</span><br></pre></td></tr></table></figure><p>이제 커밋이 Merge되거나 거절당할때까지 기다리면 된다.</p><h2 id="6-Merge"><a href="#6-Merge" class="headerlink" title="6. Merge"></a>6. Merge</h2><p>Merge되면 아래처럼 PR 라벨이 Open에서 Merged로 변경된다.</p><p><img src="https://lh3.googleusercontent.com/pw/ACtC-3dJKqdcFxLoyjQVqDsLQkWVB0UvmH2Niy1rE7sGB__oFIk3BjKkC6yAYTLIdSOkm0TsA9tPwJTSgn9aeaD3wDI7KlC0qOtAjRlrqbW7iKzkNt3ea-BAXGtgYNrfVlcZe6gudoslhPizHhiXoh95yFeeEQ=w1226-h632-no?authuser=1"></p><p>이렇게 저장소의 Contributor에 이름도 추가되었다!</p><p><img src="https://lh3.googleusercontent.com/pw/ACtC-3eVWevUuwACMvMmiYLEcO9HJhRCnemfCnhBKZKKc_8vom-kadqQ_PcKbtQ8d1jsS1vdhzZOTDKt2DHALQ24ZkYc-dHk9WwAd_Ab2LeKWZOnW23wHkKvU3aGYVd-_JR0n3nzdRTi_hg3LgQSPBA_amgJtA=w853-h528-no?authuser=1"></p><br><p>비록 번역 몇 단어한 것에 불과하지만 첫 오픈소스 기여여서 기념차 작성한 포스팅이다. 나중엔 버그를 잡아보거나 새로운 기능을 제안하는 PR도 해보고 싶다.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Dev </category>
+          
+          <category> Git </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> contribution </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>XML, JSON 그리고 XMLHttpRequest</title>
       <link href="2020/09/xml-json-xmlhttprequest/"/>
       <url>2020/09/xml-json-xmlhttprequest/</url>

@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2020-09-01T03:00:59.000Z</updated>
+  <updated>2020-09-18T06:24:50.744Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>오픈소스 기여한 경험</title>
+    <link href="http://youngjinmo.github.io/2020/09/github-contribution/"/>
+    <id>http://youngjinmo.github.io/2020/09/github-contribution/</id>
+    <published>2020-09-18T06:20:21.000Z</published>
+    <updated>2020-09-18T06:24:50.744Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Git" scheme="http://youngjinmo.github.io/categories/Dev/Git/"/>
+    
+    
+    <category term="contribution" scheme="http://youngjinmo.github.io/tags/contribution/"/>
+    
+  </entry>
   
   <entry>
     <title>XML, JSON 그리고 XMLHttpRequest</title>
@@ -853,35 +880,6 @@
     <category term="ide" scheme="http://youngjinmo.github.io/tags/ide/"/>
     
     <category term="gradle" scheme="http://youngjinmo.github.io/tags/gradle/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java - 인터페이스(Interface)</title>
-    <link href="http://youngjinmo.github.io/2020/04/java-interface/"/>
-    <id>http://youngjinmo.github.io/2020/04/java-interface/</id>
-    <published>2020-04-04T08:49:23.000Z</published>
-    <updated>2020-04-04T08:49:23.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
-    
-    
-    <category term="oop" scheme="http://youngjinmo.github.io/tags/oop/"/>
-    
-    <category term="interface" scheme="http://youngjinmo.github.io/tags/interface/"/>
     
   </entry>
   
