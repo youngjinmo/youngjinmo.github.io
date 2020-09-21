@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2020-09-18T06:24:50.744Z</updated>
+  <updated>2020-09-21T15:34:43.329Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>오픈소스 기여한 경험</title>
+    <title>뉴욕타임즈에 투자하다</title>
+    <link href="http://youngjinmo.github.io/2020/09/why-i-invested-nyt/"/>
+    <id>http://youngjinmo.github.io/2020/09/why-i-invested-nyt/</id>
+    <published>2020-09-21T15:34:43.329Z</published>
+    <updated>2020-09-21T15:34:43.329Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Life" scheme="http://youngjinmo.github.io/categories/Life/"/>
+    
+    <category term="Thought" scheme="http://youngjinmo.github.io/categories/Life/Thought/"/>
+    
+    
+    <category term="stock" scheme="http://youngjinmo.github.io/tags/stock/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>첫 오픈소스 기여</title>
     <link href="http://youngjinmo.github.io/2020/09/github-contribution/"/>
     <id>http://youngjinmo.github.io/2020/09/github-contribution/</id>
     <published>2020-09-18T06:20:21.000Z</published>
-    <updated>2020-09-18T06:24:50.744Z</updated>
+    <updated>2020-09-21T14:57:16.732Z</updated>
     
     
       
@@ -840,46 +867,6 @@
     <category term="oop" scheme="http://youngjinmo.github.io/tags/oop/"/>
     
     <category term="inner class" scheme="http://youngjinmo.github.io/tags/inner-class/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>인텔리J에서 Gradle 프로젝트 인식안될때</title>
-    <link href="http://youngjinmo.github.io/2020/04/intellij-reimport-gradle/"/>
-    <id>http://youngjinmo.github.io/2020/04/intellij-reimport-gradle/</id>
-    <published>2020-04-05T07:49:27.000Z</published>
-    <updated>2020-09-13T01:53:28.636Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;img src=&quot;&quot; width=&quot;650px&quot; /&gt;
-
-
-
-
-&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
-    
-    
-    <category term="error" scheme="http://youngjinmo.github.io/tags/error/"/>
-    
-    <category term="springboot" scheme="http://youngjinmo.github.io/tags/springboot/"/>
-    
-    <category term="intellij" scheme="http://youngjinmo.github.io/tags/intellij/"/>
-    
-    <category term="ide" scheme="http://youngjinmo.github.io/tags/ide/"/>
-    
-    <category term="gradle" scheme="http://youngjinmo.github.io/tags/gradle/"/>
     
   </entry>
   
