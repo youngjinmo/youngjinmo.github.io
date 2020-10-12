@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://lh3.googleusercontent.com/kUPM-94-DCKhZ7hh_xTEl_ynnjqNmEwmpHRqr_bvx6rCJBawpro9zSDkX83rVTdEyEp1cDtBQhyDnDmJHw3GfyE3R8AhBYQh0J8NCZzsISx-c1ujqMeLGj8OGosyzgO6itHdbLlHB5GVUtcwwMj2RWRnYZCrgO4CqzZ3-DYjwMUhSzYL7dsZhBaYC6KjvDMHc-MG4JzwU0xnBj-Zv97VcGFkfOPf-MQGTUF6MbO7HoTvoyHhcV9KQXqjestOGZ3B559hh5MuoPyW4ewunPIEnPvN1kImSEVS4zV8_Sp0LHe7Hup_4xa-B3ddDrWQB40XVT1u7dKZSqhgUS1BkKdSaY_efQO_6vzvnxbl59KphIvQNJfgrVsNpyQ-3IykrpNxDaU8__jaoVkF3gaV-2iFuIi3yqDsxUjlASGbhnVsmJs4MzrhcWIbLgllLEGzhFyUaBlVbRvN3dgdq4mMHIPejcF3xOKJb2fOnRhSAJs9UXydwxCJCkvvS9TWixaAvn-4Xo4uqW9vnWPTEj5PtHkrLKhdDq7BK8dpFty1f9UJRBSspQmj0Q0lkBEAIlSx60GhPyT5tx2SxSqqxoYo1R83Zp12DrKAbHv1Xs8eMs2Lt6gz45UXciJrniIY_udIz19jtzEtNWFfdKTi0pWTJpajPkTVXoSh9RLF9d4v1jwzEGLN4NFP7Dw-Mktu7NQgjmLy1XdbA5le2GtzMg-xXsIzE_h-fcOeVf2dcJreSlIUdR_M0tPPY3IqxAM=w1026-h770-no?authuser=0">
 <meta property="article:published_time" content="2020-05-13T12:10:26.000Z">
-<meta property="article:modified_time" content="2020-09-13T01:53:28.604Z">
+<meta property="article:modified_time" content="2020-10-08T09:10:15.836Z">
 <meta property="article:author" content="Youngjin Mo">
 <meta property="article:tag" content="exception">
 <meta name="twitter:card" content="summary">
@@ -205,7 +205,7 @@ ga('send', 'pageview');
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="" class="article-date">
-     <time datetime="2020-09-13T01:53:28.604Z" itemprop="dateModified">2020-09-13</time>
+     <time datetime="2020-10-08T09:10:15.836Z" itemprop="dateModified">2020-10-08</time>
   </a>
 </div>
 
@@ -214,7 +214,7 @@ ga('send', 'pageview');
 
 				<!-- 	count-time		 -->
 				<span class="reading-time" style="margin-left: 20px;">
-					⏱ 13 min.
+					⏱ 12 min.
 				</span>
                 
     <div class="article-tag">
@@ -266,14 +266,13 @@ ga('send', 'pageview');
 <p><code>try &#123;&#125;</code>에는 예외가 발생할 수 있는 코드를 감싸주고,<br><code>catch</code>에는 try 구문에서 예외 상황이 발생할 경우 대신 처리할 코드를 감싸준다.<br><code>finally &#123;&#125;</code>에는 예외발생 여부와 상관없이 작동할 코드를 감싸주면 된다.</p>
 <br>
 
-<h2 id="Throws-Exception"><a href="#Throws-Exception" class="headerlink" title="Throws Exception"></a>Throws Exception</h2><p>throws는 예외를 던지는 키워드이다. 즉 ‘예외가 발생한다면, 네가 예외처리를 해줘’ 라는 메세지인 것이다. 굳이 작성하지 않아도 try catch만으로 예외를 처리할 수 있지만, throws를 작성함으로써 어떤 예외(exception 종류)가 발생할지를 명시할 수 있다.</p>
+<h2 id="Throws-Exception"><a href="#Throws-Exception" class="headerlink" title="Throws Exception"></a>Throws Exception</h2><p>throws는 예외를 던지는 키워드이다. 즉 ‘예외가 발생한다면, 네가 예외처리를 해줘’ 라는 메세지이다. 즉 예외처리에 대한 책임을 예외처리가 발생하는 메서드를 사용할 객체에 넘기는 일이다. 이를 통해 사용하는 객체에서 어떤 예외처리가 발생할지를 미리 알 수 있다.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">arithmeticException</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      arithmeticException ae = <span class="keyword">new</span> arithmeticException();</span><br><span class="line">		</span><br><span class="line">      <span class="keyword">int</span> i = <span class="number">10</span>;</span><br><span class="line">      <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">		</span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">         <span class="keyword">int</span> result = ae.calculate(i, j);</span><br><span class="line">      &#125; <span class="keyword">catch</span>(ArithmeticException e) &#123;</span><br><span class="line">         System.out.println(e.toString());</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">	</span><br><span class="line">   <span class="function"><span class="keyword">int</span> <span class="title">calculate</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span> <span class="keyword">throws</span> ArithmeticException </span>&#123;</span><br><span class="line">		</span><br><span class="line">      <span class="keyword">int</span> result = num1/num2;</span><br><span class="line">      <span class="keyword">return</span> result;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>위의 코드는 연산하는 부분을 따로 메서드로 분리한 코드이다. main( )에서 사용하면 <code>ArithmeticException</code>이 발생하는데, try catch문으로 예외를 처리해두었다. 이 예외가 발생하는 로직이 담긴 <code>calculate( )</code>에는 예외처리에 대한 책임을 넘기는 <code>throws ArithmeticException</code>을 작성했다. 이로써 throws 뒤에 exception 관련 코드가 작성되면, 해당 메서드를 사용하는 쪽에서 예외처리를 해주어야 한다는 것을 미리 알 수 있게 된 것이다.</p>
 <br>
 
-<h2 id="Throw-Exception"><a href="#Throw-Exception" class="headerlink" title="Throw Exception"></a>Throw Exception</h2><p>비슷한듯 다른 개념이다. 위에서는 예외가 발생할 수 있는 상황을 throws 키워드를 사용해 명시해주었다면, 이번엔 예외가 발생할 수 있는 상황을 지정해서 아예 exception을 넘겨줄 것이다.</p>
-<p>위에서는 연산과정에서 JVM이 exception을 발견했다면, 이번엔 개발자가 직접 exception을 지정해서 던진다는 것에서 차이가 있다.</p>
+<h2 id="throw-new"><a href="#throw-new" class="headerlink" title="throw new"></a>throw new</h2><p>throws 키워드가 예외처리를 상위 블록으로 넘겼다면, throw new는 강제로 예외를 발생시키는 키워드이다.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">arithmeticException</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      arithmeticException ae = <span class="keyword">new</span> arithmeticException();</span><br><span class="line">		</span><br><span class="line">      <span class="keyword">int</span> i = <span class="number">10</span>;</span><br><span class="line">      <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">		</span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">         <span class="keyword">int</span> result = ae.calculate(i, j);</span><br><span class="line">      &#125; <span class="keyword">catch</span>(ArithmeticException e) &#123;</span><br><span class="line">         System.out.println(e.toString());</span><br><span class="line">      &#125;</span><br><span class="line">		</span><br><span class="line">   &#125;</span><br><span class="line">	</span><br><span class="line">   <span class="function"><span class="keyword">int</span> <span class="title">calculate</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">      <span class="keyword">if</span>(num2==<span class="number">0</span>) &#123;</span><br><span class="line">         <span class="keyword">throw</span> <span class="keyword">new</span> ArithmeticException(<span class="string">&quot;0으로 나눌수 없습니다.&quot;</span>);</span><br><span class="line">      &#125;</span><br><span class="line">		</span><br><span class="line">      <span class="keyword">int</span> result = num1/num2;</span><br><span class="line">		</span><br><span class="line">      <span class="keyword">return</span> result;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>분모로 들어오는 num2가 0일 경우 <code>ArithmeticException</code>이 발생하므로 <code>calculate( )</code>에서 아예 num2가 0으로 들어올 경우, <code>ArithmeticException</code>을 던지도록 작성했다.</p>
@@ -305,7 +304,7 @@ ga('send', 'pageview');
         "genre": "Dev Java",
         "datePublished": "2020-05-13",
         "dateCreated": "2020-05-13",
-        "dateModified": "2020-09-13",
+        "dateModified": "2020-10-08",
         "url": "../../../http:/youngjinmo.github.io/2020/05/java-exception/",
         "description": "
 
@@ -314,7 +313,7 @@ ga('send', 'pageview');
 
 
 연산 처리에 예외상황이 발생했음을 알리는 ArithmeticException 이 발생했다. API 문서를 보니 ArithmeticException에 대해서 아래처럼 작성되어 있다. RuntimeExcep",
-        "wordCount": 962
+        "wordCount": 940
     }
 </script>
 
