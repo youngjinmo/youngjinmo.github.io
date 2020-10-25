@@ -2116,7 +2116,7 @@
     
     
     <entry>
-      <title>스프링부트 웹 서버 실행시 자동으로 Db 삽입하기</title>
+      <title>스프링부트 웹 서버 실행시 자동으로 DB 삽입하기</title>
       <link href="2019/11/springboot-import-sql/"/>
       <url>2019/11/springboot-import-sql/</url>
       
