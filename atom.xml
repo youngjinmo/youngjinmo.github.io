@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2020-10-22T12:21:04.375Z</updated>
+  <updated>2020-10-25T13:23:53.604Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>스프링부트 서버로 MyBatis 연동해서 API 호출하기</title>
+    <link href="http://youngjinmo.github.io/2020/10/springboot-mybatis-oracle/"/>
+    <id>http://youngjinmo.github.io/2020/10/springboot-mybatis-oracle/</id>
+    <published>2020-10-25T03:29:51.000Z</published>
+    <updated>2020-10-25T13:23:53.604Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Springboot" scheme="http://youngjinmo.github.io/categories/Dev/Springboot/"/>
+    
+    
+    <category term="oracle" scheme="http://youngjinmo.github.io/tags/oracle/"/>
+    
+    <category term="docker" scheme="http://youngjinmo.github.io/tags/docker/"/>
+    
+    <category term="springboot" scheme="http://youngjinmo.github.io/tags/springboot/"/>
+    
+    <category term="mybatis" scheme="http://youngjinmo.github.io/tags/mybatis/"/>
+    
+  </entry>
   
   <entry>
     <title>Github 디폴트 브랜치, Main으로 전환하기</title>
@@ -837,33 +870,6 @@
     
     
     <category term="oop" scheme="http://youngjinmo.github.io/tags/oop/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>메모리 구조</title>
-    <link href="http://youngjinmo.github.io/2020/04/java-memory/"/>
-    <id>http://youngjinmo.github.io/2020/04/java-memory/</id>
-    <published>2020-04-05T15:38:55.000Z</published>
-    <updated>2020-09-13T01:53:28.476Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
-    
-    
-    <category term="datastructure" scheme="http://youngjinmo.github.io/tags/datastructure/"/>
     
   </entry>
   
