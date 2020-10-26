@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="github,blacklivesmatter" />
     
-    <meta name="description" content="인종차별 이슈가 불거지며 테크 업계에서도 자성의 목소리가 나기 시작했다. 그러다가 Github에서 가장 먼저 큰 변화를 이끌어냈다고 생각한다.  Breonna Taylor, George Floyd, Ahmaud Arbery, Tony McDade, and countless others deserve justice. We extend our support">
+    <meta name="description" content="인종차별 이슈가 불거지며 테크 업계에서도 자성의 목소리가 나기 시작했다.아래의 권고사항을 통해 인종차별적인 용어를 사용하지 않기위해 노력해야겠다.     Before After    Master Leader, Primary   Slave Follower, Replica   Whitelist Allowlist   Blacklist Denylist   기술">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Github 디폴트 브랜치, Main으로 전환하기">
 <meta property="og:url" content="http://youngjinmo.github.io/2020/10/github-branch-to-main/index.html">
 <meta property="og:site_name" content="DevAndy - 개발자앤디의 개발블로그">
-<meta property="og:description" content="인종차별 이슈가 불거지며 테크 업계에서도 자성의 목소리가 나기 시작했다. 그러다가 Github에서 가장 먼저 큰 변화를 이끌어냈다고 생각한다.  Breonna Taylor, George Floyd, Ahmaud Arbery, Tony McDade, and countless others deserve justice. We extend our support">
+<meta property="og:description" content="인종차별 이슈가 불거지며 테크 업계에서도 자성의 목소리가 나기 시작했다.아래의 권고사항을 통해 인종차별적인 용어를 사용하지 않기위해 노력해야겠다.     Before After    Master Leader, Primary   Slave Follower, Replica   Whitelist Allowlist   Blacklist Denylist   기술">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://user-images.githubusercontent.com/33862991/96870083-56040800-14ab-11eb-94f3-c4330d1014f8.jpg">
 <meta property="article:published_time" content="2020-10-22T02:27:46.000Z">
-<meta property="article:modified_time" content="2020-10-22T12:21:04.375Z">
+<meta property="article:modified_time" content="2020-10-26T05:52:33.327Z">
 <meta property="article:author" content="Youngjin Mo">
 <meta property="article:tag" content="github">
 <meta property="article:tag" content="blacklivesmatter">
@@ -208,7 +208,7 @@ ga('send', 'pageview');
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="" class="article-date">
-     <time datetime="2020-10-22T12:21:04.375Z" itemprop="dateModified">2020-10-22</time>
+     <time datetime="2020-10-26T05:52:33.327Z" itemprop="dateModified">2020-10-26</time>
   </a>
 </div>
 
@@ -238,7 +238,33 @@ ga('send', 'pageview');
             
 
             <p><img src="https://user-images.githubusercontent.com/33862991/96870083-56040800-14ab-11eb-94f3-c4330d1014f8.jpg"></p>
-<p>인종차별 이슈가 불거지며 테크 업계에서도 자성의 목소리가 나기 시작했다. 그러다가 Github에서 가장 먼저 큰 변화를 이끌어냈다고 생각한다. </p>
+<p>인종차별 이슈가 불거지며 테크 업계에서도 자성의 목소리가 나기 시작했다.아래의 권고사항을 통해 인종차별적인 용어를 사용하지 않기위해 노력해야겠다. </p>
+<table>
+<thead>
+<tr>
+<th>Before</th>
+<th>After</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Master</td>
+<td>Leader, Primary</td>
+</tr>
+<tr>
+<td>Slave</td>
+<td>Follower, Replica</td>
+</tr>
+<tr>
+<td>Whitelist</td>
+<td>Allowlist</td>
+</tr>
+<tr>
+<td>Blacklist</td>
+<td>Denylist</td>
+</tr>
+</tbody></table>
+<p>기술 용어중 인종차별적인 용어들이 일부 있었는데, Github에서 가장 먼저 이를 바꾸는 움직임을 보였다.</p>
+<p>Github의 디폴트 브랜치는 지금까지 Master라고 했었으나 10월부터는 디폴트 브랜치명이 Main으로 바뀐다. 본 포스트는 10월 전까지 생성한 레포지토리에 대한 디폴트 브랜치를 Main으로 바꾸는 법을 정리해보았다.</p>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Breonna Taylor, George Floyd, Ahmaud Arbery, Tony McDade, and countless others deserve justice. We extend our support to Black Hubbers and Black developers. GitHub stands with the Black community in the fight against racism and injustice, and will continue to take action.</p>&mdash; GitHub (@github) <a target="_blank" rel="noopener" href="https://twitter.com/github/status/1269664807977771008?ref_src=twsrc%5Etfw">June 7, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <p>지금까지는 사용하던 저장소의 디폴트 브랜치이름을 <code>master</code>라고 불렀는데, 이 디폴트 브랜치이름을 더 직관적이면서 인종차별적인 의미를 제거하는 차원에서 <code>main</code> 으로 바꾸기로 결정되었다.</p>
@@ -292,12 +318,36 @@ ga('send', 'pageview');
         "genre": "Dev Git",
         "datePublished": "2020-10-22",
         "dateCreated": "2020-10-22",
-        "dateModified": "2020-10-22",
+        "dateModified": "2020-10-26",
         "url": "../../../http:/youngjinmo.github.io/2020/10/github-branch-to-main/",
         "description": "
-인종차별 이슈가 불거지며 테크 업계에서도 자성의 목소리가 나기 시작했다. 그러다가 Github에서 가장 먼저 큰 변화를 이끌어냈다고 생각한다. 
-Breonna Taylor, George Floyd, Ahmaud Arbery, Tony McDade, and countless others deserve justice. We extend our support ",
-        "wordCount": 284
+인종차별 이슈가 불거지며 테크 업계에서도 자성의 목소리가 나기 시작했다.아래의 권고사항을 통해 인종차별적인 용어를 사용하지 않기위해 노력해야겠다. 
+
+
+
+Before
+After
+
+
+
+Master
+Leader, Primary
+
+
+Slave
+Follower, Replica
+
+
+Whitelist
+Allowlist
+
+
+Blacklist
+Denylist
+
+
+기술 ",
+        "wordCount": 320
     }
 </script>
 
