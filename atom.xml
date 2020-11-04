@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2020-10-26T11:02:42.315Z</updated>
+  <updated>2020-11-04T09:20:25.782Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>스프링부트 서버로 MyBatis 연동해서 API 호출하기</title>
+    <title>SpringBoot + MyBatis + Oracle 초간단실습</title>
     <link href="http://youngjinmo.github.io/2020/10/springboot-mybatis-oracle/"/>
     <id>http://youngjinmo.github.io/2020/10/springboot-mybatis-oracle/</id>
     <published>2020-10-25T03:29:51.000Z</published>
-    <updated>2020-10-26T11:02:42.315Z</updated>
+    <updated>2020-11-04T09:20:25.782Z</updated>
     
     
       
