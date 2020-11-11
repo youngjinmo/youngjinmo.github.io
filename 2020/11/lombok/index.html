@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Lombok으로 VO 객체 가독성 높히기 | DevAndy - 개발자앤디의 개발블로그</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="lombok" />
+    
+    <meta name="description" content="ToC Why Lombok How can be change Lombok Annotations How to use  Why Lombok?VO를 작성할 때면, 거의 생각하지 않고 반복적으로 작성하는 코드가 있다. getter(), Setter(), ToString() 그리고 생성자이다.  VO에 정의된 필드가 많을수록 코드에 대한 가독성이 떨어질수밖에 없다.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lombok으로 VO 객체 가독성 높히기">
+<meta property="og:url" content="http://youngjinmo.github.io/2020/11/lombok/index.html">
+<meta property="og:site_name" content="DevAndy - 개발자앤디의 개발블로그">
+<meta property="og:description" content="ToC Why Lombok How can be change Lombok Annotations How to use  Why Lombok?VO를 작성할 때면, 거의 생각하지 않고 반복적으로 작성하는 코드가 있다. getter(), Setter(), ToString() 그리고 생성자이다.  VO에 정의된 필드가 많을수록 코드에 대한 가독성이 떨어질수밖에 없다.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/33862991/98791938-1a74b200-2449-11eb-8112-f06b4b5feb31.jpg">
+<meta property="article:published_time" content="2020-11-11T00:07:06.000Z">
+<meta property="article:modified_time" content="2020-11-11T09:59:43.843Z">
+<meta property="article:author" content="Youngjin Mo">
+<meta property="article:tag" content="lombok">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/33862991/98791938-1a74b200-2449-11eb-8112-f06b4b5feb31.jpg">
+<meta name="twitter:creator" content="@devandy_yj">
+    
+
+    
+        <link rel="alternate" href="/" title="DevAndy - 개발자앤디의 개발블로그" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="../../../css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="../../../libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="../../../libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="../../../libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="../../../css/style.css">
+
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet"> 
+	<style type="text/css">
+		@font-face { font-family: 'BMHANNAAir'; 
+					src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.0/BMHANNAAir.woff') format('woff'); 
+					font-weight: normal; 
+					font-style: normal; 
+		} 
+	</style>
+
+    
+<script src="../../../libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-177850483-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../index.html">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Articles/">Articles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/">Dev</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Html-Css/">Html/Css</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Javascript/">Javascript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Others/">Others</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Springboot/">Springboot</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Web/">Web</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Review/">Review</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Thought/">Thought</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Quiz/">Quiz</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../https:/github.com/youngjinmo">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="../../../js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Java/">Java</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-lombok" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Lombok으로 VO 객체 가독성 높히기
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta" style="margin-bottom: 1em;">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="" class="article-date">
+       <time datetime="2020-11-11T00:07:06.000Z" itemprop="datePublished">2020-11-11</time>
+    </a>
+  </div>
+
+<!-- 
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="" class="article-date">
+     <time datetime="2020-11-11T09:59:43.843Z" itemprop="dateModified">2020-11-11</time>
+  </a>
+</div>
+
+ -->
+                
+
+				<!-- 	count-time		 -->
+				<span class="reading-time" style="margin-left: 20px;">
+					⏱ 15 min.
+				</span>
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="../../../tags/lombok/" rel="tag">lombok</a>
+    </div>
+
+                <!-- partial('post/valinecounter') 
+                <!-- partial('post/counter') -->
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="https://user-images.githubusercontent.com/33862991/98791938-1a74b200-2449-11eb-8112-f06b4b5feb31.jpg"></p>
+<h2 id="ToC"><a href="#ToC" class="headerlink" title="ToC"></a>ToC</h2><ul>
+<li><a href="#why">Why Lombok</a></li>
+<li><a href="#change">How can be change</a></li>
+<li><a href="#annotations">Lombok Annotations</a></li>
+<li><a href="#install">How to use</a></li>
+</ul>
+<h2 id="Why-Lombok"><a href="#Why-Lombok" class="headerlink" title="Why Lombok?"></a><a name="why"></a>Why Lombok?</h2><p>VO를 작성할 때면, 거의 생각하지 않고 반복적으로 작성하는 코드가 있다. <code>getter()</code>, <code>Setter()</code>, <code>ToString()</code> 그리고 생성자이다. </p>
+<p>VO에 정의된 필드가 많을수록 코드에 대한 가독성이 떨어질수밖에 없다. 필드 개수의 2배수만큼의 메서드 (Getter/Setter)를 생성하기 때문에 다른 메서드가 있는지 확인하려면 스크롤해서 내려가야 한다.</p>
+<p>그러나 <a target="_blank" rel="noopener" href="https://projectlombok.org/">Lombok</a> 라이브러리를 사용하면, Getter, Setter 메서드로 코드를 어지럽게 작성할 필요도, 생성자를 작성할 필요도 없다. 딱 필드만 남게되므로 오히려 코드의 가독성이 높아진다.<br><br></p>
+<h2 id="How-can-be-change"><a href="#How-can-be-change" class="headerlink" title="How can be change?"></a><a name="change"></a>How can be change?</h2><p>Lombok을 적용하기 전과 Lombok을 적용한 이후 어떻게 달라지는지 확인해보자.</p>
+<h3 id="Before-Lombok"><a href="#Before-Lombok" class="headerlink" title="Before Lombok"></a>Before Lombok</h3><p>임의로 만들어본 VO 객체이다. 게시판을 만든다고 생각하고 게시판에 필요한 6개의 필드를 작성했으며, 이 필드를 사용하는 <code>Getter()</code>, <code>Setter()</code>, <code>toString()</code>, 생성자를 만들었다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.devandy.web.domain.vo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Domain</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> no;</span><br><span class="line">	<span class="keyword">private</span> String title;</span><br><span class="line">	<span class="keyword">private</span> String author;</span><br><span class="line">	<span class="keyword">private</span> String createdDate;</span><br><span class="line">	<span class="keyword">private</span> String updatedDate;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> hit;</span><br><span class="line">    </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getNo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> no;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNo</span><span class="params">(<span class="keyword">int</span> no)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.no = no;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getTitle</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> title;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTitle</span><span class="params">(String title)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.title = title;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getAuthor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> author;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAuthor</span><span class="params">(String author)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.author = author;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getCreatedDate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> createdDate;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCreatedDate</span><span class="params">(String createdDate)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.createdDate = createdDate;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getUpdatedDate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> updatedDate;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUpdatedDate</span><span class="params">(String updatedDate)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.updatedDate = updatedDate;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getHit</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> hit;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setHit</span><span class="params">(<span class="keyword">int</span> hit)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.hit = hit;</span><br><span class="line">	&#125;	</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">&quot;Domain [no=&quot;</span> + no + <span class="string">&quot;, title=&quot;</span> + title + <span class="string">&quot;, author=&quot;</span> + author + <span class="string">&quot;, createdDate=&quot;</span> + createdDate</span><br><span class="line">				+ <span class="string">&quot;, updatedDate=&quot;</span> + updatedDate + <span class="string">&quot;, hit=&quot;</span> + hit + <span class="string">&quot;]&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Domain</span><span class="params">(<span class="keyword">int</span> no, String title, String author, String createdDate, String updatedDate, <span class="keyword">int</span> hit)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>();</span><br><span class="line">		<span class="keyword">this</span>.no = no;</span><br><span class="line">		<span class="keyword">this</span>.title = title;</span><br><span class="line">		<span class="keyword">this</span>.author = author;</span><br><span class="line">		<span class="keyword">this</span>.createdDate = createdDate;</span><br><span class="line">		<span class="keyword">this</span>.updatedDate = updatedDate;</span><br><span class="line">		<span class="keyword">this</span>.hit = hit;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>4가지 기능(Getter, Setter, toString, 생성자)을 추가했을 뿐인데, 코드가 엄~청 길어졌다..<br>이제 Lombok을 적용해보자.</p>
+<h3 id="After-Lombok"><a href="#After-Lombok" class="headerlink" title="After Lombok"></a>After Lombok</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.devandy.web.domain.vo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.AllArgsConstructor;</span><br><span class="line"><span class="keyword">import</span> lombok.Getter;</span><br><span class="line"><span class="keyword">import</span> lombok.NoArgsConstructor;</span><br><span class="line"><span class="keyword">import</span> lombok.Setter;</span><br><span class="line"><span class="keyword">import</span> lombok.ToString;</span><br><span class="line"></span><br><span class="line"><span class="meta">@ToString</span></span><br><span class="line"><span class="meta">@Getter</span> <span class="meta">@Setter</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Domain</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> no;</span><br><span class="line">	<span class="keyword">private</span> String title;</span><br><span class="line">	<span class="keyword">private</span> String author;</span><br><span class="line">	<span class="keyword">private</span> String createdDate;</span><br><span class="line">	<span class="keyword">private</span> String updatedDate;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> hit;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>코드가 획기적으로 줄어들었다! 무엇보다 좋은건 이 VO 객체가 하는 행동(?)을 직관적으로 명확하게 이해할 수 있다는 점이다.</p>
+<p>이 Domain 이라는 VO 객체는 <code>toString()</code> 과 <code>getter()</code>, <code>setter()</code> 를 가지고 있으며, 인자값이 없는 기본생성자와 모든 필드를 인자값으로 갖는 생성자를 각각 갖는 VO라는 사실을 <strong><u>어노테이션</u></strong> 만으로 알 수 있다.<br>Lombok에서 사용하는 어노테이션에 대한 설명은 <a href="#annotations">아래</a>에 정리해두었다.</p>
+<p>Lombok을 사용하기 전보다 Lombok을 사용한 이후에 VO 객체가 더 직관적으로 바뀌었으므로 왠만하면 Lombok을 사용해야 할 것 같다.</p>
+<br>
+
+<h2 id="Lombok-Annotations"><a href="#Lombok-Annotations" class="headerlink" title="Lombok Annotations"></a><a name="annotations"></a>Lombok Annotations</h2><h3 id="ToString"><a href="#ToString" class="headerlink" title="@ToString"></a><a target="_blank" rel="noopener" href="https://projectlombok.org/features/ToString">@ToString</a></h3><p>자동으로 <code>ToString()</code> 를 사용할 수 있는 어노테이션이다.</p>
+<h3 id="Getter-and-Setter"><a href="#Getter-and-Setter" class="headerlink" title="@Getter and @Setter"></a><a target="_blank" rel="noopener" href="https://projectlombok.org/features/GetterSetter">@Getter and @Setter</a></h3><p>자동으로 <code>getter()</code>, <code>setter()</code> 를 사용할 수 있는 어노테이션이다.</p>
+<h3 id="NoArgsConstructor"><a href="#NoArgsConstructor" class="headerlink" title="@NoArgsConstructor"></a><a target="_blank" rel="noopener" href="https://projectlombok.org/features/constructor">@NoArgsConstructor</a></h3><p>인자값이 없는 기본 생성자를 사용할 수 있는 어노테이션이다.</p>
+<h3 id="AllArgsConstructor"><a href="#AllArgsConstructor" class="headerlink" title="@AllArgsConstructor"></a><a target="_blank" rel="noopener" href="https://projectlombok.org/features/constructor">@AllArgsConstructor</a></h3><p>VO 객체에 있는 모든 필드를 인자로 받는 생성자를 사용할 수 있는 어노테이션이다.</p>
+<h3 id="Data"><a href="#Data" class="headerlink" title="@Data"></a><a target="_blank" rel="noopener" href="https://projectlombok.org/features/Data">@Data</a></h3><p><code>@ToString</code>, <code>@EqualsAndHashCode</code>, <code>@Getter</code>, <code>@Setter</code>, <code>@RequiredArgsConstructor</code> 를 모두 자동으로 사용할 수 있는 어노테이션이다.</p>
+<br>
+
+<h2 id="How-to-use"><a href="#How-to-use" class="headerlink" title="How to use?"></a><a name="install"></a>How to use?</h2><p>메이븐 프로젝트의 경우, pom.xml에 dependency를 추가하면 Lombok을 사용할 수 있다. </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">version</span>&gt;</span>1.18.16<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>그러나 VO 객체에서 Lombok 어노테이션을 추가했음에도 불구하고, DAO나 다른 곳에서 VO 데이터를 사용하지 못하기도 하다. </p>
+<blockquote>
+<p> <code>getNo()</code>, <code>getTitle()</code> 등의 메서드를 VO 외부에서 사용했을때 불러오지 못하는 경우를 말한다.</p>
+</blockquote>
+<p>이 땐 운영체제에 lombok.jar를 직접 설치해서 컴파일하고, Lombok을 사용중인 프로젝트의 IDE 환경에서도 lombok을 설치해주어야 한다.</p>
+<p>이 방법은 <a target="_blank" rel="noopener" href="https://projectlombok.org/setup/eclipse">Lombok 공식 홈페이지</a>에서 각각의 환경에서 어떻게 Lombok을 설치하는지 확인할 수 있다.</p>
+<p>아래는 STS(Spring Suite Tools 4.4.8)에 맞춰서 설명을 해보았다.</p>
+<ol>
+<li><p>Lombok 홈페이지에서 lombok.jar 를 설치한다.</p>
+</li>
+<li><p>다운받은 디렉토리에서 터미널을 실행하여 lombok.jar를 실행한다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar lombok.jar</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>STS의 검색창에서 [Install New Software..]를 실행한다.<br><img src="https://user-images.githubusercontent.com/33862991/98795903-23b44d80-244e-11eb-9e31-bf9ecb5cdef8.JPG"></p>
+</li>
+<li><p>Work with 라고 적힌 blank에 설치할 라이브러리의 저장소 주소를 입력한다. Lombok은 <code>https://projectlombok.org/p2</code> 를입력하면된다.<br><img src="https://user-images.githubusercontent.com/33862991/98795908-244ce400-244e-11eb-82aa-daf05a7a9be6.JPG"></p>
+</li>
+<li><p>위의 이미지처럼 주소를 정상적으로 입력했다면, 아래에 Lombok 라이브러리가 검색되는걸 확인할 수 있다. 체크박스를 체크하고 install 한다.</p>
+</li>
+<li><p>STS를 종료하고 다시 실행하면, Lombok 어노테이션이 작동된다! </p>
+</li>
+</ol>
+
+        </div>
+        <footer class="article-footer">
+            <script src="https://utteranc.es/client.js"
+        repo="youngjinmo/githubpages-comment"
+        issue-term="url"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Youngjin Mo"
+        },
+        "headline": "Lombok으로 VO 객체 가독성 높히기",
+        "image": "../../../http:/youngjinmo.github.iohttps:/user-images.githubusercontent.com/33862991/98791938-1a74b200-2449-11eb-8112-f06b4b5feb31.jpg",
+        "keywords": "lombok",
+        "genre": "Dev Java",
+        "datePublished": "2020-11-11",
+        "dateCreated": "2020-11-11",
+        "dateModified": "2020-11-11",
+        "url": "../../../http:/youngjinmo.github.io/2020/11/lombok/",
+        "description": "
+ToC
+Why Lombok
+How can be change
+Lombok Annotations
+How to use
+
+Why Lombok?VO를 작성할 때면, 거의 생각하지 않고 반복적으로 작성하는 코드가 있다. getter(), Setter(), ToString() 그리고 생성자이다. 
+VO에 정의된 필드가 많을수록 코드에 대한 가독성이 떨어질수밖에 없다.",
+        "wordCount": 951
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="../../../https:/twitter.com/devandy_yj" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="../../../https:/github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../index.html" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="../../10/springboot-mybatis-oracle/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">SpringBoot + MyBatis + Oracle 초간단실습</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/33862991/98791938-1a74b200-2449-11eb-8112-f06b4b5feb31.jpg)" alt="Lombok으로 VO 객체 가독성 높히기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="" class="title">Lombok으로 VO 객체 가독성 높히기</a></p>
+                            <p class="item-date"><time datetime="2020-11-11T00:07:06.000Z" itemprop="datePublished">2020-11-11</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../10/springboot-mybatis-oracle/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/33862991/97108403-a8922e00-1710-11eb-9e42-b093ed1857d8.png)" alt="SpringBoot + MyBatis + Oracle 초간단실습" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Springboot/">Springboot</a></p>
+                            <p class="item-title"><a href="../../10/springboot-mybatis-oracle/" class="title">SpringBoot + MyBatis + Oracle 초간단실습</a></p>
+                            <p class="item-date"><time datetime="2020-10-25T03:29:51.000Z" itemprop="datePublished">2020-10-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../10/github-branch-to-main/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/33862991/96870083-56040800-14ab-11eb-94f3-c4330d1014f8.jpg)" alt="Github 디폴트 브랜치, Main으로 전환하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Git/">Git</a></p>
+                            <p class="item-title"><a href="../../10/github-branch-to-main/" class="title">Github 디폴트 브랜치, Main으로 전환하기</a></p>
+                            <p class="item-date"><time datetime="2020-10-22T02:27:46.000Z" itemprop="datePublished">2020-10-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../09/why-i-invested-nyt/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i0.wp.com/digiday.com/wp-content/uploads/2014/04/Nytimes_hq.jpg?fit=1600,1064&ssl=1)" alt="뉴욕타임즈에 투자하다" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Life/">Life</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Life/Thought/">Thought</a></p>
+                            <p class="item-title"><a href="../../09/why-i-invested-nyt/" class="title">뉴욕타임즈에 투자하다</a></p>
+                            <p class="item-date"><time datetime="2020-09-22T03:29:45.725Z" itemprop="datePublished">2020-09-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../09/github-contribution/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://opensource.guide/assets/images/cards/contribute.png)" alt="첫 오픈소스 기여" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Git/">Git</a></p>
+                            <p class="item-title"><a href="../../09/github-contribution/" class="title">첫 오픈소스 기여</a></p>
+                            <p class="item-date"><time datetime="2020-09-18T06:20:21.000Z" itemprop="datePublished">2020-09-18</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 11px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/api/" style="font-size: 11px;">api</a> <a href="../../../tags/architecture/" style="font-size: 10px;">architecture</a> <a href="../../../tags/array/" style="font-size: 11px;">array</a> <a href="../../../tags/aws/" style="font-size: 12px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blacklivesmatter/" style="font-size: 10px;">blacklivesmatter</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 12px;">career</a> <a href="../../../tags/casting/" style="font-size: 12px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/cloud/" style="font-size: 12px;">cloud</a> <a href="../../../tags/compiler/" style="font-size: 10px;">compiler</a> <a href="../../../tags/contribution/" style="font-size: 10px;">contribution</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/databse/" style="font-size: 10px;">databse</a> <a href="../../../tags/datastructure/" style="font-size: 12px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 14px;">docker</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 11px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generic/" style="font-size: 10px;">generic</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 12px;">github</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 13px;">http</a> <a href="../../../tags/ide/" style="font-size: 10px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 10px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 11px;">interface</a> <a href="../../../tags/interpreter/" style="font-size: 10px;">interpreter</a> <a href="../../../tags/io/" style="font-size: 12px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 16px;">java</a> <a href="../../../tags/java8/" style="font-size: 11px;">java8</a> <a href="../../../tags/jquery/" style="font-size: 11px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/jvm/" style="font-size: 10px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 10px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/lombok/" style="font-size: 10px;">lombok</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 10px;">mustache</a> <a href="../../../tags/mybatis/" style="font-size: 10px;">mybatis</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 17px;">oop</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 12px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 12px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 19px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/stock/" style="font-size: 10px;">stock</a> <a href="../../../tags/string/" style="font-size: 15px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/tip/" style="font-size: 18px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 13px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 11px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 19px;">weekly-review</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Youngjin Mo</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+    
+        
+<script src="../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="../../../js/main.js"></script>
+
+
+</body>
+</html>
