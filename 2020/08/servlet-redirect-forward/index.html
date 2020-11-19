@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="servlet" />
     
-    <meta name="description" content="Redirect 위의 이미지를 설명하면, 리다이렉트는 클라이언트가 redirect01.jsp를 요청했더니 웹서버로부터 반환된 내용에 리다이렉트 내용이 있어서 클라이언트에서 웹서버로 리다이렉트를 다시 요청함으로써 웹서버에서 최종적으로 redirect02.jsp를 반환하는 과정이다. 즉 포인트는 브라우저를 통해 페이지 로드가 한 번 되는것처럼 보이지만, 사실">
+    <meta name="description" content="Redirect 위의 이미지를 설명하면, 리다이렉트는 클라이언트가 redirect01.jsp를 요청했더니 웹서버로부터 반환된 내용에 리다이렉트 내용이 있어서 웹서버로 다시 요청, 웹서버에서 최종적으로 redirect02.jsp를 반환하는 과정이다. 리다이렉트를 현실에서 비유를 들자면, 휴대폰 관련 상담을 위해 고객상담센터에 연락을 했다고 가정해보자.휴대폰">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Servlet - Redirect와 Forward">
 <meta property="og:url" content="http://youngjinmo.github.io/2020/08/servlet-redirect-forward/index.html">
 <meta property="og:site_name" content="DevAndy - 개발자앤디의 개발블로그">
-<meta property="og:description" content="Redirect 위의 이미지를 설명하면, 리다이렉트는 클라이언트가 redirect01.jsp를 요청했더니 웹서버로부터 반환된 내용에 리다이렉트 내용이 있어서 클라이언트에서 웹서버로 리다이렉트를 다시 요청함으로써 웹서버에서 최종적으로 redirect02.jsp를 반환하는 과정이다. 즉 포인트는 브라우저를 통해 페이지 로드가 한 번 되는것처럼 보이지만, 사실">
+<meta property="og:description" content="Redirect 위의 이미지를 설명하면, 리다이렉트는 클라이언트가 redirect01.jsp를 요청했더니 웹서버로부터 반환된 내용에 리다이렉트 내용이 있어서 웹서버로 다시 요청, 웹서버에서 최종적으로 redirect02.jsp를 반환하는 과정이다. 리다이렉트를 현실에서 비유를 들자면, 휴대폰 관련 상담을 위해 고객상담센터에 연락을 했다고 가정해보자.휴대폰">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://lh3.googleusercontent.com/pw/ACtC-3cK_j9D5XupS1mIeAAwsE1cOAdZ05jfS290XghGTAfDNVmf1VDdldnidSEQpbEAPRe_aTchGC7U00h7lU9JKtTV3ltDyqUcofn0Xu4p0pm_ROewKfcnOG3UO4Yo4EgVG6ZeQfoemWHklC1hGMn-1DXYfQ=w640-h427-no?authuser=0">
 <meta property="article:published_time" content="2020-08-30T13:32:44.000Z">
-<meta property="article:modified_time" content="2020-09-13T01:53:28.160Z">
+<meta property="article:modified_time" content="2020-11-19T03:27:37.080Z">
 <meta property="article:author" content="Youngjin Mo">
 <meta property="article:tag" content="servlet">
 <meta name="twitter:card" content="summary">
@@ -203,7 +203,7 @@ ga('send', 'pageview');
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="" class="article-date">
-     <time datetime="2020-09-13T01:53:28.160Z" itemprop="dateModified">2020-09-13</time>
+     <time datetime="2020-11-19T03:27:37.080Z" itemprop="dateModified">2020-11-19</time>
   </a>
 </div>
 
@@ -212,7 +212,7 @@ ga('send', 'pageview');
 
 				<!-- 	count-time		 -->
 				<span class="reading-time" style="margin-left: 20px;">
-					⏱ 18 min.
+					⏱ 19 min.
 				</span>
                 
     <div class="article-tag">
@@ -234,9 +234,13 @@ ga('send', 'pageview');
 
             <p><img src="https://lh3.googleusercontent.com/pw/ACtC-3cK_j9D5XupS1mIeAAwsE1cOAdZ05jfS290XghGTAfDNVmf1VDdldnidSEQpbEAPRe_aTchGC7U00h7lU9JKtTV3ltDyqUcofn0Xu4p0pm_ROewKfcnOG3UO4Yo4EgVG6ZeQfoemWHklC1hGMn-1DXYfQ=w640-h427-no?authuser=0"></p>
 <h2 id="Redirect"><a href="#Redirect" class="headerlink" title="Redirect"></a>Redirect</h2><p><img src="https://cphinf.pstatic.net/mooc/20180127_5/1517046342330PRbSX_PNG/2_4_1_redirect__.PNG?type=w760" alt="출처 : edwith"></p>
-<p>위의 이미지를 설명하면, 리다이렉트는 클라이언트가 redirect01.jsp를 요청했더니 웹서버로부터 반환된 내용에 리다이렉트 내용이 있어서 클라이언트에서 웹서버로 리다이렉트를 다시 요청함으로써 웹서버에서 최종적으로 redirect02.jsp를 반환하는 과정이다.</p>
-<p>즉 포인트는 브라우저를 통해 페이지 로드가 한 번 되는것처럼 보이지만, 사실은 <strong>클라이언트와 웹서버간 통신이 각각 2번씩 이뤄진다는 점</strong>이다. 클라이언트가 웹서버에 2번의 요청을 하는 것이다.</p>
-<p><code>클라이언트 &gt;&gt; 웹서버(redirect) &gt;&gt; 클라이언트(redirect) &gt;&gt; 웹서버 &gt;&gt; 클라이언트</code></p>
+<p>위의 이미지를 설명하면, 리다이렉트는 클라이언트가 redirect01.jsp를 요청했더니 웹서버로부터 반환된 내용에 리다이렉트 내용이 있어서 웹서버로 다시 요청, 웹서버에서 최종적으로 redirect02.jsp를 반환하는 과정이다.</p>
+<p>리다이렉트를 현실에서 비유를 들자면, 휴대폰 관련 상담을 위해 고객상담센터에 연락을 했다고 가정해보자.<br>휴대폰 보험 관련 문의를 위해 고객상담센터에 전화했더니 센터에서는 해결을 못하니 보험 회사로 직접 연락하라며 번호를 알려주었다. 이 번호로 다시 연락해서 보험 상담원과 연결이 되었다.</p>
+<p>이렇게 클라이언트가 처음 요청과 다른 요청을 해서 2번의 요청을 통해 연결되는 상황을 리다이렉트라고 할 수 있다.</p>
+<p>결과적으로 브라우저를 통해 페이지 로드가 한 번 되는것처럼 보이지만, 사실은 <strong>클라이언트와 웹서버간 통신이 각각 2번씩 이뤄진다는 점</strong> 이다. 클라이언트가 웹서버에 2번의 요청을 하는 것이다.</p>
+<blockquote>
+<p>클라이언트 &gt;&gt; 웹서버(redirect) &gt;&gt; 클라이언트(redirect) &gt;&gt; 웹서버 &gt;&gt; 클라이언트</p>
+</blockquote>
 <h3 id="예제코드"><a href="#예제코드" class="headerlink" title="예제코드"></a>예제코드</h3><p><strong>RedirectFirst.class</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.PrintWriter;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Servlet implementation class redirect01</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@WebServlet(&quot;/redirect-first&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedirectFirst</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</span><br><span class="line">       </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">redirectFirst</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		PrintWriter out = response.getWriter();</span><br><span class="line">		out.println(<span class="string">&quot;Hello Servlet 01&quot;</span>);</span><br><span class="line">		response.sendRedirect(<span class="string">&quot;/redirect-second&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -252,6 +256,8 @@ ga('send', 'pageview');
 
 <h2 id="Forward"><a href="#Forward" class="headerlink" title="Forward"></a>Forward</h2><p><img src="https://cphinf.pstatic.net/mooc/20180129_279/1517202070933x0x42_PNG/2_4_2_forward.png?type=w760" alt="출처 : edwith"></p>
 <p>포워드는 클라이언트가 웹서버에 forward01.jsp를 요청했더니 forward01.jsp에서 작성된 코드에의해 포워딩되어 forward02.jsp를 반환하는걸 의미한다. 결과적으로 위에서 설명한 리다이렉트와 비슷하지만, <strong>클라이언트와 서버간 통신이 각각 1번씩이라는 점</strong>에서 다르다. </p>
+<p>이번에도 현실에서 비유를 들어보겠다.<br>고객상담센터에 전화를 걸어서 요금 관련 문의를 했더니, 잠시만 기다려달라고 하더니 저절로 요금 관련 상담원으로 전화연결이 바뀌었다. 전화를 끊고 다시 한것도 아닌데 고객상담센터에서 내 전화를 요금 관련 상담원으로 연결해준 것이다. </p>
+<p>이처럼 클라이언트는 한 번의 요청을 했지만, 서버에서 페이지를 바꿔서 반환하는 것을 포워딩이라고 한다.</p>
 <p>포워드는 다른 서버와는 할 수 없고, 클라이언트가 처음 요청한 서버내에서 다른 클래스를 전달할 수 있다. 또한 포워딩하는 과정에서 처음 요청받은 서블릿 클래스의 request와 response도 함께 포워딩할 수 있다는 특징이 있다.</p>
 <p><code>클라이언트 &gt;&gt; 웹서버(forward) &gt;&gt; 웹서버(forwared) &gt;&gt; 클라이언트</code></p>
 <h3 id="예제코드-1"><a href="#예제코드-1" class="headerlink" title="예제코드"></a>예제코드</h3><p><strong>FrontServlet.class</strong></p>
@@ -306,13 +312,13 @@ ga('send', 'pageview');
         "genre": "Dev Java",
         "datePublished": "2020-08-30",
         "dateCreated": "2020-08-30",
-        "dateModified": "2020-09-13",
+        "dateModified": "2020-11-19",
         "url": "../../../http:/youngjinmo.github.io/2020/08/servlet-redirect-forward/",
         "description": "
 Redirect
-위의 이미지를 설명하면, 리다이렉트는 클라이언트가 redirect01.jsp를 요청했더니 웹서버로부터 반환된 내용에 리다이렉트 내용이 있어서 클라이언트에서 웹서버로 리다이렉트를 다시 요청함으로써 웹서버에서 최종적으로 redirect02.jsp를 반환하는 과정이다.
-즉 포인트는 브라우저를 통해 페이지 로드가 한 번 되는것처럼 보이지만, 사실",
-        "wordCount": 1118
+위의 이미지를 설명하면, 리다이렉트는 클라이언트가 redirect01.jsp를 요청했더니 웹서버로부터 반환된 내용에 리다이렉트 내용이 있어서 웹서버로 다시 요청, 웹서버에서 최종적으로 redirect02.jsp를 반환하는 과정이다.
+리다이렉트를 현실에서 비유를 들자면, 휴대폰 관련 상담을 위해 고객상담센터에 연락을 했다고 가정해보자.휴대폰",
+        "wordCount": 1209
     }
 </script>
 

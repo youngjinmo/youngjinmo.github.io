@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/2020/08/servlet-redirect-forward/</loc>
+        <lastmod>2020-11-19T03:27:37.080Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/2020/11/lombok/</loc>
         <lastmod>2020-11-12T02:34:10.960Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -1131,14 +1139,6 @@
     <url>
         <loc>http://youngjinmo.github.io/2019/09/scanner-hasnext/</loc>
         <lastmod>2020-09-13T01:53:28.180Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2020/08/servlet-redirect-forward/</loc>
-        <lastmod>2020-09-13T01:53:28.160Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
