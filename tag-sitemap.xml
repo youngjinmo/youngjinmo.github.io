@@ -3,6 +3,34 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/tags/readme/</loc>
+        <lastmod>2020-11-20T07:05:40.318Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/tags/documentation/</loc>
+        <lastmod>2020-11-20T07:05:40.318Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/tags/license/</loc>
+        <lastmod>2020-11-20T03:18:45.380Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/tags/github/</loc>
+        <lastmod>2020-11-20T03:18:45.380Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/tags/servlet/</loc>
         <lastmod>2020-11-19T03:27:37.080Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -88,13 +116,6 @@
 
     <url>
         <loc>http://youngjinmo.github.io/tags/blacklivesmatter/</loc>
-        <lastmod>2020-10-26T05:52:33.327Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/tags/github/</loc>
         <lastmod>2020-10-26T05:52:33.327Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>

@@ -9,6 +9,22 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/2020/11/how-to-write-readme/</loc>
+        <lastmod>2020-11-20T07:05:40.318Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/2020/02/github-licenses/</loc>
+        <lastmod>2020-11-20T03:18:45.380Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/2020/08/servlet-redirect-forward/</loc>
         <lastmod>2020-11-19T03:27:37.080Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -555,14 +571,6 @@
     <url>
         <loc>http://youngjinmo.github.io/2019/09/git-sync-forked-repo/</loc>
         <lastmod>2020-09-13T01:53:28.852Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2020/02/github-licenses/</loc>
-        <lastmod>2020-09-13T01:53:28.848Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

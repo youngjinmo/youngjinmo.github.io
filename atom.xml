@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2020-11-12T02:34:10.960Z</updated>
+  <updated>2020-11-20T07:05:40.318Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>신입개발자가 생각하는 개발문서</title>
+    <link href="http://youngjinmo.github.io/2020/11/how-to-write-readme/"/>
+    <id>http://youngjinmo.github.io/2020/11/how-to-write-readme/</id>
+    <published>2020-11-19T18:20:34.000Z</published>
+    <updated>2020-11-20T07:05:40.318Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Others" scheme="http://youngjinmo.github.io/categories/Dev/Others/"/>
+    
+    
+    <category term="documentation" scheme="http://youngjinmo.github.io/tags/documentation/"/>
+    
+    <category term="readme" scheme="http://youngjinmo.github.io/tags/readme/"/>
+    
+  </entry>
   
   <entry>
     <title>Lombok으로 VO 객체 가독성 높히기</title>
@@ -841,35 +870,6 @@
     
     <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Oracle - Sub Query</title>
-    <link href="http://youngjinmo.github.io/2020/04/oracle-subquery/"/>
-    <id>http://youngjinmo.github.io/2020/04/oracle-subquery/</id>
-    <published>2020-04-20T05:48:40.000Z</published>
-    <updated>2020-09-13T01:53:28.232Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Database" scheme="http://youngjinmo.github.io/categories/Dev/Database/"/>
-    
-    
-    <category term="oracle" scheme="http://youngjinmo.github.io/tags/oracle/"/>
-    
-    <category term="sql" scheme="http://youngjinmo.github.io/tags/sql/"/>
     
   </entry>
   
