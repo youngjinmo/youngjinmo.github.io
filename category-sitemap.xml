@@ -9,6 +9,20 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/categories/Life/Thought/</loc>
+        <lastmod>2020-11-29T14:04:10.517Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/categories/Life/</loc>
+        <lastmod>2020-11-29T14:04:10.517Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/categories/Dev/Web/</loc>
         <lastmod>2020-11-26T07:38:24.177Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -60,20 +74,6 @@
     <url>
         <loc>http://youngjinmo.github.io/categories/Dev/Database/</loc>
         <lastmod>2020-10-04T02:26:12.297Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/categories/Life/Thought/</loc>
-        <lastmod>2020-09-22T03:29:45.725Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/categories/Life/</loc>
-        <lastmod>2020-09-22T03:29:45.725Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

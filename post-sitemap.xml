@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/2020/11/weeklyreview-2020-nov-fifth/</loc>
+        <lastmod>2020-11-29T14:04:10.517Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/2020/06/rest-api/</loc>
         <lastmod>2020-11-26T07:38:24.177Z</lastmod>
         <changefreq>weekly</changefreq>

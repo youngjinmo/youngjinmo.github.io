@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2020-11-26T01:35:46.839Z</updated>
+  <updated>2020-11-29T14:04:10.517Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>WeeklyReview - 11월 5주차</title>
+    <link href="http://youngjinmo.github.io/2020/11/weeklyreview-2020-nov-fifth/"/>
+    <id>http://youngjinmo.github.io/2020/11/weeklyreview-2020-nov-fifth/</id>
+    <published>2020-11-29T05:00:05.000Z</published>
+    <updated>2020-11-29T14:04:10.517Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Life" scheme="http://youngjinmo.github.io/categories/Life/"/>
+    
+    <category term="Thought" scheme="http://youngjinmo.github.io/categories/Life/Thought/"/>
+    
+    
+    <category term="weekly-review" scheme="http://youngjinmo.github.io/tags/weekly-review/"/>
+    
+  </entry>
   
   <entry>
     <title>신입개발자가 생각하는 개발 문서</title>
@@ -845,31 +872,6 @@
     
     
     <category term="oracle" scheme="http://youngjinmo.github.io/tags/oracle/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>main(String[] Args)에 대해 알아보자.</title>
-    <link href="http://youngjinmo.github.io/2020/04/java-main-args/"/>
-    <id>http://youngjinmo.github.io/2020/04/java-main-args/</id>
-    <published>2020-04-23T09:53:54.000Z</published>
-    <updated>2020-09-13T01:53:28.548Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
-    
     
   </entry>
   

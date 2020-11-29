@@ -3,6 +3,13 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/tags/weekly-review/</loc>
+        <lastmod>2020-11-29T14:04:10.517Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/tags/rest/</loc>
         <lastmod>2020-11-26T07:38:24.177Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -236,13 +243,6 @@
     <url>
         <loc>http://youngjinmo.github.io/tags/markup/</loc>
         <lastmod>2020-09-13T01:53:29.844Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/tags/weekly-review/</loc>
-        <lastmod>2020-09-13T01:53:29.804Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
