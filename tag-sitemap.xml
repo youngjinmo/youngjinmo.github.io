@@ -3,6 +3,41 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/tags/mybatis/</loc>
+        <lastmod>2020-11-30T02:05:01.252Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/tags/springboot/</loc>
+        <lastmod>2020-11-30T02:05:01.252Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/tags/docker/</loc>
+        <lastmod>2020-11-30T02:05:01.252Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/tags/oracle/</loc>
+        <lastmod>2020-11-30T02:05:01.252Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/tags/java/</loc>
+        <lastmod>2020-11-30T02:04:42.348Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/tags/weekly-review/</loc>
         <lastmod>2020-11-30T01:28:07.536Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -66,41 +101,6 @@
     </url>
 
     <url>
-        <loc>http://youngjinmo.github.io/tags/lombok/</loc>
-        <lastmod>2020-11-12T02:34:10.960Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/tags/mybatis/</loc>
-        <lastmod>2020-11-12T02:29:00.336Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/tags/springboot/</loc>
-        <lastmod>2020-11-12T02:29:00.336Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/tags/docker/</loc>
-        <lastmod>2020-11-12T02:29:00.336Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/tags/oracle/</loc>
-        <lastmod>2020-11-12T02:29:00.336Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://youngjinmo.github.io/tags/cloud/</loc>
         <lastmod>2020-11-05T06:06:34.315Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -124,13 +124,6 @@
     <url>
         <loc>http://youngjinmo.github.io/tags/blacklivesmatter/</loc>
         <lastmod>2020-10-26T05:52:33.327Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/tags/java/</loc>
-        <lastmod>2020-10-25T12:40:57.873Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

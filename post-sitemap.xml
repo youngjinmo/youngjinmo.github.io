@@ -9,6 +9,22 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/2020/10/springboot-mybatis-oracle/</loc>
+        <lastmod>2020-11-30T02:05:01.252Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/2020/11/lombok/</loc>
+        <lastmod>2020-11-30T02:04:42.348Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/2020/11/weeklyreview-2020-nov-fifth/</loc>
         <lastmod>2020-11-30T01:28:07.536Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -43,22 +59,6 @@
     <url>
         <loc>http://youngjinmo.github.io/2020/08/servlet-redirect-forward/</loc>
         <lastmod>2020-11-19T03:27:37.080Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2020/11/lombok/</loc>
-        <lastmod>2020-11-12T02:34:10.960Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2020/10/springboot-mybatis-oracle/</loc>
-        <lastmod>2020-11-12T02:29:00.336Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

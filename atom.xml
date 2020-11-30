@@ -77,14 +77,15 @@
     <link href="http://youngjinmo.github.io/2020/11/lombok/"/>
     <id>http://youngjinmo.github.io/2020/11/lombok/</id>
     <published>2020-11-11T00:07:06.000Z</published>
-    <updated>2020-11-12T02:34:10.960Z</updated>
+    <updated>2020-11-30T02:04:42.348Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;&lt;img</summary>
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/98791938-1a74b200-2449-11eb-8112-f06b4b5feb31.jpg&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;ToC&quot;&gt;&lt;a href=&quot;#ToC&quot;</summary>
         
       
     
@@ -92,10 +93,10 @@
     
     <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
     
-    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    <category term="Springboot" scheme="http://youngjinmo.github.io/categories/Dev/Springboot/"/>
     
     
-    <category term="lombok" scheme="http://youngjinmo.github.io/tags/lombok/"/>
+    <category term="java" scheme="http://youngjinmo.github.io/tags/java/"/>
     
   </entry>
   
@@ -104,14 +105,15 @@
     <link href="http://youngjinmo.github.io/2020/10/springboot-mybatis-oracle/"/>
     <id>http://youngjinmo.github.io/2020/10/springboot-mybatis-oracle/</id>
     <published>2020-10-25T03:29:51.000Z</published>
-    <updated>2020-11-12T02:29:00.336Z</updated>
+    <updated>2020-11-30T02:05:01.252Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;&lt;img</summary>
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/97108403-a8922e00-1710-11eb-9e42-b093ed1857d8.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;JPA를 공부하기 전에 먼저 MyBatis로</summary>
         
       
     
@@ -144,7 +146,8 @@
       
         
         
-    <summary type="html">&lt;p&gt;&lt;img</summary>
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/96870083-56040800-14ab-11eb-94f3-c4330d1014f8.jpg&quot;&gt;&lt;/p&gt;
+&lt;p&gt;인종차별 이슈가 불거지며 테크 업계에서도 자성의</summary>
         
       
     
@@ -173,7 +176,8 @@
       
         
         
-    <summary type="html">&lt;p&gt;&lt;img</summary>
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i0.wp.com/digiday.com/wp-content/uploads/2014/04/Nytimes_hq.jpg?fit=1600,1064&amp;ssl=1&quot;&gt;&lt;/p&gt;
+&lt;p&gt;어젯밤 오랜만에 주식을 좀 샀다. 국내증시는 너무 올랐고,</summary>
         
       
     
@@ -200,7 +204,9 @@
       
         
         
-    <summary type="html">&lt;p&gt;&lt;img</summary>
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://opensource.guide/assets/images/cards/contribute.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;뭐 엄청 작은부분이지만, 그래도 첫 오픈소스 기여를 기념하여 그 과정을 기록한다.&lt;/p&gt;
+&lt;p&gt;오픈소스를 기여하는 방법은</summary>
         
       
     
@@ -314,7 +320,7 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;TwoSum&quot;&gt;&lt;a href=&quot;#TwoSum&quot;</summary>
+    <summary type="html">&lt;h1 id=&quot;TwoSum&quot;&gt;&lt;a href=&quot;#TwoSum&quot; class=&quot;headerlink&quot; title=&quot;TwoSum&quot;&gt;&lt;/a&gt;TwoSum&lt;/h1&gt;&lt;p&gt;&lt;img</summary>
         
       
     
@@ -588,290 +594,6 @@
     
     
     <category term="java8" scheme="http://youngjinmo.github.io/tags/java8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java - File 읽고(Read) 출력(Write)하기</title>
-    <link href="http://youngjinmo.github.io/2020/06/java-file-io/"/>
-    <id>http://youngjinmo.github.io/2020/06/java-file-io/</id>
-    <published>2020-06-20T08:18:47.000Z</published>
-    <updated>2020-09-13T01:53:28.600Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
-    
-    
-    <category term="io" scheme="http://youngjinmo.github.io/tags/io/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>REST</title>
-    <link href="http://youngjinmo.github.io/2020/06/rest-api/"/>
-    <id>http://youngjinmo.github.io/2020/06/rest-api/</id>
-    <published>2020-06-18T11:29:48.000Z</published>
-    <updated>2020-11-26T07:38:24.177Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Web" scheme="http://youngjinmo.github.io/categories/Dev/Web/"/>
-    
-    
-    <category term="api" scheme="http://youngjinmo.github.io/tags/api/"/>
-    
-    <category term="architecture" scheme="http://youngjinmo.github.io/tags/architecture/"/>
-    
-    <category term="rest" scheme="http://youngjinmo.github.io/tags/rest/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>웹서버와 WAS</title>
-    <link href="http://youngjinmo.github.io/2020/06/webserver-was/"/>
-    <id>http://youngjinmo.github.io/2020/06/webserver-was/</id>
-    <published>2020-06-15T13:05:56.000Z</published>
-    <updated>2020-09-13T01:53:28.048Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Web" scheme="http://youngjinmo.github.io/categories/Dev/Web/"/>
-    
-    
-    <category term="jar" scheme="http://youngjinmo.github.io/tags/jar/"/>
-    
-    <category term="war" scheme="http://youngjinmo.github.io/tags/war/"/>
-    
-    <category term="webserver" scheme="http://youngjinmo.github.io/tags/webserver/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Git - Stash 활용법</title>
-    <link href="http://youngjinmo.github.io/2020/06/git-stash/"/>
-    <id>http://youngjinmo.github.io/2020/06/git-stash/</id>
-    <published>2020-06-13T04:06:10.000Z</published>
-    <updated>2020-09-13T01:53:28.864Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Git" scheme="http://youngjinmo.github.io/categories/Dev/Git/"/>
-    
-    
-    <category term="stash" scheme="http://youngjinmo.github.io/tags/stash/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>String 객체 연산시 StringBuffer를 사용해야하는 이유</title>
-    <link href="http://youngjinmo.github.io/2020/05/java-stringbuffer-better-than-string/"/>
-    <id>http://youngjinmo.github.io/2020/05/java-stringbuffer-better-than-string/</id>
-    <published>2020-05-16T00:11:06.000Z</published>
-    <updated>2020-09-13T01:53:28.396Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
-    
-    
-    <category term="string" scheme="http://youngjinmo.github.io/tags/string/"/>
-    
-    <category term="io" scheme="http://youngjinmo.github.io/tags/io/"/>
-    
-    <category term="stringbuffer" scheme="http://youngjinmo.github.io/tags/stringbuffer/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java - Exception</title>
-    <link href="http://youngjinmo.github.io/2020/05/java-exception/"/>
-    <id>http://youngjinmo.github.io/2020/05/java-exception/</id>
-    <published>2020-05-13T12:10:26.000Z</published>
-    <updated>2020-10-08T09:10:15.836Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
-    
-    
-    <category term="exception" scheme="http://youngjinmo.github.io/tags/exception/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu에서 JDK 설치하기</title>
-    <link href="http://youngjinmo.github.io/2020/05/install-jdk-ubuntu/"/>
-    <id>http://youngjinmo.github.io/2020/05/install-jdk-ubuntu/</id>
-    <published>2020-05-08T13:42:37.000Z</published>
-    <updated>2020-09-13T01:53:28.648Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Linux" scheme="http://youngjinmo.github.io/categories/Dev/Linux/"/>
-    
-    
-    <category term="ubuntu" scheme="http://youngjinmo.github.io/tags/ubuntu/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java - String 클래스 메서드 정리</title>
-    <link href="http://youngjinmo.github.io/2020/05/java-string-methods/"/>
-    <id>http://youngjinmo.github.io/2020/05/java-string-methods/</id>
-    <published>2020-05-03T07:56:04.000Z</published>
-    <updated>2020-09-13T01:53:28.408Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
-    
-    
-    <category term="string" scheme="http://youngjinmo.github.io/tags/string/"/>
-    
-    <category term="object" scheme="http://youngjinmo.github.io/tags/object/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Oracle - Date</title>
-    <link href="http://youngjinmo.github.io/2020/04/oracle-date/"/>
-    <id>http://youngjinmo.github.io/2020/04/oracle-date/</id>
-    <published>2020-04-26T05:57:07.000Z</published>
-    <updated>2020-09-13T01:53:28.308Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Database" scheme="http://youngjinmo.github.io/categories/Dev/Database/"/>
-    
-    
-    <category term="oracle" scheme="http://youngjinmo.github.io/tags/oracle/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Oracle - LIKE 연산자</title>
-    <link href="http://youngjinmo.github.io/2020/04/oracle-like/"/>
-    <id>http://youngjinmo.github.io/2020/04/oracle-like/</id>
-    <published>2020-04-26T04:42:51.000Z</published>
-    <updated>2020-09-13T01:53:28.264Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Database" scheme="http://youngjinmo.github.io/categories/Dev/Database/"/>
-    
-    
-    <category term="oracle" scheme="http://youngjinmo.github.io/tags/oracle/"/>
     
   </entry>
   
