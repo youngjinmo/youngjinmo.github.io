@@ -9,8 +9,8 @@
 
 
     <url>
-        <loc>http://youngjinmo.github.io/2020/10/springboot-mybatis-oracle/</loc>
-        <lastmod>2020-11-30T02:05:01.252Z</lastmod>
+        <loc>http://youngjinmo.github.io/2020/03/get-mapping-annotation/</loc>
+        <lastmod>2020-12-02T10:12:14.079Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -18,7 +18,15 @@
 
     <url>
         <loc>http://youngjinmo.github.io/2020/11/lombok/</loc>
-        <lastmod>2020-11-30T02:04:42.348Z</lastmod>
+        <lastmod>2020-11-30T06:24:54.408Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/2020/10/springboot-mybatis-oracle/</loc>
+        <lastmod>2020-11-30T02:05:01.252Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -482,14 +490,6 @@
 
     <url>
         <loc>http://youngjinmo.github.io/2019/02/first/</loc>
-        <lastmod>2020-09-13T01:53:28.936Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2020/03/get-mapping-annotation/</loc>
         <lastmod>2020-09-13T01:53:28.936Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
