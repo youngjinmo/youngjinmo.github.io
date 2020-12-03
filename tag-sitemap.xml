@@ -3,6 +3,41 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/tags/javascript/</loc>
+        <lastmod>2020-12-03T08:36:03.287Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/tags/jquery/</loc>
+        <lastmod>2020-12-03T08:35:50.389Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/tags/javscript/</loc>
+        <lastmod>2020-12-03T08:34:44.756Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/tags/markup/</loc>
+        <lastmod>2020-12-03T08:33:27.074Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/tags/vue/</loc>
+        <lastmod>2020-12-03T08:32:07.055Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/tags/http/</loc>
         <lastmod>2020-12-02T10:12:14.079Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -234,13 +269,6 @@
     </url>
 
     <url>
-        <loc>http://youngjinmo.github.io/tags/markup/</loc>
-        <lastmod>2020-09-13T01:53:29.844Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://youngjinmo.github.io/tags/python/</loc>
         <lastmod>2020-09-13T01:53:29.520Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -257,13 +285,6 @@
     <url>
         <loc>http://youngjinmo.github.io/tags/string/</loc>
         <lastmod>2020-09-13T01:53:29.340Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/tags/jquery/</loc>
-        <lastmod>2020-09-13T01:53:29.260Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

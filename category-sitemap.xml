@@ -9,14 +9,21 @@
 
 
     <url>
-        <loc>http://youngjinmo.github.io/categories/Dev/Springboot/</loc>
-        <lastmod>2020-12-02T10:12:14.079Z</lastmod>
+        <loc>http://youngjinmo.github.io/categories/Dev/Front-end/</loc>
+        <lastmod>2020-12-03T08:36:03.287Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://youngjinmo.github.io/categories/Dev/</loc>
+        <lastmod>2020-12-03T08:36:03.287Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/categories/Dev/Springboot/</loc>
         <lastmod>2020-12-02T10:12:14.079Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -93,22 +100,8 @@
     </url>
 
     <url>
-        <loc>http://youngjinmo.github.io/categories/Dev/Html-Css/</loc>
-        <lastmod>2020-09-13T01:53:29.844Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://youngjinmo.github.io/categories/Quiz/</loc>
         <lastmod>2020-09-13T01:53:29.388Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/categories/Dev/Javascript/</loc>
-        <lastmod>2020-09-13T01:53:29.260Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

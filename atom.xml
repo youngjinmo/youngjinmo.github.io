@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2020-11-30T01:28:07.536Z</updated>
+  <updated>2020-12-03T08:32:07.055Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello, Vue.js</title>
+    <link href="http://youngjinmo.github.io/2020/12/hello-vue/"/>
+    <id>http://youngjinmo.github.io/2020/12/hello-vue/</id>
+    <published>2020-12-02T21:44:20.000Z</published>
+    <updated>2020-12-03T08:32:07.055Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.ytimg.com/vi/DsuTwV0jwaY/maxresdefault.jpg&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;What-is-Vue&quot;&gt;&lt;a href=&quot;#What-is-Vue&quot; class=&quot;headerlink&quot; title=&quot;What is</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Front-end" scheme="http://youngjinmo.github.io/categories/Dev/Front-end/"/>
+    
+    
+    <category term="javascript" scheme="http://youngjinmo.github.io/tags/javascript/"/>
+    
+    <category term="vue" scheme="http://youngjinmo.github.io/tags/vue/"/>
+    
+  </entry>
   
   <entry>
     <title>WeeklyReview - 11월 5주차</title>
@@ -567,33 +597,6 @@
     <category term="lambda" scheme="http://youngjinmo.github.io/tags/lambda/"/>
     
     <category term="functional interface" scheme="http://youngjinmo.github.io/tags/functional-interface/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>자바8의 신규 기능</title>
-    <link href="http://youngjinmo.github.io/2020/06/java8-new-features/"/>
-    <id>http://youngjinmo.github.io/2020/06/java8-new-features/</id>
-    <published>2020-06-22T12:03:51.000Z</published>
-    <updated>2020-09-13T01:53:28.352Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
-    
-    
-    <category term="java8" scheme="http://youngjinmo.github.io/tags/java8/"/>
     
   </entry>
   
