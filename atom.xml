@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2020-12-03T08:32:07.055Z</updated>
+  <updated>2020-12-06T15:16:22.833Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Weeklyreview-2020-Dec-First</title>
+    <link href="http://youngjinmo.github.io/2020/12/weeklyreview-2020-dec-first/"/>
+    <id>http://youngjinmo.github.io/2020/12/weeklyreview-2020-dec-first/</id>
+    <published>2020-12-06T06:13:02.000Z</published>
+    <updated>2020-12-06T15:16:22.833Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/101284031-5705b480-3821-11eb-99b5-b9f838bb9669.jpg&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;ToC&quot;&gt;&lt;a href=&quot;#ToC&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Life" scheme="http://youngjinmo.github.io/categories/Life/"/>
+    
+    <category term="Thought" scheme="http://youngjinmo.github.io/categories/Life/Thought/"/>
+    
+    
+    <category term="weekly-review" scheme="http://youngjinmo.github.io/tags/weekly-review/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello, Vue.js</title>
@@ -566,37 +594,6 @@
     <category term="http" scheme="http://youngjinmo.github.io/tags/http/"/>
     
     <category term="servlet" scheme="http://youngjinmo.github.io/tags/servlet/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java8 - 람다와 함수형 인터페이스</title>
-    <link href="http://youngjinmo.github.io/2020/06/java8-lambda-functional-interface/"/>
-    <id>http://youngjinmo.github.io/2020/06/java8-lambda-functional-interface/</id>
-    <published>2020-06-29T12:49:09.000Z</published>
-    <updated>2020-10-07T04:44:35.921Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
-    
-    
-    <category term="java8" scheme="http://youngjinmo.github.io/tags/java8/"/>
-    
-    <category term="lambda" scheme="http://youngjinmo.github.io/tags/lambda/"/>
-    
-    <category term="functional interface" scheme="http://youngjinmo.github.io/tags/functional-interface/"/>
     
   </entry>
   
