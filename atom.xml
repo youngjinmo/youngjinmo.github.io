@@ -286,7 +286,7 @@
     <link href="http://youngjinmo.github.io/2020/09/xml-json-xmlhttprequest/"/>
     <id>http://youngjinmo.github.io/2020/09/xml-json-xmlhttprequest/</id>
     <published>2020-09-01T03:00:59.000Z</published>
-    <updated>2020-09-13T01:53:27.932Z</updated>
+    <updated>2020-12-08T09:27:08.236Z</updated>
     
     
       
@@ -304,11 +304,11 @@
     <category term="Others" scheme="http://youngjinmo.github.io/categories/Dev/Others/"/>
     
     
+    <category term="http" scheme="http://youngjinmo.github.io/tags/http/"/>
+    
     <category term="xml" scheme="http://youngjinmo.github.io/tags/xml/"/>
     
     <category term="json" scheme="http://youngjinmo.github.io/tags/json/"/>
-    
-    <category term="XMLHttpRequest" scheme="http://youngjinmo.github.io/tags/XMLHttpRequest/"/>
     
   </entry>
   

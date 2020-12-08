@@ -9,6 +9,34 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/categories/Dev/Others/</loc>
+        <lastmod>2020-12-08T09:27:08.236Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/categories/Dev/</loc>
+        <lastmod>2020-12-08T09:27:08.236Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/categories/Dev/Git/</loc>
+        <lastmod>2020-12-08T09:23:19.390Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/categories/Dev/Springboot/</loc>
+        <lastmod>2020-12-07T08:27:45.659Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/categories/Life/Thought/</loc>
         <lastmod>2020-12-07T01:23:05.297Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -30,36 +58,8 @@
     </url>
 
     <url>
-        <loc>http://youngjinmo.github.io/categories/Dev/</loc>
-        <lastmod>2020-12-03T08:36:03.287Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/categories/Dev/Springboot/</loc>
-        <lastmod>2020-12-02T10:12:14.079Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://youngjinmo.github.io/categories/Dev/Web/</loc>
         <lastmod>2020-11-26T07:38:24.177Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/categories/Dev/Others/</loc>
-        <lastmod>2020-11-26T01:35:46.839Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/categories/Dev/Git/</loc>
-        <lastmod>2020-11-20T03:18:45.380Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

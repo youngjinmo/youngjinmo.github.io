@@ -9,6 +9,30 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/2020/09/xml-json-xmlhttprequest/</loc>
+        <lastmod>2020-12-08T09:27:08.236Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/2020/01/git-add-p/</loc>
+        <lastmod>2020-12-08T09:23:19.390Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/2020/03/h2-database/</loc>
+        <lastmod>2020-12-07T08:27:45.659Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/2020/12/weeklyreview-2020-dec-first/</loc>
         <lastmod>2020-12-07T01:23:05.297Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -553,14 +577,6 @@
     </url>
 
     <url>
-        <loc>http://youngjinmo.github.io/2020/01/git-add-p/</loc>
-        <lastmod>2020-09-13T01:53:28.924Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://youngjinmo.github.io/2019/09/git-change-remote-branch-url/</loc>
         <lastmod>2020-09-13T01:53:28.912Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -634,14 +650,6 @@
 
     <url>
         <loc>http://youngjinmo.github.io/2020/03/gitmessage/</loc>
-        <lastmod>2020-09-13T01:53:28.840Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2020/03/h2-database/</loc>
         <lastmod>2020-09-13T01:53:28.840Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1235,14 +1243,6 @@
     <url>
         <loc>http://youngjinmo.github.io/2020/01/window-server-aws/</loc>
         <lastmod>2020-09-13T01:53:27.972Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2020/09/xml-json-xmlhttprequest/</loc>
-        <lastmod>2020-09-13T01:53:27.932Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
