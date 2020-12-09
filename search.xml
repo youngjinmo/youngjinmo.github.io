@@ -161,6 +161,8 @@
       
         <tags>
             
+            <tag> tutorial </tag>
+            
             <tag> oracle </tag>
             
             <tag> docker </tag>
@@ -388,6 +390,8 @@
       
       
         <tags>
+            
+            <tag> tutorial </tag>
             
             <tag> docker </tag>
             
@@ -2324,9 +2328,9 @@
       
         <tags>
             
-            <tag> sql </tag>
-            
             <tag> java </tag>
+            
+            <tag> sql </tag>
             
         </tags>
       
@@ -2614,6 +2618,8 @@
       
       
         <tags>
+            
+            <tag> tutorial </tag>
             
             <tag> docker </tag>
             
@@ -3650,6 +3656,8 @@
       
       
         <tags>
+            
+            <tag> tutorial </tag>
             
             <tag> oracle </tag>
             

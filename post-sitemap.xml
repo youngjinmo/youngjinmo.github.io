@@ -9,6 +9,38 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/2019/06/docker-for-oracle/</loc>
+        <lastmod>2020-12-09T05:56:04.820Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/2019/10/docker-image/</loc>
+        <lastmod>2020-12-09T05:55:53.492Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/2020/10/springboot-mybatis-oracle/</loc>
+        <lastmod>2020-12-09T05:55:34.392Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/2020/08/run-mysql-with-docker/</loc>
+        <lastmod>2020-12-09T05:54:53.071Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/2020/09/xml-json-xmlhttprequest/</loc>
         <lastmod>2020-12-08T09:43:21.338Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -115,14 +147,6 @@
     <url>
         <loc>http://youngjinmo.github.io/2020/11/lombok/</loc>
         <lastmod>2020-11-30T06:24:54.408Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2020/10/springboot-mybatis-oracle/</loc>
-        <lastmod>2020-11-30T02:05:01.252Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -281,24 +305,8 @@
     </url>
 
     <url>
-        <loc>http://youngjinmo.github.io/2019/06/docker-for-oracle/</loc>
-        <lastmod>2020-10-01T11:09:01.526Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://youngjinmo.github.io/2020/09/why-i-invested-nyt/</loc>
         <lastmod>2020-09-22T03:29:45.725Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2020/08/run-mysql-with-docker/</loc>
-        <lastmod>2020-09-21T13:20:02.264Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -515,14 +523,6 @@
     <url>
         <loc>http://youngjinmo.github.io/2020/03/do-you-know-crypto-currency/</loc>
         <lastmod>2020-09-13T01:53:29.028Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2019/10/docker-image/</loc>
-        <lastmod>2020-09-13T01:53:28.968Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

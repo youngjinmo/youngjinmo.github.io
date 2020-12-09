@@ -9,14 +9,28 @@
 
 
     <url>
-        <loc>http://youngjinmo.github.io/categories/Dev/Others/</loc>
-        <lastmod>2020-12-08T09:43:21.338Z</lastmod>
+        <loc>http://youngjinmo.github.io/categories/Dev/DevOps/</loc>
+        <lastmod>2020-12-09T05:56:04.820Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://youngjinmo.github.io/categories/Dev/</loc>
+        <lastmod>2020-12-09T05:56:04.820Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/categories/Dev/Springboot/</loc>
+        <lastmod>2020-12-09T05:55:34.392Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/categories/Dev/Others/</loc>
         <lastmod>2020-12-08T09:43:21.338Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -25,13 +39,6 @@
     <url>
         <loc>http://youngjinmo.github.io/categories/Dev/Git/</loc>
         <lastmod>2020-12-08T09:23:19.390Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/categories/Dev/Springboot/</loc>
-        <lastmod>2020-12-07T08:27:45.659Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -67,13 +74,6 @@
     <url>
         <loc>http://youngjinmo.github.io/categories/Dev/Java/</loc>
         <lastmod>2020-11-19T03:27:37.080Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/categories/Dev/DevOps/</loc>
-        <lastmod>2020-11-05T06:06:34.315Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

@@ -163,7 +163,7 @@
     <link href="http://youngjinmo.github.io/2020/10/springboot-mybatis-oracle/"/>
     <id>http://youngjinmo.github.io/2020/10/springboot-mybatis-oracle/</id>
     <published>2020-10-25T03:29:51.000Z</published>
-    <updated>2020-11-30T02:05:01.252Z</updated>
+    <updated>2020-12-09T05:55:34.392Z</updated>
     
     
       
@@ -181,6 +181,8 @@
     
     <category term="Springboot" scheme="http://youngjinmo.github.io/categories/Dev/Springboot/"/>
     
+    
+    <category term="tutorial" scheme="http://youngjinmo.github.io/tags/tutorial/"/>
     
     <category term="oracle" scheme="http://youngjinmo.github.io/tags/oracle/"/>
     
@@ -396,7 +398,7 @@
     <link href="http://youngjinmo.github.io/2020/08/run-mysql-with-docker/"/>
     <id>http://youngjinmo.github.io/2020/08/run-mysql-with-docker/</id>
     <published>2020-08-23T08:12:43.000Z</published>
-    <updated>2020-09-21T13:20:02.264Z</updated>
+    <updated>2020-12-09T05:54:53.071Z</updated>
     
     
       
@@ -413,6 +415,8 @@
     
     <category term="DevOps" scheme="http://youngjinmo.github.io/categories/Dev/DevOps/"/>
     
+    
+    <category term="tutorial" scheme="http://youngjinmo.github.io/tags/tutorial/"/>
     
     <category term="docker" scheme="http://youngjinmo.github.io/tags/docker/"/>
     
