@@ -6,7 +6,7 @@
     
 
     
-    <title>쿠키, 캐시 그리고 세션. | DevAndy - 개발자앤디의 개발블로그</title>
+    <title>쿠키, 세션 그리고 캐시. | DevAndy - 개발자앤디의 개발블로그</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
@@ -14,14 +14,14 @@
     
     <meta name="description" content="웹 개발을 하면서 빠질 수 없는 개념 이다. 그러나 대충만 알고있고 설명할 수 있는정도로 Session과 Cookie, Cache를 구분하지 못하던 차에 박재성님 강의영상을 보며 세션상태에 따라 페이지에 노출하는 리스트를 변경하는 개발을 하다가 정리하게 되었다. 클라이언트가 HTTP 프로토콜의 GET&#x2F;POST 방식으로 웹 서버에 페이지를 요청하면, 웹">
 <meta property="og:type" content="article">
-<meta property="og:title" content="쿠키, 캐시 그리고 세션.">
+<meta property="og:title" content="쿠키, 세션 그리고 캐시.">
 <meta property="og:url" content="http://youngjinmo.github.io/2020/03/web-session-cookie-cache/index.html">
 <meta property="og:site_name" content="DevAndy - 개발자앤디의 개발블로그">
 <meta property="og:description" content="웹 개발을 하면서 빠질 수 없는 개념 이다. 그러나 대충만 알고있고 설명할 수 있는정도로 Session과 Cookie, Cache를 구분하지 못하던 차에 박재성님 강의영상을 보며 세션상태에 따라 페이지에 노출하는 리스트를 변경하는 개발을 하다가 정리하게 되었다. 클라이언트가 HTTP 프로토콜의 GET&#x2F;POST 방식으로 웹 서버에 페이지를 요청하면, 웹">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1652&q=80">
 <meta property="article:published_time" content="2020-03-30T08:47:11.000Z">
-<meta property="article:modified_time" content="2020-09-13T01:53:28.068Z">
+<meta property="article:modified_time" content="2020-12-10T06:05:19.748Z">
 <meta property="article:author" content="Youngjin Mo">
 <meta property="article:tag" content="cookie">
 <meta property="article:tag" content="session">
@@ -185,7 +185,7 @@ ga('send', 'pageview');
                 
     
         <h1 class="article-title" itemprop="name">
-        쿠키, 캐시 그리고 세션.
+        쿠키, 세션 그리고 캐시.
         </h1>
     
 
@@ -205,7 +205,7 @@ ga('send', 'pageview');
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="" class="article-date">
-     <time datetime="2020-09-13T01:53:28.068Z" itemprop="dateModified">2020-09-13</time>
+     <time datetime="2020-12-10T06:05:19.748Z" itemprop="dateModified">2020-12-10</time>
   </a>
 </div>
 
@@ -242,17 +242,22 @@ ga('send', 'pageview');
 <p>눈치 챘겠지만, 이런 기능이 쿠키, 캐시 그리고 세션이다. 차례 차례 정리해보겠다.</p>
 <h3 id="ToC"><a href="#ToC" class="headerlink" title="ToC"></a>ToC</h3><ul>
 <li><a href="#cookie">쿠키</a></li>
-<li><a href="#cache">캐시</a></li>
 <li><a href="#session">세션</a></li>
+<li><a href="#cache">캐시</a></li>
 </ul>
-<br>
-
-<h3 id="쿠키-Cookie"><a href="#쿠키-Cookie" class="headerlink" title="쿠키(Cookie)"></a>쿠키(Cookie)<a name="cookie"></a></h3><p>클라이언트에 대한 정보를 클라이언트(PC)에 저장하기 위해 웹 서버에서 클라이언트(브라우저)에 전송하는 정보를 이야기한다. </p>
+<hr>
+<h3 id="쿠키-Cookie"><a href="#쿠키-Cookie" class="headerlink" title="쿠키(Cookie)"></a>쿠키(Cookie)<a name="cookie"></a></h3><p>클라이언트에 대한 정보를 클라이언트(PC)에 저장하기 위해 웹 서버에서 클라이언트(브라우저)로 전송하는 정보를 이야기한다. </p>
 <p>쿠키 안에는 사용자의 로그인 정보 및 웹 사이트에서 어떤 행동을 했는지, 몇 번 방문했는지 등 서버에서 유저를 식별할 수 있는 데이터(패킷)가 저장된다고 한다. 그리고 이 쿠키는 해당 웹 서버만 접근이 가능하다고 한다. 트위터에서 전송한 쿠키는 페이스북 서버는 접근 할 수 없다는 이야기이다.</p>
-<p>이 쿠키 덕분에 로그인을 매 번 할 필요없이 한 번만 하면, 여러 웹페이지를 돌아다니다가 다시 접속해도 로그인 상태를 유지할 수 있다. 그러나 편한만큼 보안상 위험하기도 하다. 스파이웨어를 통해 사용자의 웹 브라우징 행동을 추적하거나 이 쿠키를 취득하여 웹 계정 접근권한을 얻을 수도 있다.</p>
+<p>이 쿠키 덕분에 로그인을 매 번 할 필요없이 한 번만 하면, 여러 웹페이지를 돌아다니다가 다시 접속해도 로그인 상태를 유지할 수 있다. 그러나 편한만큼 보안상 위험하기도 하다. 스파이웨어를 통해 사용자의 웹 브라우징 행동을 추적하거나 이 쿠키를 취득하여 웹 계정 접근권한을 얻을 수도 있기 때문이다.</p>
+<p>건물(Server)에 들어가기 위해 사용하는 출입증카드(Cookie)에 비유되는 개념으로 이해하였다.</p>
 <p>쿠키는 두가지 종류로 구분된다고 한다.</p>
 <p><strong>세션 쿠키</strong> : 쿠키에 만료일이 포함되지 않으며, 램 메모리에만 저장되어 브라우저를 닫는 순간, 쿠키가 소멸(손실) 된다고 한다.</p>
 <p><strong>영구 쿠키</strong> : 만료일이 포함되어 있어서 만료일까지는 브라우저를 종료하더라도 사용자의 컴퓨터에 저장되어 상태를 유지할 수 있다. 만료 시기가 되면 자동으로 삭제된다.</p>
+<br>
+
+<h3 id="세션-Session"><a href="#세션-Session" class="headerlink" title="세션(Session)"></a>세션(Session)<a name="session"></a></h3><p><u><strong>사용자가 웹 서버에 접속해 있는 상태</strong></u>를 하나의 단위로 인식하여 이를 세션이라고 하는데, 클라이언트가 아닌 웹 서버에 저장하는 데이터이다. 상태를 일정하게 유지시킴으로써 <a name="01-word"></a><a href="#word-1">라운드 트립<sup>1)</sup></a>을 거칠 때마다 사용자가 로그인해야 할 번거로움을 없애준다.</p>
+<p>서버에서 쿠키에 있는 로그인 데이터를 이용해서 세션상태를 유지한다고 하는데 활용한다고 한다.</p>
+<p><em>예. 쿠키를 이용해서 세션을 유지하는 과정</em><br><em>1) 클라이언트가 웹 서버에 접속하여 로그인을 요청</em><br><em>2) 웹 서버는 클라이언트에 세션ID를 발급, 이 세션ID를 쿠키에 저장(JSESSIONID)</em><br><em>3) 클라이언트는 재접속시 이 쿠키에 담긴 세션(JSESSIONID)을 서버에 전달</em><br><em>4) 서버에서는 세션ID를 통해 클라이언트를 식별하고 로그인 상태로 유지</em></p>
 <br>
 
 <h3 id="캐시-Cache"><a href="#캐시-Cache" class="headerlink" title="캐시(Cache)"></a>캐시(Cache)<a name="cache"></a></h3><p>한 번 내려받은 데이터를 저장소에 저장해두고 재사용할 수 있도록 하는 데이터이다. 웹 사이트에 방문하면 웹 페이지를 보여주는 이미지 등의 리소스가 한 번에 로드되는데, 접속할 때마다 리소스를 내려받을 경우 웹 페이저 접속 속도가 느려질 수 있다. 따라서 한 번 로드된 리소스는 클라이언트에 저장해두고, 재요청이 들어올 때 캐시에서 로드해와서 더 빨리 로드 할 수 있도록 돕는다.</p>
@@ -264,18 +269,13 @@ ga('send', 'pageview');
 <p><strong>2) 프록시 캐시</strong><br>실제 서버가 있는 곳이 아닌 네트워크 관리자에 의해 네트워크 상에 설치되는 캐시로 latency와 트래픽을 줄이는데 이용된다고 한다.</p>
 <p><strong>3) 게이트웨이 캐시</strong><br>서버 관리자에 의해 설치 및 운용되는 캐시이며, 서버의 앞단에 설치되어 요청에 대한 캐시 및 효율적인 분배를 통해 서버의 응답 성능을 개선한다고 한다.</p>
 <p>정리하면, 쿠키와 캐시는 클라이언트에 저장되는 데이터지만 목적이 다른 개념이라고 할 수 있다. </p>
-<br>
-
-<h3 id="세션-Session"><a href="#세션-Session" class="headerlink" title="세션(Session)"></a>세션(Session)<a name="session"></a></h3><p><u><strong>사용자가 웹 서버에 접속해 있는 상태</strong></u>를 하나의 단위로 인식하여 이를 세션이라고 하는데, 클라이언트가 아닌 웹 서버에 저장하는 데이터이다. 상태를 일정하게 유지시킴으로써 라운드 트립을 거칠 때마다 사용자가 로그인해야 할 번거로움을 없애준다.</p>
-<p>서버에서 쿠키에 있는 로그인 데이터를 이용해서 세션상태를 유지한다고 하는데 활용한다고 한다.</p>
-<p><em>예. 쿠키를 이용해서 세션을 유지하는 과정</em><br><em>1) 클라이언트가 웹 서버에 접속하여 로그인을 요청</em><br><em>2) 웹 서버는 클라이언트에 세션ID를 발급, 이 세션ID를 쿠키를 사용하여 저장(JSESSIONID)</em><br><em>3) 클라이언트는 재접속시 이 쿠키(JSESSIONID)를 사용하여 세션ID값을 서버에 전달</em><br><em>4) 서버에서는 세션ID를 통해 클라이언트를 식별하고 세션을 로그인 상태로 유지</em></p>
-<br>
-
 <p>참고 문서</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://asfirstalways.tistory.com/68">Jbee - [개발상식] 10. Cookie/Session/Cache</a></li>
 <li><a target="_blank" rel="noopener" href="https://jeong-pro.tistory.com/80">정아마추어 - Web 쿠키와 세션의 차이, 용도, 사용법</a></li>
 </ul>
+<hr>
+<p><a name="word-1"></a><a href="#01-word"><sup>1)</sup>라운드 트립</a> : 클라이언트와 서버간의 왕복 통신 과정, 라운드 트립이 자주 발생할수록 서버에 부하를 주기 때문에 라운드 트립이 적게 발생하도록 해야한다.</p>
 
         </div>
         <footer class="article-footer">
@@ -297,19 +297,19 @@ ga('send', 'pageview');
             "@type": "Person",
             "name": "Youngjin Mo"
         },
-        "headline": "쿠키, 캐시 그리고 세션.",
+        "headline": "쿠키, 세션 그리고 캐시.",
         "image": "../../../http:/youngjinmo.github.iohttps:/images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1652&q=80",
         "keywords": "cookie session cache",
         "genre": "Dev Web",
         "datePublished": "2020-03-30",
         "dateCreated": "2020-03-30",
-        "dateModified": "2020-09-13",
+        "dateModified": "2020-12-10",
         "url": "../../../http:/youngjinmo.github.io/2020/03/web-session-cookie-cache/",
         "description": "
 
 웹 개발을 하면서 빠질 수 없는 개념 이다. 그러나 대충만 알고있고 설명할 수 있는정도로 Session과 Cookie, Cache를 구분하지 못하던 차에 박재성님 강의영상을 보며 세션상태에 따라 페이지에 노출하는 리스트를 변경하는 개발을 하다가 정리하게 되었다.
 클라이언트가 HTTP 프로토콜의 GET/POST 방식으로 웹 서버에 페이지를 요청하면, 웹 ",
-        "wordCount": 496
+        "wordCount": 526
     }
 </script>
 
