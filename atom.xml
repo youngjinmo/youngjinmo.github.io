@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2020-12-07T01:23:05.297Z</updated>
+  <updated>2020-12-13T15:28:23.133Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>WeeklyReview - 12월 2주차</title>
+    <link href="http://youngjinmo.github.io/2020/12/weeklyreview-dec-second/"/>
+    <id>http://youngjinmo.github.io/2020/12/weeklyreview-dec-second/</id>
+    <published>2020-12-13T06:28:23.000Z</published>
+    <updated>2020-12-13T15:28:23.133Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/102013738-51feb300-3d95-11eb-9494-1f3fca2d40cc.jpg&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;ToC&quot;&gt;&lt;a href=&quot;#ToC&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Life" scheme="http://youngjinmo.github.io/categories/Life/"/>
+    
+    <category term="Thought" scheme="http://youngjinmo.github.io/categories/Life/Thought/"/>
+    
+    
+    <category term="weekly-review" scheme="http://youngjinmo.github.io/tags/weekly-review/"/>
+    
+  </entry>
   
   <entry>
     <title>WeeklyReview - 12월 1주차</title>
@@ -549,35 +577,6 @@
     <id>http://youngjinmo.github.io/2020/07/servlet-lifecycle/</id>
     <published>2020-07-02T10:55:33.000Z</published>
     <updated>2020-10-12T04:21:49.629Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
-    
-    
-    <category term="http" scheme="http://youngjinmo.github.io/tags/http/"/>
-    
-    <category term="servlet" scheme="http://youngjinmo.github.io/tags/servlet/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Servlet - 서블릿 튜토리얼</title>
-    <link href="http://youngjinmo.github.io/2020/07/servlet-tutorial/"/>
-    <id>http://youngjinmo.github.io/2020/07/servlet-tutorial/</id>
-    <published>2020-07-02T10:55:30.000Z</published>
-    <updated>2020-10-12T04:24:10.098Z</updated>
     
     
       

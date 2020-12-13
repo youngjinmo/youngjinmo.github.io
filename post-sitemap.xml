@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/2020/12/weeklyreview-dec-second/</loc>
+        <lastmod>2020-12-13T15:28:23.133Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/2020/03/web-session-cookie-cache/</loc>
         <lastmod>2020-12-10T06:05:19.748Z</lastmod>
         <changefreq>weekly</changefreq>
