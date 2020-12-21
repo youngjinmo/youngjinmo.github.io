@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/2020/12/springboot-helloworld/</loc>
+        <lastmod>2020-12-21T09:37:01.532Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/2020/12/weeklyreview-dec-second/</loc>
         <lastmod>2020-12-21T09:02:07.102Z</lastmod>
         <changefreq>weekly</changefreq>

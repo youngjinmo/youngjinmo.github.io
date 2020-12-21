@@ -3,6 +3,13 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/tags/tutorial/</loc>
+        <lastmod>2020-12-21T09:37:01.532Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/tags/weekly-review/</loc>
         <lastmod>2020-12-21T09:02:07.102Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -46,13 +53,6 @@
 
     <url>
         <loc>http://youngjinmo.github.io/tags/docker/</loc>
-        <lastmod>2020-12-09T05:56:04.820Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/tags/tutorial/</loc>
         <lastmod>2020-12-09T05:56:04.820Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
