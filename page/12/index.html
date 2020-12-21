@@ -633,13 +633,13 @@ What I did in this week.SQL강의를 들으면서 프로젝트를 동시에 하�
 
 select문 통해 조회한 결과를 정해준 기준(GROUP BY) 에 따라 그룹으로 분류하는 쿼리이다.
 EMP 테이블에서 부서별 평균 급여를 조회하고자 한다면, 다음과 같은 쿼리로 조회할 수 있다.
-123SELECT deptno, avg(sal)FROM empGROUP BY deptno;
+123SELECT deptno, round(avg(sal))FROM empGROUP BY deptno;
 
 
 
 
 
-부서별 평균 급여가 2,000 이상인 부서의 평균 급여를 
+부서별 평균 급여가 2,000 이상인 부서의 
         </p>
     </div>
 </article>
@@ -789,7 +789,7 @@ ORA-01119 는 DB TABLESPA
             
                 
                 <li>
-                    <a class="social-tooltip" title="github" href="../../https:/github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                    <a class="social-tooltip" title="github" href="../../https:/github.com/youngjinmo" target="_blank" rel="noopener">
                         <i class="icon fa fa-github"></i>
                     </a>
                 </li>

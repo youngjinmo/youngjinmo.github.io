@@ -642,13 +642,13 @@ Math.c
 
 select문 통해 조회한 결과를 정해준 기준(GROUP BY) 에 따라 그룹으로 분류하는 쿼리이다.
 EMP 테이블에서 부서별 평균 급여를 조회하고자 한다면, 다음과 같은 쿼리로 조회할 수 있다.
-123SELECT deptno, avg(sal)FROM empGROUP BY deptno;
+123SELECT deptno, round(avg(sal))FROM empGROUP BY deptno;
 
 
 
 
 
-부서별 평균 급여가 2,000 이상인 부서의 평균 급여를 
+부서별 평균 급여가 2,000 이상인 부서의 
         </p>
     </div>
 </article>
@@ -797,7 +797,7 @@ Sourcetree같은 git 전용 클라이언트를 사용하면 쉽게 커밋 그래
             
                 
                 <li>
-                    <a class="social-tooltip" title="github" href="../../../../https:/github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                    <a class="social-tooltip" title="github" href="../../../../https:/github.com/youngjinmo" target="_blank" rel="noopener">
                         <i class="icon fa fa-github"></i>
                     </a>
                 </li>

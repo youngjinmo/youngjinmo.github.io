@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="oracle,sql" />
     
-    <meta name="description" content="select문 통해 조회한 결과를 정해준 기준(GROUP BY) 에 따라 그룹으로 분류하는 쿼리이다. EMP 테이블에서 부서별 평균 급여를 조회하고자 한다면, 다음과 같은 쿼리로 조회할 수 있다. 123SELECT deptno, avg(sal)FROM empGROUP BY deptno;      부서별 평균 급여가 2,000 이상인 부서의 평균 급여를">
+    <meta name="description" content="select문 통해 조회한 결과를 정해준 기준(GROUP BY) 에 따라 그룹으로 분류하는 쿼리이다. EMP 테이블에서 부서별 평균 급여를 조회하고자 한다면, 다음과 같은 쿼리로 조회할 수 있다. 123SELECT deptno, round(avg(sal))FROM empGROUP BY deptno;      부서별 평균 급여가 2,000 이상인 부서의">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Oracle - GROUP BY, HAVING">
 <meta property="og:url" content="http://youngjinmo.github.io/2019/08/oracle-groupby/index.html">
 <meta property="og:site_name" content="DevAndy - 개발자앤디의 개발블로그">
-<meta property="og:description" content="select문 통해 조회한 결과를 정해준 기준(GROUP BY) 에 따라 그룹으로 분류하는 쿼리이다. EMP 테이블에서 부서별 평균 급여를 조회하고자 한다면, 다음과 같은 쿼리로 조회할 수 있다. 123SELECT deptno, avg(sal)FROM empGROUP BY deptno;      부서별 평균 급여가 2,000 이상인 부서의 평균 급여를">
+<meta property="og:description" content="select문 통해 조회한 결과를 정해준 기준(GROUP BY) 에 따라 그룹으로 분류하는 쿼리이다. EMP 테이블에서 부서별 평균 급여를 조회하고자 한다면, 다음과 같은 쿼리로 조회할 수 있다. 123SELECT deptno, round(avg(sal))FROM empGROUP BY deptno;      부서별 평균 급여가 2,000 이상인 부서의">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80">
 <meta property="article:published_time" content="2019-08-04T04:27:05.000Z">
-<meta property="article:modified_time" content="2020-10-03T03:11:10.722Z">
+<meta property="article:modified_time" content="2020-12-21T07:57:37.609Z">
 <meta property="article:author" content="Youngjin Mo">
 <meta property="article:tag" content="oracle">
 <meta property="article:tag" content="sql">
@@ -204,7 +204,7 @@ ga('send', 'pageview');
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="" class="article-date">
-     <time datetime="2020-10-03T03:11:10.722Z" itemprop="dateModified">2020-10-03</time>
+     <time datetime="2020-12-21T07:57:37.609Z" itemprop="dateModified">2020-12-21</time>
   </a>
 </div>
 
@@ -237,7 +237,7 @@ ga('send', 'pageview');
 
 <p>select문 통해 조회한 결과를 <strong><u>정해준 기준(GROUP BY)</u></strong> 에 따라 그룹으로 분류하는 쿼리이다.</p>
 <p><code>EMP</code> 테이블에서 부서별 평균 급여를 조회하고자 한다면, 다음과 같은 쿼리로 조회할 수 있다.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> deptno, <span class="keyword">avg</span>(sal)</span><br><span class="line"><span class="keyword">FROM</span> emp</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> deptno;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> deptno, <span class="keyword">round</span>(<span class="keyword">avg</span>(sal))</span><br><span class="line"><span class="keyword">FROM</span> emp</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> deptno;</span><br></pre></td></tr></table></figure>
 
 <img src="https://lh3.googleusercontent.com/sagQGmnASztHTKip64-NM7yuIUYJnslWZQI7j8GMjWAEcXJAw8StUsD7uvamevmBOE4cWMQjV_NrRGNhpTH9WZ0HrfuKSS6UflmD1Xut0ejIXasXrbkd0RfXgAiOHfR85BS_lioxsyXWfpCTfGRt4TOILLu7-x6oRKA86wCf_4swO4qAnWbCDkQS0R4eC94MmCUDI91E6M7LkKhqIc6n5hPnTUwQYqqMrcBHuM-023smEz0iBc-_avbqHTc_vQrSi2bh5nQHixMUXhomVI5f5NSpoxF3hY1i9nmer9VJr3lMrPrvNRO2vQx6GrsAUoR7YwEMQNS70mdlNTo3njr5mDqv_DPA66oPCrqHBDQNvS3vY-d_uv5DbFCaJ6TpDPYEPF6PTZBfejSAtPnNZnoyKYs6CQZ1No2pGkixlgMJYJnBzKDxWR9MCSFbj5SccZwC7oYPJ0Sa2fNOaxF31e7FGXaPgCAXTGauG_Qll9Xedsw4anqPlbFpamFb253HkZ4NFNnL5yel2tAtbPrl2hSWW15xUFSUNY170VHNXJF1qZMU0SDkJV4HqyqNG58HdoLdqNM9JZK6PDtLJdk8s2LQP51pjKK6J7Uzko1e0IatT_piKNmovbHkWK9WCMP8C6eJSC8hudeNPmLZExDT9qrPgHpyymfkPtfzqkgfunKF-fZcRQKVGqfNAG_-y1qeiLoKyY1_cSGdS7HdXqpcToiItNuVG1_FAorYckcTesOjoLE_JAuylqQPviO2=w840-h502-no" style="width: 70%;" />
 
@@ -276,20 +276,20 @@ ga('send', 'pageview');
         "genre": "Dev Database",
         "datePublished": "2019-08-04",
         "dateCreated": "2019-08-04",
-        "dateModified": "2020-10-03",
+        "dateModified": "2020-12-21",
         "url": "../../../http:/youngjinmo.github.io/2019/08/oracle-groupby/",
         "description": "
 
 select문 통해 조회한 결과를 정해준 기준(GROUP BY) 에 따라 그룹으로 분류하는 쿼리이다.
 EMP 테이블에서 부서별 평균 급여를 조회하고자 한다면, 다음과 같은 쿼리로 조회할 수 있다.
-123SELECT deptno, avg(sal)FROM empGROUP BY deptno;
+123SELECT deptno, round(avg(sal))FROM empGROUP BY deptno;
 
 
 
 
 
-부서별 평균 급여가 2,000 이상인 부서의 평균 급여를 ",
-        "wordCount": 126
+부서별 평균 급여가 2,000 이상인 부서의 ",
+        "wordCount": 127
     }
 </script>
 
@@ -320,7 +320,7 @@ EMP 테이블에서 부서별 평균 급여를 조회하고자 한다면, 다음
             
                 
                 <li>
-                    <a class="social-tooltip" title="github" href="../../../https:/github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                    <a class="social-tooltip" title="github" href="../../../https:/github.com/youngjinmo" target="_blank" rel="noopener">
                         <i class="icon fa fa-github"></i>
                     </a>
                 </li>
