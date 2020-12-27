@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2020-12-25T13:29:50.114Z</updated>
+  <updated>2020-12-27T03:44:26.573Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>IDE에서 assertEquals 못불러올 때</title>
+    <link href="http://youngjinmo.github.io/2020/12/import-assertequals/"/>
+    <id>http://youngjinmo.github.io/2020/12/import-assertequals/</id>
+    <published>2020-12-26T18:38:53.000Z</published>
+    <updated>2020-12-27T03:44:26.573Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/103162552-6468fa00-4835-11eb-8b90-dbd036499078.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;JUnit으로 단위테스트를 해보려다가</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Springboot" scheme="http://youngjinmo.github.io/categories/Dev/Springboot/"/>
+    
+    
+    <category term="intellij" scheme="http://youngjinmo.github.io/tags/intellij/"/>
+    
+    <category term="junit" scheme="http://youngjinmo.github.io/tags/junit/"/>
+    
+  </entry>
   
   <entry>
     <title>Java I/O - 파일 복사하기</title>
@@ -569,34 +599,6 @@
     <category term="git" scheme="http://youngjinmo.github.io/tags/git/"/>
     
     <category term="error" scheme="http://youngjinmo.github.io/tags/error/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java - JVM</title>
-    <link href="http://youngjinmo.github.io/2020/07/java-jvm/"/>
-    <id>http://youngjinmo.github.io/2020/07/java-jvm/</id>
-    <published>2020-07-27T14:37:43.000Z</published>
-    <updated>2020-09-13T01:53:28.552Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;div align=&quot;center&quot;&gt;
-  &lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
-    
-    
-    <category term="jvm" scheme="http://youngjinmo.github.io/tags/jvm/"/>
     
   </entry>
   

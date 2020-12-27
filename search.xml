@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>IDE에서 assertEquals 못불러올 때</title>
+      <link href="2020/12/import-assertequals/"/>
+      <url>2020/12/import-assertequals/</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://user-images.githubusercontent.com/33862991/103162552-6468fa00-4835-11eb-8b90-dbd036499078.png"></p><p>JUnit으로 단위테스트를 해보려다가 <code>assertEquals()</code>를 개발환경에서 불러오지 못하는 현상이 발생했다.</p><p>현재 단위테스트를 위한 클래스에서 사용하고있는 패키지는 다음과 같다.</p><p><img src="https://user-images.githubusercontent.com/33862991/103162553-66cb5400-4835-11eb-8417-9637dc8bb082.png"></p><br><p>여기까지의 상황을 추론해보면, <code>assertEquals()</code> 가 현재 클래스에서 사용중인 <code>Jupiter.api</code> 패키지에 없다는 사실을 알 수 있다. </p><p>그래서 <code>assertEquals()</code>의 패키지 경로를 수동으로 추가해주었다.</p><p><img src="https://user-images.githubusercontent.com/33862991/103162655-975fbd80-4836-11eb-9837-42a44ecb775b.png"></p><p>수동으로 추가해줬음에도 불구하고, 인텔리제이에서 해당 패키지의 라이브러리를 사용하고 있지 않다고 알려주고 있다. 아직 인텔리제이는 <code>assertEquals()</code>를 찾지 못한것으로 보여진다. 여기서 한 가지 더 추론해본다면, 인텔리제이에서 <code>assertEquals()</code>를 아직 JUnit의 패키지 경로(<code>org.junit.jupiter.api.*</code>)에서 찾고있음을 알 수 있다. </p><p><strong>Assert가 정적 메서드이기 때문이다.</strong></p><p><code>Assert</code> 패키지 경로를 <code>static</code> 으로 선언하면, <code>Assert</code> 와 같은 정적 메서드를 정상적으로 인텔리제이에서 불러올 수 있다.</p><p><img src="https://user-images.githubusercontent.com/33862991/103163273-6afc6f00-483f-11eb-8ae2-e7dbfe6d105e.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Dev </category>
+          
+          <category> Springboot </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> intellij </tag>
+            
+            <tag> junit </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Java I/O - 파일 복사하기</title>
       <link href="2020/12/java-io-fileclone/"/>
       <url>2020/12/java-io-fileclone/</url>
