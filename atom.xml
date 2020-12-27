@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2020-12-27T03:44:26.573Z</updated>
+  <updated>2020-12-27T13:28:34.945Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://youngjinmo.github.io/2020/12/import-assertequals/"/>
     <id>http://youngjinmo.github.io/2020/12/import-assertequals/</id>
     <published>2020-12-26T18:38:53.000Z</published>
-    <updated>2020-12-27T03:44:26.573Z</updated>
+    <updated>2020-12-27T13:28:34.945Z</updated>
     
     
       
@@ -39,6 +39,8 @@
     
     <category term="Springboot" scheme="http://youngjinmo.github.io/categories/Dev/Springboot/"/>
     
+    
+    <category term="error" scheme="http://youngjinmo.github.io/tags/error/"/>
     
     <category term="intellij" scheme="http://youngjinmo.github.io/tags/intellij/"/>
     
@@ -80,11 +82,11 @@
   </entry>
   
   <entry>
-    <title>SpringBoot로 Hello World 화면에 출력해보기</title>
+    <title>SpringBoot로 Hello World 화면에 출력해보기 (a.k.a Thymeleaf)</title>
     <link href="http://youngjinmo.github.io/2020/12/springboot-helloworld/"/>
     <id>http://youngjinmo.github.io/2020/12/springboot-helloworld/</id>
     <published>2020-12-20T21:45:43.000Z</published>
-    <updated>2020-12-22T05:07:44.240Z</updated>
+    <updated>2020-12-27T13:29:44.385Z</updated>
     
     
       
@@ -103,6 +105,8 @@
     
     
     <category term="tutorial" scheme="http://youngjinmo.github.io/tags/tutorial/"/>
+    
+    <category term="thymeleaf" scheme="http://youngjinmo.github.io/tags/thymeleaf/"/>
     
   </entry>
   
