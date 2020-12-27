@@ -3,28 +3,28 @@
 
 
     <url>
-        <loc>http://youngjinmo.github.io/tags/thymeleaf/</loc>
-        <lastmod>2020-12-27T13:29:44.385Z</lastmod>
+        <loc>http://youngjinmo.github.io/tags/mustache/</loc>
+        <lastmod>2020-12-27T13:36:13.385Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://youngjinmo.github.io/tags/tutorial/</loc>
-        <lastmod>2020-12-27T13:29:44.385Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/tags/junit/</loc>
-        <lastmod>2020-12-27T13:28:34.945Z</lastmod>
+        <lastmod>2020-12-27T13:36:13.385Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://youngjinmo.github.io/tags/intellij/</loc>
+        <lastmod>2020-12-27T13:28:34.945Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/tags/junit/</loc>
         <lastmod>2020-12-27T13:28:34.945Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -383,13 +383,6 @@
     <url>
         <loc>http://youngjinmo.github.io/tags/vim/</loc>
         <lastmod>2020-09-13T01:53:29.212Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/tags/mustache/</loc>
-        <lastmod>2020-09-13T01:53:29.108Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

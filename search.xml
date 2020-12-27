@@ -24,9 +24,9 @@
             
             <tag> error </tag>
             
-            <tag> intellij </tag>
-            
             <tag> junit </tag>
+            
+            <tag> intellij </tag>
             
         </tags>
       
@@ -68,7 +68,7 @@
     
     
     <entry>
-      <title>SpringBoot로 Hello World 화면에 출력해보기 (a.k.a Thymeleaf)</title>
+      <title>SpringBoot로 Hello World 화면에 출력해보기 (a.k.a Mustache)</title>
       <link href="2020/12/springboot-helloworld/"/>
       <url>2020/12/springboot-helloworld/</url>
       
@@ -88,7 +88,7 @@
             
             <tag> tutorial </tag>
             
-            <tag> thymeleaf </tag>
+            <tag> mustache </tag>
             
         </tags>
       

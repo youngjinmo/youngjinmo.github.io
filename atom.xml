@@ -42,9 +42,9 @@
     
     <category term="error" scheme="http://youngjinmo.github.io/tags/error/"/>
     
-    <category term="intellij" scheme="http://youngjinmo.github.io/tags/intellij/"/>
-    
     <category term="junit" scheme="http://youngjinmo.github.io/tags/junit/"/>
+    
+    <category term="intellij" scheme="http://youngjinmo.github.io/tags/intellij/"/>
     
   </entry>
   
@@ -82,11 +82,11 @@
   </entry>
   
   <entry>
-    <title>SpringBoot로 Hello World 화면에 출력해보기 (a.k.a Thymeleaf)</title>
+    <title>SpringBoot로 Hello World 화면에 출력해보기 (a.k.a Mustache)</title>
     <link href="http://youngjinmo.github.io/2020/12/springboot-helloworld/"/>
     <id>http://youngjinmo.github.io/2020/12/springboot-helloworld/</id>
     <published>2020-12-20T21:45:43.000Z</published>
-    <updated>2020-12-27T13:29:44.385Z</updated>
+    <updated>2020-12-27T13:36:13.385Z</updated>
     
     
       
@@ -106,7 +106,7 @@
     
     <category term="tutorial" scheme="http://youngjinmo.github.io/tags/tutorial/"/>
     
-    <category term="thymeleaf" scheme="http://youngjinmo.github.io/tags/thymeleaf/"/>
+    <category term="mustache" scheme="http://youngjinmo.github.io/tags/mustache/"/>
     
   </entry>
   
