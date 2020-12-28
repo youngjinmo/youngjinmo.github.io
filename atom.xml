@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>DevAndy - 개발자앤디의 개발블로그</title>
   
-  <subtitle>개발블로그</subtitle>
+  <subtitle>앤디의 개발 이야기</subtitle>
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
@@ -70,11 +70,11 @@
     <category term="Springboot" scheme="http://youngjinmo.github.io/categories/Dev/Springboot/"/>
     
     
+    <category term="intellij" scheme="http://youngjinmo.github.io/tags/intellij/"/>
+    
     <category term="error" scheme="http://youngjinmo.github.io/tags/error/"/>
     
     <category term="junit" scheme="http://youngjinmo.github.io/tags/junit/"/>
-    
-    <category term="intellij" scheme="http://youngjinmo.github.io/tags/intellij/"/>
     
   </entry>
   
