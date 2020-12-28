@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>인텔리J에서 스프링부트 프로젝트 JDK 버전 변경하기</title>
+      <link href="2020/12/change-jdk-intellij/"/>
+      <url>2020/12/change-jdk-intellij/</url>
+      
+        <content type="html"><![CDATA[<p>인텔리J에서 스프링부트 프로젝트 JDK 버전을 변경하는 방법에 대한 글이다.</p><h2 id="인텔리J-프로젝트-환경-구성"><a href="#인텔리J-프로젝트-환경-구성" class="headerlink" title="인텔리J 프로젝트 환경 구성"></a>인텔리J 프로젝트 환경 구성</h2><p>인텔리J의 상단 메뉴탭에서 <strong>[File] - [Project Structure]</strong> 에 들어간다.</p><p><img src="https://user-images.githubusercontent.com/33862991/103204019-bd21bb00-4939-11eb-9f4c-1d4695bae57b.png"></p><p>그리고 <strong>[Project]</strong> 에 접속하면 Project의 JDK를 변경할 수 있다.</p><p><img src="https://user-images.githubusercontent.com/33862991/103204024-bf841500-4939-11eb-8ba9-5de9e9589a63.png"></p><p>마지막으로 Maven 기준으로 pom.xml에서 Java version도 변경해주고, 다시 Maven을 빌드해준다.</p><h2 id="프로젝트-빌드툴-JDK-버전-변경"><a href="#프로젝트-빌드툴-JDK-버전-변경" class="headerlink" title="프로젝트 빌드툴 JDK 버전 변경"></a>프로젝트 빌드툴 JDK 버전 변경</h2><p><img src="https://user-images.githubusercontent.com/33862991/103204444-bb0c2c00-493a-11eb-8a2e-6d2908805089.png"></p><p>여기까지 하면, 인텔리제이에서 스프링부트 프로젝트이 JDK 버전 변경이 끝난다.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Dev </category>
+          
+          <category> Springboot </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> tutorial </tag>
+            
+            <tag> intellij </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>IDE에서 assertEquals 못불러올 때</title>
       <link href="2020/12/import-assertequals/"/>
       <url>2020/12/import-assertequals/</url>

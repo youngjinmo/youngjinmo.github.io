@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/2020/12/change-jdk-intellij/</loc>
+        <lastmod>2020-12-28T09:55:31.480Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/2020/12/springboot-helloworld/</loc>
         <lastmod>2020-12-27T13:36:13.385Z</lastmod>
         <changefreq>weekly</changefreq>
