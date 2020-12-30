@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2020-12-28T09:55:31.480Z</updated>
+  <updated>2020-12-30T09:33:50.809Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>인텔리제이에서 Livereload 적용하기</title>
+    <link href="http://youngjinmo.github.io/2020/12/enable-livereload/"/>
+    <id>http://youngjinmo.github.io/2020/12/enable-livereload/</id>
+    <published>2020-12-29T20:13:52.000Z</published>
+    <updated>2020-12-30T09:33:50.809Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Springboot" scheme="http://youngjinmo.github.io/categories/Dev/Springboot/"/>
+    
+    
+    <category term="tutorial" scheme="http://youngjinmo.github.io/tags/tutorial/"/>
+    
+    <category term="intellij" scheme="http://youngjinmo.github.io/tags/intellij/"/>
+    
+    <category term="livereload" scheme="http://youngjinmo.github.io/tags/livereload/"/>
+    
+  </entry>
   
   <entry>
     <title>인텔리J에서 스프링부트 프로젝트 JDK 버전 변경하기</title>
@@ -575,33 +606,6 @@
     <category term="mysql" scheme="http://youngjinmo.github.io/tags/mysql/"/>
     
     <category term="database" scheme="http://youngjinmo.github.io/tags/database/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java - Generic</title>
-    <link href="http://youngjinmo.github.io/2020/08/java-generic/"/>
-    <id>http://youngjinmo.github.io/2020/08/java-generic/</id>
-    <published>2020-08-19T07:24:46.000Z</published>
-    <updated>2020-09-13T01:53:28.596Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
-    
-    
-    <category term="generic" scheme="http://youngjinmo.github.io/tags/generic/"/>
     
   </entry>
   

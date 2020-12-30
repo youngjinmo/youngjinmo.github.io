@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>인텔리제이에서 Livereload 적용하기</title>
+      <link href="2020/12/enable-livereload/"/>
+      <url>2020/12/enable-livereload/</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://lh3.googleusercontent.com/8vxDyBa3NmxhsWZ0QpNWfBJPFKVGz24cNI0oixDqyZpAMQriDLAe9f6Wk9xfWWsDVzka_ugUnTRNpAk7YAkCkzRidA=w640-h400-e365-rj-sc0x00ffffff"></p><p>인텔리제이에서 스프링부트 프로젝트를 하면서 화면(View)에 변화를 주면, 자동으로 리빌드하고 브라우저에서 리로드하는 Livereload를 적용하면서 매번 구글링하면서 적용하는것 같아서 아예 내 블로그에도 정리해보았다.</p><p>출처 : <a href="https://m.blog.naver.com/spring1a/221757269099">호노루 - [Springboot] Developer Tools - Live Reload 설치 삽질기</a></p><p>Livereload를 적용하는 방법은 아래의 4가지 순서대로 정리했다.</p><ol><li>DevTools 의존성 주입</li><li>인텔리제이 Registry 활성화</li><li>컴파일러 빌드 자동화 활성화</li><li>크롬에서 LiveReload 설치</li></ol><br><h2 id="1-DevTools-의존성-주입"><a href="#1-DevTools-의존성-주입" class="headerlink" title="1. DevTools 의존성 주입"></a>1. DevTools 의존성 주입</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure><h2 id="2-인텔리제이-Registry-활성화"><a href="#2-인텔리제이-Registry-활성화" class="headerlink" title="2. 인텔리제이 Registry 활성화"></a>2. 인텔리제이 Registry 활성화</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compiler.automake.allow.when.app.running</span><br></pre></td></tr></table></figure><p><img src="https://user-images.githubusercontent.com/33862991/103331287-8d44f580-4aa8-11eb-93ec-3811f28b6ff5.png"></p><h2 id="3-컴파일러-빌드-자동화-활성화"><a href="#3-컴파일러-빌드-자동화-활성화" class="headerlink" title="3. 컴파일러 빌드 자동화 활성화"></a>3. 컴파일러 빌드 자동화 활성화</h2><p>인텔리제이의 설정에서 <strong>[Build] - [Compiler] - [Build project automatically]</strong> 활성화</p><p><img src="https://user-images.githubusercontent.com/33862991/103331291-8fa74f80-4aa8-11eb-962c-e924e8ec671f.png"></p><h2 id="4-크롬에서-LiveReload-설치"><a href="#4-크롬에서-LiveReload-설치" class="headerlink" title="4. 크롬에서 LiveReload 설치"></a>4. 크롬에서 LiveReload 설치</h2><p>마지막으로 크롬 또는 파이어폭스에서 LiveReload 익스텐션을 설치하고, 활성화하면 마무리된다.</p><p><img src="https://user-images.githubusercontent.com/33862991/103331293-9209a980-4aa8-11eb-9c67-5a1a7dadc61d.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Dev </category>
+          
+          <category> Springboot </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> tutorial </tag>
+            
+            <tag> intellij </tag>
+            
+            <tag> livereload </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>인텔리J에서 스프링부트 프로젝트 JDK 버전 변경하기</title>
       <link href="2020/12/change-jdk-intellij/"/>
       <url>2020/12/change-jdk-intellij/</url>
