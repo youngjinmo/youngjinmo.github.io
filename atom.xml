@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2020-12-30T09:33:50.809Z</updated>
+  <updated>2021-01-04T08:48:59.379Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LIVE STUDY 1주차 (a.k.a.STUDY HALE)</title>
+    <link href="http://youngjinmo.github.io/2021/01/studyhale-week-01/"/>
+    <id>http://youngjinmo.github.io/2021/01/studyhale-week-01/</id>
+    <published>2021-01-02T05:50:34.000Z</published>
+    <updated>2021-01-04T08:48:59.379Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#jvm-definition&quot;&gt;JVM이란 무엇인가&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+    <category term="jvm" scheme="http://youngjinmo.github.io/tags/jvm/"/>
+    
+  </entry>
   
   <entry>
     <title>인텔리제이에서 Livereload 적용하기</title>
@@ -573,39 +603,6 @@
     
     
     <category term="algorithms" scheme="http://youngjinmo.github.io/tags/algorithms/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Docker로 MySQL 실행하기</title>
-    <link href="http://youngjinmo.github.io/2020/08/run-mysql-with-docker/"/>
-    <id>http://youngjinmo.github.io/2020/08/run-mysql-with-docker/</id>
-    <published>2020-08-23T08:12:43.000Z</published>
-    <updated>2020-12-09T05:54:53.071Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="DevOps" scheme="http://youngjinmo.github.io/categories/Dev/DevOps/"/>
-    
-    
-    <category term="tutorial" scheme="http://youngjinmo.github.io/tags/tutorial/"/>
-    
-    <category term="docker" scheme="http://youngjinmo.github.io/tags/docker/"/>
-    
-    <category term="mysql" scheme="http://youngjinmo.github.io/tags/mysql/"/>
-    
-    <category term="database" scheme="http://youngjinmo.github.io/tags/database/"/>
     
   </entry>
   

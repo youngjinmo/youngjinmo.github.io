@@ -3,6 +3,34 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/tags/jvm/</loc>
+        <lastmod>2021-01-04T08:48:59.379Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/tags/terminal/</loc>
+        <lastmod>2020-12-30T14:48:39.205Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/tags/php/</loc>
+        <lastmod>2020-12-30T14:48:39.205Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/tags/tutorial/</loc>
+        <lastmod>2020-12-30T14:48:39.205Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/tags/livereload/</loc>
         <lastmod>2020-12-30T09:33:50.809Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -11,13 +39,6 @@
 
     <url>
         <loc>http://youngjinmo.github.io/tags/intellij/</loc>
-        <lastmod>2020-12-30T09:33:50.809Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/tags/tutorial/</loc>
         <lastmod>2020-12-30T09:33:50.809Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -507,13 +528,6 @@
     </url>
 
     <url>
-        <loc>http://youngjinmo.github.io/tags/php/</loc>
-        <lastmod>2020-09-13T01:53:28.680Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://youngjinmo.github.io/tags/macos/</loc>
         <lastmod>2020-09-13T01:53:28.652Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -542,20 +556,6 @@
     </url>
 
     <url>
-        <loc>http://youngjinmo.github.io/tags/interpreter/</loc>
-        <lastmod>2020-09-13T01:53:28.632Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/tags/compiler/</loc>
-        <lastmod>2020-09-13T01:53:28.632Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://youngjinmo.github.io/tags/oop/</loc>
         <lastmod>2020-09-13T01:53:28.632Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -579,13 +579,6 @@
     <url>
         <loc>http://youngjinmo.github.io/tags/generic/</loc>
         <lastmod>2020-09-13T01:53:28.596Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/tags/jvm/</loc>
-        <lastmod>2020-09-13T01:53:28.552Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

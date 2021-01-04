@@ -9,6 +9,22 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/2021/01/studyhale-week-01/</loc>
+        <lastmod>2021-01-04T08:48:59.379Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/2019/07/iconv/</loc>
+        <lastmod>2020-12-30T14:48:39.205Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/2020/12/enable-livereload/</loc>
         <lastmod>2020-12-30T09:33:50.809Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -809,14 +825,6 @@
     </url>
 
     <url>
-        <loc>http://youngjinmo.github.io/2019/07/iconv/</loc>
-        <lastmod>2020-09-13T01:53:28.680Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://youngjinmo.github.io/2020/03/install-commandlinetools-without-xcode/</loc>
         <lastmod>2020-09-13T01:53:28.652Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -835,14 +843,6 @@
     <url>
         <loc>http://youngjinmo.github.io/2020/04/intellij-reimport-gradle/</loc>
         <lastmod>2020-09-13T01:53:28.636Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2019/09/interpreter-vs-compiler/</loc>
-        <lastmod>2020-09-13T01:53:28.632Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
