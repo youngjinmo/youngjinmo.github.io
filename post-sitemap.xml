@@ -9,8 +9,16 @@
 
 
     <url>
-        <loc>http://youngjinmo.github.io/2021/01/studyhale-week-01/</loc>
-        <lastmod>2021-01-04T08:48:59.379Z</lastmod>
+        <loc>http://youngjinmo.github.io/2021/01/livestudy-week-01/</loc>
+        <lastmod>2021-01-07T03:32:42.447Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/2020/06/rest-api/</loc>
+        <lastmod>2021-01-06T07:04:03.569Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -235,14 +243,6 @@
     <url>
         <loc>http://youngjinmo.github.io/2020/11/weeklyreview-2020-nov-fifth/</loc>
         <lastmod>2020-11-30T01:28:07.536Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2020/06/rest-api/</loc>
-        <lastmod>2020-11-26T07:38:24.177Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

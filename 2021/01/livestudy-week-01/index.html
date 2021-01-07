@@ -6,22 +6,22 @@
     
 
     
-    <title>LIVE STUDY 1주차 (a.k.a.STUDY HALE) | DevAndy - 개발자앤디의 개발블로그</title>
+    <title>Livestudy-Week-01 | DevAndy - 개발자앤디의 개발블로그</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="keywords" content="jvm" />
     
-    <meta name="description" content="JVM이란 무엇인가 컴파일 및 실행하는 방법 바이트코드란 무엇인가 JVM 구성요소 JIT 컴파일러란 무엇이며 어떻게 동작하는지 JDK와 JRE차이     JVM이란 무엇인가자바를 두 문장으로 설명하는 말이 있다.  Write once,Run anywhere.  자바 언어로 개발된 프로그램은 , 운영체제가 리눅스이건, 윈도우이건, 맥OS이건 모두 실행가능">
+    <meta name="description" content="JVM이란 무엇인가 컴파일 및 실행하는 방법 바이트코드란 무엇인가 JVM 구성요소 JIT 컴파일러란 무엇이며 어떻게 동작하는지 JDK와 JRE차이    JVM이란 무엇인가자바를 두 문장으로 설명하는 말이 있다.  Write once,Run anywhere.  자바 언어로 개발된 프로그램은 , 운영체제가 리눅스이건, 윈도우이건, 맥OS이건 모두 실행가능한">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LIVE STUDY 1주차 (a.k.a.STUDY HALE)">
-<meta property="og:url" content="http://youngjinmo.github.io/2021/01/studyhale-week-01/index.html">
+<meta property="og:title" content="Livestudy-Week-01">
+<meta property="og:url" content="http://youngjinmo.github.io/2021/01/livestudy-week-01/index.html">
 <meta property="og:site_name" content="DevAndy - 개발자앤디의 개발블로그">
-<meta property="og:description" content="JVM이란 무엇인가 컴파일 및 실행하는 방법 바이트코드란 무엇인가 JVM 구성요소 JIT 컴파일러란 무엇이며 어떻게 동작하는지 JDK와 JRE차이     JVM이란 무엇인가자바를 두 문장으로 설명하는 말이 있다.  Write once,Run anywhere.  자바 언어로 개발된 프로그램은 , 운영체제가 리눅스이건, 윈도우이건, 맥OS이건 모두 실행가능">
+<meta property="og:description" content="JVM이란 무엇인가 컴파일 및 실행하는 방법 바이트코드란 무엇인가 JVM 구성요소 JIT 컴파일러란 무엇이며 어떻게 동작하는지 JDK와 JRE차이    JVM이란 무엇인가자바를 두 문장으로 설명하는 말이 있다.  Write once,Run anywhere.  자바 언어로 개발된 프로그램은 , 운영체제가 리눅스이건, 윈도우이건, 맥OS이건 모두 실행가능한">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg">
-<meta property="article:published_time" content="2021-01-02T05:50:34.000Z">
-<meta property="article:modified_time" content="2021-01-04T08:48:59.379Z">
+<meta property="article:published_time" content="2021-01-02T05:50:50.000Z">
+<meta property="article:modified_time" content="2021-01-07T03:32:42.447Z">
 <meta property="article:author" content="Youngjin Mo">
 <meta property="article:tag" content="jvm">
 <meta name="twitter:card" content="summary">
@@ -46,17 +46,26 @@
     
 <link rel="stylesheet" href="../../../libs/source-code-pro/styles.css">
 
-
     
 <link rel="stylesheet" href="../../../css/style.css">
 
-	<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet"> 
+	<!-- <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">  -->
 	<style type="text/css">
-		@font-face { font-family: 'BMHANNAAir'; 
+		@font-face {
+		  font-family: 'Jeju Myeongjo';
+		  font-style: normal;
+		  font-weight: 400;
+		  src: url(//fonts.gstatic.com/ea/jejumyeongjo/v3/JejuMyeongjo-Regular.eot);
+		  src: url(//fonts.gstatic.com/ea/jejumyeongjo/v3/JejuMyeongjo-Regular.eot?#iefix) format('embedded-opentype'),
+			   url(//fonts.gstatic.com/ea/jejumyeongjo/v3/JejuMyeongjo-Regular.woff2) format('woff2'),
+			   url(//fonts.gstatic.com/ea/jejumyeongjo/v3/JejuMyeongjo-Regular.woff) format('woff'),
+			   url(//fonts.gstatic.com/ea/jejumyeongjo/v3/JejuMyeongjo-Regular.ttf) format('truetype');
+		}
+		/* @font-face { font-family: 'BMHANNAAir'; 
 					src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.0/BMHANNAAir.woff') format('woff'); 
 					font-weight: normal; 
 					font-style: normal; 
-		} 
+		}  */
 	</style>
 
     
@@ -176,14 +185,14 @@ ga('send', 'pageview');
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-studyhale-week-01" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-livestudy-week-01" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        LIVE STUDY 1주차 (a.k.a.STUDY HALE)
+        Livestudy-Week-01
         </h1>
     
 
@@ -195,7 +204,7 @@ ga('send', 'pageview');
   <div class="article-date">
     <i class="fa fa-calendar"></i>
     <a href="" class="article-date">
-       <time datetime="2021-01-02T05:50:34.000Z" itemprop="datePublished">2021-01-02</time>
+       <time datetime="2021-01-02T05:50:50.000Z" itemprop="datePublished">2021-01-02</time>
     </a>
   </div>
 
@@ -203,7 +212,7 @@ ga('send', 'pageview');
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="" class="article-date">
-     <time datetime="2021-01-04T08:48:59.379Z" itemprop="dateModified">2021-01-04</time>
+     <time datetime="2021-01-07T03:32:42.447Z" itemprop="dateModified">2021-01-07</time>
   </a>
 </div>
 
@@ -212,7 +221,7 @@ ga('send', 'pageview');
 
 				<!-- 	count-time		 -->
 				<span class="reading-time" style="margin-left: 20px;">
-					⏱ 12 min.
+					⏱ 13 min.
 				</span>
                 
     <div class="article-tag">
@@ -241,10 +250,9 @@ ga('send', 'pageview');
 <li><a href="#jit">JIT 컴파일러란 무엇이며 어떻게 동작하는지</a></li>
 <li><a href="#jdk-jre">JDK와 JRE차이</a></li>
 </ul>
-<hr>
 <br>
 
-<h2 id="JVM이란-무엇인가"><a href="#JVM이란-무엇인가" class="headerlink" title="JVM이란 무엇인가"></a><a name="jvm-definition"></a>JVM이란 무엇인가</h2><p>자바를 두 문장으로 설명하는 말이 있다.</p>
+<h1 id="JVM이란-무엇인가"><a href="#JVM이란-무엇인가" class="headerlink" title="JVM이란 무엇인가"></a><a name="jvm-definition"></a>JVM이란 무엇인가</h1><p>자바를 두 문장으로 설명하는 말이 있다.</p>
 <blockquote>
 <p>Write once,<br>Run anywhere.</p>
 </blockquote>
@@ -256,28 +264,25 @@ ga('send', 'pageview');
 <p>단, JVM은 java 코드를 직접 읽지 못하기 때문에 JVM이 읽을 수 있는 형태인 바이트 코드로 컴파일해주어야 한다. 이 역할을 하는걸 자바 컴파일러라고 한다.</p>
 <br>
 
-<h2 id="컴파일-및-실행하는-방법"><a href="#컴파일-및-실행하는-방법" class="headerlink" title="컴파일 및 실행하는 방법"></a><a name="how-to-compile"></a>컴파일 및 실행하는 방법</h2><p>개발자가 Java로 작성한 소스 코드가 컴퓨터에 의해 읽어들이기까지의 과정은 다음과 같다.</p>
+<h1 id="컴파일-및-실행하는-방법"><a href="#컴파일-및-실행하는-방법" class="headerlink" title="컴파일 및 실행하는 방법"></a><a name="how-to-compile"></a>컴파일 및 실행하는 방법</h1><p>개발자가 Java로 작성한 소스 코드가 컴퓨터에 의해 읽어들이기까지의 과정은 다음과 같다.</p>
 <ol>
 <li>Java 코드 작성하기</li>
-<li>자바 컴파일러로 java 파일 컴파일하기 (= 바이트 코드 생성)</li>
-<li>컴파일되서 생성된 바이트 코드를 JVM이 기계어로 변환</li>
-<li>컴퓨터(OS)에서 JVM에 의해 생성된 기계어 실행</li>
+<li>JVM이 읽어들일수 있도록 자바 컴파일러로 java 파일 컴파일하기 (= 바이트 코드 생성)</li>
+<li>바이트 코드를 JVM이 읽어들여서 실행환경(OS)에 맞는 기계어(binary)로 변환하기</li>
+<li>JVM에서 변환된 기계어로 자바 애플리케이션 실행하기</li>
 </ol>
-<p><strong>Java 코드 작성하기</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim StudyHale.java</span><br></pre></td></tr></table></figure>
+<h3 id="Java-코드-작성하기"><a href="#Java-코드-작성하기" class="headerlink" title="Java 코드 작성하기"></a>Java 코드 작성하기</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim StudyHale.java</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudyHale</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;Hello World.&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>컴파일하기 (Byte code 생성)</strong> </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ javac StudyHale.java</span><br></pre></td></tr></table></figure>
+<h3 id="컴파일하기-Byte-code-생성"><a href="#컴파일하기-Byte-code-생성" class="headerlink" title="컴파일하기 (Byte code 생성)"></a>컴파일하기 (Byte code 생성)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ javac StudyHale.java</span><br></pre></td></tr></table></figure>
 
-<p><strong>Java 프로그램 실행</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ java StudyHale</span><br><span class="line">Hello World.</span><br></pre></td></tr></table></figure>
+<h3 id="Java-프로그램-실행"><a href="#Java-프로그램-실행" class="headerlink" title="Java 프로그램 실행"></a>Java 프로그램 실행</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ java StudyHale</span><br><span class="line">Hello World.</span><br></pre></td></tr></table></figure>
 
-<p>컴파일된 클래스 파일을 JVM에서 실행하면, JVM은 클래스 파일의 <code>main()</code> 을 찾아서 실행한다. 클래스에서는 프로시저를 수행하기 위한 <code>main()</code> 가 반드시 필요하다.</p>
+
 <br>
 
-<h2 id="바이트-코드란-무엇인가"><a href="#바이트-코드란-무엇인가" class="headerlink" title="바이트 코드란 무엇인가"></a><a name="bytecode"></a>바이트 코드란 무엇인가</h2><p><img src="https://user-images.githubusercontent.com/33862991/103438486-cfbc2d00-4c76-11eb-9e71-c4478a07b98c.png"></p>
+<h1 id="바이트-코드란-무엇인가"><a href="#바이트-코드란-무엇인가" class="headerlink" title="바이트 코드란 무엇인가"></a><a name="bytecode"></a>바이트 코드란 무엇인가</h1><p><img src="https://user-images.githubusercontent.com/33862991/103438486-cfbc2d00-4c76-11eb-9e71-c4478a07b98c.png" alt="컴파일 과정"></p>
 <p>JVM이 실행하는 명령어 형태이다. 컴퓨터에 의해 실행되려면 기계어로 번역되어야 하는데, JVM은 자바 코드를 읽지 못한다. 따라서 자바 컴파일러를 이용하여 JVM이 읽을 수 있는 형태인 바이트 코드로 컴파일 해주어야한다.</p>
 <p>그리고 JVM에서 이 바이트 코드를 읽어들여 최종적으로 컴퓨터가 실행할 수 있는 기계어로 번역한다. </p>
 <p>바이트 코드는 개발자가 작성된 소스코드와 컴퓨터에서 실행될 기계어 중간 과정의 형태이며, <strong>JVM이 읽을 수 있는 목적의 코드</strong> 이다.</p>
@@ -289,7 +294,7 @@ ga('send', 'pageview');
 <p>출처 : <a target="_blank" rel="noopener" href="https://withhamit.tistory.com/502">햄과함께IT - java bytecode 확인</a></p>
 <br>
 
-<h2 id="JVM-구성요소"><a href="#JVM-구성요소" class="headerlink" title="JVM 구성요소"></a><a name="components-of-jvm"></a>JVM 구성요소</h2><p><img src="https://miro.medium.com/max/1286/0*GMXQBZCEpGQMBjy-" alt="platformengineer.com"></p>
+<h1 id="JVM-구성요소"><a href="#JVM-구성요소" class="headerlink" title="JVM 구성요소"></a><a name="components-of-jvm"></a>JVM 구성요소</h1><p><img src="https://miro.medium.com/max/1286/0*GMXQBZCEpGQMBjy-" alt="JVM"></p>
 <p>출처 : <a target="_blank" rel="noopener" href="https://medium.com/platform-engineer/understanding-jvm-architecture-22c0ddf09722">platformengineer.com - Understanding JVM Architecture</a></p>
 <p>JVM은 크게 아래의 모듈들로 구성되어 있다.</p>
 <ul>
@@ -301,7 +306,7 @@ ga('send', 'pageview');
 </li>
 <li><a href="#jni">자바 네이티브 인터페이스(Java Native Interface, JNI)</a></li>
 </ul>
-<h3 id="클래스-로더-Class-Loader"><a href="#클래스-로더-Class-Loader" class="headerlink" title="클래스 로더 (Class Loader)"></a><a name="classloader"></a>클래스 로더 (Class Loader)</h3><p>자바 컴파일러에 의해 컴파일된 자바 바이트 코드(<code>.class</code>)들이 JVM에 의해 읽어들여지면, 클래스로더가 이 바이트 코드를 운영체제(OS)로부터 적재받은 메모리 영역인 런타임 데이터 에어리어로 <strong>적재(Loading)</strong> 하는 일을 한다. </p>
+<h2 id="클래스-로더-Class-Loader"><a href="#클래스-로더-Class-Loader" class="headerlink" title="클래스 로더 (Class Loader)"></a><a name="classloader"></a>클래스 로더 (Class Loader)</h2><p>자바 컴파일러에 의해 컴파일된 자바 바이트 코드(<code>.class</code>)들이 JVM에 의해 읽어들여지면, 클래스로더가 이 바이트 코드를 운영체제(OS)로부터 적재받은 메모리 영역인 런타임 데이터 에어리어로 <strong>적재(Loading)</strong> 하는 일을 한다. </p>
 <p>여기서 말하는 운영체제로부터 적재받은 메모리란, <strong>RAM</strong> 을 이야기한다. 이 RAM에 클래스 파일들이 올라가야만(Loading), 프로세스로서 실행될 수 있다.</p>
 <p>Loading 단계에서는 클래스 파일의 <code>main()</code> 부터 메모리에 적재되는데, <code>main()</code> 이 실행되면서 필요한 객체들을 동적으로 로딩하게 된다.</p>
 <p>자바 바이트 코드는 JVM에서 기계어(바이너리 코드)로 변환된다고 하였는데, 이 때 코드가 통째로 기계어로 번역되는게 아니라 <u>애플리케이션에 필요한 객체들이 먼저 JIT에 의해서 번역(Interpretion)된다.</u><br>이를 <strong>동적인 클래스 로딩(Java’s dynamic class loading)</strong> 이라고 한다.</p>
@@ -310,7 +315,7 @@ ga('send', 'pageview');
 <p>출처 : <a target="_blank" rel="noopener" href="https://yeon-kr.tistory.com/112">당근케잌 - [Java] JVM Architecture란?</a></p>
 <br>
 
-<h3 id="메모리-영역-Runtime-Data-Area"><a href="#메모리-영역-Runtime-Data-Area" class="headerlink" title="메모리 영역 (Runtime Data Area)"></a><a name="runtime-data-area"></a>메모리 영역 (Runtime Data Area)</h3><p>JVM이 운영체제(OS)로부터 적재받은 메모리 영역이다. 이곳에 클래스가 적재되어야지 자바 애플리케이션이 프로세스로써 컴퓨터에서 실행될 수 있다. 지금부터는 그냥 ‘메모리’라고 표현하겠다.</p>
+<h2 id="메모리-영역-Runtime-Data-Area"><a href="#메모리-영역-Runtime-Data-Area" class="headerlink" title="메모리 영역 (Runtime Data Area)"></a><a name="runtime-data-area"></a>메모리 영역 (Runtime Data Area)</h2><p>JVM이 운영체제(OS)로부터 적재받은 메모리 영역이다. 이곳에 클래스가 적재되어야지 자바 애플리케이션이 프로세스로써 컴퓨터에서 실행될 수 있다. 지금부터는 그냥 ‘메모리’라고 표현하겠다.</p>
 <p>JVM의 메모리 영역은 다음으로 구성된다.</p>
 <ul>
 <li><a href="#method-area">Method Area</a></li>
@@ -319,16 +324,14 @@ ga('send', 'pageview');
 <li><a href="#program-counter">PC Register</a></li>
 <li><a href="#native-method-stack">Native Method Stack</a></li>
 </ul>
-<p><a name="method-area"></a><strong>메서드 영역(Method Area)</strong></p>
-<p>JVM 내 하나만 존재하는 <strong>공유자원</strong> 이며, 메모리에 항상 상주하는 영역이기 때문에 JVM 내 스레드들이 메서드 영역의 자원을 공유하여 사용한다.</p>
+<h3 id="메서드-영역-Method-Area"><a href="#메서드-영역-Method-Area" class="headerlink" title="메서드 영역(Method Area)"></a><a name="method-area"></a>메서드 영역(Method Area)</h3><p>JVM 내 하나만 존재하는 <strong>공유자원</strong> 이며, 메모리에 항상 상주하는 영역이기 때문에 JVM 내 스레드들이 메서드 영역의 자원을 공유하여 사용한다.</p>
 <p>클래스에서 필요한 패키지 클래스, 런타임 상수풀, 인터페이스, 상수, static 변수, final 변수, 필드 데이터, 생성자 등의 모든 메서드 정보가 한 번 적재되면, 메모리 영역에서 항상 상주하게 된다.</p>
 <p><a href="#jit">JIT 컴파일러</a>가 실행에 필요한 바이트 코드를 기계어로 번역하며, 다른 클래스에서 사용되는 클래스 정보를 메서드 영역에 적재해두고 공유하는 것이다.</p>
 <p>메서드 영역에 Constant Pool이라는 영역이 존재하는데, 이곳에 상수값을 저장한다. 자바 애플리케이션 런타임시에 필요한 모든 종류의 숫자, 문자열, 식별자 이름, 클래스 파일, 메서드 정보들이 Constant Pool에 저장되는 데이터들이다.</p>
 <p>출처 : <a target="_blank" rel="noopener" href="https://honbabzone.com/java/java-jvm/">김석진 - JVM(Java Virtual Machine)이란</a></p>
 <br>
 
-<p><a name="heap"></a><strong>힙 영역(Heap Area)</strong></p>
-<p>메서드 영역과 마찬가지로 힙 영역도 JVM 내에 하나만 존재하는 공유자원이다. <code>new</code> 키워드로 생성된 객체의 데이터가 힙 영역에 적재된다. </p>
+<h3 id="힙-영역-Heap-Area"><a href="#힙-영역-Heap-Area" class="headerlink" title="힙 영역(Heap Area)"></a><a name="heap"></a>힙 영역(Heap Area)</h3><p>메서드 영역과 마찬가지로 힙 영역도 JVM 내에 하나만 존재하는 공유자원이다. <code>new</code> 키워드로 생성된 객체의 데이터가 힙 영역에 적재된다. </p>
 <p>메모리 영역(Method Area)에도 <code>new</code> 키워드로 생성한 클래스의 정보가 저장되는데, 힙 영역과 차이점이 있다면, <strong>메모리 영역은 클래스 정보가 저장되는 곳이라면, 힙 영역은 실제 데이터가 저장</strong> 되는 곳이다.</p>
 <p><a href="#execution-engine">실행 엔진(Execution Engine)</a>에서 다시 설명하겠지만, 자바는 <a href="#gc">가비지 콜렉터(GC)</a>가 존재하기 때문에 더 이상 사용되지 않는 인스턴스는 GC에 의해 제거되어 자동으로 메모리 관리가 이뤄지는데, 이 힙 영역에서 더 이상 참조되지 않는 메모리를 GC가 찾아서 제거해준다.</p>
 <p>메모리 영역과 힙 영역은 다중 스레드에 의해 공유되는 자원이기 때문에 여기에 적재된 데이터들은 동기화 문제를 유발할 수 있다. 즉 Thread-safe 하지 않게된다는 이야기이다.</p>
@@ -342,8 +345,7 @@ ga('send', 'pageview');
 </ul>
 <br>
 
-<p><a name="stack"></a><strong>스택 영역(Stack Area)</strong></p>
-<p>스레드가 할당되는 영역이며, 스레드가 시작될때 스택 영역에 적재된다. </p>
+<h3 id="스택-영역-Stack-Area"><a href="#스택-영역-Stack-Area" class="headerlink" title="스택 영역(Stack Area)"></a><a name="stack"></a>스택 영역(Stack Area)</h3><p>스레드가 할당되는 영역이며, 스레드가 시작될때 스택 영역에 적재된다. </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StackArea</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      hello();</span><br><span class="line">   &#125;</span><br><span class="line">  </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">hello</span><span class="params">()</span></span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;Hello World&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>위와 같은 코드의 애플리케이션을 실행한다고 하면, <code>main()</code> 이 먼저 실행되며, <code>hello()</code> 가 실행될 것이다. 그럼 스택 영역에 <code>main()</code> 스레드가 할당되고, <code>main()</code> 위로 <code>hello()</code> 가 할당되게 된다.</p>
@@ -351,13 +353,11 @@ ga('send', 'pageview');
 <p>메서드 호출이 종료되면, 스택 영역에서 제거된다.</p>
 <br>
 
-<p><a name="program-counter"></a><strong>PC Register</strong></p>
-<p>Program Counter의 약자이다. </p>
+<h3 id="PC-Register"><a href="#PC-Register" class="headerlink" title="PC Register"></a><a name="program-counter"></a>PC Register</h3><p>Program Counter의 약자이다. </p>
 <p>스레드당 하나의 PC 레지스터가 존재하며, 스레드가 생성될때마다 생성되는 영역이다.</p>
 <p>스레드가 실행되면, 현재 스레드가 실행되는 부분의 주소와 명령을 저장하고, 이 명령이 끝나면 다음 실행될 명령의 주소를 가리킨다. 이 덕분에 여러 스레드들이 명령의 흐름을 잃지않고 순차적으로 실행 될 수 있다.</p>
 <p>출처 : <a target="_blank" rel="noopener" href="https://honbabzone.com/java/java-jvm/">김석진 - JVM(Java Virtual Machine)이란</a></p>
-<p><a name="native-method-stack"></a><strong>Native Method Stack</strong></p>
-<p>자바 외에 다른 언어로 작성된 메서드 정보가 저장되는 영역이다.</p>
+<h3 id="Native-Method-Stack"><a href="#Native-Method-Stack" class="headerlink" title="Native Method Stack"></a><a name="native-method-stack"></a>Native Method Stack</h3><p>자바 외에 다른 언어로 작성된 메서드 정보가 저장되는 영역이다.</p>
 <p>출처 : <a target="_blank" rel="noopener" href="https://honbabzone.com/java/java-jvm/">김석진 - JVM(Java Virtual Machine)이란</a></p>
 <br>
 
@@ -379,12 +379,12 @@ ga('send', 'pageview');
 </ul>
 <br>
 
-<h3 id="자바-네이티브-인터페이스-Java-Native-Interface-JNI"><a href="#자바-네이티브-인터페이스-Java-Native-Interface-JNI" class="headerlink" title="자바 네이티브 인터페이스 (Java Native Interface, JNI)"></a><a name="jni"></a>자바 네이티브 인터페이스 (Java Native Interface, JNI)</h3><p>네이티브 코드(C, C++)로 작성된 라이브러리를 제공하는 Native Method Libraries와 상호작용하기 위해 존재하는 영역이다. </p>
+<h2 id="자바-네이티브-인터페이스-Java-Native-Interface-JNI"><a href="#자바-네이티브-인터페이스-Java-Native-Interface-JNI" class="headerlink" title="자바 네이티브 인터페이스 (Java Native Interface, JNI)"></a><a name="jni"></a>자바 네이티브 인터페이스 (Java Native Interface, JNI)</h2><p>네이티브 코드(C, C++)로 작성된 라이브러리를 제공하는 Native Method Libraries와 상호작용하기 위해 존재하는 영역이다. </p>
 <p>이 영역은 아직 이해가 잘 안되는 부분이다. 더 공부가 필요할것 같다…</p>
 <br>
 
 <p>출처 : <a target="_blank" rel="noopener" href="https://yeon-kr.tistory.com/112">당근케잌 - [Java] JVM Architecture란?</a></p>
-<h2 id="JIT-컴파일러란-무엇이며-어떻게-동작하는지"><a href="#JIT-컴파일러란-무엇이며-어떻게-동작하는지" class="headerlink" title="JIT 컴파일러란 무엇이며 어떻게 동작하는지"></a><a name="jit"></a>JIT 컴파일러란 무엇이며 어떻게 동작하는지</h2><p>JIT 컴파일러란, Just In Time 컴파일러를 정의한다. <strong>프로그램을 실행하는 시점에 전체 바이트 코드가 아닌 필요한 함수만 기계어로 번역하여 실행</strong> 하는 컴파일러를 가리킨다.</p>
+<h1 id="JIT-컴파일러란-무엇이며-어떻게-동작하는지"><a href="#JIT-컴파일러란-무엇이며-어떻게-동작하는지" class="headerlink" title="JIT 컴파일러란 무엇이며 어떻게 동작하는지"></a><a name="jit"></a>JIT 컴파일러란 무엇이며 어떻게 동작하는지</h1><p>JIT 컴파일러란, Just In Time 컴파일러를 정의한다. <strong>프로그램을 실행하는 시점에 전체 바이트 코드가 아닌 필요한 함수만 기계어로 번역하여 실행</strong> 하는 컴파일러를 가리킨다.</p>
 <p>JIT 컴파일러를 설명하기 앞서 프로그래밍 언어를 실행하는 방식에 대해 먼저 짚고넘어가자. 프로그래밍 언어를 실행하는 방식은 크게 두가지가 있다. 인터프리터와 컴파일러 방식.</p>
 <p>인터프리터는 말 코드를 한 줄 씩 번역하여 실행을 하며, 컴파일은 실행하기 전에 프로그램 코드 전체를 기계어로 번역해서 번역된 기계어를 한 번에 실행한다.</p>
 <p>이런 특징 때문에 인터프리터는 컴파일러 대비 생산속도는 빠르지만, 실행 속도는 느리다는 특징으로 정리될 수 있다.</p>
@@ -394,8 +394,8 @@ ga('send', 'pageview');
 <p>출처 : <a target="_blank" rel="noopener" href="https://yeon-kr.tistory.com/112">당근케잌 - [Java] JVM Architecture란?</a></p>
 <br>
 
-<h2 id="JDK와-JRE차이"><a href="#JDK와-JRE차이" class="headerlink" title="JDK와 JRE차이"></a><a name="jdk-jre"></a>JDK와 JRE차이</h2><h3 id="JRE-Java-Runtime-Environment"><a href="#JRE-Java-Runtime-Environment" class="headerlink" title="JRE (Java Runtime Environment)"></a><strong>JRE (Java Runtime Environment)</strong></h3><p>자바 애플리케이션을 <u>실행</u>하기 위한 최소한의 배포 단위이다. JVM과 라이브러리가 포함된다. 개발이 아닌 실행만을 위한 도구이다.</p>
-<h3 id="JDK-Java-Development-Kit"><a href="#JDK-Java-Development-Kit" class="headerlink" title="JDK (Java Development Kit)"></a><strong>JDK (Java Development Kit)</strong></h3><p>자바 애플리케이션 개발에 필요한 도구가 모두 포함된다. 원래 JDK를 설치하면 JRE까지 함께 설치되었으나 Oracle JDK11부터는 JRE가 기본으로 제공되지 않는다고 한다. (<a target="_blank" rel="noopener" href="https://yeon-kr.tistory.com/112">문서</a>)</p>
+<h1 id="JDK와-JRE차이"><a href="#JDK와-JRE차이" class="headerlink" title="JDK와 JRE차이"></a><a name="jdk-jre"></a>JDK와 JRE차이</h1><h3 id="JRE-Java-Runtime-Environment"><a href="#JRE-Java-Runtime-Environment" class="headerlink" title="JRE (Java Runtime Environment)"></a>JRE (Java Runtime Environment)</h3><p>자바 애플리케이션을 <u>실행</u>하기 위한 최소한의 배포 단위이다. JVM과 라이브러리가 포함된다. 개발이 아닌 실행만을 위한 도구이다.</p>
+<h3 id="JDK-Java-Development-Kit"><a href="#JDK-Java-Development-Kit" class="headerlink" title="JDK (Java Development Kit)"></a>JDK (Java Development Kit)</h3><p>자바 애플리케이션 개발에 필요한 도구가 모두 포함된다. 원래 JDK를 설치하면 JRE까지 함께 설치되었으나 Oracle JDK11부터는 JRE가 기본으로 제공되지 않는다고 한다. (<a target="_blank" rel="noopener" href="https://yeon-kr.tistory.com/112">문서</a>)</p>
 <p>출처 : <a target="_blank" rel="noopener" href="https://yeon-kr.tistory.com/112">Oracle - JDK 11 Release Notes</a></p>
 <br>
 
@@ -427,14 +427,14 @@ ga('send', 'pageview');
             "@type": "Person",
             "name": "Youngjin Mo"
         },
-        "headline": "LIVE STUDY 1주차 (a.k.a.STUDY HALE)",
+        "headline": "Livestudy-Week-01",
         "image": "../../../http:/youngjinmo.github.iohttps:/i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg",
         "keywords": "jvm",
         "genre": "Dev Java",
         "datePublished": "2021-01-02",
         "dateCreated": "2021-01-02",
-        "dateModified": "2021-01-04",
-        "url": "../../../http:/youngjinmo.github.io/2021/01/studyhale-week-01/",
+        "dateModified": "2021-01-07",
+        "url": "../../../http:/youngjinmo.github.io/2021/01/livestudy-week-01/",
         "description": "
 
 JVM이란 무엇인가
@@ -446,13 +446,12 @@ JDK와 JRE차이
 
 
 
-
 JVM이란 무엇인가자바를 두 문장으로 설명하는 말이 있다.
 
 Write once,Run anywhere.
 
-자바 언어로 개발된 프로그램은 , 운영체제가 리눅스이건, 윈도우이건, 맥OS이건 모두 실행가능",
-        "wordCount": 1469
+자바 언어로 개발된 프로그램은 , 운영체제가 리눅스이건, 윈도우이건, 맥OS이건 모두 실행가능한",
+        "wordCount": 1503
     }
 </script>
 
@@ -531,7 +530,7 @@ Write once,Run anywhere.
                             <a href="" class="thumbnail">
     
     
-        <span style="background-image:url(https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg)" alt="LIVE STUDY 1주차 (a.k.a.STUDY HALE)" class="thumbnail-image"></span>
+        <span style="background-image:url(https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg)" alt="Livestudy-Week-01" class="thumbnail-image"></span>
     
     
 </a>
@@ -540,8 +539,8 @@ Write once,Run anywhere.
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
-                            <p class="item-title"><a href="" class="title">LIVE STUDY 1주차 (a.k.a.STUDY HALE)</a></p>
-                            <p class="item-date"><time datetime="2021-01-02T05:50:34.000Z" itemprop="datePublished">2021-01-02</time></p>
+                            <p class="item-title"><a href="" class="title">Livestudy-Week-01</a></p>
+                            <p class="item-date"><time datetime="2021-01-02T05:50:50.000Z" itemprop="datePublished">2021-01-02</time></p>
                         </div>
                     </li>
                 
@@ -634,7 +633,7 @@ Write once,Run anywhere.
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="../../../tags/BufferedReader/" style="font-size: 10px;">BufferedReader</a> <a href="../../../tags/BufferedWriter/" style="font-size: 10px;">BufferedWriter</a> <a href="../../../tags/IO/" style="font-size: 10px;">IO</a> <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 11.11px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/api/" style="font-size: 11.11px;">api</a> <a href="../../../tags/architecture/" style="font-size: 10px;">architecture</a> <a href="../../../tags/array/" style="font-size: 11.11px;">array</a> <a href="../../../tags/aws/" style="font-size: 12.22px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blacklivesmatter/" style="font-size: 10px;">blacklivesmatter</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 12.22px;">career</a> <a href="../../../tags/casting/" style="font-size: 12.22px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/cloud/" style="font-size: 12.22px;">cloud</a> <a href="../../../tags/contribution/" style="font-size: 10px;">contribution</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/databse/" style="font-size: 10px;">databse</a> <a href="../../../tags/datastructure/" style="font-size: 12.22px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 14.44px;">docker</a> <a href="../../../tags/documentation/" style="font-size: 10px;">documentation</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 12.22px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generic/" style="font-size: 10px;">generic</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 13.33px;">github</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 15.56px;">http</a> <a href="../../../tags/ide/" style="font-size: 10px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 13.33px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 11.11px;">interface</a> <a href="../../../tags/io/" style="font-size: 12.22px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 16.67px;">java</a> <a href="../../../tags/java8/" style="font-size: 11.11px;">java8</a> <a href="../../../tags/javascript/" style="font-size: 15.56px;">javascript</a> <a href="../../../tags/javscript/" style="font-size: 10px;">javscript</a> <a href="../../../tags/jquery/" style="font-size: 11.11px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/junit/" style="font-size: 10px;">junit</a> <a href="../../../tags/jvm/" style="font-size: 11.11px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 10px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/license/" style="font-size: 10px;">license</a> <a href="../../../tags/livereload/" style="font-size: 10px;">livereload</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 11.11px;">mustache</a> <a href="../../../tags/mybatis/" style="font-size: 10px;">mybatis</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 16.67px;">oop</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/readme/" style="font-size: 10px;">readme</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 12.22px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 12.22px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 17.78px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/stock/" style="font-size: 10px;">stock</a> <a href="../../../tags/string/" style="font-size: 15.56px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/terminal/" style="font-size: 10px;">terminal</a> <a href="../../../tags/tip/" style="font-size: 16.67px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 17.78px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 11.11px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/vue/" style="font-size: 10px;">vue</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 18.89px;">weekly-review</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
+            <a href="../../../tags/BufferedReader/" style="font-size: 10px;">BufferedReader</a> <a href="../../../tags/BufferedWriter/" style="font-size: 10px;">BufferedWriter</a> <a href="../../../tags/IO/" style="font-size: 10px;">IO</a> <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 11.11px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/api/" style="font-size: 10px;">api</a> <a href="../../../tags/architecture/" style="font-size: 10px;">architecture</a> <a href="../../../tags/array/" style="font-size: 11.11px;">array</a> <a href="../../../tags/aws/" style="font-size: 12.22px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blacklivesmatter/" style="font-size: 10px;">blacklivesmatter</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 12.22px;">career</a> <a href="../../../tags/casting/" style="font-size: 12.22px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/cloud/" style="font-size: 12.22px;">cloud</a> <a href="../../../tags/contribution/" style="font-size: 10px;">contribution</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/databse/" style="font-size: 10px;">databse</a> <a href="../../../tags/datastructure/" style="font-size: 12.22px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 14.44px;">docker</a> <a href="../../../tags/documentation/" style="font-size: 10px;">documentation</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 12.22px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generic/" style="font-size: 10px;">generic</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 13.33px;">github</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 15.56px;">http</a> <a href="../../../tags/ide/" style="font-size: 10px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 13.33px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 11.11px;">interface</a> <a href="../../../tags/io/" style="font-size: 12.22px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 16.67px;">java</a> <a href="../../../tags/java8/" style="font-size: 11.11px;">java8</a> <a href="../../../tags/javascript/" style="font-size: 15.56px;">javascript</a> <a href="../../../tags/javscript/" style="font-size: 10px;">javscript</a> <a href="../../../tags/jquery/" style="font-size: 11.11px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/junit/" style="font-size: 10px;">junit</a> <a href="../../../tags/jvm/" style="font-size: 11.11px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 10px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/license/" style="font-size: 10px;">license</a> <a href="../../../tags/livereload/" style="font-size: 10px;">livereload</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 11.11px;">mustache</a> <a href="../../../tags/mybatis/" style="font-size: 10px;">mybatis</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 16.67px;">oop</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/readme/" style="font-size: 10px;">readme</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 12.22px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 12.22px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 17.78px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/stock/" style="font-size: 10px;">stock</a> <a href="../../../tags/string/" style="font-size: 15.56px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/terminal/" style="font-size: 10px;">terminal</a> <a href="../../../tags/tip/" style="font-size: 16.67px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 17.78px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 11.11px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/vue/" style="font-size: 10px;">vue</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 18.89px;">weekly-review</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
         </div>
     </div>
 
