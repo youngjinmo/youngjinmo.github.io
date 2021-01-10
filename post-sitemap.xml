@@ -9,8 +9,24 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/2021/01/spring-request-parameter/</loc>
+        <lastmod>2021-01-10T14:59:38.441Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/2021/01/livestudy-week-01/</loc>
-        <lastmod>2021-01-07T03:41:19.722Z</lastmod>
+        <lastmod>2021-01-10T14:52:17.733Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/2019/06/oracle-dml/</loc>
+        <lastmod>2021-01-10T08:33:57.292Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -1099,14 +1115,6 @@
     <url>
         <loc>http://youngjinmo.github.io/2020/04/oracle-date/</loc>
         <lastmod>2020-09-13T01:53:28.308Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2019/06/oracle-dml/</loc>
-        <lastmod>2020-09-13T01:53:28.304Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

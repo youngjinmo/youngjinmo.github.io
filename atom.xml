@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-01-07T03:41:19.722Z</updated>
+  <updated>2021-01-10T14:59:38.441Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Spring에서 URL로 파라미터를 받는 방법 2가지</title>
+    <link href="http://youngjinmo.github.io/2021/01/spring-request-parameter/"/>
+    <id>http://youngjinmo.github.io/2021/01/spring-request-parameter/</id>
+    <published>2021-01-10T05:19:53.000Z</published>
+    <updated>2021-01-10T14:59:38.441Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/104125838-b1ec7780-539c-11eb-8e7c-26ac78f2978b.jpeg&quot;&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="SpringBoot" scheme="http://youngjinmo.github.io/categories/Dev/SpringBoot/"/>
+    
+    
+    <category term="annotation" scheme="http://youngjinmo.github.io/tags/annotation/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Live Study 1주차 - JVM은 무엇이며 자바 코드는 어떻게 실행하는 것인가</title>
     <link href="http://youngjinmo.github.io/2021/01/livestudy-week-01/"/>
     <id>http://youngjinmo.github.io/2021/01/livestudy-week-01/</id>
-    <published>2021-01-02T05:50:50.000Z</published>
-    <updated>2021-01-07T03:41:19.722Z</updated>
+    <published>2021-01-04T05:50:50.000Z</published>
+    <updated>2021-01-10T14:52:17.733Z</updated>
     
     
       
@@ -578,31 +606,6 @@
     
     
     <category term="servlet" scheme="http://youngjinmo.github.io/tags/servlet/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode - Twosum</title>
-    <link href="http://youngjinmo.github.io/2020/08/leetcode-twosum/"/>
-    <id>http://youngjinmo.github.io/2020/08/leetcode-twosum/</id>
-    <published>2020-08-24T05:28:47.000Z</published>
-    <updated>2020-09-13T01:53:28.332Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;TwoSum&quot;&gt;&lt;a href=&quot;#TwoSum&quot; class=&quot;headerlink&quot; title=&quot;TwoSum&quot;&gt;&lt;/a&gt;TwoSum&lt;/h1&gt;&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Quiz" scheme="http://youngjinmo.github.io/categories/Quiz/"/>
-    
-    
-    <category term="algorithms" scheme="http://youngjinmo.github.io/tags/algorithms/"/>
     
   </entry>
   
