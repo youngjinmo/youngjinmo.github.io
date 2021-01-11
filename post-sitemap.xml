@@ -113,14 +113,6 @@
     </url>
 
     <url>
-        <loc>http://youngjinmo.github.io/2020/12/weeklyreview-2020-dec-second/</loc>
-        <lastmod>2020-12-21T09:02:07.102Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://youngjinmo.github.io/2019/08/oracle-groupby/</loc>
         <lastmod>2020-12-21T07:57:37.609Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -171,14 +163,6 @@
     <url>
         <loc>http://youngjinmo.github.io/2020/03/h2-database/</loc>
         <lastmod>2020-12-07T08:27:45.659Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2020/12/weeklyreview-2020-dec-first/</loc>
-        <lastmod>2020-12-07T01:23:05.297Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
