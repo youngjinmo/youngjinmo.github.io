@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-01-10T14:59:38.441Z</updated>
+  <updated>2021-01-11T06:24:28.705Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SpringBoot + MyBatis + Oracle(with Docker) CRUD 구현해보기</title>
+    <link href="http://youngjinmo.github.io/2021/01/springboot-mybatis-oracle2/"/>
+    <id>http://youngjinmo.github.io/2021/01/springboot-mybatis-oracle2/</id>
+    <published>2021-01-10T06:02:13.000Z</published>
+    <updated>2021-01-11T06:24:28.705Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/97108403-a8922e00-1710-11eb-9e42-b093ed1857d8.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Springboot" scheme="http://youngjinmo.github.io/categories/Dev/Springboot/"/>
+    
+    
+    <category term="oracle" scheme="http://youngjinmo.github.io/tags/oracle/"/>
+    
+    <category term="tutorial" scheme="http://youngjinmo.github.io/tags/tutorial/"/>
+    
+    <category term="docker" scheme="http://youngjinmo.github.io/tags/docker/"/>
+    
+    <category term="springboot" scheme="http://youngjinmo.github.io/tags/springboot/"/>
+    
+    <category term="mybatis" scheme="http://youngjinmo.github.io/tags/mybatis/"/>
+    
+  </entry>
   
   <entry>
     <title>Spring에서 URL로 파라미터를 받는 방법 2가지</title>
@@ -400,11 +436,11 @@
   </entry>
   
   <entry>
-    <title>SpringBoot + MyBatis + Oracle 초간단실습</title>
+    <title>SpringBoot + MyBatis + Oracle(with Docker) 초간단실습</title>
     <link href="http://youngjinmo.github.io/2020/10/springboot-mybatis-oracle/"/>
     <id>http://youngjinmo.github.io/2020/10/springboot-mybatis-oracle/</id>
     <published>2020-10-25T03:29:51.000Z</published>
-    <updated>2020-12-09T05:55:34.392Z</updated>
+    <updated>2021-01-11T04:50:33.124Z</updated>
     
     
       
@@ -579,33 +615,6 @@
     
     
     <category term="oracle" scheme="http://youngjinmo.github.io/tags/oracle/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Servlet - Redirect와 Forward</title>
-    <link href="http://youngjinmo.github.io/2020/08/servlet-redirect-forward/"/>
-    <id>http://youngjinmo.github.io/2020/08/servlet-redirect-forward/</id>
-    <published>2020-08-30T13:32:44.000Z</published>
-    <updated>2020-11-19T03:27:37.080Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
-    
-    
-    <category term="servlet" scheme="http://youngjinmo.github.io/tags/servlet/"/>
     
   </entry>
   

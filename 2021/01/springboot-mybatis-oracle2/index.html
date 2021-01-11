@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>SpringBoot + MyBatis + Oracle(with Docker) CRUD 구현해보기 | DevAndy - 개발자앤디의 개발블로그</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="oracle,tutorial,docker,springboot,mybatis" />
+    
+    <meta name="description" content="지난 포스팅에서 스프링부트로 만든 API로 오라클RDBMS에 데이터를 요청하는 간단한 실습을 구현해보았다. 당시 오라클 DB의 테이블을 단순 조회하는 것까지 해보았는데, 이번엔 간단한 CRUD를 구현한 API를 만들어보려고 한다. 마찬가지로 도커를 이용하여 오라클 DB(Oracle 11g)를 띄워두었고, 스프링부트로 웹서버를 개발하고, MyBatis를 이">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot + MyBatis + Oracle(with Docker) CRUD 구현해보기">
+<meta property="og:url" content="http://youngjinmo.github.io/2021/01/springboot-mybatis-oracle2/index.html">
+<meta property="og:site_name" content="DevAndy - 개발자앤디의 개발블로그">
+<meta property="og:description" content="지난 포스팅에서 스프링부트로 만든 API로 오라클RDBMS에 데이터를 요청하는 간단한 실습을 구현해보았다. 당시 오라클 DB의 테이블을 단순 조회하는 것까지 해보았는데, 이번엔 간단한 CRUD를 구현한 API를 만들어보려고 한다. 마찬가지로 도커를 이용하여 오라클 DB(Oracle 11g)를 띄워두었고, 스프링부트로 웹서버를 개발하고, MyBatis를 이">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/33862991/97108403-a8922e00-1710-11eb-9e42-b093ed1857d8.png">
+<meta property="article:published_time" content="2021-01-10T06:02:13.000Z">
+<meta property="article:modified_time" content="2021-01-11T06:24:28.705Z">
+<meta property="article:author" content="Youngjin Mo">
+<meta property="article:tag" content="oracle">
+<meta property="article:tag" content="tutorial">
+<meta property="article:tag" content="docker">
+<meta property="article:tag" content="springboot">
+<meta property="article:tag" content="mybatis">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/33862991/97108403-a8922e00-1710-11eb-9e42-b093ed1857d8.png">
+<meta name="twitter:creator" content="@devandy_yj">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="DevAndy - 개발자앤디의 개발블로그" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="../../../css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="../../../libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="../../../libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="../../../libs/source-code-pro/styles.css">
+
+    
+<link rel="stylesheet" href="../../../css/style.css">
+
+	<!-- <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">  -->
+	<style type="text/css">
+		@font-face {
+		  font-family: 'Jeju Myeongjo';
+		  font-style: normal;
+		  font-weight: 400;
+		  src: url(//fonts.gstatic.com/ea/jejumyeongjo/v3/JejuMyeongjo-Regular.eot);
+		  src: url(//fonts.gstatic.com/ea/jejumyeongjo/v3/JejuMyeongjo-Regular.eot?#iefix) format('embedded-opentype'),
+			   url(//fonts.gstatic.com/ea/jejumyeongjo/v3/JejuMyeongjo-Regular.woff2) format('woff2'),
+			   url(//fonts.gstatic.com/ea/jejumyeongjo/v3/JejuMyeongjo-Regular.woff) format('woff'),
+			   url(//fonts.gstatic.com/ea/jejumyeongjo/v3/JejuMyeongjo-Regular.ttf) format('truetype');
+		}
+		/* @font-face { font-family: 'BMHANNAAir'; 
+					src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.0/BMHANNAAir.woff') format('woff'); 
+					font-weight: normal; 
+					font-style: normal; 
+		}  */
+	</style>
+
+    
+<script src="../../../libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-177850483-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../index.html">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Articles/">Articles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/">Dev</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Front-end/">Front-end</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Others/">Others</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/SpringBoot/">SpringBoot</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Springboot/">Springboot</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Web/">Web</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Review/">Review</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Thought/">Thought</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Quiz/">Quiz</a></li></ul>
+                                
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="../../../js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Springboot/">Springboot</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-springboot-mybatis-oracle2" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        SpringBoot + MyBatis + Oracle(with Docker) CRUD 구현해보기
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta" style="margin-bottom: 1em;">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="" class="article-date">
+       <time datetime="2021-01-10T06:02:13.000Z" itemprop="datePublished">2021-01-10</time>
+    </a>
+  </div>
+
+<!-- 
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="" class="article-date">
+     <time datetime="2021-01-11T06:24:28.705Z" itemprop="dateModified">2021-01-11</time>
+  </a>
+</div>
+
+ -->
+                
+
+				<!-- 	count-time		 -->
+				<span class="reading-time" style="margin-left: 20px;">
+					⏱ 20 min.
+				</span>
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="../../../tags/docker/" rel="tag">docker</a>, <a class="tag-link-link" href="../../../tags/mybatis/" rel="tag">mybatis</a>, <a class="tag-link-link" href="../../../tags/oracle/" rel="tag">oracle</a>, <a class="tag-link-link" href="../../../tags/springboot/" rel="tag">springboot</a>, <a class="tag-link-link" href="../../../tags/tutorial/" rel="tag">tutorial</a>
+    </div>
+
+                <!-- partial('post/valinecounter') 
+                <!-- partial('post/counter') -->
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="https://user-images.githubusercontent.com/33862991/97108403-a8922e00-1710-11eb-9e42-b093ed1857d8.png"></p>
+<p><a href="https://youngjinmo.github.io/2020/10/springboot-mybatis-oracle/">지난 포스팅</a>에서 스프링부트로 만든 API로 오라클RDBMS에 데이터를 요청하는 간단한 실습을 구현해보았다. 당시 오라클 DB의 테이블을 단순 조회하는 것까지 해보았는데, 이번엔 간단한 CRUD를 구현한 API를 만들어보려고 한다.</p>
+<p>마찬가지로 도커를 이용하여 오라클 DB(Oracle 11g)를 띄워두었고, 스프링부트로 웹서버를 개발하고, MyBatis를 이용하여 DB를 매핑하였다.</p>
+<p>조회(Read)하는건 했으니 이번 포스팅에선 C(Create), U(update), D(delete)를 구현하면 될 것 같다.</p>
+<p>2달만에 다시 하려고 하니 테이블을 다시 만들어야 하는 과정에서 필드 하나를 누락했다. 만약 첫번째 포스팅을 보고 이어서 실습을 하는 분이 계시다면 아래의 테이블 변경부터 하고 튜토리얼을 진행하겠다.</p>
+<p>원래 <code>Members</code> 라는 테이블에 <code>loc</code> 라는 필드가 있었는데, 이를 삭제했다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> MEMBERS</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">COLUMN</span> loc;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>VO 약간의 리팩토링하기</li>
+<li>컨트롤러 리팩토링 및 추가하기</li>
+<li>서비스 생성하기</li>
+<li>DAO 생성하기</li>
+<li>Mapper 쿼리 작성하기</li>
+<li>포스트맨으로 API 조회하여 테스트</li>
+</ul>
+<br>
+
+<h2 id="VO-리팩토링"><a href="#VO-리팩토링" class="headerlink" title="VO 리팩토링"></a>VO 리팩토링</h2><p>지난 포스팅때 VO를 만들면서 Lombok 어노테이션의 <code>@Data</code> 를 사용했는데, 이렇게 하면 어떤 어노테이션을 사용중인지 직관적이지 않다는 생각이 들어서 이를 <code>@Getter</code>, <code>@Setter</code> 어노테이션으로 분리했다.</p>
+<p>그리고 <code>@JsonProperty</code> 어노테이션에 value값을 넣어서 JSON 객체를 주고받을 때, 필드명을 좀 더 분명히 했다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.devandy.web.vo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.annotation.JsonProperty;</span><br><span class="line"><span class="keyword">import</span> lombok.Getter;</span><br><span class="line"><span class="keyword">import</span> lombok.Setter;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Getter</span> <span class="meta">@Setter</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MemberVO</span> </span>&#123;</span><br><span class="line">   <span class="meta">@JsonProperty(value=&quot;id&quot;)</span></span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">   </span><br><span class="line">   <span class="meta">@JsonProperty(value=&quot;name&quot;)</span></span><br><span class="line">   <span class="keyword">private</span> String name;</span><br><span class="line">   </span><br><span class="line">   <span class="meta">@JsonProperty(value=&quot;job&quot;)</span></span><br><span class="line">   <span class="keyword">private</span> String job;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="컨트롤러-리팩토링-및-추가하기"><a href="#컨트롤러-리팩토링-및-추가하기" class="headerlink" title="컨트롤러 리팩토링 및 추가하기"></a>컨트롤러 리팩토링 및 추가하기</h2><p>지난 포스팅때는 <code>@Controller</code> 를 생성해서 각 컨트롤러마다 <code>@ResponseBody</code> 어노테이션을 사용했는데, 화면과 통신하는게 아니라 그저 JSON만 주고받는 컨트롤러이기 때문에 리팩토링을 해보았다.</p>
+<p><code>@RestController</code> 로 생성해서 <code>@ResponseBody</code> 어노테이션을 쓰지않아도 되도록 리팩토링 하였다.</p>
+<h3 id="회원-등록-컨트롤러"><a href="#회원-등록-컨트롤러" class="headerlink" title="회원 등록 컨트롤러"></a>회원 등록 컨트롤러</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PostMapping(&quot;/member/new&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;MemberVO&gt; <span class="title">insertMember</span><span class="params">(<span class="meta">@RequestBody</span> MemberVO member)</span></span>&#123;</span><br><span class="line">   memberService.insertMember(member);</span><br><span class="line">   <span class="keyword">return</span> memberService.selectAllMembers();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>HTTP body로 들어오는 JSON을 가져오기 위해서 컨트롤러의 파라미터 영역에서 <code>@RequestBody</code> 어노테이션을 사용했다.</p>
+<p>서비스단에서 비즈니스 로직을 구현할 예정이므로 아직 생성하지 않은 서비스의 <code>insertMember()</code> 를 호출했다.</p>
+<p>마지막으로 포스트맨에서 API 요청을 하면, 실제로 회원이 성공적으로 추가되었는지를 확인하기 위해 전체 회원을 반환할수있도록 <code>List&lt;&gt;</code> 타입으로 반환타입을 지정하였다.</p>
+<p><code>List&lt;MemberVO&gt;</code> 는 리스트인데, 이 리스트에 들어올 수 있는 타입으로 <code>MemberVO</code> 클래스로만 고정하는 제너릭 타입이다.</p>
+<h3 id="회원-수정-컨트롤러"><a href="#회원-수정-컨트롤러" class="headerlink" title="회원 수정 컨트롤러"></a>회원 수정 컨트롤러</h3><p>어떤 멤버를 수정할지를 URL에 id값을 받아서 해당 회원정보를 HTTP body에 들어온 JSON 데이터로 변경하는 컨트롤러를 생성했다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PutMapping(&quot;/member/&#123;id&#125;&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;MemberVO&gt; <span class="title">updateMember</span><span class="params">(<span class="meta">@PathVariable</span> <span class="keyword">int</span> id, <span class="meta">@RequestBody</span> MemberVO member)</span></span>&#123;</span><br><span class="line">   memberService.updateMember(id, member);</span><br><span class="line">   <span class="keyword">return</span> memberService.selectAllMembers();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>RESTful한 API를 위해 회원 수정 API는 HTTP PUT 메서드를 받도록(<code>@PutMapping</code>) 개발했다.</p>
+<p>쿼리스트링이 아닌 REST 방식으로 URL을 설계하였으며, 이를 위해 컨트롤러의 파라미터에 <code>@PathVariable</code> 어노테이션을 사용하여 URL로 들어오는 <code>id</code> 값을 매핑처리하였다.</p>
+<p>서비스에 <code>id</code>값과 <code>MemberVO</code> 를 인자로 받는 <code>updateMember()</code>를 호출하도록 하였다. 향후 이 서비스에서 <code>id</code>값으로 회원을 찾아서 해당 회원에 대한 정보를 인자로 들어온 <code>member</code> 변수로 변경할 것이다.</p>
+<h3 id="회원-삭제-컨트롤러"><a href="#회원-삭제-컨트롤러" class="headerlink" title="회원 삭제 컨트롤러"></a>회원 삭제 컨트롤러</h3><p>마찬가지로 RESTful한 API 설계를 위해 HTTP DELETE 메서드를 받도록 처리하였다. (<code>@DeleteMapping()</code>)</p>
+<p>회원 삭제 컨트롤러도 회원 수정 컨트롤러와 마찬가지로 URL로 들어오는 id값을 인자로 가져와서 해당 멤버를 조회후 삭제하는 로직을 태웠다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@DeleteMapping(&quot;/member/&#123;id&#125;&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;MemberVO&gt; <span class="title">deleteMember</span><span class="params">(<span class="meta">@PathVariable</span> <span class="keyword">int</span> id)</span></span>&#123;</span><br><span class="line">  memberService.deleteMember(id);</span><br><span class="line">  <span class="keyword">return</span> memberService.selectAllMembers();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>Github에 소스코드를 공개해두었다.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/youngjinmo/MyBatisOraclePractice/blob/26ec2f4e89/src/main/java/com/devandy/web/controller/MemberController.java">MemberController.java</a></p>
+<br>
+
+<h2 id="서비스-생성하기"><a href="#서비스-생성하기" class="headerlink" title="서비스 생성하기"></a>서비스 생성하기</h2><p>인터페이스를 먼저 생성해보자.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.devandy.web.service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> com.devandy.web.vo.MemberVO;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MemberService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function">List&lt;MemberVO&gt; <span class="title">selectAllMembers</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">insertMember</span><span class="params">(MemberVO member)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">updateMember</span><span class="params">(<span class="keyword">int</span> id, MemberVO member)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">deleteMember</span><span class="params">(<span class="keyword">int</span> id)</span></span>;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>이제 인터페이스의 구현체를 생성해보자.</p>
+<h3 id="회원-등록-서비스"><a href="#회원-등록-서비스" class="headerlink" title="회원 등록 서비스"></a>회원 등록 서비스</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertMember</span><span class="params">(MemberVO member)</span> </span>&#123;</span><br><span class="line">   memberDao.insert(member);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>DB에 회원 생성 쿼리를 날려야 하므로 DAO의 메서드에 <code>member</code> 객체를 파라미터로 담아서 호출만 하면 된다.</p>
+<h3 id="회원-수정-서비스"><a href="#회원-수정-서비스" class="headerlink" title="회원 수정 서비스"></a>회원 수정 서비스</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateMember</span><span class="params">(<span class="keyword">int</span> id, MemberVO updateMember)</span> </span>&#123;</span><br><span class="line">  MemberVO member = memberDao.selectById(id);</span><br><span class="line">  <span class="keyword">if</span>(member!=<span class="keyword">null</span>)&#123;</span><br><span class="line">    member.setName(updateMember.getName());</span><br><span class="line">    member.setJob(updateMember.getJob());</span><br><span class="line">    memberDao.update(member);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(<span class="string">&quot;회원이 존재하지 않습니다.&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>회원 수정을 하기 위해서 파라미터로 받은게 두가지가 있다. 하나는 수정할 대상 회원의 id와 변경할 부분의 JSON 값.</p>
+<p>먼저 수정 대상인 회원이 존재하는지 여부를 확인(<code>memberDao.selectById(id)!=null</code>)하고, 그렇지 않으면 <code>IllegalStateException()</code> 에 메세지를 작성하여 콘솔에 출력하도록 하였다. 이 예외처리가 발생하면 클라이언트는 500 HTTP 상태 코드를 전달 받을 것이다.</p>
+<p>DAO에서 id값으로 회원을 조회한 결과가 <code>null</code>이 아니라면, 회원이 존재하므로 회원 객체에 JSON으로 넘어온 값에서 <code>name</code> 과 <code>job</code> 을 set해주고, 수정 쿼리를 날려주는 DAO의 <code>update(member)</code> 를 호출한다.</p>
+<h3 id="회원-삭제-서비스"><a href="#회원-삭제-서비스" class="headerlink" title="회원 삭제 서비스"></a>회원 삭제 서비스</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteMember</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">if</span>(memberDao.selectById(id)!=<span class="keyword">null</span>)&#123;</span><br><span class="line">      memberDao.delete(id);</span><br><span class="line">   &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(<span class="string">&quot;회원이 존재하지 않습니다.&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>회원 삭제 서비스도 수정과 마찬가지로 회원이 존재하는지를 확인하고, 없으면 500 상태코드와 함께 콘솔에 메세지를 출력하고, DAO의 삭제 쿼리를 호출한다.</p>
+<br>
+
+<p>Github에 소스코드를 공개해두었다.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/youngjinmo/MyBatisOraclePractice/blob/26ec2f4e89/src/main/java/com/devandy/web/service/MemberServiceImpl.java">MemberServiceImpl.java</a></p>
+<br>
+
+<h2 id="DAO-생성하기"><a href="#DAO-생성하기" class="headerlink" title="DAO 생성하기"></a>DAO 생성하기</h2><p>DAO는 인터페이스이므로 DB 제어가 필요한 메서드만 만들어두었다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.devandy.web.dao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.devandy.web.vo.MemberVO;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.annotations.Mapper;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Mapper</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MemberDao</span> </span>&#123;</span><br><span class="line">   <span class="function">List&lt;MemberVO&gt; <span class="title">selectAll</span><span class="params">()</span></span>;</span><br><span class="line">   <span class="function">MemberVO <span class="title">selectById</span><span class="params">(<span class="keyword">int</span> id)</span></span>;</span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(MemberVO member)</span></span>;</span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(MemberVO member)</span></span>;</span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">delete</span><span class="params">(<span class="keyword">int</span> id)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Service와-DAO-차이"><a href="#Service와-DAO-차이" class="headerlink" title="Service와 DAO 차이"></a>Service와 DAO 차이</h3><p>간단한 실습 튜토리얼이다 보니 서비스와 DAO가 비슷해보이는 측면이 있다. 그러나 서비스와 DAO는 엄연히 다른 개념이다.</p>
+<p>서비스가 DAO를 포함한 비즈니스 로직을 의미한다면, DAO는 실제로 쿼리를 이용하여 DB와 통신이 필요한 로직에만 해당한다.</p>
+<p><strong>함께 읽으면 좋을 글</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://okky.kr/article/179628">OKKY - DAO랑 Service랑 차이가 없던데 무슨차이죠?</a></li>
+</ul>
+<br>
+
+<h2 id="Mapper-쿼리-작성하기"><a href="#Mapper-쿼리-작성하기" class="headerlink" title="Mapper 쿼리 작성하기"></a>Mapper 쿼리 작성하기</h2><p>DAO에 의하여 실제로 DB와 통신할 쿼리가 작성될 곳이다.</p>
+<p>Mapper 쿼리에서 사용하는 id값은 DAO에서 작성한 메서드명과 매핑된다.</p>
+<h3 id="ID값으로-회원조회하는-Mapper-쿼리"><a href="#ID값으로-회원조회하는-Mapper-쿼리" class="headerlink" title="ID값으로 회원조회하는 Mapper 쿼리"></a>ID값으로 회원조회하는 Mapper 쿼리</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;selectById&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;int&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;MemberVO&quot;</span>&gt;</span></span><br><span class="line">   SELECT *</span><br><span class="line">   FROM MEMBERS</span><br><span class="line">   WHERE id = #&#123;id&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>조회하는 쿼리이므로 <code>&lt;select&gt;</code> 태그를 사용하였으며, 파라미터 타입으로 id의 타입인 <code>int</code>, 반환 타입은 SELECT 결과에 따른 멤버 객체를 지정하였다.</p>
+<p>Mapper 쿼리에서 사용하는 id값은 DAO에서 작성한 메서드명과 매핑된다.</p>
+<h3 id="회원-등록-Mapper-쿼리"><a href="#회원-등록-Mapper-쿼리" class="headerlink" title="회원 등록 Mapper 쿼리"></a>회원 등록 Mapper 쿼리</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">&quot;insert&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;MemberVO&quot;</span>&gt;</span></span><br><span class="line">   INSERT INTO MEMBERS(id, name, job)</span><br><span class="line">   VALUES(id_seq.nextval, #&#123;name&#125;, #&#123;job&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">insert</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>JSON으로 가져온 멤버 객체를 파라미터로 받아서 각 필드에 INSERT 했다. 여기서 id는 시퀀스로 생성했기 때문에 임의로 입력하는 대신 오라클 시퀀스에 의해 자동으로 값을 생성해서 INSERT하도록 하였다.</p>
+<h3 id="회원-수정-Mapper-쿼리"><a href="#회원-수정-Mapper-쿼리" class="headerlink" title="회원 수정 Mapper 쿼리"></a>회원 수정 Mapper 쿼리</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">update</span> <span class="attr">id</span>=<span class="string">&quot;update&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;MemberVO&quot;</span>&gt;</span></span><br><span class="line">   UPDATE MEMBERS</span><br><span class="line">   SET name = #&#123;name&#125;,</span><br><span class="line">       job = #&#123;job&#125;</span><br><span class="line">   WHERE id = #&#123;id&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">update</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="회원-삭제-Mapper-쿼리"><a href="#회원-삭제-Mapper-쿼리" class="headerlink" title="회원 삭제 Mapper 쿼리"></a>회원 삭제 Mapper 쿼리</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">delete</span> <span class="attr">id</span>=<span class="string">&quot;delete&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;int&quot;</span>&gt;</span></span><br><span class="line">   DELETE MEMBERS</span><br><span class="line">   WHERE id = #&#123;id&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">delete</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>Github에 소스코드를 공개해두었다.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/youngjinmo/MyBatisOraclePractice/blob/26ec2f4e89/src/main/resources/mappers/MemberDaoImpl.xml">MemberDaoImpl.xml</a></p>
+<br>
+
+<h2 id="포스트맨으로-API-조회하여-테스트"><a href="#포스트맨으로-API-조회하여-테스트" class="headerlink" title="포스트맨으로 API 조회하여 테스트"></a>포스트맨으로 API 조회하여 테스트</h2><h3 id="회원-등록-API-테스트"><a href="#회원-등록-API-테스트" class="headerlink" title="회원 등록 API 테스트"></a>회원 등록 API 테스트</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST  &#x2F;member&#x2F;new</span><br></pre></td></tr></table></figure>
+
+<p>포스트맨에서 요청할 때 Body에 JSON 객체를 담아야 하므로 아래의 이미지처럼 JSON 형태로 작성해서 API를 요청했다.</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/104151219-c7ef4c00-541f-11eb-97dd-c4c699a37e52.png"></p>
+<p>Body에 담은 JSON 객체가 성공적으로 회원 목록에 포함된걸 확인했다. <code>id</code>가 6이 아니라 8로 입력된 이유는 이 스크린샷을 찍기 전에 테스트를 하느라 시퀀스를 소비(?)했기 때문이다.</p>
+<h3 id="회원-수정-API-테스트"><a href="#회원-수정-API-테스트" class="headerlink" title="회원 수정 API 테스트"></a>회원 수정 API 테스트</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PUT  &#x2F;member&#x2F;&#123;id&#125;</span><br></pre></td></tr></table></figure>
+
+<p>이번엔 아까 등록해둔 Zidane이라는 회원의 <code>job</code>을 변경하는 수정 API를 요청해보았다.</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/104151225-ca51a600-541f-11eb-96d9-ebb2c87e013f.png"></p>
+<p>반환받은 회원목록에서 Zidane 회원의 <code>job</code>이 Coach에서 Legend로 성공적으로 바뀐것을 확인하였다.</p>
+<h3 id="회원-삭제-API-테스트"><a href="#회원-삭제-API-테스트" class="headerlink" title="회원 삭제 API 테스트"></a>회원 삭제 API 테스트</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DELETE  &#x2F;member&#x2F;&#123;id&#125;</span><br></pre></td></tr></table></figure>
+
+<p>이번엔 Zidane 회원을 삭제하는 API를 요청해보았다.</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/104151229-ccb40000-541f-11eb-8a5a-d552c3b7c132.png"></p>
+<p>성공했다!</p>
+<br>
+        </div>
+        <footer class="article-footer">
+            <script src="https://utteranc.es/client.js"
+        repo="youngjinmo/githubpages-comment"
+        issue-term="url"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Youngjin Mo"
+        },
+        "headline": "SpringBoot + MyBatis + Oracle(with Docker) CRUD 구현해보기",
+        "image": "../../../http:/youngjinmo.github.iohttps:/user-images.githubusercontent.com/33862991/97108403-a8922e00-1710-11eb-9e42-b093ed1857d8.png",
+        "keywords": "oracle tutorial docker springboot mybatis",
+        "genre": "Dev Springboot",
+        "datePublished": "2021-01-10",
+        "dateCreated": "2021-01-10",
+        "dateModified": "2021-01-11",
+        "url": "../../../http:/youngjinmo.github.io/2021/01/springboot-mybatis-oracle2/",
+        "description": "
+지난 포스팅에서 스프링부트로 만든 API로 오라클RDBMS에 데이터를 요청하는 간단한 실습을 구현해보았다. 당시 오라클 DB의 테이블을 단순 조회하는 것까지 해보았는데, 이번엔 간단한 CRUD를 구현한 API를 만들어보려고 한다.
+마찬가지로 도커를 이용하여 오라클 DB(Oracle 11g)를 띄워두었고, 스프링부트로 웹서버를 개발하고, MyBatis를 이",
+        "wordCount": 1482
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+
+<script data-ad-client="ca-pub-9881527334918017" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="../../../https:/twitter.com/devandy_yj" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="../../../https:/github.com/youngjinmo" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../atom.xml" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="../spring-request-parameter/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Spring에서 URL로 파라미터를 받는 방법 2가지</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/33862991/97108403-a8922e00-1710-11eb-9e42-b093ed1857d8.png)" alt="SpringBoot + MyBatis + Oracle(with Docker) CRUD 구현해보기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Springboot/">Springboot</a></p>
+                            <p class="item-title"><a href="" class="title">SpringBoot + MyBatis + Oracle(with Docker) CRUD 구현해보기</a></p>
+                            <p class="item-date"><time datetime="2021-01-10T06:02:13.000Z" itemprop="datePublished">2021-01-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../spring-request-parameter/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/33862991/104125838-b1ec7780-539c-11eb-8e7c-26ac78f2978b.jpeg)" alt="Spring에서 URL로 파라미터를 받는 방법 2가지" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/SpringBoot/">SpringBoot</a></p>
+                            <p class="item-title"><a href="../spring-request-parameter/" class="title">Spring에서 URL로 파라미터를 받는 방법 2가지</a></p>
+                            <p class="item-date"><time datetime="2021-01-10T05:19:53.000Z" itemprop="datePublished">2021-01-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../livestudy-week-01/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg)" alt="Live Study 1주차 - JVM은 무엇이며 자바 코드는 어떻게 실행하는 것인가" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../livestudy-week-01/" class="title">Live Study 1주차 - JVM은 무엇이며 자바 코드는 어떻게 실행하는 것인가</a></p>
+                            <p class="item-date"><time datetime="2021-01-04T05:50:50.000Z" itemprop="datePublished">2021-01-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../2020/12/enable-livereload/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/8vxDyBa3NmxhsWZ0QpNWfBJPFKVGz24cNI0oixDqyZpAMQriDLAe9f6Wk9xfWWsDVzka_ugUnTRNpAk7YAkCkzRidA=w640-h400-e365-rj-sc0x00ffffff)" alt="인텔리제이에서 Livereload 적용하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Springboot/">Springboot</a></p>
+                            <p class="item-title"><a href="../../../2020/12/enable-livereload/" class="title">인텔리제이에서 Livereload 적용하기</a></p>
+                            <p class="item-date"><time datetime="2020-12-29T20:13:52.000Z" itemprop="datePublished">2020-12-30</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../../2020/12/change-jdk-intellij/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/33862991/103204019-bd21bb00-4939-11eb-9f4c-1d4695bae57b.png)" alt="인텔리J에서 스프링부트 프로젝트 JDK 버전 변경하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Springboot/">Springboot</a></p>
+                            <p class="item-title"><a href="../../../2020/12/change-jdk-intellij/" class="title">인텔리J에서 스프링부트 프로젝트 JDK 버전 변경하기</a></p>
+                            <p class="item-date"><time datetime="2020-12-28T00:51:57.000Z" itemprop="datePublished">2020-12-28</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../tags/BufferedReader/" style="font-size: 10px;">BufferedReader</a> <a href="../../../tags/BufferedWriter/" style="font-size: 10px;">BufferedWriter</a> <a href="../../../tags/IO/" style="font-size: 10px;">IO</a> <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 11.11px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/annotation/" style="font-size: 10px;">annotation</a> <a href="../../../tags/api/" style="font-size: 10px;">api</a> <a href="../../../tags/architecture/" style="font-size: 10px;">architecture</a> <a href="../../../tags/array/" style="font-size: 11.11px;">array</a> <a href="../../../tags/aws/" style="font-size: 12.22px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blacklivesmatter/" style="font-size: 10px;">blacklivesmatter</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 12.22px;">career</a> <a href="../../../tags/casting/" style="font-size: 12.22px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/cloud/" style="font-size: 12.22px;">cloud</a> <a href="../../../tags/contribution/" style="font-size: 10px;">contribution</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/databse/" style="font-size: 10px;">databse</a> <a href="../../../tags/datastructure/" style="font-size: 12.22px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 14.44px;">docker</a> <a href="../../../tags/documentation/" style="font-size: 10px;">documentation</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 12.22px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generic/" style="font-size: 10px;">generic</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 13.33px;">github</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 14.44px;">http</a> <a href="../../../tags/ide/" style="font-size: 10px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 13.33px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 11.11px;">interface</a> <a href="../../../tags/io/" style="font-size: 12.22px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 15.56px;">java</a> <a href="../../../tags/java8/" style="font-size: 11.11px;">java8</a> <a href="../../../tags/javascript/" style="font-size: 14.44px;">javascript</a> <a href="../../../tags/javscript/" style="font-size: 10px;">javscript</a> <a href="../../../tags/jquery/" style="font-size: 11.11px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/junit/" style="font-size: 10px;">junit</a> <a href="../../../tags/jvm/" style="font-size: 11.11px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 10px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/license/" style="font-size: 10px;">license</a> <a href="../../../tags/livereload/" style="font-size: 10px;">livereload</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 11.11px;">mustache</a> <a href="../../../tags/mybatis/" style="font-size: 11.11px;">mybatis</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 15.56px;">oop</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/readme/" style="font-size: 10px;">readme</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 12.22px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 13.33px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 16.67px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/stock/" style="font-size: 10px;">stock</a> <a href="../../../tags/string/" style="font-size: 14.44px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/terminal/" style="font-size: 10px;">terminal</a> <a href="../../../tags/tip/" style="font-size: 15.56px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 17.78px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 11.11px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/vue/" style="font-size: 10px;">vue</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 18.89px;">weekly-review</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2021 Youngjin Mo</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+    
+        
+<script src="../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="../../../js/main.js"></script>
+
+
+</body>
+</html>
