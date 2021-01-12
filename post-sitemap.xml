@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/2020/12/springboot-helloworld/</loc>
+        <lastmod>2021-01-12T13:19:56.076Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/2021/01/livestudy-week-02/</loc>
         <lastmod>2021-01-12T10:19:25.446Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -83,14 +91,6 @@
     <url>
         <loc>http://youngjinmo.github.io/2020/12/change-jdk-intellij/</loc>
         <lastmod>2020-12-28T09:55:31.480Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2020/12/springboot-helloworld/</loc>
-        <lastmod>2020-12-27T13:36:13.385Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -251,14 +251,6 @@
     <url>
         <loc>http://youngjinmo.github.io/2020/11/lombok/</loc>
         <lastmod>2020-11-30T06:24:54.408Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2020/11/weeklyreview-2020-nov-fifth/</loc>
-        <lastmod>2020-11-30T01:28:07.536Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

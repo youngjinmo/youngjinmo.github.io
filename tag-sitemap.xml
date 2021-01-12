@@ -3,6 +3,20 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/tags/mustache/</loc>
+        <lastmod>2021-01-12T13:19:56.076Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/tags/tutorial/</loc>
+        <lastmod>2021-01-12T13:19:56.076Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/tags/jvm/</loc>
         <lastmod>2021-01-11T14:52:27.248Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -25,13 +39,6 @@
 
     <url>
         <loc>http://youngjinmo.github.io/tags/docker/</loc>
-        <lastmod>2021-01-11T06:24:28.705Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/tags/tutorial/</loc>
         <lastmod>2021-01-11T06:24:28.705Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -96,13 +103,6 @@
     <url>
         <loc>http://youngjinmo.github.io/tags/intellij/</loc>
         <lastmod>2020-12-30T09:33:50.809Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/tags/mustache/</loc>
-        <lastmod>2020-12-27T13:36:13.385Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -248,13 +248,6 @@
     </url>
 
     <url>
-        <loc>http://youngjinmo.github.io/tags/weekly-review/</loc>
-        <lastmod>2020-11-30T01:28:07.536Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://youngjinmo.github.io/tags/readme/</loc>
         <lastmod>2020-11-26T01:35:46.839Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -383,6 +376,13 @@
     <url>
         <loc>http://youngjinmo.github.io/tags/casting/</loc>
         <lastmod>2020-09-13T01:53:29.880Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/tags/weekly-review/</loc>
+        <lastmod>2020-09-13T01:53:29.804Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
