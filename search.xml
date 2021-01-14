@@ -22,7 +22,9 @@
       
         <tags>
             
-            <tag> jvm </tag>
+            <tag> lambda </tag>
+            
+            <tag> operator </tag>
             
         </tags>
       
@@ -46,6 +48,12 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> casting </tag>
+            
+        </tags>
       
     </entry>
     

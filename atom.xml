@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-01-14T16:00:05.418Z</updated>
+  <updated>2021-01-14T16:04:14.548Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://youngjinmo.github.io/2021/01/livestudy-week-03/"/>
     <id>http://youngjinmo.github.io/2021/01/livestudy-week-03/</id>
     <published>2021-01-14T13:49:08.000Z</published>
-    <updated>2021-01-14T16:00:05.418Z</updated>
+    <updated>2021-01-14T16:04:14.548Z</updated>
     
     
       
@@ -42,7 +42,9 @@
     <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
     
     
-    <category term="jvm" scheme="http://youngjinmo.github.io/tags/jvm/"/>
+    <category term="lambda" scheme="http://youngjinmo.github.io/tags/lambda/"/>
+    
+    <category term="operator" scheme="http://youngjinmo.github.io/tags/operator/"/>
     
   </entry>
   
@@ -51,7 +53,7 @@
     <link href="http://youngjinmo.github.io/2021/01/livestudy-week-02/"/>
     <id>http://youngjinmo.github.io/2021/01/livestudy-week-02/</id>
     <published>2021-01-11T22:05:30.000Z</published>
-    <updated>2021-01-12T10:19:25.446Z</updated>
+    <updated>2021-01-14T16:04:11.384Z</updated>
     
     
       
@@ -70,6 +72,8 @@
     
     <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
     
+    
+    <category term="casting" scheme="http://youngjinmo.github.io/tags/casting/"/>
     
   </entry>
   
