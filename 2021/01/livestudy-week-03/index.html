@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Live Study 3주차 - 연산자 | DevAndy - 개발자앤디의 개발블로그</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="jvm" />
+    
+    <meta name="description" content="산술 연산자 비트 연산자 관계 연산자 논리 연산자 instanceof assignment(&#x3D;) operator 3항 연산자 연산자 우선 순위 화살표(-&gt;) 연산자    산술 연산자수학 연산을 처리하는 연산자이다.  + : 더하기 연산자 - : 빼기 연산자 * : 곱하기 연산자 &#x2F; : 나누기 연산자 % : 나머지 연산자  123456789public">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Live Study 3주차 - 연산자">
+<meta property="og:url" content="http://youngjinmo.github.io/2021/01/livestudy-week-03/index.html">
+<meta property="og:site_name" content="DevAndy - 개발자앤디의 개발블로그">
+<meta property="og:description" content="산술 연산자 비트 연산자 관계 연산자 논리 연산자 instanceof assignment(&#x3D;) operator 3항 연산자 연산자 우선 순위 화살표(-&gt;) 연산자    산술 연산자수학 연산을 처리하는 연산자이다.  + : 더하기 연산자 - : 빼기 연산자 * : 곱하기 연산자 &#x2F; : 나누기 연산자 % : 나머지 연산자  123456789public">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg">
+<meta property="article:published_time" content="2021-01-14T13:49:08.000Z">
+<meta property="article:modified_time" content="2021-01-14T16:00:05.418Z">
+<meta property="article:author" content="Youngjin Mo">
+<meta property="article:tag" content="jvm">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg">
+<meta name="twitter:creator" content="@devandy_yj">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="DevAndy - 개발자앤디의 개발블로그" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="../../../css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="../../../libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="../../../libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="../../../libs/source-code-pro/styles.css">
+
+    
+<link rel="stylesheet" href="../../../css/style.css">
+
+	<!-- <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">  -->
+	<style type="text/css">
+		@font-face {
+		  font-family: 'Jeju Myeongjo';
+		  font-style: normal;
+		  font-weight: 400;
+		  src: url(//fonts.gstatic.com/ea/jejumyeongjo/v3/JejuMyeongjo-Regular.eot);
+		  src: url(//fonts.gstatic.com/ea/jejumyeongjo/v3/JejuMyeongjo-Regular.eot?#iefix) format('embedded-opentype'),
+			   url(//fonts.gstatic.com/ea/jejumyeongjo/v3/JejuMyeongjo-Regular.woff2) format('woff2'),
+			   url(//fonts.gstatic.com/ea/jejumyeongjo/v3/JejuMyeongjo-Regular.woff) format('woff'),
+			   url(//fonts.gstatic.com/ea/jejumyeongjo/v3/JejuMyeongjo-Regular.ttf) format('truetype');
+		}
+		/* @font-face { font-family: 'BMHANNAAir'; 
+					src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.0/BMHANNAAir.woff') format('woff'); 
+					font-weight: normal; 
+					font-style: normal; 
+		}  */
+	</style>
+
+    
+<script src="../../../libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-177850483-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../index.html">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Articles/">Articles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/">Dev</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Front-end/">Front-end</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Others/">Others</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/SpringBoot/">SpringBoot</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Springboot/">Springboot</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Web/">Web</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Review/">Review</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Thought/">Thought</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Quiz/">Quiz</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../https:/github.com/youngjinmo/youngjinmo">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="../../../js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Java/">Java</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-livestudy-week-03" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Live Study 3주차 - 연산자
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta" style="margin-bottom: 1em;">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="" class="article-date">
+       <time datetime="2021-01-14T13:49:08.000Z" itemprop="datePublished">2021-01-14</time>
+    </a>
+  </div>
+
+<!-- 
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="" class="article-date">
+     <time datetime="2021-01-14T16:00:05.418Z" itemprop="dateModified">2021-01-15</time>
+  </a>
+</div>
+
+ -->
+                
+
+				<!-- 	count-time		 -->
+				<span class="reading-time" style="margin-left: 20px;">
+					⏱ 27 min.
+				</span>
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="../../../tags/jvm/" rel="tag">jvm</a>
+    </div>
+
+                <!-- partial('post/valinecounter') 
+                <!-- partial('post/counter') -->
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg"></p>
+<ul>
+<li><a href="#arithmetic">산술 연산자</a></li>
+<li><a href="#shift">비트 연산자</a></li>
+<li><a href="#relatioal">관계 연산자</a></li>
+<li><a href="#logical">논리 연산자</a></li>
+<li><a href="#instanceof">instanceof</a></li>
+<li><a href="#assignment">assignment(=) operator</a></li>
+<li><a href="#ternary">3항 연산자</a></li>
+<li><a href="#priority">연산자 우선 순위</a></li>
+<li><a href="#arrow">화살표(-&gt;) 연산자</a></li>
+</ul>
+<br>
+
+<h1 id="산술-연산자"><a href="#산술-연산자" class="headerlink" title="산술 연산자"></a><a name="arithmetic"></a>산술 연산자</h1><p>수학 연산을 처리하는 연산자이다.</p>
+<ul>
+<li><code>+</code> : 더하기 연산자</li>
+<li><code>-</code> : 빼기 연산자</li>
+<li><code>*</code> : 곱하기 연산자</li>
+<li><code>/</code> : 나누기 연산자</li>
+<li><code>%</code> : 나머지 연산자</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudyHalle</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      <span class="keyword">int</span> num1 = <span class="number">1</span>+<span class="number">1</span>;          <span class="comment">// 2</span></span><br><span class="line">      <span class="keyword">float</span> num2 = <span class="number">1.25f</span>-<span class="number">0.5f</span>; <span class="comment">// 0.75</span></span><br><span class="line">      <span class="keyword">int</span> num2 = <span class="number">11</span>*<span class="number">3</span>;         <span class="comment">// 33</span></span><br><span class="line">      <span class="keyword">float</span> num3 = <span class="number">0.1f</span>/<span class="number">0.2f</span>   <span class="comment">// 0.5</span></span><br><span class="line">      <span class="keyword">int</span> num4 = <span class="number">10</span>%<span class="number">3</span>;         <span class="comment">// 1</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h1 id="비트-연산자"><a href="#비트-연산자" class="headerlink" title="비트 연산자"></a><a name="shift"></a>비트 연산자</h1><p>비트 연산은 개발할때 해본적이 없어서 좀 생소했다.</p>
+<p>일단 비트는 0과 1만 표현할 수 있기 때문에 비트 연산 역시 0과 1로 이뤄진다.</p>
+<h3 id="amp-AND-연산자"><a href="#amp-AND-연산자" class="headerlink" title="&amp; (AND 연산자)"></a>&amp; (AND 연산자)</h3><p><code>x &amp; y</code> : x,y 모두 1일 때에만 1을 반환</p>
+<p><code>0101 &amp; 0111</code> 을 검토해보면, 각각의 자릿수를 비교해보면 두번째와 4번째 비트만 모두 1이므로 결과는 <code>0101</code>이 된다.</p>
+<p>인텔리제이에서 실제로 비트 연산이 이뤄지는지 확인해보았다. IDE에서 바이너리 코드를 보고 싶다면, <code>Integer</code> 객체의 <code>toBinaryString()</code> 메서드를 이용하면 볼수 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">5</span>;   <span class="comment">// 0101</span></span><br><span class="line"><span class="keyword">int</span> b = <span class="number">7</span>;   <span class="comment">// 0111</span></span><br><span class="line">System.out.println(<span class="string">&quot;a &amp; b : &quot;</span>+(a&amp;b));  <span class="comment">// a &amp; b : 5</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="OR-연산자"><a href="#OR-연산자" class="headerlink" title="| (OR 연산자)"></a>| (OR 연산자)</h3><p><code>x | y</code> : x,y 중 하나라도 1이면 1을 반환</p>
+<p><code>1010 | 0100</code> 을 검토해보면, 둘중 하나라도 1인 비트는 첫번째, 두번째, 세번째 비트이므로 결과는 <code>1110</code> 이 된다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> c = <span class="number">10</span>;  <span class="comment">// 1010</span></span><br><span class="line"><span class="keyword">int</span> d = <span class="number">4</span>;   <span class="comment">// 0100</span></span><br><span class="line">System.out.println(<span class="string">&quot;c | d : &quot;</span>+(c|d));  <span class="comment">// c | d : 14</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="XOR-연산자"><a href="#XOR-연산자" class="headerlink" title="^ (XOR 연산자)"></a>^ (XOR 연산자)</h3><p><code>x ^ y</code> : x, y가 서로다를때 1을 반환</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> e = <span class="number">10</span>;  <span class="comment">// 0000 1010</span></span><br><span class="line"><span class="keyword">int</span> f = <span class="number">20</span>;  <span class="comment">// 0001 0100</span></span><br><span class="line">System.out.println(<span class="string">&quot;e ^ f : &quot;</span>+(e^f));  <span class="comment">// e ^ f : 30</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="NOT-연산자"><a href="#NOT-연산자" class="headerlink" title="~ (NOT 연산자)"></a>~ (NOT 연산자)</h3><p><code>~</code> : 비트를 1이면 0, 0이면 1로 반환</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> num = <span class="number">10</span>;  <span class="comment">// 0000 1010</span></span><br><span class="line"><span class="comment">// ~num : 1 0101</span></span><br><span class="line">System.out.println(<span class="string">&quot;~num : &quot;</span>+(~num)); <span class="comment">// ~num : -11</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="lt-lt-Left-shift-연산자"><a href="#lt-lt-Left-shift-연산자" class="headerlink" title="&lt;&lt; (Left shift 연산자)"></a>&lt;&lt; (Left shift 연산자)</h3><p><code>x &lt;&lt; y</code> : x의 비트를 왼쪽으로 y만큼 이동(빈자리는 0으로 채움)</p>
+<p><code>0011 &lt;&lt; 0010</code> 을 검토해보면, <code>0011</code>을 왼쪽으로 <code>0010</code> 만큼 이동해야 한다. <code>0010</code> 은 십진수로 2이므로 <code>0011</code> 의 비트를 왼쪽으로 2만큼 이동하면, <code>1100</code>이 된다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> g = <span class="number">3</span>;  <span class="comment">// 0011</span></span><br><span class="line"><span class="keyword">int</span> h = <span class="number">2</span>;  <span class="comment">// 0010</span></span><br><span class="line"><span class="comment">// 0011 &lt;&lt; 0010 = 1100</span></span><br><span class="line">System.out.println(<span class="string">&quot;g &lt;&lt; h : &quot;</span>+(g&lt;&lt;h));  <span class="comment">// g &lt;&lt; h : 12</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="gt-gt-Right-shift-연산자"><a href="#gt-gt-Right-shift-연산자" class="headerlink" title="&gt;&gt; (Right shift 연산자)"></a>&gt;&gt; (Right shift 연산자)</h3><p><code>x &gt;&gt; y</code> : x의 비트를 y만큼 오른쪽으로 이동(빈자리는 a)</p>
+<p><code>-8 &gt;&gt; 2</code> 를 검토해보자. 음의 십진수 -8의 비트는 다음과 같다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = -<span class="number">8</span>;</span><br><span class="line">System.out.println(i+<span class="string">&quot; : &quot;</span>+Integer.toBinaryString(i));</span><br><span class="line"><span class="comment">// -8 : 1 1000</span></span><br></pre></td></tr></table></figure>
+
+<p>이 수를 오른쪽으로 비트를 2만큼 이동하면, <code>1 1110</code> 이므로 -2가 된다.</p>
+<blockquote>
+<p>비트로 십진수 음수를 표현하는 방법<br>출처 : <a target="_blank" rel="noopener" href="https://m.blog.naver.com/PostView.nhn?blogId=mayu-story&logNo=220507028861&proxyReferer=https://www.google.com/">마유의 전자 이야기 - 음수 십진수를 음수 이진수로 표현 하는 방법</a></p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = -<span class="number">8</span>;  <span class="comment">// 1 1000</span></span><br><span class="line"><span class="keyword">int</span> j = <span class="number">2</span>;   <span class="comment">// 0010</span></span><br><span class="line"><span class="comment">// 오른쪽으로 2만큼 비트 이동하면 </span></span><br><span class="line"><span class="comment">// 1 1110</span></span><br><span class="line">System.out.println(<span class="string">&quot;i &gt;&gt; j : &quot;</span>+(i&gt;&gt;j));  <span class="comment">// i &gt;&gt; j : -2</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="gt-gt-gt-Unsigned-right-shift-연산자"><a href="#gt-gt-gt-Unsigned-right-shift-연산자" class="headerlink" title="&gt;&gt;&gt; (Unsigned right shift 연산자)"></a>&gt;&gt;&gt; (Unsigned right shift 연산자)</h3><ul>
+<li><code>x &gt;&gt;&gt; y</code> : <code>&gt;&gt;</code> (Right shift 연산자)와 기본적으로 같지만, <strong>오른쪽으로 밀려나면서 생기는 비트 왼쪽의 공백은 최상위 부호 비트가 아니라 0으로 채워진다.</strong> 따라서 양수이건 음수이건 항상 양수로 반환된다.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = -<span class="number">8</span>;  <span class="comment">// 1 1000</span></span><br><span class="line"><span class="keyword">int</span> j = <span class="number">2</span>;   <span class="comment">// 0010</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Unsigned right shift는 항상 양수를 반환하므로</span></span><br><span class="line"><span class="comment">// 1073741822</span></span><br><span class="line">System.out.println(<span class="string">&quot;i &gt;&gt;&gt; j : &quot;</span>+(i&gt;&gt;&gt;j));  <span class="comment">// i &gt;&gt;&gt; j : 1073741822</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>출처</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://coding-factory.tistory.com/521">코딩팩토리 [Java] 비트(Shift) 연산자 사용법 &amp; 예제</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/bitwise-operators-in-java/">Geeks for Geeks - Bitwise operators in Java</a></li>
+</ul>
+<br>
+
+<h1 id="관계-연산자"><a href="#관계-연산자" class="headerlink" title="관계 연산자"></a><a name="relational"></a>관계 연산자</h1><ul>
+<li><code>x &gt; y</code> : x가 y보다 크면 true, x가 y와 같거나 작으면 false 반환 </li>
+<li><code>x &lt; y</code> : x가 y보다 작으면 true, x가 y와 같거나 크면 false 반환 </li>
+<li><code>x &gt;= y</code> : x가 y보다 크거나 같으면 true, x가 y보다 작으면 false 반환 </li>
+<li><code>x &lt;= y</code> : x가 y보다 작거나 같으면 true, x가 y보다 크면 false 반환 </li>
+<li><code>x == y</code> : x와 y가 같으면 true, 다르면 false 반환</li>
+<li><code>x != y</code> : x와 y가 다르면 true, 같으면 false 반환</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Arithmetic</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">int</span> x = <span class="number">10</span>;</span><br><span class="line">      <span class="keyword">int</span> y = <span class="number">20</span>;</span><br><span class="line">      <span class="keyword">int</span> z = <span class="number">20</span>;</span><br><span class="line">     </span><br><span class="line">      System.out.println(<span class="string">&quot;x : &quot;</span>+x);</span><br><span class="line">      System.out.println(<span class="string">&quot;y : &quot;</span>+y);</span><br><span class="line">      System.out.println(<span class="string">&quot;z : &quot;</span>+z);</span><br><span class="line">      System.out.println(<span class="string">&quot;x&gt;y : &quot;</span>+(x&gt;y));</span><br><span class="line">      System.out.println(<span class="string">&quot;x&lt;y : &quot;</span>+(x&lt;y));</span><br><span class="line">      System.out.println(<span class="string">&quot;x&gt;=y : &quot;</span>+(x&gt;=y));</span><br><span class="line">      System.out.println(<span class="string">&quot;x&lt;=y : &quot;</span>+(x&lt;=y));</span><br><span class="line">      System.out.println(<span class="string">&quot;y==z : &quot;</span>+(y==z));</span><br><span class="line">      System.out.println(<span class="string">&quot;y!=z : &quot;</span>+(y!=z));</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">x : 10</span><br><span class="line">y : 20</span><br><span class="line">z : 20</span><br><span class="line">x&gt;y : false</span><br><span class="line">x&lt;y : true</span><br><span class="line">x&gt;&#x3D;y : false</span><br><span class="line">x&lt;&#x3D;y : true</span><br><span class="line">y&#x3D;&#x3D;z : true</span><br><span class="line">y!&#x3D;z : false</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h1 id="논리-연산자"><a href="#논리-연산자" class="headerlink" title="논리 연산자"></a><a name="logical"></a>논리 연산자</h1><ul>
+<li><code>&amp;&amp;</code> : 좌항 우항 모두 true일때만 true를 반환, 그렇지 않으면 false 반환.</li>
+<li><code>||</code> : 좌항 우항 중 하나의 항이라도 true이면 true를 반환, 둘다 false 일때만 false를 반환.</li>
+<li><code>!</code> : true면 false, false면 true를 반환.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Arithmetic</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">boolean</span> ex01 = <span class="keyword">true</span>;</span><br><span class="line">      <span class="keyword">boolean</span> ex02 = <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">      System.out.println(<span class="string">&quot;ex01 &amp;&amp; ex02 : &quot;</span>+(ex01&amp;&amp;ex02));</span><br><span class="line">      System.out.println(<span class="string">&quot;ex01 || ex02 : &quot;</span>+(ex01||ex02));</span><br><span class="line">      System.out.println(<span class="string">&quot;!ex02 : &quot;</span>+(!ex02));</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ex01 &amp;&amp; ex02 : false</span><br><span class="line">ex01 || ex02 : true</span><br><span class="line">!ex02 : true</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h1 id="instance-of"><a href="#instance-of" class="headerlink" title="instance of"></a><a name="instanceof"></a>instance of</h1><p><code>instance of</code>는 런타임시에 객체의 타입을 검사하는 연산자이다.<br>아래의 예제코드를 확인해보자.</p>
+<script src="https://gist.github.com/youngjinmo/15320152f54107007b03726162d34b06.js"></script>
+
+<p><code>StudyHalle03</code> 클래스의 <code>main()</code>을 실행하면 다음과 같은 결과를 출력한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">true</span><br><span class="line"></span><br><span class="line">true</span><br><span class="line">true</span><br><span class="line">true</span><br><span class="line"></span><br><span class="line">true</span><br></pre></td></tr></table></figure>
+
+<p>첫번째 출력문은 <code>Arithmetic</code> 클래스의 인스턴스 <code>arithmetic</code>의 객체 타입이 <code>Arithmetic</code>인지를 <code>instanceof</code> 연산자를 통해 검사한 결과이다. 당연히 <code>true</code>를 반환한다.</p>
+<p>두번째 출력문은 <code>ex01</code> 의 인스턴스 변수 <code>num</code>의 객체 타입이 <code>Integer</code>인지 검사했다. <code>Example01.java</code>를 보면 당연히 <code>true</code>인걸 알 수 있다.</p>
+<p>네번째 출력문에서는 <code>ex01.num</code>은 <code>Integer</code>이지만, <code>Integer</code>의 상위 객체가 <code>Object</code>이므로 이역시도 <code>true</code>를 반환한다.</p>
+<p>다섯번째 출력문에서는 인스턴스 <code>ex02</code> 의 타입이 <code>Example01</code> 타입인지 검사했다. <code>ex02</code> 인스턴스의 객체 타입은 <code>Example02</code>이지만, <code>Example02</code> 클래스는 <code>Example01</code> 클래스를 상속받으므로 인스턴스 <code>ex02</code>의 객체 타입은 <code>Example01</code>이면서 동시에 <code>Example02</code> 이기도하다. 이 역시 <code>true</code>를 반환한다.</p>
+<br>
+
+<h1 id="assignment-operator"><a href="#assignment-operator" class="headerlink" title="assignment(=) operator"></a><a name="assignment"></a>assignment(=) operator</h1><ul>
+<li><code>=</code> : 좌항에 변수가 오면 우항엔 리터럴, 좌항에 인스턴스가 오면 우항엔 객체가 오는 대입 연산자.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> num = <span class="number">10</span>;</span><br><span class="line">Example ex = <span class="keyword">new</span> Example();</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><code>+=</code> : 좌항의 변수에 우항의 리터럴을 <code>+</code> 한후, 다시 좌항의 변수에 대입하는 연산자</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> num = <span class="number">10</span>;</span><br><span class="line">num += <span class="number">20</span>;</span><br><span class="line">System.out.println(num);  <span class="comment">// 30</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><code>-=</code> : 좌항의 변수에 우항의 리터럴을 <code>-</code> 한후, 다시 좌항의 변수에 대입하는 연산자</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> num = <span class="number">30</span>;</span><br><span class="line">num -= <span class="number">20</span>;</span><br><span class="line">System.out.println(num);  <span class="comment">// 10</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><code>*=</code> : 좌항의 변수에 우항의 리터럴을 <code>*</code> 한후, 다시 좌항의 변수에 대입하는 연산자</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> num = <span class="number">5</span>;</span><br><span class="line">num *= <span class="number">3</span>;</span><br><span class="line">System.out.println(num);  <span class="comment">// 15</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><code>/=</code> : 좌항의 변수에 우항의 리터럴을 <code>/</code> 한후, 다시 좌항의 변수에 대입하는 연산자</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> num = <span class="number">15</span>;</span><br><span class="line">num /= <span class="number">3</span>;</span><br><span class="line">System.out.println(num);  <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><code>%=</code>: 좌항의 변수에 우항의 리터럴을 <code>%</code> 연산 후, 다시 좌항의 변수에 나머지 값을 대입하는 연산자</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> num = <span class="number">20</span>;</span><br><span class="line">num %= <span class="number">6</span>;</span><br><span class="line">System.out.println(num);  <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h1 id="3항-연산자"><a href="#3항-연산자" class="headerlink" title="3항 연산자"></a><a name="ternary"></a>3항 연산자</h1><p>변수를 선언 또는 리터럴을 대입할때 조건 분기처리할 수 있는 연산자이다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> <span class="keyword">var</span> = (condition) ? (<span class="keyword">true</span>) : (<span class="keyword">false</span>);</span><br></pre></td></tr></table></figure>
+
+<p><code>?</code> 을 기준으로 좌항에 조건식이 들어가며, 우항은 다시 <code>:</code>을 기준으로 나눈다. 조건식의 결과에 따라 <code>true</code>이면, <code>:</code> 의 좌항, <code>false</code>이면, <code>:</code> 우항으로 대입된다.</p>
+<p>아래 예제 코드는 <code>Date</code> 클래스를 통해 불러온 현재 시간을 통해 <code>String</code>형 변수에 넣는 값을 분기처리하여 대입하는 코드이다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.text.SimpleDateFormat;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudyHalle03</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      Date date = <span class="keyword">new</span> Date();</span><br><span class="line">      SimpleDateFormat time = <span class="keyword">new</span> SimpleDateFormat(<span class="string">&quot;HH시 mm분&quot;</span>);</span><br><span class="line">      SimpleDateFormat hour = <span class="keyword">new</span> SimpleDateFormat(<span class="string">&quot;HH&quot;</span>);</span><br><span class="line">      <span class="keyword">int</span> getHour = Integer.parseInt(hour.format(date));</span><br><span class="line"></span><br><span class="line">      String 오전일까_오후일까 = (getHour&gt;=<span class="number">12</span>) ? <span class="string">&quot;오후&quot;</span> : <span class="string">&quot;오후&quot;</span>;</span><br><span class="line">      System.out.println(<span class="string">&quot;현재 시각 : &quot;</span>+time.format(date));</span><br><span class="line">      System.out.println(오전일까_오후일까);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h1 id="연산자-우선-순위"><a href="#연산자-우선-순위" class="headerlink" title="연산자 우선 순위"></a><a name="priority"></a>연산자 우선 순위</h1><table>
+<thead>
+<tr>
+<th>우선순위</th>
+<th>연산자</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>++, –, ~, !  (증감/부정 연산자)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>*, /, %</td>
+</tr>
+<tr>
+<td>3</td>
+<td>+, -</td>
+</tr>
+<tr>
+<td>4</td>
+<td>&lt;&lt;, &gt;&gt;, &gt;&gt;&gt;  (비트 단위 시프트 연산자)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>&lt;, &lt;=, &gt;, &gt;=</td>
+</tr>
+<tr>
+<td>6</td>
+<td>==, !=</td>
+</tr>
+<tr>
+<td>7</td>
+<td>&amp;  (비트 단위 논리 연산자)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>^</td>
+</tr>
+<tr>
+<td>9</td>
+<td>|</td>
+</tr>
+<tr>
+<td>10</td>
+<td>&amp;&amp;</td>
+</tr>
+<tr>
+<td>11</td>
+<td>||</td>
+</tr>
+<tr>
+<td>12</td>
+<td>? :  (삼항 연산자)</td>
+</tr>
+<tr>
+<td>13</td>
+<td>==, +=, -=, *=, /=, %=, &lt;&lt;=, &gt;&gt;=, &amp;=, ^=, ~=  (대입 연산자)</td>
+</tr>
+</tbody></table>
+<p>출처 : <a target="_blank" rel="noopener" href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=76083001">남궁성 - Java의 정석</a></p>
+<br>
+
+<h1 id="화살표-gt-연산자"><a href="#화살표-gt-연산자" class="headerlink" title="화살표(-&gt;) 연산자"></a><a name="arrow"></a>화살표(-&gt;) 연산자</h1><p>자바에서 화살표 연산자(<code>-&gt;</code>)는 람다식(Lambda Expression)을 의미한다. 람다는 JDK 1.8부터 도입되었는데, 자바라는 언어를 객체지향 언어인 동시에 함수형 언어로서도 동작하게 해준 개념이다.</p>
+<p>람다는 메서드를 하나의 식으로 표현하는 표현식이다. 메서드이면서 이름도 없고, 반환값도 없다. 클래스에 종속되지도 않는다. 이상의 설명은 아래 포스팅으로 대체하고, 이 포스팅에선 사용법만 간단히 설명하겠다.<br><em><a href="https://youngjinmo.github.io/2020/06/java8-lambda-functional-interface/">DevAndy - [Java8] 람다와 함수형 인터페이스</a></em></p>
+<p>람다식을 알아보기 위해 예제코드를 통해 들여다보자.</p>
+<p>람다에선 타입을 명시하지 않아도 되는데, 컴파일러가 타입 추론이 가능케 하기 위해서는 <strong><u>함수형 인터페이스</u></strong> 를 사용해야 한다. 인터페이스는 반드시 메서드가 하나만 작성되어 있어야 하며, 인터페이스에 함수형 인터페이스임을 명시하는 <code>@FuntionalInterface</code>도 필요하다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Question</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxNum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Answer</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">calculate</span><span class="params">(Question param)</span></span>&#123;</span><br><span class="line">      <span class="keyword">int</span> num = param.maxNum(<span class="number">3</span>, <span class="number">4</span>);</span><br><span class="line">      System.out.println(<span class="string">&quot;max num is &quot;</span>+num);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudyHalle03</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      Answer answer = <span class="keyword">new</span> Answer();</span><br><span class="line">      answer.calculate(<span class="keyword">new</span> Question() &#123;</span><br><span class="line">         <span class="meta">@Override</span></span><br><span class="line">         <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxNum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> (a&gt;b)?a:b;</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>위의 코드에서 프로그램 메인 메서드를 람다식으로 바꾸면 다음과 같다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudyHalle03</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      Answer answer = <span class="keyword">new</span> Answer();</span><br><span class="line">      answer.calculate((a,b)-&gt;&#123;</span><br><span class="line">         <span class="keyword">return</span> (a&gt;b)?a:b;</span><br><span class="line">      &#125;);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>변경사항을 확인해보자.</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/104614825-f2653180-56cb-11eb-8b37-8228647d5c4d.png"></p>
+<p><code>maxNum()</code> 의 메서드명과 파라미터의 데이터 타입을 삭제했다. 함수형 인터페이스이기 때문에 메서드가 하나만 존재하여 컴파일러가 타입 추론이 가능하기 때문에 데이터 타입을 삭제했다.</p>
+<p>메서드명 역시 함수형 인터페이스에선 메서드가 하나만 존재하기 때문에 굳이 이름을 명시하지 않아도 어떤 메서드를 사용하는지 컴파일러가 추론할 수 있다.</p>
+<p>이처럼 함수형 인터페이스를 사용하여 메서드를 보다 간단하게 작성한걸 람다식이라고 한다.</p>
+<p>출처</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://coding-factory.tistory.com/265">코딩팩토리 - [Java] 람다식(Lambda Expressions) -&gt; 사용법 &amp; 예제</a></li>
+<li><a href="https://youngjinmo.github.io/2020/06/java8-lambda-functional-interface/">DevAndy - [Java8] 람다와 함수형 인터페이스</a></li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            <script src="https://utteranc.es/client.js"
+        repo="youngjinmo/githubpages-comment"
+        issue-term="url"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Youngjin Mo"
+        },
+        "headline": "Live Study 3주차 - 연산자",
+        "image": "../../../http:/youngjinmo.github.iohttps:/i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg",
+        "keywords": "jvm",
+        "genre": "Dev Java",
+        "datePublished": "2021-01-14",
+        "dateCreated": "2021-01-14",
+        "dateModified": "2021-01-15",
+        "url": "../../../http:/youngjinmo.github.io/2021/01/livestudy-week-03/",
+        "description": "
+
+산술 연산자
+비트 연산자
+관계 연산자
+논리 연산자
+instanceof
+assignment(=) operator
+3항 연산자
+연산자 우선 순위
+화살표(-&gt;) 연산자
+
+
+
+산술 연산자수학 연산을 처리하는 연산자이다.
+
++ : 더하기 연산자
+- : 빼기 연산자
+* : 곱하기 연산자
+/ : 나누기 연산자
+% : 나머지 연산자
+
+123456789public",
+        "wordCount": 2342
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+
+<script data-ad-client="ca-pub-9881527334918017" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="../../../https:/twitter.com/devandy_yj" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="../../../https:/github.com/youngjinmo" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../atom.xml" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="../livestudy-week-02/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Live Study 2주차 - 자바 데이터 타입, 변수 그리고 배열</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg)" alt="Live Study 3주차 - 연산자" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="" class="title">Live Study 3주차 - 연산자</a></p>
+                            <p class="item-date"><time datetime="2021-01-14T13:49:08.000Z" itemprop="datePublished">2021-01-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../livestudy-week-02/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg)" alt="Live Study 2주차 - 자바 데이터 타입, 변수 그리고 배열" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../livestudy-week-02/" class="title">Live Study 2주차 - 자바 데이터 타입, 변수 그리고 배열</a></p>
+                            <p class="item-date"><time datetime="2021-01-11T22:05:30.000Z" itemprop="datePublished">2021-01-12</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../springboot-mybatis-oracle2/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/33862991/97108403-a8922e00-1710-11eb-9e42-b093ed1857d8.png)" alt="SpringBoot + MyBatis + Oracle(with Docker) CRUD 구현해보기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Springboot/">Springboot</a></p>
+                            <p class="item-title"><a href="../springboot-mybatis-oracle2/" class="title">SpringBoot + MyBatis + Oracle(with Docker) CRUD 구현해보기</a></p>
+                            <p class="item-date"><time datetime="2021-01-10T06:02:13.000Z" itemprop="datePublished">2021-01-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../spring-request-parameter/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/33862991/104125838-b1ec7780-539c-11eb-8e7c-26ac78f2978b.jpeg)" alt="Spring에서 URL로 파라미터를 받는 방법 2가지" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/SpringBoot/">SpringBoot</a></p>
+                            <p class="item-title"><a href="../spring-request-parameter/" class="title">Spring에서 URL로 파라미터를 받는 방법 2가지</a></p>
+                            <p class="item-date"><time datetime="2021-01-10T05:19:53.000Z" itemprop="datePublished">2021-01-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../livestudy-week-01/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg)" alt="Live Study 1주차 - JVM은 무엇이며 자바 코드는 어떻게 실행하는 것인가" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../livestudy-week-01/" class="title">Live Study 1주차 - JVM은 무엇이며 자바 코드는 어떻게 실행하는 것인가</a></p>
+                            <p class="item-date"><time datetime="2021-01-04T05:50:50.000Z" itemprop="datePublished">2021-01-04</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../tags/BufferedReader/" style="font-size: 10px;">BufferedReader</a> <a href="../../../tags/BufferedWriter/" style="font-size: 10px;">BufferedWriter</a> <a href="../../../tags/IO/" style="font-size: 10px;">IO</a> <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 11.25px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/annotation/" style="font-size: 10px;">annotation</a> <a href="../../../tags/api/" style="font-size: 10px;">api</a> <a href="../../../tags/architecture/" style="font-size: 10px;">architecture</a> <a href="../../../tags/array/" style="font-size: 11.25px;">array</a> <a href="../../../tags/aws/" style="font-size: 12.5px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blacklivesmatter/" style="font-size: 10px;">blacklivesmatter</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 12.5px;">career</a> <a href="../../../tags/casting/" style="font-size: 12.5px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/cloud/" style="font-size: 12.5px;">cloud</a> <a href="../../../tags/contribution/" style="font-size: 10px;">contribution</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/databse/" style="font-size: 10px;">databse</a> <a href="../../../tags/datastructure/" style="font-size: 12.5px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 15px;">docker</a> <a href="../../../tags/documentation/" style="font-size: 10px;">documentation</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 12.5px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generic/" style="font-size: 10px;">generic</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 13.75px;">github</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 15px;">http</a> <a href="../../../tags/ide/" style="font-size: 10px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 13.75px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 11.25px;">interface</a> <a href="../../../tags/io/" style="font-size: 12.5px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 16.25px;">java</a> <a href="../../../tags/java8/" style="font-size: 11.25px;">java8</a> <a href="../../../tags/javascript/" style="font-size: 15px;">javascript</a> <a href="../../../tags/javscript/" style="font-size: 10px;">javscript</a> <a href="../../../tags/jquery/" style="font-size: 11.25px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/junit/" style="font-size: 10px;">junit</a> <a href="../../../tags/jvm/" style="font-size: 12.5px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 10px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/license/" style="font-size: 10px;">license</a> <a href="../../../tags/livereload/" style="font-size: 10px;">livereload</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 11.25px;">mustache</a> <a href="../../../tags/mybatis/" style="font-size: 11.25px;">mybatis</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 16.25px;">oop</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/readme/" style="font-size: 10px;">readme</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 12.5px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 13.75px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 17.5px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/stock/" style="font-size: 10px;">stock</a> <a href="../../../tags/string/" style="font-size: 15px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/terminal/" style="font-size: 10px;">terminal</a> <a href="../../../tags/tip/" style="font-size: 16.25px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 18.75px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 11.25px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/vue/" style="font-size: 10px;">vue</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 17.5px;">weekly-review</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2021 Youngjin Mo</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+    
+        
+<script src="../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="../../../js/main.js"></script>
+
+
+</body>
+</html>

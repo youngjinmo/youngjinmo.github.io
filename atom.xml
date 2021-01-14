@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-01-12T10:19:25.446Z</updated>
+  <updated>2021-01-14T16:00:05.418Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Live Study 3주차 - 연산자</title>
+    <link href="http://youngjinmo.github.io/2021/01/livestudy-week-03/"/>
+    <id>http://youngjinmo.github.io/2021/01/livestudy-week-03/</id>
+    <published>2021-01-14T13:49:08.000Z</published>
+    <updated>2021-01-14T16:00:05.418Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#arithmetic&quot;&gt;산술 연산자&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#shift&quot;&gt;비트</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+    <category term="jvm" scheme="http://youngjinmo.github.io/tags/jvm/"/>
+    
+  </entry>
   
   <entry>
     <title>Live Study 2주차 - 자바 데이터 타입, 변수 그리고 배열</title>
@@ -587,31 +617,6 @@
     
     
     <category term="servlet" scheme="http://youngjinmo.github.io/tags/servlet/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode - Twosum</title>
-    <link href="http://youngjinmo.github.io/2020/08/leetcode-twosum/"/>
-    <id>http://youngjinmo.github.io/2020/08/leetcode-twosum/</id>
-    <published>2020-08-24T05:28:47.000Z</published>
-    <updated>2020-09-13T01:53:28.332Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;TwoSum&quot;&gt;&lt;a href=&quot;#TwoSum&quot; class=&quot;headerlink&quot; title=&quot;TwoSum&quot;&gt;&lt;/a&gt;TwoSum&lt;/h1&gt;&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Quiz" scheme="http://youngjinmo.github.io/categories/Quiz/"/>
-    
-    
-    <category term="algorithms" scheme="http://youngjinmo.github.io/tags/algorithms/"/>
     
   </entry>
   
