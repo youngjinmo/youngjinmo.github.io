@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg">
 <meta property="article:published_time" content="2021-01-04T05:50:50.000Z">
-<meta property="article:modified_time" content="2021-01-11T14:52:27.248Z">
+<meta property="article:modified_time" content="2021-01-15T08:34:46.891Z">
 <meta property="article:author" content="Youngjin Mo">
 <meta property="article:tag" content="jvm">
 <meta name="twitter:card" content="summary">
@@ -216,7 +216,7 @@ ga('send', 'pageview');
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="" class="article-date">
-     <time datetime="2021-01-11T14:52:27.248Z" itemprop="dateModified">2021-01-11</time>
+     <time datetime="2021-01-15T08:34:46.891Z" itemprop="dateModified">2021-01-15</time>
   </a>
 </div>
 
@@ -265,35 +265,35 @@ ga('send', 'pageview');
 <p>자바 프로그램을 실행하는 환경이 어떤 운영체제이든 JVM만 설치되어 있다면, 이 JVM에서 컴퓨터에 맞는 기계어로 번역하기 때문에 JDK가 설치된 환경이라면, 어디서나 자바 프로그램을 실행할 수 있게된다. </p>
 <p><img src="https://user-images.githubusercontent.com/33862991/103503907-299c3d00-4e99-11eb-88fc-a0647a074cc6.png"></p>
 <p>출처 : <a target="_blank" rel="noopener" href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=76083001">남궁성 - Java의 정석</a></p>
-<p>단, JVM은 java 코드를 직접 읽지 못하기 때문에 JVM이 읽을 수 있는 형태인 바이트 코드로 컴파일해주어야 한다. 이 역할을 하는걸 자바 컴파일러라고 한다.</p>
+<p>단, JVM은 java 코드를 직접 읽지 못하기 때문에 JVM이 읽을 수 있는 형태인 바이트코드로 컴파일해주어야 한다. 이 역할을 하는걸 자바 컴파일러라고 한다.</p>
 <br>
 
 <h1 id="컴파일-및-실행하는-방법"><a href="#컴파일-및-실행하는-방법" class="headerlink" title="컴파일 및 실행하는 방법"></a><a name="how-to-compile"></a>컴파일 및 실행하는 방법</h1><p>개발자가 Java로 작성한 소스 코드가 컴퓨터에 의해 읽어들이기까지의 과정은 다음과 같다.</p>
 <ol>
 <li>Java 코드 작성하기</li>
-<li>JVM이 읽어들일수 있도록 자바 컴파일러로 java 파일 컴파일하기 (= 바이트 코드 생성)</li>
-<li>바이트 코드를 JVM이 읽어들여서 실행환경(OS)에 맞는 기계어(binary)로 변환하기</li>
-<li>JVM에서 변환된 기계어로 자바 애플리케이션 실행하기</li>
+<li>자바 컴파일러로 java 파일 컴파일하기 (= 바이트코드 생성)</li>
+<li>바이트코드를 JVM에서 OS(운영체제)에 맞는 기계어(binary)로 변환하기</li>
+<li>자바 애플리케이션 실행하기</li>
 </ol>
 <h3 id="Java-코드-작성하기"><a href="#Java-코드-작성하기" class="headerlink" title="Java 코드 작성하기"></a>Java 코드 작성하기</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim StudyHale.java</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudyHale</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;Hello World.&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="컴파일하기-Byte-code-생성"><a href="#컴파일하기-Byte-code-생성" class="headerlink" title="컴파일하기 (Byte code 생성)"></a>컴파일하기 (Byte code 생성)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ javac StudyHale.java</span><br></pre></td></tr></table></figure>
+<h3 id="컴파일하기-bytecode-생성"><a href="#컴파일하기-bytecode-생성" class="headerlink" title="컴파일하기 (bytecode 생성)"></a>컴파일하기 (bytecode 생성)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ javac StudyHale.java</span><br></pre></td></tr></table></figure>
 
 <h3 id="Java-프로그램-실행"><a href="#Java-프로그램-실행" class="headerlink" title="Java 프로그램 실행"></a>Java 프로그램 실행</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ java StudyHale</span><br><span class="line">Hello World.</span><br></pre></td></tr></table></figure>
 
 
 <br>
 
-<h1 id="바이트-코드란-무엇인가"><a href="#바이트-코드란-무엇인가" class="headerlink" title="바이트 코드란 무엇인가"></a><a name="bytecode"></a>바이트 코드란 무엇인가</h1><p><img src="https://user-images.githubusercontent.com/33862991/103438486-cfbc2d00-4c76-11eb-9e71-c4478a07b98c.png" alt="컴파일 과정"></p>
-<p>JVM이 실행하는 명령어 형태이다. 컴퓨터에 의해 실행되려면 기계어로 번역되어야 하는데, JVM은 자바 코드를 읽지 못한다. 따라서 자바 컴파일러를 이용하여 JVM이 읽을 수 있는 형태인 바이트 코드로 컴파일 해주어야한다.</p>
-<p>그리고 JVM에서 이 바이트 코드를 읽어들여 최종적으로 컴퓨터가 실행할 수 있는 기계어로 번역한다. </p>
-<p>바이트 코드는 개발자가 작성된 소스코드와 컴퓨터에서 실행될 기계어 중간 과정의 형태이며, <strong>JVM이 읽을 수 있는 목적의 코드</strong> 이다.</p>
-<p>출처 : <a target="_blank" rel="noopener" href="https://ko.wikipedia.org/wiki/%EC%9E%90%EB%B0%94_%EB%B0%94%EC%9D%B4%ED%8A%B8%EC%BD%94%EB%93%9C">위키백과 - 자바 바이트 코드</a></p>
-<p>인텔리제이에서 바이트 코드를 확인할 수 있다. <strong>[View]</strong> - <strong>[Sow Bytecode]</strong> 를 클릭하면, 바이트 코드를 보여준다. 단, 프로그램이 빌드한 이력이 있어야 한다. 개발자가 코딩한 직후엔 아직 바이트 코드를 생성하지 않았기 때문에 이 땐 바이트 코드를 보여줄 수 없다.</p>
+<h1 id="바이트코드란-무엇인가"><a href="#바이트코드란-무엇인가" class="headerlink" title="바이트코드란 무엇인가"></a><a name="bytecode"></a>바이트코드란 무엇인가</h1><p><img src="https://user-images.githubusercontent.com/33862991/103438486-cfbc2d00-4c76-11eb-9e71-c4478a07b98c.png" alt="컴파일 과정"></p>
+<p>JVM이 실행하는 명령어 형태이다. 컴퓨터에 의해 실행되려면 기계어로 번역되어야 하는데, JVM은 자바 코드를 읽지 못한다. 따라서 자바 컴파일러를 이용하여 JVM이 읽을 수 있는 형태인 바이트코드로 컴파일 해주어야한다.</p>
+<p>그리고 JVM에서 이 바이트코드를 읽어들여 최종적으로 컴퓨터가 실행할 수 있는 기계어로 번역한다. </p>
+<p>바이트코드는 개발자가 작성된 소스코드와 컴퓨터에서 실행될 기계어 중간 과정의 형태이며, <strong>JVM이 읽을 수 있는 목적의 코드</strong> 이다.</p>
+<p>출처 : <a target="_blank" rel="noopener" href="https://ko.wikipedia.org/wiki/%EC%9E%90%EB%B0%94_%EB%B0%94%EC%9D%B4%ED%8A%B8%EC%BD%94%EB%93%9C">위키백과 - 자바 바이트코드</a></p>
+<p>인텔리제이에서 바이트코드를 확인할 수 있다. <strong>[View]</strong> - <strong>[Show Bytecode]</strong> 를 클릭하면, 바이트코드를 보여준다. 단, 프로그램이 빌드한 이력이 있어야 한다. 개발자가 코딩한 직후엔 아직 바이트코드를 생성하지 않았기 때문에 이 땐 바이트코드를 보여줄 수 없다.</p>
 <p><img src="https://user-images.githubusercontent.com/33862991/103438315-6687ea00-4c75-11eb-8942-e282780b277f.png"></p>
-<p>위에서 작성한 클래스의 바이트 코드.</p>
+<p>위에서 작성한 클래스의 바이트코드.</p>
 <p><img src="https://user-images.githubusercontent.com/33862991/103438317-6982da80-4c75-11eb-8c55-274df3f446ef.png"></p>
 <p>출처 : <a target="_blank" rel="noopener" href="https://withhamit.tistory.com/502">햄과함께IT - java bytecode 확인</a></p>
 <br>
@@ -310,10 +310,10 @@ ga('send', 'pageview');
 </li>
 <li><a href="#jni">자바 네이티브 인터페이스(Java Native Interface, JNI)</a></li>
 </ul>
-<h2 id="클래스-로더-Class-Loader"><a href="#클래스-로더-Class-Loader" class="headerlink" title="클래스 로더 (Class Loader)"></a><a name="classloader"></a>클래스 로더 (Class Loader)</h2><p>자바 컴파일러에 의해 컴파일된 자바 바이트 코드(<code>.class</code>)들이 JVM에 의해 읽어들여지면, 클래스로더가 이 바이트 코드를 운영체제(OS)로부터 적재받은 메모리 영역인 런타임 데이터 에어리어로 <strong>적재(Loading)</strong> 하는 일을 한다. </p>
+<h2 id="클래스-로더-Class-Loader"><a href="#클래스-로더-Class-Loader" class="headerlink" title="클래스 로더 (Class Loader)"></a><a name="classloader"></a>클래스 로더 (Class Loader)</h2><p>자바 컴파일러에 의해 컴파일된 자바 바이트코드(<code>.class</code>)들이 JVM에 의해 읽어들여지면, 클래스로더가 이 바이트코드를 운영체제(OS)로부터 적재받은 메모리 영역인 런타임 데이터 에어리어로 <strong>적재(Loading)</strong> 하는 일을 한다. </p>
 <p>여기서 말하는 운영체제로부터 적재받은 메모리란, <strong>RAM</strong> 을 이야기한다. 이 RAM에 클래스 파일들이 올라가야만(Loading), 프로세스로서 실행될 수 있다.</p>
 <p>Loading 단계에서는 클래스 파일의 <code>main()</code> 부터 메모리에 적재되는데, <code>main()</code> 이 실행되면서 필요한 객체들을 동적으로 로딩하게 된다.</p>
-<p>자바 바이트 코드는 JVM에서 기계어(바이너리 코드)로 변환된다고 하였는데, 이 때 코드가 통째로 기계어로 번역되는게 아니라 <u>애플리케이션에 필요한 객체들이 먼저 JIT에 의해서 번역(Interpretion)된다.</u><br>이를 <strong>동적인 클래스 로딩(Java’s dynamic class loading)</strong> 이라고 한다.</p>
+<p>자바 바이트코드는 JVM에서 기계어(바이너리 코드)로 변환된다고 하였는데, 이 때 코드가 통째로 기계어로 번역되는게 아니라 <u>애플리케이션에 필요한 객체들이 먼저 JIT에 의해서 번역(Interpretion)된다.</u><br>이를 <strong>동적인 클래스 로딩(Java’s dynamic class loading)</strong> 이라고 한다.</p>
 <p>클래스 로더에서는 메모리 영역에 객체 정보를 적재하는 역할 외에 적재된 클래스 파일의 에러를 검증하고 레퍼런스들을 연결하는 <strong>Linking</strong> 이라는 작업을 거친다.</p>
 <p>마지막으로 초기화(<strong>Initialization</strong>)를 거침으로 클래스 로더의 역할이 끝이난다.</p>
 <p>출처 : <a target="_blank" rel="noopener" href="https://yeon-kr.tistory.com/112">당근케잌 - [Java] JVM Architecture란?</a></p>
@@ -330,7 +330,7 @@ ga('send', 'pageview');
 </ul>
 <h3 id="메서드-영역-Method-Area"><a href="#메서드-영역-Method-Area" class="headerlink" title="메서드 영역(Method Area)"></a><a name="method-area"></a>메서드 영역(Method Area)</h3><p>JVM 내 하나만 존재하는 <strong>공유자원</strong> 이며, 메모리에 항상 상주하는 영역이기 때문에 JVM 내 스레드들이 메서드 영역의 자원을 공유하여 사용한다.</p>
 <p>클래스에서 필요한 패키지 클래스, 런타임 상수풀, 인터페이스, 상수, <code>static</code> 변수, <code>final</code> 변수, 필드 데이터, 생성자 등의 모든 메서드 정보가 한 번 적재되면, 메모리 영역에서 항상 상주하게 된다.</p>
-<p><a href="#jit">JIT 컴파일러</a>가 실행에 필요한 바이트 코드를 기계어로 번역하며, 다른 클래스에서 사용되는 클래스 정보를 메서드 영역에 적재해두고 공유하는 것이다.</p>
+<p><a href="#jit">JIT 컴파일러</a>가 실행에 필요한 바이트코드를 기계어로 번역하며, 다른 클래스에서 사용되는 클래스 정보를 메서드 영역에 적재해두고 공유하는 것이다.</p>
 <p>메서드 영역에 Constant Pool이라는 영역이 존재하는데, 이곳에 상수값을 저장한다. 자바 애플리케이션 런타임시에 필요한 모든 종류의 숫자, 문자열, 식별자 이름, 클래스 파일, 메서드 정보들이 Constant Pool에 저장되는 데이터들이다.</p>
 <p>출처 : <a target="_blank" rel="noopener" href="https://honbabzone.com/java/java-jvm/">김석진 - JVM(Java Virtual Machine)이란</a></p>
 <br>
@@ -365,14 +365,14 @@ ga('send', 'pageview');
 <p>출처 : <a target="_blank" rel="noopener" href="https://honbabzone.com/java/java-jvm/">김석진 - JVM(Java Virtual Machine)이란</a></p>
 <br>
 
-<h3 id="실행-엔진-Execution-Engine"><a href="#실행-엔진-Execution-Engine" class="headerlink" title="실행 엔진 (Execution Engine)"></a><a name="execution-engine"></a>실행 엔진 (Execution Engine)</h3><p>컴파일러가 변환한 바이트 코드가 실제로 실행되는 영역이다.  실행 엔진은 다음으로 구성되어 있다.</p>
+<h3 id="실행-엔진-Execution-Engine"><a href="#실행-엔진-Execution-Engine" class="headerlink" title="실행 엔진 (Execution Engine)"></a><a name="execution-engine"></a>실행 엔진 (Execution Engine)</h3><p>컴파일러가 변환한 바이트코드가 실제로 실행되는 영역이다.  실행 엔진은 다음으로 구성되어 있다.</p>
 <ul>
 <li>인터프리터</li>
 <li>JIT 컴파일러</li>
 <li>가비지 콜렉터(GC)</li>
 </ul>
-<p>인터프리터는 바이트 코드를 한 줄씩 읽고 실행하는 역할을 수행한다.</p>
-<p>자바는 바이트 코드로 컴파일 후, 다시 기계어로 변환하는 작업을 거치기 때문에 네이티브 언어(C언어)보다 느리다고 평가받았다. 이를 극복하기 위해 등장한 것이 JIT인데, JIT는 <a href="#jit">아래</a>에서 더 자세하게 설명하겠다.</p>
+<p>인터프리터는 바이트코드를 한 줄씩 읽고 실행하는 역할을 수행한다.</p>
+<p>자바는 바이트코드로 컴파일 후, 다시 기계어로 변환하는 작업을 거치기 때문에 네이티브 언어(C언어)보다 느리다고 평가받았다. 이를 극복하기 위해 등장한 것이 JIT인데, JIT는 <a href="#jit">아래</a>에서 더 자세하게 설명하겠다.</p>
 <p><a name="gc"></a> <strong>가비지 콜렉터</strong> 는 메모리를 자동으로 관리해주는 영역이다. 힙 영역에 적재된 객체들 중 더 이상 참조되지 않는 객체들을 탐색 후 제거해주는 역할을 수행한다. 주로 힙 영역에 적재된 객체들이 GC의 타겟이 되지만, 메서드 영역과 스택 영역도 GC의 타겟이 된다.</p>
 <p>사용되지 않으면서 메모리만 사용하고있던 불필요한 자원을 프로그래머 대신 가비지 콜렉터가 자동으로 해주는 것이다.</p>
 <p>출처</p>
@@ -388,19 +388,20 @@ ga('send', 'pageview');
 <br>
 
 <p>출처 : <a target="_blank" rel="noopener" href="https://yeon-kr.tistory.com/112">당근케잌 - [Java] JVM Architecture란?</a></p>
-<h1 id="JIT-컴파일러란-무엇이며-어떻게-동작하는지"><a href="#JIT-컴파일러란-무엇이며-어떻게-동작하는지" class="headerlink" title="JIT 컴파일러란 무엇이며 어떻게 동작하는지"></a><a name="jit"></a>JIT 컴파일러란 무엇이며 어떻게 동작하는지</h1><p>JIT 컴파일러란, Just In Time 컴파일러를 정의한다. <strong>프로그램을 실행하는 시점에 전체 바이트 코드가 아닌 필요한 함수만 기계어로 번역하여 실행</strong> 하는 컴파일러를 가리킨다.</p>
+<h1 id="JIT-컴파일러란-무엇이며-어떻게-동작하는지"><a href="#JIT-컴파일러란-무엇이며-어떻게-동작하는지" class="headerlink" title="JIT 컴파일러란 무엇이며 어떻게 동작하는지"></a><a name="jit"></a>JIT 컴파일러란 무엇이며 어떻게 동작하는지</h1><p>JIT 컴파일러란, Just In Time 컴파일러를 정의한다. <strong>프로그램을 실행하는 시점에 전체 바이트코드가 아닌 필요한 함수만 기계어로 번역하여 실행</strong> 하는 컴파일러를 가리킨다.</p>
 <p>JIT 컴파일러를 설명하기 앞서 프로그래밍 언어를 실행하는 방식에 대해 먼저 짚고넘어가자. 프로그래밍 언어를 실행하는 방식은 크게 두가지가 있다. 인터프리터와 컴파일러 방식.</p>
 <p>인터프리터는 말 코드를 한 줄 씩 번역하여 실행을 하며, 컴파일은 실행하기 전에 프로그램 코드 전체를 기계어로 번역해서 번역된 기계어를 한 번에 실행한다.</p>
 <p>이런 특징 때문에 인터프리터는 컴파일러 대비 생산속도는 빠르지만, 실행 속도는 느리다는 특징으로 정리될 수 있다.</p>
 <p>반면 컴파일러는 코드 전체를 기계어로 번역후, 번역된 기계어를 실행한다. 이 때문에 컴파일 과정에서 에러를 발견할 수 있어서 실행할 때의 오류를 미리 알 수 있다는 특징도 있다.</p>
 <p>컴파일러는 인터프리터 대비 생산 속도는 느리지만, 실행 속도는 빠르다고 할 수 있다.</p>
-<p>JIT 컴파일러는 자바라는 언어가 인터프리터와 컴파일러의 특징 모두를 가질 수 있게한 컴파일러이다.<br>자바 컴파일러로 변환한 바이트 코드를 한 번에 기계어로 번역하는게 아니라 실행 시점에 필요한 함수(메서드)만 기계어로 변환하기 때문에 기존보다 속도에서 더 향상 되었다고 할 수 있다.</p>
+<p>JIT 컴파일러는 자바라는 언어가 인터프리터와 컴파일러의 특징 모두를 가질 수 있게한 컴파일러이다.<br>자바 컴파일러로 변환한 바이트코드를 한 번에 기계어로 번역하는게 아니라 실행 시점에 필요한 함수(메서드)만 기계어로 변환하기 때문에 기존보다 속도에서 더 향상 되었다고 할 수 있다.</p>
 <p>출처 : <a target="_blank" rel="noopener" href="https://yeon-kr.tistory.com/112">당근케잌 - [Java] JVM Architecture란?</a></p>
 <br>
 
 <h1 id="JDK와-JRE차이"><a href="#JDK와-JRE차이" class="headerlink" title="JDK와 JRE차이"></a><a name="jdk-jre"></a>JDK와 JRE차이</h1><h3 id="JRE-Java-Runtime-Environment"><a href="#JRE-Java-Runtime-Environment" class="headerlink" title="JRE (Java Runtime Environment)"></a>JRE (Java Runtime Environment)</h3><p>자바 애플리케이션을 <u>실행</u>하기 위한 최소한의 배포 단위이다. JVM과 라이브러리가 포함된다. 개발이 아닌 실행만을 위한 도구이다.</p>
-<h3 id="JDK-Java-Development-Kit"><a href="#JDK-Java-Development-Kit" class="headerlink" title="JDK (Java Development Kit)"></a>JDK (Java Development Kit)</h3><p>자바 애플리케이션 개발에 필요한 도구가 모두 포함된다. 원래 JDK를 설치하면 JRE까지 함께 설치되었으나 Oracle JDK11부터는 JRE가 기본으로 제공되지 않는다고 한다. (<a target="_blank" rel="noopener" href="https://yeon-kr.tistory.com/112">문서</a>)</p>
-<p>출처 : <a target="_blank" rel="noopener" href="https://yeon-kr.tistory.com/112">Oracle - JDK 11 Release Notes</a></p>
+<h3 id="JDK-Java-Development-Kit"><a href="#JDK-Java-Development-Kit" class="headerlink" title="JDK (Java Development Kit)"></a>JDK (Java Development Kit)</h3><p>자바 애플리케이션 개발에 필요한 도구가 모두 포함된다. 원래 JDK를 설치하면 JRE까지 함께 설치되었으나 Oracle JDK11부터는 JRE가 기본으로 제공되지 않는다고 한다. </p>
+<p>이유는 JRE의 구성요소가 JDK에 이미 포함되기 때문에 굳이 JRE를 따로 배포할 필요가 없어졌기 때문이라고 한다. 따라서 JRE를 따로 설치안하더라도 JDK만 설치하면 자바 애플리케이션을 실행할 수 있다.</p>
+<p>출처 : <a target="_blank" rel="noopener" href="https://www.oracle.com/java/technologies/javase/jdk-11-relnote.html">Oracle - JDK 11 Release Notes</a></p>
 <br>
 
 <hr>
@@ -437,7 +438,7 @@ ga('send', 'pageview');
         "genre": "Dev Java",
         "datePublished": "2021-01-04",
         "dateCreated": "2021-01-04",
-        "dateModified": "2021-01-11",
+        "dateModified": "2021-01-15",
         "url": "../../../http:/youngjinmo.github.io/2021/01/livestudy-week-01/",
         "description": "
 
@@ -455,7 +456,7 @@ JVM이란 무엇인가자바를 두 문장으로 설명하는 말이 있다.
 Write once,Run anywhere.
 
 자바 언어로 개발된 프로그램은 , 운영체제가 리눅스이건, 윈도우이건, 맥OS이건 모두 실행가능한",
-        "wordCount": 1503
+        "wordCount": 1495
     }
 </script>
 

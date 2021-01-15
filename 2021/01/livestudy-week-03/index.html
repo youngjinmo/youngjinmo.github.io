@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg">
 <meta property="article:published_time" content="2021-01-14T13:49:08.000Z">
-<meta property="article:modified_time" content="2021-01-14T16:04:14.548Z">
+<meta property="article:modified_time" content="2021-01-15T07:26:24.142Z">
 <meta property="article:author" content="Youngjin Mo">
 <meta property="article:tag" content="lambda">
 <meta property="article:tag" content="operator">
@@ -217,7 +217,7 @@ ga('send', 'pageview');
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="" class="article-date">
-     <time datetime="2021-01-14T16:04:14.548Z" itemprop="dateModified">2021-01-15</time>
+     <time datetime="2021-01-15T07:26:24.142Z" itemprop="dateModified">2021-01-15</time>
   </a>
 </div>
 
@@ -226,7 +226,7 @@ ga('send', 'pageview');
 
 				<!-- 	count-time		 -->
 				<span class="reading-time" style="margin-left: 20px;">
-					⏱ 27 min.
+					⏱ 33 min.
 				</span>
                 
     <div class="article-tag">
@@ -270,6 +270,23 @@ ga('send', 'pageview');
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudyHalle</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      <span class="keyword">int</span> num1 = <span class="number">1</span>+<span class="number">1</span>;          <span class="comment">// 2</span></span><br><span class="line">      <span class="keyword">float</span> num2 = <span class="number">1.25f</span>-<span class="number">0.5f</span>; <span class="comment">// 0.75</span></span><br><span class="line">      <span class="keyword">int</span> num2 = <span class="number">11</span>*<span class="number">3</span>;         <span class="comment">// 33</span></span><br><span class="line">      <span class="keyword">float</span> num3 = <span class="number">0.1f</span>/<span class="number">0.2f</span>   <span class="comment">// 0.5</span></span><br><span class="line">      <span class="keyword">int</span> num4 = <span class="number">10</span>%<span class="number">3</span>;         <span class="comment">// 1</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>이외에 증감 연산자(<code>++</code>, <code>--</code>)도 있다. 다만 <strong><u>연산자의 위치에 따라 증감이 이뤄지는 시기가 달라진다.</u></strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudyHalle03</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      afterSensitization(<span class="number">1</span>, <span class="number">5</span>);</span><br><span class="line">      <span class="comment">// beforeSensitization(1, 5);</span></span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">afterSensitization</span><span class="params">(<span class="keyword">int</span> param, <span class="keyword">int</span> count)</span></span>&#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= count; i++) &#123;</span><br><span class="line">         System.out.println(i+<span class="string">&quot; 증감 : &quot;</span>+(param++));</span><br><span class="line">         System.out.println(i+<span class="string">&quot; 증감 후 : &quot;</span>+param+<span class="string">&quot;\n===============&quot;</span>);</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">beforeSensitization</span><span class="params">(<span class="keyword">int</span> param, <span class="keyword">int</span> count)</span></span>&#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line">         System.out.println(i+<span class="string">&quot; 증감 : &quot;</span>+(++param));</span><br><span class="line">         System.out.println(i+<span class="string">&quot; 증감 후 : &quot;</span>+param+<span class="string">&quot;\n===============&quot;</span>);</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>초기값(<code>param</code>)과 반복 횟수(<code>count</code>)를 파라미터로 받는 메서드 2개를 만들었다. 둘다 for문을 통해 반복 횟수만큼 초기값을 증감하여 콘솔에 출력하는 메서드인데, 값을 증감하는 방식이 다르다.</p>
+<ul>
+<li><code>afterSensitization()</code> : param++;</li>
+<li><code>beforeSensitization()</code> : ++param;</li>
+</ul>
+<p>먼저 <code>afterSensitization()</code>를 콘솔에 출력했을때의 결과이다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">1 증감 : 1</span><br><span class="line">1 증감 후 : 2</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">2 증감 : 2</span><br><span class="line">2 증감 후 : 3</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">3 증감 : 3</span><br><span class="line">3 증감 후 : 4</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">4 증감 : 4</span><br><span class="line">4 증감 후 : 5</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">5 증감 : 5</span><br><span class="line">5 증감 후 : 6</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
+
+<p>초기값이 1인데 증감연산자를 통해 증감(<code>param++</code>)을 실행하자마자 출력했을 때의 값도 1이었다. 이후에 다시 값을 출력했을때 비로소 증감이 이뤄진걸 알 수 있다.</p>
+<p>이번엔 <code>beforeSensitization()</code>을 실행해보았다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">0 증감 : 2</span><br><span class="line">0 증감 후 : 2</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">1 증감 : 3</span><br><span class="line">1 증감 후 : 3</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">2 증감 : 4</span><br><span class="line">2 증감 후 : 4</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">3 증감 : 5</span><br><span class="line">3 증감 후 : 5</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">4 증감 : 6</span><br><span class="line">4 증감 후 : 6</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
+
+<p>아까와는 다른 결과이다. 초기값 1을 받아서 증감(<code>++param</code>)을 실행했을때, 곧바로 적용되어 출력되었다.</p>
+<p>변수 또는 리터럴 뒤에 증감연산자가 올 경우는 해당 라인에서 즉시 값이 바뀌는게 아니라 그 다음 실행문부터 증감이 적용되며, 변수 또는 리터럴 앞에 증감연산자가 올 경우는 해당 라인에서 즉시 값이 바뀌는 것이다.</p>
 <br>
 
 <h1 id="비트-연산자"><a href="#비트-연산자" class="headerlink" title="비트 연산자"></a><a name="shift"></a>비트 연산자</h1><p>비트 연산은 개발할때 해본적이 없어서 좀 생소했다.</p>
@@ -553,7 +570,7 @@ assignment(=) operator
 % : 나머지 연산자
 
 123456789public",
-        "wordCount": 2342
+        "wordCount": 2812
     }
 </script>
 

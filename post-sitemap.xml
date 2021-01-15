@@ -9,8 +9,8 @@
 
 
     <url>
-        <loc>http://youngjinmo.github.io/2021/01/livestudy-week-03/</loc>
-        <lastmod>2021-01-14T16:04:14.548Z</lastmod>
+        <loc>http://youngjinmo.github.io/2021/01/livestudy-week-01/</loc>
+        <lastmod>2021-01-15T08:34:46.891Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -18,7 +18,15 @@
 
     <url>
         <loc>http://youngjinmo.github.io/2021/01/livestudy-week-02/</loc>
-        <lastmod>2021-01-14T16:04:11.384Z</lastmod>
+        <lastmod>2021-01-15T07:34:00.559Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/2021/01/livestudy-week-03/</loc>
+        <lastmod>2021-01-15T07:26:24.142Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -35,14 +43,6 @@
     <url>
         <loc>http://youngjinmo.github.io/2020/12/springboot-helloworld/</loc>
         <lastmod>2021-01-12T13:19:56.076Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2021/01/livestudy-week-01/</loc>
-        <lastmod>2021-01-11T14:52:27.248Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
