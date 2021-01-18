@@ -49,7 +49,7 @@
     <link href="http://youngjinmo.github.io/2021/01/livestudy-week-03/"/>
     <id>http://youngjinmo.github.io/2021/01/livestudy-week-03/</id>
     <published>2021-01-14T13:49:08.000Z</published>
-    <updated>2021-01-18T04:20:17.504Z</updated>
+    <updated>2021-01-18T10:01:24.052Z</updated>
     
     
       
@@ -74,6 +74,8 @@
     
     <category term="operator" scheme="http://youngjinmo.github.io/tags/operator/"/>
     
+    <category term="livestudy" scheme="http://youngjinmo.github.io/tags/livestudy/"/>
+    
   </entry>
   
   <entry>
@@ -81,7 +83,7 @@
     <link href="http://youngjinmo.github.io/2021/01/livestudy-week-02/"/>
     <id>http://youngjinmo.github.io/2021/01/livestudy-week-02/</id>
     <published>2021-01-11T22:05:30.000Z</published>
-    <updated>2021-01-15T07:34:00.559Z</updated>
+    <updated>2021-01-18T09:58:35.434Z</updated>
     
     
       
@@ -102,6 +104,8 @@
     
     
     <category term="casting" scheme="http://youngjinmo.github.io/tags/casting/"/>
+    
+    <category term="livestudy" scheme="http://youngjinmo.github.io/tags/livestudy/"/>
     
   </entry>
   
@@ -174,7 +178,7 @@
     <link href="http://youngjinmo.github.io/2021/01/livestudy-week-01/"/>
     <id>http://youngjinmo.github.io/2021/01/livestudy-week-01/</id>
     <published>2021-01-04T05:50:50.000Z</published>
-    <updated>2021-01-15T09:31:20.090Z</updated>
+    <updated>2021-01-18T09:48:18.270Z</updated>
     
     
       
@@ -196,6 +200,8 @@
     
     
     <category term="jvm" scheme="http://youngjinmo.github.io/tags/jvm/"/>
+    
+    <category term="livestudy" scheme="http://youngjinmo.github.io/tags/livestudy/"/>
     
   </entry>
   
