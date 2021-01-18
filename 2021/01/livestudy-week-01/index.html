@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg">
 <meta property="article:published_time" content="2021-01-04T05:50:50.000Z">
-<meta property="article:modified_time" content="2021-01-15T08:34:46.891Z">
+<meta property="article:modified_time" content="2021-01-15T09:31:20.090Z">
 <meta property="article:author" content="Youngjin Mo">
 <meta property="article:tag" content="jvm">
 <meta name="twitter:card" content="summary">
@@ -216,7 +216,7 @@ ga('send', 'pageview');
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="" class="article-date">
-     <time datetime="2021-01-15T08:34:46.891Z" itemprop="dateModified">2021-01-15</time>
+     <time datetime="2021-01-15T09:31:20.090Z" itemprop="dateModified">2021-01-15</time>
   </a>
 </div>
 
@@ -225,7 +225,7 @@ ga('send', 'pageview');
 
 				<!-- 	count-time		 -->
 				<span class="reading-time" style="margin-left: 20px;">
-					⏱ 13 min.
+					⏱ 17 min.
 				</span>
                 
     <div class="article-tag">
@@ -288,8 +288,14 @@ ga('send', 'pageview');
 
 <h1 id="바이트코드란-무엇인가"><a href="#바이트코드란-무엇인가" class="headerlink" title="바이트코드란 무엇인가"></a><a name="bytecode"></a>바이트코드란 무엇인가</h1><p><img src="https://user-images.githubusercontent.com/33862991/103438486-cfbc2d00-4c76-11eb-9e71-c4478a07b98c.png" alt="컴파일 과정"></p>
 <p>JVM이 실행하는 명령어 형태이다. 컴퓨터에 의해 실행되려면 기계어로 번역되어야 하는데, JVM은 자바 코드를 읽지 못한다. 따라서 자바 컴파일러를 이용하여 JVM이 읽을 수 있는 형태인 바이트코드로 컴파일 해주어야한다.</p>
+<p>자바 컴파일러에 의해 변환되는 코드의 명령어 크기가 1 byte라서 이를 바이트코드라한다.</p>
 <p>그리고 JVM에서 이 바이트코드를 읽어들여 최종적으로 컴퓨터가 실행할 수 있는 기계어로 번역한다. </p>
-<p>바이트코드는 개발자가 작성된 소스코드와 컴퓨터에서 실행될 기계어 중간 과정의 형태이며, <strong>JVM이 읽을 수 있는 목적의 코드</strong> 이다.</p>
+<p><code>javap</code> 명령어를 이용하면 바이트코드를 볼 수 있다. 아래 예제코드를 통해 확인해보자.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.text.SimpleDateFormat;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudyHalle01</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        StudyHalle01 study = <span class="keyword">new</span> StudyHalle01();</span><br><span class="line">        </span><br><span class="line">        List&lt;Integer&gt; lotto = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">7</span>; i++)&#123;</span><br><span class="line">            lotto.add(study.randomNumber());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(getDate()+<span class="string">&quot; 로또 번호는 입니다&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">randomNumber</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Random random = <span class="keyword">new</span> Random();</span><br><span class="line">        <span class="keyword">int</span> number = random.nextInt(<span class="number">45</span>);</span><br><span class="line">        <span class="keyword">return</span> number;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getDate</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Date time = <span class="keyword">new</span> Date();</span><br><span class="line">        SimpleDateFormat date = <span class="keyword">new</span> SimpleDateFormat(<span class="string">&quot;yyyy년 MM월 dd일&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> date.format(time);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위의 코드를 컴파일하고, <code>javap</code> 명령어로 컴파일하여 생성된 바이트코드를 확인해보겠다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">javac StudyHalle01.java</span><br><span class="line">javap -c StudyHalle01</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/33862991/104706473-7c5dda80-575e-11eb-8a3a-b1f6b4b5a90b.png"></p>
+<p><code>javap</code>의 <code>-c</code> 옵션 명령어를 사용하면 위에서 보듯 역어셈블된 코드를 출력하는데, 이 때 보이는 한 줄 한 줄 명령어(Code)의 크기가 1 byte이다. 그래서 바이트코드라하는 것이다.</p>
 <p>출처 : <a target="_blank" rel="noopener" href="https://ko.wikipedia.org/wiki/%EC%9E%90%EB%B0%94_%EB%B0%94%EC%9D%B4%ED%8A%B8%EC%BD%94%EB%93%9C">위키백과 - 자바 바이트코드</a></p>
 <p>인텔리제이에서 바이트코드를 확인할 수 있다. <strong>[View]</strong> - <strong>[Show Bytecode]</strong> 를 클릭하면, 바이트코드를 보여준다. 단, 프로그램이 빌드한 이력이 있어야 한다. 개발자가 코딩한 직후엔 아직 바이트코드를 생성하지 않았기 때문에 이 땐 바이트코드를 보여줄 수 없다.</p>
 <p><img src="https://user-images.githubusercontent.com/33862991/103438315-6687ea00-4c75-11eb-8942-e282780b277f.png"></p>
@@ -312,6 +318,18 @@ ga('send', 'pageview');
 </ul>
 <h2 id="클래스-로더-Class-Loader"><a href="#클래스-로더-Class-Loader" class="headerlink" title="클래스 로더 (Class Loader)"></a><a name="classloader"></a>클래스 로더 (Class Loader)</h2><p>자바 컴파일러에 의해 컴파일된 자바 바이트코드(<code>.class</code>)들이 JVM에 의해 읽어들여지면, 클래스로더가 이 바이트코드를 운영체제(OS)로부터 적재받은 메모리 영역인 런타임 데이터 에어리어로 <strong>적재(Loading)</strong> 하는 일을 한다. </p>
 <p>여기서 말하는 운영체제로부터 적재받은 메모리란, <strong>RAM</strong> 을 이야기한다. 이 RAM에 클래스 파일들이 올라가야만(Loading), 프로세스로서 실행될 수 있다.</p>
+<p>또 하나, 런타임이란 실행시점을 의미한다. 이와 비슷하지만 다른 시점이 컴파일 시점이 있다.</p>
+<ul>
+<li>컴파일 타임<ul>
+<li>자바 컴파일러에 의해 바이트코드가 생성되는 시점</li>
+</ul>
+</li>
+<li>런타임<ul>
+<li>자바 애플리케이션(기계어)을 실행하는 시점</li>
+</ul>
+</li>
+</ul>
+<p>에러가 없다면 좋겠지만, 에러를 확인해야 한다면 에러는 런타임이 아니라 컴파일 타임에서 확인되는게 가장 좋다. 에러를 누가 확인하는지를 생각하면 이해할 수 있다. 컴파일 타임은 개발자가 확인하지만, 런타임은 사용자도 볼 수 있기 때문이다. 따라서 배포되기 전에 개발자에게 발견되려면 아예 컴파일 시점에 발견되어 컴파일에 실패하는게 좋다.</p>
 <p>Loading 단계에서는 클래스 파일의 <code>main()</code> 부터 메모리에 적재되는데, <code>main()</code> 이 실행되면서 필요한 객체들을 동적으로 로딩하게 된다.</p>
 <p>자바 바이트코드는 JVM에서 기계어(바이너리 코드)로 변환된다고 하였는데, 이 때 코드가 통째로 기계어로 번역되는게 아니라 <u>애플리케이션에 필요한 객체들이 먼저 JIT에 의해서 번역(Interpretion)된다.</u><br>이를 <strong>동적인 클래스 로딩(Java’s dynamic class loading)</strong> 이라고 한다.</p>
 <p>클래스 로더에서는 메모리 영역에 객체 정보를 적재하는 역할 외에 적재된 클래스 파일의 에러를 검증하고 레퍼런스들을 연결하는 <strong>Linking</strong> 이라는 작업을 거친다.</p>
@@ -330,7 +348,7 @@ ga('send', 'pageview');
 </ul>
 <h3 id="메서드-영역-Method-Area"><a href="#메서드-영역-Method-Area" class="headerlink" title="메서드 영역(Method Area)"></a><a name="method-area"></a>메서드 영역(Method Area)</h3><p>JVM 내 하나만 존재하는 <strong>공유자원</strong> 이며, 메모리에 항상 상주하는 영역이기 때문에 JVM 내 스레드들이 메서드 영역의 자원을 공유하여 사용한다.</p>
 <p>클래스에서 필요한 패키지 클래스, 런타임 상수풀, 인터페이스, 상수, <code>static</code> 변수, <code>final</code> 변수, 필드 데이터, 생성자 등의 모든 메서드 정보가 한 번 적재되면, 메모리 영역에서 항상 상주하게 된다.</p>
-<p><a href="#jit">JIT 컴파일러</a>가 실행에 필요한 바이트코드를 기계어로 번역하며, 다른 클래스에서 사용되는 클래스 정보를 메서드 영역에 적재해두고 공유하는 것이다.</p>
+<p><a href="#jit">JIT 컴파일러</a>가 프로그램의 실제 실행시점에 실행에 필요한 바이트코드를 기계어로 번역하며, 다른 클래스에서 사용되는 클래스 정보를 메서드 영역에 적재해두고 공유하는 것이다.</p>
 <p>메서드 영역에 Constant Pool이라는 영역이 존재하는데, 이곳에 상수값을 저장한다. 자바 애플리케이션 런타임시에 필요한 모든 종류의 숫자, 문자열, 식별자 이름, 클래스 파일, 메서드 정보들이 Constant Pool에 저장되는 데이터들이다.</p>
 <p>출처 : <a target="_blank" rel="noopener" href="https://honbabzone.com/java/java-jvm/">김석진 - JVM(Java Virtual Machine)이란</a></p>
 <br>
@@ -456,7 +474,7 @@ JVM이란 무엇인가자바를 두 문장으로 설명하는 말이 있다.
 Write once,Run anywhere.
 
 자바 언어로 개발된 프로그램은 , 운영체제가 리눅스이건, 윈도우이건, 맥OS이건 모두 실행가능한",
-        "wordCount": 1495
+        "wordCount": 1893
     }
 </script>
 
@@ -542,6 +560,26 @@ Write once,Run anywhere.
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="../two-ways-to-declare-string-variable/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/33862991/104871797-62570e80-598f-11eb-86a2-d2144e40e3f6.jpg)" alt="String 변수를 선언하는 2가지 방식" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../two-ways-to-declare-string-variable/" class="title">String 변수를 선언하는 2가지 방식</a></p>
+                            <p class="item-date"><time datetime="2021-01-17T19:05:24.000Z" itemprop="datePublished">2021-01-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="../livestudy-week-03/" class="thumbnail">
     
     
@@ -619,26 +657,6 @@ Write once,Run anywhere.
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg)" alt="Live Study 1주차 - JVM은 무엇이며 자바 코드는 어떻게 실행하는 것인가" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
-                            <p class="item-title"><a href="" class="title">Live Study 1주차 - JVM은 무엇이며 자바 코드는 어떻게 실행하는 것인가</a></p>
-                            <p class="item-date"><time datetime="2021-01-04T05:50:50.000Z" itemprop="datePublished">2021-01-04</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -648,7 +666,7 @@ Write once,Run anywhere.
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="../../../tags/BufferedReader/" style="font-size: 10px;">BufferedReader</a> <a href="../../../tags/BufferedWriter/" style="font-size: 10px;">BufferedWriter</a> <a href="../../../tags/IO/" style="font-size: 10px;">IO</a> <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 11.25px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/annotation/" style="font-size: 10px;">annotation</a> <a href="../../../tags/api/" style="font-size: 10px;">api</a> <a href="../../../tags/architecture/" style="font-size: 10px;">architecture</a> <a href="../../../tags/array/" style="font-size: 11.25px;">array</a> <a href="../../../tags/aws/" style="font-size: 12.5px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blacklivesmatter/" style="font-size: 10px;">blacklivesmatter</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 12.5px;">career</a> <a href="../../../tags/casting/" style="font-size: 13.75px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/cloud/" style="font-size: 12.5px;">cloud</a> <a href="../../../tags/contribution/" style="font-size: 10px;">contribution</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/databse/" style="font-size: 10px;">databse</a> <a href="../../../tags/datastructure/" style="font-size: 12.5px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 15px;">docker</a> <a href="../../../tags/documentation/" style="font-size: 10px;">documentation</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 12.5px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generic/" style="font-size: 10px;">generic</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 13.75px;">github</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 15px;">http</a> <a href="../../../tags/ide/" style="font-size: 10px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 13.75px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 11.25px;">interface</a> <a href="../../../tags/io/" style="font-size: 12.5px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 16.25px;">java</a> <a href="../../../tags/java8/" style="font-size: 11.25px;">java8</a> <a href="../../../tags/javascript/" style="font-size: 15px;">javascript</a> <a href="../../../tags/javscript/" style="font-size: 10px;">javscript</a> <a href="../../../tags/jquery/" style="font-size: 11.25px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/junit/" style="font-size: 10px;">junit</a> <a href="../../../tags/jvm/" style="font-size: 11.25px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 11.25px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/license/" style="font-size: 10px;">license</a> <a href="../../../tags/livereload/" style="font-size: 10px;">livereload</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 11.25px;">mustache</a> <a href="../../../tags/mybatis/" style="font-size: 11.25px;">mybatis</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 16.25px;">oop</a> <a href="../../../tags/operator/" style="font-size: 10px;">operator</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/readme/" style="font-size: 10px;">readme</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 12.5px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 13.75px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 17.5px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/stock/" style="font-size: 10px;">stock</a> <a href="../../../tags/string/" style="font-size: 15px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/terminal/" style="font-size: 10px;">terminal</a> <a href="../../../tags/tip/" style="font-size: 16.25px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 18.75px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 11.25px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/vue/" style="font-size: 10px;">vue</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 17.5px;">weekly-review</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
+            <a href="../../../tags/BufferedReader/" style="font-size: 10px;">BufferedReader</a> <a href="../../../tags/BufferedWriter/" style="font-size: 10px;">BufferedWriter</a> <a href="../../../tags/IO/" style="font-size: 10px;">IO</a> <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 11.11px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/annotation/" style="font-size: 10px;">annotation</a> <a href="../../../tags/api/" style="font-size: 10px;">api</a> <a href="../../../tags/architecture/" style="font-size: 10px;">architecture</a> <a href="../../../tags/array/" style="font-size: 11.11px;">array</a> <a href="../../../tags/aws/" style="font-size: 12.22px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blacklivesmatter/" style="font-size: 10px;">blacklivesmatter</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 12.22px;">career</a> <a href="../../../tags/casting/" style="font-size: 13.33px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/cloud/" style="font-size: 12.22px;">cloud</a> <a href="../../../tags/contribution/" style="font-size: 10px;">contribution</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/databse/" style="font-size: 10px;">databse</a> <a href="../../../tags/datastructure/" style="font-size: 12.22px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 14.44px;">docker</a> <a href="../../../tags/documentation/" style="font-size: 10px;">documentation</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 12.22px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generic/" style="font-size: 10px;">generic</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 13.33px;">github</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 14.44px;">http</a> <a href="../../../tags/ide/" style="font-size: 10px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 13.33px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 11.11px;">interface</a> <a href="../../../tags/io/" style="font-size: 12.22px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 16.67px;">java</a> <a href="../../../tags/java8/" style="font-size: 11.11px;">java8</a> <a href="../../../tags/javascript/" style="font-size: 14.44px;">javascript</a> <a href="../../../tags/javscript/" style="font-size: 10px;">javscript</a> <a href="../../../tags/jquery/" style="font-size: 11.11px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/junit/" style="font-size: 10px;">junit</a> <a href="../../../tags/jvm/" style="font-size: 11.11px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 11.11px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/license/" style="font-size: 10px;">license</a> <a href="../../../tags/livereload/" style="font-size: 10px;">livereload</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 11.11px;">mustache</a> <a href="../../../tags/mybatis/" style="font-size: 11.11px;">mybatis</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 16.67px;">oop</a> <a href="../../../tags/operator/" style="font-size: 10px;">operator</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/readme/" style="font-size: 10px;">readme</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 12.22px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 13.33px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 17.78px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/stock/" style="font-size: 10px;">stock</a> <a href="../../../tags/string/" style="font-size: 15.56px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/terminal/" style="font-size: 10px;">terminal</a> <a href="../../../tags/tip/" style="font-size: 16.67px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 18.89px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 11.11px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/vue/" style="font-size: 10px;">vue</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 17.78px;">weekly-review</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
         </div>
     </div>
 
