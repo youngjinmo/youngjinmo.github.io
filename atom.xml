@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-01-18T04:20:44.496Z</updated>
+  <updated>2021-01-20T06:24:11.380Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>클래스변수와 인스턴스 변수 차이(생성시점)</title>
+    <link href="http://youngjinmo.github.io/2021/01/diff-static-variable-instance-variable/"/>
+    <id>http://youngjinmo.github.io/2021/01/diff-static-variable-instance-variable/</id>
+    <published>2021-01-19T21:01:13.000Z</published>
+    <updated>2021-01-20T06:24:11.380Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/105133010-3bcfd980-5b2f-11eb-87ef-626c9cf53575.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;백기선님 라이브 스터디의 피드백 영상을 보면서</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+    <category term="jvm" scheme="http://youngjinmo.github.io/tags/jvm/"/>
+    
+  </entry>
   
   <entry>
     <title>String 변수를 선언하는 2가지 방식</title>
@@ -83,7 +111,7 @@
     <link href="http://youngjinmo.github.io/2021/01/livestudy-week-02/"/>
     <id>http://youngjinmo.github.io/2021/01/livestudy-week-02/</id>
     <published>2021-01-11T22:05:30.000Z</published>
-    <updated>2021-01-18T09:58:35.434Z</updated>
+    <updated>2021-01-20T06:26:22.279Z</updated>
     
     
       
@@ -601,33 +629,6 @@
     <category term="xml" scheme="http://youngjinmo.github.io/tags/xml/"/>
     
     <category term="json" scheme="http://youngjinmo.github.io/tags/json/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Oracle - Sequence 생성하고 테이블에 삽입하기</title>
-    <link href="http://youngjinmo.github.io/2020/08/create-table-sequence/"/>
-    <id>http://youngjinmo.github.io/2020/08/create-table-sequence/</id>
-    <published>2020-08-31T09:57:13.000Z</published>
-    <updated>2020-09-13T01:53:29.136Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Database" scheme="http://youngjinmo.github.io/categories/Dev/Database/"/>
-    
-    
-    <category term="oracle" scheme="http://youngjinmo.github.io/tags/oracle/"/>
     
   </entry>
   
