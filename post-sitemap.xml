@@ -10,7 +10,15 @@
 
     <url>
         <loc>http://youngjinmo.github.io/2021/01/livestudy-week-02/</loc>
-        <lastmod>2021-01-20T06:34:37.243Z</lastmod>
+        <lastmod>2021-01-21T05:22:58.519Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/2021/01/livestudy-week-03/</loc>
+        <lastmod>2021-01-21T05:22:37.415Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -19,14 +27,6 @@
     <url>
         <loc>http://youngjinmo.github.io/2021/01/diff-static-variable-instance-variable/</loc>
         <lastmod>2021-01-20T06:24:11.380Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2021/01/livestudy-week-03/</loc>
-        <lastmod>2021-01-18T10:01:24.052Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
