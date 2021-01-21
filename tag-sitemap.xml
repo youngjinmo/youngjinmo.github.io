@@ -3,6 +3,20 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/tags/generics/</loc>
+        <lastmod>2021-01-21T06:22:16.595Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/tags/java5/</loc>
+        <lastmod>2021-01-21T06:22:16.595Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/tags/livestudy/</loc>
         <lastmod>2021-01-21T05:22:58.519Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -586,13 +600,6 @@
     <url>
         <loc>http://youngjinmo.github.io/tags/io/</loc>
         <lastmod>2020-09-13T01:53:28.620Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/tags/generic/</loc>
-        <lastmod>2020-09-13T01:53:28.596Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
