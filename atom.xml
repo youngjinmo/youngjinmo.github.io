@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-01-20T06:24:11.380Z</updated>
+  <updated>2021-01-21T09:57:22.688Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Live Study 4주차 - 제어문</title>
+    <link href="http://youngjinmo.github.io/2021/01/livestudy-week-04/"/>
+    <id>http://youngjinmo.github.io/2021/01/livestudy-week-04/</id>
+    <published>2021-01-21T00:52:05.000Z</published>
+    <updated>2021-01-21T09:57:22.688Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#conditional&quot;&gt;조건문&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Jave" scheme="http://youngjinmo.github.io/categories/Dev/Jave/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>클래스변수와 인스턴스 변수 차이(생성시점)</title>
@@ -77,7 +105,7 @@
     <link href="http://youngjinmo.github.io/2021/01/livestudy-week-03/"/>
     <id>http://youngjinmo.github.io/2021/01/livestudy-week-03/</id>
     <published>2021-01-14T13:49:08.000Z</published>
-    <updated>2021-01-21T05:22:37.415Z</updated>
+    <updated>2021-01-21T09:52:50.681Z</updated>
     
     
       
@@ -598,37 +626,6 @@
     <category term="github" scheme="http://youngjinmo.github.io/tags/github/"/>
     
     <category term="contribution" scheme="http://youngjinmo.github.io/tags/contribution/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>XML, JSON 그리고 XMLHttpRequest</title>
-    <link href="http://youngjinmo.github.io/2020/09/xml-json-xmlhttprequest/"/>
-    <id>http://youngjinmo.github.io/2020/09/xml-json-xmlhttprequest/</id>
-    <published>2020-09-01T03:00:59.000Z</published>
-    <updated>2020-12-08T09:43:21.338Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Others" scheme="http://youngjinmo.github.io/categories/Dev/Others/"/>
-    
-    
-    <category term="http" scheme="http://youngjinmo.github.io/tags/http/"/>
-    
-    <category term="xml" scheme="http://youngjinmo.github.io/tags/xml/"/>
-    
-    <category term="json" scheme="http://youngjinmo.github.io/tags/json/"/>
     
   </entry>
   

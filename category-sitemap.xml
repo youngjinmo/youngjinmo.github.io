@@ -9,15 +9,22 @@
 
 
     <url>
-        <loc>http://youngjinmo.github.io/categories/Dev/Java/</loc>
-        <lastmod>2021-01-21T06:22:16.595Z</lastmod>
+        <loc>http://youngjinmo.github.io/categories/Dev/Jave/</loc>
+        <lastmod>2021-01-21T09:57:22.688Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://youngjinmo.github.io/categories/Dev/</loc>
-        <lastmod>2021-01-21T06:22:16.595Z</lastmod>
+        <lastmod>2021-01-21T09:57:22.688Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/categories/Dev/Java/</loc>
+        <lastmod>2021-01-21T09:52:50.681Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

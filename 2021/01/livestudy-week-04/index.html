@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Live Study 4주차 - 제어문 | DevAndy - 개발자앤디의 개발블로그</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="" />
+    
+    <meta name="description" content="조건문 if switch   반복문 for-i for-each while do-while   조건문과 반복문에서 쓰이는 키워드 break continue   Live-Study 참석율 대시보드 생성하기  조건문조건문은 if문과 switch문으로 구분된다.  if switch  if1234boolean condition;if(condition)&amp;#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Live Study 4주차 - 제어문">
+<meta property="og:url" content="http://youngjinmo.github.io/2021/01/livestudy-week-04/index.html">
+<meta property="og:site_name" content="DevAndy - 개발자앤디의 개발블로그">
+<meta property="og:description" content="조건문 if switch   반복문 for-i for-each while do-while   조건문과 반복문에서 쓰이는 키워드 break continue   Live-Study 참석율 대시보드 생성하기  조건문조건문은 if문과 switch문으로 구분된다.  if switch  if1234boolean condition;if(condition)&amp;#123;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg">
+<meta property="article:published_time" content="2021-01-21T00:52:05.000Z">
+<meta property="article:modified_time" content="2021-01-21T09:57:22.688Z">
+<meta property="article:author" content="Youngjin Mo">
+<meta property="article:tag" content="java, spring boot, spring framework, developer, programmer, 개발자, 스프링부트, 자바">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg">
+<meta name="twitter:creator" content="@devandy_yj">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="DevAndy - 개발자앤디의 개발블로그" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="../../../css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="../../../libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="../../../libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="../../../libs/source-code-pro/styles.css">
+
+    
+<link rel="stylesheet" href="../../../css/style.css">
+
+	<!-- <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">  -->
+	<style type="text/css">
+		@font-face {
+		  font-family: 'Jeju Myeongjo';
+		  font-style: normal;
+		  font-weight: 400;
+		  src: url(//fonts.gstatic.com/ea/jejumyeongjo/v3/JejuMyeongjo-Regular.eot);
+		  src: url(//fonts.gstatic.com/ea/jejumyeongjo/v3/JejuMyeongjo-Regular.eot?#iefix) format('embedded-opentype'),
+			   url(//fonts.gstatic.com/ea/jejumyeongjo/v3/JejuMyeongjo-Regular.woff2) format('woff2'),
+			   url(//fonts.gstatic.com/ea/jejumyeongjo/v3/JejuMyeongjo-Regular.woff) format('woff'),
+			   url(//fonts.gstatic.com/ea/jejumyeongjo/v3/JejuMyeongjo-Regular.ttf) format('truetype');
+		}
+		/* @font-face { font-family: 'BMHANNAAir'; 
+					src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.0/BMHANNAAir.woff') format('woff'); 
+					font-weight: normal; 
+					font-style: normal; 
+		}  */
+	</style>
+
+    
+<script src="../../../libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-177850483-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../index.html">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Articles/">Articles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/">Dev</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Front-end/">Front-end</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Jave/">Jave</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Others/">Others</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/SpringBoot/">SpringBoot</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Springboot/">Springboot</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Web/">Web</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Review/">Review</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Thought/">Thought</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Quiz/">Quiz</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../https:/github.com/youngjinmo/youngjinmo">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="../../../js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Jave/">Jave</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-livestudy-week-04" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Live Study 4주차 - 제어문
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta" style="margin-bottom: 1em;">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="" class="article-date">
+       <time datetime="2021-01-21T00:52:05.000Z" itemprop="datePublished">2021-01-21</time>
+    </a>
+  </div>
+
+<!-- 
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="" class="article-date">
+     <time datetime="2021-01-21T09:57:22.688Z" itemprop="dateModified">2021-01-21</time>
+  </a>
+</div>
+
+ -->
+                
+
+				<!-- 	count-time		 -->
+				<span class="reading-time" style="margin-left: 20px;">
+					⏱ 20 min.
+				</span>
+                
+                <!-- partial('post/valinecounter') 
+                <!-- partial('post/counter') -->
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg"></p>
+<ul>
+<li><a href="#conditional">조건문</a><ul>
+<li><a href="#if">if</a></li>
+<li><a href="#switch">switch</a></li>
+</ul>
+</li>
+<li><a href="#loop">반복문</a><ul>
+<li><a href="#for-i">for-i</a></li>
+<li><a href="#for-each">for-each</a></li>
+<li><a href="#while">while</a></li>
+<li><a href="#do-while">do-while</a></li>
+</ul>
+</li>
+<li><a href="#keywords">조건문과 반복문에서 쓰이는 키워드</a><ul>
+<li><a href="#break">break</a></li>
+<li><a href="#continue">continue</a></li>
+</ul>
+</li>
+<li><a href="#dashboard">Live-Study 참석율 대시보드 생성하기</a></li>
+</ul>
+<h1 id="조건문"><a href="#조건문" class="headerlink" title="조건문"></a><a name="conditional"></a>조건문</h1><p>조건문은 if문과 switch문으로 구분된다.</p>
+<ul>
+<li><a href="#if">if</a></li>
+<li><a href="#switch">switch</a></li>
+</ul>
+<h2 id="if"><a href="#if" class="headerlink" title="if"></a><a name="if"></a>if</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">boolean</span> condition;</span><br><span class="line"><span class="keyword">if</span>(condition)&#123;</span><br><span class="line">   System.our.println(<span class="string">&quot;true&quot;</span>); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>if문은 조건이 <code>true</code>일 때 블럭 <code>&#123;&#125;</code> 안의 명령을 수행하도록 하는 조건식이다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(num&lt;<span class="number">0</span>)&#123;</span><br><span class="line">  System.our.println(<span class="string">&quot;0보다 작다.&quot;</span>); </span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span>(num&lt;<span class="number">10</span>)&#123;   <span class="comment">// 0 &lt;= num &lt; 10</span></span><br><span class="line">  System.our.println(<span class="string">&quot;10보다 작다.&quot;</span>); </span><br><span class="line">&#125; <span class="keyword">else</span> &#123;             <span class="comment">// num &gt;= 10</span></span><br><span class="line">	System.our.println(<span class="string">&quot;10보다 크다.&quot;</span>); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="else-if-와-else"><a href="#else-if-와-else" class="headerlink" title="else-if 와 else"></a>else-if 와 else</h3><p>if문의 첫번째 조건이 충족(<code>true</code>)하지 않는 다른 조건의 경우는 <code>else if</code>문으로 조건 분기가 가능하다. <code>else</code> 는 위의 모든 조건을 제외한 경우를 의미한다.</p>
+<p>if문 안의 조건엔 비교연산자와 논리연산자가 함께 쓰일수 있다.di</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(num&gt;=<span class="number">0</span> &amp;&amp; num&lt;<span class="number">10</span>)&#123;</span><br><span class="line">   System.out.println(<span class="string">&quot;한자릿수입니다.&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="논리연산자-사용"><a href="#논리연산자-사용" class="headerlink" title="논리연산자 사용"></a>논리연산자 사용</h3><p>if문을 사용할때 boolean 타입의 변수를 사용하기보다 논리연산자를 사용하는 경우가 많다. 이 때 알아야 할 것이 있다. 바로 아래 예제 코드를 확인해보도록 하자.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudyHalle04</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      <span class="keyword">int</span> num1 = <span class="number">10</span>;</span><br><span class="line">      <span class="keyword">int</span> num2 = <span class="number">20</span>;</span><br><span class="line">     </span><br><span class="line">      <span class="keyword">if</span>(num1++==<span class="number">15</span> &amp;&amp; num2++==<span class="number">20</span>)&#123;</span><br><span class="line">         System.out.println(<span class="string">&quot;success&quot;</span>);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">         System.out.println(<span class="string">&quot;failed&quot;</span>);</span><br><span class="line">      &#125;</span><br><span class="line">     </span><br><span class="line">      System.out.println(num1);</span><br><span class="line">      System.out.println(num2);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>이 코드는 if문을 통해 success와 fail을 구분하는 코드지만, 필자가 이 코드를 통해 확인하고 싶은 부분은 if문 조건문 안에서 증감연산자를 적용한 <code>num1</code>과 <code>num2</code>가 값이 어떻게 바뀌는지 보고 싶었다.</p>
+<p>위 코드의 결과는 아래와 같다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">failed</span><br><span class="line">11</span><br><span class="line">10</span><br></pre></td></tr></table></figure>
+
+<p>if문 안에서 똑같이 <code>num1</code>과 <code>num2</code>를 증감연산하였는데, 왜 <code>num1</code>만 증감연산 적용된걸까.</p>
+<p>if 조건문안에서 사용한 논리연산자가 &amp;&amp; 였다. &amp;&amp; 는 두항 모두 <code>true</code>일 때 <code>true</code>를 반환하는 논리연산자이다. 위의 코드에서 num1++은 11인데 11은 15와 일치하지 않으므로 <code>false</code>를 반환하다. 그럼 우측 항이 <code>true</code>이든 <code>false</code>이든 상관없이 이미 <code>false</code>이므로 if문은 바로 break를 실행하고 빠져나오게 된다. 그래서 num2는 증감연산지 실행되지 않은것이다.</p>
+<br>
+
+<h3 id="중첩-if문"><a href="#중첩-if문" class="headerlink" title="중첩 if문"></a>중첩 if문</h3><p>if문안의 if문이 들어가는 중첩 if문도 가능하다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">String name=<span class="string">&quot;David Beckham&quot;</span>;</span><br><span class="line"><span class="keyword">int</span> number = <span class="number">7</span>;</span><br><span class="line">String club;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(number==<span class="number">7</span>)&#123;</span><br><span class="line">   <span class="keyword">if</span>(name.equals(<span class="string">&quot;David Beckham&quot;</span>))&#123;</span><br><span class="line">      club=<span class="string">&quot;Manchester United FC&quot;</span>;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>if문안의 중첩도를 3이상 만들수도 있지만, if문의 중첩도는 2 이하로 맞추는 것의 향후 코드 가독성을 위해서 좋다. 논리연산자를 사용하면 불필요한 중첩도를 낮출수 있다. 위의 코드를 리팩토링해보겠다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(number==<span class="number">7</span> &amp;&amp; name.equals(<span class="string">&quot;David Beckham&quot;</span>))&#123;</span><br><span class="line">   club=<span class="string">&quot;Manchester United FC&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>훨씬 가독성이 높아진다. 중첩도 2 수준만으로 대부분의 논리를 구현할 수 있으므로 중첩도가 3이상 넘어가지 않도록 주의하자.</p>
+<h2 id="switch"><a href="#switch" class="headerlink" title="switch"></a><a name="switch"></a>switch</h2><p>특정 조건으로 분기 처리할 수 있는 if문과 달리 switch문은 하나의 조건문으로만 명령이 수행되도록하는 특징이 있다. 이름 그대로 ‘스위치’ 같은 역할을 수행하는데, if문보다 <strong>간결</strong> 하다는 장점이 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> num=<span class="number">2</span>;</span><br><span class="line"><span class="keyword">switch</span>(num)&#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">     System.out.println(<span class="string">&quot;입력받은 숫자는 0입니다.&quot;</span>);</span><br><span class="line">  <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">     System.out.println(<span class="string">&quot;입력받은 숫자는 1입니다.&quot;</span>);</span><br><span class="line">     <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">     System.out.println(<span class="string">&quot;입력받은 숫자는 2입니다.&quot;</span>);</span><br><span class="line">     <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">default</span>:</span><br><span class="line">     System.out.println(<span class="string">&quot;입력받은 숫자는 2보다 큰 정수입니다.&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">입력받은 숫자는 2입니다.</span><br></pre></td></tr></table></figure>
+
+<p>switch로 들어온 조건에 따라 다양하게 분기처리가 가능하다. <code>case</code> 는 <code>if</code> 또는 <code>else-if</code>와 같다. <code>default</code>는 <code>else</code>와 같다.</p>
+<p>switch문에서 사용한 <code>break</code>는 아래 정리해두었다.</p>
+<h3 id="switch의-제약조건"><a href="#switch의-제약조건" class="headerlink" title="switch의 제약조건"></a>switch의 제약조건</h3><ul>
+<li>switch문의 조건식 결과는 정수 또는 문자열이어야 한다.</li>
+<li>case문의 값은 정수, 상수만 가능하며, 중복되지 않아야 한다.</li>
+</ul>
+<p>출처 : <a target="_blank" rel="noopener" href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=76083001">남궁성 - Java의 정석</a></p>
+<h3 id="중첩-switch문"><a href="#중첩-switch문" class="headerlink" title="중첩 switch문"></a>중첩 switch문</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> num=<span class="number">2</span>;</span><br><span class="line">String gender = <span class="string">&quot;male&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span>(num) &#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">    <span class="keyword">switch</span>(gender) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">&quot;male&quot;</span>:</span><br><span class="line">        System.out.println(<span class="string">&quot;남자입니다.&quot;</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">&quot;female&quot;</span>:</span><br><span class="line">        System.out.println(<span class="string">&quot;여자입니다.&quot;</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="keyword">case</span> <span class="number">1</span>: <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">    <span class="keyword">switch</span> (num) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">        System.out.println(<span class="string">&quot;1입니다.&quot;</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">        System.out.println(<span class="string">&quot;2입니다..&quot;</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="keyword">default</span>:</span><br><span class="line">    System.out.println(<span class="string">&quot;입력받은 숫자는 1보다 큰 정수입니다.&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>위의 코드처럼 switch 안의 switch가 중첩될수도 있으며, case 2개를 한번에 분기처리할수도 있다.</p>
+<br>
+
+<h1 id="반복문"><a href="#반복문" class="headerlink" title="반복문"></a><a name="loop"></a>반복문</h1><ul>
+<li><a href="#for-i">for i</a></li>
+<li><a href="#for-each">for each</a></li>
+<li><a href="#while">while</a></li>
+<li><a href="#do-while">do-while</a></li>
+</ul>
+<h2 id="for-i"><a href="#for-i" class="headerlink" title="for i"></a><a name="for-i"></a>for i</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(iterator 초기값; iterator 조건; 증감;) &#123; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>for문의 <code>()</code> 안에는 iterator의 초기값, 조건, 증감이 들어간다. iterator가 <code>true</code>일때까지 증감할때마다 블럭<code>&#123;&#125;</code> 안의 코드가 반복된다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">10</span>; i++)&#123;</span><br><span class="line">  System.out.print(i+<span class="string">&quot; &quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 1 2 3 4 5 6 7 8 9</span><br></pre></td></tr></table></figure>
+
+<h2 id="for-each"><a href="#for-each" class="headerlink" title="for each"></a><a name="for-each"></a>for each</h2><p>for-each는 for-i와 달리 iterator를 쓰지 않는 for문이다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] numbers = &#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>&#125;;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> num:numbers)&#123;</span><br><span class="line">  System.out.print(num+<span class="string">&quot; &quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 1 2 3 4 5 6 7 8 9</span><br></pre></td></tr></table></figure>
+
+<p>iterator를 쓰지 않기 때문에 List 또는 배열등의 자료구조가 필요하다.</p>
+<p>출처 : <a target="_blank" rel="noopener" href="https://www.w3schools.com/java/java_for_loop.asp">w3schools - Java For Loop</a></p>
+<h2 id="while"><a href="#while" class="headerlink" title="while"></a><a name="while"></a>while</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(condition) &#123; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>while문안의 조건문이 <code>true</code> 이면, 계속 반복하다가 조건문이 <code>false</code> 이면 반복문이 종료된다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span>(i&lt;<span class="number">5</span>)&#123;</span><br><span class="line">   System.out.print(i+<span class="string">&quot; &quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 1 2 3 4</span><br></pre></td></tr></table></figure>
+
+<h2 id="do-while"><a href="#do-while" class="headerlink" title="do-while"></a><a name="do-while"></a>do-while</h2><p>while문의 경우 블럭안의 내용이 실행되기 앞서 조건문을 먼저 실행한뒤에 조건이 <code>true</code>이면 블럭안의 코드가 실행되는데 반해, do-while문은 일단 블럭안의 코드를 실행한뒤에 더 반복할지 조건문을 실행하는 반복문이다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">   System.out.print(i+<span class="string">&quot; &quot;</span>);</span><br><span class="line">&#125; <span class="keyword">while</span>(i&lt;<span class="number">5</span>);</span><br></pre></td></tr></table></figure>
+
+<p>주의해야할 점은 조건문을 마칠 때 <code>;</code>를 꼭 작성해야 한다!</p>
+<p>출처 : <a target="_blank" rel="noopener" href="https://www.w3schools.com/java/java_while_loop.asp">w3schools - Java While Loop</a></p>
+<br>
+
+<h1 id="조건문과-반복문에서-쓰이는-키워드"><a href="#조건문과-반복문에서-쓰이는-키워드" class="headerlink" title="조건문과 반복문에서 쓰이는 키워드"></a><a name="keywords"></a>조건문과 반복문에서 쓰이는 키워드</h1><p>조건문과 반복문에서 자주 쓰이는 키워들이다.</p>
+<h2 id="break"><a href="#break" class="headerlink" title="break;"></a><a name="break"></a>break;</h2><p>switch는 조건에 따라 분기를 원할 경우, 각 case가 끝날때마다 <code>break</code>을 찍어줘야한다. 그렇지않으면 그 다음 case가 실행된다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> num=<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span>(num)&#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">     System.out.println(<span class="string">&quot;입력받은 숫자는 0입니다.&quot;</span>);</span><br><span class="line">  <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">     System.out.println(<span class="string">&quot;입력받은 숫자는 1입니다.&quot;</span>);</span><br><span class="line">     <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">     System.out.println(<span class="string">&quot;입력받은 숫자는 2입니다.&quot;</span>);</span><br><span class="line">     <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">default</span>:</span><br><span class="line">     System.out.println(<span class="string">&quot;입력받은 숫자는 2보다 큰 정수입니다.&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">입력받은 숫자는 0입니다.</span><br><span class="line">입력받은 숫자는 1입니다.</span><br></pre></td></tr></table></figure>
+
+<p>첫번째 case에서 <code>break</code>되지 않고, 다음 case까지 실행되었기 때문이다. if문은 <code>&#123;&#125;</code>가 완벽하게 다른 조건과 독립되는것에 비해 switch가 갖는 특징이기도 하다.</p>
+<h2 id="continue"><a href="#continue" class="headerlink" title="continue;"></a><a name="continue"></a>continue;</h2><p>반복하지 않고 바로 건너띄울때(<strong>skip</strong>) 사용하는 키워드이다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">10</span>; i++)&#123;</span><br><span class="line">   <span class="keyword">if</span>(i%<span class="number">2</span>==<span class="number">0</span>)&#123;</span><br><span class="line">      <span class="keyword">continue</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   System.out.print(i+<span class="string">&quot; &quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>0부터 10까지 iterator를 돌리면서 iterator를 출력하는 반복문인데, 짝수(<code>i%2==0</code>)는 <code>continue</code> 되도록 하였다. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 3 5 7 9</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h1 id="Live-Study-참석율-대시보드-생성하기"><a href="#Live-Study-참석율-대시보드-생성하기" class="headerlink" title="Live-Study 참석율 대시보드 생성하기"></a><a name="dashboard"></a>Live-Study 참석율 대시보드 생성하기</h1><p>Live-Study 대시보드는 Github에 소스코드와 문서를 정리하여 올려두었다.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/youngjinmo/WhiteShip-LiveStudy-Dashboard">https://github.com/youngjinmo/WhiteShip-LiveStudy-Dashboard</a></p>
+
+        </div>
+        <footer class="article-footer">
+            <script src="https://utteranc.es/client.js"
+        repo="youngjinmo/githubpages-comment"
+        issue-term="url"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Youngjin Mo"
+        },
+        "headline": "Live Study 4주차 - 제어문",
+        "image": "../../../http:/youngjinmo.github.iohttps:/i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg",
+        "keywords": "",
+        "genre": "Dev Jave",
+        "datePublished": "2021-01-21",
+        "dateCreated": "2021-01-21",
+        "dateModified": "2021-01-21",
+        "url": "../../../http:/youngjinmo.github.io/2021/01/livestudy-week-04/",
+        "description": "
+
+조건문
+if
+switch
+
+
+반복문
+for-i
+for-each
+while
+do-while
+
+
+조건문과 반복문에서 쓰이는 키워드
+break
+continue
+
+
+Live-Study 참석율 대시보드 생성하기
+
+조건문조건문은 if문과 switch문으로 구분된다.
+
+if
+switch
+
+if1234boolean condition;if(condition)&#123;",
+        "wordCount": 1535
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+
+<script data-ad-client="ca-pub-9881527334918017" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="../../../https:/twitter.com/devandy_yj" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="../../../https:/github.com/youngjinmo" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../atom.xml" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="../diff-static-variable-instance-variable/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">클래스변수와 인스턴스 변수 차이(생성시점)</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg)" alt="Live Study 4주차 - 제어문" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Jave/">Jave</a></p>
+                            <p class="item-title"><a href="" class="title">Live Study 4주차 - 제어문</a></p>
+                            <p class="item-date"><time datetime="2021-01-21T00:52:05.000Z" itemprop="datePublished">2021-01-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../diff-static-variable-instance-variable/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/33862991/105133010-3bcfd980-5b2f-11eb-87ef-626c9cf53575.png)" alt="클래스변수와 인스턴스 변수 차이(생성시점)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../diff-static-variable-instance-variable/" class="title">클래스변수와 인스턴스 변수 차이(생성시점)</a></p>
+                            <p class="item-date"><time datetime="2021-01-19T21:01:13.000Z" itemprop="datePublished">2021-01-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../two-ways-to-declare-string-variable/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/33862991/104871797-62570e80-598f-11eb-86a2-d2144e40e3f6.jpg)" alt="String 변수를 선언하는 2가지 방식" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../two-ways-to-declare-string-variable/" class="title">String 변수를 선언하는 2가지 방식</a></p>
+                            <p class="item-date"><time datetime="2021-01-17T19:05:24.000Z" itemprop="datePublished">2021-01-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../livestudy-week-03/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg)" alt="Live Study 3주차 - 연산자" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../livestudy-week-03/" class="title">Live Study 3주차 - 연산자</a></p>
+                            <p class="item-date"><time datetime="2021-01-14T13:49:08.000Z" itemprop="datePublished">2021-01-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../livestudy-week-02/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg)" alt="Live Study 2주차 - 자바 데이터 타입, 변수 그리고 배열" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../livestudy-week-02/" class="title">Live Study 2주차 - 자바 데이터 타입, 변수 그리고 배열</a></p>
+                            <p class="item-date"><time datetime="2021-01-11T22:05:30.000Z" itemprop="datePublished">2021-01-12</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../tags/BufferedReader/" style="font-size: 10px;">BufferedReader</a> <a href="../../../tags/BufferedWriter/" style="font-size: 10px;">BufferedWriter</a> <a href="../../../tags/IO/" style="font-size: 10px;">IO</a> <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 11.11px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/annotation/" style="font-size: 10px;">annotation</a> <a href="../../../tags/api/" style="font-size: 10px;">api</a> <a href="../../../tags/architecture/" style="font-size: 10px;">architecture</a> <a href="../../../tags/array/" style="font-size: 11.11px;">array</a> <a href="../../../tags/aws/" style="font-size: 12.22px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blacklivesmatter/" style="font-size: 10px;">blacklivesmatter</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 12.22px;">career</a> <a href="../../../tags/casting/" style="font-size: 13.33px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/cloud/" style="font-size: 12.22px;">cloud</a> <a href="../../../tags/contribution/" style="font-size: 10px;">contribution</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/databse/" style="font-size: 10px;">databse</a> <a href="../../../tags/datastructure/" style="font-size: 12.22px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 14.44px;">docker</a> <a href="../../../tags/documentation/" style="font-size: 10px;">documentation</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 12.22px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generics/" style="font-size: 10px;">generics</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 13.33px;">github</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 14.44px;">http</a> <a href="../../../tags/ide/" style="font-size: 10px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 13.33px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 11.11px;">interface</a> <a href="../../../tags/io/" style="font-size: 12.22px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 16.67px;">java</a> <a href="../../../tags/java5/" style="font-size: 10px;">java5</a> <a href="../../../tags/java8/" style="font-size: 11.11px;">java8</a> <a href="../../../tags/javascript/" style="font-size: 14.44px;">javascript</a> <a href="../../../tags/javscript/" style="font-size: 10px;">javscript</a> <a href="../../../tags/jquery/" style="font-size: 11.11px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/junit/" style="font-size: 10px;">junit</a> <a href="../../../tags/jvm/" style="font-size: 12.22px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 11.11px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/license/" style="font-size: 10px;">license</a> <a href="../../../tags/livereload/" style="font-size: 10px;">livereload</a> <a href="../../../tags/livestudy/" style="font-size: 12.22px;">livestudy</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 11.11px;">mustache</a> <a href="../../../tags/mybatis/" style="font-size: 11.11px;">mybatis</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 16.67px;">oop</a> <a href="../../../tags/operator/" style="font-size: 10px;">operator</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/readme/" style="font-size: 10px;">readme</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 12.22px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 13.33px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 17.78px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/stock/" style="font-size: 10px;">stock</a> <a href="../../../tags/string/" style="font-size: 15.56px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/terminal/" style="font-size: 10px;">terminal</a> <a href="../../../tags/tip/" style="font-size: 16.67px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 18.89px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 11.11px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/vue/" style="font-size: 10px;">vue</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 17.78px;">weekly-review</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2021 Youngjin Mo</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+    
+        
+<script src="../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="../../../js/main.js"></script>
+
+
+</body>
+</html>

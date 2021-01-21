@@ -9,6 +9,22 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/2021/01/livestudy-week-04/</loc>
+        <lastmod>2021-01-21T09:57:22.688Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/2021/01/livestudy-week-03/</loc>
+        <lastmod>2021-01-21T09:52:50.681Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/2020/08/java-generics/</loc>
         <lastmod>2021-01-21T06:22:16.595Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -19,14 +35,6 @@
     <url>
         <loc>http://youngjinmo.github.io/2021/01/livestudy-week-02/</loc>
         <lastmod>2021-01-21T05:22:58.519Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2021/01/livestudy-week-03/</loc>
-        <lastmod>2021-01-21T05:22:37.415Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
