@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-01-21T09:57:22.688Z</updated>
+  <updated>2021-01-22T14:50:44.224Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>디지털 개인정보보호</title>
+    <link href="http://youngjinmo.github.io/2021/01/digital-privacy/"/>
+    <id>http://youngjinmo.github.io/2021/01/digital-privacy/</id>
+    <published>2021-01-22T05:42:25.000Z</published>
+    <updated>2021-01-22T14:50:44.224Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Life" scheme="http://youngjinmo.github.io/categories/Life/"/>
+    
+    <category term="Thought" scheme="http://youngjinmo.github.io/categories/Life/Thought/"/>
+    
+    
+    <category term="privacy" scheme="http://youngjinmo.github.io/tags/privacy/"/>
+    
+  </entry>
   
   <entry>
     <title>Live Study 4주차 - 제어문</title>
@@ -595,37 +622,6 @@
     
     
     <category term="stock" scheme="http://youngjinmo.github.io/tags/stock/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>첫 오픈소스 기여</title>
-    <link href="http://youngjinmo.github.io/2020/09/github-contribution/"/>
-    <id>http://youngjinmo.github.io/2020/09/github-contribution/</id>
-    <published>2020-09-18T06:20:21.000Z</published>
-    <updated>2020-10-22T12:20:50.971Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://opensource.guide/assets/images/cards/contribute.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;뭐 엄청 작은부분이지만, 그래도 첫 오픈소스 기여를 기념하여 그 과정을 기록한다.&lt;/p&gt;
-&lt;p&gt;오픈소스를 기여하는 방법은</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Git" scheme="http://youngjinmo.github.io/categories/Dev/Git/"/>
-    
-    
-    <category term="github" scheme="http://youngjinmo.github.io/tags/github/"/>
-    
-    <category term="contribution" scheme="http://youngjinmo.github.io/tags/contribution/"/>
     
   </entry>
   

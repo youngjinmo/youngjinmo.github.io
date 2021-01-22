@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>디지털 개인정보보호</title>
+      <link href="2021/01/digital-privacy/"/>
+      <url>2021/01/digital-privacy/</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://cdn.vox-cdn.com/thumbor/w5RvecKBRzdm6MyNaTH19Y2BpMY=/0x0:1920x1080/920x613/filters:focal(807x387:1113x693):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/68526858/FB_ATT_Prompt.001.5.png" alt="The Verge"></p><p>최근에 뉴욕타임즈 온라인 구독을 시작했다. 영어 실력이 부족하다보니 파파고를 이용해 번역하거나 iOS/MacOS에 내장된 사전기능(Lookup)을 이용한 검색이 많지만, 그래도 양질의 컨텐츠를 읽을 수 있다는 점이 상당히 매력적인것 같다. </p><p>뉴욕타임즈 칭찬하려고 쓰는 글은 아니고, 최근에 디지털 개인정보에 대해 관심이 커지게 된 계기가 여기서 읽게 된 몇개의 기사때문이다. </p><p>왓츠앱의 개인정보 정책을 비판하는 논조의 기사였다. 2014년 인스턴스 메세징 서비스 왓츠앱을 인수한 페이스북이 2016년 왓츠앱의 데이터를 페이스북과 공유하고 있다는 내용이었다. </p><p><em>관련기사</em></p><ul><li><a href="https://www.nytimes.com/2021/01/13/technology/whatsapp-data.html">NYT - The Truth About Your WhatsApp Data</a></li></ul><p><img src="https://static01.nyt.com/images/2021/01/13/business/13ontech/13ontech-jumbo.png?quality=90&auto=webp"></p><p>페이스북과 공유되는 데이터들은 이메일 정도가 아니라 사용자가 얼마나 자주 왓츠앱을 실행하는지, 앱을 실행하고 있는 위치 심지어는 디바이스 화면의 해상도까지 수집한다고 한다.</p><p>페이스북의 개인정보 관련 이슈는 어제 오늘일이 아니긴 하다. 2018년 떠들석했던 <a href="https://ko.wikipedia.org/wiki/%ED%8E%98%EC%9D%B4%EC%8A%A4%EB%B6%81-%EC%BC%80%EC%9E%84%EB%B8%8C%EB%A6%AC%EC%A7%80_%EC%95%A0%EB%84%90%EB%A6%AC%ED%8B%B0%EC%B9%B4_%EC%A0%95%EB%B3%B4_%EC%9C%A0%EC%B6%9C_%EC%82%AC%EA%B1%B4">캠브리 애널리티카 정보 유출사건</a>부터 왓츠앱, 인스타그램, 오큘러스등 페이스북이 인수한 자회사들의 공동창업자들이 공교롭게도 2018년에 줄지어 퇴사하였다. 퇴사한 이들의 직책이 자회사 대표 또는 CTO로 높았음에도 불구하고 회사(페이스북)가 퇴사이유를 노코멘트로 하여 경영진간 갈등이 있지 않았냐하는 이야기가 많다.</p><p><em>관련기사</em></p><ul><li><a href="https://www.mk.co.kr/news/society/view/2018/05/277633/">매일경제 - ‘페북사태’에 와츠앱 공동창업자 퇴사</a></li><li><a href="https://news.joins.com/article/22998101">중앙일보 - 인스타그램 창업자들 회사 떠난다… 저커버그와 충돌 빚은듯</a></li></ul><p>2019년엔 마크 저커버그와 페이스북을 공동창업했던 Chris Hughes가 페이스북의 디지털 영향력과 회사내 CEO 마크 저커버그의 영향력에 대해 걱정하며 페이스북을 해체해야한다는 다소 과격한 오피니언이 뉴욕타임즈에 기고되기도 했다.</p><ul><li><a href="https://www.nytimes.com/2019/05/09/opinion/sunday/chris-hughes-facebook-zuckerberg.html?referrer=masthead">NYT - It’s Time to break Up Facebook</a> </li></ul><br><p>이런 이야기는 미국만의 이야기는 아니었다. 한국에선 최근 대화형 AI봇 “이루다”라는 서비스가 공개되고 2주간 뜨거운 감자였다. AI의 성차별 또는 혐오적인 발언으로 인해 큰 논란을 빚으며 2주만에 서비스가 중단되었다. </p><p><img src="https://external-content.duckduckgo.com/iu/?u=https://www.bloter.net/wp-content/uploads/2020/06/%25EC%2582%25AC%25EC%25A7%2584_%25EB%258C%2580%25ED%2599%2594%25ED%2598%2595AI-%25EC%259D%25B4%25EB%25A3%25A8%25EB%258B%25A4-%25EC%25B9%259C%25EA%25B5%25AC-%25EB%25AA%25A8%25EC%25A7%2591.jpg&f=1&nofb=1"></p><p>서비스가 중단되었음에도 이루다에 논란은 끝나지 않고 있다. AI가 어떻게 성차별, 혐오 발언을 할 수 있었느냐에서 시작되어 AI가 학습한 자료의 원천이 무엇이냐로 질문이 이어져 이루다가 사용자들의 카카오톡 대화내용을 통해 학습되었다는 사실이 공개되며 더 논란이 되었다.</p><p><em>관련기사</em></p><ul><li><a href="https://www.hankyung.com/it/article/2021011436101">한국경제 - 이루다 개발사 “데이터 전량폐기 안한다”</a></li><li><a href="https://www.bbc.com/korean/news-55659434">이루다: AI 시대에 우리의 사생활은 지켜질 수 있을까?</a></li></ul><p>이루다가 카카오라는 대기업의 서버에 무단으로 접근해서 데이터를 가져간건 아니고, <a href="https://play.google.com/store/apps/details?id=com.scatterlab.soljr&referrer=https://scienceoflove.co.kr/?btn=ad_3">“연애의 과학”</a>이라는 서비스를 통해 사용자들의 허가를 받고 데이터를 연동하여 학습한 것으로 추정된다.</p><p>그러나 비록 이 모든것이 합법이다 하더라도 걱정이 들었다. 우리가 메신저를 통해 대화하는 내용을 다른 회사에서 가져가서 머신러닝의 학습모델로 활용할 수 있다면, 우리의 대화내용을 기반으로 플랫폼사는 광고 판매에 활용할 수도 있었을 것이고 자사 플랫폼내 다른 서비스의 기획에도 활용되지는 않았을까 싶은 걱정으로 이어졌다.</p><p>이모든건 데이터가 안전하게 보관되지 않았기 때문에 발생한 일이라는 결론에 이르렀다. 만약 우리의 데이터가 암호화되어 관리되었더라면, 불필요한 데이터가 수집되지 않았더라면 페이스북이 이런 데이터를 가지고 캠브리지 애널리티카와 대선에 개입하지도 못했을 것이며, 이루다의 학습모델로 카카오톡 대화내용을 사용하지 못했을 것이다.</p><p><img src="https://justcreative.com/wp-content/uploads/2014/01/dont-be-evil.jpg" alt="Just Creative"></p><p>구글의 사명으로 알려진 “Don’t be evil”은 개인정보관점에서 <strong>“Can’t be evil”</strong> 로 바뀌어야한다. 이들이 데이터를 안전하게 보관하기를 바랄게 아니라 데이터를 더 이상 지금처럼 자유롭게 수집하지 못하도록 규제 해야할 시기가 왔다고 생각한다. </p><p>최근에 애플과 페이스북이 개인정보 이슈로 갈등을 빚고있다는 소식이 들려오고 있다. 앱스토어에 앱을 등록시 사용자와 관련된 어떤 데이터를 수집하는지를 명시해야하며 모든 수집에 있어 사용자에게 허가를 구하도록 하는 업데이트를 iOS 14에 릴리즈하면서 이로인한 가장 큰 피해를 입게된 페이스북이 구글에 항명을 하기도 했다고 한다.</p><p><em>관련뉴스</em></p><ul><li><a href="https://www.theverge.com/2020/12/16/22178068/facebook-apple-newspaper-ads-ios-privacy-changes">The Verge - Facebook criticizes Apple’s iOS privacy changes with full-page newspaper ads</a></li></ul><p>애플의 보다 강화된 개인정보 정책이 환영하긴 하나 이런 노력을 기업만 해서는 안된다고 생각한다. iOS 사용자만 개인정보에서 안전할게 아니라 모든 플랫폼 사용자들이 동일하게 권리를 보장받아야 한다고 생각한다.</p><p>따라서 각국의 정부가 함께 인터넷 개인정보 가이드라인을 함께 준비해야 한다고 생각한다. 미국에서는 안되는데, 한국에선 되는(개인정보 관련) 서비스가 발생하면 안되고, 안드로이드에선 되는데 iOS에선 되는 일이 있어서는 안된다.</p><p>인터넷엔 국경이 없으므로 결국 각국의 정부가 함께 규제를 만들어서 글로벌 IT 공룡 기업들을 규제해야 한다고 생각한다. </p><p><img src="https://user-images.githubusercontent.com/33862991/105502834-375f1880-5d09-11eb-9fe7-57cfc6d4c7e9.png" alt="다큐멘터리 소셜딜레마"></p><p>지난해 시청한 넷플릭스 다큐멘터리 <a href="https://www.netflix.com/kr/title/81254224">&lt;소셜 딜레마&gt;</a>가 많은 걸 시사한다고 생각한다.</p><p>사용자들의 데이터가 돈이 되는한 플랫폼사들이 스스로 이윤을 포기하며 개인정보를 우선시할 이유는 없을 것이다. 따라서 이 시점에 거버넌스가 작동되어야 한다고 생각한다.</p><p><img src="https://cdn.dnaindia.com/sites/default/files/styles/full/public/2018/04/12/671097-facebook-ceo-mark-zuckerberg-reuters-image.jpg" alt="청문회에서 질의에 답하고 있는 Mark Zuckerberg"></p><p>무료로 서비스를 내어주고, 수집가능한 모든 데이터를 수집하며 광고로 이익을 내고있는 페이스북 매년 200억불이 넘는 이익을 만들어내고 있다. 매출규모는 2019년 기준 700억불이 넘는다.</p><p>다음엔 내가 개인정보보호를 위해 하고 있는 행동 또는 이용하는 서비스들을 정리해봐야겠다.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Life </category>
+          
+          <category> Thought </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> privacy </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Live Study 4주차 - 제어문</title>
       <link href="2021/01/livestudy-week-04/"/>
       <url>2021/01/livestudy-week-04/</url>
