@@ -10,15 +10,23 @@
 
     <url>
         <loc>http://youngjinmo.github.io/2021/01/digital-privacy/</loc>
-        <lastmod>2021-01-23T02:26:59.620Z</lastmod>
+        <lastmod>2021-01-23T05:36:24.576Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>http://youngjinmo.github.io/2021/01/livestudy-week-04/</loc>
-        <lastmod>2021-01-21T09:57:22.688Z</lastmod>
+        <loc>http://youngjinmo.github.io/2021/01/livestudy-week-02/</loc>
+        <lastmod>2021-01-23T05:33:59.177Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/2021/01/livestudy-week-01/</loc>
+        <lastmod>2021-01-23T04:59:10.151Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -26,7 +34,15 @@
 
     <url>
         <loc>http://youngjinmo.github.io/2021/01/livestudy-week-03/</loc>
-        <lastmod>2021-01-21T09:52:50.681Z</lastmod>
+        <lastmod>2021-01-23T04:59:05.891Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/2021/01/livestudy-week-04/</loc>
+        <lastmod>2021-01-23T04:58:56.683Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -41,24 +57,8 @@
     </url>
 
     <url>
-        <loc>http://youngjinmo.github.io/2021/01/livestudy-week-02/</loc>
-        <lastmod>2021-01-21T05:22:58.519Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://youngjinmo.github.io/2021/01/diff-static-variable-instance-variable/</loc>
         <lastmod>2021-01-20T06:24:11.380Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2021/01/livestudy-week-01/</loc>
-        <lastmod>2021-01-18T09:48:18.270Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

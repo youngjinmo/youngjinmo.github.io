@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-01-23T02:26:59.620Z</updated>
+  <updated>2021-01-23T05:36:24.576Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>디지털 개인정보보호</title>
+    <title>디지털 개인정보</title>
     <link href="http://youngjinmo.github.io/2021/01/digital-privacy/"/>
     <id>http://youngjinmo.github.io/2021/01/digital-privacy/</id>
     <published>2021-01-22T05:42:25.000Z</published>
-    <updated>2021-01-23T02:26:59.620Z</updated>
+    <updated>2021-01-23T05:36:24.576Z</updated>
     
     
       
@@ -48,7 +48,7 @@
     <link href="http://youngjinmo.github.io/2021/01/livestudy-week-04/"/>
     <id>http://youngjinmo.github.io/2021/01/livestudy-week-04/</id>
     <published>2021-01-21T00:52:05.000Z</published>
-    <updated>2021-01-21T09:57:22.688Z</updated>
+    <updated>2021-01-23T04:58:56.683Z</updated>
     
     
       
@@ -68,6 +68,8 @@
     
     <category term="Jave" scheme="http://youngjinmo.github.io/categories/Dev/Jave/"/>
     
+    
+    <category term="whiteship" scheme="http://youngjinmo.github.io/tags/whiteship/"/>
     
   </entry>
   
@@ -132,7 +134,7 @@
     <link href="http://youngjinmo.github.io/2021/01/livestudy-week-03/"/>
     <id>http://youngjinmo.github.io/2021/01/livestudy-week-03/</id>
     <published>2021-01-14T13:49:08.000Z</published>
-    <updated>2021-01-21T09:52:50.681Z</updated>
+    <updated>2021-01-23T04:59:05.891Z</updated>
     
     
       
@@ -157,7 +159,7 @@
     
     <category term="operator" scheme="http://youngjinmo.github.io/tags/operator/"/>
     
-    <category term="livestudy" scheme="http://youngjinmo.github.io/tags/livestudy/"/>
+    <category term="whiteship" scheme="http://youngjinmo.github.io/tags/whiteship/"/>
     
   </entry>
   
@@ -166,7 +168,7 @@
     <link href="http://youngjinmo.github.io/2021/01/livestudy-week-02/"/>
     <id>http://youngjinmo.github.io/2021/01/livestudy-week-02/</id>
     <published>2021-01-11T22:05:30.000Z</published>
-    <updated>2021-01-21T05:22:58.519Z</updated>
+    <updated>2021-01-23T05:33:59.177Z</updated>
     
     
       
@@ -188,7 +190,7 @@
     
     <category term="casting" scheme="http://youngjinmo.github.io/tags/casting/"/>
     
-    <category term="livestudy" scheme="http://youngjinmo.github.io/tags/livestudy/"/>
+    <category term="whiteship" scheme="http://youngjinmo.github.io/tags/whiteship/"/>
     
   </entry>
   
@@ -261,7 +263,7 @@
     <link href="http://youngjinmo.github.io/2021/01/livestudy-week-01/"/>
     <id>http://youngjinmo.github.io/2021/01/livestudy-week-01/</id>
     <published>2021-01-04T05:50:50.000Z</published>
-    <updated>2021-01-18T09:48:18.270Z</updated>
+    <updated>2021-01-23T04:59:10.151Z</updated>
     
     
       
@@ -284,7 +286,7 @@
     
     <category term="jvm" scheme="http://youngjinmo.github.io/tags/jvm/"/>
     
-    <category term="livestudy" scheme="http://youngjinmo.github.io/tags/livestudy/"/>
+    <category term="whiteship" scheme="http://youngjinmo.github.io/tags/whiteship/"/>
     
   </entry>
   
