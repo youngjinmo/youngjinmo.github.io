@@ -157,9 +157,9 @@
     
     <category term="lambda" scheme="http://youngjinmo.github.io/tags/lambda/"/>
     
-    <category term="operator" scheme="http://youngjinmo.github.io/tags/operator/"/>
-    
     <category term="whiteship" scheme="http://youngjinmo.github.io/tags/whiteship/"/>
+    
+    <category term="operator" scheme="http://youngjinmo.github.io/tags/operator/"/>
     
   </entry>
   
@@ -168,7 +168,7 @@
     <link href="http://youngjinmo.github.io/2021/01/livestudy-week-02/"/>
     <id>http://youngjinmo.github.io/2021/01/livestudy-week-02/</id>
     <published>2021-01-11T22:05:30.000Z</published>
-    <updated>2021-01-23T05:33:59.177Z</updated>
+    <updated>2021-01-25T09:10:38.007Z</updated>
     
     
       
