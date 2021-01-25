@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-01-23T05:36:24.576Z</updated>
+  <updated>2021-01-25T09:17:36.992Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Live Study 5주차 - 클래스</title>
+    <link href="http://youngjinmo.github.io/2021/01/livestudy-week-05/"/>
+    <id>http://youngjinmo.github.io/2021/01/livestudy-week-05/</id>
+    <published>2021-01-25T00:03:28.000Z</published>
+    <updated>2021-01-25T09:17:36.992Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#class&quot;&gt;클래스와 객체&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#definition&quot;&gt;클래스 정의하는</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+    <category term="oop" scheme="http://youngjinmo.github.io/tags/oop/"/>
+    
+    <category term="whiteship" scheme="http://youngjinmo.github.io/tags/whiteship/"/>
+    
+  </entry>
   
   <entry>
     <title>디지털 개인정보</title>
@@ -596,34 +628,6 @@
     <category term="github" scheme="http://youngjinmo.github.io/tags/github/"/>
     
     <category term="blacklivesmatter" scheme="http://youngjinmo.github.io/tags/blacklivesmatter/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>뉴욕타임즈에 투자하다</title>
-    <link href="http://youngjinmo.github.io/2020/09/why-i-invested-nyt/"/>
-    <id>http://youngjinmo.github.io/2020/09/why-i-invested-nyt/</id>
-    <published>2020-09-22T03:29:45.725Z</published>
-    <updated>2020-09-22T03:29:45.725Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i0.wp.com/digiday.com/wp-content/uploads/2014/04/Nytimes_hq.jpg?fit=1600,1064&amp;ssl=1&quot;&gt;&lt;/p&gt;
-&lt;p&gt;어젯밤 오랜만에 주식을 좀 샀다. 국내증시는 너무 올랐고,</summary>
-        
-      
-    
-    
-    
-    <category term="Life" scheme="http://youngjinmo.github.io/categories/Life/"/>
-    
-    <category term="Thought" scheme="http://youngjinmo.github.io/categories/Life/Thought/"/>
-    
-    
-    <category term="stock" scheme="http://youngjinmo.github.io/tags/stock/"/>
     
   </entry>
   
