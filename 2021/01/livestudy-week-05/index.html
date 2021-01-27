@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg">
 <meta property="article:published_time" content="2021-01-25T00:03:28.000Z">
-<meta property="article:modified_time" content="2021-01-25T09:17:36.992Z">
+<meta property="article:modified_time" content="2021-01-27T09:03:40.299Z">
 <meta property="article:author" content="Youngjin Mo">
 <meta property="article:tag" content="oop">
 <meta property="article:tag" content="whiteship">
@@ -217,7 +217,7 @@ ga('send', 'pageview');
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="" class="article-date">
-     <time datetime="2021-01-25T09:17:36.992Z" itemprop="dateModified">2021-01-25</time>
+     <time datetime="2021-01-27T09:03:40.299Z" itemprop="dateModified">2021-01-27</time>
   </a>
 </div>
 
@@ -261,7 +261,8 @@ ga('send', 'pageview');
 <p>세탁기를 객체로 비유하면, 세탁기는 빨래감을 받고, 실행명령이 들어오면 세탁을 시작하면 된다. 어떤 옷이 들어올지는 알필요가 없고, 빨래가 들어왔고, 실행버튼이 눌려졌다면 세탁을하고 끝나면 알림만 전달하면 된다. 건조기는 세탁기에서 나온 빨랫감을 받아서 실행명령이 들어오면 건조를 시작하면 된다. 그리고 건조가 끝나면 끝났음을 알려주기만 하면 된다. 건조기와 세탁기는 서로가 하는 일을 알 필요가 없다. 그저 자신에게 주어진 빨랫감을 세탁 또는 건조를 하고 끝나면 알림을 하기만 하면된다. 이런 세탁 과정에서 세탁기와 건조기는 객체라 할 수 있다.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudyHalle</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      WashingMachine wash = <span class="keyword">new</span> WashingMachine();</span><br><span class="line">      wash.turnOn(clothes);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>클래스란 이런 객체를 생성하는 템플릿같은 개념이다. 객체를 정의하는 <a href="#new">방법</a>은 아래에서 정리했다.</p>
+<p>클래스란 이런 객체를 생성하는 템플릿같은 개념이다. 클래스 <code>WashingMachine</code>을 사용하기위해서 인스턴스 <code>wash</code>를 생성했다.</p>
+<p>객체를 정의하는 <a href="#new">방법</a>은 아래에서 정리했다.</p>
 <h1 id="클래스-정의하는-방법"><a href="#클래스-정의하는-방법" class="headerlink" title="클래스 정의하는 방법"></a><a name="definition"></a>클래스 정의하는 방법</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> 클래스명 </span>&#123; &#125;</span><br></pre></td></tr></table></figure>
 
 <p>클래스는 위의 구조로 생성되는데, 이 때 클래스에서 사용할 수 있는 접근제한자는 <code>public</code>과 <code>default</code>로만 사용가능하다. </p>
@@ -269,12 +270,21 @@ ga('send', 'pageview');
   #access-modifier {
      border: 1px solid black;
   }
+  #access-modifier tr th {
+    text-align: center;
+    border: 2px solid black;
+  }
+  #access-modifier tr td {
+    text-align: center;
+    border: 1px solid black;
+    word-break: keep-all;
+  }
 </style>
 <table id="access-modifier">
   <tr>
-      <th>접근 제한자</th>
-    <th>적용가능 대상</th>
-    <th>접근 가능 대상</th>
+      <th style="width: 20%;">접근 제한자</th>
+    <th style="width: 40%;">적용가능 대상</th>
+    <th style="width: 40%;">접근 가능 대상</th>
   </tr>
     <tr>
         <td>public</td>
@@ -325,16 +335,15 @@ ga('send', 'pageview');
 <p>클래스의 디폴트 생성자를 먼저 실행하고, 이후 <code>main()</code>을 실행, <code>int</code>형 인자 2개를 파라미터로 받는 <code>add()</code>가 호출된걸 알 수 있다.</p>
 <br>
 
-<h1 id="객체-만드는-방법-new-키워드-이해하기"><a href="#객체-만드는-방법-new-키워드-이해하기" class="headerlink" title="객체 만드는 방법(new 키워드 이해하기)"></a><a name="new"></a>객체 만드는 방법(new 키워드 이해하기)</h1><p>클래스는 상태와 기능을 갖는다. 클래스를 바탕으로 객체를 생성하면 객체도 클래스의 상태와 기능을 갖게되는데, 이 때 객체가 갖는 속성과 기능을 멤버(member)라고 일컫는다.</p>
+<h1 id="객체-만드는-방법-new-키워드-이해하기"><a href="#객체-만드는-방법-new-키워드-이해하기" class="headerlink" title="객체 만드는 방법(new 키워드 이해하기)"></a><a name="new"></a>객체 만드는 방법(new 키워드 이해하기)</h1><p>클래스는 속성과 기능을 갖는다. 클래스를 바탕으로 객체를 생성하면 객체도 클래스의 속성과 기능을 갖게되는데, 이 때 객체가 갖는 속성과 기능을 멤버(member)라고 일컫는다.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">StudyHalle study = <span class="keyword">new</span> StudyHalle();</span><br></pre></td></tr></table></figure>
 
-<p>클래스는 참조형 타입이므로 <code>new</code> 키워드로 생성한다.</p>
-<p>여기서 <code>StudyHalle</code>는 클래스이고, 이 클래스를 바탕으로 생성한 인스턴스 <code>study</code>가 객체에 해당한다. </p>
-<p>클래스를 사용하기 위해 이렇게 인스턴스(객체)를 생성하는 것이다. 인스턴스를 통해서 해당 객체의 메서드나 필드에 접근이 가능해진다.</p>
+<p>여기서 <code>StudyHalle</code>는 클래스이고, 이 클래스를 바탕으로 생성한 인스턴스 <code>study</code>가 객체에 해당한다. 인스턴스를 통해서 해당 객체의 메서드나 필드에 접근이 가능해진다.</p>
+<p>클래스는 참조형 타입이므로 인스턴스 생성시 <code>new</code> 키워드로 생성한다. <code>new</code> 키워드로 생성한다는건 곧 JVM의 Heap 영역에 메모리를 할당한다는 이야기이다.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> basic01;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DevAndy</span> </span>&#123;</span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String name = <span class="string">&quot;DevAndy&quot;</span>;</span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> birthYear = <span class="number">1991</span>;</span><br><span class="line">  </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">age</span><span class="params">()</span></span>&#123;</span><br><span class="line">      LocalDate date = LocalDate.now();</span><br><span class="line">      <span class="keyword">return</span> date.getYear()-birthYear;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>아까 클래스는 상태와 기능으로 구성된다고 하였다. DevAndy 클래스는 <code>name</code>과 <code>birthYear</code>라는 상태를 가지며, <code>age()</code>를 기능으로 갖는 클래스이다.</p>
-<p>이제 DevAndy 클래스의 상태와 기능을 접근하는 외부 클래스를 생성해보겠다. 패키지 경로도 다르게 하였다.</p>
+<p>아까 클래스는 속성과 기능으로 구성된다고 하였다. <code>DevAndy</code> 클래스는 <code>name</code>과 <code>birthYear</code>라는 상태를 가지며, <code>age()</code>를 기능으로 갖는 클래스이다.</p>
+<p>이제 DevAndy 클래스의 속성과 기능을 접근하는 외부 클래스를 생성해보겠다. 패키지 경로도 다르게 하였다.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> basic02;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> basic01.DevAndy;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudyHalle</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      DevAndy andy = <span class="keyword">new</span> DevAndy();</span><br><span class="line">      System.out.println(andy.name+<span class="string">&quot;&#x27;s age is &quot;</span>+andy.age());</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DevAndy&#39;s age is 30</span><br></pre></td></tr></table></figure>
@@ -404,7 +413,7 @@ ga('send', 'pageview');
         "genre": "Dev Java",
         "datePublished": "2021-01-25",
         "dateCreated": "2021-01-25",
-        "dateModified": "2021-01-25",
+        "dateModified": "2021-01-27",
         "url": "../../../http:/youngjinmo.github.io/2021/01/livestudy-week-05/",
         "description": "
 
@@ -417,7 +426,7 @@ this 키워드 이해하기
 
 클래스와 객체클래스에 앞서 객체 를 먼저 이해할 필요가 있다.
 객체를 중심으로 프로그래밍을 하는 것을 객체지향 프로그래밍(Object Oriented Programming)이라 한다. 객체의 역할과 책임이",
-        "wordCount": 1915
+        "wordCount": 1974
     }
 </script>
 

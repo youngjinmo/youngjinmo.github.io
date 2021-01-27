@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=1952&q=80">
 <meta property="article:published_time" content="2020-03-27T08:45:55.000Z">
-<meta property="article:modified_time" content="2020-09-13T01:53:28.372Z">
+<meta property="article:modified_time" content="2021-01-27T06:50:13.280Z">
 <meta property="article:author" content="Youngjin Mo">
 <meta property="article:tag" content="oop">
 <meta name="twitter:card" content="summary">
@@ -216,7 +216,7 @@ ga('send', 'pageview');
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="" class="article-date">
-     <time datetime="2020-09-13T01:53:28.372Z" itemprop="dateModified">2020-09-13</time>
+     <time datetime="2021-01-27T06:50:13.280Z" itemprop="dateModified">2021-01-27</time>
   </a>
 </div>
 
@@ -249,15 +249,13 @@ ga('send', 'pageview');
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">  String name;</span><br><span class="line">  <span class="keyword">int</span> number;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Car</span><span class="params">()</span></span>&#123;</span><br><span class="line">    name = <span class="string">&quot;undefined&quot;</span>;</span><br><span class="line">    number = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Car</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Car</span><span class="params">(String name, <span class="keyword">int</span> number)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.number = number;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p> 그런데 이렇게 생성자가 많아질수록 this 키워드 명령이 중복될 수 있다. 이 때엔  <code>this()</code>을 사용하여 중복을 제거할 수 있다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">  String name;</span><br><span class="line">  <span class="keyword">int</span> number;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Car</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>(<span class="string">&quot;undefined&quot;</span>, <span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Car</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>(name, <span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Car</span><span class="params">(String name, <span class="keyword">int</span> number)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.number = number;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 그런데 이렇게 생성자가 많아질수록 this 키워드 명령이 중복될 수 있다. 이 때엔  <code>this()</code>을 사용하여 인스턴스 변수에 한번에 파라미터 대입이 가능하다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">  String name;</span><br><span class="line">  <span class="keyword">int</span> number;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Car</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>(<span class="string">&quot;undefined&quot;</span>, <span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Car</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>(name, <span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Car</span><span class="params">(String name, <span class="keyword">int</span> number)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>(name, number);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>파라미터가 많은 생성자를 기준으로 나머지 생성자의 this 키워드를 <code>this()</code> 로 바꾸는 것이 가능하며, <code>this()</code> 안의 파라미터 개수는 가장 파라미터가 많은 생성자의 그것을 따른다. 위의 코드에서 마지막에 선언한 생성자가 두개의 필드를 정의하고 있으므로, Car 객체에서 <code>this()</code>를 사용할 때엔 2개의 파라미터를 갖도록 해야한다.</p>
+<p><code>this()</code>는 클래스의 멤버를 모두 파라미터로 갖는다. 따라서 위의 경우처럼 생성자에 파라미터로 들어오지 않는 멤버가 있을 경우 값을 초기화해주어야한다.</p>
 <p><img src="https://lh3.googleusercontent.com/nFYfKkwILN1YRUsyFFzNuQQeeWJg9LbSoLOfhO2soe5mlwXMaEzXdD-zXcZKpCZaM3-ga6UEMQpSPUZJWfVkLQAbm4BowPAgJbuzYCjMbHfBmX7c_zT9iS0x4IzMNOcmtDW8Y-pOqBHtTi7G1urGCa9UMwLY1M8yYVw5IJvawhPh0WLKYirk1Qd0SIvmC5Boje4m9ZOl4Z8EyeN0zXPCfOdQDxZZCTDAUoD2EvdIbQelS8DiVPN2rL_omM3t7DaEajeihOSs6SPPb3qtqwMVPa-qI38xgGufBnzDiNRN1CDX24GPQVpCzR2l5H9EWWezfvx7cWkjyAM6h13WOY0zyCGEMk4ZL4IqjYr7yP2HdX59-DwEKEup80WkAjay1S5rk3mlFz5FpAvTYGUF-8kuzi75e2pP72AjT7aS2MrboFrCMS_flzfr36ZnQQHw0XVxP7vzWxnSZip1cbphwiMlDoqdobbQSADOY030OqcwBg4vSUczOeKmynlaJ1ut2u1YgK6VGHLuvlNRboLIGidNEeteXUt7s4p0sorPfnja6wvamUhg3cy81Ej5qwm_JaE7pA8rXo2n2FT_x2wKJNMFtEM-KcCPLJSahYtJCKXTnAE36n5zStOETISE6k2njnsUNQeojVBTk9UY39cTQKENd8jOzapc8DZz8OXTj0Ps0pPqzxWbENqTozab_pwuzqGkLEpwdIMXoAOfei9UDNLlYjrGNFQKi1Ej366g0QnzaO8jyJCTwuTkCi4=w540-h466-no"></p>
 <p>IDE에서 this를 클릭하면, 이 this가 무엇을 가리키고 있는지 알 수 있다.</p>
-<br>
-
-<p>위의 예제를 통해서 생성자는 오버로딩이 가능하다는 사실을 알 수 있었다. 오버로딩이란 파라미터의 갯수를 다르게 하는 방식으로 같은 이름의 메서드를 여러개 생성할 수 있는 걸 의미한다. <a target="_blank" rel="noopener" href="https://devyoungjin.github.io/2020/03/java-overload-override/">다음 포스트</a>에서 정리할 예정이다.</p>
+<p>위의 예제를 통해서 생성자는 오버로딩이 가능하다는 사실을 알 수 있었다. 오버로딩이란 파라미터의 갯수를 다르게 하는 방식으로 같은 이름의 메서드를 여러개 생성할 수 있는 걸 의미한다.</p>
 
         </div>
         <footer class="article-footer">
@@ -285,12 +283,12 @@ ga('send', 'pageview');
         "genre": "Dev Java",
         "datePublished": "2020-03-27",
         "dateCreated": "2020-03-27",
-        "dateModified": "2020-09-13",
+        "dateModified": "2021-01-27",
         "url": "../../../http:/youngjinmo.github.io/2020/03/java-this/",
         "description": "
 
 123456789101112131415161718public class Car &#123;  String name;  int number;    public Car()&#123;    name = &quot;undefined&quot;;    number = 0;  &#125;    public Car(String name) &#123;    this.",
-        "wordCount": 353
+        "wordCount": 317
     }
 </script>
 

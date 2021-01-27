@@ -9,6 +9,22 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/2021/01/livestudy-week-05/</loc>
+        <lastmod>2021-01-27T09:03:40.299Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/2020/03/java-this/</loc>
+        <lastmod>2021-01-27T06:50:13.280Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/2021/01/livestudy-week-02/</loc>
         <lastmod>2021-01-27T05:21:52.646Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -19,14 +35,6 @@
     <url>
         <loc>http://youngjinmo.github.io/2021/01/livestudy-week-04/</loc>
         <lastmod>2021-01-27T05:06:58.423Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2021/01/livestudy-week-05/</loc>
-        <lastmod>2021-01-25T09:17:36.992Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -1091,14 +1099,6 @@
     <url>
         <loc>http://youngjinmo.github.io/2020/05/java-stringbuffer-better-than-string/</loc>
         <lastmod>2020-09-13T01:53:28.396Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2020/03/java-this/</loc>
-        <lastmod>2020-09-13T01:53:28.372Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-01-25T09:17:36.992Z</updated>
+  <updated>2021-01-27T09:03:40.299Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://youngjinmo.github.io/2021/01/livestudy-week-05/"/>
     <id>http://youngjinmo.github.io/2021/01/livestudy-week-05/</id>
     <published>2021-01-25T00:03:28.000Z</published>
-    <updated>2021-01-25T09:17:36.992Z</updated>
+    <updated>2021-01-27T09:03:40.299Z</updated>
     
     
       
@@ -250,9 +250,9 @@
     <category term="Springboot" scheme="http://youngjinmo.github.io/categories/Dev/Springboot/"/>
     
     
-    <category term="tutorial" scheme="http://youngjinmo.github.io/tags/tutorial/"/>
-    
     <category term="oracle" scheme="http://youngjinmo.github.io/tags/oracle/"/>
+    
+    <category term="tutorial" scheme="http://youngjinmo.github.io/tags/tutorial/"/>
     
     <category term="docker" scheme="http://youngjinmo.github.io/tags/docker/"/>
     
@@ -589,9 +589,9 @@
     <category term="Springboot" scheme="http://youngjinmo.github.io/categories/Dev/Springboot/"/>
     
     
-    <category term="tutorial" scheme="http://youngjinmo.github.io/tags/tutorial/"/>
-    
     <category term="oracle" scheme="http://youngjinmo.github.io/tags/oracle/"/>
+    
+    <category term="tutorial" scheme="http://youngjinmo.github.io/tags/tutorial/"/>
     
     <category term="docker" scheme="http://youngjinmo.github.io/tags/docker/"/>
     
