@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg">
 <meta property="article:published_time" content="2021-01-11T22:05:30.000Z">
-<meta property="article:modified_time" content="2021-01-25T09:10:38.007Z">
+<meta property="article:modified_time" content="2021-01-27T05:21:52.646Z">
 <meta property="article:author" content="Youngjin Mo">
 <meta property="article:tag" content="casting">
 <meta property="article:tag" content="whiteship">
@@ -217,7 +217,7 @@ ga('send', 'pageview');
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="" class="article-date">
-     <time datetime="2021-01-25T09:10:38.007Z" itemprop="dateModified">2021-01-25</time>
+     <time datetime="2021-01-27T05:21:52.646Z" itemprop="dateModified">2021-01-27</time>
   </a>
 </div>
 
@@ -226,7 +226,7 @@ ga('send', 'pageview');
 
 				<!-- 	count-time		 -->
 				<span class="reading-time" style="margin-left: 20px;">
-					⏱ 38 min.
+					⏱ 39 min.
 				</span>
                 
     <div class="article-tag">
@@ -268,35 +268,49 @@ ga('send', 'pageview');
 <p>데이터의 가장 작은 단위는 <strong>비트(bit, binary digit)</strong> 이다. 비트는 0과 1만을 표현한다. <strong>비트가 8개면 바이트(1byte = 8 bits)</strong> 가 되며, 표현할 수 있는 수는 2<sup>8</sup>이 된다.</p>
 <p>비트와 바이트외에도 워드(word)라는 단위가 존재한다. 워드는 <strong>CPU가 한 번에 처리하는 데이터의 크기</strong> 를 의미한다고 한다. 워드는 CPU에 따라 단위가 달라지는 특성이 있는데, 32비트 CPU에서는 1워드는 4 바이트(32 bits)이고, 64비트 CPU에서 1워드는 8 바이트(64 bits)가 된다.</p>
 <p>출처 : <a target="_blank" rel="noopener" href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=76083001&partner=googlek&BSCPN=ORM&BSPRG=ADWORDS&BSCCN1=89221&utm_source=ADWORDS&utm_medium=cpc&utm_term=JAVA%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD&gclid=CjwKCAiAudD_BRBXEiwAudakX6aXPXga64NqU9DBDJpL_GmPtN6M49zG5t4-FkiWselYCTZblwM1hRoCOFIQAvD_BwE">남궁성 - Java의 정석</a></p>
-<table>
-  <a name="primitive-table"></a>
+<p><a name="primitive-table"></a></p>
+<style>
+  #data-size tr th {
+    width: 10%; 
+    text-align: center;
+    border: 2px solid black;
+  }
+  #data-size tr td {
+    text-align: center;
+    border: 1px solid black;
+  }
+  .data-desc {
+      word-break: keep-all;
+  }
+</style>
+<table id="data-size">
   <tr>
-    <th style="width: 10%; text-align: center;">분류</th>
-    <th style="width: 10%; text-align: center;">타입</th>
-    <th style="width: 15%; text-align: center;">크기</th>
-    <th style="width: 20%; text-align: center;">값 범위</th>
-    <th style="width: 45%; text-align: center;">설명</th>
+    <th style="width: 10%;">분류</th>
+    <th style="width: 10%;">타입</th>
+    <th style="width: 15%;">크기</th>
+    <th style="width: 20%;">값 범위</th>
+    <th style="width: 45%;">설명</th>
   </tr>
   <tr>
     <td>논리형</td>
     <td>boolean</td>
     <td>1 byte</td>
     <td>false, true</td>
-    <td style="word-break: keep-all;">true, false만을 표현하기 때문에 자료형중 가장 작은 크기를 가진다.</td>
+    <td class="data-desc" style="text-align: left;">true, false만을 표현하기 때문에 자료형중 가장 작은 크기를 가진다.</td>
   </tr>
   <tr>
     <td>문자형</td>
     <td>char</td>
     <td>2 bytes</td>
     <td>'\u0000' ~ '\uffff'</td>
-    <td style="word-break: keep-all;">문자를 저장하는데 사용되며, 하나의 문자만 변수(variable)에 저장이 가능하다.<br>자바에서 유니코드를 사용하므로 하나의 문자는 2 byte(8 bits)가 된다.</td>
+    <td class="data-desc" style="text-align: left;">문자를 저장하는데 사용되며, 하나의 문자만 변수(variable)에 저장이 가능하다.<br>자바에서 유니코드를 사용하므로 하나의 문자는 2 byte(8 bits)가 된다.</td>
   </tr>
   <tr>
     <td rowspan="4">정수형</td>
     <td>byte</td>
     <td>1 byte</td>
     <td>-2<sup>7</sup> ~ 2<sup>7</sup>-1</td>
-    <td rowspan="4" style="word-break: keep-all;">정수를 저장하는데 사용되며 주로 int가 사용된다. 이진데이터를 다루기 위해 byte를 사용하며, C언와의 호환을 위해 short이 추가되었다.<br>int(4 bytes)를 기준으로 int보다 작은 short(2 bytes), int보다 긴 long(64 bytes)으로 기억하면 좋다.</td>
+    <td rowspan="4" class="data-desc" style="text-align: left;">정수를 저장하는데 사용되며 주로 int가 사용된다. 이진데이터를 다루기 위해 byte를 사용하며, C언와의 호환을 위해 short이 추가되었다.<br>int(4 bytes)를 기준으로 int보다 작은 short(2 bytes), int보다 긴 long(64 bytes)으로 기억하면 좋다.</td>
   </tr>
   <tr style="text-align: center;">
     <td>short</td>
@@ -318,7 +332,7 @@ ga('send', 'pageview');
     <td>float</td>
     <td>4 bytes</td>
     <td>1.4x10<sup>-45</sup>~3.4x10<sup>38</sup></td>
-    <td rowspan="2" style="word-break: keep-all;">실수를 저장하는데 사용되며, float(4 bytes)보다 2배의 크기(8 bytes)를 갖는 double을 실수형 자료형으로 주로 사용한다.</td>
+    <td rowspan="2" class="data-desc" style="text-align: left;">실수를 저장하는데 사용되며, float(4 bytes)보다 2배의 크기(8 bytes)를 갖는 double을 실수형 자료형으로 주로 사용한다.</td>
   </tr>
   <tr>
     <td>double</td>
@@ -326,6 +340,7 @@ ga('send', 'pageview');
     <td>4.9x10<sup>-324</sup>~1.8x10<sup>308</sup></td>
   </tr>
 </table>
+
 
 <p>출처 : <a target="_blank" rel="noopener" href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=76083001&partner=googlek&BSCPN=ORM&BSPRG=ADWORDS&BSCCN1=89221&utm_source=ADWORDS&utm_medium=cpc&utm_term=JAVA%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD&gclid=CjwKCAiAudD_BRBXEiwAudakX6aXPXga64NqU9DBDJpL_GmPtN6M49zG5t4-FkiWselYCTZblwM1hRoCOFIQAvD_BwE">남궁성 - Java의 정석</a></p>
 <p>실제 기본형 타입의 크기를 인텔리제이 디버거를 통해 확인해보았다.</p>
@@ -393,7 +408,7 @@ ga('send', 'pageview');
 </ul>
 <br>
 
-<h1 id="리터럴-literal"><a href="#리터럴-literal" class="headerlink" title="리터럴(literal)"></a><a name="literal"></a>리터럴(literal)</h1><p>값을 저장하는 타입으로 변수(variable)와 상수(constant)가 존재한다. <u>변수는 가변성을 지니지만, 상수는 변수와 달리 가변적이지 않다는 특징*(값 변경 불가능)*이 존재한다.</u></p>
+<h1 id="리터럴-literal"><a href="#리터럴-literal" class="headerlink" title="리터럴(literal)"></a><a name="literal"></a>리터럴(literal)</h1><p>값을 저장하는 타입으로 변수(variable)와 상수(constant)가 존재한다. <u>변수는 가변성을 지니지만, 상수는 변수와 달리 불가변하다는 특징이 존재한다.</u></p>
 <p><img src="https://user-images.githubusercontent.com/33862991/103751067-10d38900-504b-11eb-91a7-2874da86a4d8.png"></p>
 <p>위의 코드를 보면, <code>num1</code>은 값의 변경이 가능하지만, <code>final</code> 키워드가 붙어서 상수로 선언된 <code>NUM2</code>는 연산이 되지않아 인텔리제이에서 에러를 발생시키는걸 알 수 있다.</p>
 <blockquote>
@@ -514,9 +529,9 @@ ga('send', 'pageview');
 <p>기본값이 이렇게 있음에도 초기화를 해야하는 이유가 뭘까?</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudyHale</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> a;</span><br><span class="line">  String b;</span><br><span class="line">  <span class="keyword">char</span> c;</span><br><span class="line">  <span class="keyword">boolean</span> d;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">    String b;</span><br><span class="line">    <span class="keyword">char</span> c;</span><br><span class="line">    <span class="keyword">boolean</span> d;</span><br><span class="line"></span><br><span class="line">    StudyHale study = <span class="keyword">new</span> StudyHale();</span><br><span class="line">    System.out.println(study.a);   <span class="comment">// 0</span></span><br><span class="line">    System.out.println(study.b);   <span class="comment">// null</span></span><br><span class="line">    System.out.println(study.c);   <span class="comment">// []</span></span><br><span class="line">    System.out.println(study.d);   <span class="comment">// false</span></span><br><span class="line">    System.out.println(<span class="string">&quot;======&quot;</span>);</span><br><span class="line">    System.out.println(a);</span><br><span class="line">    System.out.println(b);</span><br><span class="line">    System.out.println(c);</span><br><span class="line">    System.out.println(d);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>위의 <code>StudyHale</code> 클래스는 타입이 각각 다른 4개의 변수를 각각 클래스와 메인 메서드안에 초기화하지 않고 선언한 클래스이다. 초기화하지 않고 선언했을때, 각각 기본값이 어떻게 적용하기 위해 컴파일하면 어떤 일이 발생할까?</p>
+<p>위의 <code>StudyHale</code> 클래스는 타입이 각각 다른 4개의 변수를 각각 클래스와 메인 메서드안에 초기화하지 않고 선언한 클래스이다. 클래스에 선언한 변수는 인스턴스 변수, 메ㅓ드 내부에 선언한 변수는 로컬 변수라한다.<br>초기화하지 않고 선언했을때, 각각 기본값이 어떻게 적용하기 위해 컴파일하면 어떤 일이 발생할까?</p>
 <p><img src="https://user-images.githubusercontent.com/33862991/103863053-7c792d00-5103-11eb-961c-79f3f0790666.png"></p>
-<p>클래스 변수들까지는 문제가 없고, <code>main()</code>에서 선언한 변수들이 문제였다. 인텔리제이 경고창을 통해 변수들이 초기화해야한다고 경고를 하고 있다.</p>
+<p>인스턴스 변수들까지는 문제가 없고, 로컬 변수들이 문제였다. 인텔리제이 경고창을 통해 변수들이 초기화해야한다고 경고를 하고 있다.</p>
 <p>같은 이름의 변수임에도 불구하고, <strong>스코프(scope)</strong> 에 따라 기본값 적용여부가 달라자는 것이다. 변수의 스코프가 클래스 일 때에만 기본값이 대입되고, <strong><u>메서드 안에서 선언된 변수의 경우 기본값이 적용되지 않기 때문에 반드시 초기화</u></strong> 해주어야 한다.</p>
 <br>
 
@@ -540,7 +555,7 @@ ga('send', 'pageview');
 <p>인스턴스 변수의 라이프 타임은 인스턴스 객체가 생성되는 시점부터 객체의 사용이 다해서 GC에 의해 제거될 때까지이다.</p>
 <br>
 
-<h2 id="Class-Variable"><a href="#Class-Variable" class="headerlink" title="(Class Variable)"></a><a name="class-var"></a>(Class Variable)</h2><p><img src="https://user-images.githubusercontent.com/33862991/104193424-7072cf80-5463-11eb-9755-82c726b45868.png"></p>
+<h2 id="클래스-변수-Class-Variable"><a href="#클래스-변수-Class-Variable" class="headerlink" title="클래스 변수 (Class Variable)"></a><a name="class-var"></a>클래스 변수 (Class Variable)</h2><p><img src="https://user-images.githubusercontent.com/33862991/104193424-7072cf80-5463-11eb-9755-82c726b45868.png"></p>
 <p><strong>정의</strong></p>
 <p>인스턴스 변수처럼 <u>클래스 내부와 메서드 외부에 선언된 변수</u>이지만, <code>static</code> 키워드가 붙는다는 점에서 다르다. </p>
 <p><strong>스코프</strong></p>
@@ -688,7 +703,7 @@ ga('send', 'pageview');
         "genre": "Dev Java",
         "datePublished": "2021-01-12",
         "dateCreated": "2021-01-12",
-        "dateModified": "2021-01-25",
+        "dateModified": "2021-01-27",
         "url": "../../../http:/youngjinmo.github.io/2021/01/livestudy-week-02/",
         "description": "
 
@@ -708,7 +723,7 @@ ga('send', 'pageview');
 
 
 기본형(pri",
-        "wordCount": 3502
+        "wordCount": 3561
     }
 </script>
 
