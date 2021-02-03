@@ -80,7 +80,7 @@
     <link href="http://youngjinmo.github.io/2021/01/livestudy-week-04/"/>
     <id>http://youngjinmo.github.io/2021/01/livestudy-week-04/</id>
     <published>2021-01-21T00:52:05.000Z</published>
-    <updated>2021-01-27T05:06:58.423Z</updated>
+    <updated>2021-02-03T09:28:57.787Z</updated>
     
     
       
@@ -98,7 +98,7 @@
     
     <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
     
-    <category term="Jave" scheme="http://youngjinmo.github.io/categories/Dev/Jave/"/>
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
     
     
     <category term="whiteship" scheme="http://youngjinmo.github.io/tags/whiteship/"/>
@@ -231,7 +231,7 @@
     <link href="http://youngjinmo.github.io/2021/01/springboot-mybatis-oracle2/"/>
     <id>http://youngjinmo.github.io/2021/01/springboot-mybatis-oracle2/</id>
     <published>2021-01-10T06:02:13.000Z</published>
-    <updated>2021-01-11T06:24:28.705Z</updated>
+    <updated>2021-02-03T09:22:01.517Z</updated>
     
     
       
@@ -247,7 +247,7 @@
     
     <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
     
-    <category term="Springboot" scheme="http://youngjinmo.github.io/categories/Dev/Springboot/"/>
+    <category term="Spring" scheme="http://youngjinmo.github.io/categories/Dev/Spring/"/>
     
     
     <category term="oracle" scheme="http://youngjinmo.github.io/tags/oracle/"/>
@@ -267,7 +267,7 @@
     <link href="http://youngjinmo.github.io/2021/01/spring-request-parameter/"/>
     <id>http://youngjinmo.github.io/2021/01/spring-request-parameter/</id>
     <published>2021-01-10T05:19:53.000Z</published>
-    <updated>2021-01-10T14:59:38.441Z</updated>
+    <updated>2021-02-03T09:27:43.858Z</updated>
     
     
       
@@ -283,7 +283,7 @@
     
     <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
     
-    <category term="SpringBoot" scheme="http://youngjinmo.github.io/categories/Dev/SpringBoot/"/>
+    <category term="Spring" scheme="http://youngjinmo.github.io/categories/Dev/Spring/"/>
     
     
     <category term="annotation" scheme="http://youngjinmo.github.io/tags/annotation/"/>
@@ -327,7 +327,7 @@
     <link href="http://youngjinmo.github.io/2020/12/enable-livereload/"/>
     <id>http://youngjinmo.github.io/2020/12/enable-livereload/</id>
     <published>2020-12-29T20:13:52.000Z</published>
-    <updated>2020-12-30T09:33:50.809Z</updated>
+    <updated>2021-02-03T09:23:06.766Z</updated>
     
     
       
@@ -342,7 +342,7 @@
     
     <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
     
-    <category term="Springboot" scheme="http://youngjinmo.github.io/categories/Dev/Springboot/"/>
+    <category term="Spring" scheme="http://youngjinmo.github.io/categories/Dev/Spring/"/>
     
     
     <category term="tutorial" scheme="http://youngjinmo.github.io/tags/tutorial/"/>
@@ -358,7 +358,7 @@
     <link href="http://youngjinmo.github.io/2020/12/change-jdk-intellij/"/>
     <id>http://youngjinmo.github.io/2020/12/change-jdk-intellij/</id>
     <published>2020-12-28T00:51:57.000Z</published>
-    <updated>2020-12-28T09:55:31.480Z</updated>
+    <updated>2021-02-03T09:23:42.414Z</updated>
     
     
       
@@ -374,7 +374,7 @@
     
     <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
     
-    <category term="Springboot" scheme="http://youngjinmo.github.io/categories/Dev/Springboot/"/>
+    <category term="Spring" scheme="http://youngjinmo.github.io/categories/Dev/Spring/"/>
     
     
     <category term="tutorial" scheme="http://youngjinmo.github.io/tags/tutorial/"/>
@@ -388,7 +388,7 @@
     <link href="http://youngjinmo.github.io/2020/12/import-assertequals/"/>
     <id>http://youngjinmo.github.io/2020/12/import-assertequals/</id>
     <published>2020-12-26T18:38:53.000Z</published>
-    <updated>2020-12-27T13:28:34.945Z</updated>
+    <updated>2021-02-03T09:24:44.003Z</updated>
     
     
       
@@ -404,7 +404,7 @@
     
     <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
     
-    <category term="Springboot" scheme="http://youngjinmo.github.io/categories/Dev/Springboot/"/>
+    <category term="Spring" scheme="http://youngjinmo.github.io/categories/Dev/Spring/"/>
     
     
     <category term="intellij" scheme="http://youngjinmo.github.io/tags/intellij/"/>
@@ -453,7 +453,7 @@
     <link href="http://youngjinmo.github.io/2020/12/springboot-helloworld/"/>
     <id>http://youngjinmo.github.io/2020/12/springboot-helloworld/</id>
     <published>2020-12-20T21:45:43.000Z</published>
-    <updated>2021-01-12T13:19:56.076Z</updated>
+    <updated>2021-02-03T09:22:10.665Z</updated>
     
     
       
@@ -469,7 +469,7 @@
     
     <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
     
-    <category term="Springboot" scheme="http://youngjinmo.github.io/categories/Dev/Springboot/"/>
+    <category term="Spring" scheme="http://youngjinmo.github.io/categories/Dev/Spring/"/>
     
     
     <category term="tutorial" scheme="http://youngjinmo.github.io/tags/tutorial/"/>
@@ -513,7 +513,7 @@
     <link href="http://youngjinmo.github.io/2020/11/how-to-write-readme/"/>
     <id>http://youngjinmo.github.io/2020/11/how-to-write-readme/</id>
     <published>2020-11-19T18:20:34.000Z</published>
-    <updated>2020-11-26T01:35:46.839Z</updated>
+    <updated>2021-02-03T09:20:37.092Z</updated>
     
     
       
@@ -526,9 +526,9 @@
     
     
     
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    <category term="Life" scheme="http://youngjinmo.github.io/categories/Life/"/>
     
-    <category term="Others" scheme="http://youngjinmo.github.io/categories/Dev/Others/"/>
+    <category term="Thought" scheme="http://youngjinmo.github.io/categories/Life/Thought/"/>
     
     
     <category term="documentation" scheme="http://youngjinmo.github.io/tags/documentation/"/>
@@ -542,7 +542,7 @@
     <link href="http://youngjinmo.github.io/2020/11/lombok/"/>
     <id>http://youngjinmo.github.io/2020/11/lombok/</id>
     <published>2020-11-11T00:07:06.000Z</published>
-    <updated>2020-11-30T06:24:54.408Z</updated>
+    <updated>2021-02-03T09:24:19.507Z</updated>
     
     
       
@@ -558,7 +558,7 @@
     
     <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
     
-    <category term="Springboot" scheme="http://youngjinmo.github.io/categories/Dev/Springboot/"/>
+    <category term="Spring" scheme="http://youngjinmo.github.io/categories/Dev/Spring/"/>
     
     
     <category term="java" scheme="http://youngjinmo.github.io/tags/java/"/>
@@ -570,7 +570,7 @@
     <link href="http://youngjinmo.github.io/2020/10/springboot-mybatis-oracle/"/>
     <id>http://youngjinmo.github.io/2020/10/springboot-mybatis-oracle/</id>
     <published>2020-10-25T03:29:51.000Z</published>
-    <updated>2021-01-11T04:50:33.124Z</updated>
+    <updated>2021-02-03T09:21:55.133Z</updated>
     
     
       
@@ -586,7 +586,7 @@
     
     <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
     
-    <category term="Springboot" scheme="http://youngjinmo.github.io/categories/Dev/Springboot/"/>
+    <category term="Spring" scheme="http://youngjinmo.github.io/categories/Dev/Spring/"/>
     
     
     <category term="oracle" scheme="http://youngjinmo.github.io/tags/oracle/"/>

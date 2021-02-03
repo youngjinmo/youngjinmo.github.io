@@ -9,57 +9,50 @@
 
 
     <url>
-        <loc>http://youngjinmo.github.io/categories/Dev/Hexo/</loc>
-        <lastmod>2021-02-03T07:56:00.049Z</lastmod>
+        <loc>http://youngjinmo.github.io/categories/Dev/Java/</loc>
+        <lastmod>2021-02-03T09:28:57.787Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://youngjinmo.github.io/categories/Dev/</loc>
-        <lastmod>2021-02-03T07:56:00.049Z</lastmod>
+        <lastmod>2021-02-03T09:28:57.787Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://youngjinmo.github.io/categories/Dev/Java/</loc>
-        <lastmod>2021-02-01T06:17:38.280Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/categories/Dev/Jave/</loc>
-        <lastmod>2021-01-27T05:06:58.423Z</lastmod>
+        <loc>http://youngjinmo.github.io/categories/Dev/Spring/</loc>
+        <lastmod>2021-02-03T09:27:43.858Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://youngjinmo.github.io/categories/Life/Thought/</loc>
-        <lastmod>2021-01-23T05:36:24.576Z</lastmod>
+        <lastmod>2021-02-03T09:20:37.092Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://youngjinmo.github.io/categories/Life/</loc>
-        <lastmod>2021-01-23T05:36:24.576Z</lastmod>
+        <lastmod>2021-02-03T09:20:37.092Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://youngjinmo.github.io/categories/Dev/Springboot/</loc>
-        <lastmod>2021-01-12T13:19:56.076Z</lastmod>
+        <loc>http://youngjinmo.github.io/categories/Dev/Quiz/</loc>
+        <lastmod>2021-02-03T09:17:46.337Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://youngjinmo.github.io/categories/Dev/SpringBoot/</loc>
-        <lastmod>2021-01-10T14:59:38.441Z</lastmod>
+        <loc>http://youngjinmo.github.io/categories/Dev/Hexo/</loc>
+        <lastmod>2021-02-03T07:56:00.049Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -116,13 +109,6 @@
     <url>
         <loc>http://youngjinmo.github.io/categories/Dev/Algorithm/</loc>
         <lastmod>2020-09-13T01:53:29.880Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/categories/Quiz/</loc>
-        <lastmod>2020-09-13T01:53:29.388Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
