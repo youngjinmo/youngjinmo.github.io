@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-01-27T09:52:45.626Z</updated>
+  <updated>2021-02-04T05:09:13.013Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Hackerrank - Java Datatype</title>
+    <link href="http://youngjinmo.github.io/2021/02/hackerrank-datatype/"/>
+    <id>http://youngjinmo.github.io/2021/02/hackerrank-datatype/</id>
+    <published>2021-02-03T20:07:57.000Z</published>
+    <updated>2021-02-04T05:09:13.013Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/106846791-e5e36000-66f0-11eb-83c3-562cd0c40b4f.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Problem&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Quiz" scheme="http://youngjinmo.github.io/categories/Dev/Quiz/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Live Study 5주차 - 클래스</title>
     <link href="http://youngjinmo.github.io/2021/01/livestudy-week-05/"/>
     <id>http://youngjinmo.github.io/2021/01/livestudy-week-05/</id>
     <published>2021-01-25T00:03:28.000Z</published>
-    <updated>2021-01-27T09:52:45.626Z</updated>
+    <updated>2021-02-04T04:29:54.239Z</updated>
     
     
       
@@ -598,36 +624,6 @@
     <category term="springboot" scheme="http://youngjinmo.github.io/tags/springboot/"/>
     
     <category term="mybatis" scheme="http://youngjinmo.github.io/tags/mybatis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Github 디폴트 브랜치, Main으로 전환하기</title>
-    <link href="http://youngjinmo.github.io/2020/10/github-branch-to-main/"/>
-    <id>http://youngjinmo.github.io/2020/10/github-branch-to-main/</id>
-    <published>2020-10-22T02:27:46.000Z</published>
-    <updated>2020-10-26T05:52:33.327Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/96870083-56040800-14ab-11eb-94f3-c4330d1014f8.jpg&quot;&gt;&lt;/p&gt;
-&lt;p&gt;인종차별 이슈가 불거지며 테크 업계에서도 자성의</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Git" scheme="http://youngjinmo.github.io/categories/Dev/Git/"/>
-    
-    
-    <category term="github" scheme="http://youngjinmo.github.io/tags/github/"/>
-    
-    <category term="blacklivesmatter" scheme="http://youngjinmo.github.io/tags/blacklivesmatter/"/>
     
   </entry>
   
