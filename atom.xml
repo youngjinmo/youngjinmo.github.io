@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-02-04T05:09:13.013Z</updated>
+  <updated>2021-02-10T11:25:04.901Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Live Study 6주차 - 상속</title>
+    <link href="http://youngjinmo.github.io/2021/02/livestudy-week-06/"/>
+    <id>http://youngjinmo.github.io/2021/02/livestudy-week-06/</id>
+    <published>2021-02-10T02:20:51.000Z</published>
+    <updated>2021-02-10T11:25:04.901Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#inheritance&quot;&gt;자바 상속의 특징&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+    <category term="oop" scheme="http://youngjinmo.github.io/tags/oop/"/>
+    
+    <category term="whiteship" scheme="http://youngjinmo.github.io/tags/whiteship/"/>
+    
+  </entry>
   
   <entry>
     <title>Hackerrank - Java Datatype</title>
@@ -47,7 +79,7 @@
     <link href="http://youngjinmo.github.io/2021/01/livestudy-week-05/"/>
     <id>http://youngjinmo.github.io/2021/01/livestudy-week-05/</id>
     <published>2021-01-25T00:03:28.000Z</published>
-    <updated>2021-02-04T04:29:54.239Z</updated>
+    <updated>2021-02-10T06:19:15.512Z</updated>
     
     
       
@@ -226,7 +258,7 @@
     <link href="http://youngjinmo.github.io/2021/01/livestudy-week-02/"/>
     <id>http://youngjinmo.github.io/2021/01/livestudy-week-02/</id>
     <published>2021-01-11T22:05:30.000Z</published>
-    <updated>2021-02-01T06:17:38.280Z</updated>
+    <updated>2021-02-04T06:22:09.294Z</updated>
     
     
       
@@ -588,42 +620,6 @@
     
     
     <category term="java" scheme="http://youngjinmo.github.io/tags/java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SpringBoot + MyBatis + Oracle(with Docker) 초간단실습</title>
-    <link href="http://youngjinmo.github.io/2020/10/springboot-mybatis-oracle/"/>
-    <id>http://youngjinmo.github.io/2020/10/springboot-mybatis-oracle/</id>
-    <published>2020-10-25T03:29:51.000Z</published>
-    <updated>2021-02-03T09:21:55.133Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/97108403-a8922e00-1710-11eb-9e42-b093ed1857d8.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;JPA를 공부하기 전에 먼저 MyBatis로</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Spring" scheme="http://youngjinmo.github.io/categories/Dev/Spring/"/>
-    
-    
-    <category term="oracle" scheme="http://youngjinmo.github.io/tags/oracle/"/>
-    
-    <category term="tutorial" scheme="http://youngjinmo.github.io/tags/tutorial/"/>
-    
-    <category term="docker" scheme="http://youngjinmo.github.io/tags/docker/"/>
-    
-    <category term="springboot" scheme="http://youngjinmo.github.io/tags/springboot/"/>
-    
-    <category term="mybatis" scheme="http://youngjinmo.github.io/tags/mybatis/"/>
     
   </entry>
   

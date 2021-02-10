@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Live Study 6주차 - 상속 | DevAndy - 개발자앤디의 개발블로그</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="oop,whiteship" />
+    
+    <meta name="description" content="자바 상속의 특징 다중상속 상속관계에서 메서드 호출 업캐스팅&#x2F;다운캐스팅   super 키워드 메소드 오버라이딩 메서드 오버라이딩과 메서드 오버로딩   다이나믹 메소드 디스패치 (Dynamic Method Dispatch) 추상 클래스 final 키워드 Object 클래스    자바 상속의 특징자식 클래스는 부모 클래스의 상태와 기능을 사용 가능1234p">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Live Study 6주차 - 상속">
+<meta property="og:url" content="http://youngjinmo.github.io/2021/02/livestudy-week-06/index.html">
+<meta property="og:site_name" content="DevAndy - 개발자앤디의 개발블로그">
+<meta property="og:description" content="자바 상속의 특징 다중상속 상속관계에서 메서드 호출 업캐스팅&#x2F;다운캐스팅   super 키워드 메소드 오버라이딩 메서드 오버라이딩과 메서드 오버로딩   다이나믹 메소드 디스패치 (Dynamic Method Dispatch) 추상 클래스 final 키워드 Object 클래스    자바 상속의 특징자식 클래스는 부모 클래스의 상태와 기능을 사용 가능1234p">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg">
+<meta property="article:published_time" content="2021-02-10T02:20:51.000Z">
+<meta property="article:modified_time" content="2021-02-10T11:25:04.901Z">
+<meta property="article:author" content="Youngjin Mo">
+<meta property="article:tag" content="oop">
+<meta property="article:tag" content="whiteship">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg">
+<meta name="twitter:creator" content="@devandy_yj">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="DevAndy - 개발자앤디의 개발블로그" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="../../../css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="../../../libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="../../../libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="../../../libs/source-code-pro/styles.css">
+
+    
+<link rel="stylesheet" href="../../../css/style.css">
+
+	<!-- <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">  -->
+	<style type="text/css">
+		@font-face {
+		  font-family: 'Jeju Myeongjo';
+		  font-style: normal;
+		  font-weight: 400;
+		  src: url(//fonts.gstatic.com/ea/jejumyeongjo/v3/JejuMyeongjo-Regular.eot);
+		  src: url(//fonts.gstatic.com/ea/jejumyeongjo/v3/JejuMyeongjo-Regular.eot?#iefix) format('embedded-opentype'),
+			   url(//fonts.gstatic.com/ea/jejumyeongjo/v3/JejuMyeongjo-Regular.woff2) format('woff2'),
+			   url(//fonts.gstatic.com/ea/jejumyeongjo/v3/JejuMyeongjo-Regular.woff) format('woff'),
+			   url(//fonts.gstatic.com/ea/jejumyeongjo/v3/JejuMyeongjo-Regular.ttf) format('truetype');
+		}
+		/* @font-face { font-family: 'BMHANNAAir'; 
+					src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.0/BMHANNAAir.woff') format('woff'); 
+					font-weight: normal; 
+					font-style: normal; 
+		}  */
+	</style>
+
+    
+<script src="../../../libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-177850483-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../index.html">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Articles/">Articles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/">Dev</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Front-end/">Front-end</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Others/">Others</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Quiz/">Quiz</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Spring/">Spring</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Web/">Web</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Review/">Review</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Thought/">Thought</a></li></ul></li></ul>
+                                
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="../../../js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Java/">Java</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-livestudy-week-06" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Live Study 6주차 - 상속
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta" style="margin-bottom: 1em;">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="" class="article-date">
+       <time datetime="2021-02-10T02:20:51.000Z" itemprop="datePublished">2021-02-10</time>
+    </a>
+  </div>
+
+<!-- 
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="" class="article-date">
+     <time datetime="2021-02-10T11:25:04.901Z" itemprop="dateModified">2021-02-10</time>
+  </a>
+</div>
+
+ -->
+                
+
+				<!-- 	count-time		 -->
+				<span class="reading-time" style="margin-left: 20px;">
+					⏱ 37 min.
+				</span>
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="../../../tags/oop/" rel="tag">oop</a>, <a class="tag-link-link" href="../../../tags/whiteship/" rel="tag">whiteship</a>
+    </div>
+
+                
+
+                
+
+            </div>
+			<div class="ads">
+				<script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+	new PartnersCoupang.G({"id":434728,"template":"carousel","trackingCode":"AF1391980","width":"100%","height":"100"});
+</script>
+			</div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg"></p>
+<ul>
+<li><a href="#inheritance">자바 상속의 특징</a><ul>
+<li><a href="#multiple-inheritance">다중상속</a></li>
+<li><a href="#call-method">상속관계에서 메서드 호출</a></li>
+<li><a href="#casting">업캐스팅/다운캐스팅</a></li>
+</ul>
+</li>
+<li><a href="#super">super 키워드</a></li>
+<li><a href="#overriding">메소드 오버라이딩</a><ul>
+<li><a href="#differ-overriding-and-overloading">메서드 오버라이딩과 메서드 오버로딩</a></li>
+</ul>
+</li>
+<li><a href="#dynamic-method-dispatch">다이나믹 메소드 디스패치 (Dynamic Method Dispatch)</a></li>
+<li><a href="#abstractclass">추상 클래스</a></li>
+<li><a href="#final">final 키워드</a></li>
+<li><a href="#object">Object 클래스</a></li>
+</ul>
+<br>
+
+<h1 id="자바-상속의-특징"><a href="#자바-상속의-특징" class="headerlink" title="자바 상속의 특징"></a><a name="inheritance"></a>자바 상속의 특징</h1><h3 id="자식-클래스는-부모-클래스의-상태와-기능을-사용-가능"><a href="#자식-클래스는-부모-클래스의-상태와-기능을-사용-가능" class="headerlink" title="자식 클래스는 부모 클래스의 상태와 기능을 사용 가능"></a>자식 클래스는 부모 클래스의 상태와 기능을 사용 가능</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Hyundai</span> <span class="keyword">extends</span> <span class="title">Genesis</span> </span>&#123;</span><br><span class="line">   Sedan sonata = <span class="keyword">new</span> Sedan(<span class="string">&quot;소나타&quot;</span>, <span class="number">24_000_000</span>);</span><br><span class="line">   Suv tucson = <span class="keyword">new</span> Suv(<span class="string">&quot;투싼&quot;</span>, <span class="number">25_000_000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Genesis</span> </span>&#123;</span><br><span class="line">   Sedan g70 = <span class="keyword">new</span> Sedan(<span class="string">&quot;Genesis G70&quot;</span>, <span class="number">48_500_000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Driver</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      Hyundai hyundai = <span class="keyword">new</span> Hyundai();</span><br><span class="line">      hyundai.g70.drive();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">당신이 선택한 차종은 g70이며, 가격은 48500000원입니다.</span><br></pre></td></tr></table></figure>
+
+<p><code>Genesis</code> 클래스와 <code>Genesis</code> 클래스를 상속(extends)받는 <code>Hyundai</code> 클래스이다. 그리고 이를 <code>Driver</code> 클래스에서 인스턴스를 생성해서 사용하는 코드이다. </p>
+<blockquote>
+<p>부모클래스로부터 상속받는 자식클래스에서 부모 클래스의 상태와 기능을 확장하여 할 수 있다는 점에서 상속을 할 때 사용하는 키워드가 <code>extends</code> 이다.</p>
+</blockquote>
+<p>위의 코드에서 <code>Sedan</code>과 <code>Suv</code> 클래스 코드는 굳이 첨부하지 않았다.</p>
+<p>main 메서드가 있는 <code>Driver</code> 클래스를 보면, <code>Hyundai</code> 객체의 인스턴스를 생성했는데, <code>Genesis</code>의 <code>g70</code>를 호출한걸 확인할 수 있다. </p>
+<p>이게 가능한 이유는 <code>Hyundai</code> 클래스가 <code>Genesis</code> 를 <strong>상속</strong> 받기 때문에 가능한 일이다.</p>
+<p>반면 Genesis 객체를 인스턴스로 생성해서 sonata를 호출하면 어떨까?</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Driver</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      Genesis genesis = <span class="keyword">new</span> Genesis();</span><br><span class="line">      genesis.sonata.drive();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>컴파일 에러가 발생한다. <code>genesis</code> 인스턴스에서는 <code>sonata</code>를 찾을 수 없기 때문이다.</p>
+<p>두 객체의 관계는 다음과 같다.</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/105963265-25dc8e80-60c4-11eb-85db-1497aa1a914b.png"></p>
+<p><code>Genesis</code> 객체를 통해서는 <code>g70</code>만 접근할 수 있지만, <code>Genesis</code>를 상속받는 <code>Hyundai</code>는 <code>sonata</code>, <code>tucson</code>, <code>g70</code> 모두 접근이 가능하다. 상속은 부모에서 자식에게 가능하지만, 자식에서 부모로는 불가능하다.</p>
+<h2 id="다중상속"><a href="#다중상속" class="headerlink" title="다중상속"></a><a name="multiple-inheritance"></a>다중상속</h2><p><strong>자바에서는 다중상속을 불허</strong> 한다. 이유는 아래의 코드를 통해 확인해보자.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ParentA</span> </span>&#123;</span><br><span class="line">   <span class="keyword">protected</span> String familyName = <span class="string">&quot;Beckham&quot;</span>;</span><br><span class="line">   <span class="keyword">protected</span> String givenName = <span class="string">&quot;David&quot;</span>;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">name</span><span class="params">()</span></span>&#123;</span><br><span class="line">      System.out.println(givenName+<span class="string">&quot; &quot;</span>+familyName);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ParentB</span> </span>&#123;</span><br><span class="line">   <span class="keyword">protected</span> String familyName = <span class="string">&quot;Adams&quot;</span>;</span><br><span class="line">   <span class="keyword">protected</span> String givenName = <span class="string">&quot;Victoria&quot;</span>;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">name</span><span class="params">()</span></span>&#123;</span><br><span class="line">      System.out.println(givenName+<span class="string">&quot; &quot;</span>+familyName);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Son</span> <span class="keyword">extends</span> <span class="title">ParentA</span>, <span class="title">ParentB</span> </span>&#123;</span><br><span class="line">   <span class="keyword">protected</span> String givenName = <span class="string">&quot;Brooklyn&quot;</span>;</span><br><span class="line"></span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">name</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      System.out.println(givenName+<span class="string">&quot; &quot;</span>+<span class="keyword">super</span>.familyName);;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>위의 코드는 컴파일 에러가 발생한다. 이유는 <code>Son</code> 클래스에서 다중상속을 허용하지 않기 때문이다. 그렇다면, 자바는 왜 다중상속을 허용하지 않는걸까?</p>
+<p>위 코드가 컴파일 에러가 발생하지 않는다고 가정해보자. <code>Son</code> 클래스의 <code>name()</code>에서 <code>super.familyName</code>은 무엇을 가져올 수 있을까?</p>
+<p><u>자식 클래스에서 부모 클래스의 속성 또는 기능을 호출하려고 하는데, 위에서처럼 변수명은 같지만 할당된 리터럴이 다른 경우 JVM은 어느것을 호출해야할지 알 수 없게된다.</u></p>
+<p>이런 경우를 <strong>다이아몬 문제(Diamond Problem)</strong> 이라고 한다. 따라서 자바에서는 다중상속을 지원하지 않는다. </p>
+<p>그러나 인터페이스를 통해 다중상속을 비슷하게 구현할수 있긴 하다. </p>
+<h2 id="상속관계에서-메서드-호출"><a href="#상속관계에서-메서드-호출" class="headerlink" title="상속관계에서 메서드 호출"></a><a name="call-method"></a>상속관계에서 메서드 호출</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printClassName</span><span class="params">()</span></span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;My name is A&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printClassName</span><span class="params">()</span></span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;My name is B&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">hello</span><span class="params">()</span></span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;Hello from B&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> <span class="keyword">extends</span> <span class="title">B</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">hello</span><span class="params">()</span></span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;Hello from C&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StudyHalle</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      B b = <span class="keyword">new</span> B();</span><br><span class="line">      C c = <span class="keyword">new</span> C();</span><br><span class="line">     </span><br><span class="line">      b.hello();</span><br><span class="line">      c.printClassName();</span><br><span class="line">      c.hello();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>A -&gt; B -&gt; C 순서로 상속관계로 연결된 객체들이다. 상속관계에서 최하위 객체인 C 객체의 인스턴스를 생성해서 <code>printClassName()</code>와 <code>hello()</code> 를 호출해보았다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Hello from B</span><br><span class="line">My name is B</span><br><span class="line">Hello from C</span><br></pre></td></tr></table></figure>
+
+<p><code>printClassName()</code> 은 B 객체에서 오버라이딩을, <code>hello()</code>는 C 객체에서 오버라이딩을 한 메서드들이다.</p>
+<p>호출하면, <strong><u>상속관계에서 가장 가까운 객체의 메서드를 호출</u></strong> 하는 것을 알 수 있다.</p>
+<h2 id="업캐스팅-다운캐스팅"><a href="#업캐스팅-다운캐스팅" class="headerlink" title="업캐스팅/다운캐스팅"></a><a name="casting"></a>업캐스팅/다운캐스팅</h2><p>상속관계에서는 부모 클래스와 자식 클래스 간에 형변환(Casting)이 가능하다.</p>
+<ul>
+<li><strong>업캐스팅</strong><ul>
+<li>자식 클래스의 객체가 부모 클래스로 형변환</li>
+</ul>
+</li>
+<li><strong>다운캐스팅</strong><ul>
+<li>부모 클래스의 객체가 자식 클래스로 형변환</li>
+</ul>
+</li>
+</ul>
+<p>상속관계에서 업캐스팅과 다운캐스팅이 어떻게 진행되는지 확인해보자.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">   String name = <span class="string">&quot;Sam&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">   <span class="keyword">int</span> age = <span class="number">31</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InheritanceApp</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      Student student = <span class="keyword">new</span> Student();</span><br><span class="line">      Person person = <span class="keyword">new</span> Person();</span><br><span class="line"></span><br><span class="line">      Student cast_student = (Student) person;   <span class="comment">// 다운 캐스팅</span></span><br><span class="line">      System.out.println(cast_student.name);  <span class="comment">// Sam</span></span><br><span class="line">      System.out.println(cast_student.age);   <span class="comment">// 31</span></span><br><span class="line">     </span><br><span class="line">      System.out.println(student.age);  <span class="comment">// 31</span></span><br><span class="line">      Person cast_person = student;   <span class="comment">// 업 캐스팅</span></span><br><span class="line">      System.out.println(cast_person.age);  <span class="comment">// copile error</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Student -&gt; Person 의 상속관계이다. Person 타입의 인스턴스 객체 <code>person</code>을 자식 객체 타입인 Student 타입으로 다운 캐스팅하니까 모든 멤버 필드에 접근이 가능해졌다.</p>
+<p>반면 자식 클래스 타입의 Student를 부모 객체 타입인 Person 타입으로 업 캐스팅하니까 기존엔 접근가능했던 자식 객체의 멤버 필드에 접근이 불가능해졌다. 형변환이 되었기 때문에 당연히 접근이 안되는 것이다.</p>
+<br>
+
+<h1 id="super-키워드"><a href="#super-키워드" class="headerlink" title="super 키워드"></a><a name="super"></a>super 키워드</h1><p><code>super</code>라는 키워드도 있는데, <code>super()</code> 라는 메서드도 존재한다. 각각의 차이는 다음과 같다.</p>
+<ul>
+<li><code>super</code> : 부모 클래스의 필드, 메서드 호출</li>
+<li><code>super()</code> : 부모 클래스의 생성자를 호출하는 메서드</li>
+</ul>
+<p>코드를 통해 확인해보겠다. 생활코딩의 코드(<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=OStTXyl636k&list=PLuHgQVnccGMA1bRSk_SZrXMngx5iq03cc&index=5">출처</a>)를 가져왔다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cal</span> </span>&#123;</span><br><span class="line">   <span class="keyword">int</span> v1, v2;</span><br><span class="line"></span><br><span class="line">   Cal(<span class="keyword">int</span> v1, <span class="keyword">int</span> v2)&#123;</span><br><span class="line">      <span class="keyword">this</span>.v1 = v1;</span><br><span class="line">      <span class="keyword">this</span>.v2 = v2;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cal3</span> <span class="keyword">extends</span> <span class="title">Cal</span> </span>&#123;</span><br><span class="line">   Cal3(<span class="keyword">int</span> v1, <span class="keyword">int</span> v2) &#123;</span><br><span class="line">      <span class="keyword">super</span>(v1, v2);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InheritanceApp</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      Cal c = <span class="keyword">new</span> Cal(<span class="number">2</span>,<span class="number">1</span>);</span><br><span class="line">      Cal3 c3 = <span class="keyword">new</span> Cal3(<span class="number">10</span>, <span class="number">20</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>여기서 사용한 <code>super()</code> 를 인텔리J에서 확인해보면 다음과 같이 출력된다.</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/107149188-96c05800-699a-11eb-9fc7-d20e6085de63.png"></p>
+<p><code>Cal</code> 클래스를 상속받은 <code>Cal3</code> 클래스는 <strong><u>부모 클래스가 갖고있는 생성자를 반드시 호출</u></strong> 해야 한다.</p>
+<p>이유는 부모 클래스인 <code>Cal</code> 클래스의 인스턴스를 생성하게 되면, 생성자가 우선적으로 호출되는데, <code>Cal</code> 클래스의 자식 클래스 역시 이 생성자를 호출해야지만 <code>Cal</code> 클래스를 온전히 계승한다고 볼 수 있기 때문이다.</p>
+<p>이번엔 <code>super</code> 키워드를 사용하는 코드를 추가해봤다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cal</span> </span>&#123;</span><br><span class="line">   <span class="keyword">int</span> v1, v2;</span><br><span class="line">   <span class="keyword">int</span> v3 = <span class="number">10</span>;</span><br><span class="line">  </span><br><span class="line">   Cal(<span class="keyword">int</span> v1, <span class="keyword">int</span> v2)&#123;</span><br><span class="line">      <span class="keyword">this</span>.v1 = v1;</span><br><span class="line">      <span class="keyword">this</span>.v2 = v2;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cal3</span> <span class="keyword">extends</span> <span class="title">Cal</span> </span>&#123;</span><br><span class="line">   <span class="keyword">int</span> v3 = <span class="keyword">super</span>.v3+<span class="keyword">super</span>.v2;</span><br><span class="line">  </span><br><span class="line">   Cal3(<span class="keyword">int</span> v1, <span class="keyword">int</span> v2) &#123;</span><br><span class="line">      <span class="keyword">super</span>(v1, v2);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InheritanceApp</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      Cal c = <span class="keyword">new</span> Cal(<span class="number">2</span>,<span class="number">1</span>);</span><br><span class="line">      Cal3 c3 = <span class="keyword">new</span> Cal3(<span class="number">10</span>, <span class="number">20</span>);</span><br><span class="line">     </span><br><span class="line">      System.out.println(c3.v3);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">30</span><br></pre></td></tr></table></figure>
+
+<p><code>Cal3</code> 클래스에서 부모 클래스의 변수를 호출하는 변수를 선언했다. main 메서드에서 콘솔에 출력되는 수가 30인데, Cal3 클래스의 변수 <code>v3</code>이 부모 클래스의 <code>v3(10)</code>와 부모 클래스의 <code>v2</code>(생성자를 통해 들어온 20)의 합을 가져왔기 때문이다.</p>
+<br>
+
+<h1 id="메소드-오버라이딩"><a href="#메소드-오버라이딩" class="headerlink" title="메소드 오버라이딩"></a><a name="overriding"></a>메소드 오버라이딩</h1><p>오버라이딩은 부모 클래스의 메서드를 변형해서 사용하는 것을 의미한다. 부모로부터 상속받은 기능을 자신의 입맛대로 바꿔서 사용하는 것이다. </p>
+<p>객체지향을 배울때 오버라이딩과 함께 배우는 개념으로 오버로딩이 있는데, 오버로딩은 부모 클래스의 메서드와 이름만 같을뿐 파라미터 갯수를 다르게 하여 다른 메서드로 사용하는걸 의미한다. 객체지향의 주요 개념중 하나인 <strong><u>다형성(Polymorphism)</u></strong> 이 사용된 개념이다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">hello</span><span class="params">(String host, String guest)</span></span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;Hello, &quot;</span>+guest+<span class="string">&quot; from &quot;</span>+host);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">hello</span><span class="params">(String host, String guest1, String guest2)</span></span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;Hello, &quot;</span>+guest1+<span class="string">&quot;, &quot;</span>+guest2+<span class="string">&quot; from &quot;</span>+host);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="오버라이딩과-오버로딩의-차이"><a href="#오버라이딩과-오버로딩의-차이" class="headerlink" title="오버라이딩과 오버로딩의 차이"></a><a name="differ-overriding-and-overloading"></a>오버라이딩과 오버로딩의 차이</h2><p>그럼 오버라이딩과 오버로딩의 차이는 무엇일까?<br><mark>오버로딩이 기능의 확장</mark>이라면, <mark>오버라이딩은 기능의 재정의</mark>이라고 할 수 있다.</p>
+<p>아래의 코드를 보자.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cal1</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span> num1+num2;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cal2</span> <span class="keyword">extends</span> <span class="title">Cal1</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minus</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span> num1-num2;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cal3</span> <span class="keyword">extends</span> <span class="title">Cal2</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2, <span class="keyword">int</span> num3)</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span> num1+num2+num3;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minus</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span> num1&gt;=num2 ? num1-num2 : num2-num1;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Inheritance</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      Cal2 cal2 = <span class="keyword">new</span> Cal2();</span><br><span class="line">      Cal3 cal3 = <span class="keyword">new</span> Cal3();</span><br><span class="line"></span><br><span class="line">      System.out.println(cal2.minus(<span class="number">10</span>,<span class="number">20</span>));</span><br><span class="line">      System.out.println(cal3.minus(<span class="number">10</span>,<span class="number">20</span>));</span><br><span class="line">      System.out.println(cal3.sum(<span class="number">1</span>,<span class="number">2</span>));</span><br><span class="line">      System.out.println(cal3.sum(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>));</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-10</span><br><span class="line">10</span><br><span class="line">3</span><br><span class="line">6</span><br></pre></td></tr></table></figure>
+
+<p>여기서 <strong>오버라이딩</strong> 을 시도한 코드는 <code>Cal3</code> 클래스의 <code>minus()</code>이다. 부모 클래스의 메서드를 가져와서 기능을 변형시켰다. </p>
+<p><code>Inheritance</code> 클래스의 main 메서드에서 콘솔에 출력한 결과는 부모 클래스의 함수와 달랐다. 기능의 변경이 확인 된 것이다.</p>
+<p><strong>오버로딩</strong> 을 시도한 코드는 <code>Cal3</code> 클래스의 <code>sum()</code>이다. 오버라이딩은 이름만 같을뿐 다른 기능이므로 오버로딩을 시도하면 기능이 하나 더 생긴다. 따라서 <code>Cal3</code> 클래스의 인스턴스로는 <code>sum()</code>이라는 이름의 메서드 2개를 호출할 수 있다.</p>
+<p>오버라이딩은 상속관계에서만 사용되지만, 오버로딩은 같은 클래스내에서도 사용할 수 있다는 특징이 있다.</p>
+<br>
+
+<h1 id="다이나믹-메서드-디스패치-Dynamic-Method-Dispatch"><a href="#다이나믹-메서드-디스패치-Dynamic-Method-Dispatch" class="headerlink" title="다이나믹 메서드 디스패치 (Dynamic Method Dispatch)"></a><a name="dynamic-method-dispatch"></a>다이나믹 메서드 디스패치 (Dynamic Method Dispatch)</h1><p><strong>메서드 디스패치</strong> 란, 런타임 시점(실행 시점)이 아닌 <mark>컴파일 시점에 어떤 메서드가 호출될지를 결정할 수 있는지 여부</mark> 를 정의한다.</p>
+<p>메서드 디스패치는 두가지로 분류된다.</p>
+<ul>
+<li><strong>정적 메서드 디스패치 (Static)</strong><ul>
+<li><strong>컴파일</strong>시 결정되는 의존 관계</li>
+<li>컴파일 시점에 어떤 메서드가 호출될지를 결정하는 코드</li>
+</ul>
+</li>
+<li><strong>다이나믹 메서드 디스패치 (Dynamic)</strong><ul>
+<li><strong>런타임</strong>시 결정되는 의존 관계</li>
+<li>컴파일 시점에는 어떤 메서드가 호출될지 알지 못하나 런타임 시점에 메서드가 결정되는 코드</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<h1 id="추상-클래스"><a href="#추상-클래스" class="headerlink" title="추상 클래스"></a><a name="abstractclass"></a>추상 클래스</h1><p>추상클래스는 상속을 강제하기 위한 클래스인데, 클래스 내부에 구현체가 없는 추상 메서드를 갖고있는 클래스에 <code>abstract</code> 키워드를 작성하면 추상 클래스가 된다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span></span>;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">hello</span><span class="params">()</span></span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;Hello world&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span> num1+num2;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2, <span class="keyword">int</span> num3)</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span> num1+num2+num3;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudyHalle</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      B b = <span class="keyword">new</span> B();</span><br><span class="line">      C c = <span class="keyword">new</span> C();</span><br><span class="line">      System.out.println(b.sum(<span class="number">5</span>,<span class="number">10</span>));</span><br><span class="line">      System.out.println(c.sum(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>));</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">15</span><br><span class="line">6</span><br></pre></td></tr></table></figure>
+
+<p>추상 클래스 A를 상속받는 Class B, Class C를 통해서 <code>sum()</code>이라는 메서드를 서로 다르게 구현한 코드이다.</p>
+<p><strong>추상 클래스는 인스턴스로 생성할 수 없다.</strong> 추상 클래스를 상속받은 자식 클래스를 통해서만 인스턴스화 할 수 있다. 같은 이유로 추상 클래스는 <a href="#final">final 키워드</a>로 선언할 수 없다.</p>
+<p>그럼 추상 클래스는 언제 사용해야할까? 추상 메서드를 선언하려면 메서드를 선언하는 클래스가 추상 클래스여야 한다. 고로 추상 메서드가 필요할때가 추상 클래스가 필요한 시점이 된다.</p>
+<p>그럼 추상 메서드는 언제 필요할까? <strong>추상 메서드란 선언부만 있고, 구현부는 없는 메서드</strong> 를 말한다. 인터페이스처럼 껍데기만 있는 것이다. 따라서 클래스간의 관계에서 공통 기능을 인터페이스 또는 추상클래스의 추상메서드로 분리할 수 있을 것이다.</p>
+<p>여기까지 보면, 인터페이스와 다르지 않은것 같다. 인터페이스와 추상클래스는 어떤 차이가 있는걸까?</p>
+<h2 id="인터페이스와-추상클래스의-차이"><a href="#인터페이스와-추상클래스의-차이" class="headerlink" title="인터페이스와 추상클래스의 차이"></a>인터페이스와 추상클래스의 차이</h2><table>
+<thead>
+<tr>
+<th>인터페이스</th>
+<th>추상클래스</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>구현 객체의 같은 동작을 보장하기 위함</td>
+<td>추상 클래스를 상속받아서 기능을 이용, 확장시키기 위함</td>
+</tr>
+<tr>
+<td>다중 상속이 가능하다</td>
+<td>다중 상속이 불가능하다</td>
+</tr>
+<tr>
+<td>추상 메서드만 사용 가능하다</td>
+<td>일반 메서드와 일반 변수 모두 사용가능하다</td>
+</tr>
+<tr>
+<td>상수+추상메서드</td>
+<td>일반 변수 + 일반 메서드 + 추상 메서드</td>
+</tr>
+<tr>
+<td>생성자와 일반 변수를 가질 수 없다.</td>
+<td>생성자와 일반 변수를 모두 가질 수 있다</td>
+</tr>
+<tr>
+<td><code>implements</code> 사용</td>
+<td><code>extends</code> 사용</td>
+</tr>
+</tbody></table>
+<p>출처 : <a target="_blank" rel="noopener" href="https://www.notion.so/54d624628a634c879cc93d94f54cd2d1#aa5c91ccff0b47688a8cdaa9aa210e85">신입 개발자 면접 질문 시리즈 - 추상클래스와 인터페이스의 공통점과 차이점</a></p>
+<br>
+
+<h1 id="final-키워드"><a href="#final-키워드" class="headerlink" title="final 키워드"></a><a name="final"></a>final 키워드</h1><p><code>final</code> 키워드는 객체의 모든 대상에 적용이 가능하며, 불가변적인 특징을 갖게된다.</p>
+<p><strong>final 키워드 적용대상</strong></p>
+<p>
+<style>
+  table tr th {
+     text-align: center;
+  }
+  table tr td {
+     word-break: keep-all;
+  }
+  .fieldname {
+    text-align: center;
+    width: 15%;
+  }
+</style>
+<table>
+  <tr>
+    <th>대상</th>
+    <th>의미</th>
+  </tr>
+  <tr>
+    <td class="fieldname">클래스</td>
+    <td>변경될 수 없는 클래스, 확장(상속)이 불가능해진다.</td>
+  </tr>
+  <tr>
+    <td class="fieldname" style="vertical-align: middle;">메서드</td>
+    <td>변경될 수 없는 메서드, final로 지정된 메서드는 오버라이딩을 통해 재정의 할 수 없다.</td>
+  </tr>
+  <tr>
+    <td class="fieldname">멤버변수</td>
+    <td rowspan=2 style="vertical-align: middle;">변수 앞에 <code>final</code>이 붙으면, 값을 변경할 수 없는 상수가 된다.</td>
+  </tr>
+  <tr>
+    <td class="fieldname">지역변수</td>
+  </tr>
+</table>
+</p>
+
+
+
+<p><strong>상수의 초기화</strong></p>
+<p><code>final</code> 키워드를 사용해서 상수를 선언하더라도 생성자를 통해서 초기화를 할 수 있다. 만약 생성자를 통한 상수의 초기화가 불가능해지면, 이를 상속하는 모든 클래스에서 똑같은 상수 리터럴을 사용해야할 것이다.</p>
+<p>출처 : <a target="_blank" rel="noopener" href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=76083001">남궁성의 Java의 정석</a></p>
+<br>
+
+<h1 id="Object-클래스"><a href="#Object-클래스" class="headerlink" title="Object 클래스"></a><a name="object"></a>Object 클래스</h1><p>java.lang 패키지의 대표적인 클래스 중 하나면서, Java에서 사용하는 모든 클래스의 조상이다. 따라서 Object 클래스의 메서드는 모든 클래스에서 바로 사용할 수 있다.</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/107379706-8b9f3080-6b30-11eb-9286-1d1875747c0a.png"></p>
+<p>예를 들면, String 클래스에서 <code>equals()</code>를 사용할 수 있는건, <code>equals()</code>가 Object 클래스의 메서드이고, Object 클래스를 String 클래스가 상속하기 때문에 가능하다.</p>
+<h3 id="Object-클래스의-메서드"><a href="#Object-클래스의-메서드" class="headerlink" title="Object 클래스의 메서드"></a>Object 클래스의 메서드</h3><style>
+   #methods-object tr td {
+      vertical-align: center;
+   }
+   #methods-object th {
+      border : 1px solid black;
+   }
+</style>
+<table id="methods-object">
+  <tr>
+      <th>Object 클래스의 메서드</th>
+    <th>설명</th>
+  </tr>
+  <tr>
+      <td>public final native Class<?> getClass()</td>
+    <td>객체 자신의 클래스 정보를 담는 Class 인스턴스를 반환한다.</td>
+  </tr>
+  <tr>
+      <td>public native int hashCode()</td>
+    <td>객체 자신의 해쉬코드를 반환한다.</td>
+  </tr>
+  <tr>
+      <td>public boolean equals(Object obj)</td>
+    <td>객체 자신과 객체 obj가 같은 객체인지 알려준다.</td>
+  </tr>
+  <tr>
+      <td>protected native Object clone() throws CloneNotSupportedException</td>
+    <td>객체 자신의 복사본을 반환한다.</td>
+  </tr>
+  <tr>
+      <td>public String toString()</td>
+    <td>객체 자신의 정보를 문자열로 반환한다.</td>
+  </tr>
+  <tr>
+      <td>public final native void notify()</td>
+    <td>객체 자신을 사용하려고 기다리는 쓰레드를 하나만 깨운다.</td>
+  </tr>
+  <tr>
+      <td>public final native void notifyAll()</td>
+    <td>객체 자신을 사용하려고 기다리는 모든 쓰레드를 깨운다.</td>
+  </tr>
+  <tr>
+      <td>public final void wait() throws InterruptedException</td>
+    <td>다른 쓰레드가 notify() 또는 notifyAll()을 호출할때까지 현재 쓰레드를 잠시 대기하도록 한다.</td>
+  </tr>
+  <tr>
+      <td>public final native void wait(long timeoutMillis) throws InterruptedException</td>
+    <td>다른 쓰레드가 notify()나 notifyAll()을 호출할 때까지 현재 쓰레드를 무한히 또는 지정된 시간(timeout, nanos)동안 기다리게 한다.</td>
+  </tr>
+</table>
+
+<p>더 이상 참조하지 않는 객체를 GC에 의해 호출하도록 하는 <code>finalize()</code>는 deprecate되었다.<br>그동안 <code>finalize()</code>는 아래의 이유로 <strong><u>사용하지 않는 것이 권고</u></strong> 되었다는데 결국 deprecate되었다.</p>
+<ul>
+<li>객체가 이용할 수 없게된 시점부터 <code>finalize()</code>가 실행되는 시점까지 긴 시간이 소요될 수 있는데, 이 시간은 GC 알고리즘을 추종함.</li>
+<li>반드시 실행된다는 보장이 없다.</li>
+<li>예외가 발생하더라도 예외가 무시된다.</li>
+<li>성능 저하가 발생한다.</li>
+</ul>
+<p>출처 : <a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html#wait()">Oracle Docs - Java11 Class Object</a></p>
+
+        </div>
+    </div>
+	<div class="ads">
+		<script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+	new PartnersCoupang.G({"id":434728,"template":"carousel","trackingCode":"AF1391980","width":"100%","height":"100"});
+</script>
+	</div>
+	<footer class="article-footer">
+		<script src="https://utteranc.es/client.js"
+        repo="youngjinmo/githubpages-comment"
+        issue-term="url"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+	</footer>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Youngjin Mo"
+        },
+        "headline": "Live Study 6주차 - 상속",
+        "image": "../../../http:/youngjinmo.github.iohttps:/i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg",
+        "keywords": "oop whiteship",
+        "genre": "Dev Java",
+        "datePublished": "2021-02-10",
+        "dateCreated": "2021-02-10",
+        "dateModified": "2021-02-10",
+        "url": "../../../http:/youngjinmo.github.io/2021/02/livestudy-week-06/",
+        "description": "
+
+자바 상속의 특징
+다중상속
+상속관계에서 메서드 호출
+업캐스팅/다운캐스팅
+
+
+super 키워드
+메소드 오버라이딩
+메서드 오버라이딩과 메서드 오버로딩
+
+
+다이나믹 메소드 디스패치 (Dynamic Method Dispatch)
+추상 클래스
+final 키워드
+Object 클래스
+
+
+
+자바 상속의 특징자식 클래스는 부모 클래스의 상태와 기능을 사용 가능1234p",
+        "wordCount": 3314
+    }
+</script>
+
+</article>
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="../../../https:/twitter.com/devandy_yj" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="../../../https:/github.com/youngjinmo" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../atom.xml" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="../hackerrank-datatype/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Hackerrank - Java Datatype</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+	<div class="ads">
+		<a target="_blank" rel="noopener" href="http://bit.ly/firefoxmonitor_devnady">
+	<img src="https://user-images.githubusercontent.com/33862991/106722612-85e5ae80-6649-11eb-9e4a-c0b66ad232f3.png" style="width: 100%; display:block; margin-left: auto; margin-right: auto;">
+</a>
+	</div>
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg)" alt="Live Study 6주차 - 상속" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="" class="title">Live Study 6주차 - 상속</a></p>
+                            <p class="item-date"><time datetime="2021-02-10T02:20:51.000Z" itemprop="datePublished">2021-02-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../hackerrank-datatype/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/33862991/106846791-e5e36000-66f0-11eb-83c3-562cd0c40b4f.png)" alt="Hackerrank - Java Datatype" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Quiz/">Quiz</a></p>
+                            <p class="item-title"><a href="../hackerrank-datatype/" class="title">Hackerrank - Java Datatype</a></p>
+                            <p class="item-date"><time datetime="2021-02-03T20:07:57.000Z" itemprop="datePublished">2021-02-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../01/livestudy-week-05/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg)" alt="Live Study 5주차 - 클래스" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../../01/livestudy-week-05/" class="title">Live Study 5주차 - 클래스</a></p>
+                            <p class="item-date"><time datetime="2021-01-25T00:03:28.000Z" itemprop="datePublished">2021-01-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../01/digital-privacy/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://static.highsnobiety.com/thumbor/96U21JmcZFCuaDXfysBJYxZuBjs=/fit-in/800x480/smart/static.highsnobiety.com/wp-content/uploads/2019/03/15135749/apple-ad-privacy-00.jpg)" alt="디지털 개인정보" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Life/">Life</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Life/Thought/">Thought</a></p>
+                            <p class="item-title"><a href="../../01/digital-privacy/" class="title">디지털 개인정보</a></p>
+                            <p class="item-date"><time datetime="2021-01-22T05:42:25.000Z" itemprop="datePublished">2021-01-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../01/livestudy-week-04/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg)" alt="Live Study 4주차 - 제어문" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../../01/livestudy-week-04/" class="title">Live Study 4주차 - 제어문</a></p>
+                            <p class="item-date"><time datetime="2021-01-21T00:52:05.000Z" itemprop="datePublished">2021-01-21</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../tags/BufferedReader/" style="font-size: 10px;">BufferedReader</a> <a href="../../../tags/BufferedWriter/" style="font-size: 10px;">BufferedWriter</a> <a href="../../../tags/IO/" style="font-size: 10px;">IO</a> <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 11px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/annotation/" style="font-size: 10px;">annotation</a> <a href="../../../tags/api/" style="font-size: 10px;">api</a> <a href="../../../tags/architecture/" style="font-size: 10px;">architecture</a> <a href="../../../tags/array/" style="font-size: 11px;">array</a> <a href="../../../tags/aws/" style="font-size: 12px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blacklivesmatter/" style="font-size: 10px;">blacklivesmatter</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 12px;">career</a> <a href="../../../tags/casting/" style="font-size: 13px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/cloud/" style="font-size: 12px;">cloud</a> <a href="../../../tags/contribution/" style="font-size: 10px;">contribution</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/databse/" style="font-size: 10px;">databse</a> <a href="../../../tags/datastructure/" style="font-size: 12px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 14px;">docker</a> <a href="../../../tags/documentation/" style="font-size: 10px;">documentation</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 12px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generics/" style="font-size: 10px;">generics</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 13px;">github</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 14px;">http</a> <a href="../../../tags/ide/" style="font-size: 10px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 13px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 11px;">interface</a> <a href="../../../tags/io/" style="font-size: 12px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 16px;">java</a> <a href="../../../tags/java5/" style="font-size: 10px;">java5</a> <a href="../../../tags/java8/" style="font-size: 11px;">java8</a> <a href="../../../tags/javascript/" style="font-size: 14px;">javascript</a> <a href="../../../tags/javscript/" style="font-size: 10px;">javscript</a> <a href="../../../tags/jquery/" style="font-size: 11px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/junit/" style="font-size: 10px;">junit</a> <a href="../../../tags/jvm/" style="font-size: 12px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 11px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/license/" style="font-size: 10px;">license</a> <a href="../../../tags/livereload/" style="font-size: 10px;">livereload</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 11px;">mustache</a> <a href="../../../tags/mybatis/" style="font-size: 11px;">mybatis</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 17px;">oop</a> <a href="../../../tags/operator/" style="font-size: 10px;">operator</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/privacy/" style="font-size: 10px;">privacy</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/readme/" style="font-size: 10px;">readme</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 12px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 13px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 18px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/stock/" style="font-size: 10px;">stock</a> <a href="../../../tags/string/" style="font-size: 15px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/terminal/" style="font-size: 10px;">terminal</a> <a href="../../../tags/tip/" style="font-size: 16px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 19px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 11px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/vue/" style="font-size: 10px;">vue</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 18px;">weekly-review</a> <a href="../../../tags/whiteship/" style="font-size: 14px;">whiteship</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+	<div class="ads">
+		<a target="_blank" rel="noopener" href="http://bit.ly/donatemozila_devnady">
+	<img src="https://user-images.githubusercontent.com/33862991/106721036-7b2a1a00-6647-11eb-9722-30275f20b4ba.png" style="width: 100%; display:block; margin-left: auto; margin-right: auto;">
+</a>
+		<a target="_blank" rel="noopener" href="http://bit.ly/livesmarter_devandy">
+	<img src="https://user-images.githubusercontent.com/33862991/106847989-5be8c680-66f3-11eb-9dd3-fd17c8a1009f.jpg" style="width: 250px; display:block; margin-left: auto; margin-right: auto; margin-top: 20px;">
+</a>
+	</div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2021 Youngjin Mo</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+    
+        
+<script src="../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="../../../js/main.js"></script>
+
+
+</body>
+</html>

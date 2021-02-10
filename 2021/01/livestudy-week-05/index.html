@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="oop,whiteship" />
     
-    <meta name="description" content="클래스와 객체 클래스 정의하는 방법 객체 만드는 방법 (new 키워드 이해하기) 메서드 정의하는 방법 생성자 정의하는 방법 this 키워드 이해하기  클래스와 객체클래스에 앞서 객체 를 먼저 이해할 필요가 있다. 객체를 중심으로 프로그래밍을 하는 것을 객체지향 프로그래밍(Object Oriented Programming)이라 한다. 객체의 역할과 책임이">
+    <meta name="description" content="클래스와 객체 클래스 정의하는 방법 접근제한자 생성자   객체 만드는 방법 (new 키워드 이해하기) 메서드 정의하는 방법 생성자 정의하는 방법 this 키워드 이해하기  클래스와 객체클래스에 앞서 객체 를 먼저 이해할 필요가 있다. 객체를 중심으로 프로그래밍을 하는 것을 객체지향 프로그래밍(Object Oriented Programming)이라 한다.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Live Study 5주차 - 클래스">
 <meta property="og:url" content="http://youngjinmo.github.io/2021/01/livestudy-week-05/index.html">
 <meta property="og:site_name" content="DevAndy - 개발자앤디의 개발블로그">
-<meta property="og:description" content="클래스와 객체 클래스 정의하는 방법 객체 만드는 방법 (new 키워드 이해하기) 메서드 정의하는 방법 생성자 정의하는 방법 this 키워드 이해하기  클래스와 객체클래스에 앞서 객체 를 먼저 이해할 필요가 있다. 객체를 중심으로 프로그래밍을 하는 것을 객체지향 프로그래밍(Object Oriented Programming)이라 한다. 객체의 역할과 책임이">
+<meta property="og:description" content="클래스와 객체 클래스 정의하는 방법 접근제한자 생성자   객체 만드는 방법 (new 키워드 이해하기) 메서드 정의하는 방법 생성자 정의하는 방법 this 키워드 이해하기  클래스와 객체클래스에 앞서 객체 를 먼저 이해할 필요가 있다. 객체를 중심으로 프로그래밍을 하는 것을 객체지향 프로그래밍(Object Oriented Programming)이라 한다.">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg">
 <meta property="article:published_time" content="2021-01-25T00:03:28.000Z">
-<meta property="article:modified_time" content="2021-02-04T04:29:54.239Z">
+<meta property="article:modified_time" content="2021-02-10T06:19:15.512Z">
 <meta property="article:author" content="Youngjin Mo">
 <meta property="article:tag" content="oop">
 <meta property="article:tag" content="whiteship">
@@ -213,7 +213,7 @@ ga('send', 'pageview');
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="" class="article-date">
-     <time datetime="2021-02-04T04:29:54.239Z" itemprop="dateModified">2021-02-04</time>
+     <time datetime="2021-02-10T06:19:15.512Z" itemprop="dateModified">2021-02-10</time>
   </a>
 </div>
 
@@ -222,7 +222,7 @@ ga('send', 'pageview');
 
 				<!-- 	count-time		 -->
 				<span class="reading-time" style="margin-left: 20px;">
-					⏱ 19 min.
+					⏱ 22 min.
 				</span>
                 
     <div class="article-tag">
@@ -253,7 +253,11 @@ ga('send', 'pageview');
             <p><img src="https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg"></p>
 <ul>
 <li><a href="#class">클래스와 객체</a></li>
-<li><a href="#definition">클래스 정의하는 방법</a></li>
+<li><a href="#definition">클래스 정의하는 방법</a><ul>
+<li><a href="#access-modifier">접근제한자</a></li>
+<li><a href="#constructor">생성자</a></li>
+</ul>
+</li>
 <li><a href="#new">객체 만드는 방법 (new 키워드 이해하기)</a></li>
 <li><a href="#function">메서드 정의하는 방법</a></li>
 <li><a href="#constructor">생성자 정의하는 방법</a></li>
@@ -270,7 +274,7 @@ ga('send', 'pageview');
 <h1 id="클래스-정의하는-방법"><a href="#클래스-정의하는-방법" class="headerlink" title="클래스 정의하는 방법"></a><a name="definition"></a>클래스 정의하는 방법</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> 클래스명 </span>&#123; &#125;</span><br></pre></td></tr></table></figure>
 
 <p>클래스는 위의 구조로 생성되는데, 이 때 클래스에서 사용할 수 있는 접근제한자는 <code>public</code>과 <code>default</code>로만 사용가능하다. </p>
-<h2 id="접근제한자"><a href="#접근제한자" class="headerlink" title="접근제한자"></a>접근제한자</h2><style>
+<h2 id="접근제한자"><a href="#접근제한자" class="headerlink" title="접근제한자"></a><a name="access-modifier"></a>접근제한자</h2><style>
   #access-modifier {
      border: 1px solid black;
   }
@@ -316,7 +320,7 @@ ga('send', 'pageview');
 <br>
 
 <p>클래스명은 <code>.java</code> 파일명과 동일해야 컴파일 이후에 생성된 바이트코드를 JVM이 로딩할때 클래스를 찾을 수 있다.</p>
-<p><a name="without-ide"></a>터미널에서 ide를 사용하지 않고, 클래스를 직접 생성해보겠다.</p>
+<p><a name="without-ide"></a>ide를 사용하지 않고 터미널에서 Vim 에디터를 이용하여 클래스를 직접 생성해보았다.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim JavaTest.java</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaTest</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;Hello World!&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -328,7 +332,7 @@ ga('send', 'pageview');
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">java JavaTest</span><br><span class="line">Hello World!</span><br></pre></td></tr></table></figure>
 
 <p><code>java</code> 는 바이트코드를 JVM으로 실행하는 명령어이다. 이 명령어의 결과로 <code>JavaTest</code>가 실행되어 <code>main()</code>가 호출된 것이다. 실제로 JVM이 어떤 순서로 클래스를 실행하는지 아래의 코드로 살펴보겠다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaTest</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      <span class="keyword">int</span> num1 = <span class="number">10</span>;</span><br><span class="line">      <span class="keyword">int</span> num2 = <span class="number">20</span>;</span><br><span class="line">			JavaTest test = <span class="keyword">new</span> JavaTest();</span><br><span class="line">      System.out.println(test.add(num1, num2));</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span> num1+num2;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaTest</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      <span class="keyword">int</span> num1 = <span class="number">10</span>;</span><br><span class="line">      <span class="keyword">int</span> num2 = <span class="number">20</span>;</span><br><span class="line">	  </span><br><span class="line">      JavaTest test = <span class="keyword">new</span> JavaTest();</span><br><span class="line">	  </span><br><span class="line">      System.out.println(test.add(num1, num2));</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span> num1+num2;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">javac JavaTest.java &amp;&amp; java JavaTest</span><br><span class="line">30</span><br></pre></td></tr></table></figure>
 
@@ -336,28 +340,42 @@ ga('send', 'pageview');
 <p>위의 바이트코드를 <code>javap</code>로 뜯어보면, JVM에서 클래스와 메서드를 어떤 순서로 실행하는지 알 수 있다.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">javap JavaTest</span><br><span class="line">compiled from &quot;JavaTest.java&quot;</span><br><span class="line">public class JavaTest &#123;</span><br><span class="line">   public JavaTest();</span><br><span class="line">   public static void main(java.lang.String[]);</span><br><span class="line">   public int add(int, int);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>클래스의 디폴트 생성자를 먼저 실행하고, 이후 <code>main()</code>을 실행, <code>int</code>형 인자 2개를 파라미터로 받는 <code>add()</code>가 호출된걸 알 수 있다.</p>
+<p>디폴트 생성자를 먼저 실행하고, 이후 <code>main()</code>을 실행, <code>int</code>형 인자 2개를 파라미터로 받는 <code>add()</code>가 호출된걸 알 수 있다.</p>
+<h2 id="생성자"><a href="#생성자" class="headerlink" title="생성자"></a><a name="constructor"></a>생성자</h2><p>생성자는 파라미터가 없는 기본 생성자도 있을 수 있고, 파라미터가 있는 생성자도 만들수 있다. 다만 개발자가 직접 생성하지 않는다면 자바 컴파일러에서 파라미터가 없는 기본생성자를 자동으로 생성해준다.</p>
+<p><mark>개발자가 임의로 생성자를 생성한다면, 자바 컴파일러는 기본 생성자를 생성하지 않는다.</mark></p>
 <br>
 
 <h1 id="객체-만드는-방법-new-키워드-이해하기"><a href="#객체-만드는-방법-new-키워드-이해하기" class="headerlink" title="객체 만드는 방법(new 키워드 이해하기)"></a><a name="new"></a>객체 만드는 방법(new 키워드 이해하기)</h1><p>클래스는 속성과 기능을 갖는다. 클래스를 바탕으로 객체를 생성하면 객체도 클래스의 속성과 기능을 갖게되는데, 이 때 객체가 갖는 속성과 기능을 멤버(member)라고 일컫는다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">StudyHalle study = <span class="keyword">new</span> StudyHalle();</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 클래스  인스턴스명 = new 생성자()</span></span><br><span class="line">StudyHalle study = <span class="keyword">new</span> StudyHalle();</span><br></pre></td></tr></table></figure>
 
-<p>여기서 <code>StudyHalle</code>는 클래스이고, 이 클래스를 바탕으로 생성한 인스턴스 <code>study</code>가 객체에 해당한다. 인스턴스를 통해서 해당 객체의 메서드나 필드에 접근이 가능해진다.</p>
-<p>클래스는 참조형 타입이므로 인스턴스 생성시 <code>new</code> 키워드로 생성한다. <code>new</code> 키워드로 생성한다는건 곧 JVM의 Heap 영역에 메모리를 할당한다는 이야기이다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> basic01;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DevAndy</span> </span>&#123;</span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String name = <span class="string">&quot;DevAndy&quot;</span>;</span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> birthYear = <span class="number">1991</span>;</span><br><span class="line">  </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">age</span><span class="params">()</span></span>&#123;</span><br><span class="line">      LocalDate date = LocalDate.now();</span><br><span class="line">      <span class="keyword">return</span> date.getYear()-birthYear;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>여기서 <code>StudyHalle</code>는 클래스이고, <code>study</code>가 이 클래스를 바탕으로 생성한 인스턴스 객체에 해당한다. </p>
+<p>클래스는 템플릿이고, 이 템플릿을 바탕으로 실제 사용할 목적으로 생성한 객체가 인스턴스라고 한다. 따라서 하나의 클래스로 여러개의 독립된 인스턴스를 만드는것도 가능하다. 인스턴스를 통해서 해당 객체의 메서드나 필드에 접근이 가능해진다.</p>
+<p>클래스는 참조형 타입이므로 인스턴스 생성시 <code>new</code> 키워드로 생성한다. <code>new</code> 키워드로 생성한다는건 곧 JVM의 Heap 영역에 메모리를 할당한다는 이야기이다. </p>
+<p>객체는 null을 값으로서 가질수도 있는데, Heap에 있는 객체가 null을 가질경우, 더 이상 사용하지 않는다고 가정하고 가비지 컬렉터(GC)가 이 객체를 Heap에서 제거함으로써 메모리 누수를 방지해준다.</p>
+<p><strong>정리하면,</strong> 위의 코드는 <code>StudyHalle</code> 라는 클래스로부터 <code>study</code> 라는 이름의 인스턴스 객체를 생성하며, 생성자 <code>StudyHalle()</code>로 변수를 초기화하는 작업을 거친 후 객체를 생성하는 코드이다.</p>
+<p>아래 코드를 보자.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Super</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printMyName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;Super.&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">hello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;Hello world.&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sub</span> <span class="keyword">extends</span> <span class="title">Super</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printMyName</span><span class="params">()</span></span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;Sub.&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudyHalle</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      Super a1 = <span class="keyword">new</span> Super();</span><br><span class="line">      Super a2 = <span class="keyword">new</span> Sub();</span><br><span class="line">     </span><br><span class="line">      Sub b1 = <span class="keyword">new</span> Super();  <span class="comment">// compile error</span></span><br><span class="line">      Sub b2 = <span class="keyword">new</span> Sub();  </span><br><span class="line">      </span><br><span class="line">      a1.printMyName();</span><br><span class="line">      a2.printMyName();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> basic02;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> basic01.DevAndy;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudyHalle</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      DevAndy andy = <span class="keyword">new</span> DevAndy();</span><br><span class="line">      System.out.println(andy.name+<span class="string">&quot;&#x27;s age is &quot;</span>+andy.age());</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Super.</span><br><span class="line">Sub.</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DevAndy&#39;s age is 30</span><br></pre></td></tr></table></figure>
+<p><code>Super</code>와 <code>Sub</code>는 Sub -&gt; Super의 상속관계이다. class Super로부터 인스턴스 객체 a1, a2를 생성해서 <code>print()</code>를 호출했는데 다른 결과가 출력되었다.</p>
+<p>이유는 Class Super로부터 인스턴스 객체를 생성하면서 서로 다른 생성자를 사용했기 때문이다.  <code>a1</code>은 생성자 <code>Super()</code>를 초기화하면서 생성한 객체이고, <code>a2</code>는 생성자 <code>Sub()</code>를 초기화하면서 생성한 객체이다.</p>
+<p>그렇다면 아래의 코드는 어떨까?</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudyHalle</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      Sub b1 = <span class="keyword">new</span> Super();  <span class="comment">// 컴파일 에러 발생</span></span><br><span class="line">      Sub b2 = <span class="keyword">new</span> Sub();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>여기서 접근제한자를 중심으로 보면, DevAndy의 <code>name</code>과 <code>birthYear</code>은 각각 <code>public</code>과 <code>private</code>으로 선언하였다.</p>
-<p> <code>name</code>은 접근제한자가 <code>public</code>이었으므로 다른 패키지(basic02)의 다른 클래스(StudyHalle)에서 인스턴스를 통해서 바로 접근이 가능했다.</p>
-<p>반면 <code>age</code>의 경우는 <code>private</code>으로 선언되었기 때문에 직접 접근이 안되고 메서드를 통해서 가공된 값을 가져올 수 있었다. 만약 <code>name</code>도 <code>private</code>으로 선언되었다면, 아래와 같은 메서드(<code>getName()</code>)를 생성해야 외부 클래스에서 접근할 수 있다.</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/107236719-51b72700-6a69-11eb-862e-d5dec9f5b2ee.png"></p>
+<p>Class Sub에서 Super() 생성자를 호출하는건 불가능했다. 왜 그럴까? </p>
+<p>상속관계(Sub-&gt;Super)를 다시 생각해볼 필요가 있다. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Sub b1 = <span class="keyword">new</span> Super();</span><br></pre></td></tr></table></figure>
+
+<p><u>Class Sub 타입의 변수를 선언하면서 JVM의 heap에 Class Super 생성자로 초기화하여 대입하는 코드</u>이다. </p>
+<p>컴파일 에러가 출력되는 이유는 부모클래스의 생성자를 자식 클래스 타입에 대입하는 것이 불가능하기 때문이다.</p>
+<p>반대로 자식 클래스의 생성자는 부모/자식 클래스 타입에 모두 대입가능한데, 이유는 자식 클래스의 경우 <code>super()</code> 를 이용해서 부모 클래스에도 접근이 가능하기 때문일 것으로 추정된다(?) <em>혹시 잘못된 부분이 있다면, 댓글로 지적해주시면 감사하겠습니다.!!</em> </p>
 <br>
 
 <h1 id="메서드-정의하는-방법"><a href="#메서드-정의하는-방법" class="headerlink" title="메서드 정의하는 방법"></a><a name="function"></a>메서드 정의하는 방법</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[접근제한자] [반환타입] [메서드명]([파라미터]) &#123; &#125; </span><br></pre></td></tr></table></figure>
 
-<p>메서드는 위의 구조로 생성한다. </p>
+<p>메서드는 클래스 내부에서 선언할 수 있으며, 위의 문법으로 선언한다. </p>
 <p>같은 클래스 또는 상속받은 객체에서만 접근가능하며, 파라미터를 받지않고 문자열 타입을 반환하는 메서드는 다음과 같이 생성할 수 있다.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> String <span class="title">studyHalle</span><span class="params">()</span></span>&#123;</span><br><span class="line">   <span class="keyword">return</span> <span class="string">&quot;Hello World&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -415,20 +433,24 @@ ga('send', 'pageview');
         "genre": "Dev Java",
         "datePublished": "2021-01-25",
         "dateCreated": "2021-01-25",
-        "dateModified": "2021-02-04",
+        "dateModified": "2021-02-10",
         "url": "../../../http:/youngjinmo.github.io/2021/01/livestudy-week-05/",
         "description": "
 
 클래스와 객체
 클래스 정의하는 방법
+접근제한자
+생성자
+
+
 객체 만드는 방법 (new 키워드 이해하기)
 메서드 정의하는 방법
 생성자 정의하는 방법
 this 키워드 이해하기
 
 클래스와 객체클래스에 앞서 객체 를 먼저 이해할 필요가 있다.
-객체를 중심으로 프로그래밍을 하는 것을 객체지향 프로그래밍(Object Oriented Programming)이라 한다. 객체의 역할과 책임이",
-        "wordCount": 1776
+객체를 중심으로 프로그래밍을 하는 것을 객체지향 프로그래밍(Object Oriented Programming)이라 한다.",
+        "wordCount": 2115
     }
 </script>
 
@@ -511,6 +533,26 @@ this 키워드 이해하기
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="../../02/livestudy-week-06/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg)" alt="Live Study 6주차 - 상속" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../../02/livestudy-week-06/" class="title">Live Study 6주차 - 상속</a></p>
+                            <p class="item-date"><time datetime="2021-02-10T02:20:51.000Z" itemprop="datePublished">2021-02-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="../../02/hackerrank-datatype/" class="thumbnail">
     
     
@@ -588,26 +630,6 @@ this 키워드 이해하기
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="../diff-static-variable-instance-variable/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://user-images.githubusercontent.com/33862991/105133010-3bcfd980-5b2f-11eb-87ef-626c9cf53575.png)" alt="클래스변수와 인스턴스 변수 차이(생성시점)" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
-                            <p class="item-title"><a href="../diff-static-variable-instance-variable/" class="title">클래스변수와 인스턴스 변수 차이(생성시점)</a></p>
-                            <p class="item-date"><time datetime="2021-01-19T21:01:13.000Z" itemprop="datePublished">2021-01-20</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -617,7 +639,7 @@ this 키워드 이해하기
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="../../../tags/BufferedReader/" style="font-size: 10px;">BufferedReader</a> <a href="../../../tags/BufferedWriter/" style="font-size: 10px;">BufferedWriter</a> <a href="../../../tags/IO/" style="font-size: 10px;">IO</a> <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 10.91px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/annotation/" style="font-size: 10px;">annotation</a> <a href="../../../tags/api/" style="font-size: 10px;">api</a> <a href="../../../tags/architecture/" style="font-size: 10px;">architecture</a> <a href="../../../tags/array/" style="font-size: 10.91px;">array</a> <a href="../../../tags/aws/" style="font-size: 11.82px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blacklivesmatter/" style="font-size: 10px;">blacklivesmatter</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 11.82px;">career</a> <a href="../../../tags/casting/" style="font-size: 12.73px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/cloud/" style="font-size: 11.82px;">cloud</a> <a href="../../../tags/contribution/" style="font-size: 10px;">contribution</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/databse/" style="font-size: 10px;">databse</a> <a href="../../../tags/datastructure/" style="font-size: 11.82px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 14.55px;">docker</a> <a href="../../../tags/documentation/" style="font-size: 10px;">documentation</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 11.82px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generics/" style="font-size: 10px;">generics</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 12.73px;">github</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 14.55px;">http</a> <a href="../../../tags/ide/" style="font-size: 10px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 12.73px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 10.91px;">interface</a> <a href="../../../tags/io/" style="font-size: 11.82px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 16.36px;">java</a> <a href="../../../tags/java5/" style="font-size: 10px;">java5</a> <a href="../../../tags/java8/" style="font-size: 10.91px;">java8</a> <a href="../../../tags/javascript/" style="font-size: 14.55px;">javascript</a> <a href="../../../tags/javscript/" style="font-size: 10px;">javscript</a> <a href="../../../tags/jquery/" style="font-size: 10.91px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/junit/" style="font-size: 10px;">junit</a> <a href="../../../tags/jvm/" style="font-size: 11.82px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 10.91px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/license/" style="font-size: 10px;">license</a> <a href="../../../tags/livereload/" style="font-size: 10px;">livereload</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 10.91px;">mustache</a> <a href="../../../tags/mybatis/" style="font-size: 10.91px;">mybatis</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 17.27px;">oop</a> <a href="../../../tags/operator/" style="font-size: 10px;">operator</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/privacy/" style="font-size: 10px;">privacy</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/readme/" style="font-size: 10px;">readme</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 11.82px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 12.73px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 18.18px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/stock/" style="font-size: 10px;">stock</a> <a href="../../../tags/string/" style="font-size: 15.45px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/terminal/" style="font-size: 10px;">terminal</a> <a href="../../../tags/tip/" style="font-size: 16.36px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 19.09px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 10.91px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/vue/" style="font-size: 10px;">vue</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 18.18px;">weekly-review</a> <a href="../../../tags/whiteship/" style="font-size: 13.64px;">whiteship</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
+            <a href="../../../tags/BufferedReader/" style="font-size: 10px;">BufferedReader</a> <a href="../../../tags/BufferedWriter/" style="font-size: 10px;">BufferedWriter</a> <a href="../../../tags/IO/" style="font-size: 10px;">IO</a> <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 11px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/annotation/" style="font-size: 10px;">annotation</a> <a href="../../../tags/api/" style="font-size: 10px;">api</a> <a href="../../../tags/architecture/" style="font-size: 10px;">architecture</a> <a href="../../../tags/array/" style="font-size: 11px;">array</a> <a href="../../../tags/aws/" style="font-size: 12px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blacklivesmatter/" style="font-size: 10px;">blacklivesmatter</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 12px;">career</a> <a href="../../../tags/casting/" style="font-size: 13px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/cloud/" style="font-size: 12px;">cloud</a> <a href="../../../tags/contribution/" style="font-size: 10px;">contribution</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/databse/" style="font-size: 10px;">databse</a> <a href="../../../tags/datastructure/" style="font-size: 12px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 14px;">docker</a> <a href="../../../tags/documentation/" style="font-size: 10px;">documentation</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 12px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generics/" style="font-size: 10px;">generics</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 13px;">github</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 14px;">http</a> <a href="../../../tags/ide/" style="font-size: 10px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 13px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 11px;">interface</a> <a href="../../../tags/io/" style="font-size: 12px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 16px;">java</a> <a href="../../../tags/java5/" style="font-size: 10px;">java5</a> <a href="../../../tags/java8/" style="font-size: 11px;">java8</a> <a href="../../../tags/javascript/" style="font-size: 14px;">javascript</a> <a href="../../../tags/javscript/" style="font-size: 10px;">javscript</a> <a href="../../../tags/jquery/" style="font-size: 11px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/junit/" style="font-size: 10px;">junit</a> <a href="../../../tags/jvm/" style="font-size: 12px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 11px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/license/" style="font-size: 10px;">license</a> <a href="../../../tags/livereload/" style="font-size: 10px;">livereload</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 11px;">mustache</a> <a href="../../../tags/mybatis/" style="font-size: 11px;">mybatis</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 17px;">oop</a> <a href="../../../tags/operator/" style="font-size: 10px;">operator</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/privacy/" style="font-size: 10px;">privacy</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/readme/" style="font-size: 10px;">readme</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 12px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 13px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 18px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/stock/" style="font-size: 10px;">stock</a> <a href="../../../tags/string/" style="font-size: 15px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/terminal/" style="font-size: 10px;">terminal</a> <a href="../../../tags/tip/" style="font-size: 16px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 19px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 11px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/vue/" style="font-size: 10px;">vue</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 18px;">weekly-review</a> <a href="../../../tags/whiteship/" style="font-size: 14px;">whiteship</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
         </div>
     </div>
 

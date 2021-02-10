@@ -3,22 +3,29 @@
 
 
     <url>
-        <loc>http://youngjinmo.github.io/tags/algorithms/</loc>
-        <lastmod>2021-02-04T04:58:52.690Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://youngjinmo.github.io/tags/whiteship/</loc>
-        <lastmod>2021-02-04T04:29:54.239Z</lastmod>
+        <lastmod>2021-02-10T11:25:04.901Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://youngjinmo.github.io/tags/oop/</loc>
-        <lastmod>2021-02-04T04:29:54.239Z</lastmod>
+        <lastmod>2021-02-10T11:25:04.901Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/tags/casting/</loc>
+        <lastmod>2021-02-04T06:22:09.294Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/tags/algorithms/</loc>
+        <lastmod>2021-02-04T04:58:52.690Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -152,13 +159,6 @@
     <url>
         <loc>http://youngjinmo.github.io/tags/baekjoon/</loc>
         <lastmod>2021-02-03T09:17:23.213Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/tags/casting/</loc>
-        <lastmod>2021-02-01T06:17:38.280Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
