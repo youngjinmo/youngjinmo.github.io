@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-02-14T04:51:25.372Z</updated>
+  <updated>2021-02-14T15:53:16.454Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Live Study 7주차 - 패키지</title>
+    <link href="http://youngjinmo.github.io/2021/02/livestudy-week-07/"/>
+    <id>http://youngjinmo.github.io/2021/02/livestudy-week-07/</id>
+    <published>2021-02-14T14:49:10.000Z</published>
+    <updated>2021-02-14T15:53:16.454Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#package&quot;&gt;package 키워드&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#import&quot;&gt;import</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+    <category term="oop" scheme="http://youngjinmo.github.io/tags/oop/"/>
+    
+    <category term="whiteship" scheme="http://youngjinmo.github.io/tags/whiteship/"/>
+    
+  </entry>
   
   <entry>
     <title>뉴욕가는 쿠팡($CPNG)에 대한 생각</title>
@@ -593,35 +625,6 @@
     <category term="javascript" scheme="http://youngjinmo.github.io/tags/javascript/"/>
     
     <category term="vue" scheme="http://youngjinmo.github.io/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>신입개발자가 생각하는 개발 문서</title>
-    <link href="http://youngjinmo.github.io/2020/11/how-to-write-readme/"/>
-    <id>http://youngjinmo.github.io/2020/11/how-to-write-readme/</id>
-    <published>2020-11-19T18:20:34.000Z</published>
-    <updated>2021-02-03T09:20:37.092Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Life" scheme="http://youngjinmo.github.io/categories/Life/"/>
-    
-    <category term="Thought" scheme="http://youngjinmo.github.io/categories/Life/Thought/"/>
-    
-    
-    <category term="documentation" scheme="http://youngjinmo.github.io/tags/documentation/"/>
-    
-    <category term="readme" scheme="http://youngjinmo.github.io/tags/readme/"/>
     
   </entry>
   
