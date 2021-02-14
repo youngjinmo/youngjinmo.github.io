@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-02-10T11:25:04.901Z</updated>
+  <updated>2021-02-14T04:51:25.372Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>뉴욕가는 쿠팡($CPNG)에 대한 생각</title>
+    <link href="http://youngjinmo.github.io/2021/02/coupang-ipo/"/>
+    <id>http://youngjinmo.github.io/2021/02/coupang-ipo/</id>
+    <published>2021-02-13T19:47:06.000Z</published>
+    <updated>2021-02-14T04:51:25.372Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/107868830-e3d88880-6eca-11eb-847a-eb2445f2d223.jpg&quot;&gt;&lt;/p&gt;
+&lt;p&gt;쿠팡이 얼마 전 뉴욕 증권위윈회에 상장신청서인</summary>
+        
+      
+    
+    
+    
+    <category term="Life" scheme="http://youngjinmo.github.io/categories/Life/"/>
+    
+    <category term="Thought" scheme="http://youngjinmo.github.io/categories/Life/Thought/"/>
+    
+    
+    <category term="investment" scheme="http://youngjinmo.github.io/tags/investment/"/>
+    
+    <category term="coupang" scheme="http://youngjinmo.github.io/tags/coupang/"/>
+    
+  </entry>
   
   <entry>
     <title>Live Study 6주차 - 상속</title>
@@ -592,34 +622,6 @@
     <category term="documentation" scheme="http://youngjinmo.github.io/tags/documentation/"/>
     
     <category term="readme" scheme="http://youngjinmo.github.io/tags/readme/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Lombok 라이브러리</title>
-    <link href="http://youngjinmo.github.io/2020/11/lombok/"/>
-    <id>http://youngjinmo.github.io/2020/11/lombok/</id>
-    <published>2020-11-11T00:07:06.000Z</published>
-    <updated>2021-02-03T09:24:19.507Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/98791938-1a74b200-2449-11eb-8112-f06b4b5feb31.jpg&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;ToC&quot;&gt;&lt;a href=&quot;#ToC&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Spring" scheme="http://youngjinmo.github.io/categories/Dev/Spring/"/>
-    
-    
-    <category term="java" scheme="http://youngjinmo.github.io/tags/java/"/>
     
   </entry>
   
