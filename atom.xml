@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-02-14T15:53:16.454Z</updated>
+  <updated>2021-02-15T13:44:28.647Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Int형 나누기 결과를 소수점 2자리까지만 얻어오기</title>
+    <link href="http://youngjinmo.github.io/2021/02/string-format-with-casting/"/>
+    <id>http://youngjinmo.github.io/2021/02/string-format-with-casting/</id>
+    <published>2021-02-15T04:40:14.000Z</published>
+    <updated>2021-02-15T13:44:28.647Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://regmedia.co.uk/2013/01/30/java_logo.jpg?x=442&amp;y=293&amp;crop=1&quot;&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+    <category term="casting" scheme="http://youngjinmo.github.io/tags/casting/"/>
+    
+    <category term="String" scheme="http://youngjinmo.github.io/tags/String/"/>
+    
+    <category term="formatting" scheme="http://youngjinmo.github.io/tags/formatting/"/>
+    
+  </entry>
   
   <entry>
     <title>Live Study 7주차 - 패키지</title>
@@ -83,7 +115,7 @@
     <link href="http://youngjinmo.github.io/2021/02/livestudy-week-06/"/>
     <id>http://youngjinmo.github.io/2021/02/livestudy-week-06/</id>
     <published>2021-02-10T02:20:51.000Z</published>
-    <updated>2021-02-10T11:25:04.901Z</updated>
+    <updated>2021-02-15T05:00:39.244Z</updated>
     
     
       
@@ -478,7 +510,7 @@
     <link href="http://youngjinmo.github.io/2020/12/change-jdk-intellij/"/>
     <id>http://youngjinmo.github.io/2020/12/change-jdk-intellij/</id>
     <published>2020-12-28T00:51:57.000Z</published>
-    <updated>2021-02-03T09:23:42.414Z</updated>
+    <updated>2021-02-15T06:00:27.893Z</updated>
     
     
       
@@ -499,7 +531,7 @@
     
     <category term="tutorial" scheme="http://youngjinmo.github.io/tags/tutorial/"/>
     
-    <category term="intellij" scheme="http://youngjinmo.github.io/tags/intellij/"/>
+    <category term="ide" scheme="http://youngjinmo.github.io/tags/ide/"/>
     
   </entry>
   
@@ -595,36 +627,6 @@
     <category term="tutorial" scheme="http://youngjinmo.github.io/tags/tutorial/"/>
     
     <category term="mustache" scheme="http://youngjinmo.github.io/tags/mustache/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello, Vue.js</title>
-    <link href="http://youngjinmo.github.io/2020/12/hello-vue/"/>
-    <id>http://youngjinmo.github.io/2020/12/hello-vue/</id>
-    <published>2020-12-02T21:44:20.000Z</published>
-    <updated>2020-12-03T08:32:07.055Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.ytimg.com/vi/DsuTwV0jwaY/maxresdefault.jpg&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;What-is-Vue&quot;&gt;&lt;a href=&quot;#What-is-Vue&quot; class=&quot;headerlink&quot; title=&quot;What is</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Front-end" scheme="http://youngjinmo.github.io/categories/Dev/Front-end/"/>
-    
-    
-    <category term="javascript" scheme="http://youngjinmo.github.io/tags/javascript/"/>
-    
-    <category term="vue" scheme="http://youngjinmo.github.io/tags/vue/"/>
     
   </entry>
   

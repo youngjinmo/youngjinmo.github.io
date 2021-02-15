@@ -9,6 +9,38 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/2021/02/string-format-with-casting/</loc>
+        <lastmod>2021-02-15T13:44:28.647Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/2020/12/change-jdk-intellij/</loc>
+        <lastmod>2021-02-15T06:00:27.893Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/2020/09/why-i-invested-nyt/</loc>
+        <lastmod>2021-02-15T05:42:44.629Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/2021/02/livestudy-week-06/</loc>
+        <lastmod>2021-02-15T05:00:39.244Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/2021/02/livestudy-week-07/</loc>
         <lastmod>2021-02-14T15:53:16.454Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -19,14 +51,6 @@
     <url>
         <loc>http://youngjinmo.github.io/2021/02/coupang-ipo/</loc>
         <lastmod>2021-02-14T04:51:25.372Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2021/02/livestudy-week-06/</loc>
-        <lastmod>2021-02-10T11:25:04.901Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -115,14 +139,6 @@
     <url>
         <loc>http://youngjinmo.github.io/2020/11/lombok/</loc>
         <lastmod>2021-02-03T09:24:19.507Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2020/12/change-jdk-intellij/</loc>
-        <lastmod>2021-02-03T09:23:42.414Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -523,14 +539,6 @@
     <url>
         <loc>http://youngjinmo.github.io/2020/02/github-ssh/</loc>
         <lastmod>2020-10-01T12:03:16.222Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2020/09/why-i-invested-nyt/</loc>
-        <lastmod>2020-09-22T03:29:45.725Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
