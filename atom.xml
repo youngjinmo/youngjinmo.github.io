@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-02-15T13:44:28.647Z</updated>
+  <updated>2021-02-16T13:01:26.698Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Live Study 8주차 - 인터페이스</title>
+    <link href="http://youngjinmo.github.io/2021/02/livestudy-week-08/"/>
+    <id>http://youngjinmo.github.io/2021/02/livestudy-week-08/</id>
+    <published>2021-02-16T03:53:48.000Z</published>
+    <updated>2021-02-16T13:01:26.698Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#interface&quot;&gt;인터페이스 정의하는 방법&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+    <category term="oop" scheme="http://youngjinmo.github.io/tags/oop/"/>
+    
+    <category term="whiteship" scheme="http://youngjinmo.github.io/tags/whiteship/"/>
+    
+  </entry>
   
   <entry>
     <title>Int형 나누기 결과를 소수점 2자리까지만 얻어오기</title>
@@ -597,36 +629,6 @@
     <category term="BufferedReader" scheme="http://youngjinmo.github.io/tags/BufferedReader/"/>
     
     <category term="BufferedWriter" scheme="http://youngjinmo.github.io/tags/BufferedWriter/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SpringBoot로 Hello World 화면에 출력해보기(With Mustache)</title>
-    <link href="http://youngjinmo.github.io/2020/12/springboot-helloworld/"/>
-    <id>http://youngjinmo.github.io/2020/12/springboot-helloworld/</id>
-    <published>2020-12-20T21:45:43.000Z</published>
-    <updated>2021-02-03T09:22:10.665Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/104319420-2dc4fc00-5524-11eb-8802-5e7cd62e72ae.jpeg&quot;&gt;&lt;/p&gt;
-&lt;p&gt;간단한 튜토리얼인데, 최근에 간단한</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Spring" scheme="http://youngjinmo.github.io/categories/Dev/Spring/"/>
-    
-    
-    <category term="tutorial" scheme="http://youngjinmo.github.io/tags/tutorial/"/>
-    
-    <category term="mustache" scheme="http://youngjinmo.github.io/tags/mustache/"/>
     
   </entry>
   

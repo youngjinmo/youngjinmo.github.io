@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Live Study 8주차 - 인터페이스 | DevAndy - 개발자앤디의 개발블로그</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="oop,whiteship" />
+    
+    <meta name="description" content="인터페이스 정의하는 방법 인터페이스 목적 : 느슨한 결합   인터페이스 구현하는 방법 implements 익명 클래스   인터페이스 레퍼런스를 통해 구현체를 사용하는 방법 인터페이스 상속 인터페이스의 기본 메서드(Default Method), 자바8 디폴트 메서드가 구현체의 메서드와 이름이 중복될 경우   인터페이스의 static 메서드, 자바8 인터페">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Live Study 8주차 - 인터페이스">
+<meta property="og:url" content="http://youngjinmo.github.io/2021/02/livestudy-week-08/index.html">
+<meta property="og:site_name" content="DevAndy - 개발자앤디의 개발블로그">
+<meta property="og:description" content="인터페이스 정의하는 방법 인터페이스 목적 : 느슨한 결합   인터페이스 구현하는 방법 implements 익명 클래스   인터페이스 레퍼런스를 통해 구현체를 사용하는 방법 인터페이스 상속 인터페이스의 기본 메서드(Default Method), 자바8 디폴트 메서드가 구현체의 메서드와 이름이 중복될 경우   인터페이스의 static 메서드, 자바8 인터페">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg">
+<meta property="article:published_time" content="2021-02-16T03:53:48.000Z">
+<meta property="article:modified_time" content="2021-02-16T13:01:26.698Z">
+<meta property="article:author" content="Youngjin Mo">
+<meta property="article:tag" content="oop">
+<meta property="article:tag" content="whiteship">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg">
+<meta name="twitter:creator" content="@devandy_yj">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="DevAndy - 개발자앤디의 개발블로그" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="../../../css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="../../../libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="../../../libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="../../../libs/source-code-pro/styles.css">
+
+    
+<link rel="stylesheet" href="../../../css/style.css">
+
+	
+<link rel="stylesheet" href="../../../https:/cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+	<style type="text/css">
+		@font-face {
+		  font-family: 'NanumSquareRound';
+		  font-style: normal;
+		  font-weight: 400;
+		}
+	</style>
+
+    
+<script src="../../../libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-177850483-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../index.html">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Articles/">Articles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/">Dev</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Front-end/">Front-end</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Others/">Others</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Quiz/">Quiz</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Spring/">Spring</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Web/">Web</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Review/">Review</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Thought/">Thought</a></li></ul></li></ul>
+                                
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="../../../js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Java/">Java</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-livestudy-week-08" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Live Study 8주차 - 인터페이스
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta" style="margin-bottom: 1em;">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="" class="article-date">
+       <time datetime="2021-02-16T03:53:48.000Z" itemprop="datePublished">2021-02-16</time>
+    </a>
+  </div>
+
+<!-- 
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="" class="article-date">
+     <time datetime="2021-02-16T13:01:26.698Z" itemprop="dateModified">2021-02-16</time>
+  </a>
+</div>
+
+ -->
+                
+
+				<!-- 	count-time		 -->
+				<span class="reading-time" style="margin-left: 20px;">
+					⏱ 36 min.
+				</span>
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="../../../tags/oop/" rel="tag">oop</a>, <a class="tag-link-link" href="../../../tags/whiteship/" rel="tag">whiteship</a>
+    </div>
+
+                
+
+                
+
+            </div>
+			<div class="ads">
+				<script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+	new PartnersCoupang.G({"id":434728,"template":"carousel","trackingCode":"AF1391980","width":"100%","height":"100"});
+</script>
+			</div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg"></p>
+<ul>
+<li><a href="#interface">인터페이스 정의하는 방법</a><ul>
+<li><a href="#purpose">인터페이스 목적 : 느슨한 결합</a></li>
+</ul>
+</li>
+<li><a href="#implements">인터페이스 구현하는 방법</a><ul>
+<li><a href="#implements">implements</a></li>
+<li><a href="#anonymous-class">익명 클래스</a></li>
+</ul>
+</li>
+<li><a href="#reference">인터페이스 레퍼런스를 통해 구현체를 사용하는 방법</a></li>
+<li><a href="#inheritance">인터페이스 상속</a></li>
+<li><a href="#default-method">인터페이스의 기본 메서드(Default Method), 자바8</a><ul>
+<li><a href="#duplication-method-name">디폴트 메서드가 구현체의 메서드와 이름이 중복될 경우</a></li>
+</ul>
+</li>
+<li><a href="#static-method">인터페이스의 static 메서드, 자바8</a></li>
+<li><a href="#private-method">인터페이스의 private 메서드, 자바 9</a></li>
+<li><a href="#differ-interface-abstractclass">인터페이스와 추상클래스의 차이</a></li>
+</ul>
+<br>
+
+<h1 id="인터페이스-정의하는-방법"><a href="#인터페이스-정의하는-방법" class="headerlink" title="인터페이스 정의하는 방법"></a><a name="interface"></a>인터페이스 정의하는 방법</h1><p>인터페이스는 <b><a href="https://youngjinmo.github.io/2021/02/livestudy-week-06/#abstractclass">추상 클래스</a>보다 추상화가 더 높은 클래스</b>이다. 추상 클래스가 미완성 설계도라면, 인터페이스는 밑그림만 그려져있는 기본 설계도라고 할 수 있다.</p>
+<h2 id="인터페이스의-목적-느슨한-결합"><a href="#인터페이스의-목적-느슨한-결합" class="headerlink" title="인터페이스의 목적 : 느슨한 결합"></a><a name="purpose"></a>인터페이스의 목적 : 느슨한 결합</h2><ol>
+<li><strong>클래스간 결합(느슨한 결합)을 낮춰준다.</strong> 인터페이스를 통해서 여러 클래스에서 각각 구현하여 사용할 수 있게된다.</li>
+<li><strong>표준화가 가능하다.</strong> 어떤 기능을 구현해야 하는지를 인터페이스를 통해 추론할 수 있다.</li>
+</ol>
+<p>이 느슨한 결합을 설명하는 예제코드가 있어서 가져와봤다. (출처 : <a target="_blank" rel="noopener" href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=76083001&start=slayer">남궁성 - Java의 정석</a>)</p>
+<p><strong>강한 결합 관계</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">methodA</span><span class="params">(B b)</span> </span>&#123;  <span class="comment">// A -&gt; B</span></span><br><span class="line">      b.methodB();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">methodB</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;methodB();&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DevAndy</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      A a = <span class="keyword">new</span> A();</span><br><span class="line">      a.methodA(<span class="keyword">new</span> B());</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">methodB();</span><br></pre></td></tr></table></figure>
+
+<p>A가 B에 의존하는 관계이다. 이 경우에 <code>methodA()</code>의 인자를 새로운 클래스 <code>C</code>를 사용하도록 하려면 아래처럼 바꿔야 한다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">methodA</span><span class="params">(C c)</span> </span>&#123;  <span class="comment">// A -&gt; C</span></span><br><span class="line">      b.methodB();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">methodC</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;methodC();&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DevAndy</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      A a = <span class="keyword">new</span> A();</span><br><span class="line">      a.methodA(<span class="keyword">new</span> C());</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">methodC();</span><br></pre></td></tr></table></figure>
+
+<p><b><u>Class A와 Class DevAndy 모두 변경</u></b>을 해야했다. 그렇다면 느슨한 결합관계에선 어떨까?</p>
+<p><strong>느슨한 결합 관계</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">methodA</span><span class="params">(I i)</span> </span>&#123;  <span class="comment">// A -&gt; I</span></span><br><span class="line">      i.methodB();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">I</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">methodB</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">implements</span> <span class="title">I</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">methodB</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;methodB();&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> <span class="keyword">implements</span> <span class="title">I</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">methodB</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;methodC();&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DevAndy</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      A a = <span class="keyword">new</span> A();</span><br><span class="line">      I i = <span class="keyword">new</span> C();</span><br><span class="line">      a.methodA(i);  <span class="comment">// a.methodA(new C()); 와 같다.</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Class C가 있다는 가정하에, <code>a.methodA()</code> 의 인자값만 변경하면 되었다. </p>
+<blockquote>
+<p><code>I i = new C();</code> 코드의 설명은 <a href="#reference">인터페이스 레퍼런스를 통한 구현체 사용</a>에서 정리했다.</p>
+</blockquote>
+<p>강한 결합관계에서는 Class A와 호출해서 사용하는 클래스인 Class DevAndy 모두 수정을 해야했다면, <b><u>느슨한 결합관계에서는 Class DevAndy에서만 변경하면 되기 때문에 코드의 변경시 더 유리한 장점</u></b>이 있었다.</p>
+<br>
+
+<p>인터페이스 정의는 다음과 같다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">BoardService</span> </span>&#123;</span><br><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 게시글 작성</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@author</span> DevAndy</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">createBoard</span><span class="params">(HttpSession session, String title, String contents)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>인터페이스는 기본적으로 클래스지만, <code>class</code> 대신 <code>interface</code> 라고 작성한다. 추상 클래스가 <code>abstract class</code> 로 작성하는것과 다른 문법이다.</p>
+<p>인터페이스의 접근제한자는 일반 클래스와 마찬가지로 <code>public</code>, <code>default</code>만 가질 수 있다.</p>
+<br>
+
+<h1 id="인터페이스-구현하는-방법"><a href="#인터페이스-구현하는-방법" class="headerlink" title="인터페이스 구현하는 방법"></a><a name="implements"></a>인터페이스 구현하는 방법</h1><p>인터페이스를 구현하는 방법은 2가지가 있다. 하나는 <code>implements</code> 키워드를 사용하여 구현체 클래스를 생성하는 방식과 하나는 익명클래스로 인터페이스를 구현하는 방법</p>
+<h2 id="implements"><a href="#implements" class="headerlink" title="implements"></a><a name="implements"></a>implements</h2><p>인터페이스를 구현한다는 이야기는 클래스간 상속과 같다. 그러나 추상클래스와 달리 인터페이스는 <code>extends</code> 키워드가 아닌 <code>implements</code> 키워드로 구현한다. (<a href="https://youngjinmo.github.io/2021/02/livestudy-week-06/#differ-interface-abstractclass">인터페이스와 추상클래스의 차이</a>)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Player</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">introduction</span><span class="params">(String name)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyPlayer</span> <span class="keyword">implements</span> <span class="title">Player</span> </span>&#123;</span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">introduction</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;Hello my name is &quot;</span>+name);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>IDE에서 <code>implements</code> 키워드로 인터페이스 구현체를 생성하면, 자동으로 추상 메서드를 구현하도록 도와준다.</p>
+<p>추상 메서드를 구현할 때에 <code>@Override</code> 어노테이션이 자동으로 붙는데, 사실 어노테이션이 없어도 오버라이딩 문법만 맞춰서 메서드를 작성한다면 적용이 된다. 하지만 <code>@Override</code> 어노테이션을 작성하면, 해당 메서드가 오버라이딩 문법에 맞춰서 작성되었는지를 체크해주므로 작성해주는 것이 좋다.</p>
+<h2 id="익명클래스"><a href="#익명클래스" class="headerlink" title="익명클래스"></a><a name="anonymous-class"></a>익명클래스</h2><p>인스턴스를 생성할 때, 생성자를 이용하여 이름없는 클래스인 익명 클래스를 통해서 인터페이스를 구현하는 방식이다.</p>
+<p>익명클래스의 구조는 다음과 같다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">인터페이스 인스턴스 = <span class="keyword">new</span> 인터페이스()&#123;</span><br><span class="line">   <span class="comment">// 인터페이스 구현</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>익명클래스로 인터페이스 <code>Player</code>의 추상 메서드(<code>introduction()</code>)를 구현한 코드는 다음과 같다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DevAndy</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      Player player = <span class="keyword">new</span> Player()&#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">introduction</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">               System.out.println(<span class="string">&quot;Hello my name is &quot;</span>+name);</span><br><span class="line">            &#125;</span><br><span class="line">      &#125;;</span><br><span class="line">      player.introduction(<span class="string">&quot;Andy&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello my name is Andy</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h1 id="인터페이스-레퍼런스를-통해-구현체를-사용하는-방법"><a href="#인터페이스-레퍼런스를-통해-구현체를-사용하는-방법" class="headerlink" title="인터페이스 레퍼런스를 통해 구현체를 사용하는 방법"></a><a name="reference"></a>인터페이스 레퍼런스를 통해 구현체를 사용하는 방법</h1><p>인터페이스 레퍼런스를 통해 구현체를 사용한다는 의미를 이번 스터디를 통해 처음 알게되었다. 위의 코드를 활용해서 인터페이스 레퍼런스를 통해서 구현체를 사용해보도록 하겠다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Player</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">introduction</span><span class="params">(String name)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyPlayer</span> <span class="keyword">implements</span> <span class="title">Player</span> </span>&#123;</span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">introduction</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;Hello my name is &quot;</span>+name);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DevAndy</span> </span>&#123;</span><br><span class="line">   MyPlayer player = <span class="keyword">new</span> MyPlayer();</span><br><span class="line">   player.introduction(<span class="string">&quot;Andy&quot;</span>);</span><br><span class="line">   </span><br><span class="line">   Player player02 = player;</span><br><span class="line">   player02.introduction(<span class="string">&quot;Steve Jobs&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hello my name is Andy</span><br><span class="line">Hello my name is Steve Jobs</span><br></pre></td></tr></table></figure>
+
+<p>인터페이스인 <code>Player</code>의 인스턴스 <code>player02</code>를 선언하면서 참조변수로 인터페이스 구현체인 <code>MyPlayer</code>의 인스턴스를 참조했다.</p>
+<p>출처 : <a target="_blank" rel="noopener" href="https://www.notion.so/4b0cf3f6ff7549adb2951e27519fc0e6">ssonsh - 인터페이스</a></p>
+<br>
+
+<h1 id="인터페이스-상속"><a href="#인터페이스-상속" class="headerlink" title="인터페이스 상속"></a><a name="inheritance"></a>인터페이스 상속</h1><p>인터페이스도 상속이 된다. 자바에서는 인터페이스간 상속을 허용한다. 역시 인터페이스가 클래스이기 때문에 가능한 것으로 추론한다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Athlete</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">preSeason</span><span class="params">()</span></span>;</span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">whileSeason</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">FootballPlayer</span> <span class="keyword">extends</span> <span class="title">Athlete</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">postSeaon</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProfessionalPlayer</span> <span class="keyword">implements</span> <span class="title">FootballPlayer</span></span>&#123;</span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postSeaon</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;post seaon&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">preSeason</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;pre season&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">whileSeason</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;시즌중!!&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PlayGround</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      ProfessionalPlayer proFootballer = <span class="keyword">new</span> ProfessionalPlayer();</span><br><span class="line">      proFootballer.preSeason();</span><br><span class="line">      proFootballer.whileSeason();</span><br><span class="line">      proFootballer.postSeaon();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pre season</span><br><span class="line">시즌중!!</span><br><span class="line">pre season</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h1 id="인터페이스의-디폴트-메서드-Default-Method-자바8"><a href="#인터페이스의-디폴트-메서드-Default-Method-자바8" class="headerlink" title="인터페이스의 디폴트 메서드(Default Method), 자바8"></a><a name="default-method"></a>인터페이스의 디폴트 메서드(Default Method), 자바8</h1><p>인터페이스는 원래 추상 메서드만 선언할 수 있었다고 한다. 그러나 Java 8부터 인터페이스에 <b>디폴트 메서드</b>와 <b>static 메서드</b>도 추가하는것이 가능해졌다.</p>
+<h3 id="Why"><a href="#Why" class="headerlink" title="Why?"></a>Why?</h3><p>Java 8 이전의 <b>인터페이스의 단점은 인터페이스에 변경사항이 발생할 경우, 해당 인터페이스를 구현하고있는 모든 구현체를 수정해야 한다는 단점</b>이 있었다. 예를들면 인터페이스에 추상 메서드를 추가해야 할일이 발생한다면, 인터페이스에도 메서드를 추가해야하지만, 해당 인터페이스를 구현하고 있는 모든 구현체에서 메서드를 추가하고, 구현해야 한다는 부담이 발생한다.</p>
+<p>이 문제를 해결하기 위해 등장한 것이 디폴트 메서드이다. <b><u>디폴트 메서드는 추상메서드가 아니기 때문에 메서드에 변경사항이 발생하더라도 구현체를 변경할 필요가 없다.</u></b></p>
+<h3 id="default-method-문법"><a href="#default-method-문법" class="headerlink" title="default method 문법"></a>default method 문법</h3><p>앞서 디폴트 메서드는 추상 메서드가 아니라고 했다. 따라서 디폴트 메서드는 구현체(메서드 바디)가 필요하다.</p>
+<p>메서드 앞에 <code>default</code> 키워드를 붙이고, 구현체를 작성하면 디폴트 메서드가 추가된다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">StudyHalle</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">method01</span><span class="params">()</span></span>;          <span class="comment">// 추상 메서드</span></span><br><span class="line">   <span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">method02</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="comment">// 디폴트 메서드</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>이렇게 <code>method02()</code>를 디폴트 메서드로 인터페이스에 추가하면, 모든 구현체에 <code>method02()</code>를 추가할 필요없이 인터페이스만 수정하고, 사용하는 클래스에서 메서드를 사용하면 된다.</p>
+<p>예제 코드를 만들어보았다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">MyInterface</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">methodA</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyInterfaceImpl</span> <span class="keyword">implements</span> <span class="title">MyInterface</span> </span>&#123;</span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">methodA</span><span class="params">()</span> </span>&#123;   <span class="comment">// overriding 메서드 </span></span><br><span class="line">      System.out.println(<span class="string">&quot;method A by MyInterfaceImpl&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">  </span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">methodB</span><span class="params">()</span> </span>&#123;   <span class="comment">// 일반 메서드</span></span><br><span class="line">      System.out.println(<span class="string">&quot;method B by MyInterfaceImpl&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Class MyInterfaceImpl는 인터페이스 MyInterface의 구현체이다. <code>methodA()</code>를 오버라이딩하였으며, <code>methodB()</code>를 추가로 가지고 있다. 여기서 디폴트 메서드를 추가해보았다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">MyInterface</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">methodA</span><span class="params">()</span></span>;</span><br><span class="line">  </span><br><span class="line">   <span class="function"><span class="keyword">default</span> <span class="title">methodB</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;method B by MyInterface&quot;</span>)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>디폴트 메서드는 구현체를 건드릴 필요없이 인터페이스에만 추가하면 사용할 수 있다. 그런데 구현체에 있는 메서드와 이름이 똑같은 일이 발생했다. 이렇게 되면 구현체의 인스턴스에서 접근되는 <code>methodB()</code>는 어떤 메서드에 접근될까?</p>
+<h2 id="디폴트-메서드가-구현체의-메서드와-이름이-중복될-경우"><a href="#디폴트-메서드가-구현체의-메서드와-이름이-중복될-경우" class="headerlink" title="디폴트 메서드가 구현체의 메서드와 이름이 중복될 경우"></a><a name="duplication-method-name"></a>디폴트 메서드가 구현체의 메서드와 이름이 중복될 경우</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudyHalle</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      MyInterface myInterface = <span class="keyword">new</span> MyInterfaceImpl();</span><br><span class="line">      myInterface.methodA();</span><br><span class="line">      myInterface.methodB();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">method A by MyInterfaceImpl</span><br><span class="line">method B by MyInterfaceImpl</span><br></pre></td></tr></table></figure>
+
+<p>이처럼 <b><u>디폴트 메서드가 구현체의 메서드와 이름이 중복되어 충돌할 경우 디폴트 메서드가 무시</u></b>되고, 구현체의 메서드가 우선된다. 상속 관계에서도 부모 클래스의 메서드가 상속되고, 인터페이스의 디폴트 메서드는 무시된다.</p>
+<br>
+
+<h1 id="인터페이스의-static-메서드-자바8"><a href="#인터페이스의-static-메서드-자바8" class="headerlink" title="인터페이스의 static 메서드, 자바8"></a><a name="static-method"></a>인터페이스의 static 메서드, 자바8</h1><p>Java 8에 디폴트 메서드와 함께 추가된 static 메서드는 디폴트 메서드에 <code>static</code> 키워드를 선언하면 static 메서드가 된다.</p>
+<p><b><u>구현체의 인스턴스를 생성하지 않고도 인터페이스만으로 바로 메서드를 호출</u></b>할 수 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">MyInterface</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">methodA</span><span class="params">()</span></span>;</span><br><span class="line">   <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">methodB</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;static method&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudyHalle</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      MyInterface.methodB();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">static method</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h1 id="인터페이스의-private-메서드-자바-9"><a href="#인터페이스의-private-메서드-자바-9" class="headerlink" title="인터페이스의 private 메서드, 자바 9"></a><a name="private-method"></a>인터페이스의 private 메서드, 자바 9</h1><p>Java 9에서는 인터페이스에 private 메서드가 추가되었다. private 메서드가 추가되면서 <b><u>인터페이스의 메서드를 외부에 공개하지 않을수 있게 되었따.</u></b></p>
+<p>인터페이스의 private 메서드의 특징은 다음과 같다.</p>
+<ul>
+<li>디폴트 메서드처럼 <b>구현체</b>를 가져야 한다.</li>
+<li><b>인터페이스 내부에서만</b> 사용되는 메서드이다.</li>
+<li><strong>private 메서드</strong>는 인터페이스의 <b><u>static 키워드가 없는 메서드</u></b>에서만,<br><strong>private static</strong> 메서드는 인터페이스의 <b><u>모든 메서드</u></b>에서 사용가능하다.</li>
+</ul>
+<p>예제 코드이다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">MyInterface</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">method01</span><span class="params">()</span></span>;</span><br><span class="line">   <span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">method02</span><span class="params">()</span></span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;method 02 : default method&quot;</span>);</span><br><span class="line">      method04();</span><br><span class="line">      method05();</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">method03</span><span class="params">()</span></span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;method 03 : static method&quot;</span>);</span><br><span class="line">      <span class="comment">// method04();  compile error</span></span><br><span class="line">      method05();</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">method04</span><span class="params">()</span></span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;method 03 : private method&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">method05</span><span class="params">()</span></span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;method 04 : private static method&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyInterfaceImpl</span> </span>&#123;</span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method01</span><span class="params">()</span></span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;Live Study 8주차 - 인터페이스 학습중&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DevAndy</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      MyInterface myInterface = <span class="keyword">new</span> MyInterfaceImpl();</span><br><span class="line">      </span><br><span class="line">      myInterface.method01();</span><br><span class="line">      myInterface.method02();</span><br><span class="line">      MyInterface.method03();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Live Study 8주차 - 인터페이스 학습중</span><br><span class="line">method 02 : default method</span><br><span class="line">method 03 : private method</span><br><span class="line">method 04 : private static method</span><br><span class="line">method 03 : static method</span><br><span class="line">method 04 : private static method</span><br></pre></td></tr></table></figure>
+
+<p>인터페이스에서 private 메서드를 사용하면 외부(구현체)에 공개하지 않는 메서드를 가질 수 있게된다.</p>
+<br>
+
+<h1 id="인터페이스와-추상클래스의-차이"><a href="#인터페이스와-추상클래스의-차이" class="headerlink" title="인터페이스와 추상클래스의 차이"></a><a name="differ-interface-abstractclass"></a>인터페이스와 추상클래스의 차이</h1><p>Java 8 이전까지의 인터페이스와 추상클래스의 차이는 아래와 같았다.</p>
+<table>
+<thead>
+<tr>
+<th>인터페이스</th>
+<th>추상클래스</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>구현 객체의 같은 동작을 보장하기 위함</td>
+<td>추상 클래스를 상속받아서 기능을 이용, 확장시키기 위함</td>
+</tr>
+<tr>
+<td>다중 상속이 가능하다</td>
+<td>다중 상속이 불가능하다</td>
+</tr>
+<tr>
+<td>추상 메서드만 사용 가능하다</td>
+<td>일반 메서드와 일반 변수 모두 사용가능하다</td>
+</tr>
+<tr>
+<td>상수+추상메서드</td>
+<td>일반 변수 + 일반 메서드 + 추상 메서드</td>
+</tr>
+<tr>
+<td>생성자와 일반 변수를 가질 수 없다.</td>
+<td>생성자와 일반 변수를 모두 가질 수 있다</td>
+</tr>
+<tr>
+<td><code>implements</code> 사용</td>
+<td><code>extends</code> 사용</td>
+</tr>
+</tbody></table>
+<p>그러나 Java 8에 추가된 디폴트 메서드, static 메서드 그리고 Java 9에서 추가된 private 메서드까지를 보니 이제 인터페이스와 추상클래스의 차이가 모호해진것 같다. Java 9까지의 인터페이스의 변경사항이 반영된 인터페이스와 추상클래스의 차이를 정리해보니 아래처럼 정리가 되는 것 같다.</p>
+<table>
+<thead>
+<tr>
+<th>인터페이스</th>
+<th>추상클래스</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>구현 객체의 같은 동작을 보장하기 위함</td>
+<td>추상 클래스를 상속받아서 기능을 이용, 확장시키기 위함</td>
+</tr>
+<tr>
+<td>다중 상속이 가능하다</td>
+<td>다중 상속이 불가능하다</td>
+</tr>
+<tr>
+<td><code>implements</code> 사용</td>
+<td><code>extends</code> 사용</td>
+</tr>
+</tbody></table>
+<p>여기까지 정리해보았을때엔 인터페이스가 생성자만 가지지 못할뿐 인터페이스간의 상속이 가능하고, 다중상속도 가능하기 때문에 모든 부분에서 인터페이스가 추상클래스보다 부족하지 않아보인다.</p>
+<br>
+        </div>
+    </div>
+	<div class="ads" style="margin-top: 10px;margin-bottom:10px;">
+		<script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+	new PartnersCoupang.G({"id":434728,"template":"carousel","trackingCode":"AF1391980","width":"100%","height":"100"});
+</script>
+	</div>
+	<footer class="article-footer">
+		<script src="https://utteranc.es/client.js"
+        repo="youngjinmo/githubpages-comment"
+        issue-term="url"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+	</footer>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Youngjin Mo"
+        },
+        "headline": "Live Study 8주차 - 인터페이스",
+        "image": "../../../http:/youngjinmo.github.iohttps:/i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg",
+        "keywords": "oop whiteship",
+        "genre": "Dev Java",
+        "datePublished": "2021-02-16",
+        "dateCreated": "2021-02-16",
+        "dateModified": "2021-02-16",
+        "url": "../../../http:/youngjinmo.github.io/2021/02/livestudy-week-08/",
+        "description": "
+
+인터페이스 정의하는 방법
+인터페이스 목적 : 느슨한 결합
+
+
+인터페이스 구현하는 방법
+implements
+익명 클래스
+
+
+인터페이스 레퍼런스를 통해 구현체를 사용하는 방법
+인터페이스 상속
+인터페이스의 기본 메서드(Default Method), 자바8
+디폴트 메서드가 구현체의 메서드와 이름이 중복될 경우
+
+
+인터페이스의 static 메서드, 자바8
+인터페",
+        "wordCount": 2860
+    }
+</script>
+
+</article>
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="../../../https:/twitter.com/devandy_yj" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="../../../https:/github.com/youngjinmo" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../atom.xml" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="../string-format-with-casting/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Int형 나누기 결과를 소수점 2자리까지만 얻어오기</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg)" alt="Live Study 8주차 - 인터페이스" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="" class="title">Live Study 8주차 - 인터페이스</a></p>
+                            <p class="item-date"><time datetime="2021-02-16T03:53:48.000Z" itemprop="datePublished">2021-02-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../string-format-with-casting/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://regmedia.co.uk/2013/01/30/java_logo.jpg?x=442&y=293&crop=1)" alt="Int형 나누기 결과를 소수점 2자리까지만 얻어오기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../string-format-with-casting/" class="title">Int형 나누기 결과를 소수점 2자리까지만 얻어오기</a></p>
+                            <p class="item-date"><time datetime="2021-02-15T04:40:14.000Z" itemprop="datePublished">2021-02-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../livestudy-week-07/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg)" alt="Live Study 7주차 - 패키지" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../livestudy-week-07/" class="title">Live Study 7주차 - 패키지</a></p>
+                            <p class="item-date"><time datetime="2021-02-14T14:49:10.000Z" itemprop="datePublished">2021-02-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../coupang-ipo/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/33862991/107868830-e3d88880-6eca-11eb-847a-eb2445f2d223.jpg)" alt="뉴욕가는 쿠팡($CPNG)에 대한 생각" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Life/">Life</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Life/Thought/">Thought</a></p>
+                            <p class="item-title"><a href="../coupang-ipo/" class="title">뉴욕가는 쿠팡($CPNG)에 대한 생각</a></p>
+                            <p class="item-date"><time datetime="2021-02-13T19:47:06.000Z" itemprop="datePublished">2021-02-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../livestudy-week-06/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg)" alt="Live Study 6주차 - 상속" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../livestudy-week-06/" class="title">Live Study 6주차 - 상속</a></p>
+                            <p class="item-date"><time datetime="2021-02-10T02:20:51.000Z" itemprop="datePublished">2021-02-10</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../tags/BufferedReader/" style="font-size: 10px;">BufferedReader</a> <a href="../../../tags/BufferedWriter/" style="font-size: 10px;">BufferedWriter</a> <a href="../../../tags/IO/" style="font-size: 10px;">IO</a> <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/String/" style="font-size: 10px;">String</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 10.91px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/annotation/" style="font-size: 10px;">annotation</a> <a href="../../../tags/api/" style="font-size: 10px;">api</a> <a href="../../../tags/architecture/" style="font-size: 10px;">architecture</a> <a href="../../../tags/array/" style="font-size: 10.91px;">array</a> <a href="../../../tags/aws/" style="font-size: 11.82px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blacklivesmatter/" style="font-size: 10px;">blacklivesmatter</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 11.82px;">career</a> <a href="../../../tags/casting/" style="font-size: 13.64px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/cloud/" style="font-size: 11.82px;">cloud</a> <a href="../../../tags/contribution/" style="font-size: 10px;">contribution</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/coupang/" style="font-size: 10px;">coupang</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/databse/" style="font-size: 10px;">databse</a> <a href="../../../tags/datastructure/" style="font-size: 11.82px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 14.55px;">docker</a> <a href="../../../tags/documentation/" style="font-size: 10px;">documentation</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 11.82px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/formatting/" style="font-size: 10px;">formatting</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generics/" style="font-size: 10px;">generics</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 12.73px;">github</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 14.55px;">http</a> <a href="../../../tags/ide/" style="font-size: 10.91px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 11.82px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 10.91px;">interface</a> <a href="../../../tags/investment/" style="font-size: 10.91px;">investment</a> <a href="../../../tags/io/" style="font-size: 11.82px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 16.36px;">java</a> <a href="../../../tags/java5/" style="font-size: 10px;">java5</a> <a href="../../../tags/java8/" style="font-size: 10.91px;">java8</a> <a href="../../../tags/javascript/" style="font-size: 14.55px;">javascript</a> <a href="../../../tags/javscript/" style="font-size: 10px;">javscript</a> <a href="../../../tags/jquery/" style="font-size: 10.91px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/junit/" style="font-size: 10px;">junit</a> <a href="../../../tags/jvm/" style="font-size: 11.82px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 10.91px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/license/" style="font-size: 10px;">license</a> <a href="../../../tags/livereload/" style="font-size: 10px;">livereload</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 10.91px;">mustache</a> <a href="../../../tags/mybatis/" style="font-size: 10.91px;">mybatis</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 17.27px;">oop</a> <a href="../../../tags/operator/" style="font-size: 10px;">operator</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/privacy/" style="font-size: 10px;">privacy</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/readme/" style="font-size: 10px;">readme</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 11.82px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 12.73px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 18.18px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/string/" style="font-size: 15.45px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/terminal/" style="font-size: 10px;">terminal</a> <a href="../../../tags/tip/" style="font-size: 16.36px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 19.09px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 10.91px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/vue/" style="font-size: 10px;">vue</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 18.18px;">weekly-review</a> <a href="../../../tags/whiteship/" style="font-size: 16.36px;">whiteship</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+	<div class="ads">
+		<a target="_blank" rel="noopener" href="http://bit.ly/donatemozila_devnady">
+	<img src="https://user-images.githubusercontent.com/33862991/106721036-7b2a1a00-6647-11eb-9722-30275f20b4ba.png" style="width: 100%; display:block; margin-left: auto; margin-right: auto;">
+</a>
+		<a target="_blank" rel="noopener" href="http://bit.ly/livesmarter_devandy">
+	<img src="https://user-images.githubusercontent.com/33862991/106847989-5be8c680-66f3-11eb-9dd3-fd17c8a1009f.jpg" style="width: 250px; display:block; margin-left: auto; margin-right: auto; margin-top: 20px;">
+</a>
+	</div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2021 Youngjin Mo</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+    
+        
+<script src="../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="../../../js/main.js"></script>
+
+
+</body>
+</html>
