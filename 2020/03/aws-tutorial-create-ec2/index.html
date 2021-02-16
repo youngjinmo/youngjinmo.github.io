@@ -10,7 +10,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="tutorial,aws,cloud" />
+    <meta name="keywords" content="aws,cloud,tutorial" />
     
     <meta name="description" content="EC2 인스턴스 생성 AMI(amazon Machine Image) 선택 인스턴스 유형 선택 인스턴스 세부 정보 구성 스토리지 추가 태그 추가 보안 그룹 구성 인스턴스 시작 검토 인스턴스 생성완료    지난주쯤에 스프링부트로 개발한 그레이들 프로젝트를 AWS(EC2 인스턴스)에 배포해보면서 AWS 배포를 정리하는 포스트를 정리하고 싶었다. 그래서 이번">
 <meta property="og:type" content="article">
@@ -23,9 +23,9 @@
 <meta property="article:published_time" content="2020-03-15T07:37:06.000Z">
 <meta property="article:modified_time" content="2020-11-05T05:58:30.256Z">
 <meta property="article:author" content="Youngjin Mo">
-<meta property="article:tag" content="tutorial">
 <meta property="article:tag" content="aws">
 <meta property="article:tag" content="cloud">
+<meta property="article:tag" content="tutorial">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://lh3.googleusercontent.com/qhdDFWnctJLKcX23nrRJ8SPeDluLDJ2T49Qdrd5qUyu0oAeDiJtkjP9IpgMUd1rQneENw9-3aPVXXxob9cvptQexHXxlpEkiV2DEVh7kjTWzLrEZfm33eIcmgCLvn9RabrYkpcRd88bwDHVs1BtKeKLSjdbSAo0TE1LlvQ2KDVb5c1s_mO8KVbeMf60EMfzm3JKFYzJxzp9Z0Rb5-Lx7gBhNlUpttCjHH0B4LN0_qDK9-H3DG0YzD5SExkz7hfGAztWiysUAqfxFIj2x2ykLyLp0XgZW28v19Q0nh9fk0azHj4eUQGnS-F-pA4YYxBtWBOHDOBU0nralDG0kJE8LlzsM4Ug_lQ0dfFSt27Nf3TKbsm5LsvLLcYtti0b4Nmx1Z8xuktbgY-FkthYPGMRuQw8xepxBb-sWV5ZVG6CCb0yuksVbr_nXtolsp7A7IlJM3kxp9mX1t49zIhGbFNBy_J4iRc_0VHBc70uWiJT30E5Uy8SrLzzG3Q9CJo5NQujLz6TPe1ExrqsW0MYYxhVJ6bcwaL13earne2IqoD4g1Dq3eNs9w8phZUZKD2KMySw-FftnVmZJtOF1A9ngR_77n-wU5p5wN47sMtVBHKQY3nA-mde0qoLdp-k86_sr19bzogwxxF1vL_z1RrQIiC6fQx8mq061LiMdYVX3PeJ4xmbcTQq672ttiP7CSDl8Q_d28J9tFtBVK23dQPRyUJZ6HTSziTw7tGkiWWAKsppCpWydZFqNNK7tJ0Gw=w543-h273-no">
 <meta name="twitter:creator" content="@devandy_yj">
@@ -352,7 +352,7 @@ ga('send', 'pageview');
         },
         "headline": "AWS 튜토리얼(1) - Ec2 생성하기",
         "image": "../../../http:/youngjinmo.github.iohttps:/lh3.googleusercontent.com/qhdDFWnctJLKcX23nrRJ8SPeDluLDJ2T49Qdrd5qUyu0oAeDiJtkjP9IpgMUd1rQneENw9-3aPVXXxob9cvptQexHXxlpEkiV2DEVh7kjTWzLrEZfm33eIcmgCLvn9RabrYkpcRd88bwDHVs1BtKeKLSjdbSAo0TE1LlvQ2KDVb5c1s_mO8KVbeMf60EMfzm3JKFYzJxzp9Z0Rb5-Lx7gBhNlUpttCjHH0B4LN0_qDK9-H3DG0YzD5SExkz7hfGAztWiysUAqfxFIj2x2ykLyLp0XgZW28v19Q0nh9fk0azHj4eUQGnS-F-pA4YYxBtWBOHDOBU0nralDG0kJE8LlzsM4Ug_lQ0dfFSt27Nf3TKbsm5LsvLLcYtti0b4Nmx1Z8xuktbgY-FkthYPGMRuQw8xepxBb-sWV5ZVG6CCb0yuksVbr_nXtolsp7A7IlJM3kxp9mX1t49zIhGbFNBy_J4iRc_0VHBc70uWiJT30E5Uy8SrLzzG3Q9CJo5NQujLz6TPe1ExrqsW0MYYxhVJ6bcwaL13earne2IqoD4g1Dq3eNs9w8phZUZKD2KMySw-FftnVmZJtOF1A9ngR_77n-wU5p5wN47sMtVBHKQY3nA-mde0qoLdp-k86_sr19bzogwxxF1vL_z1RrQIiC6fQx8mq061LiMdYVX3PeJ4xmbcTQq672ttiP7CSDl8Q_d28J9tFtBVK23dQPRyUJZ6HTSziTw7tGkiWWAKsppCpWydZFqNNK7tJ0Gw=w543-h273-no",
-        "keywords": "tutorial aws cloud",
+        "keywords": "aws cloud tutorial",
         "genre": "Dev DevOps",
         "datePublished": "2020-03-15",
         "dateCreated": "2020-03-15",
