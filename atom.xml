@@ -434,9 +434,9 @@
     <category term="Spring" scheme="http://youngjinmo.github.io/categories/Dev/Spring/"/>
     
     
-    <category term="tutorial" scheme="http://youngjinmo.github.io/tags/tutorial/"/>
-    
     <category term="oracle" scheme="http://youngjinmo.github.io/tags/oracle/"/>
+    
+    <category term="tutorial" scheme="http://youngjinmo.github.io/tags/tutorial/"/>
     
     <category term="docker" scheme="http://youngjinmo.github.io/tags/docker/"/>
     
