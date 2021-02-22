@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-02-16T13:01:26.698Z</updated>
+  <updated>2021-02-22T05:19:47.552Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>URL 간단히 알아보기</title>
+    <link href="http://youngjinmo.github.io/2021/02/url/"/>
+    <id>http://youngjinmo.github.io/2021/02/url/</id>
+    <published>2021-02-21T20:18:28.000Z</published>
+    <updated>2021-02-22T05:19:47.552Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/108665519-70f98e00-7518-11eb-80ca-2dcacfd1c4a7.png&quot;&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Web" scheme="http://youngjinmo.github.io/categories/Dev/Web/"/>
+    
+    
+    <category term="http" scheme="http://youngjinmo.github.io/tags/http/"/>
+    
+  </entry>
   
   <entry>
     <title>Live Study 8주차 - 인터페이스</title>
@@ -596,39 +624,6 @@
     <category term="error" scheme="http://youngjinmo.github.io/tags/error/"/>
     
     <category term="junit" scheme="http://youngjinmo.github.io/tags/junit/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java I/O - 파일 복사하기</title>
-    <link href="http://youngjinmo.github.io/2020/12/java-io-fileclone/"/>
-    <id>http://youngjinmo.github.io/2020/12/java-io-fileclone/</id>
-    <published>2020-12-25T03:00:21.000Z</published>
-    <updated>2020-12-25T13:29:50.114Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
-    
-    
-    <category term="tutorial" scheme="http://youngjinmo.github.io/tags/tutorial/"/>
-    
-    <category term="IO" scheme="http://youngjinmo.github.io/tags/IO/"/>
-    
-    <category term="BufferedReader" scheme="http://youngjinmo.github.io/tags/BufferedReader/"/>
-    
-    <category term="BufferedWriter" scheme="http://youngjinmo.github.io/tags/BufferedWriter/"/>
     
   </entry>
   
