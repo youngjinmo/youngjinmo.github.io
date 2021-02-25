@@ -10,7 +10,15 @@
 
     <url>
         <loc>http://youngjinmo.github.io/2021/02/livestudy-week-09/</loc>
-        <lastmod>2021-02-25T10:34:27.388Z</lastmod>
+        <lastmod>2021-02-25T15:28:48.003Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/2021/02/url/</loc>
+        <lastmod>2021-02-25T15:28:13.736Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -27,14 +35,6 @@
     <url>
         <loc>http://youngjinmo.github.io/2021/02/livestudy-week-06/</loc>
         <lastmod>2021-02-25T06:21:05.076Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2021/02/url/</loc>
-        <lastmod>2021-02-22T14:49:02.553Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
