@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg">
 <meta property="article:published_time" content="2021-01-11T22:05:30.000Z">
-<meta property="article:modified_time" content="2021-02-18T01:48:19.147Z">
+<meta property="article:modified_time" content="2021-03-01T05:52:58.633Z">
 <meta property="article:author" content="Youngjin Mo">
 <meta property="article:tag" content="casting">
 <meta property="article:tag" content="whiteship">
@@ -205,7 +205,7 @@ ga('send', 'pageview');
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="" class="article-date">
-     <time datetime="2021-02-18T01:48:19.147Z" itemprop="dateModified">2021-02-18</time>
+     <time datetime="2021-03-01T05:52:58.633Z" itemprop="dateModified">2021-03-01</time>
   </a>
 </div>
 
@@ -376,7 +376,9 @@ ga('send', 'pageview');
 </ul>
 <p>기본형 타입은 위에서 정리를 했다. 기본적으로 논리형, 문자형, 정수형, 실수형 4가지로 분류되는 8가지 자료형을 기본형 타입이라 하며, 그외 이런 기본형 타입을 참조하는 타입을 참조형 타입이라 한다.</p>
 <p>기본형 타입과 달리 참조형 타입은 클래스의 이름을 변수의 타입으로 사용하기 때문에 클래스가 곧 참조변수의 타입이 된다. 따라서 새로운 클래스를 생성한다는 것은 새로운 참조형을 추가한다고 볼 수 있다.</p>
-<h2 id="참조형-타입-String에서의-값-변경"><a href="#참조형-타입-String에서의-값-변경" class="headerlink" title="참조형 타입 String에서의 값 변경"></a>참조형 타입 String에서의 값 변경</h2><p>문자열은 기본형타입이 아닌 참조형 타입이다. 따라서 String은 불가변한 객체라 할 수 있다. </p>
+<h2 id="참조형-타입-String에서의-값-변경"><a href="#참조형-타입-String에서의-값-변경" class="headerlink" title="참조형 타입 String에서의 값 변경"></a>참조형 타입 String에서의 값 변경</h2><p>문자열은 기본형타입이 아닌 참조형 타입이다. </p>
+<p>기본형 타입의 데이터는 런타임 스택에 저장이 되서 관리된다. 참조형 타입의 데이터는 런타임 스택에 값이 아닌 <b>값의 주소</b>를 저장한다. 이 주소가 가리키는 실제 값은 힙 영역에 할당된다.</p>
+<p>따라서 참조형 타입인 String은 따라서 불가변한 객체라 할 수 있다. String이 왜 불가변한 객체인지 아래를 따라가보자.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String name = <span class="string">&quot;Andy&quot;</span>;</span><br><span class="line">name = <span class="string">&quot;DevAndy&quot;</span>;</span><br></pre></td></tr></table></figure>
 
 <p>위의 코드에서 문자열 변수 <code>name</code>은 값이 변경한게 아니라 가리키는 주소가 변경되었을뿐이다. </p>
@@ -384,7 +386,7 @@ ga('send', 'pageview');
 
 <p>본래 참조형 타입은 <code>new</code> 키워드로 생성해야 하나 String은 JVM의 Heap 영역에 존재하는 String Constant Pool 덕분에 문자열 변수는 <code>new</code> 키워드 없이도 객체를 선언할 수 있다.</p>
 <p>또 <code>new</code> 키워드로 객체를 생성하면, Heap에 새로운 객체가 생성되는데, String 변수를 직접 선언하면, String Constant Pool에 있는 주소값을 공유하면서 참조하기 때문에 참조하려는 주소가 String Constant Pool에 존재할 경우 Heap에 새로 생성하지 않고 주소값을 공유하여 참조할 수 있다.</p>
-<p>이 때문에 문자열 변수는 <code>new</code> 키워드없이 사용하는게 메모리 관리에 더 효율적이다. 아래 예제 코드를 보자.</p>
+<p>이 때문에 문자열 변수는 <code>new</code> 키워드없이 사용하는게 String Constant Pool을 사용할 수 있어서 메모리 관리에 더 효율적이다. 아래 예제 코드를 보자.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String seoulAir = <span class="string">&quot;Clean air&quot;</span>;</span><br><span class="line">String tokyoAir = <span class="string">&quot;Clean air&quot;</span>;</span><br><span class="line">String chinaAir = <span class="keyword">new</span> String(<span class="string">&quot;Clean air&quot;</span>);</span><br></pre></td></tr></table></figure>
 
 <p>위의 코드에서 3개의 변수는 모두 같은 문자열 리터럴을 할당받고 있지만, <code>seoulAir</code>와 <code>tokyoAir</code>은 서로 같은 주소를 참조하고, <code>china Air</code>는 다른 주소를 갖게 된다.</p>
@@ -703,7 +705,7 @@ ga('send', 'pageview');
         "genre": "Dev Java",
         "datePublished": "2021-01-12",
         "dateCreated": "2021-01-12",
-        "dateModified": "2021-02-18",
+        "dateModified": "2021-03-01",
         "url": "../../../http:/youngjinmo.github.io/2021/01/livestudy-week-02/",
         "description": "
 
@@ -723,7 +725,7 @@ ga('send', 'pageview');
 
 
 기본형(pri",
-        "wordCount": 3589
+        "wordCount": 3628
     }
 </script>
 
@@ -797,6 +799,26 @@ ga('send', 'pageview');
         <h3 class="widget-title">recents</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../03/livestudy-week-14/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg)" alt="Live Study 14주차 - 제네릭" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../../03/livestudy-week-14/" class="title">Live Study 14주차 - 제네릭</a></p>
+                            <p class="item-date"><time datetime="2021-03-01T08:55:00.000Z" itemprop="datePublished">2021-03-01</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -875,26 +897,6 @@ ga('send', 'pageview');
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
                             <p class="item-title"><a href="../../02/string-format-with-casting/" class="title">Int형 나누기 결과를 소수점 2자리까지만 얻어오기</a></p>
                             <p class="item-date"><time datetime="2021-02-15T04:40:14.000Z" itemprop="datePublished">2021-02-15</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="../../02/livestudy-week-07/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg)" alt="Live Study 7주차 - 패키지" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
-                            <p class="item-title"><a href="../../02/livestudy-week-07/" class="title">Live Study 7주차 - 패키지</a></p>
-                            <p class="item-date"><time datetime="2021-02-14T14:49:10.000Z" itemprop="datePublished">2021-02-14</time></p>
                         </div>
                     </li>
                 

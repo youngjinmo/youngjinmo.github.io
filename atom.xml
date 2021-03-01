@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-02-25T15:28:48.003Z</updated>
+  <updated>2021-03-01T17:57:31.178Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -17,11 +17,41 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Live Study 14주차 - 제네릭</title>
+    <link href="http://youngjinmo.github.io/2021/03/livestudy-week-14/"/>
+    <id>http://youngjinmo.github.io/2021/03/livestudy-week-14/</id>
+    <published>2021-03-01T08:55:00.000Z</published>
+    <updated>2021-03-01T17:57:31.178Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#generics&quot;&gt;제네릭&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#use-generics&quot;&gt;제네릭</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+    <category term="whiteship" scheme="http://youngjinmo.github.io/tags/whiteship/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Live Study 9주차 - 예외 처리</title>
     <link href="http://youngjinmo.github.io/2021/02/livestudy-week-09/"/>
     <id>http://youngjinmo.github.io/2021/02/livestudy-week-09/</id>
     <published>2021-02-25T01:33:23.000Z</published>
-    <updated>2021-02-25T15:28:48.003Z</updated>
+    <updated>2021-02-26T04:21:50.288Z</updated>
     
     
       
@@ -441,7 +471,7 @@
     <link href="http://youngjinmo.github.io/2021/01/livestudy-week-02/"/>
     <id>http://youngjinmo.github.io/2021/01/livestudy-week-02/</id>
     <published>2021-01-11T22:05:30.000Z</published>
-    <updated>2021-02-18T01:48:19.147Z</updated>
+    <updated>2021-03-01T05:52:58.633Z</updated>
     
     
       
@@ -591,36 +621,6 @@
     <category term="intellij" scheme="http://youngjinmo.github.io/tags/intellij/"/>
     
     <category term="livereload" scheme="http://youngjinmo.github.io/tags/livereload/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>인텔리J에서 스프링부트 프로젝트 JDK 버전 변경하기</title>
-    <link href="http://youngjinmo.github.io/2020/12/change-jdk-intellij/"/>
-    <id>http://youngjinmo.github.io/2020/12/change-jdk-intellij/</id>
-    <published>2020-12-28T00:51:57.000Z</published>
-    <updated>2021-02-15T06:00:27.893Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;인텔리J에서 스프링부트 프로젝트 JDK 버전을 변경하는 방법에 대한 글이다.&lt;/p&gt;
-&lt;h2 id=&quot;인텔리J-프로젝트-환경-구성&quot;&gt;&lt;a href=&quot;#인텔리J-프로젝트-환경-구성&quot; class=&quot;headerlink&quot; title=&quot;인텔리J 프로젝트 환경</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Spring" scheme="http://youngjinmo.github.io/categories/Dev/Spring/"/>
-    
-    
-    <category term="tutorial" scheme="http://youngjinmo.github.io/tags/tutorial/"/>
-    
-    <category term="ide" scheme="http://youngjinmo.github.io/tags/ide/"/>
     
   </entry>
   

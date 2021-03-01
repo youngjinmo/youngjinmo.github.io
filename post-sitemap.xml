@@ -9,8 +9,24 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/2021/03/livestudy-week-14/</loc>
+        <lastmod>2021-03-01T17:57:31.178Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/2021/01/livestudy-week-02/</loc>
+        <lastmod>2021-03-01T05:52:58.633Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/2021/02/livestudy-week-09/</loc>
-        <lastmod>2021-02-25T15:28:48.003Z</lastmod>
+        <lastmod>2021-02-26T04:21:50.288Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -50,7 +66,7 @@
 
     <url>
         <loc>http://youngjinmo.github.io/2020/07/servlet-lifecycle/</loc>
-        <lastmod>2021-02-22T01:58:15.295Z</lastmod>
+        <lastmod>2021-02-22T02:00:37.476Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -59,14 +75,6 @@
     <url>
         <loc>http://youngjinmo.github.io/2021/01/diff-static-variable-instance-variable/</loc>
         <lastmod>2021-02-18T04:42:09.880Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2021/01/livestudy-week-02/</loc>
-        <lastmod>2021-02-18T01:48:19.147Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
