@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Live Study 11주차 - Enum | DevAndy - 개발자앤디의 개발블로그</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="whiteship,enum" />
+    
+    <meta name="description" content="enum 이란 enum 정의하는 방법 ordinal   enum이 제공하는 메서드 values()와 valueOf() java.lang.Enum EnumSet EnumSet 주요메서드      enum 이란Enum이란, 서로 관련된 상수를 편리하게 선언하기 위한 것으로써, 상수 간 비교에서는 리터럴만 비교한다면 Enum 간 비교에서는 타입까지 관리하기">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Live Study 11주차 - Enum">
+<meta property="og:url" content="http://youngjinmo.github.io/2021/03/livestudy-week-11/index.html">
+<meta property="og:site_name" content="DevAndy - 개발자앤디의 개발블로그">
+<meta property="og:description" content="enum 이란 enum 정의하는 방법 ordinal   enum이 제공하는 메서드 values()와 valueOf() java.lang.Enum EnumSet EnumSet 주요메서드      enum 이란Enum이란, 서로 관련된 상수를 편리하게 선언하기 위한 것으로써, 상수 간 비교에서는 리터럴만 비교한다면 Enum 간 비교에서는 타입까지 관리하기">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg">
+<meta property="article:published_time" content="2021-03-02T00:15:07.000Z">
+<meta property="article:modified_time" content="2021-03-02T09:19:55.256Z">
+<meta property="article:author" content="Youngjin Mo">
+<meta property="article:tag" content="whiteship">
+<meta property="article:tag" content="enum">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg">
+<meta name="twitter:creator" content="@devandy_yj">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="DevAndy - 개발자앤디의 개발블로그" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="../../../css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="../../../libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="../../../libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="../../../libs/source-code-pro/styles.css">
+
+    
+<link rel="stylesheet" href="../../../css/style.css">
+
+	
+<link rel="stylesheet" href="../../../https:/cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+	<style type="text/css">
+		@font-face {
+		  font-family: 'NanumSquareRound';
+		  font-style: normal;
+		  font-weight: 400;
+		}
+	</style>
+
+    
+<script src="../../../libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-177850483-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../index.html">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Articles/">Articles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/">Dev</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Front-end/">Front-end</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Others/">Others</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Quiz/">Quiz</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Spring/">Spring</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Web/">Web</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Review/">Review</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Thought/">Thought</a></li></ul></li></ul>
+                                
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="../../../js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Java/">Java</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-livestudy-week-11" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Live Study 11주차 - Enum
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta" style="margin-bottom: 1em;">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="" class="article-date">
+       <time datetime="2021-03-02T00:15:07.000Z" itemprop="datePublished">2021-03-02</time>
+    </a>
+  </div>
+
+<!-- 
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="" class="article-date">
+     <time datetime="2021-03-02T09:19:55.256Z" itemprop="dateModified">2021-03-02</time>
+  </a>
+</div>
+
+ -->
+                
+
+				<!-- 	count-time		 -->
+				<span class="reading-time" style="margin-left: 20px;">
+					⏱ 25 min.
+				</span>
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="../../../tags/enum/" rel="tag">enum</a>, <a class="tag-link-link" href="../../../tags/whiteship/" rel="tag">whiteship</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg"></p>
+<ul>
+<li><a href="#enum">enum 이란</a></li>
+<li><a href="#use-enum">enum 정의하는 방법</a><ul>
+<li><a href="#ordinal">ordinal</a></li>
+</ul>
+</li>
+<li><a href="#methods-of-enum">enum이 제공하는 메서드 values()와 valueOf()</a></li>
+<li><a href="#package">java.lang.Enum</a></li>
+<li><a href="#enumset">EnumSet</a><ul>
+<li><a href="#methods-enumset">EnumSet 주요메서드</a></li>
+</ul>
+</li>
+</ul>
+<br>
+
+<h1 id="enum-이란"><a href="#enum-이란" class="headerlink" title="enum 이란"></a><a name="enum"></a>enum 이란</h1><p>Enum이란, 서로 관련된 상수를 편리하게 선언하기 위한 것으로써, 상수 간 비교에서는 리터럴만 비교한다면 Enum 간 비교에서는 타입까지 관리하기 때문에 Type Safety한 효과도 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Card</span> </span>&#123;</span><br><span class="line">   <span class="class"><span class="keyword">enum</span> <span class="title">Kind</span> </span>&#123;</span><br><span class="line">      CLOVER, HEART, DIAMOND</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="class"><span class="keyword">enum</span> <span class="title">Num</span> </span>&#123;</span><br><span class="line">      ZERO, ONE, TWO</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> CLOVER = <span class="number">0</span>;</span><br><span class="line">   <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> HEART = <span class="number">1</span>;</span><br><span class="line">   <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DIAMOND = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ZERO = <span class="number">0</span>;</span><br><span class="line">   <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ONE = <span class="number">1</span>;</span><br><span class="line">   <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TWO = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">final</span> Kind kind;</span><br><span class="line">   <span class="keyword">final</span> Num num;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">Card</span><span class="params">(Kind kind, Num num)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.kind = kind;</span><br><span class="line">      <span class="keyword">this</span>.num = num;</span><br><span class="line">   &#125;</span><br><span class="line">  </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      System.out.println( Card.CLOVER == Card.ZERO );</span><br><span class="line">      <span class="comment">// System.out.println( Card.Kind.CLOVER == Card.Num.ZERO );   컴파일 에러</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">true</span><br></pre></td></tr></table></figure>
+
+<p>출처 : <a target="_blank" rel="noopener" href="https://link.coupang.com/re/CSHARESDP?lptag=CFM65897625&pageKey=57799011&itemId=200423111&vendorItemId=3026863955">남궁성 - Java의 정석</a></p>
+<p>카드의 모양(<code>Kind</code>)과 숫자(<code>Num</code>)에 따라 상수를 Enum으로 분류했다. <code>main()</code>에서 비교를 해보면, 첫번째 비교문의 결과는 콘솔에 <code>true</code>로 출력된다.</p>
+<p>그러나 두번째 비교문은 컴파일 에러가 발생했다. </p>
+<p><img src="https://user-images.githubusercontent.com/33862991/109607496-a54df980-7b6b-11eb-9abc-01179dcbe56b.png"></p>
+<p>연산자 문제인가 싶어서 <code>.equals()</code> 메서드로 다시 비교를 시도해보았다.</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/109611841-31631f80-7b72-11eb-98b0-f50e9b8fc455.png"></p>
+<p>이 코드는 항상 <code>false</code>를 반환한다고 한다. <strong>같은 타입이 아니기 때문이다.</strong></p>
+<p>그래서 <mark>Enum을 사용할 경우 타입 안정성(Type Safety)를 보장</mark>받을 수 있다고 한다. 이것이 Enum을 사용하는 목적이다.</p>
+<br>
+
+<h1 id="enum-정의하는-방법"><a href="#enum-정의하는-방법" class="headerlink" title="enum 정의하는 방법"></a><a name="use-enum"></a>enum 정의하는 방법</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">enum [열거형 이름] &#123; 상수명1, 상수명2, ... &#125;</span><br></pre></td></tr></table></figure>
+
+<p>enum은 위와 같은 포맷으로 작성한다. 인터페이스 작성과 유사한 면이 있다는 생각이 들었다.</p>
+<p>아래는 enum을 사용한 예제코드이다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Unit</span> </span>&#123;</span><br><span class="line">   <span class="class"><span class="keyword">enum</span> <span class="title">Direction</span> </span>&#123;</span><br><span class="line">      EAST, SOUTH, WEST, NORTH</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      Direction d1 = Direction.EAST;</span><br><span class="line">      Direction d2 = Direction.valueOf(<span class="string">&quot;WEST&quot;</span>);</span><br><span class="line">      Direction d3 = Enum.valueOf(Direction.class, <span class="string">&quot;EAST&quot;</span>);</span><br><span class="line"></span><br><span class="line">      System.out.println(<span class="string">&quot;d1 = &quot;</span>+d1);</span><br><span class="line">      System.out.println(<span class="string">&quot;d2 = &quot;</span>+d2);</span><br><span class="line">      System.out.println(<span class="string">&quot;d3 = &quot;</span>+d3);</span><br><span class="line"></span><br><span class="line">      System.out.println(<span class="string">&quot;d1==d2 ?  =&gt; &quot;</span>+(d1==d2));</span><br><span class="line">      System.out.println(<span class="string">&quot;d2==EAST ?  =&gt; &quot;</span>+(d2==Direction.WEST));</span><br><span class="line">      System.out.println(<span class="string">&quot;d1==d3 ?  =&gt; &quot;</span>+(d1==d3));</span><br><span class="line">      System.out.println(<span class="string">&quot;d1.equals(d3) ?  =&gt; &quot;</span>+d1.equals(d3));</span><br><span class="line">      <span class="comment">// System.out.println(&quot;d2 &gt; d3 ? &quot;+(d1 &gt; d3));   error</span></span><br><span class="line">      System.out.println(<span class="string">&quot;d1.compareTo(d3) ?  =&gt; &quot;</span>+(d1.compareTo(d3)));</span><br><span class="line">      System.out.println(<span class="string">&quot;d1.compareTo(d2) ?  =&gt; &quot;</span>+(d1.compareTo(d2)));</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">d1 &#x3D; EAST</span><br><span class="line">d2 &#x3D; WEST</span><br><span class="line">d3 &#x3D; EAST</span><br><span class="line">d1&#x3D;&#x3D;d2 ?  &#x3D;&gt; false</span><br><span class="line">d2&#x3D;&#x3D;WEST &#x3D;&gt; true</span><br><span class="line">d1&#x3D;&#x3D;d3 ?  &#x3D;&gt; true</span><br><span class="line">d1.equals(d3) ?  &#x3D;&gt; true</span><br><span class="line">d1.compareTo(d3) ?  &#x3D;&gt; 0</span><br><span class="line">d1.compareTo(d2) ?  &#x3D;&gt; -2</span><br></pre></td></tr></table></figure>
+
+<p>열거형 상수 인스턴스를 각각 선언하여 비교하는 코드이다. </p>
+<h2 id="compareTo"><a href="#compareTo" class="headerlink" title="compareTo()"></a>compareTo()</h2><p>아래에서 작성한 <code>compareTo()</code>는 어떤 메서드일까? 인텔리제이에서 검색해보았다.</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/109612121-94ed4d00-7b72-11eb-86ec-6f50b9c3fe7d.png"></p>
+<p>같은 타입이 아니라면, 예외(<code>ClassCastException</code>)을 발생시키고, 같은 타입이면 enum의 ordinal의 마진을 반환하는 메서드였다. </p>
+<h2 id="ordinal"><a href="#ordinal" class="headerlink" title="ordinal"></a><a name="ordinal"></a>ordinal</h2><p>이 ordinal에 대해서 주석을 통해 유추하자면 객체의 순서같았다. 영어 단어 뜻으로도 순서를 의미했다.</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/109612572-45f3e780-7b73-11eb-93df-dadf01e4f347.png"></p>
+<p>인텔리제이에서 다시 ordinal을 클릭해서 보니 <b><u>ordinal은 열거형 상수의 정의된 순서</u></b>이며, 초기값은 0이라고 한다. </p>
+<p>Enum 클래스의 내장 메서드로 <code>.ordinal()</code>을 이용하면 각 Enum 객체의 ordinal을 반환할 수 있다길래 사용해서 출력해보았다.</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/109612712-7d629400-7b73-11eb-9ff8-0b206e21f8d7.png"></p>
+<p>각각의 enum의 ordinal을 출력해보니 <code>compareTo()</code> 연산결과를 이해할 수 있었다.</p>
+<br>
+
+<h1 id="enum이-제공하는-메서드-values-와-valueOf"><a href="#enum이-제공하는-메서드-values-와-valueOf" class="headerlink" title="enum이 제공하는 메서드 values()와 valueOf()"></a><a name="methods-of-enum"></a>enum이 제공하는 메서드 values()와 valueOf()</h1><h2 id="values"><a href="#values" class="headerlink" title="values()"></a>values()</h2><p>Enum 객체를 배열에 담아 반환해주는 메서드이다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">enumTest</span> </span>&#123;</span><br><span class="line">   <span class="class"><span class="keyword">enum</span> <span class="title">Direction</span> </span>&#123;</span><br><span class="line">      EAST, SOUTH, WEST, NORTH</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      Direction d1 = Direction.EAST;</span><br><span class="line">      Direction d2 = Direction.valueOf(<span class="string">&quot;WEST&quot;</span>);</span><br><span class="line">      Direction d3 = Enum.valueOf(Direction.class, <span class="string">&quot;EAST&quot;</span>);</span><br><span class="line"></span><br><span class="line">      Direction[] dArr = Direction.values();</span><br><span class="line">      </span><br><span class="line">      System.out.println(<span class="string">&quot;dArr : &quot;</span>+Arrays.toString(dArr));</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[EAST, SOUTH, WEST, NORTH]</span><br></pre></td></tr></table></figure>
+
+<h2 id="valueOf-NaN"><a href="#valueOf-NaN" class="headerlink" title="valueOf()"></a>valueOf()</h2><p>파라미터에 입력된 열거형 상수의 이름을 통해 <b><u>문자열 상수에 대한 참조를 반환</u></b>하는 메서드이다.</p>
+<p>열거형 상수의 이름으로 문자열 상수에 대한 참조를 반환하는 메서드이다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Direction d1 = Direction.EAST;</span><br><span class="line">System.out.println(d1.equals(Direction.valueOf(<span class="string">&quot;EAST&quot;</span>)));</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">true</span><br></pre></td></tr></table></figure>
+
+<p>만약 파라미터에 들어온 문자열 값이 열거형 상수의 이름이 아닐경우, 예외(<code>IllegalArgumentException</code>)을 발생시킨다.</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/109615016-b8b29200-7b76-11eb-9e38-e4641fa03dab.png"></p>
+<br>
+
+<h1 id="java-lang-Enum"><a href="#java-lang-Enum" class="headerlink" title="java.lang.Enum"></a><a name="package"></a>java.lang.Enum</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Direction</span> </span>&#123;</span><br><span class="line">   EAST, WEST, SOUTH, NORTH</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>위의 열거형 상수들의 타입은 <code>Direction</code>이다. 그리고 이 <code>Direction</code>은 <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Enum.html">Enum 클래스</a>의 하위 객체이다. </p>
+<p>이처럼 모든 Enum 타입은 <code>Enum</code> 클래스를 상속받는데, 그렇기 때문에 Enum 타입은 다른 클래스를 상속받을 수 없다. 다중상속이 되기 때문이다.</p>
+<p>그래서 <code>Enum</code> 클래스에서 정의된 <code>compareTo()</code>, <code>values()</code>, <code>valueOf()</code>와 같은 메서드를 사용할 수 있다.</p>
+<p><code>Enum</code> 클래스에 정의된 생성자가 있지만, 다른 클래스와 달리 접근제한자가 <code>protected</code>로 선언되어있어서 <u>Enum 클래스의 생성자는 개발자가 호출할 수 없다</u>.</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/109616200-3cb94980-7b78-11eb-91f6-417a03589cf4.png"></p>
+<br>
+
+<h1 id="EnumSet"><a href="#EnumSet" class="headerlink" title="EnumSet"></a><a name="EnumSet"></a>EnumSet</h1><p>Enum을 위한 자료구조형 Set 인터페이스 구현체이다. <code>EnumSet</code>의 상속구조는 다음과 같다.</p>
+<p><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https://blog.kakaocdn.net/dn/cpSpj3/btqUEA6TQa2/vvXhHGnx8cU6aXISc0xsL0/img.png" alt="https://www.geeksforgeeks.org/enumset-class-java/"></p>
+<p><img src="https://user-images.githubusercontent.com/33862991/109620762-96704280-7b7d-11eb-8a16-83243c3c59e0.png"></p>
+<p><code>EnumSet</code>의 주요특징은 아래와 같다.</p>
+<ul>
+<li><code>AbstractSet</code> 클래스를 상속하며, Set 인터페이스를 구현한다.</li>
+<li>오직 열거형 상수만을 값으로 가질수 있으며, 모든 값은 같은 Enum Type이어야 한다. (제네릭으로 강제하는것이 좋음)</li>
+<li>Null 값을 가지지 않는다.</li>
+<li><a href="#ordinal">ordinal</a>(열거형 상수가 정의된 순서)대로 요소가 저장된다.</li>
+<li>thread-safe하지 않으므로 <code>Collections.synchronizedMap</code>을 사용하거나 외부에서 동기화를 구현해야한다.</li>
+</ul>
+<h1 id="EnumSet-주요-메서드"><a href="#EnumSet-주요-메서드" class="headerlink" title="EnumSet 주요 메서드"></a><a name="methods-enumset"></a>EnumSet 주요 메서드</h1><h2 id="EnumSet-allOf"><a href="#EnumSet-allOf" class="headerlink" title="EnumSet.allOf()"></a>EnumSet.allOf()</h2><p><code>Enum</code> 클래스의 열거형 상수를 <code>EnumSet</code> 집합으로 모두 가져오는 메서드이다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LiveStudy</span> </span>&#123;</span><br><span class="line">   <span class="class"><span class="keyword">enum</span> <span class="title">Direction</span> </span>&#123; EAST, SOUTH, WEST, NORTH &#125;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">     </span><br><span class="line">      EnumSet&lt;Direction&gt; set1 = EnumSet.allOf(Direction.class);</span><br><span class="line">     </span><br><span class="line">      System.out.println(set1);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[EAST, SOUTH, WEST, NORTH]</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="EnumSet-of"><a href="#EnumSet-of" class="headerlink" title="EnumSet.of()"></a>EnumSet.of()</h2><p>파라미터로 들어온 열거형 상수를 <code>EnumSet</code> 집합으로 반환하는 메서드이다.</p>
+<p>파라미터 순대로 <code>EnumSet</code>에 저장되지 않고, ordinal대로 저장된다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LiveStudy</span> </span>&#123;</span><br><span class="line">   <span class="class"><span class="keyword">enum</span> <span class="title">Direction</span> </span>&#123; EAST, SOUTH, WEST, NORTH &#125;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">     </span><br><span class="line">      EnumSet&lt;Direction&gt; set2 = EnumSet.Of(Direction.NORTH, Direction.SOUTH, Direction.EAST);</span><br><span class="line">     </span><br><span class="line">      System.out.println(set2);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[EAST, SOUTH, NORTH]</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="complementOf"><a href="#complementOf" class="headerlink" title="complementOf()"></a>complementOf()</h2><p>Enum 타입의 전체 열거형 상수중 파라미터로 들어온 EnumSet 인스턴스에 없는 열거형 상수를 EnumSet 으로 반환한다. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LiveStudy</span> </span>&#123;</span><br><span class="line">   <span class="class"><span class="keyword">enum</span> <span class="title">Direction</span> </span>&#123; EAST, SOUTH, WEST, NORTH &#125;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">     </span><br><span class="line">      EnumSet&lt;Direction&gt; set3 = EnumSet.complementOf(set2);</span><br><span class="line">     </span><br><span class="line">      System.out.println(set3);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[EAST, WEST]</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="range"><a href="#range" class="headerlink" title="range()"></a>range()</h2><p>2개의 파라미터로 들어온 열거형 상수 사이의 열거형 상수들을 <code>EnumSet</code> 집합으로 반환한다. 범위의 인덱스는 ordinal을 따른다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LiveStudy</span> </span>&#123;</span><br><span class="line">   <span class="class"><span class="keyword">enum</span> <span class="title">Direction</span> </span>&#123; EAST, SOUTH, WEST, NORTH &#125;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">     </span><br><span class="line">      EnumSet&lt;Direction&gt; set4 = EnumSet.range(Direction.SOUTH, Direction.NORTH);</span><br><span class="line">     </span><br><span class="line">      System.out.println(set4);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[SOUTH, WEST, NORTH]</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="noneOf"><a href="#noneOf" class="headerlink" title="noneOf()"></a>noneOf()</h2><p>파라미터로 들어온 열거형 클래스의 빈값을 <code>EnumSet</code> 타입으로 반환한다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LiveStudy</span> </span>&#123;</span><br><span class="line">   <span class="class"><span class="keyword">enum</span> <span class="title">Direction</span> </span>&#123; EAST, SOUTH, WEST, NORTH &#125;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">     </span><br><span class="line">      EnumSet&lt;Direction&gt; set5 = EnumSet.noneOf(Direction.class);</span><br><span class="line">     </span><br><span class="line">      System.out.println(set5);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[]</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="copyOf"><a href="#copyOf" class="headerlink" title="copyOf()"></a>copyOf()</h2><p><code>EnumSet</code> 객체를 복사하는 메서드이다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LiveStudy</span> </span>&#123;</span><br><span class="line">   <span class="class"><span class="keyword">enum</span> <span class="title">Direction</span> </span>&#123; EAST, SOUTH, WEST, NORTH &#125;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      </span><br><span class="line">      EnumSet&lt;Direction&gt; set6, set7;</span><br><span class="line">      set6 = EnumSet.of(Direction.WEST, Direction.EAST, Direction.NORTH);</span><br><span class="line">      set7 = EnumSet.copyOf(set6);</span><br><span class="line">     </span><br><span class="line">      System.out.println(set7);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[EAST, WEST, NORTH]</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="add-remove"><a href="#add-remove" class="headerlink" title="add(), remove()"></a>add(), remove()</h2><p>열거형 상수를 더하고 빼는 메서드이다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LiveStudy</span> </span>&#123;</span><br><span class="line">   <span class="class"><span class="keyword">enum</span> <span class="title">Direction</span> </span>&#123; EAST, SOUTH, WEST, NORTH &#125;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">      </span><br><span class="line">      EnumSet&lt;Direction&gt; set8;</span><br><span class="line">      set8 = EnumSet.of(Direction.WEST, Direction.EAST, Direction.NORTH);</span><br><span class="line">      set8.remove(Direction.NORTH);</span><br><span class="line">      set8.add(Direction.SOUTH);</span><br><span class="line">     </span><br><span class="line">      System.out.println(set8);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[EAST, SOUTH, WEST]</span><br></pre></td></tr></table></figure>
+
+
+
+
+        </div>
+    </div>
+	<div class="ads" style="margin-top: 10px;margin-bottom:10px;">
+		<script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+	new PartnersCoupang.G({"id":434728,"template":"carousel","trackingCode":"AF1391980","width":"100%","height":"100"});
+</script>
+	</div>
+	<footer class="article-footer">
+		<script src="https://utteranc.es/client.js"
+        repo="youngjinmo/githubpages-comment"
+        issue-term="url"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+	</footer>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Youngjin Mo"
+        },
+        "headline": "Live Study 11주차 - Enum",
+        "image": "../../../http:/youngjinmo.github.iohttps:/i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg",
+        "keywords": "whiteship enum",
+        "genre": "Dev Java",
+        "datePublished": "2021-03-02",
+        "dateCreated": "2021-03-02",
+        "dateModified": "2021-03-02",
+        "url": "../../../http:/youngjinmo.github.io/2021/03/livestudy-week-11/",
+        "description": "
+
+enum 이란
+enum 정의하는 방법
+ordinal
+
+
+enum이 제공하는 메서드 values()와 valueOf()
+java.lang.Enum
+EnumSet
+EnumSet 주요메서드
+
+
+
+
+
+enum 이란Enum이란, 서로 관련된 상수를 편리하게 선언하기 위한 것으로써, 상수 간 비교에서는 리터럴만 비교한다면 Enum 간 비교에서는 타입까지 관리하기 ",
+        "wordCount": 1932
+    }
+</script>
+
+</article>
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="../../../https:/twitter.com/devandy_yj" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="../../../https:/github.com/youngjinmo" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../atom.xml" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="../livestudy-week-14/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Live Study 14주차 - 제네릭</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg)" alt="Live Study 11주차 - Enum" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="" class="title">Live Study 11주차 - Enum</a></p>
+                            <p class="item-date"><time datetime="2021-03-02T00:15:07.000Z" itemprop="datePublished">2021-03-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../livestudy-week-14/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg)" alt="Live Study 14주차 - 제네릭" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../livestudy-week-14/" class="title">Live Study 14주차 - 제네릭</a></p>
+                            <p class="item-date"><time datetime="2021-03-01T08:55:00.000Z" itemprop="datePublished">2021-03-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../02/livestudy-week-09/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg)" alt="Live Study 9주차 - 예외 처리" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../../02/livestudy-week-09/" class="title">Live Study 9주차 - 예외 처리</a></p>
+                            <p class="item-date"><time datetime="2021-02-25T01:33:23.000Z" itemprop="datePublished">2021-02-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../02/url/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/33862991/108665519-70f98e00-7518-11eb-80ca-2dcacfd1c4a7.png)" alt="URL 간단히 알아보기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Web/">Web</a></p>
+                            <p class="item-title"><a href="../../02/url/" class="title">URL 간단히 알아보기</a></p>
+                            <p class="item-date"><time datetime="2021-02-21T20:18:28.000Z" itemprop="datePublished">2021-02-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../02/livestudy-week-08/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg)" alt="Live Study 8주차 - 인터페이스" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../../02/livestudy-week-08/" class="title">Live Study 8주차 - 인터페이스</a></p>
+                            <p class="item-date"><time datetime="2021-02-16T03:53:48.000Z" itemprop="datePublished">2021-02-16</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../tags/BufferedReader/" style="font-size: 10px;">BufferedReader</a> <a href="../../../tags/BufferedWriter/" style="font-size: 10px;">BufferedWriter</a> <a href="../../../tags/IO/" style="font-size: 10px;">IO</a> <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/String/" style="font-size: 10px;">String</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 10.83px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/annotation/" style="font-size: 10px;">annotation</a> <a href="../../../tags/api/" style="font-size: 10px;">api</a> <a href="../../../tags/architecture/" style="font-size: 10px;">architecture</a> <a href="../../../tags/array/" style="font-size: 10.83px;">array</a> <a href="../../../tags/aws/" style="font-size: 11.67px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blacklivesmatter/" style="font-size: 10px;">blacklivesmatter</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 11.67px;">career</a> <a href="../../../tags/casting/" style="font-size: 13.33px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/cloud/" style="font-size: 11.67px;">cloud</a> <a href="../../../tags/contribution/" style="font-size: 10px;">contribution</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/coupang/" style="font-size: 10px;">coupang</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/databse/" style="font-size: 10px;">databse</a> <a href="../../../tags/datastructure/" style="font-size: 11.67px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 14.17px;">docker</a> <a href="../../../tags/documentation/" style="font-size: 10px;">documentation</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enum/" style="font-size: 10px;">enum</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 11.67px;">error</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/formatting/" style="font-size: 10px;">formatting</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generics/" style="font-size: 10px;">generics</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 12.5px;">github</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 15px;">http</a> <a href="../../../tags/ide/" style="font-size: 10.83px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 11.67px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 10.83px;">interface</a> <a href="../../../tags/investment/" style="font-size: 10.83px;">investment</a> <a href="../../../tags/io/" style="font-size: 11.67px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 15.83px;">java</a> <a href="../../../tags/java5/" style="font-size: 10px;">java5</a> <a href="../../../tags/java8/" style="font-size: 10.83px;">java8</a> <a href="../../../tags/javascript/" style="font-size: 14.17px;">javascript</a> <a href="../../../tags/javscript/" style="font-size: 10px;">javscript</a> <a href="../../../tags/jquery/" style="font-size: 10.83px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/junit/" style="font-size: 10px;">junit</a> <a href="../../../tags/jvm/" style="font-size: 11.67px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 10.83px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/license/" style="font-size: 10px;">license</a> <a href="../../../tags/livereload/" style="font-size: 10px;">livereload</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 10.83px;">mustache</a> <a href="../../../tags/mybatis/" style="font-size: 10.83px;">mybatis</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 17.5px;">oop</a> <a href="../../../tags/operator/" style="font-size: 10px;">operator</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/privacy/" style="font-size: 10px;">privacy</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/readme/" style="font-size: 10px;">readme</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 11.67px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 12.5px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 18.33px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/string/" style="font-size: 15px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/terminal/" style="font-size: 10px;">terminal</a> <a href="../../../tags/tip/" style="font-size: 15.83px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 19.17px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 10.83px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/vue/" style="font-size: 10px;">vue</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 18.33px;">weekly-review</a> <a href="../../../tags/whiteship/" style="font-size: 16.67px;">whiteship</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+	<div class="ads">
+		<a target="_blank" rel="noopener" href="http://bit.ly/donatemozila_devnady">
+	<img src="https://user-images.githubusercontent.com/33862991/106721036-7b2a1a00-6647-11eb-9722-30275f20b4ba.png" style="width: 100%; display:block; margin-left: auto; margin-right: auto;">
+</a>
+		<a target="_blank" rel="noopener" href="http://bit.ly/livesmarter_devandy">
+	<img src="https://user-images.githubusercontent.com/33862991/106847989-5be8c680-66f3-11eb-9dd3-fd17c8a1009f.jpg" style="width: 250px; display:block; margin-left: auto; margin-right: auto; margin-top: 20px;">
+</a>
+	</div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2021 Youngjin Mo</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+    
+        
+<script src="../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="../../../js/main.js"></script>
+
+
+</body>
+</html>

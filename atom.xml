@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-03-01T20:07:42.543Z</updated>
+  <updated>2021-03-02T09:19:55.256Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Live Study 11주차 - Enum</title>
+    <link href="http://youngjinmo.github.io/2021/03/livestudy-week-11/"/>
+    <id>http://youngjinmo.github.io/2021/03/livestudy-week-11/</id>
+    <published>2021-03-02T00:15:07.000Z</published>
+    <updated>2021-03-02T09:19:55.256Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#enum&quot;&gt;enum 이란&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#use-enum&quot;&gt;enum 정의하는</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+    <category term="whiteship" scheme="http://youngjinmo.github.io/tags/whiteship/"/>
+    
+    <category term="enum" scheme="http://youngjinmo.github.io/tags/enum/"/>
+    
+  </entry>
   
   <entry>
     <title>Live Study 14주차 - 제네릭</title>
@@ -108,7 +140,7 @@
     <link href="http://youngjinmo.github.io/2021/02/livestudy-week-08/"/>
     <id>http://youngjinmo.github.io/2021/02/livestudy-week-08/</id>
     <published>2021-02-16T03:53:48.000Z</published>
-    <updated>2021-02-16T13:01:26.698Z</updated>
+    <updated>2021-03-02T06:18:16.923Z</updated>
     
     
       
@@ -590,37 +622,6 @@
     <category term="jvm" scheme="http://youngjinmo.github.io/tags/jvm/"/>
     
     <category term="whiteship" scheme="http://youngjinmo.github.io/tags/whiteship/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>인텔리제이에서 Livereload 적용하기</title>
-    <link href="http://youngjinmo.github.io/2020/12/enable-livereload/"/>
-    <id>http://youngjinmo.github.io/2020/12/enable-livereload/</id>
-    <published>2020-12-29T20:13:52.000Z</published>
-    <updated>2021-02-03T09:23:06.766Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Spring" scheme="http://youngjinmo.github.io/categories/Dev/Spring/"/>
-    
-    
-    <category term="tutorial" scheme="http://youngjinmo.github.io/tags/tutorial/"/>
-    
-    <category term="intellij" scheme="http://youngjinmo.github.io/tags/intellij/"/>
-    
-    <category term="livereload" scheme="http://youngjinmo.github.io/tags/livereload/"/>
     
   </entry>
   
