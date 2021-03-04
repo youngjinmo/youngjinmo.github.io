@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Live Study 12주차 - Annotation | DevAndy - 개발자앤디의 개발블로그</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="annotation,whiteship" />
+    
+    <meta name="description" content="애노테이션 정의하는 방법 자바 표준 애노테이션 @Override @Deprecated @SuppressWarnings @FunctionalInterface @SafeVarargs @Native @Target @Retention @Documented @Inherited   애노테이션 프로세서    애노테이션 정의하는 방법Enum과 함께 Java 1.5에">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Live Study 12주차 - Annotation">
+<meta property="og:url" content="http://youngjinmo.github.io/2021/03/livestudy-week-12/index.html">
+<meta property="og:site_name" content="DevAndy - 개발자앤디의 개발블로그">
+<meta property="og:description" content="애노테이션 정의하는 방법 자바 표준 애노테이션 @Override @Deprecated @SuppressWarnings @FunctionalInterface @SafeVarargs @Native @Target @Retention @Documented @Inherited   애노테이션 프로세서    애노테이션 정의하는 방법Enum과 함께 Java 1.5에">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg">
+<meta property="article:published_time" content="2021-03-03T20:55:38.000Z">
+<meta property="article:modified_time" content="2021-03-04T06:03:41.663Z">
+<meta property="article:author" content="Youngjin Mo">
+<meta property="article:tag" content="annotation">
+<meta property="article:tag" content="whiteship">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg">
+<meta name="twitter:creator" content="@devandy_yj">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="DevAndy - 개발자앤디의 개발블로그" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="../../../css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="../../../libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="../../../libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="../../../libs/source-code-pro/styles.css">
+
+    
+<link rel="stylesheet" href="../../../css/style.css">
+
+	
+<link rel="stylesheet" href="../../../https:/cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+	<style type="text/css">
+		@font-face {
+		  font-family: 'NanumSquareRound';
+		  font-style: normal;
+		  font-weight: 400;
+		}
+	</style>
+
+    
+<script src="../../../libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-177850483-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../index.html">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Articles/">Articles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/">Dev</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Front-end/">Front-end</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Others/">Others</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Quiz/">Quiz</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Spring/">Spring</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Web/">Web</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Review/">Review</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Thought/">Thought</a></li></ul></li></ul>
+                                
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="../../../js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Java/">Java</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-livestudy-week-12" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Live Study 12주차 - Annotation
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta" style="margin-bottom: 1em;">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="" class="article-date">
+       <time datetime="2021-03-03T20:55:38.000Z" itemprop="datePublished">2021-03-04</time>
+    </a>
+  </div>
+
+<!-- 
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="" class="article-date">
+     <time datetime="2021-03-04T06:03:41.663Z" itemprop="dateModified">2021-03-04</time>
+  </a>
+</div>
+
+ -->
+                
+
+				<!-- 	count-time		 -->
+				<span class="reading-time" style="margin-left: 20px;">
+					⏱ 10 min.
+				</span>
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="../../../tags/annotation/" rel="tag">annotation</a>, <a class="tag-link-link" href="../../../tags/whiteship/" rel="tag">whiteship</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg"></p>
+<ul>
+<li><a href="#annotation">애노테이션 정의하는 방법</a></li>
+<li><a href="#java-annotation">자바 표준 애노테이션</a><ul>
+<li><a href="#override">@Override</a></li>
+<li><a href="#deprecated">@Deprecated</a></li>
+<li><a href="#suppresswarnings">@SuppressWarnings</a></li>
+<li><a href="#functionalinterface">@FunctionalInterface</a></li>
+<li><a href="#safevarargs">@SafeVarargs</a></li>
+<li><a href="#native">@Native</a></li>
+<li><a href="#target">@Target</a></li>
+<li><a href="#retention">@Retention</a></li>
+<li><a href="#documented">@Documented</a></li>
+<li><a href="#inherited">@Inherited</a></li>
+</ul>
+</li>
+<li><a href="#annotation-processor">애노테이션 프로세서</a></li>
+</ul>
+<br>
+
+<h1 id="애노테이션-정의하는-방법"><a href="#애노테이션-정의하는-방법" class="headerlink" title="애노테이션 정의하는 방법"></a><a name="annotation"></a>애노테이션 정의하는 방법</h1><p>Enum과 함께 Java 1.5에 추가된 기능이다.</p>
+<p>애노테이션이란 프로그램의 소스코드 안에 다른 프로그램을 위한 정보를 미리 약속된 형식으로 포함시켜주는 역할을한다.</p>
+<p>주석처럼 프로그래밍 언어에 영향을 미치지 않으면서 정보를 제공할 수 있는 장점이 있다.</p>
+<h3 id="애노테이션-정의"><a href="#애노테이션-정의" class="headerlink" title="애노테이션 정의"></a>애노테이션 정의</h3><p>아래는 흔히 사용하는 <code>@Override</code> 애노테이션이 정의된 코드이다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target(ElementType.METHOD)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.SOURCE)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Override &#123; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>애노테이션은 반환타입에 <code>@interface</code>를 입력하면 애노테이션으로 사용할 수 있다.</p>
+<p><code>@Target</code>, <code>@Retention</code>은 <u>애노테이션을 위한 애노테이션</u>이다. 이를 메타 <b>애노테이션</b>이라 한다.</p>
+<br>
+
+<h2 id="애노테이션-사용"><a href="#애노테이션-사용" class="headerlink" title="애노테이션 사용"></a>애노테이션 사용</h2><p>클래스나 메서드 위에 애노테이션을 작성하여 컴파일러에게 알려준다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span>   <span class="comment">// 이 메서드가 Test 메서드임을 알린다.</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">LiveStudyTest</span><span class="params">()</span> </span>&#123; &#125;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h1 id="표준-애노테이션"><a href="#표준-애노테이션" class="headerlink" title="표준 애노테이션"></a><a name="java-annotations"></a>표준 애노테이션</h1><p>자바에서 기본적으로 제공하는 애노테이션이다.</p>
+<h2 id="Override"><a href="#Override" class="headerlink" title="@Override"></a><a name="override"></a>@Override</h2><p>컴파일러에게 오버라이딩하는 메서드임을 알리는 애노테이션이다.</p>
+<p>생략해도 문제는 없지만, <code>@Override</code>를 사용함으로써 오버라이딩이 제대로 적용되었는지를 컴파일러로부터 체크받을수 있기때문에 사용하는것이 좋다.</p>
+<h2 id="Deprecated"><a href="#Deprecated" class="headerlink" title="@Deprecated"></a><a name="deprecated"></a>@Deprecated</h2><p>앞으로 사용하지 않은 대상이라고 알리는 애노테이션이다. </p>
+<h2 id="SuppressWarnings"><a href="#SuppressWarnings" class="headerlink" title="@SuppressWarnings()"></a><a name="suppresswarnings"></a>@SuppressWarnings()</h2><p>컴파일러의 경고메세지가 나타나지 않게 해주는 애노테이션이다. 작은 범위에서 사용해야 한다.</p>
+<p><code>@SuppressWarnings()</code> 애노테이션으로 억제할 수 있는 경고 메세지의 종류는 다음과 같다.</p>
+<table>
+<thead>
+<tr>
+<th>경고 메세지</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>deprecation</td>
+<td>@Deprecated 애노테이션이 붙은 대상(필드, 메서드)를 사용해서 발생하는 경고를 억제한다.</td>
+</tr>
+<tr>
+<td>unchecked</td>
+<td>제네릭으로 타입 지정을 하지 않았을때 발생하는 경고를 억제한다.</td>
+</tr>
+<tr>
+<td>rawtypes</td>
+<td>제네릭을 사용하지 않아서 발생하는 경고를 억제한다.</td>
+</tr>
+<tr>
+<td>varargs</td>
+<td>가변인자의 타입이 제네릭 타입일때 발생하는 경고를 억제한다.</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p> 가변인자란, 파라미터를 가변적으로 조정할 수 있는 기술을 의미한다.<br>가변인자를 사용해서 인자로 들어오는 int형 배열의 요소 합을 반환하는 메서드 예제코드이다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">addNumbers</span><span class="params">(<span class="keyword">int</span>[] ... numbers)</span></span>&#123;</span><br><span class="line">   <span class="keyword">int</span> result = <span class="number">0</span>; </span><br><span class="line">   <span class="keyword">for</span>(<span class="keyword">int</span> num : numbers)&#123;</span><br><span class="line">      result += num;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>여러개의 경고 메세지를 억제하고 싶다면, 배열처럼 파라미터에 경고 메세지를 담으면 된다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SuppressWarnings(&#123;&quot;deprecation&quot;, &quot;unchecked&quot;&#125;)</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="FunctionalInterface"><a href="#FunctionalInterface" class="headerlink" title="@FunctionalInterface"></a><a name="functionalinterface"></a>@FunctionalInterface</h2><p>함수형 인터페이스라는 것을 알린다. 애노테이션을 사용함으로써 컴파일러가 함수형 인터페이스를 올바르게 선언했는지 체크해준다.</p>
+<p>이 애노테이션을 사용하기 위해서는 <b><u>대상이 되는 추상메서드가 반드시 하나</u></b>뿐이어야 한다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FuntionalInterface</span></span><br><span class="line"><span class="keyword">public</span> interfcae Runnable &#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="SafeVarargs"><a href="#SafeVarargs" class="headerlink" title="@SafeVarargs"></a><a name="safevarargs"></a>@SafeVarargs</h2><p>가변 이자의 타입이 non-reliable 타입일 경우, 해당 메서드를 선언하는 부분과 호출하는 부분에서 unchecked 경고가 발생한다. 이 때 이 코드가 문제가 없다면 이 경고를 억제하기 위해 <code>@SafeVarargs</code>를 사용한다.</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/109913580-9b560300-7cf1-11eb-9301-9c74b8af0164.png"></p>
+<h2 id="Native"><a href="#Native" class="headerlink" title="@Native"></a><a name="native"></a>@Native</h2><p>native 메서드에서 참조되는 상수 앞에 붙힌다.</p>
+<blockquote>
+<p>Native Method란 C, C++같은 네이티브 언어로 작성된 메서드를 말한다.<br>이런 native 메서드를 호출하는 기술을 JIN(Java Native Interface)라고 한다.</p>
+</blockquote>
+<p>출처 : <a target="_blank" rel="noopener" href="https://madplay.github.io/post/use-native-methods-judiciously">Kimtaeng - [이펙티브 자바 3판] 아이템 66. 네이티브 메서드는 신중히 사용하라</a></p>
+<hr><br>
+
+<p>여기부터는 메타 에노테이션 목록이다. </p>
+<p>메타 애노테이션이란, 애노테이션을 위한 애노테이션을 의미한다. 애노테이션의 대상(target)이나 유지기간(retention)을 지정하는데 사용된다.</p>
+<h2 id="Target"><a href="#Target" class="headerlink" title="@Target"></a><a name="target"></a>@Target</h2><p>애노테이션이 적용가능한 대상을 지정하는데 사용한다.</p>
+<p><code>@SuppressWarnings</code>를 정의한 코드이다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target(&#123;TYPE, FIELD, METHOD, PARAMETER, CONSTRUCTOR, LOCAL_VARIABLE&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.SOURCE)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> SuppressWarnings &#123;</span><br><span class="line">   String[] value();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Retention"><a href="#Retention" class="headerlink" title="@Retention"></a><a name="retention"></a>@Retention</h2><p>애노테이션이 유지되는 기간을 지정할때 사용한다.</p>
+<table>
+<thead>
+<tr>
+<th>유지정책</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SOURCE</td>
+<td>소스 파일에만 존재, 클래스 파일에는 존재하지 않는다. <br>컴파일러에서 사용하는 애노테이션의 유지 정책이다.</td>
+</tr>
+<tr>
+<td>CLASS</td>
+<td>클래스 파일에 존재, 실행시에 사용불가하다. 기본값이다.<br>컴파일러가 애노테이션의 정보를 클래스 파일에 저장할 수 있게하지만, 클래스 파일이 JVM에 로딩될때 애노테이션의 정보가 무시되어 실행 시에 애노테이션에 대한 정보를 얻을 수 없다.</td>
+</tr>
+<tr>
+<td>RUNTIME</td>
+<td>클래스 파일에 존재, 실행시에 사용가능하다.<br>실행시에 리플렉션(reflection)을 통해 클래스 파일에 저장된 애노테이션의 정보를 읽어서 처리할 수 있다.</td>
+</tr>
+</tbody></table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target(ElementType.METHOD)</span></span><br><span class="line"><span class="meta">@Retention(RetenPolicy.SOURCE)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Override &#123; &#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>@Override</code>는 소스 파일에만 존재하고, 클래스 파일에는 존재하지 않는다. 클래스 파일이 없다는건 JVM에서 관리하지 않는다는 것으로 이해하고 있다.<br>이와같은 애노테이션으로는 <code>@SuppressWarnings</code>가 있다.</p>
+<p>지역변수에 붙는 애노테이션은 컴파일러만 인식하므로 유지정책이 <code>RUNTIME</code> 이어도 실행시에 유지되지 않는다.</p>
+<h2 id="Documented"><a href="#Documented" class="headerlink" title="@Documented"></a><a name="documented"></a>@Documented</h2><p>애노테이션에 대한 정보가 javadoc으로 작성한 문서에 포함되도록 한다. 자바에서 제공하는 기본 애노테이션 중 <code>@Override</code>와 <code>@SuppressWarnings</code>를 제외하고 모두 이 메타 애노테이션이 붙는다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Target(ElementType.TYPE)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> FunctionalInterface()&#123; &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Inherited"><a href="#Inherited" class="headerlink" title="@Inherited"></a><a name="inherited"></a>@Inherited</h2><p>애노테이션이 자손 클래스에 상속되도록 하는 애노테이션이다. 애노테이션에 <code>@inherited</code>를 사용하면, 이를 상속받는 클래스에도 해당 애노테이션이 상속된다.</p>
+<p><code>@Inherited</code>는 클래스나 메서드가 아니라 애노테이션을 정의하는 영역에서 사용하는 애노테이션이다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Inherited</span></span><br><span class="line"><span class="meta">@interface</span> SupperAnno &#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@SuperAnno</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Parent</span> </span>&#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Parent</span> </span>&#123; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>Child 클래스엔 애노테이션이 없지만, 부모 클래스 Parent의 <code>@SuperAnno</code>가 <code>@Inherited</code>를 메타 애노테이션을 갖으므로 자식 클래스인 Child 클래스에도 <code>@SupperAnno</code>가 상속된다.</p>
+<br>
+
+<h1 id="애노테이션-프로세서"><a href="#애노테이션-프로세서" class="headerlink" title="애노테이션 프로세서"></a><a name="annotation-processor"></a>애노테이션 프로세서</h1><p>애노테이션 프로세싱은 Java 5 에서 추가된 기술로서 컴파일 타임에서 <b><u>사용자가 정의한 어노테이션의 코드를 분석하고 처리</u></b>하기 위해 사용되는 훅(Hook)이다.</p>
+<p><a target="_blank" rel="noopener" href="https://projectlombok.org/">Lombok</a>이 이를 활용한 대표적인 라이브러리이다.</p>
+<p>애노테이션 프로세싱은 추가적으로 학습이 더 필요할것 같다.</p>
+<br>
+        </div>
+    </div>
+	<div class="ads" style="margin-top: 10px;margin-bottom:10px;">
+		<script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+	new PartnersCoupang.G({"id":434728,"template":"carousel","trackingCode":"AF1391980","width":"100%","height":"100"});
+</script>
+	</div>
+	<footer class="article-footer">
+		<script src="https://utteranc.es/client.js"
+        repo="youngjinmo/githubpages-comment"
+        issue-term="url"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+	</footer>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Youngjin Mo"
+        },
+        "headline": "Live Study 12주차 - Annotation",
+        "image": "../../../http:/youngjinmo.github.iohttps:/i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg",
+        "keywords": "annotation whiteship",
+        "genre": "Dev Java",
+        "datePublished": "2021-03-04",
+        "dateCreated": "2021-03-04",
+        "dateModified": "2021-03-04",
+        "url": "../../../http:/youngjinmo.github.io/2021/03/livestudy-week-12/",
+        "description": "
+
+애노테이션 정의하는 방법
+자바 표준 애노테이션
+@Override
+@Deprecated
+@SuppressWarnings
+@FunctionalInterface
+@SafeVarargs
+@Native
+@Target
+@Retention
+@Documented
+@Inherited
+
+
+애노테이션 프로세서
+
+
+
+애노테이션 정의하는 방법Enum과 함께 Java 1.5에 ",
+        "wordCount": 783
+    }
+</script>
+
+</article>
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="../../../https:/twitter.com/devandy_yj" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="../../../https:/github.com/youngjinmo" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../atom.xml" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="../livestudy-week-11/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Live Study 11주차 - Enum</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg)" alt="Live Study 12주차 - Annotation" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="" class="title">Live Study 12주차 - Annotation</a></p>
+                            <p class="item-date"><time datetime="2021-03-03T20:55:38.000Z" itemprop="datePublished">2021-03-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../livestudy-week-11/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg)" alt="Live Study 11주차 - Enum" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../livestudy-week-11/" class="title">Live Study 11주차 - Enum</a></p>
+                            <p class="item-date"><time datetime="2021-03-02T00:15:07.000Z" itemprop="datePublished">2021-03-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../livestudy-week-14/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg)" alt="Live Study 14주차 - 제네릭" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../livestudy-week-14/" class="title">Live Study 14주차 - 제네릭</a></p>
+                            <p class="item-date"><time datetime="2021-03-01T08:55:00.000Z" itemprop="datePublished">2021-03-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../02/livestudy-week-09/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg)" alt="Live Study 9주차 - 예외 처리" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../../02/livestudy-week-09/" class="title">Live Study 9주차 - 예외 처리</a></p>
+                            <p class="item-date"><time datetime="2021-02-25T01:33:23.000Z" itemprop="datePublished">2021-02-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../02/url/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/33862991/108665519-70f98e00-7518-11eb-80ca-2dcacfd1c4a7.png)" alt="URL 간단히 알아보기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Web/">Web</a></p>
+                            <p class="item-title"><a href="../../02/url/" class="title">URL 간단히 알아보기</a></p>
+                            <p class="item-date"><time datetime="2021-02-21T20:18:28.000Z" itemprop="datePublished">2021-02-22</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../tags/BufferedReader/" style="font-size: 10px;">BufferedReader</a> <a href="../../../tags/BufferedWriter/" style="font-size: 10px;">BufferedWriter</a> <a href="../../../tags/IO/" style="font-size: 10px;">IO</a> <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/String/" style="font-size: 10px;">String</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 10.91px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/annotation/" style="font-size: 10.91px;">annotation</a> <a href="../../../tags/api/" style="font-size: 10px;">api</a> <a href="../../../tags/architecture/" style="font-size: 10px;">architecture</a> <a href="../../../tags/array/" style="font-size: 10.91px;">array</a> <a href="../../../tags/aws/" style="font-size: 11.82px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blacklivesmatter/" style="font-size: 10px;">blacklivesmatter</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 11.82px;">career</a> <a href="../../../tags/casting/" style="font-size: 13.64px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/cloud/" style="font-size: 11.82px;">cloud</a> <a href="../../../tags/contribution/" style="font-size: 10px;">contribution</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/coupang/" style="font-size: 10px;">coupang</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/databse/" style="font-size: 10px;">databse</a> <a href="../../../tags/datastructure/" style="font-size: 11.82px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 14.55px;">docker</a> <a href="../../../tags/documentation/" style="font-size: 10px;">documentation</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enum/" style="font-size: 10px;">enum</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 11.82px;">error</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/formatting/" style="font-size: 10px;">formatting</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generics/" style="font-size: 10.91px;">generics</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 12.73px;">github</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 15.45px;">http</a> <a href="../../../tags/ide/" style="font-size: 10.91px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 11.82px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 10.91px;">interface</a> <a href="../../../tags/investment/" style="font-size: 10.91px;">investment</a> <a href="../../../tags/io/" style="font-size: 11.82px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 16.36px;">java</a> <a href="../../../tags/java5/" style="font-size: 10px;">java5</a> <a href="../../../tags/java8/" style="font-size: 10.91px;">java8</a> <a href="../../../tags/javascript/" style="font-size: 14.55px;">javascript</a> <a href="../../../tags/javscript/" style="font-size: 10px;">javscript</a> <a href="../../../tags/jquery/" style="font-size: 10.91px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/junit/" style="font-size: 10px;">junit</a> <a href="../../../tags/jvm/" style="font-size: 11.82px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 10.91px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/license/" style="font-size: 10px;">license</a> <a href="../../../tags/livereload/" style="font-size: 10px;">livereload</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 10.91px;">mustache</a> <a href="../../../tags/mybatis/" style="font-size: 10.91px;">mybatis</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 17.27px;">oop</a> <a href="../../../tags/operator/" style="font-size: 10px;">operator</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/privacy/" style="font-size: 10px;">privacy</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/readme/" style="font-size: 10px;">readme</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 11.82px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 12.73px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 18.18px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/string/" style="font-size: 15.45px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/terminal/" style="font-size: 10px;">terminal</a> <a href="../../../tags/tip/" style="font-size: 16.36px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 19.09px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 10.91px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/vue/" style="font-size: 10px;">vue</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 18.18px;">weekly-review</a> <a href="../../../tags/whiteship/" style="font-size: 17.27px;">whiteship</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+	<div class="ads">
+		<a target="_blank" rel="noopener" href="http://bit.ly/donatemozila_devnady">
+	<img src="https://user-images.githubusercontent.com/33862991/106721036-7b2a1a00-6647-11eb-9722-30275f20b4ba.png" style="width: 100%; display:block; margin-left: auto; margin-right: auto;">
+</a>
+		<a target="_blank" rel="noopener" href="http://bit.ly/livesmarter_devandy">
+	<img src="https://user-images.githubusercontent.com/33862991/106847989-5be8c680-66f3-11eb-9dd3-fd17c8a1009f.jpg" style="width: 250px; display:block; margin-left: auto; margin-right: auto; margin-top: 20px;">
+</a>
+	</div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2021 Youngjin Mo</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+    
+        
+<script src="../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="../../../js/main.js"></script>
+
+
+</body>
+</html>

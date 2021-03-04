@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-03-02T09:19:55.256Z</updated>
+  <updated>2021-03-04T06:03:41.663Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -17,11 +17,43 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Live Study 12주차 - Annotation</title>
+    <link href="http://youngjinmo.github.io/2021/03/livestudy-week-12/"/>
+    <id>http://youngjinmo.github.io/2021/03/livestudy-week-12/</id>
+    <published>2021-03-03T20:55:38.000Z</published>
+    <updated>2021-03-04T06:03:41.663Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#annotation&quot;&gt;애노테이션 정의하는 방법&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+    <category term="annotation" scheme="http://youngjinmo.github.io/tags/annotation/"/>
+    
+    <category term="whiteship" scheme="http://youngjinmo.github.io/tags/whiteship/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Live Study 11주차 - Enum</title>
     <link href="http://youngjinmo.github.io/2021/03/livestudy-week-11/"/>
     <id>http://youngjinmo.github.io/2021/03/livestudy-week-11/</id>
     <published>2021-03-02T00:15:07.000Z</published>
-    <updated>2021-03-02T09:19:55.256Z</updated>
+    <updated>2021-03-04T02:28:09.781Z</updated>
     
     
       
@@ -53,7 +85,7 @@
     <link href="http://youngjinmo.github.io/2021/03/livestudy-week-14/"/>
     <id>http://youngjinmo.github.io/2021/03/livestudy-week-14/</id>
     <published>2021-03-01T08:55:00.000Z</published>
-    <updated>2021-03-01T20:07:42.543Z</updated>
+    <updated>2021-03-04T04:50:23.679Z</updated>
     
     
       
@@ -75,6 +107,8 @@
     
     
     <category term="whiteship" scheme="http://youngjinmo.github.io/tags/whiteship/"/>
+    
+    <category term="generics" scheme="http://youngjinmo.github.io/tags/generics/"/>
     
   </entry>
   
@@ -590,38 +624,6 @@
     
     
     <category term="annotation" scheme="http://youngjinmo.github.io/tags/annotation/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Live Study 1주차 - JVM은 무엇이며 자바 코드는 어떻게 실행하는 것인가</title>
-    <link href="http://youngjinmo.github.io/2021/01/livestudy-week-01/"/>
-    <id>http://youngjinmo.github.io/2021/01/livestudy-week-01/</id>
-    <published>2021-01-04T05:50:50.000Z</published>
-    <updated>2021-01-23T04:59:10.151Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#jvm-definition&quot;&gt;JVM이란 무엇인가&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
-    
-    
-    <category term="jvm" scheme="http://youngjinmo.github.io/tags/jvm/"/>
-    
-    <category term="whiteship" scheme="http://youngjinmo.github.io/tags/whiteship/"/>
     
   </entry>
   
