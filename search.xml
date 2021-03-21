@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>디미터 법칙(Law of Demeter)</title>
+      <link href="2021/03/law-of-demeter/"/>
+      <url>2021/03/law-of-demeter/</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://user-images.githubusercontent.com/33862991/111910191-b2437600-8aa3-11eb-997a-b37de936e1c5.jpg"></p><p>클린코드과정에서 코드리뷰를 통해 알게된 원칙이다. 흥미로운 원칙이기도 하고, <a href="https://woowacourse.github.io/javable/post/2020-06-02-law-of-demeter/">우아한 테크코스 기술블로그</a>에서 심플하게 잘 정리해주셔서 정리해보았다. </p><hr><p>객체간 결합도가 높아지게 될 경우 객체에 변경사항이 발생할 경우, 코드 곳곳에서 문제가 발생할 수 있다. 이는 유지보수의 어려움을 야기하게 된다. </p><p>디미터 법칙은 이런 문제를 지양하고자 하는 <strong>객체간 결합도를 낮추는 원칙</strong>이다.</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MyMethod</span><span class="params">(<span class="keyword">int</span> length)</span></span>&#123;</span><br><span class="line">   <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;length; i++)&#123;</span><br><span class="line">      play.cars().getCar(i)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>이런 코드는 디미터 법칙을 위반하는 코드이다. 아래처럼 수정해야한다.</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MyMethod</span><span class="params">(<span class="keyword">int</span> length)</span></span>&#123;</span><br><span class="line">   <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;length; i++)&#123;</span><br><span class="line">      play.car(i)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>그래서 디미터 법칙을 <strong>한 줄에 점 하나만 찍는다</strong> 라고 요약한다.</p><h2 id="멀리-있는-객체에게는-메세지를-보내지-마라"><a href="#멀리-있는-객체에게는-메세지를-보내지-마라" class="headerlink" title="멀리 있는 객체에게는 메세지를 보내지 마라"></a>멀리 있는 객체에게는 메세지를 보내지 마라</h2><p>한 줄에서 메서드를 하나만 호출하라는 이야기는 곧 객체간 관계에서 멀리있는 객체에게 메세지를 전달하지 말라는 이야기이기도 하다. </p><p>이 이야기는 <strong>객체는 내부적으로 보유하고 있거나 메세지를 통해 확보한 정보만 가지고 행동을 결정</strong>해야한다고 정리할 수 있다. <strong>다른 객체를 탐색해서 어떤 행동을 하는 것은 지양</strong>해야 한다고 한다.</p><p>그래서 디미터 법칙은 한 객체가 알야아 하는 다른 객체를 최소한으로 유지한다는 측면에서 최소 지식 원칙(Principle of least knowleadge)라고도 한다.</p><h2 id="디미터-법칙에서-호출할-수-있는-메서드들"><a href="#디미터-법칙에서-호출할-수-있는-메서드들" class="headerlink" title="디미터 법칙에서 호출할 수 있는 메서드들"></a>디미터 법칙에서 호출할 수 있는 메서드들</h2><ul><li>객체 자신의 메서드</li><li>파라미터로 넘어온 객체의 메서드</li><li>메서드 내부에서 생성, 초기화된 객체의 메서드</li><li>인스턴스 변수로 갖고있는 객체의 메서드</li></ul><p>위의 메서드들에 대한 코드이다.</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demeter</span> </span>&#123;</span><br><span class="line">   <span class="keyword">private</span> Member member;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">myMethod</span><span class="params">(OtherObject other)</span> </span>&#123;</span><br><span class="line">      <span class="comment">// ...</span></span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">okLawOfDemeter</span><span class="params">(Paramemter param)</span> </span>&#123;</span><br><span class="line">      myMethod();     <span class="comment">// 1. 객체 자신의 메서드</span></span><br><span class="line">      param.paramMethod();    <span class="comment">// 2. 메서드의 파라미터로 넘어온 객체들의 메서드</span></span><br><span class="line">      Local local = <span class="keyword">new</span> Local();</span><br><span class="line">      local.localMethod();    <span class="comment">// 3. 메서드 내부에서 생성, 초기화된 객체의 메서드</span></span><br><span class="line">      member.memberMethod();   <span class="comment">// 4. 인스턴스 변수로 가지고 있는 객체가 소유한 메서드</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>출처 :  <a href="https://woowacourse.github.io/javable/post/2020-06-02-law-of-demeter/">Javable - 디미터 법칙(Law of Demeter)</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Dev </category>
+          
+          <category> Others </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> clean code </tag>
+            
+            <tag> oop </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Live Study 12주차 - Annotation</title>
       <link href="2021/03/livestudy-week-12/"/>
       <url>2021/03/livestudy-week-12/</url>

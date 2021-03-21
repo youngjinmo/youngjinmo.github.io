@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-03-04T06:03:41.663Z</updated>
+  <updated>2021-03-21T15:22:22.600Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>디미터 법칙(Law of Demeter)</title>
+    <link href="http://youngjinmo.github.io/2021/03/law-of-demeter/"/>
+    <id>http://youngjinmo.github.io/2021/03/law-of-demeter/</id>
+    <published>2021-03-21T06:20:36.000Z</published>
+    <updated>2021-03-21T15:22:22.600Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/111910191-b2437600-8aa3-11eb-997a-b37de936e1c5.jpg&quot;&gt;&lt;/p&gt;
+&lt;p&gt;클린코드과정에서 코드리뷰를 통해 알게된</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Others" scheme="http://youngjinmo.github.io/categories/Dev/Others/"/>
+    
+    
+    <category term="clean code" scheme="http://youngjinmo.github.io/tags/clean-code/"/>
+    
+    <category term="oop" scheme="http://youngjinmo.github.io/tags/oop/"/>
+    
+  </entry>
   
   <entry>
     <title>Live Study 12주차 - Annotation</title>
@@ -596,34 +626,6 @@
     <category term="springboot" scheme="http://youngjinmo.github.io/tags/springboot/"/>
     
     <category term="mybatis" scheme="http://youngjinmo.github.io/tags/mybatis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Spring에서 URL로 파라미터를 받는 방법 2가지</title>
-    <link href="http://youngjinmo.github.io/2021/01/spring-request-parameter/"/>
-    <id>http://youngjinmo.github.io/2021/01/spring-request-parameter/</id>
-    <published>2021-01-10T05:19:53.000Z</published>
-    <updated>2021-02-03T09:27:43.858Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/104125838-b1ec7780-539c-11eb-8e7c-26ac78f2978b.jpeg&quot;&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Spring" scheme="http://youngjinmo.github.io/categories/Dev/Spring/"/>
-    
-    
-    <category term="annotation" scheme="http://youngjinmo.github.io/tags/annotation/"/>
     
   </entry>
   
