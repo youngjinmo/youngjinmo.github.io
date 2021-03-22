@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-03-21T15:22:22.600Z</updated>
+  <updated>2021-03-22T05:37:21.289Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Gitignore 새로 반영하기</title>
+    <link href="http://youngjinmo.github.io/2021/03/apply-new-gitignore/"/>
+    <id>http://youngjinmo.github.io/2021/03/apply-new-gitignore/</id>
+    <published>2021-03-21T20:36:00.000Z</published>
+    <updated>2021-03-22T05:37:21.289Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/111944820-d5aa0780-8b1b-11eb-9a44-f604ed1f4a97.jpg&quot;&gt;&lt;/p&gt;
+&lt;p&gt;이미 변경관리에 의해 관리되고 있는 파일이라면</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Git" scheme="http://youngjinmo.github.io/categories/Dev/Git/"/>
+    
+    
+    <category term="tutorial" scheme="http://youngjinmo.github.io/tags/tutorial/"/>
+    
+    <category term="gitignore" scheme="http://youngjinmo.github.io/tags/gitignore/"/>
+    
+  </entry>
   
   <entry>
     <title>디미터 법칙(Law of Demeter)</title>
@@ -590,42 +620,6 @@
     <category term="casting" scheme="http://youngjinmo.github.io/tags/casting/"/>
     
     <category term="whiteship" scheme="http://youngjinmo.github.io/tags/whiteship/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SpringBoot + MyBatis + Oracle(with Docker) CRUD 구현해보기</title>
-    <link href="http://youngjinmo.github.io/2021/01/springboot-mybatis-oracle2/"/>
-    <id>http://youngjinmo.github.io/2021/01/springboot-mybatis-oracle2/</id>
-    <published>2021-01-10T06:02:13.000Z</published>
-    <updated>2021-02-03T09:22:01.517Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/97108403-a8922e00-1710-11eb-9e42-b093ed1857d8.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Spring" scheme="http://youngjinmo.github.io/categories/Dev/Spring/"/>
-    
-    
-    <category term="oracle" scheme="http://youngjinmo.github.io/tags/oracle/"/>
-    
-    <category term="tutorial" scheme="http://youngjinmo.github.io/tags/tutorial/"/>
-    
-    <category term="docker" scheme="http://youngjinmo.github.io/tags/docker/"/>
-    
-    <category term="springboot" scheme="http://youngjinmo.github.io/tags/springboot/"/>
-    
-    <category term="mybatis" scheme="http://youngjinmo.github.io/tags/mybatis/"/>
     
   </entry>
   

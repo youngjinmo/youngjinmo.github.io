@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>Gitignore 새로 반영하기</title>
+      <link href="2021/03/apply-new-gitignore/"/>
+      <url>2021/03/apply-new-gitignore/</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://user-images.githubusercontent.com/33862991/111944820-d5aa0780-8b1b-11eb-9a44-f604ed1f4a97.jpg"></p><p>이미 변경관리에 의해 관리되고 있는 파일이라면 이후에 gitignore에 추가하더라도 변경관리에서 계속 추적이 될 수 있다. 이 때 gitignore를 변경관리에 적용하기 위해서는 변경관리가 추적중인 캐시 파일을 삭제하고 새로 올려야 한다. 이 방법을 정리해보았다.</p><img src="https://user-images.githubusercontent.com/33862991/111943978-f8d3b780-8b19-11eb-84c0-3212f5b2f117.png" style="zoom:50%;" /><p>gitignore에 application.properties 파일을 무시하도록 추가해두었지만, <code>git status</code> 를 조회해보면 여전히 변경관리에 의해 추적되고 있음을 알 수 있다.</p><p><img src="https://user-images.githubusercontent.com/33862991/111943982-fa9d7b00-8b19-11eb-9921-3abbeaf0d437.png"></p><p>변경관리가 추적하고 있는 캐시를 삭제하고 새로 만들어야 변경관리가 gitignore를 새롭게(?) 적용할 수 있다.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm -r --cached .</span><br></pre></td></tr></table></figure><p><img src="https://user-images.githubusercontent.com/33862991/111943986-fbcea800-8b19-11eb-9860-b6aac5479a60.png"></p><p><img src="https://user-images.githubusercontent.com/33862991/111943987-fcffd500-8b19-11eb-9eef-76aa4ec0c37c.png"></p><p>이 상태에서 모든 변경사항을 다시 add 하고 commit을 생성하면 이후부터는 gitignore 파일을 변경관리가 제대로 인식하고 추적하기 시작한다.</p><p>출처 : <a href="https://git-scm.com/docs/git-rm">Git -rm</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Dev </category>
+          
+          <category> Git </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> tutorial </tag>
+            
+            <tag> gitignore </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>디미터 법칙(Law of Demeter)</title>
       <link href="2021/03/law-of-demeter/"/>
       <url>2021/03/law-of-demeter/</url>
