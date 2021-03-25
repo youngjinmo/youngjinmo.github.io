@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://lh3.googleusercontent.com/pw/ACtC-3epNTvVcqt_yUGAWuMtMoi55gBkx1SGwoMgnW0RZ7_mS_XupcooKE8d7FrcxgcYBnJ8GpWhOWOrK_TsCBmiIb_nIHseUWK5pQhrg2N_kP6loYwgus4NmeVl_GSHVh9XDTkQy7g9V6PVN-C67THENYdN8A=w914-h571-no?authuser=0">
 <meta property="article:published_time" content="2020-06-18T11:29:48.000Z">
-<meta property="article:modified_time" content="2021-01-06T07:04:03.569Z">
+<meta property="article:modified_time" content="2021-03-25T07:36:35.324Z">
 <meta property="article:author" content="Youngjin Mo">
 <meta property="article:tag" content="architecture">
 <meta property="article:tag" content="rest">
@@ -205,7 +205,7 @@ ga('send', 'pageview');
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="" class="article-date">
-     <time datetime="2021-01-06T07:04:03.569Z" itemprop="dateModified">2021-01-06</time>
+     <time datetime="2021-03-25T07:36:35.324Z" itemprop="dateModified">2021-03-25</time>
   </a>
 </div>
 
@@ -214,7 +214,7 @@ ga('send', 'pageview');
 
 				<!-- 	count-time		 -->
 				<span class="reading-time" style="margin-left: 20px;">
-					⏱ 6 min.
+					⏱ 7 min.
 				</span>
                 
     <div class="article-tag">
@@ -267,11 +267,11 @@ ga('send', 'pageview');
 </ul>
 </li>
 <li><strong>무상태성 (Stateless)</strong><ul>
-<li>세션, 쿠키없이 HTTP로만 독릭적으로 통신이 가능해야한다.</li>
+<li>세션, 쿠키없이 HTTP로만 독립적으로 통신이 가능해야한다.</li>
 </ul>
 </li>
 <li><strong>캐시가능 (Cacheable)</strong><ul>
-<li>REST의 가장 큰 특징 중 하나는 HTTP라는 기존 웹 표준을 그대로 사용하기 때문에 웹에서 사용하는 기존 인프라를 그대로 활용이 가능하다는 점이다. 따라서 HTTP가 가진 캐싱을 적용가능하다.</li>
+<li>REST의 가장 큰 특징 중 하나는 HTTP라는 기존 웹 표준을 그대로 사용하기 때문에 웹에서 사용하는 기존 인프라를 그대로 활용이 가능하다는 점이다. 따라서 HTTP가 가진 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/ko/docs/Web/HTTP/Caching">캐싱</a>을 적용가능하다.</li>
 </ul>
 </li>
 <li><strong>자체 표현구조 (Self-descriptiveness)</strong><ul>
@@ -303,30 +303,37 @@ ga('send', 'pageview');
 
 
 <p>URI 설계를 직관적으로 하기 위해서는 HTTP 메서드를 용도에 맞게 사용할 수 있어야 한다. 아래의 테이블은 간단한 CRUD를 구현하는 HTTP 메서드이다.</p>
+<style>
+table {  
+    border: 1px solid black;
+}
+td, th {
+    border: 2px solid black;
+}
+</style>
 <table>
-<thead>
-<tr>
-<th>method</th>
-<th>description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>GET</td>
-<td>리소스를 조회한다. 리소스를 조회하고 해당 도큐먼트에 대한 자세한 정보를 가져온다.</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>해당 URI를 요청하면 리소스를 생성한다.</td>
-</tr>
-<tr>
-<td>PUT</td>
-<td>리소스를 수정한다.</td>
-</tr>
-<tr>
-<td>DELETE</td>
-<td>리소스를 삭제한다.</td>
-</tr>
-</tbody></table>
+    <tr style="border: 2px solid black;">
+        <th>method</th>
+        <th>description</th>
+    </tr>
+    <tr>
+        <td>GET</td>
+        <td>리소스를 조회한다. 리소스를 조회하고 해당 도큐먼트에 대한 자세한 정보를 가져온다.</td>
+    </tr>
+    <tr>
+        <td>POST</td>
+        <td>해당 URI를 요청하면 리소스를 생성한다.</td>
+    </tr>
+    <tr>
+        <td>PUT</td>
+        <td>리소스를 수정한다.</td>
+    </tr>
+    <tr>
+        <td>DELETE</td>
+        <td>리소스를 삭제한다.</td>
+    </tr>
+</table>
+
 <br>
 
 <h3 id="URI-작성규칙"><a href="#URI-작성규칙" class="headerlink" title="URI 작성규칙"></a>URI 작성규칙</h3><p>RESTful API를 위한 URI 작성 규칙은 다음과 같다.</p>
@@ -436,7 +443,7 @@ PHP 개발자인 Lorna Mitchell이 작성한 *당신의 API가 RESTful 하지 �
         "genre": "Dev Web",
         "datePublished": "2020-06-18",
         "dateCreated": "2020-06-18",
-        "dateModified": "2021-01-06",
+        "dateModified": "2021-03-25",
         "url": "../../../http:/youngjinmo.github.io/2020/06/rest-api/",
         "description": "
 회사에서 REST에 대한 강의를 들을 기회가 있어, 강의를 듣고 정리해보았다.
@@ -452,7 +459,7 @@ REST 약점
 
 
 RESTREST를 한 문장으로 정의하면, REST는 HTTP 프로토콜을 사",
-        "wordCount": 747
+        "wordCount": 891
     }
 </script>
 
