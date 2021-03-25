@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://lh3.googleusercontent.com/pw/ACtC-3epNTvVcqt_yUGAWuMtMoi55gBkx1SGwoMgnW0RZ7_mS_XupcooKE8d7FrcxgcYBnJ8GpWhOWOrK_TsCBmiIb_nIHseUWK5pQhrg2N_kP6loYwgus4NmeVl_GSHVh9XDTkQy7g9V6PVN-C67THENYdN8A=w914-h571-no?authuser=0">
 <meta property="article:published_time" content="2020-06-18T11:29:48.000Z">
-<meta property="article:modified_time" content="2021-03-25T07:36:35.324Z">
+<meta property="article:modified_time" content="2021-03-25T08:21:19.115Z">
 <meta property="article:author" content="Youngjin Mo">
 <meta property="article:tag" content="architecture">
 <meta property="article:tag" content="rest">
@@ -205,7 +205,7 @@ ga('send', 'pageview');
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="" class="article-date">
-     <time datetime="2021-03-25T07:36:35.324Z" itemprop="dateModified">2021-03-25</time>
+     <time datetime="2021-03-25T08:21:19.115Z" itemprop="dateModified">2021-03-25</time>
   </a>
 </div>
 
@@ -304,33 +304,42 @@ ga('send', 'pageview');
 
 <p>URI 설계를 직관적으로 하기 위해서는 HTTP 메서드를 용도에 맞게 사용할 수 있어야 한다. 아래의 테이블은 간단한 CRUD를 구현하는 HTTP 메서드이다.</p>
 <style>
-table {  
-    border: 1px solid black;
-}
-td, th {
+  #method-desc tr {
+    word-break: keep-all;
+  }
+  #method-desc tr th {
     border: 2px solid black;
-}
+  }
+  #method-desc tr td {
+    border: 1px solid black;
+  }
+  .methods {
+       text-align: center;
+  }
+  .desc {
+    padding-left: 20px;
+  }
 </style>
-<table>
-    <tr style="border: 2px solid black;">
-        <th>method</th>
-        <th>description</th>
+<table id="method-desc">
+    <tr>
+        <th style="width: 15%; text-align: center;">methods</th>
+        <th style="text-align: center;">description</th>
     </tr>
     <tr>
-        <td>GET</td>
-        <td>리소스를 조회한다. 리소스를 조회하고 해당 도큐먼트에 대한 자세한 정보를 가져온다.</td>
+        <td class="methods">GET</td>
+        <td class="desc">리소스를 조회한다. 리소스를 조회하고 해당 도큐먼트에 대한 자세한 정보를 가져온다.</td>
     </tr>
     <tr>
-        <td>POST</td>
-        <td>해당 URI를 요청하면 리소스를 생성한다.</td>
+        <td class="methods">POST</td>
+        <td class="desc">해당 URI를 요청하면 리소스를 생성한다.</td>
     </tr>
     <tr>
-        <td>PUT</td>
-        <td>리소스를 수정한다.</td>
+        <td class="methods">PUT</td>
+        <td class="desc">리소스를 수정한다.</td>
     </tr>
     <tr>
-        <td>DELETE</td>
-        <td>리소스를 삭제한다.</td>
+        <td class="methods">DELETE</td>
+        <td class="desc">리소스를 삭제한다.</td>
     </tr>
 </table>
 
@@ -459,7 +468,7 @@ REST 약점
 
 
 RESTREST를 한 문장으로 정의하면, REST는 HTTP 프로토콜을 사",
-        "wordCount": 891
+        "wordCount": 945
     }
 </script>
 
