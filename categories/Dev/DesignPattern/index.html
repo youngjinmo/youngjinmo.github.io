@@ -6,26 +6,20 @@
     
 
     
-    <title>Github - SSH 등록하기 | DevAndy - 개발자앤디의 개발블로그</title>
+    <title>Category: DesignPattern | DevAndy - 개발자앤디의 개발블로그</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="" />
-    
-    <meta name="description" content="이전에 작성한 쉘에서 SSH 키를 생성한 후, 이를 Github에 저장해서 사용하는 방식이다. 위키백과에 의하면, SSH(Secure Shell)는 네트워크 상의 다른 컴퓨터에 로그인하거나 Github과 같은 원격 시스템에 명령을 실행하고 다른 시스템으로 파일을 복사할 수 있는 프로토콜이라고 한다. SSH는 암호화되어 통신하기 때문에 통신이 노출되더라도">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Github - SSH 등록하기">
-<meta property="og:url" content="http://youngjinmo.github.io/2020/02/github-ssh/index.html">
+    <meta name="description" content="개발자앤디가 되어가는 과정을 기록하는 블로그">
+<meta property="og:type" content="website">
+<meta property="og:title" content="DevAndy - 개발자앤디의 개발블로그">
+<meta property="og:url" content="http://youngjinmo.github.io/categories/Dev/DesignPattern/index.html">
 <meta property="og:site_name" content="DevAndy - 개발자앤디의 개발블로그">
-<meta property="og:description" content="이전에 작성한 쉘에서 SSH 키를 생성한 후, 이를 Github에 저장해서 사용하는 방식이다. 위키백과에 의하면, SSH(Secure Shell)는 네트워크 상의 다른 컴퓨터에 로그인하거나 Github과 같은 원격 시스템에 명령을 실행하고 다른 시스템으로 파일을 복사할 수 있는 프로토콜이라고 한다. SSH는 암호화되어 통신하기 때문에 통신이 노출되더라도">
+<meta property="og:description" content="개발자앤디가 되어가는 과정을 기록하는 블로그">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2017/07/asymmetric-encryption.jpg">
-<meta property="article:published_time" content="2020-02-02T11:56:27.000Z">
-<meta property="article:modified_time" content="2020-10-01T12:03:16.222Z">
 <meta property="article:author" content="Youngjin Mo">
 <meta property="article:tag" content="java, spring boot, spring framework, developer, programmer, 개발자, 스프링부트, 자바">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2017/07/asymmetric-encryption.jpg">
 <meta name="twitter:creator" content="@devandy_yj">
     
 
@@ -114,7 +108,7 @@ ga('send', 'pageview');
                                     <a class="main-nav-list-link" href="../../../index.html">Home</a>
                                 </li>
                             
-                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Articles/">Articles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/">Dev</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DesignPattern/">DesignPattern</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Front-end/">Front-end</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Others/">Others</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Quiz/">Quiz</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Spring/">Spring</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Web/">Web</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Review/">Review</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Thought/">Thought</a></li></ul></li></ul>
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../Articles/">Articles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../">Dev</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="">DesignPattern</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../Front-end/">Front-end</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../Others/">Others</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../Quiz/">Quiz</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../Spring/">Spring</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../Web/">Web</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../Life/Review/">Review</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../Life/Thought/">Thought</a></li></ul></li></ul>
                                 
                         </ul>
                         <nav id="sub-nav">
@@ -172,167 +166,89 @@ ga('send', 'pageview');
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Git/">Git</a>
+    <i class="icon fa fa-folder-open"></i>Category: <em class="page-title-link">DesignPattern</em>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="posts-github-ssh" class="article article-single article-type-posts" itemscope itemprop="blogPost">
-    <div class="article-inner">
+                            
+
+    
+    
         
-            <header class="article-header">
-                
+        
+        <section class="archives-wrap">
+            <div class="archive-year-wrap">
+                <a href="../../../archives/2020" class="archive-year"><i class="icon fa fa-calendar-o"></i>2020</a>
+            </div>
+            <div class="archives">
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="../../../2020/06/rest-api/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3epNTvVcqt_yUGAWuMtMoi55gBkx1SGwoMgnW0RZ7_mS_XupcooKE8d7FrcxgcYBnJ8GpWhOWOrK_TsCBmiIb_nIHseUWK5pQhrg2N_kP6loYwgus4NmeVl_GSHVh9XDTkQy7g9V6PVN-C67THENYdN8A=w914-h571-no?authuser=0)" alt="REST" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span><a href="http://youngjinmo.github.io/2020/06/rest-api/#isso-thread"></a></span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="../">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="">DesignPattern</a>
+            </div>
+            <div class="date"><time datetime="2020-06-18T11:29:48.000Z" itemprop="datePublished">2020-06-18</time></div>
+        </div>
+        
     
         <h1 class="article-title" itemprop="name">
-        Github - SSH 등록하기
+        <a href="../../../2020/06/rest-api/">REST</a>
         </h1>
     
 
-            </header>
-        
-        
-            <div class="article-meta" style="margin-bottom: 1em;">
-                
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="" class="article-date">
-       <time datetime="2020-02-02T11:56:27.000Z" itemprop="datePublished">2020-02-02</time>
-    </a>
-  </div>
-
-<!-- 
-<div class="article-date">
-  <i class="fa fa-calendar-plus-o"></i>
-  <a href="" class="article-date">
-     <time datetime="2020-10-01T12:03:16.222Z" itemprop="dateModified">2020-10-01</time>
-  </a>
-</div>
-
- -->
-                
-
-				<!-- 	count-time		 -->
-				<span class="reading-time" style="margin-left: 20px;">
-					⏱ 6 min.
-				</span>
-                
-                
-
-                
-
-            </div>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
+        <p class="article-excerpt">
             
-
-            
-
-            
-
-            <img src="https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2017/07/asymmetric-encryption.jpg" width="650px" />
-
-<p>이전에 작성한 <a href="https://devyoungjin.github.io/2019/12/git-credential/" target="_blank">쉘에서 SSH 키를 생성한 후, 이를 Github에 저장해서 사용하는 방식이다.</p>
-<p><a href="https://ko.wikipedia.org/wiki/%EC%8B%9C%ED%81%90%EC%96%B4_%EC%85%B8" target="_blank">위키백과</a>에 의하면, SSH(Secure Shell)는 네트워크 상의 다른 컴퓨터에 로그인하거나 Github과 같은 원격 시스템에 명령을 실행하고 다른 시스템으로 파일을 복사할 수 있는 프로토콜이라고 한다.</p>
-<p>SSH는 암호화되어 통신하기 때문에 통신이 노출되더라도 안전하다고 한다.</p>
-<hr>
-
-
-<p>먼저 쉘에서 SSH 키를 생성해보겠다.</p>
-<p>터미널에서 아래 명령어를 입력한다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;</span><br></pre></td></tr></table></figure>
-
-<p>그럼 key pair가 생성된다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; Generating public&#x2F;private rsa key pair.</span><br></pre></td></tr></table></figure>
-
-<p>이후에 프롬프트(Terminal)에 입력을 요구하는 메세지가 출력된다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; Enter a file in which to save the key (&#x2F;Users&#x2F;you&#x2F;.ssh&#x2F;id_rsa): [Press enter]</span><br></pre></td></tr></table></figure>
-
-<p>엔터를 입력하고, </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; Enter passphrase (empty for no passphrase): [Type a passphrase]</span><br><span class="line">&gt; Enter same passphrase again: [Type passphrase again]</span><br></pre></td></tr></table></figure>
-
-<p>기억할 수 있는 문장을 두번 입력한다.</p>
-<p><img src="https://lh3.googleusercontent.com/v63aRqQ4LEVFAmB9KQeiKheT0Q2nk6Ssc3iftUuxt3dUhcCt77v81UCSHH_e2p_SJZPd1XuVfoUT0kgkRHEDPCMmHU2T0MpQxSFNg7gE3Qsbp38ssEIyiAyTmAd4-aInYdbciY7OuekcrVOtA1g3aY8eoykkywJQVfz3J0wGGvzPI11L1UdgxsN1ufHRZ5ZZkrAAr93v0LIh_CcF5aiaxvgIrZEKaUkoGoDL_u61fxQdKihyCoOOBPL_fJCPvT5ayRl_gPLX79iR5GRSdSfDNj15ZohJVe6g2Gt1MkUc6-bQQZ1A_aFq1fBMvQvYmUTUrKmzFugOpSkRQzlhu5Uexk5puSPElSDZh0E9uPN-S0gQ76imL0Iy8ghRVkDJf0hzZR9f1x5dcvbWAAftU-oO2rmf8uCELhsWSKjUispLqoZplM0FahKb7Y-oQa9pR73RrWPYaHEXomc93n_Td4ZdHMv3-dI3ZMwDdRtBq3yoOTJgAXLQxNTYQXc6Yt6hSLHmLWGBTJWUG2cbMP2Uj26AShI6jauybl1Ld6JbS-06i_chUal9YYN8bdznUjvxbx8PNia44kpLoOsCBbcYki1JWqpHdVeI5PHUIPlewkIdb4Q_8DdBx1Xfo-4iI9ODDBpOY5uLPMz96Bx3xGYvAZq9ZJtA0VnDVKaJhlC3bOPtH_4TcB8_kFw0MbcQBDic6uHGP3f0WKPt8d_axxqi3ZyB_HM-ae_rAoz1esIJFeK5J4ephyOqdA=w720-h437-no"></p>
-<p>그리고 터미널에 아래의 명령어를 입력하여 <code>ssh-agent</code> 를 실행한다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ eval &quot;$(ssh-agent -s)&quot;</span><br><span class="line">&gt; Agent pid 59566</span><br></pre></td></tr></table></figure>
-
-<p>pid는 리눅스, 맥 등의 유닉스 관련 대부분의 OS 커널에서 사용하는 Process ID라고 한다. (<a href="https://www.2daygeek.com/check-find-parent-process-id-pid-ppid-linux/" target="_blank">출처</a>)</p>
-<p><img src="https://lh3.googleusercontent.com/Dfsh3V9UQhKtZV9NGO8BToyaYoPrhr-eJmF2x3uOTgopDio7mwu6W3DpntTz7XqTWoNlGeD16tFaidKP1AQsm5uIwYaTqGB3zyP9gq2iZgURQyt932OqtybGOdw9OUocpztle3Ky6EmXHX6Z2OkYdnW04zVIHp47uxWVu1yYDTWUZRFkPBT1MvPE1t7qGei_jJQ2w0ycveL-G9RmDB9PWLRgz2WtiKMUjKztO2INalCbHRngNCccJUWCADkYZg79AjiWoXvJ-lNTwqxIzzHOutpUbGiNA679xMSX7Frm9brWu2fN-ycCl7_rzmJRF50KngwtjbxImE7D8z7z670AA27Y_97gDJLros8Hp-CR6LpFF61fDERP7Bmn4Fh3FZc838pNCt4KoNi-Ey3fJAEdulntVJAaWL0_8gUraY06W89ElEi5Tgx2QZTT65Kqa6uzQlP4nL--jnsKWOgPujkcC0mwbHaXAn3SyoJFLmj0GmEBX3FpQR7_9BOSkUOjLkQwEh7VXpu3vEo59sEITrnanfMJYg899dR1CICqMtXFcM7peU0E15N2019sqF9nvV3OwrQg2ppwUik0vYn-5ijK0x3htgajHbnYZ1oVWhOG6Do0vW1EvQLD80gUWNU0uMWRveD0u-BAWxOj6D8XSAKswjwbykt-Vn5MSorfcuviQlPMrVcVYwvHqAaj8xQd72cFkWlCUFqu_jFQnLN-soj8pA6Xd_aq4yF2XaDI6EXL3P1Yy6bcew=w701-h199-no"></p>
-<p>그리고 시에라 버전 10.12.2 이상의 맥을 사용한다면, <code>~/.ssh/config</code> 를 수정해주어야 한다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Host *</span><br><span class="line">   AddKeysToAgent yes</span><br><span class="line">   UseKeychain yes</span><br><span class="line">   IdentityFile ~&#x2F;.ssh&#x2F;id_rsa</span><br></pre></td></tr></table></figure>
+회사에서 REST에 대한 강의를 들을 기회가 있어, 강의를 듣고 정리해보았다.
+ToC
+REST란?
+Why REST?
+RESTful API?
+REST API 특징
+Rest API 디자인 가이드
+Five clues that your api isn’t RESTful.
+REST 약점
 
 
 
-<p>그리고 SSH 키를 <code>ssh-agent</code>에 연결하고 기억할 수 있는 문장(<code>passpharase</code>)를 키체인에 저장한다.</p>
-<p><code>ssh-agent</code>는 리눅스 또는 유닉스 계열의 OS에서 로그인이 필요할 때 자동으로 config 를 도와준다고 한다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-add -K ~&#x2F;.ssh&#x2F;id_rsa</span><br></pre></td></tr></table></figure>
-
-
-
-<p>이제 Github 설정에서 방금 생성한 SSH 키를 등록할 것이다. </p>
-<p>생성한 키(<code>~/.ssh/id_rsa.pub</code>)를 복사한다. <em>(클립보드에 저장된다.)</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pbcopy &lt; ~&#x2F;.ssh&#x2F;id_rsa.pub</span><br></pre></td></tr></table></figure>
-
-
-
-<p>그리고 <a href="https://github.com/settings/keys" target="_blank">Github 설정</a>의 왼쪽 메뉴바에서 **[SSH and GPG key]**를 클릭한다.</p>
-<p><img src="https://help.github.com/assets/images/help/settings/settings-sidebar-ssh-keys.png"></p>
-<p><strong>[New SSH key]</strong> 를 클릭한다.</p>
-<p><img src="https://help.github.com/assets/images/help/settings/ssh-add-ssh-key.png"></p>
-<p><strong>Title</strong>은 입력하고 싶은 이름을 입력해두고, <strong>Key</strong>에 아까 복사해뒀던 키를 붙여넣기해주면 된다.</p>
-<p><img src="https://lh3.googleusercontent.com/YWlsn_mpoKC7bZollAK0EZQqBJGw5uGcPMB_lVF-xt7ZsDYRbmmdMiyHbNhZTXLkzfRFslXUaHaLIIVfs8Iqd3-VB2k6HXZldkNTnWqy38Vr1XeXGKQDCg35ZhduuVE82w9yeAPqVgHv1lql0Lj3eOSWXM8asS8p2GRVEI2nDfTHl-wLvFOazAEN9ufQYqeZma3uj7S818kltFpDOMKqrlQSeNmg23raoPZau1Xfi1s7oyhmE8sooK6S2SoZcSh62RUJX-bckkA4oq4SBjGAtb0mQGR6iTRTp7BDnSiKeVUs6nVEgMHGy6QmQ_y3hrXrmtGBTJdfqfMNGRcAWTFSgF068TNqzB9a5OROgcKLYPVOI7VAbITM2blPkMJYK-_KWUHfrOKabHKFzIqpkoFWnKZdBzJmxY4lbuDSwOKv_TBMY8KEC5ofLgWjDQxY_8ySQ7RiU-s3L-UonhQULoloMc91T65V8tLTJDH4aA7w6Pqvob-kQ4DpOja0BUsKd3yMTQSMlhgEIImUKc_pBz6a97Lv_vtujuWD4h8v4ou3O_mFFIdtlbS68M9ZUmrDzC3EVoKEWrF47ksJEdmJp507GQitdPWDs2JM8pnkAVlTpFCMHBsiZqPKXlrFu6TkvjGt7TGIGdoD4yMImAtyByEwgqBkdIh83CDlv2Ge2HN8Mt0LWISOiCMBT0UkVm7_982eqil_uwc4lJPzcM7vfGsL4HsPzwlKZlAEQ6xHvZ7vmoP7Q3fytQ=w1024-h541-no"></p>
-<p>출처</p>
-<ul>
-<li><p><a href="https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent" target="_blank">Github Help - Generating a new SSH key and adding it to the ssh-agent</a></p>
-</li>
-<li><p><a href="https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account" target="_blank">Github Help - Adding a new SSH key to your Github account</a></p>
-</li>
-</ul>
-
-        </div>
+RESTREST를 한 문장으로 정의하면, REST는 HTTP 프로토콜을 사
+        </p>
     </div>
-	<div class="ads" style="margin-top: 10px;margin-bottom:10px;">
-		<script src="https://ads-partners.coupang.com/g.js"></script>
-<script>
-	new PartnersCoupang.G({"id":434728,"template":"carousel","trackingCode":"AF1391980","width":"100%","height":"100"});
-</script>
-	</div>
-	<footer class="article-footer">
-		<script src="https://utteranc.es/client.js"
-        repo="youngjinmo/githubpages-comment"
-        issue-term="url"
-        label="comment"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script>
-	</footer>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "author": {
-            "@type": "Person",
-            "name": "Youngjin Mo"
-        },
-        "headline": "Github - SSH 등록하기",
-        "image": "../../../http:/youngjinmo.github.iohttps:/www.hostinger.com/tutorials/wp-content/uploads/sites/2/2017/07/asymmetric-encryption.jpg",
-        "keywords": "",
-        "genre": "Dev Git",
-        "datePublished": "2020-02-02",
-        "dateCreated": "2020-02-02",
-        "dateModified": "2020-10-01",
-        "url": "../../../http:/youngjinmo.github.io/2020/02/github-ssh/",
-        "description": "
-
-이전에 작성한 쉘에서 SSH 키를 생성한 후, 이를 Github에 저장해서 사용하는 방식이다.
-위키백과에 의하면, SSH(Secure Shell)는 네트워크 상의 다른 컴퓨터에 로그인하거나 Github과 같은 원격 시스템에 명령을 실행하고 다른 시스템으로 파일을 복사할 수 있는 프로토콜이라고 한다.
-SSH는 암호화되어 통신하기 때문에 통신이 노출되더라도",
-        "wordCount": 319
-    }
-</script>
-
 </article>
+    
+        </div>
+    
+
+
+    </div></section>
+
+
+
                         </div>
                     </section>
                     <aside id="sidebar">
@@ -368,29 +284,6 @@ SSH는 암호화되어 통신하기 때문에 통신이 노출되더라도",
         </ul>
     </div>
     
-        
-<nav id="article-nav">
-    
-        <a href="../wget/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            Ubuntu에서 Wget으로 파일 다운로드하기
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
-    
-    
-        <a href="../github-licenses/" id="article-nav-older" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">Github 라이센스 정리</p>
-        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-        </a>
-    
-</nav>
-
-    
     <div class="widgets-container">
         
             
@@ -417,7 +310,7 @@ SSH는 암호화되어 통신하기 때문에 통신이 노출되더라도",
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Git/">Git</a></p>
+                            <p class="item-category"><a class="article-category-link" href="../">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../Git/">Git</a></p>
                             <p class="item-title"><a href="../../../2021/03/apply-new-gitignore/" class="title">Gitignore 새로 반영하기</a></p>
                             <p class="item-date"><time datetime="2021-03-21T20:36:00.000Z" itemprop="datePublished">2021-03-22</time></p>
                         </div>
@@ -437,7 +330,7 @@ SSH는 암호화되어 통신하기 때문에 통신이 노출되더라도",
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Others/">Others</a></p>
+                            <p class="item-category"><a class="article-category-link" href="../">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../Others/">Others</a></p>
                             <p class="item-title"><a href="../../../2021/03/law-of-demeter/" class="title">디미터 법칙(Law of Demeter)</a></p>
                             <p class="item-date"><time datetime="2021-03-21T06:20:36.000Z" itemprop="datePublished">2021-03-21</time></p>
                         </div>
@@ -457,7 +350,7 @@ SSH는 암호화되어 통신하기 때문에 통신이 노출되더라도",
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-category"><a class="article-category-link" href="../">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../Java/">Java</a></p>
                             <p class="item-title"><a href="../../../2021/03/livestudy-week-12/" class="title">Live Study 12주차 - Annotation</a></p>
                             <p class="item-date"><time datetime="2021-03-03T20:55:38.000Z" itemprop="datePublished">2021-03-04</time></p>
                         </div>
@@ -477,7 +370,7 @@ SSH는 암호화되어 통신하기 때문에 통신이 노출되더라도",
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-category"><a class="article-category-link" href="../">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../Java/">Java</a></p>
                             <p class="item-title"><a href="../../../2021/03/livestudy-week-11/" class="title">Live Study 11주차 - Enum</a></p>
                             <p class="item-date"><time datetime="2021-03-02T00:15:07.000Z" itemprop="datePublished">2021-03-02</time></p>
                         </div>
@@ -497,7 +390,7 @@ SSH는 암호화되어 통신하기 때문에 통신이 노출되더라도",
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-category"><a class="article-category-link" href="../">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../Java/">Java</a></p>
                             <p class="item-title"><a href="../../../2021/03/livestudy-week-14/" class="title">Live Study 14주차 - 제네릭</a></p>
                             <p class="item-date"><time datetime="2021-03-01T08:55:00.000Z" itemprop="datePublished">2021-03-01</time></p>
                         </div>
