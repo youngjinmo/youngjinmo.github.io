@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>자바에서의 다중상속 문제(a.k.a. Diamond Problem) | DevAndy - 개발자앤디의 개발블로그</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="oop,inheritance" />
+    
+    <meta name="description" content="자바에서는 왜 다중상속을 허용하지 않는걸까? 그리고 어떻게 인터페이스를 통해서는 다중상속이 가능한걸까?  이를 알아보기 위해 아래와 같은 상속관계를 갖는 클래스들을 생성해보겠다. Child -&gt; Mother -&gt; GrandMother, Father -&gt; GrandMother Person.java 1234567public class Pers">
+<meta property="og:type" content="article">
+<meta property="og:title" content="자바에서의 다중상속 문제(a.k.a. Diamond Problem)">
+<meta property="og:url" content="http://youngjinmo.github.io/2021/03/diamond-problem/index.html">
+<meta property="og:site_name" content="DevAndy - 개발자앤디의 개발블로그">
+<meta property="og:description" content="자바에서는 왜 다중상속을 허용하지 않는걸까? 그리고 어떻게 인터페이스를 통해서는 다중상속이 가능한걸까?  이를 알아보기 위해 아래와 같은 상속관계를 갖는 클래스들을 생성해보겠다. Child -&gt; Mother -&gt; GrandMother, Father -&gt; GrandMother Person.java 1234567public class Pers">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/33862991/112439513-89b1c980-8d8c-11eb-8eaa-04fd0063dac1.jpg">
+<meta property="article:published_time" content="2021-03-27T05:20:23.000Z">
+<meta property="article:modified_time" content="2021-03-27T14:21:16.795Z">
+<meta property="article:author" content="Youngjin Mo">
+<meta property="article:tag" content="oop">
+<meta property="article:tag" content="inheritance">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/33862991/112439513-89b1c980-8d8c-11eb-8eaa-04fd0063dac1.jpg">
+<meta name="twitter:creator" content="@devandy_yj">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="DevAndy - 개발자앤디의 개발블로그" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="../../../css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="../../../libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="../../../libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="../../../libs/source-code-pro/styles.css">
+
+    
+<link rel="stylesheet" href="../../../css/style.css">
+
+	
+<link rel="stylesheet" href="../../../https:/cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+	<style type="text/css">
+		@font-face {
+		  font-family: 'NanumSquareRound';
+		  font-style: normal;
+		  font-weight: 400;
+		}
+	</style>
+
+    
+<script src="../../../libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-177850483-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../index.html">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Articles/">Articles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/">Dev</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DesignPattern/">DesignPattern</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Front-end/">Front-end</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Others/">Others</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Quiz/">Quiz</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Spring/">Spring</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Web/">Web</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Review/">Review</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Thought/">Thought</a></li></ul></li></ul>
+                                
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="../../../js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Java/">Java</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-diamond-problem" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        자바에서의 다중상속 문제(a.k.a. Diamond Problem)
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta" style="margin-bottom: 1em;">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="" class="article-date">
+       <time datetime="2021-03-27T05:20:23.000Z" itemprop="datePublished">2021-03-27</time>
+    </a>
+  </div>
+
+<!-- 
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="" class="article-date">
+     <time datetime="2021-03-27T14:21:16.795Z" itemprop="dateModified">2021-03-27</time>
+  </a>
+</div>
+
+ -->
+                
+
+				<!-- 	count-time		 -->
+				<span class="reading-time" style="margin-left: 20px;">
+					⏱ 9 min.
+				</span>
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="../../../tags/inheritance/" rel="tag">inheritance</a>, <a class="tag-link-link" href="../../../tags/oop/" rel="tag">oop</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="https://user-images.githubusercontent.com/33862991/112439513-89b1c980-8d8c-11eb-8eaa-04fd0063dac1.jpg"></p>
+<p>자바에서는 왜 다중상속을 허용하지 않는걸까? 그리고 어떻게 인터페이스를 통해서는 다중상속이 가능한걸까? </p>
+<p>이를 알아보기 위해 아래와 같은 상속관계를 갖는 클래스들을 생성해보겠다.</p>
+<p><code>Child -&gt; Mother -&gt; GrandMother</code>, <code>Father -&gt; GrandMother</code></p>
+<p><strong>Person.java</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">   String nation = <span class="string">&quot;대한민국&quot;</span>;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">protected</span> <span class="keyword">void</span> 가문()&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;진인사대천명&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Father.java</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Father</span> <span class="keyword">extends</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="keyword">protected</span> <span class="keyword">void</span> 가문() &#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;가나다라마바사&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Mother.java</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Mother</span> <span class="keyword">extends</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="keyword">protected</span> <span class="keyword">void</span> 가문() &#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;Hello World.&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Child.java</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Mother</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      Child child = <span class="keyword">new</span> Child();</span><br><span class="line">      System.out.println(<span class="string">&quot;내 국적은 &quot;</span>+child.nation+<span class="string">&quot;입니다.&quot;</span>);</span><br><span class="line">      child.가문();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>Child</code>의 <code>main()</code>를 실행한 결과는 다음과 같다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">내 국적은 대한민국입니다.</span><br><span class="line">Hello World.</span><br></pre></td></tr></table></figure>
+
+<p><code>Child</code> 클래스의 인스턴스를 사용해서 <code>가문()</code>과 <code>nation</code> 필드를 출력했는데, 둘다 <code>Child</code> 클래스에 선언된 필드가 아니다. <code>GrandMother</code> 클래스에 선언된 필드를 <code>Mother</code> 클래스의 상속을 거쳐 <code>Child</code> 까지 상속된것이다.</p>
+<h2 id="자바에서-다중상속이-안되는-이유"><a href="#자바에서-다중상속이-안되는-이유" class="headerlink" title="자바에서 다중상속이 안되는 이유"></a>자바에서 다중상속이 안되는 이유</h2><p>만약 자바에서 다중상속이 허용되어서 <code>Child</code>가 <code>Mother</code>과 <code>Father</code>를 모두 상속한다고 가정해보자.</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/112723009-d7c2fa80-8f4f-11eb-998b-da43ed8c0427.png"></p>
+<p>위와 같은 상속 관계에서 <code>Child</code>는 <code>Father</code>와 <code>Mother</code>의 멤버 필드와 메소드를 상속받을 것이다. 그런데 <code>Father</code>와 <code>Mother</code>에 같은 메소드가 있다면 어떨까? <code>Father</code>와 <code>Mother</code>는 <code>Person</code>을 상속받으면서 <code>가문()</code>을 서로 다르게 오버라이딩했다. </p>
+<p>그렇다면 Father와 Mother를 상속받는 Child에서 <code>child.가문()</code>은 어떤걸 출력할까?</p>
+<p>이 애플리케이션을 실행해야하는 JVM에서는 <code>Father</code>에도 선언되어 있고, <code>Mother</code>에도 선언되어 있는 <code>가문()</code>중 어떤걸 <code>Child</code>가 상속받아야하는지를 모르기 때문에 <b><u>컴파일 에러</u></b>가 발생한다.</p>
+<p>그래서 자바에서 다중상속이 안되는 이와 같은 문제를 <b>다이아몬드 문제</b>라고한다.</p>
+<h2 id="인터페이스를-통한-다중상속은-가능한-이유"><a href="#인터페이스를-통한-다중상속은-가능한-이유" class="headerlink" title="인터페이스를 통한 다중상속은 가능한 이유"></a>인터페이스를 통한 다중상속은 가능한 이유</h2><p>구현체를 갖고있는 메소드 상속이 불가능하다면 구현체가 없는 추상메소드만 있는 인터페이스는 어떨까?</p>
+<p><strong>Person.java</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">   String nation = <span class="string">&quot;대한민국&quot;</span>;</span><br><span class="line">   <span class="keyword">void</span> 가문();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Father.java</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Father</span> <span class="keyword">extends</span> </span>&#123;</span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="keyword">void</span> 가문();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Mother.java</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Mother</span> <span class="keyword">extends</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="keyword">void</span> 가문();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Child.java</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">implements</span> <span class="title">Father</span>, <span class="title">Mother</span> </span>&#123;</span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="keyword">void</span> 가문()&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;Hello World.&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">  </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">      Child child = <span class="keyword">new</span> Child();</span><br><span class="line">     </span><br><span class="line">      System.out.println(<span class="string">&quot;내 국적은 &quot;</span>+child.nation+<span class="string">&quot;입니다.&quot;</span>);</span><br><span class="line">      child.가문();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>이 코드는 컴파일 에러 없이 실행가능했다. 자바에서 다중상속(<code>extends</code>)은 안되는데, 왜 인터페이스를 통한 다중상속(<code>implements</code>)은 가능한걸까?</p>
+<p>상속받은 메소드가 구현체가 없는 추상 메소드이기 때문이다. 어차피 구현체가 없기 때문에 <code>Child</code>가 상속받은 메소드가 <code>Father</code>로부터 받은건지, <code>Mother</code>로부터 받은건지 알필요가 없다. 어차피 상속받은 객체인 <code>Child</code>에서 구현을 할 것이기 때문이다.</p>
+
+        </div>
+    </div>
+	<div class="ads" style="margin-top: 10px;margin-bottom:10px;">
+		<script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+	new PartnersCoupang.G({"id":434728,"template":"carousel","trackingCode":"AF1391980","width":"100%","height":"100"});
+</script>
+	</div>
+	<footer class="article-footer">
+		<script src="https://utteranc.es/client.js"
+        repo="youngjinmo/githubpages-comment"
+        issue-term="url"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+	</footer>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Youngjin Mo"
+        },
+        "headline": "자바에서의 다중상속 문제(a.k.a. Diamond Problem)",
+        "image": "../../../http:/youngjinmo.github.iohttps:/user-images.githubusercontent.com/33862991/112439513-89b1c980-8d8c-11eb-8eaa-04fd0063dac1.jpg",
+        "keywords": "oop inheritance",
+        "genre": "Dev Java",
+        "datePublished": "2021-03-27",
+        "dateCreated": "2021-03-27",
+        "dateModified": "2021-03-27",
+        "url": "../../../http:/youngjinmo.github.io/2021/03/diamond-problem/",
+        "description": "
+자바에서는 왜 다중상속을 허용하지 않는걸까? 그리고 어떻게 인터페이스를 통해서는 다중상속이 가능한걸까? 
+이를 알아보기 위해 아래와 같은 상속관계를 갖는 클래스들을 생성해보겠다.
+Child -&gt; Mother -&gt; GrandMother, Father -&gt; GrandMother
+Person.java
+1234567public class Pers",
+        "wordCount": 636
+    }
+</script>
+
+</article>
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="../../../https:/twitter.com/devandy_yj" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="../../../https:/github.com/youngjinmo" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../atom.xml" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="../apply-new-gitignore/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Gitignore 새로 반영하기</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/33862991/112439513-89b1c980-8d8c-11eb-8eaa-04fd0063dac1.jpg)" alt="자바에서의 다중상속 문제(a.k.a. Diamond Problem)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="" class="title">자바에서의 다중상속 문제(a.k.a. Diamond Problem)</a></p>
+                            <p class="item-date"><time datetime="2021-03-27T05:20:23.000Z" itemprop="datePublished">2021-03-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../apply-new-gitignore/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/33862991/111944820-d5aa0780-8b1b-11eb-9a44-f604ed1f4a97.jpg)" alt="Gitignore 새로 반영하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Git/">Git</a></p>
+                            <p class="item-title"><a href="../apply-new-gitignore/" class="title">Gitignore 새로 반영하기</a></p>
+                            <p class="item-date"><time datetime="2021-03-21T20:36:00.000Z" itemprop="datePublished">2021-03-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../law-of-demeter/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/33862991/111910191-b2437600-8aa3-11eb-997a-b37de936e1c5.jpg)" alt="디미터 법칙(Law of Demeter)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Others/">Others</a></p>
+                            <p class="item-title"><a href="../law-of-demeter/" class="title">디미터 법칙(Law of Demeter)</a></p>
+                            <p class="item-date"><time datetime="2021-03-21T06:20:36.000Z" itemprop="datePublished">2021-03-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../livestudy-week-12/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg)" alt="Live Study 12주차 - Annotation" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../livestudy-week-12/" class="title">Live Study 12주차 - Annotation</a></p>
+                            <p class="item-date"><time datetime="2021-03-03T20:55:38.000Z" itemprop="datePublished">2021-03-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../livestudy-week-11/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg)" alt="Live Study 11주차 - Enum" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../livestudy-week-11/" class="title">Live Study 11주차 - Enum</a></p>
+                            <p class="item-date"><time datetime="2021-03-02T00:15:07.000Z" itemprop="datePublished">2021-03-02</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../tags/BufferedReader/" style="font-size: 10px;">BufferedReader</a> <a href="../../../tags/BufferedWriter/" style="font-size: 10px;">BufferedWriter</a> <a href="../../../tags/IO/" style="font-size: 10px;">IO</a> <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/String/" style="font-size: 10px;">String</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 10.83px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/annotation/" style="font-size: 10.83px;">annotation</a> <a href="../../../tags/api/" style="font-size: 10px;">api</a> <a href="../../../tags/array/" style="font-size: 10.83px;">array</a> <a href="../../../tags/aws/" style="font-size: 11.67px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blacklivesmatter/" style="font-size: 10px;">blacklivesmatter</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 11.67px;">career</a> <a href="../../../tags/casting/" style="font-size: 13.33px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/clean-code/" style="font-size: 10px;">clean code</a> <a href="../../../tags/cloud/" style="font-size: 11.67px;">cloud</a> <a href="../../../tags/contribution/" style="font-size: 10px;">contribution</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/coupang/" style="font-size: 10px;">coupang</a> <a href="../../../tags/database/" style="font-size: 10.83px;">database</a> <a href="../../../tags/datastructure/" style="font-size: 11.67px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 14.17px;">docker</a> <a href="../../../tags/documentation/" style="font-size: 10px;">documentation</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enum/" style="font-size: 10px;">enum</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/error/" style="font-size: 11.67px;">error</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/formatting/" style="font-size: 10px;">formatting</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generics/" style="font-size: 10.83px;">generics</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 12.5px;">github</a> <a href="../../../tags/gitignore/" style="font-size: 10px;">gitignore</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 15px;">http</a> <a href="../../../tags/ide/" style="font-size: 10.83px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inheritance/" style="font-size: 10px;">inheritance</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 11.67px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 10.83px;">interface</a> <a href="../../../tags/investment/" style="font-size: 10.83px;">investment</a> <a href="../../../tags/io/" style="font-size: 11.67px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/jar/" style="font-size: 10px;">jar</a> <a href="../../../tags/java/" style="font-size: 15.83px;">java</a> <a href="../../../tags/java5/" style="font-size: 10px;">java5</a> <a href="../../../tags/java8/" style="font-size: 10.83px;">java8</a> <a href="../../../tags/javascript/" style="font-size: 14.17px;">javascript</a> <a href="../../../tags/javscript/" style="font-size: 10px;">javscript</a> <a href="../../../tags/jquery/" style="font-size: 10.83px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/junit/" style="font-size: 10px;">junit</a> <a href="../../../tags/jvm/" style="font-size: 11.67px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 10.83px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/license/" style="font-size: 10px;">license</a> <a href="../../../tags/livereload/" style="font-size: 10px;">livereload</a> <a href="../../../tags/macos/" style="font-size: 10px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 10.83px;">mustache</a> <a href="../../../tags/mybatis/" style="font-size: 10.83px;">mybatis</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 18.33px;">oop</a> <a href="../../../tags/operator/" style="font-size: 10px;">operator</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/privacy/" style="font-size: 10px;">privacy</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/readme/" style="font-size: 10px;">readme</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/security/" style="font-size: 10px;">security</a> <a href="../../../tags/servlet/" style="font-size: 11.67px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10px;">session</a> <a href="../../../tags/spring-security/" style="font-size: 10px;">spring-security</a> <a href="../../../tags/springboot/" style="font-size: 12.5px;">springboot</a> <a href="../../../tags/sql/" style="font-size: 17.5px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/string/" style="font-size: 15px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/terminal/" style="font-size: 10px;">terminal</a> <a href="../../../tags/tip/" style="font-size: 15.83px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 19.17px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 10.83px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/vue/" style="font-size: 10px;">vue</a> <a href="../../../tags/war/" style="font-size: 10px;">war</a> <a href="../../../tags/webserver/" style="font-size: 10px;">webserver</a> <a href="../../../tags/weekly-review/" style="font-size: 17.5px;">weekly-review</a> <a href="../../../tags/whiteship/" style="font-size: 16.67px;">whiteship</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+	<div class="ads">
+		<a target="_blank" rel="noopener" href="http://bit.ly/donatemozila_devnady">
+	<img src="https://user-images.githubusercontent.com/33862991/106721036-7b2a1a00-6647-11eb-9722-30275f20b4ba.png" style="width: 100%; display:block; margin-left: auto; margin-right: auto;">
+</a>
+		<a target="_blank" rel="noopener" href="http://bit.ly/livesmarter_devandy">
+	<img src="https://user-images.githubusercontent.com/33862991/106847989-5be8c680-66f3-11eb-9dd3-fd17c8a1009f.jpg" style="width: 250px; display:block; margin-left: auto; margin-right: auto; margin-top: 20px;">
+</a>
+	</div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2021 Youngjin Mo</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+    
+        
+<script src="../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="../../../js/main.js"></script>
+
+
+</body>
+</html>

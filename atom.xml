@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-03-22T05:37:21.289Z</updated>
+  <updated>2021-03-27T14:21:16.795Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>자바에서의 다중상속 문제(a.k.a. Diamond Problem)</title>
+    <link href="http://youngjinmo.github.io/2021/03/diamond-problem/"/>
+    <id>http://youngjinmo.github.io/2021/03/diamond-problem/</id>
+    <published>2021-03-27T05:20:23.000Z</published>
+    <updated>2021-03-27T14:21:16.795Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/112439513-89b1c980-8d8c-11eb-8eaa-04fd0063dac1.jpg&quot;&gt;&lt;/p&gt;
+&lt;p&gt;자바에서는 왜 다중상속을 허용하지 않는걸까?</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+    <category term="oop" scheme="http://youngjinmo.github.io/tags/oop/"/>
+    
+    <category term="inheritance" scheme="http://youngjinmo.github.io/tags/inheritance/"/>
+    
+  </entry>
   
   <entry>
     <title>Gitignore 새로 반영하기</title>
@@ -589,37 +619,6 @@
     <category term="whiteship" scheme="http://youngjinmo.github.io/tags/whiteship/"/>
     
     <category term="operator" scheme="http://youngjinmo.github.io/tags/operator/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Live Study 2주차 - 자바 데이터 타입, 변수 그리고 배열</title>
-    <link href="http://youngjinmo.github.io/2021/01/livestudy-week-02/"/>
-    <id>http://youngjinmo.github.io/2021/01/livestudy-week-02/</id>
-    <published>2021-01-11T22:05:30.000Z</published>
-    <updated>2021-03-01T05:52:58.633Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#primitive&quot;&gt;기본형(primitive) 타입 종류와 값의 범위, 기본</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
-    
-    
-    <category term="casting" scheme="http://youngjinmo.github.io/tags/casting/"/>
-    
-    <category term="whiteship" scheme="http://youngjinmo.github.io/tags/whiteship/"/>
     
   </entry>
   
