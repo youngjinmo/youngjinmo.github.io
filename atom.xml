@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-03-27T14:21:16.795Z</updated>
+  <updated>2021-04-09T05:46:50.030Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>객체지향 프로그래밍 1. 특징</title>
+    <link href="http://youngjinmo.github.io/2021/04/features-of-oop/"/>
+    <id>http://youngjinmo.github.io/2021/04/features-of-oop/</id>
+    <published>2021-04-08T20:45:39.000Z</published>
+    <updated>2021-04-09T05:46:50.030Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/114133871-b1cf2a00-9941-11eb-8c75-9a3a147df889.jpg&quot;&gt;&lt;/p&gt;
+&lt;p&gt;객체지향을 공부하며 정리한 포스팅이다.</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+    <category term="oop" scheme="http://youngjinmo.github.io/tags/oop/"/>
+    
+  </entry>
   
   <entry>
     <title>자바에서의 다중상속 문제(a.k.a. Diamond Problem)</title>
@@ -585,40 +613,6 @@
     
     
     <category term="string" scheme="http://youngjinmo.github.io/tags/string/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Live Study 3주차 - 연산자</title>
-    <link href="http://youngjinmo.github.io/2021/01/livestudy-week-03/"/>
-    <id>http://youngjinmo.github.io/2021/01/livestudy-week-03/</id>
-    <published>2021-01-14T13:49:08.000Z</published>
-    <updated>2021-01-23T04:59:05.891Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#arithmetic&quot;&gt;산술 연산자&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#shift&quot;&gt;비트</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
-    
-    
-    <category term="lambda" scheme="http://youngjinmo.github.io/tags/lambda/"/>
-    
-    <category term="whiteship" scheme="http://youngjinmo.github.io/tags/whiteship/"/>
-    
-    <category term="operator" scheme="http://youngjinmo.github.io/tags/operator/"/>
     
   </entry>
   
