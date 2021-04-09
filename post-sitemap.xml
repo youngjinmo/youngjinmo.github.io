@@ -9,8 +9,16 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/2021/04/principles-of-oop/</loc>
+        <lastmod>2021-04-09T07:14:51.092Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/2021/04/features-of-oop/</loc>
-        <lastmod>2021-04-09T05:46:50.030Z</lastmod>
+        <lastmod>2021-04-09T07:14:29.440Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

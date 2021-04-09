@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-04-09T05:46:50.030Z</updated>
+  <updated>2021-04-09T07:14:51.092Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>객체지향 프로그래밍 1. 특징</title>
+    <title>객체지향 주요원칙 5가지</title>
+    <link href="http://youngjinmo.github.io/2021/04/principles-of-oop/"/>
+    <id>http://youngjinmo.github.io/2021/04/principles-of-oop/</id>
+    <published>2021-04-08T22:12:52.000Z</published>
+    <updated>2021-04-09T07:14:51.092Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/113977861-2e98d000-987e-11eb-8b99-b4feb494dd1f.jpg&quot;&gt;&lt;/p&gt;
+&lt;p&gt;지난 포스팅 &lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+    <category term="oop" scheme="http://youngjinmo.github.io/tags/oop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>객체지향 주요특징 4가지</title>
     <link href="http://youngjinmo.github.io/2021/04/features-of-oop/"/>
     <id>http://youngjinmo.github.io/2021/04/features-of-oop/</id>
     <published>2021-04-08T20:45:39.000Z</published>
-    <updated>2021-04-09T05:46:50.030Z</updated>
+    <updated>2021-04-09T07:14:29.440Z</updated>
     
     
       
@@ -585,34 +613,6 @@
     
     
     <category term="jvm" scheme="http://youngjinmo.github.io/tags/jvm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>String 변수를 선언하는 2가지 방식</title>
-    <link href="http://youngjinmo.github.io/2021/01/two-ways-to-declare-string-variable/"/>
-    <id>http://youngjinmo.github.io/2021/01/two-ways-to-declare-string-variable/</id>
-    <published>2021-01-17T19:05:24.000Z</published>
-    <updated>2021-01-18T04:20:44.496Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/104871797-62570e80-598f-11eb-86a2-d2144e40e3f6.jpg&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;String&lt;/code&gt; 변수를</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
-    
-    
-    <category term="string" scheme="http://youngjinmo.github.io/tags/string/"/>
     
   </entry>
   
