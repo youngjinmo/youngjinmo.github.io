@@ -9,8 +9,48 @@
 
 
     <url>
-        <loc>http://youngjinmo.github.io/2021/04/principles-of-oop/</loc>
-        <lastmod>2021-04-09T07:14:51.092Z</lastmod>
+        <loc>http://youngjinmo.github.io/2020/06/rest-api/</loc>
+        <lastmod>2021-04-09T08:14:47.066Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/2019/11/http-uri-url/</loc>
+        <lastmod>2021-04-09T08:14:23.122Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/2020/01/http-codes/</loc>
+        <lastmod>2021-04-09T08:14:18.874Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/2020/03/web-session-cookie-cache/</loc>
+        <lastmod>2021-04-09T08:14:00.071Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/2020/06/webserver-was/</loc>
+        <lastmod>2021-04-09T08:13:42.763Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/2021/02/url/</loc>
+        <lastmod>2021-04-09T08:12:17.125Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -18,7 +58,15 @@
 
     <url>
         <loc>http://youngjinmo.github.io/2021/04/features-of-oop/</loc>
-        <lastmod>2021-04-09T07:14:29.440Z</lastmod>
+        <lastmod>2021-04-09T07:20:15.390Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/2021/04/principles-of-oop/</loc>
+        <lastmod>2021-04-09T07:14:51.092Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -35,14 +83,6 @@
     <url>
         <loc>http://youngjinmo.github.io/2021/03/diamond-problem/</loc>
         <lastmod>2021-03-27T14:21:16.795Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2020/06/rest-api/</loc>
-        <lastmod>2021-03-27T06:37:05.025Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -131,14 +171,6 @@
     <url>
         <loc>http://youngjinmo.github.io/2021/01/livestudy-week-02/</loc>
         <lastmod>2021-03-01T05:52:58.633Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2021/02/url/</loc>
-        <lastmod>2021-02-25T15:28:13.736Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -427,14 +459,6 @@
     <url>
         <loc>http://youngjinmo.github.io/2020/12/java-io-fileclone/</loc>
         <lastmod>2020-12-25T13:29:50.114Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2020/03/web-session-cookie-cache/</loc>
-        <lastmod>2020-12-24T00:12:52.140Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -1033,22 +1057,6 @@
     </url>
 
     <url>
-        <loc>http://youngjinmo.github.io/2020/01/http-codes/</loc>
-        <lastmod>2020-09-13T01:53:28.688Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2019/11/http-uri-url/</loc>
-        <lastmod>2020-09-13T01:53:28.688Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://youngjinmo.github.io/2020/03/install-commandlinetools-without-xcode/</loc>
         <lastmod>2020-09-13T01:53:28.652Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -1427,14 +1435,6 @@
     <url>
         <loc>http://youngjinmo.github.io/2019/03/startree-02/</loc>
         <lastmod>2020-09-13T01:53:28.072Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2020/06/webserver-was/</loc>
-        <lastmod>2020-09-13T01:53:28.048Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

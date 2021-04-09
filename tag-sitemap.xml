@@ -3,8 +3,50 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/tags/rest/</loc>
+        <lastmod>2021-04-09T08:14:47.066Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/tags/http/</loc>
+        <lastmod>2021-04-09T08:14:23.122Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/tags/cache/</loc>
+        <lastmod>2021-04-09T08:14:00.071Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/tags/session/</loc>
+        <lastmod>2021-04-09T08:14:00.071Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/tags/cookie/</loc>
+        <lastmod>2021-04-09T08:14:00.071Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/tags/was/</loc>
+        <lastmod>2021-04-09T08:13:42.763Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/tags/oop/</loc>
-        <lastmod>2021-04-09T07:14:51.092Z</lastmod>
+        <lastmod>2021-04-09T07:20:15.390Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -12,13 +54,6 @@
     <url>
         <loc>http://youngjinmo.github.io/tags/inheritance/</loc>
         <lastmod>2021-03-27T14:21:16.795Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/tags/rest/</loc>
-        <lastmod>2021-03-27T06:37:05.025Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -124,13 +159,6 @@
     <url>
         <loc>http://youngjinmo.github.io/tags/casting/</loc>
         <lastmod>2021-03-01T05:52:58.633Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/tags/http/</loc>
-        <lastmod>2021-02-25T15:28:13.736Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -334,27 +362,6 @@
     <url>
         <loc>http://youngjinmo.github.io/tags/IO/</loc>
         <lastmod>2020-12-25T13:29:50.114Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/tags/cache/</loc>
-        <lastmod>2020-12-24T00:12:52.140Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/tags/session/</loc>
-        <lastmod>2020-12-24T00:12:52.140Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/tags/cookie/</loc>
-        <lastmod>2020-12-24T00:12:52.140Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -740,27 +747,6 @@
     <url>
         <loc>http://youngjinmo.github.io/tags/gadget/</loc>
         <lastmod>2020-09-13T01:53:28.196Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/tags/webserver/</loc>
-        <lastmod>2020-09-13T01:53:28.048Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/tags/war/</loc>
-        <lastmod>2020-09-13T01:53:28.048Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/tags/jar/</loc>
-        <lastmod>2020-09-13T01:53:28.048Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
