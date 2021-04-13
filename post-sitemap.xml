@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/2021/04/principles-of-oop/</loc>
+        <lastmod>2021-04-13T14:50:23.528Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/2020/06/rest-api/</loc>
         <lastmod>2021-04-09T08:14:47.066Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -59,14 +67,6 @@
     <url>
         <loc>http://youngjinmo.github.io/2021/04/features-of-oop/</loc>
         <lastmod>2021-04-09T07:20:15.390Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2021/04/principles-of-oop/</loc>
-        <lastmod>2021-04-09T07:14:51.092Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
