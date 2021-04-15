@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>인텔리제이에서 Github Token 사용하기</title>
+      <link href="2021/04/use-github-token-intellij/"/>
+      <url>2021/04/use-github-token-intellij/</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://user-images.githubusercontent.com/33862991/114883338-cd559b80-9e3f-11eb-8b46-f3cae9872e64.jpg"></p><p>평소 터미널로 버전관리를 했는데, 얼마전 코드리뷰를 받는 과정에서 Github Token을 발급하여 인텔리제이에 적용할 일이 발생했다.</p><p>리뷰어께서 CodeWithMe 기능을 이용해 버전관리 관련 도움을 주려고 하는 과정에서 인텔리제이에 Github Token이 안되있어서 매번 웹으로 로그인했기 때문이다. </p><p>Github에서 이중인증을 사용한다면 인텔리제이 뿐만 아니라 버전관리를 하는 모든 클라이언트에 Token을 적용해야 한다. 그래야 매번 사용할때마다 로그인을 할 필요가 없다. 인텔리제이에서는 아래와 같은 경고창을 마주하게 된다.</p><p><img src="https://user-images.githubusercontent.com/33862991/114881636-258b9e00-9e3e-11eb-9a11-b0506c8e09f7.png"></p><p>여기서 <strong>[Use Token]</strong> 을 클릭하면 아래와 같은 창이 출력된다.</p><p><img src="https://user-images.githubusercontent.com/33862991/114881657-29b7bb80-9e3e-11eb-81fd-0c301d5a858e.png"></p><p>여기서 <strong>[Generate]</strong> 버튼을 클릭하면, 브라우저에서 Github Token을 생성하는 창이 열린다. </p><p><img src="https://user-images.githubusercontent.com/33862991/114881666-2b817f00-9e3e-11eb-890e-15c717a28643.png"></p><p>해당 토큰의 Scope를 인텔리제이에서 요구하는걸 자동으로 선택되므로 다른걸 만지지 않고 이대로 토큰을 생성했다.</p><p><img src="https://user-images.githubusercontent.com/33862991/114881649-27edf800-9e3e-11eb-9064-104afe263682.png"></p><p>이미지에선 토큰주소를 가려뒀지만, 여기에서 발생한 토큰을 클립보드에 복사해서 인텔리제이에 붙히면 마무리가 된다. </p><p>토큰주소를 만약 잃어버렸다면 Github의 Personal aceess tokens에서 방금 생성한 토큰을 클릭하여 <strong>[Regenerate token]</strong> 을 클릭하면 다시 생성된다.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Dev </category>
+          
+          <category> Git </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> tutorial </tag>
+            
+            <tag> intellij </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>객체지향 주요원칙 5가지</title>
       <link href="2021/04/principles-of-oop/"/>
       <url>2021/04/principles-of-oop/</url>

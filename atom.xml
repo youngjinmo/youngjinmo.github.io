@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-04-13T14:50:23.528Z</updated>
+  <updated>2021-04-15T14:35:08.579Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>인텔리제이에서 Github Token 사용하기</title>
+    <link href="http://youngjinmo.github.io/2021/04/use-github-token-intellij/"/>
+    <id>http://youngjinmo.github.io/2021/04/use-github-token-intellij/</id>
+    <published>2021-04-15T05:32:09.000Z</published>
+    <updated>2021-04-15T14:35:08.579Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/114883338-cd559b80-9e3f-11eb-8b46-f3cae9872e64.jpg&quot;&gt;&lt;/p&gt;
+&lt;p&gt;평소 터미널로 버전관리를 했는데, 얼마전</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Git" scheme="http://youngjinmo.github.io/categories/Dev/Git/"/>
+    
+    
+    <category term="tutorial" scheme="http://youngjinmo.github.io/tags/tutorial/"/>
+    
+    <category term="intellij" scheme="http://youngjinmo.github.io/tags/intellij/"/>
+    
+  </entry>
   
   <entry>
     <title>객체지향 주요원칙 5가지</title>
@@ -585,34 +615,6 @@
     
     
     <category term="whiteship" scheme="http://youngjinmo.github.io/tags/whiteship/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>클래스변수와 인스턴스 변수 차이(생성시점)</title>
-    <link href="http://youngjinmo.github.io/2021/01/diff-static-variable-instance-variable/"/>
-    <id>http://youngjinmo.github.io/2021/01/diff-static-variable-instance-variable/</id>
-    <published>2021-01-19T21:01:13.000Z</published>
-    <updated>2021-02-18T04:42:09.880Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/105133010-3bcfd980-5b2f-11eb-87ef-626c9cf53575.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;백기선님 라이브 스터디의 피드백 영상을 보면서</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
-    
-    
-    <category term="jvm" scheme="http://youngjinmo.github.io/tags/jvm/"/>
     
   </entry>
   

@@ -6,26 +6,27 @@
     
 
     
-    <title>Js코드로 User-Agent 알아보기 | DevAndy - 개발자앤디의 개발블로그</title>
+    <title>인텔리제이에서 Github Token 사용하기 | DevAndy - 개발자앤디의 개발블로그</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="javascript" />
+    <meta name="keywords" content="tutorial,intellij" />
     
-    <meta name="description" content="갑자기 접속한 브라우저와 운영체제 등 정보가 담긴 user-agent를 확인이 필요해서 코드를 찾아봤다.  Javascript의 navigator 객체를 이용하여 user-agent를 출력할 수 있다. Navigator에 대해서는 생활코딩에서 더 알아볼 수 있으며, navigator 객체의 여러가지 프로퍼티에 대해서 설명한 포스트도 있다. 출처 : 꿀벌">
+    <meta name="description" content="평소 터미널로 버전관리를 했는데, 얼마전 코드리뷰를 받는 과정에서 Github Token을 발급하여 인텔리제이에 적용할 일이 발생했다. 리뷰어께서 CodeWithMe 기능을 이용해 버전관리 관련 도움을 주려고 하는 과정에서 인텔리제이에 Github Token이 안되있어서 매번 웹으로 로그인했기 때문이다.  Github에서 이중인증을 사용한다면 인텔리제이">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Js코드로 User-Agent 알아보기">
-<meta property="og:url" content="http://youngjinmo.github.io/2020/01/check-useragent/index.html">
+<meta property="og:title" content="인텔리제이에서 Github Token 사용하기">
+<meta property="og:url" content="http://youngjinmo.github.io/2021/04/use-github-token-intellij/index.html">
 <meta property="og:site_name" content="DevAndy - 개발자앤디의 개발블로그">
-<meta property="og:description" content="갑자기 접속한 브라우저와 운영체제 등 정보가 담긴 user-agent를 확인이 필요해서 코드를 찾아봤다.  Javascript의 navigator 객체를 이용하여 user-agent를 출력할 수 있다. Navigator에 대해서는 생활코딩에서 더 알아볼 수 있으며, navigator 객체의 여러가지 프로퍼티에 대해서 설명한 포스트도 있다. 출처 : 꿀벌">
+<meta property="og:description" content="평소 터미널로 버전관리를 했는데, 얼마전 코드리뷰를 받는 과정에서 Github Token을 발급하여 인텔리제이에 적용할 일이 발생했다. 리뷰어께서 CodeWithMe 기능을 이용해 버전관리 관련 도움을 주려고 하는 과정에서 인텔리제이에 Github Token이 안되있어서 매번 웹으로 로그인했기 때문이다.  Github에서 이중인증을 사용한다면 인텔리제이">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://images.unsplash.com/photo-1511376777868-611b54f68947?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80">
-<meta property="article:published_time" content="2020-01-02T15:29:41.000Z">
-<meta property="article:modified_time" content="2020-12-03T08:36:03.287Z">
+<meta property="og:image" content="https://user-images.githubusercontent.com/33862991/114883338-cd559b80-9e3f-11eb-8b46-f3cae9872e64.jpg">
+<meta property="article:published_time" content="2021-04-15T05:32:09.000Z">
+<meta property="article:modified_time" content="2021-04-15T14:35:08.579Z">
 <meta property="article:author" content="Youngjin Mo">
-<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="tutorial">
+<meta property="article:tag" content="intellij">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://images.unsplash.com/photo-1511376777868-611b54f68947?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/33862991/114883338-cd559b80-9e3f-11eb-8b46-f3cae9872e64.jpg">
 <meta name="twitter:creator" content="@devandy_yj">
     
 
@@ -172,19 +173,19 @@ ga('send', 'pageview');
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Front-end/">Front-end</a>
+    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Git/">Git</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="posts-check-useragent" class="article article-single article-type-posts" itemscope itemprop="blogPost">
+                            <article id="post-use-github-token-intellij" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        Js코드로 User-Agent 알아보기
+        인텔리제이에서 Github Token 사용하기
         </h1>
     
 
@@ -196,7 +197,7 @@ ga('send', 'pageview');
   <div class="article-date">
     <i class="fa fa-calendar"></i>
     <a href="" class="article-date">
-       <time datetime="2020-01-02T15:29:41.000Z" itemprop="datePublished">2020-01-03</time>
+       <time datetime="2021-04-15T05:32:09.000Z" itemprop="datePublished">2021-04-15</time>
     </a>
   </div>
 
@@ -204,7 +205,7 @@ ga('send', 'pageview');
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="" class="article-date">
-     <time datetime="2020-12-03T08:36:03.287Z" itemprop="dateModified">2020-12-03</time>
+     <time datetime="2021-04-15T14:35:08.579Z" itemprop="dateModified">2021-04-15</time>
   </a>
 </div>
 
@@ -213,12 +214,12 @@ ga('send', 'pageview');
 
 				<!-- 	count-time		 -->
 				<span class="reading-time" style="margin-left: 20px;">
-					⏱ 3 min.
+					⏱ 1 min.
 				</span>
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="../../../tags/javascript/" rel="tag">javascript</a>
+        <a class="tag-link-link" href="../../../tags/intellij/" rel="tag">intellij</a>, <a class="tag-link-link" href="../../../tags/tutorial/" rel="tag">tutorial</a>
     </div>
 
                 
@@ -235,22 +236,19 @@ ga('send', 'pageview');
 
             
 
-            <img src="https://images.unsplash.com/photo-1511376777868-611b54f68947?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" width="650px" />
-
-<p>갑자기 접속한 브라우저와 운영체제 등 정보가 담긴 <code>user-agent</code>를 확인이 필요해서 코드를 찾아봤다. </p>
-<p>Javascript의 <code>navigator</code> 객체를 이용하여 user-agent를 출력할 수 있다.</p>
-<p>Navigator에 대해서는 <a target="_blank" rel="noopener" href="https://opentutorials.org/course/1363/6650">생활코딩</a>에서 더 알아볼 수 있으며, <code>navigator</code> 객체의 여러가지 프로퍼티에 대해서 설명한 포스트도 있다.</p>
-<p>출처 : <a target="_blank" rel="noopener" href="https://ohgyun.com/292">꿀벌개발일지 - User Agent 파헤치기 (navigator.userAgent)</a></p>
-<p>코드는 다음과 같다.</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>Check UserAgent<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">UserAgent <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;myFunction()&quot;</span>&gt;</span>확인<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;your-userAgent&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> userAgent = <span class="string">&quot;User-agent header sent: &quot;</span> + navigator.userAgent;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">document</span>.getElementById(<span class="string">&quot;your-userAgent&quot;</span>).innerHTML = userAgent;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>실제로 동작하는걸 확인해볼 수 있다.</p>
-<p class="codepen" data-height="265" data-theme-id="default" data-default-tab="html,result" data-user="youngjinmo" data-slug-hash="WNbXbGa" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="check your user-agent">
-  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/youngjinmo/pen/WNbXbGa">
-  check your user-agent</a> by DevAndy (<a target="_blank" rel="noopener" href="https://codepen.io/youngjinmo">@youngjinmo</a>)
-  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+            <p><img src="https://user-images.githubusercontent.com/33862991/114883338-cd559b80-9e3f-11eb-8b46-f3cae9872e64.jpg"></p>
+<p>평소 터미널로 버전관리를 했는데, 얼마전 코드리뷰를 받는 과정에서 Github Token을 발급하여 인텔리제이에 적용할 일이 발생했다.</p>
+<p>리뷰어께서 CodeWithMe 기능을 이용해 버전관리 관련 도움을 주려고 하는 과정에서 인텔리제이에 Github Token이 안되있어서 매번 웹으로 로그인했기 때문이다. </p>
+<p>Github에서 이중인증을 사용한다면 인텔리제이 뿐만 아니라 버전관리를 하는 모든 클라이언트에 Token을 적용해야 한다. 그래야 매번 사용할때마다 로그인을 할 필요가 없다. 인텔리제이에서는 아래와 같은 경고창을 마주하게 된다.</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/114881636-258b9e00-9e3e-11eb-9a11-b0506c8e09f7.png"></p>
+<p>여기서 <strong>[Use Token]</strong> 을 클릭하면 아래와 같은 창이 출력된다.</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/114881657-29b7bb80-9e3e-11eb-81fd-0c301d5a858e.png"></p>
+<p>여기서 <strong>[Generate]</strong> 버튼을 클릭하면, 브라우저에서 Github Token을 생성하는 창이 열린다. </p>
+<p><img src="https://user-images.githubusercontent.com/33862991/114881666-2b817f00-9e3e-11eb-890e-15c717a28643.png"></p>
+<p>해당 토큰의 Scope를 인텔리제이에서 요구하는걸 자동으로 선택되므로 다른걸 만지지 않고 이대로 토큰을 생성했다.</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/114881649-27edf800-9e3e-11eb-9064-104afe263682.png"></p>
+<p>이미지에선 토큰주소를 가려뒀지만, 여기에서 발생한 토큰을 클립보드에 복사해서 인텔리제이에 붙히면 마무리가 된다. </p>
+<p>토큰주소를 만약 잃어버렸다면 Github의 Personal aceess tokens에서 방금 생성한 토큰을 클릭하여 <strong>[Regenerate token]</strong> 을 클릭하면 다시 생성된다.</p>
 
         </div>
     </div>
@@ -278,21 +276,19 @@ ga('send', 'pageview');
             "@type": "Person",
             "name": "Youngjin Mo"
         },
-        "headline": "Js코드로 User-Agent 알아보기",
-        "image": "../../../http:/youngjinmo.github.iohttps:/images.unsplash.com/photo-1511376777868-611b54f68947?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
-        "keywords": "javascript",
-        "genre": "Dev Front-end",
-        "datePublished": "2020-01-03",
-        "dateCreated": "2020-01-03",
-        "dateModified": "2020-12-03",
-        "url": "../../../http:/youngjinmo.github.io/2020/01/check-useragent/",
+        "headline": "인텔리제이에서 Github Token 사용하기",
+        "image": "../../../http:/youngjinmo.github.iohttps:/user-images.githubusercontent.com/33862991/114883338-cd559b80-9e3f-11eb-8b46-f3cae9872e64.jpg",
+        "keywords": "tutorial intellij",
+        "genre": "Dev Git",
+        "datePublished": "2021-04-15",
+        "dateCreated": "2021-04-15",
+        "dateModified": "2021-04-15",
+        "url": "../../../http:/youngjinmo.github.io/2021/04/use-github-token-intellij/",
         "description": "
-
-갑자기 접속한 브라우저와 운영체제 등 정보가 담긴 user-agent를 확인이 필요해서 코드를 찾아봤다. 
-Javascript의 navigator 객체를 이용하여 user-agent를 출력할 수 있다.
-Navigator에 대해서는 생활코딩에서 더 알아볼 수 있으며, navigator 객체의 여러가지 프로퍼티에 대해서 설명한 포스트도 있다.
-출처 : 꿀벌",
-        "wordCount": 203
+평소 터미널로 버전관리를 했는데, 얼마전 코드리뷰를 받는 과정에서 Github Token을 발급하여 인텔리제이에 적용할 일이 발생했다.
+리뷰어께서 CodeWithMe 기능을 이용해 버전관리 관련 도움을 주려고 하는 과정에서 인텔리제이에 Github Token이 안되있어서 매번 웹으로 로그인했기 때문이다. 
+Github에서 이중인증을 사용한다면 인텔리제이 ",
+        "wordCount": 121
     }
 </script>
 
@@ -335,20 +331,10 @@ Navigator에 대해서는 생활코딩에서 더 알아볼 수 있으며, naviga
         
 <nav id="article-nav">
     
-        <a href="../reg/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            정규표현식(Reg)
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="../../../2019/12/java-buffer-io/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="../principles-of-oop/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">JAVA - IO(BufferedReader/BufferedWriter)</p>
+        <p class="article-nav-title">객체지향 주요원칙 5가지</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -370,7 +356,7 @@ Navigator에 대해서는 생활코딩에서 더 알아볼 수 있으며, naviga
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="../../../2021/04/use-github-token-intellij/" class="thumbnail">
+                            <a href="" class="thumbnail">
     
     
         <span style="background-image:url(https://user-images.githubusercontent.com/33862991/114883338-cd559b80-9e3f-11eb-8b46-f3cae9872e64.jpg)" alt="인텔리제이에서 Github Token 사용하기" class="thumbnail-image"></span>
@@ -382,7 +368,7 @@ Navigator에 대해서는 생활코딩에서 더 알아볼 수 있으며, naviga
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Git/">Git</a></p>
-                            <p class="item-title"><a href="../../../2021/04/use-github-token-intellij/" class="title">인텔리제이에서 Github Token 사용하기</a></p>
+                            <p class="item-title"><a href="" class="title">인텔리제이에서 Github Token 사용하기</a></p>
                             <p class="item-date"><time datetime="2021-04-15T05:32:09.000Z" itemprop="datePublished">2021-04-15</time></p>
                         </div>
                     </li>
@@ -390,7 +376,7 @@ Navigator에 대해서는 생활코딩에서 더 알아볼 수 있으며, naviga
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="../../../2021/04/principles-of-oop/" class="thumbnail">
+                            <a href="../principles-of-oop/" class="thumbnail">
     
     
         <span style="background-image:url(https://user-images.githubusercontent.com/33862991/113977861-2e98d000-987e-11eb-8b99-b4feb494dd1f.jpg)" alt="객체지향 주요원칙 5가지" class="thumbnail-image"></span>
@@ -402,7 +388,7 @@ Navigator에 대해서는 생활코딩에서 더 알아볼 수 있으며, naviga
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
-                            <p class="item-title"><a href="../../../2021/04/principles-of-oop/" class="title">객체지향 주요원칙 5가지</a></p>
+                            <p class="item-title"><a href="../principles-of-oop/" class="title">객체지향 주요원칙 5가지</a></p>
                             <p class="item-date"><time datetime="2021-04-08T22:12:52.000Z" itemprop="datePublished">2021-04-09</time></p>
                         </div>
                     </li>
@@ -410,7 +396,7 @@ Navigator에 대해서는 생활코딩에서 더 알아볼 수 있으며, naviga
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="../../../2021/04/features-of-oop/" class="thumbnail">
+                            <a href="../features-of-oop/" class="thumbnail">
     
     
         <span style="background-image:url(https://user-images.githubusercontent.com/33862991/114133871-b1cf2a00-9941-11eb-8c75-9a3a147df889.jpg)" alt="객체지향 주요특징 4가지" class="thumbnail-image"></span>
@@ -422,7 +408,7 @@ Navigator에 대해서는 생활코딩에서 더 알아볼 수 있으며, naviga
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
-                            <p class="item-title"><a href="../../../2021/04/features-of-oop/" class="title">객체지향 주요특징 4가지</a></p>
+                            <p class="item-title"><a href="../features-of-oop/" class="title">객체지향 주요특징 4가지</a></p>
                             <p class="item-date"><time datetime="2021-04-08T20:45:39.000Z" itemprop="datePublished">2021-04-09</time></p>
                         </div>
                     </li>
@@ -430,7 +416,7 @@ Navigator에 대해서는 생활코딩에서 더 알아볼 수 있으며, naviga
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="../../../2021/03/diamond-problem/" class="thumbnail">
+                            <a href="../../03/diamond-problem/" class="thumbnail">
     
     
         <span style="background-image:url(https://user-images.githubusercontent.com/33862991/112439513-89b1c980-8d8c-11eb-8eaa-04fd0063dac1.jpg)" alt="자바에서의 다중상속 문제(a.k.a. Diamond Problem)" class="thumbnail-image"></span>
@@ -442,7 +428,7 @@ Navigator에 대해서는 생활코딩에서 더 알아볼 수 있으며, naviga
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
-                            <p class="item-title"><a href="../../../2021/03/diamond-problem/" class="title">자바에서의 다중상속 문제(a.k.a. Diamond Problem)</a></p>
+                            <p class="item-title"><a href="../../03/diamond-problem/" class="title">자바에서의 다중상속 문제(a.k.a. Diamond Problem)</a></p>
                             <p class="item-date"><time datetime="2021-03-27T05:20:23.000Z" itemprop="datePublished">2021-03-27</time></p>
                         </div>
                     </li>
@@ -450,7 +436,7 @@ Navigator에 대해서는 생활코딩에서 더 알아볼 수 있으며, naviga
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="../../../2021/03/apply-new-gitignore/" class="thumbnail">
+                            <a href="../../03/apply-new-gitignore/" class="thumbnail">
     
     
         <span style="background-image:url(https://user-images.githubusercontent.com/33862991/111944820-d5aa0780-8b1b-11eb-9a44-f604ed1f4a97.jpg)" alt="Gitignore 새로 반영하기" class="thumbnail-image"></span>
@@ -462,7 +448,7 @@ Navigator에 대해서는 생활코딩에서 더 알아볼 수 있으며, naviga
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Git/">Git</a></p>
-                            <p class="item-title"><a href="../../../2021/03/apply-new-gitignore/" class="title">Gitignore 새로 반영하기</a></p>
+                            <p class="item-title"><a href="../../03/apply-new-gitignore/" class="title">Gitignore 새로 반영하기</a></p>
                             <p class="item-date"><time datetime="2021-03-21T20:36:00.000Z" itemprop="datePublished">2021-03-22</time></p>
                         </div>
                     </li>
