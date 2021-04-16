@@ -3,6 +3,13 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/tags/oop/</loc>
+        <lastmod>2021-04-16T11:56:01.760Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/tags/intellij/</loc>
         <lastmod>2021-04-15T14:35:08.579Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -12,13 +19,6 @@
     <url>
         <loc>http://youngjinmo.github.io/tags/tutorial/</loc>
         <lastmod>2021-04-15T14:35:08.579Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/tags/oop/</loc>
-        <lastmod>2021-04-13T14:50:23.528Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -614,13 +614,6 @@
     <url>
         <loc>http://youngjinmo.github.io/tags/tip/</loc>
         <lastmod>2020-09-13T01:53:28.748Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/tags/security/</loc>
-        <lastmod>2020-09-13T01:53:28.740Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
