@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-04-15T14:35:08.579Z</updated>
+  <updated>2021-04-21T11:20:18.998Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>스프링 웹 계층구조</title>
+    <link href="http://youngjinmo.github.io/2021/04/spring-web-layer/"/>
+    <id>http://youngjinmo.github.io/2021/04/spring-web-layer/</id>
+    <published>2021-04-21T11:06:00.000Z</published>
+    <updated>2021-04-21T11:20:18.998Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/115545440-c7980400-a2de-11eb-94ce-d949f5c1e1b8.jpg&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+    <category term="springmvc" scheme="http://youngjinmo.github.io/tags/springmvc/"/>
+    
+  </entry>
   
   <entry>
     <title>인텔리제이에서 Github Token 사용하기</title>
@@ -585,36 +613,6 @@
     
     
     <category term="privacy" scheme="http://youngjinmo.github.io/tags/privacy/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Live Study 4주차 - 제어문</title>
-    <link href="http://youngjinmo.github.io/2021/01/livestudy-week-04/"/>
-    <id>http://youngjinmo.github.io/2021/01/livestudy-week-04/</id>
-    <published>2021-01-21T00:52:05.000Z</published>
-    <updated>2021-02-03T09:28:57.787Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#conditional&quot;&gt;조건문&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
-    
-    
-    <category term="whiteship" scheme="http://youngjinmo.github.io/tags/whiteship/"/>
     
   </entry>
   

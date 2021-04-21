@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>스프링 웹 계층구조</title>
+      <link href="2021/04/spring-web-layer/"/>
+      <url>2021/04/spring-web-layer/</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://user-images.githubusercontent.com/33862991/115545440-c7980400-a2de-11eb-94ce-d949f5c1e1b8.jpg"></p><p><a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=218568947">스프링부트와 AWS로 혼자 구현하는 웹 서비스</a> 책을 읽으며 프로젝트를 실습하던중, 정리해보면 좋을 부분인것 같아서 정리해보았다.</p><p><img src="https://www.petrikainulainen.net/wp-content/uploads/spring-web-app-architecture.png"></p><ul><li><strong>Web Layer</strong><ul><li>컨트롤러와 뷰 템플릿 영역</li><li>외부 요청과 응답에 관한 전반적인 영역<ul><li><code>@Filter</code>, 인터셉터, <code>@ControllerAdvice</code> 등 </li></ul></li></ul></li><li><strong>Service Layer</strong><ul><li><code>@Service</code> 에 사용되는 서비스 영역</li><li>일반적으로 Controller와 Dao의 중간 영역에서 사용</li><li><code>@Transactional</code>이 사용되어야 하는 영역</li></ul></li><li><strong>Repository Layer</strong><ul><li>DB에 접근하는 영역</li><li>DAO의 영역에 해당</li></ul></li><li><strong>Dtos</strong><ul><li>Data Transfter Object</li><li>계층간에 데이터 교환을 위한 객체</li></ul></li><li><strong>Domain Model</strong><ul><li>개발 대상을 모든 사람이 동일한 관점에서 이해할 수 있고, 공유할 수 있도록 단순화 시킨 것.</li><li>배달 앱이라고 가정하면, 주문, 결제, 배달상태 등이 될 수 있다.</li><li>@Entity가 사용된 영역이 도메인 모델</li><li>항상 DB 테이블과 관계있는 영역은 아님</li><li>VO처럼 값 객체들도 이 영역에 해당될 수 있음.</li><li><mark>비즈니스 처리를 담당</mark>해야하는 곳이기도 함.</li></ul></li></ul><hr><p>출처 : <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=218568947">이동욱 - 스프링부트와 AWS로 혼자 구현하는 웹 서비스</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Dev </category>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> springmvc </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>인텔리제이에서 Github Token 사용하기</title>
       <link href="2021/04/use-github-token-intellij/"/>
       <url>2021/04/use-github-token-intellij/</url>
