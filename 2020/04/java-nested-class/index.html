@@ -15,13 +15,13 @@
     <meta name="description" content="클래스 안에 클래스, 즉 내부 클래스를 생성할 수 있다. 중첩되는 객체이므로 nested class라고도 하고, 그냥 inner class라고도 하는 것 같다. 내부 클래스는 크게 4가지로 분류된다. 일반 내부 클래스, 내부 static 클래스, 내부 지역 중첩 클래스, 익명 중첩 클래스가 있다.  일반 내부 클래스 내부 static 클래스 내">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JAVA - 내부클래스(innerClass또는 nestedClass)">
-<meta property="og:url" content="http://youngjinmo.github.io/2020/04/java-nestedClass/index.html">
+<meta property="og:url" content="http://youngjinmo.github.io/2020/04/java-nested-class/index.html">
 <meta property="og:site_name" content="DevAndy - 개발자앤디의 개발블로그">
 <meta property="og:description" content="클래스 안에 클래스, 즉 내부 클래스를 생성할 수 있다. 중첩되는 객체이므로 nested class라고도 하고, 그냥 inner class라고도 하는 것 같다. 내부 클래스는 크게 4가지로 분류된다. 일반 내부 클래스, 내부 static 클래스, 내부 지역 중첩 클래스, 익명 중첩 클래스가 있다.  일반 내부 클래스 내부 static 클래스 내">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://images.unsplash.com/photo-1517148815978-75f6acaaf32c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80">
 <meta property="article:published_time" content="2020-04-05T13:48:25.000Z">
-<meta property="article:modified_time" content="2020-09-13T01:53:28.452Z">
+<meta property="article:modified_time" content="2021-04-24T06:51:11.839Z">
 <meta property="article:author" content="Youngjin Mo">
 <meta property="article:tag" content="oop">
 <meta property="article:tag" content="inner class">
@@ -178,7 +178,7 @@ ga('send', 'pageview');
 </div>
 
                         <div class="main-body-content">
-                            <article id="drafts-java-nestedClass" class="article article-single article-type-drafts" itemscope itemprop="blogPost">
+                            <article id="drafts-java-nested-class" class="article article-single article-type-drafts" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
@@ -205,7 +205,7 @@ ga('send', 'pageview');
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="" class="article-date">
-     <time datetime="2020-09-13T01:53:28.452Z" itemprop="dateModified">2020-09-13</time>
+     <time datetime="2021-04-24T06:51:11.839Z" itemprop="dateModified">2021-04-24</time>
   </a>
 </div>
 
@@ -256,7 +256,7 @@ ga('send', 'pageview');
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> innerClass;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InnerExam1</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="class"><span class="keyword">class</span> <span class="title">Cal</span> </span>&#123;</span><br><span class="line">      <span class="keyword">int</span> value = <span class="number">0</span>;</span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">plus</span><span class="params">()</span> </span>&#123;</span><br><span class="line">         value++;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">	</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      InnerExam1 ex = <span class="keyword">new</span> InnerExam1();</span><br><span class="line">      InnerExam1.Cal cal = ex.<span class="function">new <span class="title">Cal</span><span class="params">()</span></span>;</span><br><span class="line">		</span><br><span class="line">      cal.plus();</span><br><span class="line">      System.out.println(cal.value);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>main메서드에서 사용하려면 우선 외부 클래스에 대한 인스턴스를 생성하고, 내부 클래스에 대한 인스턴스를 생성해서 사용해야 한다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">InnerExam1 ex = <span class="keyword">new</span> InnerExam1();</span><br><span class="line">InnerExam1.Cal cal = ex.<span class="function">new <span class="title">Cal</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">InnerExam1 ex = <span class="keyword">new</span> InnerExam1();</span><br><span class="line">InnerExam1.Cal cal = ex.n<span class="function">ew <span class="title">Cal</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
 
 <br>
 
@@ -289,7 +289,7 @@ ga('send', 'pageview');
 <p><strong>MyAction.class</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> nestedClass;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyAction</span> <span class="keyword">extends</span> <span class="title">Action</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">exec</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;exec&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>이를 실행하는 클래스 ActionExam이다.</p>
+<p>MyAction 클래스로부터 인스턴스를 생성해서 메소드를 호출하는 클래스 ActionExam이다.</p>
 <p><strong>ActionExam.class</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> nestedClass;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ActionExam</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">      Action action = <span class="keyword">new</span> MyAction();</span><br><span class="line">      action.exec();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -299,8 +299,7 @@ ga('send', 'pageview');
 <p><strong>ActionExam.class</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> innerClass;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ActionExam</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">   <span class="comment">//   Action action = new MyAction();</span></span><br><span class="line">   <span class="comment">//   action.exec();</span></span><br><span class="line">		</span><br><span class="line">      Action action = <span class="keyword">new</span> Action() &#123;</span><br><span class="line">		</span><br><span class="line">         <span class="meta">@Override</span></span><br><span class="line">         <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">exec</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;exec&quot;</span>);</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;;</span><br><span class="line">      action.exec();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>이렇게 하면, Action클래스를 상속받는 하위 클래스(MyAction.class)를 생성하지 않아도 main 함수 내에서 익명클래스를 생성해서 사용할 수 있다.</p>
-<p>그러나 솔직히 익명클래스를 사용하는 것보다는 한번 밖에 사용되지 않는다 하더라도 main 함수는 실행하는 코드만 남겨두고, 하위 클래스를 만들어서 사용하는게 객체지향적인 의미에서 더 낫지 않나 생각이 든다.</p>
+<p>이렇게 하면, Action클래스를 상속받는 구현체를 생성하지 않아도 main 함수 내에서 익명클래스를 선언해서 사용할 수 있다.</p>
 
         </div>
     </div>
@@ -334,8 +333,8 @@ ga('send', 'pageview');
         "genre": "Dev Java",
         "datePublished": "2020-04-05",
         "dateCreated": "2020-04-05",
-        "dateModified": "2020-09-13",
-        "url": "../../../http:/youngjinmo.github.io/2020/04/java-nestedClass/",
+        "dateModified": "2021-04-24",
+        "url": "../../../http:/youngjinmo.github.io/2020/04/java-nested-class/",
         "description": "
 
 
@@ -348,7 +347,7 @@ ga('send', 'pageview');
 일반 내부 클래스
 내부 static 클래스
 내",
-        "wordCount": 1229
+        "wordCount": 1207
     }
 </script>
 
