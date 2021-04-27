@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>DevAndy - 개발자앤디의 개발블로그</title>
+  <title>기록하는개발자 | DevAndy</title>
   
-  <subtitle>앤디의 개발 이야기</subtitle>
+  <subtitle>개발자앤디</subtitle>
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-04-21T11:20:18.998Z</updated>
+  <updated>2021-04-27T15:26:12.691Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DTO와 VO 그리고 Entity의 차이</title>
+    <link href="http://youngjinmo.github.io/2021/04/dto-vo-entity/"/>
+    <id>http://youngjinmo.github.io/2021/04/dto-vo-entity/</id>
+    <published>2021-04-27T04:41:46.000Z</published>
+    <updated>2021-04-27T15:26:12.691Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/116251214-6de57d00-a7a9-11eb-8576-83e3bdea5140.jpg&quot;&gt;&lt;/p&gt;
+&lt;p&gt;본 포스팅은 &lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Spring" scheme="http://youngjinmo.github.io/categories/Dev/Spring/"/>
+    
+    
+    <category term="domain" scheme="http://youngjinmo.github.io/tags/domain/"/>
+    
+    <category term="dto" scheme="http://youngjinmo.github.io/tags/dto/"/>
+    
+    <category term="vo" scheme="http://youngjinmo.github.io/tags/vo/"/>
+    
+  </entry>
   
   <entry>
     <title>스프링 웹 계층구조</title>
@@ -586,33 +618,6 @@
     <category term="oop" scheme="http://youngjinmo.github.io/tags/oop/"/>
     
     <category term="whiteship" scheme="http://youngjinmo.github.io/tags/whiteship/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>디지털 개인정보</title>
-    <link href="http://youngjinmo.github.io/2021/01/digital-privacy/"/>
-    <id>http://youngjinmo.github.io/2021/01/digital-privacy/</id>
-    <published>2021-01-22T05:42:25.000Z</published>
-    <updated>2021-01-23T05:36:24.576Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Life" scheme="http://youngjinmo.github.io/categories/Life/"/>
-    
-    <category term="Thought" scheme="http://youngjinmo.github.io/categories/Life/Thought/"/>
-    
-    
-    <category term="privacy" scheme="http://youngjinmo.github.io/tags/privacy/"/>
     
   </entry>
   
