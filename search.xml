@@ -252,7 +252,7 @@
             
             <tag> annotation </tag>
             
-            <tag> whiteship </tag>
+            <tag> livestudy </tag>
             
         </tags>
       
@@ -279,7 +279,7 @@
       
         <tags>
             
-            <tag> whiteship </tag>
+            <tag> livestudy </tag>
             
             <tag> enum </tag>
             
@@ -308,7 +308,7 @@
       
         <tags>
             
-            <tag> whiteship </tag>
+            <tag> livestudy </tag>
             
             <tag> generics </tag>
             
@@ -337,7 +337,9 @@
       
         <tags>
             
-            <tag> whiteship </tag>
+            <tag> exception </tag>
+            
+            <tag> livestudy </tag>
             
         </tags>
       
@@ -393,7 +395,7 @@
             
             <tag> oop </tag>
             
-            <tag> whiteship </tag>
+            <tag> livestudy </tag>
             
         </tags>
       
@@ -453,7 +455,7 @@
             
             <tag> oop </tag>
             
-            <tag> whiteship </tag>
+            <tag> livestudy </tag>
             
         </tags>
       
@@ -511,7 +513,7 @@
             
             <tag> oop </tag>
             
-            <tag> whiteship </tag>
+            <tag> livestudy </tag>
             
         </tags>
       
@@ -561,7 +563,7 @@
             
             <tag> oop </tag>
             
-            <tag> whiteship </tag>
+            <tag> livestudy </tag>
             
         </tags>
       
@@ -615,7 +617,7 @@
       
         <tags>
             
-            <tag> whiteship </tag>
+            <tag> livestudy </tag>
             
         </tags>
       
@@ -698,7 +700,7 @@
             
             <tag> lambda </tag>
             
-            <tag> whiteship </tag>
+            <tag> livestudy </tag>
             
             <tag> operator </tag>
             
@@ -729,7 +731,7 @@
             
             <tag> casting </tag>
             
-            <tag> whiteship </tag>
+            <tag> livestudy </tag>
             
         </tags>
       
@@ -820,7 +822,7 @@
             
             <tag> jvm </tag>
             
-            <tag> whiteship </tag>
+            <tag> livestudy </tag>
             
         </tags>
       
