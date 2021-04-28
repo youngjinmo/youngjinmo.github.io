@@ -73,14 +73,14 @@
     </url>
 
     <url>
-        <loc>http://youngjinmo.github.io/tags/h2database/</loc>
+        <loc>http://youngjinmo.github.io/tags/database/</loc>
         <lastmod>2021-04-20T08:35:36.347Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://youngjinmo.github.io/tags/database/</loc>
+        <loc>http://youngjinmo.github.io/tags/h2database/</loc>
         <lastmod>2021-04-20T08:35:36.347Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -150,6 +150,13 @@
     </url>
 
     <url>
+        <loc>http://youngjinmo.github.io/tags/casting/</loc>
+        <lastmod>2021-03-25T08:05:59.322Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/tags/gitignore/</loc>
         <lastmod>2021-03-22T05:37:21.289Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -208,13 +215,6 @@
     <url>
         <loc>http://youngjinmo.github.io/tags/annotation/</loc>
         <lastmod>2021-03-04T06:03:41.663Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/tags/casting/</loc>
-        <lastmod>2021-03-01T05:52:58.633Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

@@ -256,7 +256,7 @@ ga('send', 'pageview');
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> innerClass;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InnerExam1</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="class"><span class="keyword">class</span> <span class="title">Cal</span> </span>&#123;</span><br><span class="line">      <span class="keyword">int</span> value = <span class="number">0</span>;</span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">plus</span><span class="params">()</span> </span>&#123;</span><br><span class="line">         value++;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">	</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      InnerExam1 ex = <span class="keyword">new</span> InnerExam1();</span><br><span class="line">      InnerExam1.Cal cal = ex.<span class="function">new <span class="title">Cal</span><span class="params">()</span></span>;</span><br><span class="line">		</span><br><span class="line">      cal.plus();</span><br><span class="line">      System.out.println(cal.value);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>main메서드에서 사용하려면 우선 외부 클래스에 대한 인스턴스를 생성하고, 내부 클래스에 대한 인스턴스를 생성해서 사용해야 한다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">InnerExam1 ex = <span class="keyword">new</span> InnerExam1();</span><br><span class="line">InnerExam1.Cal cal = ex.n<span class="function">ew <span class="title">Cal</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">InnerExam1 ex = <span class="keyword">new</span> InnerExam1();</span><br><span class="line">InnerExam1.Cal cal = ex.<span class="function">new <span class="title">Cal</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
 
 <br>
 
@@ -359,14 +359,6 @@ ga('send', 'pageview');
     <div class="sidebar-top">
         <p>follow:</p>
         <ul class="social-links">
-            
-                
-                <li>
-                    <a class="social-tooltip" title="twitter" href="../../../https:/twitter.com/devandy_yj" target="_blank" rel="noopener">
-                        <i class="icon fa fa-twitter"></i>
-                    </a>
-                </li>
-                
             
                 
                 <li>
