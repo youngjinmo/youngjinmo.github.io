@@ -6,26 +6,26 @@
     
 
     
-    <title>HTML - Section, Article, Div.. | 기록하는개발자 | DevAndy</title>
+    <title>AWS EC2 Timezone, Locale 변경하기 | 기록하는개발자 | DevAndy</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="markup" />
+    <meta name="keywords" content="aws" />
     
-    <meta name="description" content="구름Edu에서 인스타그램 클론 코딩 강의를 구입하여 클론 코딩을 진행중이다. CSS에 대해 깊히 알지못하다보니 CSS 파트를 따라치는 것도 쉽지는 않다. 특히 마크업 구조가 복잡해지면서 &lt;div&gt; 태그만 사용하면, 내가 작성한 코드임에도 불구하고 마크업의 구조를 파악하기 어려워졌다. 그러다 문득 프론트엔드 개발자의 유튜브 영상을 보게 되면서">
+    <meta name="description" content="AWS EC2를 사용하면서 locale을 변경하기 위해서 구글링하다가 알게된 방법을 정리한다. 본 포스팅은 AWS EC2를 사용하며 정리한 글이지만, 당연하게도 모든 리눅스에서도 사용되는 방법이다. 현재 EC2의 날짜를 보고 싶다면 아래의 명령어를 입력하면 볼 수 있다. 1$ date  또 현재 locale 설정 역시 아래 명령어로 확인할 수 있다. 1$">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTML - Section, Article, Div..">
-<meta property="og:url" content="http://youngjinmo.github.io/2019/09/HTML-Section-Article-Div/index.html">
+<meta property="og:title" content="AWS EC2 Timezone, Locale 변경하기">
+<meta property="og:url" content="http://youngjinmo.github.io/2021/04/aws-ec2-setlocale/index.html">
 <meta property="og:site_name" content="기록하는개발자 | DevAndy">
-<meta property="og:description" content="구름Edu에서 인스타그램 클론 코딩 강의를 구입하여 클론 코딩을 진행중이다. CSS에 대해 깊히 알지못하다보니 CSS 파트를 따라치는 것도 쉽지는 않다. 특히 마크업 구조가 복잡해지면서 &lt;div&gt; 태그만 사용하면, 내가 작성한 코드임에도 불구하고 마크업의 구조를 파악하기 어려워졌다. 그러다 문득 프론트엔드 개발자의 유튜브 영상을 보게 되면서">
+<meta property="og:description" content="AWS EC2를 사용하면서 locale을 변경하기 위해서 구글링하다가 알게된 방법을 정리한다. 본 포스팅은 AWS EC2를 사용하며 정리한 글이지만, 당연하게도 모든 리눅스에서도 사용되는 방법이다. 현재 EC2의 날짜를 보고 싶다면 아래의 명령어를 입력하면 볼 수 있다. 1$ date  또 현재 locale 설정 역시 아래 명령어로 확인할 수 있다. 1$">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://www.mediafire.com/convkey/9dae/nc19g8irg0cdj40zg.jpg">
-<meta property="article:published_time" content="2019-09-13T05:39:31.000Z">
-<meta property="article:modified_time" content="2020-12-03T08:33:27.074Z">
+<meta property="og:image" content="https://user-images.githubusercontent.com/33862991/116774179-c791c400-aa95-11eb-83db-06f8a1c6b8fc.png">
+<meta property="article:published_time" content="2021-04-30T22:42:52.000Z">
+<meta property="article:modified_time" content="2021-05-01T07:44:09.775Z">
 <meta property="article:author" content="Youngjin Mo">
-<meta property="article:tag" content="markup">
+<meta property="article:tag" content="aws">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://www.mediafire.com/convkey/9dae/nc19g8irg0cdj40zg.jpg">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/33862991/116774179-c791c400-aa95-11eb-83db-06f8a1c6b8fc.png">
 <meta name="twitter:creator" content="@devandy_yj">
     
 
@@ -172,19 +172,19 @@ ga('send', 'pageview');
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Front-end/">Front-end</a>
+    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Linux/">Linux</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="posts-HTML-Section-Article-Div" class="article article-single article-type-posts" itemscope itemprop="blogPost">
+                            <article id="post-aws-ec2-setlocale" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        HTML - Section, Article, Div..
+        AWS EC2 Timezone, Locale 변경하기
         </h1>
     
 
@@ -196,7 +196,7 @@ ga('send', 'pageview');
   <div class="article-date">
     <i class="fa fa-calendar"></i>
     <a href="" class="article-date">
-       <time datetime="2019-09-13T05:39:31.000Z" itemprop="datePublished">2019-09-13</time>
+       <time datetime="2021-04-30T22:42:52.000Z" itemprop="datePublished">2021-05-01</time>
     </a>
   </div>
 
@@ -204,7 +204,7 @@ ga('send', 'pageview');
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="" class="article-date">
-     <time datetime="2020-12-03T08:33:27.074Z" itemprop="dateModified">2020-12-03</time>
+     <time datetime="2021-05-01T07:44:09.775Z" itemprop="dateModified">2021-05-01</time>
   </a>
 </div>
 
@@ -218,7 +218,7 @@ ga('send', 'pageview');
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="../../../tags/markup/" rel="tag">markup</a>
+        <a class="tag-link-link" href="../../../tags/aws/" rel="tag">aws</a>
     </div>
 
                 
@@ -235,83 +235,48 @@ ga('send', 'pageview');
 
             
 
-            <img src="http://www.mediafire.com/convkey/9dae/nc19g8irg0cdj40zg.jpg" />
+            <p><img src="https://user-images.githubusercontent.com/33862991/116774179-c791c400-aa95-11eb-83db-06f8a1c6b8fc.png"></p>
+<p>AWS EC2를 사용하면서 locale을 변경하기 위해서 구글링하다가 알게된 방법을 정리한다. 본 포스팅은 AWS EC2를 사용하며 정리한 글이지만, 당연하게도 모든 리눅스에서도 사용되는 방법이다.</p>
+<p>현재 EC2의 날짜를 보고 싶다면 아래의 명령어를 입력하면 볼 수 있다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ date</span><br></pre></td></tr></table></figure>
 
-<p>구름Edu에서 인스타그램 클론 코딩 강의를 구입하여 클론 코딩을 진행중이다. CSS에 대해 깊히 알지못하다보니 CSS 파트를 따라치는 것도 쉽지는 않다. 특히 마크업 구조가 복잡해지면서 <code>&lt;div&gt;</code> 태그만 사용하면, 내가 작성한 코드임에도 불구하고 마크업의 구조를 파악하기 어려워졌다. 그러다 문득 프론트엔드 개발자의 <a href="https://www.youtube.com/watch?v=jOzR83vixsE" target="_blank">유튜브 영상</a>을 보게 되면서 HTML 작성법에 대해 다시 한 번 생각하게 되었다. </p>
+<p>또 현재 locale 설정 역시 아래 명령어로 확인할 수 있다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ locale</span><br></pre></td></tr></table></figure>
+
+<p>이에 대한 실제 콘솔 결과는 아래 이미지를 참고바란다.</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/116773406-32400100-aa90-11eb-9e6c-46ed7532bddc.png"></p>
+<p>위의 이미지는 date 설정과 locale을 모두 한국으로 맞춰서 출력이 문제없이 나오고 있다. 이 설정을 영어로 바꾸어보겠다.</p>
 <br>
 
-<p><img src="http://www.mediafire.com/convkey/464c/4oazpyxy3udx3xyzg.jpg"></p>
-<p>먼저 마크업 랭귀지는 브라우저에서 인식하는 언어라고 한다. 따라서 어떻게 작성하느냐에 따라 브라우저에서 받아들이는(해석) 것이 달라질수 있고, 더 나아가 <strong>검색엔진에서의 검색 결과에 영향</strong>을 미치기까지 하다. 따라서 무분별한 <code>&lt;div&gt;</code> 태그 남발보다는 컨텐츠에 맞춰 <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;nav&gt;</code> 등의 태그를 사용하는 것이 좋다.</p>
-<p>사용하려고보니 각각의 태그 사용법이 모호하여 이를 정리해본다.</p>
+<h2 id="Timezone-변경하기"><a href="#Timezone-변경하기" class="headerlink" title="Timezone 변경하기"></a>Timezone 변경하기</h2><p>먼저 현재 localtime을 삭제하겠다. <code>sudo</code> 권한으로만 삭제할 수 있다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo rm /etc/localtime</span><br></pre></td></tr></table></figure>
+
+<p>이제 새로운 localtime을 적용해야 한다. 테스트 삼아 미국(US), Arizona 시간대를 적용해보겠다. 적용할 수 있는 시간대는 <code>/usr/share/zoneinfo/US/Arizona</code> 에서 확인가능하다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo ln -s /usr/share/zoneinfo/US/Arizona /etc/localtime</span><br></pre></td></tr></table></figure>
+
+<p><code>ln</code> 명령어는 리눅스에서 심볼릭 링크를 생성하는 명령어이다. 심볼릭 링크는 <code>바로가기</code> 와 같은 개념으로 생각하면 좋다.</p>
+<p>이제 확인해보면 성공적으로 날짜가 변경된걸 알 수 있다.</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/116773715-0de52400-aa92-11eb-9aac-6169fa6ed4aa.png"></p>
+<p>아까는 5월 1일이 출력되었는데, 지금은 아리조나 시간대로 출력되는걸 확인할 수 있다.</p>
 <br>
 
-<h2>header</h2>
-<div style="display: flex;">
-      <div style="float: left; width: 30%;">
-      <img src="http://www.mediafire.com/convkey/4e1e/i8y3hctahnvmqw0zg.jpg" alt="hearder">
-      </div>
-    <div style="float: left; flex: 50%; align-items: center; margin-left: 15px;">
-            문서의 header를 나타낼때 사용한다. <br>해당 웹 페이지가 어떤 웹 페이지인지를 정의하는 문서영역이 이 영역에 해당한다.
-    </div>
-</div>
+<h2 id="Locale-변경하기"><a href="#Locale-변경하기" class="headerlink" title="Locale 변경하기"></a>Locale 변경하기</h2><p>편집하기 앞서 설정하고 싶은 locale은 <code>locale- a</code> 명령어로 나오는 리스트에서 가져오면 된다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ locale -a</span><br></pre></td></tr></table></figure>
 
-<br>
+<p><img src="https://user-images.githubusercontent.com/33862991/116773900-9ca67080-aa93-11eb-91e4-746ae541bc5b.png"></p>
+<p>locale은 <code>/etc/sysconfig/i18n</code> 을 편집하면 된다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/sysconfig/i18n</span><br></pre></td></tr></table></figure>
 
-<h2 id="nav"><a href="#nav" class="headerlink" title="nav"></a>nav</h2><div style="display: flex;">
-      <div style="float: left; width: 30%;">
-      <img src="http://www.mediafire.com/convkey/9580/wk7bzdneme7owidzg.jpg" alt="nav">
-      </div>
-    <div style="float: left; flex: 50%; align-items: center; margin-left: 15px;">
-            현재 문서의 메뉴에 해당하는 영역이다.<br>다른 문서로의 이동이 필요한 링크가 이 영역에 포함될 수 있다. 
-    </div>
-</div>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LANG=en_US.utf8</span><br></pre></td></tr></table></figure>
 
-<br>
+<p>이제 EC2를 재부팅하면 새로운 locale이 적용된다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo reboot</span><br></pre></td></tr></table></figure>
 
-<h2 id="div"><a href="#div" class="headerlink" title="div"></a>div</h2><p>아무 목적 없이 그냥 영역을 나눌때 사용할 수 있는 태그이다. 그렇기 때문에 편하게 사용가능하지만 되도록 목적을 갖는 영역 또는 컨텐츠 영역은 단순히 <code>&lt;div&gt;</code> 태그로 묶기 보다는 아래의 <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code> 태그를 이용하는 것을 권한다. 그래야 브라우저와 검색엔진이 어떤 컨텐츠인지를 올바르게 인식할 수 있다.</p>
-<br>
+<hr>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://jungjoongi.com/2018/12/13/aws-ec2-timezone/">정준기의 개발공간 - AWS EC2 시간(timezone)/Locale 변경하기</a></li>
+</ul>
 
-<h2 id="section"><a href="#section" class="headerlink" title="section"></a>section</h2><div style="display: flex;">
-      <div style="float: left; width: 30%;">
-      <img src="http://www.mediafire.com/convkey/9580/wk7bzdneme7owidzg.jpg" alt="section">
-      </div>
-    <div style="float: left; flex: 50%; align-items: center; margin-left: 15px;">
-            같은 성격/유형의 컨텐츠를 묶는 태그 방식이다.<br>header와 footer를 제외하면 큰 틀에서 section이 가장 큰 태그가 아닐까 싶다.
-    </div>
-</div>
-
-<br>
-
-<h2 id="article"><a href="#article" class="headerlink" title="article"></a>article</h2><div style="display: flex;">
-      <div style="float: left; width: 30%;">
-      <img src="http://www.mediafire.com/convkey/33e8/nflcngrw3ad9q0dzg.jpg" alt="article">
-      </div>
-    <div style="float: left; flex: 50%; align-items: center; margin-left: 15px;">
-            section처럼 같은 성격/유형의 컨텐츠끼리 묶을 떄 사용하는 태그이다. 따라서 section태그와 헷갈릴수 있지만, article만의 특징은 <b>독립성</b>을 이야기할 수 있다.<br>article 태그 안의 컨텐츠만으로 독립이 가능한 영역이면 article 태그로 묶는다.
-    </div>
-</div>
-
-<br>
-
-<h2 id="aside"><a href="#aside" class="headerlink" title="aside"></a>aside</h2><div style="display: flex;">
-      <div style="float: left; width: 30%;">
-      <img src="http://www.mediafire.com/convkey/20cd/9qxpk0prjsqzjhqzg.jpg" alt="aside">
-      </div>
-    <div style="float: left; flex: 50%; align-items: center; margin-left: 15px;">
-            한 마디로 사이드바 영역이다.<br>section이나 article보다는 nav와 비슷한 영역이 아닐까 싶다.
-    </div>
-</div>
-<br>
-
-<h2>footer</h2>
-<div style="display: flex;">
-      <div style="float: left; width: 30%;">
-      <img src="http://www.mediafire.com/convkey/28a7/ynhxqxxf1rddekxzg.jpg" alt="footer">
-      </div>
-    <div style="float: left; flex: 50%; align-items: center; margin-left: 15px;">
-            header가 문서를 정의하는 영역이었다면, footer는 문서 작성자에 대한 정보가 담기는 영역이다.<br>기업 홈페이지라면 이 영역에 사업자번호와 사업자대표, 사업장위치 등이 포함된다.
-    </div>
-</div>
         </div>
     </div>
 	<div class="ads" style="margin-top: 10px;margin-bottom:10px;">
@@ -338,18 +303,22 @@ ga('send', 'pageview');
             "@type": "Person",
             "name": "Youngjin Mo"
         },
-        "headline": "HTML - Section, Article, Div..",
-        "image": "../../../http:/youngjinmo.github.iohttp:/www.mediafire.com/convkey/9dae/nc19g8irg0cdj40zg.jpg",
-        "keywords": "markup",
-        "genre": "Dev Front-end",
-        "datePublished": "2019-09-13",
-        "dateCreated": "2019-09-13",
-        "dateModified": "2020-12-03",
-        "url": "../../../http:/youngjinmo.github.io/2019/09/HTML-Section-Article-Div/",
+        "headline": "AWS EC2 Timezone, Locale 변경하기",
+        "image": "../../../http:/youngjinmo.github.iohttps:/user-images.githubusercontent.com/33862991/116774179-c791c400-aa95-11eb-83db-06f8a1c6b8fc.png",
+        "keywords": "aws",
+        "genre": "Dev Linux",
+        "datePublished": "2021-05-01",
+        "dateCreated": "2021-05-01",
+        "dateModified": "2021-05-01",
+        "url": "../../../http:/youngjinmo.github.io/2021/04/aws-ec2-setlocale/",
         "description": "
+AWS EC2를 사용하면서 locale을 변경하기 위해서 구글링하다가 알게된 방법을 정리한다. 본 포스팅은 AWS EC2를 사용하며 정리한 글이지만, 당연하게도 모든 리눅스에서도 사용되는 방법이다.
+현재 EC2의 날짜를 보고 싶다면 아래의 명령어를 입력하면 볼 수 있다.
+1$ date
 
-구름Edu에서 인스타그램 클론 코딩 강의를 구입하여 클론 코딩을 진행중이다. CSS에 대해 깊히 알지못하다보니 CSS 파트를 따라치는 것도 쉽지는 않다. 특히 마크업 구조가 복잡해지면서 &lt;div&gt; 태그만 사용하면, 내가 작성한 코드임에도 불구하고 마크업의 구조를 파악하기 어려워졌다. 그러다 문득 프론트엔드 개발자의 유튜브 영상을 보게 되면서 ",
-        "wordCount": 581
+또 현재 locale 설정 역시 아래 명령어로 확인할 수 있다.
+1$",
+        "wordCount": 231
     }
 </script>
 
@@ -384,20 +353,10 @@ ga('send', 'pageview');
         
 <nav id="article-nav">
     
-        <a href="../Algorithms-changeLetter/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            알고리즘 - 문자열 변환 연습
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="../java-casting-array/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="../dto-vo-entity/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">Java - 배열 형변환</p>
+        <p class="article-nav-title">DTO와 VO 그리고 Entity의 차이</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -419,7 +378,7 @@ ga('send', 'pageview');
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="../../../2021/04/aws-ec2-setlocale/" class="thumbnail">
+                            <a href="" class="thumbnail">
     
     
         <span style="background-image:url(https://user-images.githubusercontent.com/33862991/116774179-c791c400-aa95-11eb-83db-06f8a1c6b8fc.png)" alt="AWS EC2 Timezone, Locale 변경하기" class="thumbnail-image"></span>
@@ -431,7 +390,7 @@ ga('send', 'pageview');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Linux/">Linux</a></p>
-                            <p class="item-title"><a href="../../../2021/04/aws-ec2-setlocale/" class="title">AWS EC2 Timezone, Locale 변경하기</a></p>
+                            <p class="item-title"><a href="" class="title">AWS EC2 Timezone, Locale 변경하기</a></p>
                             <p class="item-date"><time datetime="2021-04-30T22:42:52.000Z" itemprop="datePublished">2021-05-01</time></p>
                         </div>
                     </li>
@@ -439,7 +398,7 @@ ga('send', 'pageview');
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="../../../2021/04/dto-vo-entity/" class="thumbnail">
+                            <a href="../dto-vo-entity/" class="thumbnail">
     
     
         <span style="background-image:url(https://user-images.githubusercontent.com/33862991/116251214-6de57d00-a7a9-11eb-8576-83e3bdea5140.jpg)" alt="DTO와 VO 그리고 Entity의 차이" class="thumbnail-image"></span>
@@ -451,7 +410,7 @@ ga('send', 'pageview');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Spring/">Spring</a></p>
-                            <p class="item-title"><a href="../../../2021/04/dto-vo-entity/" class="title">DTO와 VO 그리고 Entity의 차이</a></p>
+                            <p class="item-title"><a href="../dto-vo-entity/" class="title">DTO와 VO 그리고 Entity의 차이</a></p>
                             <p class="item-date"><time datetime="2021-04-27T04:41:46.000Z" itemprop="datePublished">2021-04-27</time></p>
                         </div>
                     </li>
@@ -459,7 +418,7 @@ ga('send', 'pageview');
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="../../../2021/04/spring-web-layer/" class="thumbnail">
+                            <a href="../spring-web-layer/" class="thumbnail">
     
     
         <span style="background-image:url(https://user-images.githubusercontent.com/33862991/115545440-c7980400-a2de-11eb-94ce-d949f5c1e1b8.jpg)" alt="스프링 웹 계층구조" class="thumbnail-image"></span>
@@ -471,7 +430,7 @@ ga('send', 'pageview');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
-                            <p class="item-title"><a href="../../../2021/04/spring-web-layer/" class="title">스프링 웹 계층구조</a></p>
+                            <p class="item-title"><a href="../spring-web-layer/" class="title">스프링 웹 계층구조</a></p>
                             <p class="item-date"><time datetime="2021-04-21T11:06:00.000Z" itemprop="datePublished">2021-04-21</time></p>
                         </div>
                     </li>
@@ -479,7 +438,7 @@ ga('send', 'pageview');
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="../../../2021/04/use-github-token-intellij/" class="thumbnail">
+                            <a href="../use-github-token-intellij/" class="thumbnail">
     
     
         <span style="background-image:url(https://user-images.githubusercontent.com/33862991/114883338-cd559b80-9e3f-11eb-8b46-f3cae9872e64.jpg)" alt="인텔리제이에서 Github Token 사용하기" class="thumbnail-image"></span>
@@ -491,7 +450,7 @@ ga('send', 'pageview');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Git/">Git</a></p>
-                            <p class="item-title"><a href="../../../2021/04/use-github-token-intellij/" class="title">인텔리제이에서 Github Token 사용하기</a></p>
+                            <p class="item-title"><a href="../use-github-token-intellij/" class="title">인텔리제이에서 Github Token 사용하기</a></p>
                             <p class="item-date"><time datetime="2021-04-15T05:32:09.000Z" itemprop="datePublished">2021-04-15</time></p>
                         </div>
                     </li>
@@ -499,7 +458,7 @@ ga('send', 'pageview');
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="../../../2021/04/principles-of-oop/" class="thumbnail">
+                            <a href="../principles-of-oop/" class="thumbnail">
     
     
         <span style="background-image:url(https://user-images.githubusercontent.com/33862991/113977861-2e98d000-987e-11eb-8b99-b4feb494dd1f.jpg)" alt="객체지향 주요원칙 5가지" class="thumbnail-image"></span>
@@ -511,7 +470,7 @@ ga('send', 'pageview');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
-                            <p class="item-title"><a href="../../../2021/04/principles-of-oop/" class="title">객체지향 주요원칙 5가지</a></p>
+                            <p class="item-title"><a href="../principles-of-oop/" class="title">객체지향 주요원칙 5가지</a></p>
                             <p class="item-date"><time datetime="2021-04-08T22:12:52.000Z" itemprop="datePublished">2021-04-09</time></p>
                         </div>
                     </li>

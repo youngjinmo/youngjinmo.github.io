@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-04-27T15:26:12.691Z</updated>
+  <updated>2021-05-01T07:44:09.775Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AWS EC2 Timezone, Locale 변경하기</title>
+    <link href="http://youngjinmo.github.io/2021/04/aws-ec2-setlocale/"/>
+    <id>http://youngjinmo.github.io/2021/04/aws-ec2-setlocale/</id>
+    <published>2021-04-30T22:42:52.000Z</published>
+    <updated>2021-05-01T07:44:09.775Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/116774179-c791c400-aa95-11eb-83db-06f8a1c6b8fc.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;AWS EC2를 사용하면서 locale을</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Linux" scheme="http://youngjinmo.github.io/categories/Dev/Linux/"/>
+    
+    
+    <category term="aws" scheme="http://youngjinmo.github.io/tags/aws/"/>
+    
+  </entry>
   
   <entry>
     <title>DTO와 VO 그리고 Entity의 차이</title>
@@ -588,38 +616,6 @@
     
     <category term="Quiz" scheme="http://youngjinmo.github.io/categories/Dev/Quiz/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Live Study 5주차 - 클래스</title>
-    <link href="http://youngjinmo.github.io/2021/01/livestudy-week-05/"/>
-    <id>http://youngjinmo.github.io/2021/01/livestudy-week-05/</id>
-    <published>2021-01-25T00:03:28.000Z</published>
-    <updated>2021-04-28T14:31:29.043Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#class&quot;&gt;클래스와 객체&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#definition&quot;&gt;클래스 정의하는</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
-    
-    
-    <category term="oop" scheme="http://youngjinmo.github.io/tags/oop/"/>
-    
-    <category term="livestudy" scheme="http://youngjinmo.github.io/tags/livestudy/"/>
     
   </entry>
   
