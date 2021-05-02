@@ -29,7 +29,7 @@
         
         
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/116774179-c791c400-aa95-11eb-83db-06f8a1c6b8fc.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;AWS EC2를 사용하면서 locale을</summary>
+&lt;p&gt;AWS EC2를 사용하면서 locale을 변경하기 위해서 구글링하다가 알게된 방법을 정리한다. 본 포스팅은 AWS EC2를 사용하며</summary>
         
       
     
@@ -117,7 +117,7 @@
         
         
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/114883338-cd559b80-9e3f-11eb-8b46-f3cae9872e64.jpg&quot;&gt;&lt;/p&gt;
-&lt;p&gt;평소 터미널로 버전관리를 했는데, 얼마전</summary>
+&lt;p&gt;평소 터미널로 버전관리를 했는데, 얼마전 코드리뷰를 받는 과정에서 Github Token을 발급하여 인텔리제이에 적용할 일이</summary>
         
       
     
@@ -147,7 +147,7 @@
         
         
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/113977861-2e98d000-987e-11eb-8b99-b4feb494dd1f.jpg&quot;&gt;&lt;/p&gt;
-&lt;p&gt;지난 포스팅 &lt;a</summary>
+&lt;p&gt;지난 포스팅 &lt;a href=&quot;https://youngjinmo.github.io/2021/04/features-of-oop/&quot;&gt;객체지향</summary>
         
       
     
@@ -175,7 +175,7 @@
         
         
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/114133871-b1cf2a00-9941-11eb-8c75-9a3a147df889.jpg&quot;&gt;&lt;/p&gt;
-&lt;p&gt;객체지향을 공부하며 정리한 포스팅이다.</summary>
+&lt;p&gt;객체지향을 공부하며 정리한 포스팅이다. 객체지향의 주요 특징 4가지와 &lt;a</summary>
         
       
     
@@ -203,7 +203,8 @@
         
         
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/112439513-89b1c980-8d8c-11eb-8eaa-04fd0063dac1.jpg&quot;&gt;&lt;/p&gt;
-&lt;p&gt;자바에서는 왜 다중상속을 허용하지 않는걸까?</summary>
+&lt;p&gt;자바에서는 왜 다중상속을 허용하지 않는걸까? 그리고 어떻게 인터페이스를 통해서는 다중상속이 가능한걸까? &lt;/p&gt;
+&lt;p&gt;이를 알아보기</summary>
         
       
     
@@ -233,7 +234,7 @@
         
         
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/111944820-d5aa0780-8b1b-11eb-9a44-f604ed1f4a97.jpg&quot;&gt;&lt;/p&gt;
-&lt;p&gt;이미 변경관리에 의해 관리되고 있는 파일이라면</summary>
+&lt;p&gt;이미 변경관리에 의해 관리되고 있는 파일이라면 이후에 gitignore에 추가하더라도 변경관리에서 계속 추적이 될 수 있다. 이 때</summary>
         
       
     
@@ -263,7 +264,7 @@
         
         
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/111910191-b2437600-8aa3-11eb-997a-b37de936e1c5.jpg&quot;&gt;&lt;/p&gt;
-&lt;p&gt;클린코드과정에서 코드리뷰를 통해 알게된</summary>
+&lt;p&gt;클린코드과정에서 코드리뷰를 통해 알게된 원칙이다. 흥미로운 원칙이기도 하고, &lt;a</summary>
         
       
     
@@ -295,6 +296,7 @@
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg&quot;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;#annotation&quot;&gt;애노테이션 정의하는 방법&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#java-annotation&quot;&gt;자바 표준 애노테이션&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a</summary>
         
       
@@ -327,7 +329,8 @@
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg&quot;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;#enum&quot;&gt;enum 이란&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#use-enum&quot;&gt;enum 정의하는</summary>
+&lt;li&gt;&lt;a href=&quot;#use-enum&quot;&gt;enum 정의하는 방법&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a</summary>
         
       
     
@@ -359,7 +362,8 @@
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg&quot;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;#generics&quot;&gt;제네릭&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#use-generics&quot;&gt;제네릭</summary>
+&lt;li&gt;&lt;a href=&quot;#use-generics&quot;&gt;제네릭 사용법&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#type-variable&quot;&gt;제네릭 타입</summary>
         
       
     
@@ -390,7 +394,8 @@
         
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg&quot;&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#exception&quot;&gt;자바에서 예외 처리 방법 (try, catch, throw, throws,</summary>
+&lt;li&gt;&lt;a href=&quot;#exception&quot;&gt;자바에서 예외 처리 방법 (try, catch, throw, throws, finally)&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a</summary>
         
       
     
@@ -420,7 +425,8 @@
         
         
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/108665519-70f98e00-7518-11eb-80ca-2dcacfd1c4a7.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;URL은 어떤 구조로</summary>
+&lt;p&gt;URL은 어떤 구조로 되어있는걸까?&lt;/p&gt;
+&lt;p&gt;&lt;img</summary>
         
       
     
@@ -450,6 +456,9 @@
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg&quot;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;#interface&quot;&gt;인터페이스 정의하는 방법&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#purpose&quot;&gt;인터페이스 목적 : 느슨한 결합&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;&lt;a</summary>
         
       
@@ -480,7 +489,7 @@
         
         
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://regmedia.co.uk/2013/01/30/java_logo.jpg?x=442&amp;y=293&amp;crop=1&quot;&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
         
       
     
@@ -514,7 +523,8 @@
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg&quot;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;#package&quot;&gt;package 키워드&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#import&quot;&gt;import</summary>
+&lt;li&gt;&lt;a href=&quot;#import&quot;&gt;import 키워드&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a</summary>
         
       
     
@@ -544,7 +554,7 @@
         
         
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/107868830-e3d88880-6eca-11eb-847a-eb2445f2d223.jpg&quot;&gt;&lt;/p&gt;
-&lt;p&gt;쿠팡이 얼마 전 뉴욕 증권위윈회에 상장신청서인</summary>
+&lt;p&gt;쿠팡이 얼마 전 뉴욕 증권위윈회에 상장신청서인 &lt;a</summary>
         
       
     
@@ -576,6 +586,7 @@
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg&quot;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;#inheritance&quot;&gt;자바 상속의 특징&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#multiple-inheritance&quot;&gt;다중상속&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a</summary>
         
       
@@ -606,7 +617,7 @@
         
         
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/106846791-e5e36000-66f0-11eb-83c3-562cd0c40b4f.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Problem&quot;&gt;&lt;a</summary>
+&lt;h2 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot;</summary>
         
       
     
