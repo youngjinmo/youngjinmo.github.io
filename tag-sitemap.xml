@@ -3,6 +3,20 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/tags/hashCode/</loc>
+        <lastmod>2021-05-06T13:13:46.739Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/tags/equals/</loc>
+        <lastmod>2021-05-06T13:13:46.739Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/tags/mybatis/</loc>
         <lastmod>2021-05-05T14:25:58.931Z</lastmod>
         <changefreq>weekly</changefreq>

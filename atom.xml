@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-05-01T07:44:09.775Z</updated>
+  <updated>2021-05-06T13:13:46.739Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Equals와 hashCode</title>
+    <link href="http://youngjinmo.github.io/2021/05/equals-hashcode/"/>
+    <id>http://youngjinmo.github.io/2021/05/equals-hashcode/</id>
+    <published>2021-05-06T04:09:26.000Z</published>
+    <updated>2021-05-06T13:13:46.739Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/117303115-5009cd80-aeb7-11eb-9311-adef89ccb6af.jpg&quot;&gt;&lt;/p&gt;
+&lt;p&gt;이전 DTO와 VO 그리고 Entity의 차이에서 살짝 언급했는데, 이제서야 정리를</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+    <category term="equals" scheme="http://youngjinmo.github.io/tags/equals/"/>
+    
+    <category term="hashCode" scheme="http://youngjinmo.github.io/tags/hashCode/"/>
+    
+  </entry>
   
   <entry>
     <title>AWS EC2 Timezone, Locale 변경하기</title>
@@ -601,32 +631,6 @@
     <category term="oop" scheme="http://youngjinmo.github.io/tags/oop/"/>
     
     <category term="livestudy" scheme="http://youngjinmo.github.io/tags/livestudy/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hackerrank - Java Datatype</title>
-    <link href="http://youngjinmo.github.io/2021/02/hackerrank-datatype/"/>
-    <id>http://youngjinmo.github.io/2021/02/hackerrank-datatype/</id>
-    <published>2021-02-03T20:07:57.000Z</published>
-    <updated>2021-02-04T05:09:13.013Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/106846791-e5e36000-66f0-11eb-83c3-562cd0c40b4f.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Quiz" scheme="http://youngjinmo.github.io/categories/Dev/Quiz/"/>
-    
     
   </entry>
   
