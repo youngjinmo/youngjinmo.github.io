@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://user-images.githubusercontent.com/33862991/117303115-5009cd80-aeb7-11eb-9311-adef89ccb6af.jpg">
 <meta property="article:published_time" content="2021-05-06T04:09:26.000Z">
-<meta property="article:modified_time" content="2021-05-06T13:13:46.739Z">
+<meta property="article:modified_time" content="2021-05-07T09:23:32.957Z">
 <meta property="article:author" content="Youngjin Mo">
 <meta property="article:tag" content="equals">
 <meta property="article:tag" content="hashCode">
@@ -205,7 +205,7 @@ ga('send', 'pageview');
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="" class="article-date">
-     <time datetime="2021-05-06T13:13:46.739Z" itemprop="dateModified">2021-05-06</time>
+     <time datetime="2021-05-07T09:23:32.957Z" itemprop="dateModified">2021-05-07</time>
   </a>
 </div>
 
@@ -250,25 +250,25 @@ ga('send', 'pageview');
 <p>리터럴로 선언한것과 달리 heap에 생성한 변수들을 <code>==</code> 연산자와 <code>equals()</code>로 비교를 해보았다.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">str1&#x3D;&#x3D;str2 : false</span><br><span class="line">str1.equals(str2) : true</span><br></pre></td></tr></table></figure>
 
-<p><code>==</code> 연산자의 결과는 false이고, <code>equals()</code>의 결과는 true이다.</p>
-<p><code>==</code> 연산자는 리터럴 값을 비교하는 결과기 때문에 <code>new String()</code>과 <code>new String()</code>을 비교하는 것이기 때문에 서로 다른 객체를 비교하는 것이기 때문에 false를 반환한것이다.</p>
+<p><code>==</code> 연산자의 결과는 <code>false</code>이고, <code>equals()</code>의 결과는 <code>true</code>이다.</p>
+<p><code>==</code> 연산자는 리터럴 값을 비교하는데 <code>new String()</code>과 <code>new String()</code>은 서로 다른 주소값을 참조하는 객체이기 때문에 false를 반환한것이다.</p>
 <p>반면 <code>equals()</code>는 어떻게 두 변수가 같다고 판단한걸까?</p>
 <p>인텔리제이에서 <code>equals()</code> 메소드를 클릭해서 내부를 열어보았다(?)</p>
 <p><img src="https://user-images.githubusercontent.com/33862991/117292238-ef749380-aeaa-11eb-9a79-2dcb96b6d682.png"></p>
-<p>먼저 객체 리터럴을 비교해서 true면 그대로 반환한다. 그러나 같지않다면 그 다음으로 String 타입인지 체크하여 이때부터 본격적으로 비교를 들어간다. 최종적으로 언어(Latin/UTF16)에 따라 <code>equals()</code>를 시도한다.</p>
-<p>그럼 여기서 시도한 <code>equals()</code>는 어떻게 동작할까?</p>
+<p>먼저 객체 리터럴을 비교해서 <code>true</code>면 그대로 반환한다. 그러나 같지않다면 그 다음으로 String 타입인지 데이터 타입을 체크하여 이때부터 본격적으로 비교를 들어간다. 최종적으로 언어코드(Latin/UTF16)에 따라 <code>equals()</code> 결과를 반환한다.</p>
+<p>그럼 여기서 사용한 <code>equals()</code>는 어떻게 동작할까?</p>
 <p><img src="https://user-images.githubusercontent.com/33862991/117292431-277bd680-aeab-11eb-8c87-ca7ea349f6e5.png"></p>
-<p>두 메소드 모두 역시 같은 로직을 갖고있었다. 비교하는 대상의 객체들의 길이를 비교하고 길이가 다르다면 false를 반환한다. 길이가 같다면, 여기서 문자열 길이만큼 각각의 문자형 리터럴을 직접 비교한다. </p>
+<p>비교하는 대상의 객체들의 길이를 비교하고 길이가 다르다면 <code>false</code>를 반환한다. 길이가 같다면, 여기서 문자열 길이만큼 각각의 문자형 리터럴을 직접 비교한다. </p>
 <p><code>equals()</code>가 동작하는건 이제 알겠는데, <code>hashcode()</code>는 언제 써야할까?</p>
-<h2 id="언제-써야할까"><a href="#언제-써야할까" class="headerlink" title="언제 써야할까"></a>언제 써야할까</h2><p>위의 예제코드는 String형 타입 변수를 비교하는 경우였다. 그렇다면, 컬렉션 프레임워크를 사용하는 경우엔 어떨까?</p>
+<h2 id="언제-써야할까"><a href="#언제-써야할까" class="headerlink" title="언제 써야할까"></a>언제 써야할까</h2><p>위의 예제코드는 String형 변수를 비교하는 경우였다. 그렇다면, 컬렉션 프레임워크를 사용하는 경우엔 어떨까?</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DevAndy</span> </span>&#123;</span><br><span class="line">   <span class="class"><span class="keyword">class</span> <span class="title">Card</span> </span>&#123;</span><br><span class="line">      String name;</span><br><span class="line">      String number;</span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="title">Card</span><span class="params">(String name, String number)</span> </span>&#123;</span><br><span class="line">         <span class="keyword">this</span>.name = name;</span><br><span class="line">         <span class="keyword">this</span>.number = number;</span><br><span class="line">      &#125;</span><br><span class="line">     </span><br><span class="line">      <span class="meta">@Override</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">         <span class="keyword">return</span> <span class="string">&quot;Card&#123;&quot;</span> +</span><br><span class="line">                 <span class="string">&quot;name=&#x27;&quot;</span> + name + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                 <span class="string">&quot;, number=&quot;</span> + number +</span><br><span class="line">                 <span class="string">&#x27;&#125;&#x27;</span>;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">  </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">makeSet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      Set&lt;Card&gt; cardSet = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">      set.add(<span class="keyword">new</span> Card(<span class="string">&quot;Hyundai&quot;</span>,<span class="string">&quot;0000-0000-0000&quot;</span>));</span><br><span class="line">      set.add(<span class="keyword">new</span> Card(<span class="string">&quot;Hyundai&quot;</span>,<span class="string">&quot;0000-0000-0000&quot;</span>));</span><br><span class="line">     </span><br><span class="line">      <span class="keyword">for</span> (Card card : set) &#123;</span><br><span class="line">         System.out.println(card.toString());</span><br><span class="line">      &#125;</span><br><span class="line">      System.out.println(<span class="string">&quot;size : &quot;</span>+set.size());</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      DevAndy dev = <span class="keyword">new</span> DevAndy();</span><br><span class="line">      dev.makeSet();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Card&#123;name&#x3D;&#39;Hyundai&#39;, number&#x3D;&#39;0000-0000-0000&#39;&#125;</span><br><span class="line">Card&#123;name&#x3D;&#39;Hyundai&#39;, number&#x3D;&#39;0000-0000-0000&#39;&#125;</span><br><span class="line">set size : 2</span><br></pre></td></tr></table></figure>
 
-<p>코드를 천천히 살펴보도록 하자. 중첩 클래스를 이용하여 Card 라는 객체를 선언했다. 그리고 <code>makeSet()</code>에서는 HashSet을 이용하여 <code>Card</code> 객체를 삽입했는데, 이상한 결과가 출력된걸 알 수 있다.</p>
-<p>Set이라는 컬렉션 프레임워크는 중복을 허용하지 않는다. 따라서 똑같은 속성을 지닌 Card 객체를 HashSet에 삽입했다면, HashSet에선 중복되는 데이터 하나는 삭제하고, <code>size()</code>로 <code>1</code>을 반환했어야 했다. </p>
+<p>코드를 천천히 살펴보도록 하자. 중첩 클래스를 이용하여 <code>Card</code> 라는 클래스를 선언했다. 그리고 <code>makeSet()</code>에서는 HashSet을 이용하여 <code>Card</code> 객체를 삽입했는데, 이상한 결과가 출력된걸 알 수 있다.</p>
+<p><u>Set은 중복을 허용하지 않는다.</u> 따라서 똑같은 속성을 지닌 Card 객체를 HashSet에 삽입했다면, HashSet에선 중복되는 데이터 하나는 삭제하고, <code>size()</code>로 <code>1</code>을 반환했어야 했다. </p>
 <p>그런데 <code>size()</code>를 <code>2</code>로 반환했다는건 <code>toString()</code>을 통해서도 확인했지만, <code>new</code>로 선언한 두 Card 객체를 컴파일러에서 서로 다르다고 판단했던것이다.</p>
-<p>그럼 왜 다르다고 판단한건지 hashCode를 출력해서 확인해보자.</p>
+<p>그럼 왜 다르다고 판단한건지 <b>hashCode</b>를 출력해서 확인해보자.</p>
 <p>HashSet에서 Card를 꺼내서 출력하는 코드를 아래처럼 바꿔서 다시 main 메소드를 실행해보자.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (Card card : set) &#123;</span><br><span class="line">   System.out.println(card.toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -327,7 +327,7 @@ ga('send', 'pageview');
         "genre": "Dev Java",
         "datePublished": "2021-05-06",
         "dateCreated": "2021-05-06",
-        "dateModified": "2021-05-06",
+        "dateModified": "2021-05-07",
         "url": "../../../http:/youngjinmo.github.io/2021/05/equals-hashcode/",
         "description": "
 이전 DTO와 VO 그리고 Entity의 차이에서 살짝 언급했는데, 이제서야 정리를 하게되었다.
@@ -335,7 +335,7 @@ equals()와 hashCode()가 무엇이고, 그래서 이들을 언제 사용하는�
 무엇인가두 메소드 모두 Object의 메소드이다.  
 equals()는 객체의 값의 일치여부(boolean)을 반환하는 타입이다.
 hashCode()는 객체의",
-        "wordCount": 1224
+        "wordCount": 1212
     }
 </script>
 
