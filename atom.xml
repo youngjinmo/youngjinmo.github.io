@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-05-06T13:13:46.739Z</updated>
+  <updated>2021-05-07T09:08:38.641Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>자료구조 - Stack</title>
+    <link href="http://youngjinmo.github.io/2021/05/java-stack/"/>
+    <id>http://youngjinmo.github.io/2021/05/java-stack/</id>
+    <published>2021-05-07T00:07:32.000Z</published>
+    <updated>2021-05-07T09:08:38.641Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/117426375-c8779980-af5e-11eb-8605-45d996f04385.jpg&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Stack은 사전적으로는 ‘더미’를 의미한다. 이 개념을 처음 공부할때 데이터를 수직으로 관리하는 자료구조라고 생각하며</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+    <category term="datastructure" scheme="http://youngjinmo.github.io/tags/datastructure/"/>
+    
+  </entry>
   
   <entry>
     <title>Equals와 hashCode</title>
@@ -245,9 +273,9 @@
     <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
     
     
-    <category term="oop" scheme="http://youngjinmo.github.io/tags/oop/"/>
-    
     <category term="inheritance" scheme="http://youngjinmo.github.io/tags/inheritance/"/>
+    
+    <category term="oop" scheme="http://youngjinmo.github.io/tags/oop/"/>
     
   </entry>
   
@@ -286,7 +314,7 @@
     <link href="http://youngjinmo.github.io/2021/03/law-of-demeter/"/>
     <id>http://youngjinmo.github.io/2021/03/law-of-demeter/</id>
     <published>2021-03-21T06:20:36.000Z</published>
-    <updated>2021-03-21T15:22:22.600Z</updated>
+    <updated>2021-05-06T13:17:13.307Z</updated>
     
     
       
@@ -305,9 +333,9 @@
     <category term="Others" scheme="http://youngjinmo.github.io/categories/Dev/Others/"/>
     
     
-    <category term="clean code" scheme="http://youngjinmo.github.io/tags/clean-code/"/>
-    
     <category term="oop" scheme="http://youngjinmo.github.io/tags/oop/"/>
+    
+    <category term="clean code" scheme="http://youngjinmo.github.io/tags/clean-code/"/>
     
   </entry>
   
@@ -436,9 +464,9 @@
     <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
     
     
-    <category term="exception" scheme="http://youngjinmo.github.io/tags/exception/"/>
-    
     <category term="livestudy" scheme="http://youngjinmo.github.io/tags/livestudy/"/>
+    
+    <category term="exception" scheme="http://youngjinmo.github.io/tags/exception/"/>
     
   </entry>
   
@@ -598,39 +626,6 @@
     <category term="investment" scheme="http://youngjinmo.github.io/tags/investment/"/>
     
     <category term="coupang" scheme="http://youngjinmo.github.io/tags/coupang/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Live Study 6주차 - 상속</title>
-    <link href="http://youngjinmo.github.io/2021/02/livestudy-week-06/"/>
-    <id>http://youngjinmo.github.io/2021/02/livestudy-week-06/</id>
-    <published>2021-02-10T02:20:51.000Z</published>
-    <updated>2021-04-28T14:31:33.835Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#inheritance&quot;&gt;자바 상속의 특징&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#multiple-inheritance&quot;&gt;다중상속&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
-    
-    
-    <category term="oop" scheme="http://youngjinmo.github.io/tags/oop/"/>
-    
-    <category term="livestudy" scheme="http://youngjinmo.github.io/tags/livestudy/"/>
     
   </entry>
   
