@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-05-07T09:08:38.641Z</updated>
+  <updated>2021-05-10T05:31:36.504Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>자료구조 - Stack</title>
+    <title>Java Collection  - Stack</title>
     <link href="http://youngjinmo.github.io/2021/05/java-stack/"/>
     <id>http://youngjinmo.github.io/2021/05/java-stack/</id>
-    <published>2021-05-07T00:07:32.000Z</published>
-    <updated>2021-05-07T09:08:38.641Z</updated>
+    <published>2021-05-08T07:07:32.000Z</published>
+    <updated>2021-05-10T05:31:36.504Z</updated>
     
     
       
@@ -39,6 +39,8 @@
     
     <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
     
+    
+    <category term="collection" scheme="http://youngjinmo.github.io/tags/collection/"/>
     
     <category term="datastructure" scheme="http://youngjinmo.github.io/tags/datastructure/"/>
     
