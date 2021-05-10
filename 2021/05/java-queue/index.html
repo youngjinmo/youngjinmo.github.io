@@ -6,26 +6,27 @@
     
 
     
-    <title>JavaScript - 변수, 조건문 | 기록하는개발자 | DevAndy</title>
+    <title>Java Collection - Queue | 기록하는개발자 | DevAndy</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="javscript" />
+    <meta name="keywords" content="collection,datastructure" />
     
-    <meta name="description" content="학원 교육을 이수중인데 자바스크립트 객체에 대한 모호함때문에 자바스크립트를 정리해보고자 한다. 본 포스트는 지난해 말에 Udacity에서 들었던 Intro to JavaScript로 공부한 부분을 정리했다. 당시 Object에 대한 부분을 듣지 못하고 어영부영 끝냈는데, 이번 기회에 끝까지 이수하려고 한다. Udacity 강의와 인사이드 자바스크립트를 참">
+    <meta name="description" content="Queue는 사전적 의미로 ‘줄’을 의미한다고 한다. 구글에 Queue를 검색하면 사람들이 줄지어 서있는 사진을 볼 수 있다. Queue는 먼저 들어온 데이터가 먼저 나간다고 해서 FIFO(First In First Out)의 형태를 갖는다.   Queue는 위의 이미지를 통해 알 수 있듯이 데이터를 넣을때는 Enqueue, 데이터를 삭제할때는 Deque">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript - 변수, 조건문">
-<meta property="og:url" content="http://youngjinmo.github.io/2019/05/javascript-variable/index.html">
+<meta property="og:title" content="Java Collection - Queue">
+<meta property="og:url" content="http://youngjinmo.github.io/2021/05/java-queue/index.html">
 <meta property="og:site_name" content="기록하는개발자 | DevAndy">
-<meta property="og:description" content="학원 교육을 이수중인데 자바스크립트 객체에 대한 모호함때문에 자바스크립트를 정리해보고자 한다. 본 포스트는 지난해 말에 Udacity에서 들었던 Intro to JavaScript로 공부한 부분을 정리했다. 당시 Object에 대한 부분을 듣지 못하고 어영부영 끝냈는데, 이번 기회에 끝까지 이수하려고 한다. Udacity 강의와 인사이드 자바스크립트를 참">
+<meta property="og:description" content="Queue는 사전적 의미로 ‘줄’을 의미한다고 한다. 구글에 Queue를 검색하면 사람들이 줄지어 서있는 사진을 볼 수 있다. Queue는 먼저 들어온 데이터가 먼저 나간다고 해서 FIFO(First In First Out)의 형태를 갖는다.   Queue는 위의 이미지를 통해 알 수 있듯이 데이터를 넣을때는 Enqueue, 데이터를 삭제할때는 Deque">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://images.unsplash.com/photo-1516116412344-6663387e8590?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80">
-<meta property="article:published_time" content="2019-05-10T08:11:11.000Z">
-<meta property="article:modified_time" content="2020-12-03T08:34:44.756Z">
+<meta property="og:image" content="https://user-images.githubusercontent.com/33862991/117617258-40d09b80-b1a7-11eb-9b65-0ed1072e1782.jpg">
+<meta property="article:published_time" content="2021-05-10T06:49:32.000Z">
+<meta property="article:modified_time" content="2021-05-10T07:09:33.195Z">
 <meta property="article:author" content="Youngjin Mo">
-<meta property="article:tag" content="javscript">
+<meta property="article:tag" content="collection">
+<meta property="article:tag" content="datastructure">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://images.unsplash.com/photo-1516116412344-6663387e8590?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/33862991/117617258-40d09b80-b1a7-11eb-9b65-0ed1072e1782.jpg">
 <meta name="twitter:creator" content="@devandy_yj">
     
 
@@ -172,19 +173,19 @@ ga('send', 'pageview');
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Front-end/">Front-end</a>
+    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Java/">Java</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="posts-javascript-variable" class="article article-single article-type-posts" itemscope itemprop="blogPost">
+                            <article id="post-java-queue" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        JavaScript - 변수, 조건문
+        Java Collection - Queue
         </h1>
     
 
@@ -196,7 +197,7 @@ ga('send', 'pageview');
   <div class="article-date">
     <i class="fa fa-calendar"></i>
     <a href="" class="article-date">
-       <time datetime="2019-05-10T08:11:11.000Z" itemprop="datePublished">2019-05-10</time>
+       <time datetime="2021-05-10T06:49:32.000Z" itemprop="datePublished">2021-05-10</time>
     </a>
   </div>
 
@@ -204,7 +205,7 @@ ga('send', 'pageview');
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="" class="article-date">
-     <time datetime="2020-12-03T08:34:44.756Z" itemprop="dateModified">2020-12-03</time>
+     <time datetime="2021-05-10T07:09:33.195Z" itemprop="dateModified">2021-05-10</time>
   </a>
 </div>
 
@@ -213,12 +214,12 @@ ga('send', 'pageview');
 
 				<!-- 	count-time		 -->
 				<span class="reading-time" style="margin-left: 20px;">
-					⏱ 9 min.
+					⏱ 16 min.
 				</span>
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="../../../tags/javscript/" rel="tag">javscript</a>
+        <a class="tag-link-link" href="../../../tags/collection/" rel="tag">collection</a>, <a class="tag-link-link" href="../../../tags/datastructure/" rel="tag">datastructure</a>
     </div>
 
                 
@@ -235,134 +236,110 @@ ga('send', 'pageview');
 
             
 
-            <p><img src="https://images.unsplash.com/photo-1516116412344-6663387e8590?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80"></p>
-<p>학원 교육을 이수중인데 자바스크립트 객체에 대한 모호함때문에 자바스크립트를 정리해보고자 한다. 본 포스트는 지난해 말에 Udacity에서 들었던 <a href="https://www.udacity.com/course/intro-to-javascript--ud803" target="_blank">Intro to JavaScript</a>로 공부한 부분을 정리했다. 당시 Object에 대한 부분을 듣지 못하고 어영부영 끝냈는데, 이번 기회에 끝까지 이수하려고 한다.</p>
-<p>Udacity 강의와 <a href="https://book.naver.com/bookdb/book_detail.nhn?bid=7400243" target="_blank">인사이드 자바스크립트</a>를 참고하여 정리했다.</p>
-<h3 id="목차"><a href="#목차" class="headerlink" title="목차"></a>목차</h3><ul>
-<li><a href="#intro">Intro to JavaScript</a></li>
-<li><a href="#variables">Variables</a><ul>
-<li><a href="#null">Null &amp; Undefined</a></li>
-<li><a href="#equality">Equality</a></li>
+            <p><img src="https://user-images.githubusercontent.com/33862991/117617258-40d09b80-b1a7-11eb-9b65-0ed1072e1782.jpg"></p>
+<p>Queue는 사전적 의미로 ‘줄’을 의미한다고 한다. 구글에 Queue를 검색하면 사람들이 줄지어 서있는 사진을 볼 수 있다.</p>
+<p>Queue는 <strong>먼저</strong> 들어온 데이터가 <strong>먼저</strong> 나간다고 해서 <b>FIFO(First In First Out)</b>의 형태를 갖는다.</p>
+<p><img src="https://holycoders.com/content/images/wordpress/2020/04/Queue-data-structure.png" alt="출처 : holycoders"> </p>
+<p>Queue는 위의 이미지를 통해 알 수 있듯이 데이터를 넣을때는 <b>Enqueue</b>, 데이터를 삭제할때는 <b>Dequeue</b>라고 부른다.</p>
+<p>Queue의 특징은 다음과 같다.</p>
+<ul>
+<li>먼저 들어간 자료가 먼저 나오는 구조 FIFO(First In First Out) 구조 </li>
+<li>큐는 한쪽 끝을 프론트(front)로 정해서 삭제 연산만 처리하고,<br>나머지 한쪽 끝은 리어(rear)로 정해서 삽입 연산만 처리한다.</li>
+<li>그래프의 넓이 우선 탐색(BFS)에 사용된다고 한다.</li>
+<li>컴퓨터 버퍼(Buffer)에서 주로 사용되며, 입력이 되었지만 처리하지 못할때 큐를 만들어서 데이터를 이곳에 대기시켜놓는다.</li>
+<li> 대형 메세지 서비스들은 메세지 큐를 만들어서 전송할 메세지를 큐에 담아두고, 서버가 정상적으로 작동하면 큐에서 메세지를 꺼내가도록 해놓았다. 만약 서버가 작동되지 않으면 메세지를 큐에 쌓아둔다.</li>
 </ul>
-</li>
-<li><a href="#conditional">Conditional</a><ul>
-<li><a href="#false">The list of False value</a></li>
-<li><a href="#ternary">Ternary Operator</a></li>
+<p>오라클 레퍼런스 문서를 통해 살펴보도록 하자.</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/117531184-48176e00-b01c-11eb-8c74-f81257e44ed4.png"></p>
+<p>Queue는 <code>java.util</code>에 있는 클래스이다.</p>
+<p><code>Collection&lt;E&gt;</code> 인터페이스를 상속받는 인터페이스이다.</p>
+<p>Queue 인터페이스의 주요 메소드들이다.</p>
+<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><ul>
+<li><a name="offer"><code>offer()</code></a> : Queue에 데이터를 삽입하는데 문제가 없으면 데이터를 그대로 삽입하는 메소드이다.</li>
+<li><a name="add"><code>add()</code></a> : Queue에 <b>데이터를 삽입</b>하는 메소드이다.</li>
+<li><a name="peek"><code>peek()</code></a> : Queue의 가장 앞에있는(head) 데이터를 반환하는 메소드이다. 만약 queue가 empty면, <code>null</code>을 반환한다. </li>
+<li><a name="element"><code>element()</code> </a> : Queue의 가장 앞에있는(head) 데이터를 반환하는 메소드이다.</li>
+<li><a name="poll"><code>poll()</code></a> : Queue의 가장 앞에있는 데이터를 삭제하고, 반환하는 메소드이다. 만약 queue가 empty면, <code>null</code>을 반환한다.</li>
+<li><a name="remove"><code>remove()</code></a> : Queue의 가장 앞에있는 데이터를 삭제하고, 반환하는 메소드이다. </li>
 </ul>
-</li>
-<li><a href="#loop-array">Loop &amp; Array</a></li>
+<br>
+
+<h2 id="offer"><a href="#offer" class="headerlink" title="offer()"></a><a name="offer"></a>offer()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">offer</span><span class="params">(E e)</span></span></span><br></pre></td></tr></table></figure>
+
+<p>파라미터로 들어온 데이터를 Queue로 삽입할 수 있는지 여부를 boolean 타입으로 반환하고, <code>true</code>이면 데이터를 삽입하는 메소드이다.</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/117616787-8d67a700-b1a6-11eb-8427-68fd8603ff6a.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.LinkedList;</span><br><span class="line"><span class="keyword">import</span> java.util.Queue;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QueueStudy</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      Queue&lt;Integer&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">      System.out.println(queue.add(<span class="number">1</span>));</span><br><span class="line">      System.out.println(queue.add(<span class="number">2</span>));</span><br><span class="line">      System.out.println(queue.add(<span class="number">3</span>));</span><br><span class="line">      System.out.println(queue.toString());</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>true<br>true<br>true<br>[1, 2, 3]</p>
+</blockquote>
+<p>Queue를 사용하기 위해서는 LinkedList를 사용해야 한다. <code>offer()</code> 메소드를 통해서 <code>true</code>를 반환받으면 데이터를 Queue에 삽입할 수 있다는걸 확인했다.</p>
+<br>
+
+<h2 id="add"><a href="#add" class="headerlink" title="add()"></a><a name="add"></a>add()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span></span></span><br></pre></td></tr></table></figure>
+
+<p><code>add()</code> 역시 <code>offer()</code>처럼 <b>데이터를 삽입</b>하는 메소드이다.</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/117616765-82147b80-b1a6-11eb-884e-a5c213aeda74.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.LinkedList;</span><br><span class="line"><span class="keyword">import</span> java.util.Queue;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QueueStudy</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      Queue&lt;Integer&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">      System.out.println(queue.add(<span class="number">1</span>));</span><br><span class="line">      System.out.println(queue.add(<span class="number">2</span>));</span><br><span class="line">      System.out.println(queue.add(<span class="number">3</span>));</span><br><span class="line">      System.out.println(queue.toString());</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>true<br>true<br>true<br>[1, 2, 3]</p>
+</blockquote>
+<p><code>offer()</code>와 똑같은 역할을 수행하는데 다른게 있다면, <code>add()</code>는 Queue의 공간이 부족해서 데이터 삽입이 안될때, <code>IllegalStateException</code>을 던진다는것 밖에없다.</p>
+<br>
+
+<h2 id="peek"><a href="#peek" class="headerlink" title="peek()"></a><a name="peek"></a>peek()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">E <span class="title">peek</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+
+<p>Queue의 <b>head에 있는 데이터를 반환</b>하는 메소드이다. Queue의 head는 가장 먼저 나가게될, 즉 가장 먼저 들어온 데이터에 해당한다.</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/117616741-7aed6d80-b1a6-11eb-865b-554aac697caf.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.LinkedList;</span><br><span class="line"><span class="keyword">import</span> java.util.Queue;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QueueStudy</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      Queue&lt;Integer&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">      queue.add(<span class="number">1</span>);</span><br><span class="line">      queue.add(<span class="number">2</span>);</span><br><span class="line">      System.out.println(queue.peek());</span><br><span class="line">      queue.add(<span class="number">3</span>);</span><br><span class="line">      System.out.println(queue.peek());</span><br><span class="line">      System.out.println(queue.toString());</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>1<br>1<br>[1, 2, 3]</p>
+</blockquote>
+<p>Queue는 <strong>First In First Out</strong> 형태의 자료구조기 때문에 <code>peek()</code>로 반환되는 데이터는 Queue에 가장 먼저 삽입되어 아직 제거되지 않은 데이터이다.</p>
+<br>
+
+<h2 id="element"><a href="#element" class="headerlink" title="element()"></a><a name="element"></a>element()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">E <span class="title">element</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+
+<p>Queue의 <b>head에 있는 데이터를 반환</b>하는 메소드이다. Queue의 head는 가장 먼저 나가게될, 즉 가장 먼저 들어온 데이터에 해당한다.</p>
+<p>둘의 차이는 Queue가 empty상태여서 반환할 데이터가 없다면, <code>element()</code>는 <code>NoSuchElementException</code>을 던진다는 것이다.</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/117616780-893b8980-b1a6-11eb-8493-f094a11789ae.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.LinkedList;</span><br><span class="line"><span class="keyword">import</span> java.util.Queue;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QueueStudy</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      Queue&lt;Integer&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">      queue.add(<span class="number">1</span>);</span><br><span class="line">      queue.add(<span class="number">2</span>);</span><br><span class="line">      System.out.println(queue.element());</span><br><span class="line">      queue.add(<span class="number">3</span>);</span><br><span class="line">      System.out.println(queue.element());</span><br><span class="line">      System.out.println(queue.toString());</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>1<br>1<br>[1, 2, 3]</p>
+</blockquote>
+<p><code>peek()</code>과 똑같은 결과를 반환한다.</p>
+<br>
+
+<h2 id="poll"><a href="#poll" class="headerlink" title="poll()"></a><a name="poll"></a>poll()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">E <span class="title">poll</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+
+<p>Queue의 head 데이터를 반환하고, <b>데이터를 삭제</b>하는 메소드이다.</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/117616749-7cb73100-b1a6-11eb-8264-1f6ef6f13b20.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.LinkedList;</span><br><span class="line"><span class="keyword">import</span> java.util.Queue;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QueueStudy</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      Queue&lt;Integer&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">      queue.add(<span class="number">1</span>);</span><br><span class="line">      queue.add(<span class="number">2</span>);</span><br><span class="line">      queue.add(<span class="number">3</span>);</span><br><span class="line">      System.out.println(queue.toString());</span><br><span class="line">      System.out.println(<span class="string">&quot;head : &quot;</span>+queue.element());</span><br><span class="line"></span><br><span class="line">      System.out.println(<span class="string">&quot;poll : &quot;</span>+queue.poll());</span><br><span class="line">      System.out.println(queue.toString());</span><br><span class="line">      System.out.println(<span class="string">&quot;head : &quot;</span>+queue.element());</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>[1, 2, 3]<br>head : 1<br>poll: 1<br>[2, 3]<br>head : 2  // 데이터 삭제(poll) 이후, head가 변경되었다.</p>
+</blockquote>
+<p>데이터를 삭제하기 전, Queue의 전체 데이터와 head 데이터를 반환하였다. 그리고 <code>poll()</code>로 데이터를 삭제하고, 다시 head를 출력했더니 이번엔 head 데이터가 바뀐걸 확인할 수 있었다.</p>
+<br>
+
+<h2 id="remove"><a href="#remove" class="headerlink" title="remove()"></a><a name="remove"></a>remove()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">E <span class="title">remove</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+
+<p>Queue의 head 데이터를 반환하고, <b>데이터를 삭제</b>하는 메소드이다.  <code>poll()</code>와 똑같은 역할을 수행하며, 차이점이 있다면 <code>remove()</code>는 Queue가 empty면, <code>NosuchElementException</code>을 반환한다는 것이다.</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/117616752-7d4fc780-b1a6-11eb-85fe-fc431b6ae97b.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.LinkedList;</span><br><span class="line"><span class="keyword">import</span> java.util.Queue;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QueueStudy</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      Queue&lt;Integer&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">      queue.offer(<span class="number">1</span>);</span><br><span class="line">      queue.offer(<span class="number">2</span>);</span><br><span class="line">      queue.offer(<span class="number">3</span>);</span><br><span class="line">      System.out.println(queue.toString());</span><br><span class="line">      System.out.println(<span class="string">&quot;head : &quot;</span>+queue.peek());</span><br><span class="line"></span><br><span class="line">      System.out.println(<span class="string">&quot;delete : &quot;</span>+queue.remove());</span><br><span class="line">      System.out.println(queue.toString());</span><br><span class="line">      System.out.println(<span class="string">&quot;head : &quot;</span>+queue.peek());</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>[1, 2, 3]<br>head : 1<br>remove: 1<br>[2, 3]<br>head : 2</p>
+</blockquote>
+<br>
+
+<hr>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Queue.html">Oracle Reference - Interface Queue&lt;E&gt;</a></li>
 </ul>
-<br>
-
-<h2 id="Intro-to-JavaScript"><a href="#Intro-to-JavaScript" class="headerlink" title="Intro to JavaScript"></a><a name="intro"></a>Intro to JavaScript</h2><div align="center">
-  <img src="https://www.huszardev.com/wp-content/uploads/2018/07/1_l4xICbIIYlz1OTymWCoUTw1.jpeg" width="600px" >
-</div>
-
-
-
-<p>자바스크립트는 Firefox, Safari, Chrome같은 브라우저에서 작동하는 언어이다. </p>
-<p>웹의 3대 언어로 HTML, CSS, Javascript가 있는데 HTML과 CSS가 정적인 언어라면, 자바스크립트는 동적인 언어라고 할 수 있다. 애니메이션과 같은 효과, 사용자의 행동에 따른 이벤트 등의 기능을 다룬다.</p>
-<div align="center">
-  <img src="https://ekaprasasti.com/assets/img/mengapa-harus-javascript/brendan-eich-2012.jpg" width="300px" /><br>자바스크립트의 아빠, Brendan Eich.
-</div>
-
-<p>이름때문에 Java와 혼란스러울수도 있지만, 자바스크립트와 Java는 전혀 무관한 언어이다. 자바스크립트는 1995년 Brendan Eich가 만들었는데, 원래 초창기 Eich가 개발한 언어의 이름은 LiveScript였다고 한다. 그러나 당시 잘 나가던 언어인 Java의 인기에 편승하고자 이름을 지금의 JavaScript로 바꿨다고 한다. (<a href="https://dictionary.cambridge.org/ko/%EC%82%AC%EC%A0%84/%EC%98%81%EC%96%B4/piggyback" target="_blank">piggyback</a> 전략)</p>
-<br>
-
-<h2 id="Variables"><a href="#Variables" class="headerlink" title="Variables"></a><a name="variables"></a>Variables</h2><div align="center">
-  <img src="https://images.unsplash.com/photo-1416339134316-0e91dc9ded92?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60" width="500px" />
-</div>
-
-
-
-<p>자바스크립트에서는 모든 변수를 데이터타입에 상관없이 <code>var</code>로 선언한다. 이를 느슨한 데이터 타입(Loosely data type)이라고 한다. </p>
-<p>그러나 모든 변수를 <code>var</code> 로 선언한다고해서 모든 변수의 데이터 타입이 똑같은건 아니다. <code>typeof</code> 라는 연산자를 이용하여 확인해보면 다음과 같다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> exNum = <span class="number">123</span>;</span><br><span class="line"><span class="keyword">var</span> exString = <span class="string">&quot;javascript&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> exNull = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">var</span> exUndefined;</span><br><span class="line"><span class="keyword">var</span> exBoolean = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typeof</span> exNum;				<span class="comment">// number</span></span><br><span class="line"><span class="keyword">typeof</span> exString;		<span class="comment">// string</span></span><br><span class="line"><span class="keyword">typeof</span> exNull;			<span class="comment">// null</span></span><br><span class="line"><span class="keyword">typeof</span> exUndefined;	<span class="comment">// undefined</span></span><br><span class="line"><span class="keyword">typeof</span> exBoolean;		<span class="comment">// boolean</span></span><br></pre></td></tr></table></figure>
-
-<p>아마 자바스크립트 엔진이 데이터를 자동 분류하는게 아닐까 싶다. 이부분은 나중에 더 공부해보고 보충하는걸로..</p>
-<p>자바스크립트의 데이터 타입은 크게 **기본 타입(숫자, 문자, 비교, undefined, null)**과 **참조 타입(객체)**으로 나뉜다. 5가지 기본타입을 제외하면 자바 스크립트는 모든 것이 객체로 구성되는 언어라고 할 수 있다. </p>
-<div align="center">
-  <img src="diagram.png" width="700px" />
-</div>
-<br>
-
-<h3 id="Null-Undefined"><a href="#Null-Undefined" class="headerlink" title="Null, Undefined"></a><a name="null"></a>Null, Undefined</h3><ul>
-<li><code>null</code> : 아무런 값이 없지만 <u>데이터가 <strong>존재</strong>하는 상태</u></li>
-<li><code>undefined</code> : 아무런 값이 없고, <u>데이터가 <strong>존재하지 않는</strong> 상태</u></li>
-</ul>
-<div>
-  <div style="float: right; padding: 10px;">
-    <img src="https://lh3.googleusercontent.com/QCztkvKy5OhSpn430e9K5d3jSCJfWvrtH_xpwt-hU0LOMLAOldjZHP70bJ0KYWt-L_Fb3qqVfMz7O5eWL2S6IlBkFvPVuqOJOQeG9Hj0xfD8erxa9gvcovKyI40m7cHz_DTiWEMdkgyXyeK_afqBujLlxIGGYHN4khgOVbCr9V7Vey3K5GPOHc-9F2Be--thKt07Y3g-Skvk8CthU1h-935aDDCScPTWodeaNzm0ObP-KlsqILmtZbcqySj3KhnkMKRmaoMqCIpo_o8GBWFbhJQrPVGh9KvbIRsvNgiz2ITqzUHgbQsy9bRkLDzbxGHzoXKMrPg5XW-KKtcxgimrH2RAQzNwQhG5WLVXThqhJdgEx8vfa25jin_sZTsSP17xjeWw6hmgl5Ev-UxtJGuJEliJeoGAy9syTg9Mb9YCAZZPEs9jetR0rCmgDx6Kuq7kO6m9jRaaCTxabEP9YDER1SzM-fQsHlQrW8CmyyZO2Dl6f16kpwiRe8bJ3g3kL0grfLVUrqAtJt8edmvC5FiHKBPGiGScvv4nbb2B2ri6qd1oSB4HsTqvuT414Dnj4t7vdPVnLoBvV1XeNmlZScv1gRJl8hf2uC-qdJubmQ5B74hzGq6sWz0VnaG2vm-a9Dw5xDKjzp0bBEajVu-lRbrJvBribmA9dJHo=w318-h222-no" width=auto />
-  </div>
-  <div stsyle="float:left; padding: 20px; line-height: 1.5">
-    null과 undefined는 둘 다 값이 없다는 점에서 같다고 착각할 수 있다. <br>실제로 == 연산자를 이용하여 둘을 비교하면 같다고 출력된다. 그러나 엄격한 비교 연산자 === 를 이용하면 다르다고 출력된다.<br>비교 연산자에 대한 설명은 아래 이어진다.
-  </div>
-</div>
-
-
-
-<p>정리하면..</p>
-<table>
-<thead>
-<tr>
-<th>datatype</th>
-<th>description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>null</code></td>
-<td>- 아무런 값이 없지만 데이터가 존재하는 상태<br />- value of nothing</td>
-</tr>
-<tr>
-<td><code>undefined</code></td>
-<td>- 변수는 선언되었지만 초기값조차 선언되지 않은 아무런 값이 없는 상태<br />- absence of value</td>
-</tr>
-</tbody></table>
-<div align="center">
-  <img src="https://media.giphy.com/media/l4Ep6uxU6aedrYUik/giphy.gif" width="300px"/>
-</div>
-
-<p>자바스크립트의 변수 중에서도 기본타입에 대해서만 정리해보았다. 사실 자바스크립트의 변수에 대한 공부는 더할 필요가 있어 보인다. 하지만 현재 필요한 부분은 아니므로 일단 여기까지만 알고 넘어가겠다.</p>
-<br>
-
-<h3 id="Equality"><a href="#Equality" class="headerlink" title="Equality"></a><a name="equality"></a>Equality</h3><p>변수와 변수를 비교한다고 가정할 때, value만 비교한다면 <code>==</code> 으로 비교할 수 있지만, 이 방법은 옳은 방법이라고 할 수는 없다. 데이터 타입까지 엄격한 비교 기호로 <code>===</code>를 쓸수 있는데, 이 방법으로 해야 모호함을 피할 수 있다. </p>
-<p>예로 위에서 null과 undefined를 비교할 때 어떤 연산자를 쓰느냐에 따라 다른 boolean값이 출력됨을 알 수 있었다. 이와 비슷하게 number 타입 <code>1</code>과 boolean 타입 <code>true</code> 를 비교시, 어떤 동등 연산자를 사용하느냐에 true를 출력하기도, false를 출력하기도 한다. 하지만 엄밀히 비교한다면 당연히 false가 출력되어야 한다. <strong>때문에 <code>===</code> 를 기본적으로 사용하고 특수한 경우에만 <code>==</code> 를 사용하는 습관을 들여야 할 것같다.</strong></p>
-<br>
-
-<h2 id="Conditional"><a href="#Conditional" class="headerlink" title="Conditional"></a><a name="conditional"></a>Conditional</h2><div align="center">
-  <img src="https://images.unsplash.com/photo-1546338384-c6f21a91c04a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1347&q=80" width="500px" />
-</div>
-
-
-
-<p>Java와 마찬가지로 자바 스크립트에서의 조건문도 코드 스타일이 거의 비슷하다.</p>
-<p>알아둬야할 부분만 정리해보았다.</p>
-<br>
-
-<h3 id="False-값을-반환하는-조건"><a href="#False-값을-반환하는-조건" class="headerlink" title="False 값을 반환하는 조건"></a><a name="false"></a>False 값을 반환하는 조건</h3><p><img src="https://media.giphy.com/media/oQjsQmQKlFDcQ/giphy.gif"></p>
-<ol>
-<li>false를 갖는 boolean 값</li>
-<li>null 타입</li>
-<li>undefined 타입</li>
-<li>number 타입의 0</li>
-<li>String 타입의 “”</li>
-<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN">NaN</a> </li>
-</ol>
-<p>당연히 위 6가지 조건이 아닌 모든 조건은 true가 된다. 이를 활용하여 조건식을 만들면 된다.</p>
-<br>
-
-<h3 id="Ternary-Operator"><a href="#Ternary-Operator" class="headerlink" title="Ternary Operator"></a><a name="ternary"></a>Ternary Operator</h3><p>Java에서도 사용했던 삼항 연산자인데 익혀두면 좋아서 다시 정리해본다.</p>
-<p><code>conditionals ? (if its true) : (if its false);</code> 형태로 구성된다.</p>
-<p>이항 연산자만을 사용한 조건문과 같은 조건을 삼항 연산자로 사용했을 때의 코드를 비교해보자.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> isGoing = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">var</span> lightColor;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 이항 연산자 사용</span></span><br><span class="line"><span class="keyword">if</span>(isGoing)&#123;</span><br><span class="line">  lightColor = <span class="string">&quot;green&quot;</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  lightColor = <span class="string">&quot;red&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(lightColor);	<span class="comment">// green</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 삼항 연산자 사용</span></span><br><span class="line">isGoing ? lightColor=<span class="string">&quot;green&quot;</span> : lightColor=<span class="string">&quot;red&quot;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(lightColor);	<span class="comment">// green</span></span><br></pre></td></tr></table></figure>
-
-<p>똑같이 green을 출력했는데, 어떤게 더 간단해 보이는가?</p>
-<br>
-
-<h2 id="Loop-amp-Array"><a href="#Loop-amp-Array" class="headerlink" title="Loop &amp; Array"></a><a name="loop-array"></a>Loop &amp; Array</h2><div align="center">
-  <img src="https://media.giphy.com/media/19zbJkzHgNsA/giphy.gif" width="300px" />
-</div>
-자바스크립트에서 반복문과 배열은 Java와 다른게 없어보인다. 향후 자바스크립트를 더 깊히 공부한다면 그 때 정리해보겠다.
 
         </div>
     </div>
@@ -390,18 +367,20 @@ ga('send', 'pageview');
             "@type": "Person",
             "name": "Youngjin Mo"
         },
-        "headline": "JavaScript - 변수, 조건문",
-        "image": "../../../http:/youngjinmo.github.iohttps:/images.unsplash.com/photo-1516116412344-6663387e8590?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80",
-        "keywords": "javscript",
-        "genre": "Dev Front-end",
-        "datePublished": "2019-05-10",
-        "dateCreated": "2019-05-10",
-        "dateModified": "2020-12-03",
-        "url": "../../../http:/youngjinmo.github.io/2019/05/javascript-variable/",
+        "headline": "Java Collection - Queue",
+        "image": "../../../http:/youngjinmo.github.iohttps:/user-images.githubusercontent.com/33862991/117617258-40d09b80-b1a7-11eb-9b65-0ed1072e1782.jpg",
+        "keywords": "collection datastructure",
+        "genre": "Dev Java",
+        "datePublished": "2021-05-10",
+        "dateCreated": "2021-05-10",
+        "dateModified": "2021-05-10",
+        "url": "../../../http:/youngjinmo.github.io/2021/05/java-queue/",
         "description": "
-학원 교육을 이수중인데 자바스크립트 객체에 대한 모호함때문에 자바스크립트를 정리해보고자 한다. 본 포스트는 지난해 말에 Udacity에서 들었던 Intro to JavaScript로 공부한 부분을 정리했다. 당시 Object에 대한 부분을 듣지 못하고 어영부영 끝냈는데, 이번 기회에 끝까지 이수하려고 한다.
-Udacity 강의와 인사이드 자바스크립트를 참",
-        "wordCount": 744
+Queue는 사전적 의미로 ‘줄’을 의미한다고 한다. 구글에 Queue를 검색하면 사람들이 줄지어 서있는 사진을 볼 수 있다.
+Queue는 먼저 들어온 데이터가 먼저 나간다고 해서 FIFO(First In First Out)의 형태를 갖는다.
+ 
+Queue는 위의 이미지를 통해 알 수 있듯이 데이터를 넣을때는 Enqueue, 데이터를 삭제할때는 Deque",
+        "wordCount": 1181
     }
 </script>
 
@@ -436,20 +415,10 @@ Udacity 강의와 인사이드 자바스크립트를 참",
         
 <nav id="article-nav">
     
-        <a href="../javascript-array/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            JavaScript - 배열
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="../datastructure-list/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="../java-stack/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">자료구조 - 리스트</p>
+        <p class="article-nav-title">Java Collection  - Stack</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -471,7 +440,7 @@ Udacity 강의와 인사이드 자바스크립트를 참",
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="../../../2021/05/java-queue/" class="thumbnail">
+                            <a href="" class="thumbnail">
     
     
         <span style="background-image:url(https://user-images.githubusercontent.com/33862991/117617258-40d09b80-b1a7-11eb-9b65-0ed1072e1782.jpg)" alt="Java Collection - Queue" class="thumbnail-image"></span>
@@ -483,7 +452,7 @@ Udacity 강의와 인사이드 자바스크립트를 참",
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
-                            <p class="item-title"><a href="../../../2021/05/java-queue/" class="title">Java Collection - Queue</a></p>
+                            <p class="item-title"><a href="" class="title">Java Collection - Queue</a></p>
                             <p class="item-date"><time datetime="2021-05-10T06:49:32.000Z" itemprop="datePublished">2021-05-10</time></p>
                         </div>
                     </li>
@@ -491,7 +460,7 @@ Udacity 강의와 인사이드 자바스크립트를 참",
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="../../../2021/05/java-stack/" class="thumbnail">
+                            <a href="../java-stack/" class="thumbnail">
     
     
         <span style="background-image:url(https://user-images.githubusercontent.com/33862991/117426375-c8779980-af5e-11eb-8605-45d996f04385.jpg)" alt="Java Collection  - Stack" class="thumbnail-image"></span>
@@ -503,7 +472,7 @@ Udacity 강의와 인사이드 자바스크립트를 참",
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
-                            <p class="item-title"><a href="../../../2021/05/java-stack/" class="title">Java Collection  - Stack</a></p>
+                            <p class="item-title"><a href="../java-stack/" class="title">Java Collection  - Stack</a></p>
                             <p class="item-date"><time datetime="2021-05-08T07:07:32.000Z" itemprop="datePublished">2021-05-08</time></p>
                         </div>
                     </li>
@@ -511,7 +480,7 @@ Udacity 강의와 인사이드 자바스크립트를 참",
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="../../../2021/05/equals-hashcode/" class="thumbnail">
+                            <a href="../equals-hashcode/" class="thumbnail">
     
     
         <span style="background-image:url(https://user-images.githubusercontent.com/33862991/117303115-5009cd80-aeb7-11eb-9311-adef89ccb6af.jpg)" alt="Equals와 hashCode" class="thumbnail-image"></span>
@@ -523,7 +492,7 @@ Udacity 강의와 인사이드 자바스크립트를 참",
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
-                            <p class="item-title"><a href="../../../2021/05/equals-hashcode/" class="title">Equals와 hashCode</a></p>
+                            <p class="item-title"><a href="../equals-hashcode/" class="title">Equals와 hashCode</a></p>
                             <p class="item-date"><time datetime="2021-05-06T04:09:26.000Z" itemprop="datePublished">2021-05-06</time></p>
                         </div>
                     </li>
@@ -531,7 +500,7 @@ Udacity 강의와 인사이드 자바스크립트를 참",
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="../../../2021/04/aws-ec2-setlocale/" class="thumbnail">
+                            <a href="../../04/aws-ec2-setlocale/" class="thumbnail">
     
     
         <span style="background-image:url(https://user-images.githubusercontent.com/33862991/116774179-c791c400-aa95-11eb-83db-06f8a1c6b8fc.png)" alt="AWS EC2 Timezone, Locale 변경하기" class="thumbnail-image"></span>
@@ -543,7 +512,7 @@ Udacity 강의와 인사이드 자바스크립트를 참",
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Linux/">Linux</a></p>
-                            <p class="item-title"><a href="../../../2021/04/aws-ec2-setlocale/" class="title">AWS EC2 Timezone, Locale 변경하기</a></p>
+                            <p class="item-title"><a href="../../04/aws-ec2-setlocale/" class="title">AWS EC2 Timezone, Locale 변경하기</a></p>
                             <p class="item-date"><time datetime="2021-04-30T22:42:52.000Z" itemprop="datePublished">2021-05-01</time></p>
                         </div>
                     </li>
@@ -551,7 +520,7 @@ Udacity 강의와 인사이드 자바스크립트를 참",
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="../../../2021/04/dto-vo-entity/" class="thumbnail">
+                            <a href="../../04/dto-vo-entity/" class="thumbnail">
     
     
         <span style="background-image:url(https://user-images.githubusercontent.com/33862991/116251214-6de57d00-a7a9-11eb-8576-83e3bdea5140.jpg)" alt="DTO와 VO 그리고 Entity의 차이" class="thumbnail-image"></span>
@@ -563,7 +532,7 @@ Udacity 강의와 인사이드 자바스크립트를 참",
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Spring/">Spring</a></p>
-                            <p class="item-title"><a href="../../../2021/04/dto-vo-entity/" class="title">DTO와 VO 그리고 Entity의 차이</a></p>
+                            <p class="item-title"><a href="../../04/dto-vo-entity/" class="title">DTO와 VO 그리고 Entity의 차이</a></p>
                             <p class="item-date"><time datetime="2021-04-27T04:41:46.000Z" itemprop="datePublished">2021-04-27</time></p>
                         </div>
                     </li>

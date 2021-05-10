@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/2021/05/java-queue/</loc>
+        <lastmod>2021-05-10T07:09:33.195Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/2021/05/java-stack/</loc>
         <lastmod>2021-05-10T05:31:36.504Z</lastmod>
         <changefreq>weekly</changefreq>
