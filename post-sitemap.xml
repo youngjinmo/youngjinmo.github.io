@@ -9,6 +9,22 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/2020/12/livereload/</loc>
+        <lastmod>2021-05-10T10:06:00.417Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/2020/12/springboot-web-mustache/</loc>
+        <lastmod>2021-05-10T08:01:12.803Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/2021/05/java-queue/</loc>
         <lastmod>2021-05-10T07:09:33.195Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -433,24 +449,8 @@
     </url>
 
     <url>
-        <loc>http://youngjinmo.github.io/2020/12/enable-livereload/</loc>
-        <lastmod>2021-02-03T09:23:06.766Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://youngjinmo.github.io/2019/11/springsecurity-passwordencoder/</loc>
         <lastmod>2021-02-03T09:22:20.165Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2020/12/springboot-helloworld/</loc>
-        <lastmod>2021-02-03T09:22:10.665Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

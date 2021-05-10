@@ -9,14 +9,21 @@
 
 
     <url>
-        <loc>http://youngjinmo.github.io/categories/Dev/Java/</loc>
-        <lastmod>2021-05-10T07:09:33.195Z</lastmod>
+        <loc>http://youngjinmo.github.io/categories/Dev/Spring/</loc>
+        <lastmod>2021-05-10T10:06:00.417Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://youngjinmo.github.io/categories/Dev/</loc>
+        <lastmod>2021-05-10T10:06:00.417Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/categories/Dev/Java/</loc>
         <lastmod>2021-05-10T07:09:33.195Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -25,13 +32,6 @@
     <url>
         <loc>http://youngjinmo.github.io/categories/Dev/Others/</loc>
         <lastmod>2021-05-06T13:17:13.307Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/categories/Dev/Spring/</loc>
-        <lastmod>2021-05-05T14:25:58.931Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
