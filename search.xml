@@ -3293,38 +3293,9 @@
             
             <tag> sql </tag>
             
+            <tag> java </tag>
+            
             <tag> tutorial </tag>
-            
-            <tag> java </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>SpringSecurity에서 패스워드 암호화하기(A.k.a.passwordEncoder)</title>
-      <link href="2019/11/springsecurity-passwordencoder/"/>
-      <url>2019/11/springsecurity-passwordencoder/</url>
-      
-        <content type="html"><![CDATA[<img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" width="650px" /><p>SpringBoot로 프로젝트를 하면서 비밀번호를 암호화하는 작업을 배웠다. 기록을 위해 남겨둔다.</p><p>사용자는 패스워드를 평문 문자로 회원가입/로그인을 한다. 여기서 평문 문자(Plain text)란 암호화되지 않은 문자열 데이터를 말한다. 사용자의 패스워드는 서버에 저장되는데, 이 때 평문 문자로 저장이 되면, 서버를 관리하는 사람이 임의로 사용자들의 비밀번호에 접근할 수 있을뿐더러 서버가 해킹되었을시 비밀번호가 대량유출되면서 큰 피해를 입을 수 있다. 따라서 이를 방지하기 위해 암호화(encode) 작업이 필요하다.</p><p>비밀번호를 암호화하기 위해서는 스프링 시큐리티의 <code>PasswordEncoder()</code>를 사용한다. 인텔리J에서 <code>PasswordEncoder()</code> 를 사용하면 라이브러리를 불러오면서 라이브러리 경로를 볼 수 있는데, 이 때 <code>PasswordEncoder()</code>의 경로는 <code>org.springframework.security.crypto.password</code> 였다. 스프링 시큐리티의 내장 함수로 추정된다.</p><p>암호화를 위한 작업을 진행할 패키지와 PasswordEncoding이라는 클래스를 생성했다.</p><p>그리고 Spring Security의 <code>PasswordEncoder</code>를 상속(<code>implement</code>)받았다.</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.crypto.password.PasswordEncoder;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PasswordEncoding</span> <span class="keyword">implements</span> <span class="title">PasswordEncoder</span> </span>&#123;</span><br><span class="line">   <span class="keyword">private</span> PasswordEncoder passwordEncoder;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">PasswordEncoding</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.passwordEncoder = <span class="keyword">new</span> BCryptPasswordEncoder();</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">PasswordEncoding</span><span class="params">(PasswordEncoder passwordEncoder)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.passwordEncoder = passwordEncoder;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">encode</span><span class="params">(CharSequence rawPassword)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> passwordEncoder.encode(rawPassword);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">matches</span><span class="params">(CharSequence rawPassword, String encodedPassword)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> passwordEncoder.matches(rawPassword, encodedPassword);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><code>BCryptPasswordEncoder()</code>가 실제로 문자를 암호화해주는 메서드이다. 이 메서드는 암호화할 때마다 새로운 값을 생성해서 보안수준을 높혀준다. 이렇게 하면 서버에 저장된 비밀번호(encoded)를 분실해도 복호화(decode)하는 것이 사실상 불가능해진다.</p><p>잠시만, 그럼 로그인할 때 사용자가 비밀번호를 맞게 입력했는지 어떻게 알 수 있을까?</p><p>로그인할 때 사용자는 평문 문자를 입력한다. 그럼 서버에서 사용자가 입력한 평문 문자와 아이디(또는 이메일 주소)에 맞는 암호화된 비밀번호를 비교해서 회원여부를 검증한다. </p><p>정확히는 사용자가 입력한 비밀번호를 암호화해서 아이디에 맞는 암호화된 비밀번호를 서로 비교하는건데, 선뜻 이해가 가지않는다. 앞서 비밀번호는 암호화되서 생성된다고 했기 때문이다. 이 때 사용하는게 위에 PasswordEncoding 클래스에서 오버라이딩하여 작성한 <code>matches()</code>를 사용한다.  <code>matches()</code>는, 아직 암호화되지 않은 평문문자와 암호화된 비밀번호를 서로 비교해준다. 이 비교방식은 복잡한 알고리즘이기 때문에 어떤 원리로 비교하는지는 알 수 없다.</p><p>테스트 코드를 작성해보았다.</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">testPassword</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">      PasswordEncoding passwordEncoding = <span class="keyword">new</span> PasswordEncoding();</span><br><span class="line"></span><br><span class="line">         String rawPassword1 = <span class="string">&quot;12345678&quot;</span>;</span><br><span class="line">         String rawPassword2 = <span class="string">&quot;12345678&quot;</span>;</span><br><span class="line"></span><br><span class="line">         String newPassword1 = passwordEncoding.encode(rawPassword1);</span><br><span class="line">         String newPassword2 = passwordEncoding.encode(rawPassword2);</span><br><span class="line"></span><br><span class="line">         System.out.println(<span class="string">&quot;newPassword1 : &quot;</span>+newPassword1);</span><br><span class="line">         System.out.println(<span class="string">&quot;newPassword2 : &quot;</span>+newPassword2);</span><br><span class="line"></span><br><span class="line">         System.out.println(<span class="string">&quot;boolean : &quot;</span>+newPassword1==newPassword2);</span><br><span class="line">         System.out.println(<span class="string">&quot;matches : &quot;</span>+passwordEncoding.matches(rawPassword2,newPassword1));</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><strong>rawPassword1</strong>과 <strong>rawPassword2</strong>는 정확히 같은 문자열을 갖고있다. 이 둘을 암호화해서 <strong>newPassword1</strong>과 <strong>newPassword2</strong>에 각각 저장했다. 그리고 이 둘을 직접 비교하는 코드를 작성했고, 다음줄에는 이 둘의 비교를 <code>PasswordEncoding.java</code>에 있는 <code>matches()</code>를 사용하여 비교해보았다. </p><p><img src="http://www.mediafire.com/convkey/6121/cwtqxq3vk1x2q1uzg.jpg"></p><p><strong>rawPassword1</strong>과 <strong>rawPassword2</strong>가 각각 어떻게 암호화되었는지 확인할 수 있으며, 같은 패스워드를 갖고있었던 두 변수들이 암호화되어 생성된 <strong>newPassword1</strong>과 <strong>newPassword2</strong>의 boolean 비교는 <code>false</code>였고, <code>matches()</code>로 암호화되기 전의 boolean 결과는 <code>true</code>였다. </p><p>이는 임의의 랜덤의 수를 생성해서 암호화하는 것이 아니라 입력받은 값에 따라 정해진 알고리즘에 의해 패스워드가 생성된다고 할 수 있다.</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Dev </category>
-          
-          <category> Spring </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> java </tag>
-            
-            <tag> spring-security </tag>
             
         </tags>
       
@@ -3763,9 +3734,9 @@
       
         <tags>
             
-            <tag> casting </tag>
-            
             <tag> java </tag>
+            
+            <tag> casting </tag>
             
         </tags>
       
