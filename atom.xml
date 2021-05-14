@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-05-10T07:09:33.195Z</updated>
+  <updated>2021-05-14T09:29:44.214Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>스프링부트에 패스워드 암호화 적용하기 (a.k.a PasswordEncoder)</title>
+    <link href="http://youngjinmo.github.io/2021/05/passwordencoder/"/>
+    <id>http://youngjinmo.github.io/2021/05/passwordencoder/</id>
+    <published>2021-05-14T00:24:45.000Z</published>
+    <updated>2021-05-14T09:29:44.214Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/118250347-54e70680-b4e1-11eb-8c33-c92c246a14fe.jpg&quot;&gt;&lt;/p&gt;
+&lt;p&gt;이 포스팅은 2년전 처음에 작성했던 글을 수정하는 글이다.&lt;/p&gt;
+&lt;p&gt;스프링 시큐리티를 공부하고 적용한게 아니라 프로젝트중에 빠르게</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+    <category term="springsecurity" scheme="http://youngjinmo.github.io/tags/springsecurity/"/>
+    
+    <category term="passwordencoder" scheme="http://youngjinmo.github.io/tags/passwordencoder/"/>
+    
+  </entry>
   
   <entry>
     <title>Java Collection - Queue</title>
@@ -595,39 +626,6 @@
     <category term="String" scheme="http://youngjinmo.github.io/tags/String/"/>
     
     <category term="formatting" scheme="http://youngjinmo.github.io/tags/formatting/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Live Study 7주차 - 패키지</title>
-    <link href="http://youngjinmo.github.io/2021/02/livestudy-week-07/"/>
-    <id>http://youngjinmo.github.io/2021/02/livestudy-week-07/</id>
-    <published>2021-02-14T14:49:10.000Z</published>
-    <updated>2021-04-28T14:31:36.647Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#package&quot;&gt;package 키워드&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#import&quot;&gt;import 키워드&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
-    
-    
-    <category term="oop" scheme="http://youngjinmo.github.io/tags/oop/"/>
-    
-    <category term="livestudy" scheme="http://youngjinmo.github.io/tags/livestudy/"/>
     
   </entry>
   
