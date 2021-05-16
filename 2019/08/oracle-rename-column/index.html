@@ -249,7 +249,7 @@ ga('send', 'pageview');
 <ol start="2">
 <li>이전의 튜플을 새로운 Attribute의 튜플로 붙여넣기</li>
 </ol>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> [테이블 이름]</span><br><span class="line"><span class="keyword">SET</span> [새컬럼] = [구컬럼]</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UPDATE [테이블 이름]</span><br><span class="line"><span class="keyword">SET</span> [새컬럼] <span class="operator">=</span> [구컬럼]</span><br></pre></td></tr></table></figure>
 
 
 
@@ -263,12 +263,12 @@ ga('send', 'pageview');
 <ol start="4">
 <li>조회해서 확인해보기</li>
 </ol>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DESC [테이블 이름] </span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DESC</span> [테이블 이름] </span><br></pre></td></tr></table></figure>
 
 <br>
 
 <p>만약 컬럼명이 아니라 컬럼의 데이터 타입을 바꾸려면 어떻게 해야할까?</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> [테이블 이름]</span><br><span class="line"><span class="keyword">MODIFY</span> (</span><br><span class="line">	[컬럼] [신규 데이터타입]</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> [테이블 이름]</span><br><span class="line">MODIFY (</span><br><span class="line">	[컬럼] [신규 데이터타입]</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
         </div>
     </div>

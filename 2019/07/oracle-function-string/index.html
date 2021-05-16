@@ -270,15 +270,15 @@ ga('send', 'pageview');
 <br>
 
 <h2 id="concat"><a href="#concat" class="headerlink" title="concat"></a><a name="concat"></a>concat</h2><p>문자열을 서로 더해주는 문자열 함수이다.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">concat</span>(<span class="string">&#x27;CEO is&#x27;</span>, <span class="string">&#x27;King&#x27;</span>)</span><br><span class="line"><span class="keyword">FROM</span> dual</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> concat(<span class="string">&#x27;CEO is&#x27;</span>, <span class="string">&#x27;King&#x27;</span>)</span><br><span class="line"><span class="keyword">FROM</span> dual</span><br></pre></td></tr></table></figure>
 
 <p>concat 함수의 파라미터는 2개로 제한되기 때문에 더 많은 문자열을 더하기 위해서는 아래처럼 작성해야 한다.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ename, job, <span class="keyword">concat</span>(<span class="keyword">concat</span>(<span class="keyword">concat</span>(ename,<span class="string">&#x27;의 직무는 &#x27;</span>), job), <span class="string">&#x27;입니다.&#x27;</span>)</span><br><span class="line"><span class="keyword">FROM</span> emp</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ename, job, concat(concat(concat(ename,<span class="string">&#x27;의 직무는 &#x27;</span>), job), <span class="string">&#x27;입니다.&#x27;</span>)</span><br><span class="line"><span class="keyword">FROM</span> emp</span><br></pre></td></tr></table></figure>
 
 <img src="https://lh3.googleusercontent.com/5bSsN2YS3VgVdd29zLf7vRlex9DX5x0FqbTNp1NhLhdpuxQVj3B5imN5_Ee9eEGj4bfM2i_dQbeufu91QWOS6ROkka4h7XvrzdKG5PA2w6ly0Jkyh0Qse6G6SsWT-aNYzpq6CKXsf1I1WZgRQH6JZwNBHkvm98cmAyag71sdEazK7L598tIYoCSeZYLhd0VgY_nILYKCeRdbonYP1NUg0xcfkG_IZwW2UEsdyWHRpAG-R_J6dHuvSQIUhpDK1nWK7xsgoKkWl21XuBtB0P7PrqbKtQVimDdAoqJGnGwOSRSYSWaSMAk8yKbIdOoB5q0GrOu6Hd8Hb2lG-zeUttNX5X6D5ifZWjvPeuvtmxTR61rHnavjV3b-9-PIWSmL4XuYmxy31JkxsBQb5rD5D8DM-fi7Q1bX06Xe9XhZcMNmVPGamBUAqxL4vPVsdXXVw0xMN2ALE8p8vU6KtMCSe5qkRIh_HDwKhcZk-ZZjoCYAKKCexM3LK_Zwdygtw81sKYUzcAzRLIOZSnmO6opCx5BAPLUePuBj0JGdHF10oP_b1DvrU6Gczmd87-SU3WvABJJzTYeupoSYrvB25w3N8BWhKpzZNqoVU69f9ddJ6aQv-z9XYPv_oFCd6RqpLj2NMPBTzQdkT-s4ZLTVzPG9CrdvTMW1Sch9ZMCk3A9I1ear5tRSVLdSFyhZsCjSWHyApEpk9b-wpPLDQj7Ld5BBDlUw6a7KXk6xHAtviviowTDYJM75sCiEu2gwt0Le=w1440-h630-no" style="width:90%;" />
 
 <p>문자열을 더하는 함수는 <a href="https://youngjinmo.github.io/2019/06/oracle-dml/#concat" target="_blank">||</a>도 있다.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ename, job, ename||<span class="string">&#x27;의 직무는&#x27;</span>||job||<span class="string">&#x27;입니다.&#x27;</span></span><br><span class="line"><span class="keyword">FROM</span> emp;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ename, job, ename<span class="operator">||</span><span class="string">&#x27;의 직무는&#x27;</span><span class="operator">||</span>job<span class="operator">||</span><span class="string">&#x27;입니다.&#x27;</span></span><br><span class="line"><span class="keyword">FROM</span> emp;</span><br></pre></td></tr></table></figure>
 
 <img src="https://lh3.googleusercontent.com/e5d1wN1Lmwlul3skEx_Fv0WlDIqseANbMU2xmpaXX_jcmwbkYLsQC6NbUp3O8Nq-htDJNtsvv08taBbEXxmyJymqMsHm9qdHbBwHpRKRWTg4oIaPxglCTNullZiW7JHNqYoAAy2w_qrGfkjRluDY6aI9QCmQTRtGmHGwMggpuHLzr9TNDn43NNxw_rgAUkikYD8FKxXo94j7rolwFmGc2JYQBpAJCPUv3SssRas4QG1FM6QNe5Y-m-McFCIvDwPNRw_Os5f3ySPIj8panIZtm9t8fXyWaZ7sdFe-5I3L2NBtrLNjOsu1UqComYE4_6rvRG8NJ8J-M_08KsxY9wp2ZsaGpsEAN2hx2KIe1EhrhkEI1cD9wjl-jfEC0UpBDFL9uoNVdV_R9VP6CXhVsLXjaaI3xfLhi3OT1dNmIAnvitUKrECni1-3jxGGrRnRi0A2pd0cVQ06JRKOeJ4rmzxnQFKVhjppjWxvZ45JSSbdBgtNNIRIa7oV2fFsrCTaxu4ZmK_V5Nex4qP8hdwgda0ljfGu-hcvkuifRRzUyUDIEynHr94ZP3vk_6uD0NoBPjINcda_hpqWL5SZbgvCjr-UaNKcMjI9F_-Lz3Pz_4vbtSb6sdUYU5iH0zpJ8bMBQrRamqs_Pa5phAoI4vkZ5hSedDqVRb7cqhkX4NOIB4_hD6tKegUsN1RnzaT0lfSgxgBv7gapxn8Vi2ZTNiTArpLtkMPEqnvXdkqw2eyQJy7YwHeGjAGD01K0iuO0=w1084-h634-no" style="width:90%;" />
 
@@ -303,7 +303,7 @@ ga('send', 'pageview');
 <br>
 
 <p>몇번째 인덱스부터 몇번째로 등장하는 문자를 찾을수도 있다.<br><em>참고로 아래의 문자열에서 인덱스 1의 문자는 ‘H’이다.</em></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">instr</span>(<span class="string">&#x27;HELLO BRO&#x27;</span>, <span class="string">&#x27;O&#x27;</span>, <span class="number">6</span>, <span class="number">1</span>) <span class="keyword">FROM</span> dual;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> instr(<span class="string">&#x27;HELLO BRO&#x27;</span>, <span class="string">&#x27;O&#x27;</span>, <span class="number">6</span>, <span class="number">1</span>) <span class="keyword">FROM</span> dual;</span><br></pre></td></tr></table></figure>
 
 <p>‘HELLO BRO’ 문자열에서 6번째 인덱스부터 문자열 ‘O’가 1번째로 등장하는 문자열의 인덱스를 조회하는 쿼리이다. 해당 문자열에서 O는 두번 등장하는데, 6번째 인덱스 뒤로는 마지막 O 하나밖에 없기 때문에 조회되는 인덱스는 9가 될 것이다.</p>
 <img src="https://www.mediafire.com/convkey/029a/g6acumz3z5p5fr3zg.jpg" width=400px />
@@ -368,7 +368,7 @@ length : 문자열 길이 반환 함수
 substr : 문자열 잘라서 반환하는 함수
 instr : 지정한 문자열의 인덱스 반환 함수
 tr",
-        "wordCount": 421
+        "wordCount": 419
     }
 </script>
 

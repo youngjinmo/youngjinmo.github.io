@@ -256,28 +256,28 @@ ga('send', 'pageview');
 
 <hr>
 <h2 id="산술연산자"><a href="#산술연산자" class="headerlink" title="산술연산자"></a><a name="operator"></a>산술연산자</h2><h3 id=""><a href="#" class="headerlink" title="="></a><a name="="></a>=</h3><p>조회하려는 column에 조건을 부여해서 선택적으로 column을 조회(SELECT) 할 수 있는 기능이다.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> deptno=<span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> deptno<span class="operator">=</span><span class="number">10</span>;</span><br></pre></td></tr></table></figure>
 
 <p>위의 쿼리를 입력하면 아래처럼 데이터가 분류되서 출력됨을 알 수 있다.</p>
 <p><img src="http://www.mediafire.com/convkey/ce1a/1kwqgt38y7f4sq0zg.jpg"></p>
 <br>
 
 <h3 id="lt-gt"><a href="#lt-gt" class="headerlink" title="&lt;&gt;"></a><a name="<>"></a>&lt;&gt;</h3><p>조건에 반하는 결과만 조회(SELECT) 할 수도 있다. </p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> deptno &lt;&gt; <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> deptno <span class="operator">&lt;&gt;</span> <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
 
 <p>deptno가 10이 안되는 데이터만 출력됨을 알 수 있다.</p>
 <p><img src="http://www.mediafire.com/convkey/dc62/96qpcys572awyuhzg.jpg"></p>
 <br>
 
 <h3 id="NOT"><a href="#NOT" class="headerlink" title="NOT"></a><a name="not"></a>NOT</h3><p><code>NOT</code> 키워드를 사용하여 작성할 수 있다.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> <span class="keyword">NOT</span> deptno = <span class="number">10</span> <span class="keyword">AND</span> <span class="keyword">NOT</span> deptno=<span class="number">20</span>; </span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> <span class="keyword">NOT</span> deptno <span class="operator">=</span> <span class="number">10</span> <span class="keyword">AND</span> <span class="keyword">NOT</span> deptno<span class="operator">=</span><span class="number">20</span>; </span><br></pre></td></tr></table></figure>
 
 <p><code>WHERE</code> 절 조건으로 <code>deptno=10</code>이 <u><strong>아니거나</strong></u> <code>deptno=20</code> <u><strong>이 아닌 조건</strong></u>으로 조회를 해보았다. deptno=30인 데이터만 조회된 것을 확인할 수 있다.</p>
 <p><img src="http://www.mediafire.com/convkey/ece2/4thhrc5qf6mv8t9zg.jpg"></p>
 <br>
 
 <h2 id="논리조건-lt-gt-lt-gt"><a href="#논리조건-lt-gt-lt-gt" class="headerlink" title="논리조건 &lt;, &gt;, &lt;=, &gt;="></a><a name="condition"></a>논리조건 &lt;, &gt;, &lt;=, &gt;=</h2><p>int형 또는 ASCII코드의 순서에 따라 데이터를 조회(SELECT)할 수도 있다.    </p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> empno, ename, job, hiredate, sal </span><br><span class="line"><span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> sal &gt; <span class="number">2000</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> empno, ename, job, hiredate, sal </span><br><span class="line"><span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> sal <span class="operator">&gt;</span> <span class="number">2000</span>;</span><br></pre></td></tr></table></figure>
 
 <p>emp 테이블에서 empno, ename, job, hiredate, sal 컬럼을 조회(SELECT)하면서 sal 컬럼의 데이터가 2000을 초과할 경우를 조건으로 설정하면 아래의 결과처럼 sal의 데이터가 2000이 넘는 데이터만 조회된다.</p>
 <p><img src="http://www.mediafire.com/convkey/259b/632ffeykj1f53mlzg.jpg"></p>
@@ -285,7 +285,7 @@ ga('send', 'pageview');
 
 <h2 id="BETWEEN"><a href="#BETWEEN" class="headerlink" title="BETWEEN"></a><a name="between"></a>BETWEEN</h2><ul>
 <li><p>범위를 지정하여 조회할 경우에는 <code>between</code> 을 사용하여 조회할 수 있다.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> empno, ename, job, hiredate, sal </span><br><span class="line"><span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> sal &gt; <span class="number">3000</span> <span class="keyword">and</span> sal &lt; <span class="number">4000</span>;</span><br><span class="line"></span><br><span class="line">// 위의 쿼리를 BETWEEN 키워드를 사용하여 바꿔보았다.</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> empno, ename, job, hiredate, sal</span><br><span class="line"><span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> (sal <span class="keyword">between</span> <span class="number">3000</span> <span class="keyword">and</span> <span class="number">4000</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> empno, ename, job, hiredate, sal </span><br><span class="line"><span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> sal <span class="operator">&gt;</span> <span class="number">3000</span> <span class="keyword">and</span> sal <span class="operator">&lt;</span> <span class="number">4000</span>;</span><br><span class="line"></span><br><span class="line"><span class="operator">/</span><span class="operator">/</span> 위의 쿼리를 <span class="keyword">BETWEEN</span> 키워드를 사용하여 바꿔보았다.</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> empno, ename, job, hiredate, sal</span><br><span class="line"><span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> (sal <span class="keyword">between</span> <span class="number">3000</span> <span class="keyword">and</span> <span class="number">4000</span>);</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
@@ -293,7 +293,7 @@ ga('send', 'pageview');
 
 <h2 id="IN"><a href="#IN" class="headerlink" title="IN"></a><a name="in"></a>IN</h2><ul>
 <li><p>조건 중 공통 column일 경우, 사용할 수 있는 sql 키워드</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> empno, ename, job</span><br><span class="line"><span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> job = <span class="string">&#x27;salesman&#x27;</span> <span class="keyword">or</span> job = <span class="string">&#x27;analyst&#x27;</span>;</span><br><span class="line"></span><br><span class="line">// 위의 쿼리를 in 키워드를 사용하여 바꿔보았다.</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> empno, ename, job</span><br><span class="line"><span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> job <span class="keyword">in</span> (<span class="string">&#x27;salesman&#x27;</span>, <span class="string">&#x27;analyst&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> empno, ename, job</span><br><span class="line"><span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> job <span class="operator">=</span> <span class="string">&#x27;salesman&#x27;</span> <span class="keyword">or</span> job <span class="operator">=</span> <span class="string">&#x27;analyst&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="operator">/</span><span class="operator">/</span> 위의 쿼리를 <span class="keyword">in</span> 키워드를 사용하여 바꿔보았다.</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> empno, ename, job</span><br><span class="line"><span class="keyword">FROM</span> emp <span class="keyword">WHERE</span> job <span class="keyword">in</span> (<span class="string">&#x27;salesman&#x27;</span>, <span class="string">&#x27;analyst&#x27;</span>);</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
@@ -404,7 +404,7 @@ NULL
 1SELECT * FROM emp WHERE deptno=10;
 
 위의 쿼리를 입력하면 ",
-        "wordCount": 573
+        "wordCount": 591
     }
 </script>
 

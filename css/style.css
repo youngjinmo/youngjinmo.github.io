@@ -1846,57 +1846,52 @@ i.icon:before {
   height: 1.6em;
 }
 .highlight {
-  padding: 0.5em;
-  color: #333;
+  color: #a9b7c6;
+  background: #282b2e;
 }
-.highlight .code .comment,
-.highlight .code .meta {
-  color: #969896;
-}
-.highlight .code .string,
-.highlight .code .variable,
-.highlight .code .template-variable,
-.highlight .code .strong,
-.highlight .code .emphasis,
-.highlight .code .quote {
-  color: #df5000;
+.highlight .code .number,
+.highlight .code .literal,
+.highlight .code .symbol,
+.highlight .code .bullet {
+  color: #6897bb;
 }
 .highlight .code .keyword,
 .highlight .code .selector-tag,
-.highlight .code .type {
-  color: #a71d5d;
+.highlight .code .deletion {
+  color: #cc7832;
 }
-.highlight .code .literal,
-.highlight .code .symbol,
-.highlight .code .bullet,
-.highlight .code .attribute {
-  color: #0086b3;
+.highlight .code .variable,
+.highlight .code .template-variable,
+.highlight .code .link {
+  color: #629755;
+}
+.highlight .code .comment,
+.highlight .code .quote {
+  color: #808080;
+}
+.highlight .code .meta {
+  color: #bbb529;
+}
+.highlight .code .string,
+.highlight .code .attribute,
+.highlight .code .addition {
+  color: #6a8759;
 }
 .highlight .code .section,
-.highlight .code .name {
-  color: #63a35c;
-}
-.highlight .code .tag {
-  color: #333;
-}
 .highlight .code .title,
-.highlight .code .attr,
+.highlight .code .type {
+  color: #ffc66d;
+}
+.highlight .code .name,
 .highlight .code .selector-id,
-.highlight .code .selector-class,
-.highlight .code .selector-attr,
-.highlight .code .selector-pseudo {
-  color: #795da3;
+.highlight .code .selector-class {
+  color: #e8bf6a;
 }
-.highlight .code .addition {
-  color: #55a532;
-  background-color: #eaffea;
+.highlight .code .emphasis {
+  font-style: italic;
 }
-.highlight .code .deletion {
-  color: #bd2c00;
-  background-color: #ffecec;
-}
-.highlight .code .link {
-  text-decoration: underline;
+.highlight .code .strong {
+  font-weight: bold;
 }
 @media only screen and (min-width: 960px) {
   .nav-container-inner {

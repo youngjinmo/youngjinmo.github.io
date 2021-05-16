@@ -243,12 +243,12 @@ ga('send', 'pageview');
 </blockquote>
 <p>오라클 데이터베이스를 연습해보면서 테이블을 생성할 일이 많은데, 이 때마다 데이터를 <code>insert</code> 하는게 여간 귀찮은일이 아니다. 그래서 알아보니 테이블을 복사하는 방법이 있었다.</p>
 <p>먼저 데이터를 넣을 테이블부터 생성.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> test01 (</span><br><span class="line">	<span class="keyword">id</span> <span class="built_in">NUMBER</span>,</span><br><span class="line">  <span class="keyword">name</span> <span class="built_in">VARCHAR2</span>(<span class="number">100</span>)</span><br><span class="line">); </span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> test01(<span class="keyword">id</span>, <span class="keyword">name</span>)</span><br><span class="line"><span class="keyword">VALUES</span>(<span class="number">1</span>, <span class="string">&#x27;DevAndy&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> test01(<span class="keyword">id</span>, <span class="keyword">name</span>)</span><br><span class="line"><span class="keyword">VALUES</span>(<span class="number">2</span>, <span class="string">&#x27;JavaProgrammer&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> test01 (</span><br><span class="line">	id NUMBER,</span><br><span class="line">  name VARCHAR2(<span class="number">100</span>)</span><br><span class="line">); </span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> test01(id, name)</span><br><span class="line"><span class="keyword">VALUES</span>(<span class="number">1</span>, <span class="string">&#x27;DevAndy&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> test01(id, name)</span><br><span class="line"><span class="keyword">VALUES</span>(<span class="number">2</span>, <span class="string">&#x27;JavaProgrammer&#x27;</span>);</span><br></pre></td></tr></table></figure>
 
 
 
 <p>위에서 생성한 <code>test01</code> 테이블과 똑같은 <code>test02</code> 테이블을 생성하겠다.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> test02</span><br><span class="line"><span class="keyword">AS</span> (</span><br><span class="line">  <span class="keyword">SELECT</span> * </span><br><span class="line">  <span class="keyword">FROM</span> test01</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> test02</span><br><span class="line"><span class="keyword">AS</span> (</span><br><span class="line">  <span class="keyword">SELECT</span> <span class="operator">*</span> </span><br><span class="line">  <span class="keyword">FROM</span> test01</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
 <p>이렇게만 하면 <code>test01</code> 의 <a name="putback"></a>스키마 구조<a href="#schema"><sup><code>1</code></sup></a>와 데이터를 <code>test02</code> 테이블이 모두 가져와서 생성된다.</p>
 <p>이외에도 테이블을 복사하는 방법은 몇 가지 더 있다. </p>
@@ -257,7 +257,7 @@ ga('send', 'pageview');
 <ol>
 <li>테이블의 <strong>스키마 구조</strong>만 복사하고 싶을 때.</li>
 </ol>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> test03</span><br><span class="line"><span class="keyword">AS</span> (</span><br><span class="line">  <span class="keyword">SELECT</span> * </span><br><span class="line">  <span class="keyword">FROM</span> test01</span><br><span class="line">  <span class="keyword">WHERE</span> <span class="number">1</span>=<span class="number">0</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> test03</span><br><span class="line"><span class="keyword">AS</span> (</span><br><span class="line">  <span class="keyword">SELECT</span> <span class="operator">*</span> </span><br><span class="line">  <span class="keyword">FROM</span> test01</span><br><span class="line">  <span class="keyword">WHERE</span> <span class="number">1</span><span class="operator">=</span><span class="number">0</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
 <p><code>WHERE</code> 조건이 false가 되기때문에 데이터는 못가져오고 스키마 구조만 가져올 수 있다.</p>
 <br>
@@ -265,14 +265,14 @@ ga('send', 'pageview');
 <ol start="2">
 <li>이미 만들어진 테이블에 다른 테이블에서 <strong>데이터</strong>만 가져오고 싶을 때.</li>
 </ol>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> test03</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> test01;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> test03</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> test01;</span><br></pre></td></tr></table></figure>
 
 <br>
 
 <ol start="3">
 <li>테이블의 이름을 변경하고자 할 때</li>
 </ol>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> test03</span><br><span class="line"><span class="keyword">RENAME</span> <span class="keyword">TO</span> test03_new;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> test03</span><br><span class="line">RENAME <span class="keyword">TO</span> test03_new;</span><br></pre></td></tr></table></figure>
 
 <br>
 
@@ -320,7 +320,7 @@ ga('send', 'pageview');
 오라클 데이터베이스를 연습해보면서 테이블을 생성할 일이 많은데, 이 때마다 데이터를 insert 하는게 여간 귀찮은일이 아니다. 그래서 알아보니 테이블을 복사하는 방법이 있었다.
 먼저 데이터를 넣을 테이블부터 생성.
 123456789CREATE TABLE tes",
-        "wordCount": 264
+        "wordCount": 259
     }
 </script>
 

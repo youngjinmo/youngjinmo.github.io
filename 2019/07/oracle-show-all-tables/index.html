@@ -240,7 +240,7 @@ ga('send', 'pageview');
 
 <p>오라클을 하면서 몰랐던 쿼리가 있다. MySQL에서는 <code>show tables;</code> 라는 간단한 쿼리로 테이블 전체 조회를 할 수 있었는데 오라클에선 어떻게 모든 테이블을 조회할 수 있는지 알지 못했다.</p>
 <p> 내가 찾은 답은 이렇다.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    table_name, owner</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    all_tables</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">    owner=<span class="string">&#x27;ACCOUNT&#x27;</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span></span><br><span class="line">    owner, table_name;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    table_name, owner</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    all_tables</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">    owner<span class="operator">=</span><span class="string">&#x27;ACCOUNT&#x27;</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span></span><br><span class="line">    owner, table_name;</span><br></pre></td></tr></table></figure>
 
 <p>위의 쿼리에서 조건절에서 <code>&#39;ACCOUNT&#39;</code> 대신 테이블 조회를 원하는 계정을 입력해서 해당 계정에 생성된 모든 테이블을 조회할 수 있다.</p>
 <img src="https://www.mediafire.com/convkey/ece9/kzn11kgcb2wsd2pzg.jpg" width="400px" />
@@ -288,7 +288,7 @@ ga('send', 'pageview');
 오라클을 하면서 몰랐던 쿼리가 있다. MySQL에서는 show tables; 라는 간단한 쿼리로 테이블 전체 조회를 할 수 있었는데 오라클에선 어떻게 모든 테이블을 조회할 수 있는지 알지 못했다.
  내가 찾은 답은 이렇다.
 12345678SELECT    table_name, ownerFROM    all_tablesWHERE    owner=&#x27",
-        "wordCount": 130
+        "wordCount": 131
     }
 </script>
 

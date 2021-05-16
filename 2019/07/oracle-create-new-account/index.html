@@ -240,14 +240,14 @@ ga('send', 'pageview');
 
 
 <p>데이터베이스 계정을 새로 만들어서 접속하는 법을 정리하고자 한다.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- DB 계정 생성</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> [<span class="keyword">new</span> <span class="keyword">user</span>] <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> [<span class="keyword">password</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 접근 권한 허용</span></span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">connect</span>, <span class="keyword">resource</span>, dba <span class="keyword">to</span> [<span class="keyword">new</span> <span class="keyword">user</span>];</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- DB 계정 생성</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> [<span class="keyword">new</span> <span class="keyword">user</span>] IDENTIFIED <span class="keyword">BY</span> [password];</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 접근 권한 허용</span></span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">connect</span>, resource, dba <span class="keyword">to</span> [<span class="keyword">new</span> <span class="keyword">user</span>];</span><br></pre></td></tr></table></figure>
 
 <p>이렇게 하면 DB 계정이 생성된다. 새로 생성한 계정에 접속하는 방법으로는 2가지가 있다. 기존에 접속한 DB를 로그아웃하고 접속하는 방법과 로그아웃하지않고 추가로 DB계정에 접속하는 방법이다.</p>
 <p>먼저 로그아웃없이 새 계정에 접속하는 방법이다.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 기존 접속한 DB 로그아웃없이</span></span><br><span class="line"><span class="comment">-- 생성한 계정으로 DB 전환</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> [<span class="keyword">new</span> <span class="keyword">user</span>] </span><br><span class="line"><span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> [<span class="keyword">password</span>] <span class="keyword">account</span> <span class="keyword">unlock</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 기존 접속한 DB 로그아웃없이</span></span><br><span class="line"><span class="comment">-- 생성한 계정으로 DB 전환</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> [<span class="keyword">new</span> <span class="keyword">user</span>] </span><br><span class="line">IDENTIFIED <span class="keyword">BY</span> [password] account unlock;</span><br></pre></td></tr></table></figure>
 
 <p>기존 접속을 해제하고 다른 계정에만 접속하고자 한다면 아래의 방식대로 입력하면된다.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 현재 접속된 계정 비활성화(disconnect)</span></span><br><span class="line">disc;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 계정 접속</span></span><br><span class="line">CONN [new user]/[password];</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 현재 접속된 계정 비활성화(disconnect)</span></span><br><span class="line">disc;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 계정 접속</span></span><br><span class="line">CONN [<span class="keyword">new</span> <span class="keyword">user</span>]<span class="operator">/</span>[password];</span><br></pre></td></tr></table></figure>
 
 
         </div>
@@ -292,7 +292,7 @@ ga('send', 'pageview');
 12345-- DB 계정 생성CREATE USER [new user] IDENTIFIED BY [password];-- 접근 권한 허용grant connect, resource, dba to [new user];
 
 이렇게 하면 DB 계정이 생성된다. 새로 생성한 계정에 접속하는 방법으",
-        "wordCount": 157
+        "wordCount": 153
     }
 </script>
 

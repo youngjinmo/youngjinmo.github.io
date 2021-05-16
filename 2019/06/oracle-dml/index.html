@@ -263,7 +263,7 @@ ga('send', 'pageview');
 <br>
 
 <h2 id="SELECT"><a href="#SELECT" class="headerlink" title="SELECT"></a><a name="select"></a>SELECT</h2><p>SQL 쿼리는 일반적으로 아래와 같은 구성으로 작성한다.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ename, sal</span><br><span class="line"><span class="keyword">FROM</span> emp</span><br><span class="line"><span class="keyword">WHERE</span> sal &gt;= <span class="number">1000</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ename, sal</span><br><span class="line"><span class="keyword">FROM</span> emp</span><br><span class="line"><span class="keyword">WHERE</span> sal <span class="operator">&gt;=</span> <span class="number">1000</span>;</span><br></pre></td></tr></table></figure>
 
 <p>DML은 여기서 <code>SELECT</code> 에 해당하는 언어이며, 데이터를 조작하는 <a href="https://youngjinmo.github.io/2019/06/oracle-intro/#dml">의미</a>를 갖는다. </p>
 <p>SELECT는 데이터를 조회할 때 사용하는 DML 쿼리이다.</p>
@@ -276,13 +276,13 @@ ga('send', 'pageview');
 <br>
 
 <h2 id="UPDATE"><a href="#UPDATE" class="headerlink" title="UPDATE"></a><a name="update"></a>UPDATE</h2><p>추가된 데이터를 수정할 때 사용하는 쿼리이다. 추가할 때 HIREDATE에 데이터를 입력하지 않았는데, 현재 날짜(<code>SYSDATE</code>)를 HIREDATE로 수정해서 넣어봤다.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> [테이블명]</span><br><span class="line"><span class="keyword">SET</span> [column1] = <span class="string">&#x27;property11&#x27;</span></span><br><span class="line"><span class="keyword">WHERE</span> [column2] = <span class="string">&#x27;property2&#x27;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UPDATE [테이블명]</span><br><span class="line"><span class="keyword">SET</span> [column1] <span class="operator">=</span> <span class="string">&#x27;property11&#x27;</span></span><br><span class="line"><span class="keyword">WHERE</span> [column2] <span class="operator">=</span> <span class="string">&#x27;property2&#x27;</span></span><br></pre></td></tr></table></figure>
 
 <p><img src="http://www.mediafire.com/convkey/bb42/m9hy7nlmlkxfig4zg.jpg"></p>
 <br>
 
 <h2 id="DELETE"><a href="#DELETE" class="headerlink" title="DELETE"></a><a name="delete"></a>DELETE</h2><p>데이터를 삭제할 때 사용한다. </p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> [테이블명]</span><br><span class="line"><span class="keyword">WHERE</span> [column1] = <span class="string">&#x27;property11&#x27;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> [테이블명]</span><br><span class="line"><span class="keyword">WHERE</span> [column1] <span class="operator">=</span> <span class="string">&#x27;property11&#x27;</span></span><br></pre></td></tr></table></figure>
 
 <p><img src="http://www.mediafire.com/convkey/3ca5/re88dnvcnjg7g9zzg.jpg"></p>
 <br>
@@ -290,7 +290,7 @@ ga('send', 'pageview');
 <h2 id="산술-연산자"><a href="#산술-연산자" class="headerlink" title="산술 연산자"></a><a name="arithmetic"></a>산술 연산자</h2><ul>
 <li>산술 연산자(+, -, /, *) 를 이용하여 column의 데이터에 대한 연산결과를 출력할 수 있다.</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// emp 테이블에서 sal(임금)과 comm(보너스)를 추가한 실수령액을 조회하는 sql 쿼리</span><br><span class="line"><span class="keyword">SELECT</span> ename, sal, nvl(comm, <span class="number">0</span>), sal+nvl(comm, <span class="number">0</span>)</span><br><span class="line"><span class="keyword">FROM</span> emp;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">/</span><span class="operator">/</span> emp 테이블에서 sal(임금)과 comm(보너스)를 추가한 실수령액을 조회하는 <span class="keyword">sql</span> 쿼리</span><br><span class="line"><span class="keyword">SELECT</span> ename, sal, nvl(comm, <span class="number">0</span>), sal<span class="operator">+</span>nvl(comm, <span class="number">0</span>)</span><br><span class="line"><span class="keyword">FROM</span> emp;</span><br></pre></td></tr></table></figure>
 
 <img src="http://www.mediafire.com/convkey/4b0d/7r5src4hvccngctzg.jpg" />
 
@@ -307,7 +307,7 @@ ga('send', 'pageview');
 
 <h2 id="Concat-연산자"><a href="#Concat-연산자" class="headerlink" title="Concat 연산자 ( || )"></a><a name="concat"></a>Concat 연산자 ( || )</h2><ul>
 <li><p>문자열을 합치는 연산자이다.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ename || <span class="string">&#x27;s job is &#x27;</span> || job</span><br><span class="line"><span class="keyword">FROM</span> emp;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ename <span class="operator">||</span> <span class="string">&#x27;s job is &#x27;</span> <span class="operator">||</span> job</span><br><span class="line"><span class="keyword">FROM</span> emp;</span><br></pre></td></tr></table></figure>
 
 <div>
 <img src="http://www.mediafire.com/convkey/c2cd/upq0a0axxl2dk52zg.jpg" />
@@ -392,7 +392,7 @@ SELECTSQL 쿼리는 일반적으로 아래와 같은 구성으로 작성한다.
 123SELECT ename, salFROM empWHERE sal &gt;= 1000;
 
 DML은 여기서 SEL",
-        "wordCount": 375
+        "wordCount": 384
     }
 </script>
 
