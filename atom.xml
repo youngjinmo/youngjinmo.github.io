@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-05-14T09:29:44.214Z</updated>
+  <updated>2021-05-16T07:43:54.682Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://youngjinmo.github.io/2021/05/passwordencoder/"/>
     <id>http://youngjinmo.github.io/2021/05/passwordencoder/</id>
     <published>2021-05-14T00:24:45.000Z</published>
-    <updated>2021-05-14T09:29:44.214Z</updated>
+    <updated>2021-05-16T07:43:54.682Z</updated>
     
     
       
@@ -40,6 +40,8 @@
     
     <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
     
+    
+    <category term="tutorial" scheme="http://youngjinmo.github.io/tags/tutorial/"/>
     
     <category term="springsecurity" scheme="http://youngjinmo.github.io/tags/springsecurity/"/>
     
@@ -112,7 +114,7 @@
     <link href="http://youngjinmo.github.io/2021/05/equals-hashcode/"/>
     <id>http://youngjinmo.github.io/2021/05/equals-hashcode/</id>
     <published>2021-05-06T04:09:26.000Z</published>
-    <updated>2021-05-07T09:23:32.957Z</updated>
+    <updated>2021-05-15T04:31:29.550Z</updated>
     
     
       
@@ -120,7 +122,7 @@
         
         
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/117303115-5009cd80-aeb7-11eb-9311-adef89ccb6af.jpg&quot;&gt;&lt;/p&gt;
-&lt;p&gt;이전 DTO와 VO 그리고 Entity의 차이에서 살짝 언급했는데, 이제서야 정리를</summary>
+&lt;p&gt;이전 포스팅(&lt;a href=&quot;https://youngjinmo.github.io/2021/04/dto-vo-entity/&quot;&gt;DTO와</summary>
         
       
     
