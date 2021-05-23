@@ -3,6 +3,20 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/tags/httpsession/</loc>
+        <lastmod>2021-05-23T12:56:28.246Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/tags/session/</loc>
+        <lastmod>2021-05-23T12:56:28.246Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/tags/mysql/</loc>
         <lastmod>2021-05-19T07:09:58.542Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -305,13 +319,6 @@
 
     <url>
         <loc>http://youngjinmo.github.io/tags/cache/</loc>
-        <lastmod>2021-04-09T08:14:00.071Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/tags/session/</loc>
         <lastmod>2021-04-09T08:14:00.071Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>

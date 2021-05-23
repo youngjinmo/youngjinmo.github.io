@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>로그인 세션을 관리하는 법 (a.k.a.HttpSession)</title>
+      <link href="2021/05/httpsession/"/>
+      <url>2021/05/httpsession/</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://user-images.githubusercontent.com/33862991/119260845-a8f39880-bc0f-11eb-8301-60ae3567d380.jpg"></p><p>사이드 프로젝트를 진행하던중 서버에서 브라우저마다 로그인 사용자를 다르게 구분하는 원리에 대해 궁금함이 생겼다. 이 과정에서 session이 어떻게 활용되는지 궁금해서 찾던중 쉽게 설명한 글을 Okky에서 찾게되었다.</p><ul><li><a href="https://okky.kr/article/498323">Okky - spring httpsession 동작방식</a></li></ul><p><u><b>HTTP는 contactless한 네트워크 프로토콜</b></u>이다. 요청과 응답이 단방향으로 통신하는 네트워크이다. 통신이 지속되는 상태가 아니므로 이러한 HTTP의 특징을 <b>Stateless(무상태)</b>라고 한다.</p><p>방금 로그인을 했더라도 페이지가 바뀌면 서버는 로그인한 사용자가 누군지 잊어버리게 된다. 이런 현상을 방지할 때 사용되는게 쿠키, 세션이다. <u><b>쿠키와 세션은 서버가 클라이언트를 기억할 수 있도록 돕는 셈이다.</b></u></p><p><mark>쿠키는 클라이언트에 저장되어 관리된다.</mark> 브라우저마다 다르게 관리되며, 쿠키를 발행한 기관(기업)만 접근할 수 있다. 즉 트위터에서 발행한 쿠키에 대해 페이스북 서버에서는 접근할 수 없다는 이야기다.</p><p><mark>세션은 서버에 저장되어 관리된다.</mark> 클라이언트가 아닌 서버에서 관리되므로 보안상 더 안전하다고 할 수 있지만, 이건 어디까지나 서버가 보안상 안전하다는 전제하에 동의가능하다.<br>예를 들면, 일반 개인보단 구글 서버가 더 안전할 수 있다는 이야기이다.<br>단점으로는 서버에 사용자가 많아지면 서버에서 관리하는 세션이 많아지므로 서버에 부하를 줄수도 있다.</p><p>다시 로그인 과정으로 돌아가면, 사용자가 로그인에 성공하면, 서버는 세션을 생성한다. 그리고 이 세션과 매칭하는 <code>JSESSIONID</code>라는 쿠키를 발행하여 이를 클라이언트에 전달한다.</p><p><code>JSESSIONID</code>를 받은 사용자는 서버에 요청(Request)할때마다 HTTP Header에  이 쿠키(<code>JSESSIONID</code>)를 포함해서 요청하게 된다. 그럼 서버는 Header에 포함된 쿠키를 통해 사용자를 식별할수 있게된다.</p><p>쿠키는 삭제하지 않는한 유효시간이 존재하기 때문에 만료하지 않았다면, 브라우저를 종료하고 다시 접속하더라도 이 쿠키를 통해 HTTP 요청이 가능하다. 로그인 상태가 유지된다는 이야기이다.</p><p><b>쿠키 구성요소</b></p><ul><li>이름 : 쿠키를 구별하는데 사용되는 이름</li><li>값 : 쿠키 이름, 값</li><li>유효시간 : 쿠키가 유지되는 시간</li><li>도메인 : 쿠키를 전송할 도메인(서버)</li><li>경로 : 쿠키를 전송할 요청 경로</li></ul><p>쿠키와 세션은 HTTP의 단점인 connectionless와 stateless를 해결한다는 점에서 비슷하지만, 저장되는 위치가 다르다는 특징이 있다.</p><hr><p><strong>함께 읽어보면 좋을 글</strong></p><ul><li><a href="https://interconnection.tistory.com/74">라이언 곰돌이푸 - 쿠키와 세션 개념</a></li><li><a href="https://victorydntmd.tistory.com/34">VictoLee - HTTP 쿠키와 세션</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Dev </category>
+          
+          <category> Spring </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> session </tag>
+            
+            <tag> httpsession </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>스프링부트에 패스워드 암호화 적용하기 (a.k.a PasswordEncoder)</title>
       <link href="2021/05/passwordencoder/"/>
       <url>2021/05/passwordencoder/</url>

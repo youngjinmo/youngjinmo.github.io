@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-05-16T07:43:54.682Z</updated>
+  <updated>2021-05-23T12:56:28.246Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>로그인 세션을 관리하는 법 (a.k.a.HttpSession)</title>
+    <link href="http://youngjinmo.github.io/2021/05/httpsession/"/>
+    <id>http://youngjinmo.github.io/2021/05/httpsession/</id>
+    <published>2021-05-23T03:45:13.000Z</published>
+    <updated>2021-05-23T12:56:28.246Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/119260845-a8f39880-bc0f-11eb-8301-60ae3567d380.jpg&quot;&gt;&lt;/p&gt;
+&lt;p&gt;사이드 프로젝트를 진행하던중 서버에서 브라우저마다 로그인 사용자를 다르게 구분하는 원리에 대해 궁금함이 생겼다. 이 과정에서</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Spring" scheme="http://youngjinmo.github.io/categories/Dev/Spring/"/>
+    
+    
+    <category term="session" scheme="http://youngjinmo.github.io/tags/session/"/>
+    
+    <category term="httpsession" scheme="http://youngjinmo.github.io/tags/httpsession/"/>
+    
+  </entry>
   
   <entry>
     <title>스프링부트에 패스워드 암호화 적용하기 (a.k.a PasswordEncoder)</title>
@@ -596,38 +626,6 @@
     <category term="oop" scheme="http://youngjinmo.github.io/tags/oop/"/>
     
     <category term="livestudy" scheme="http://youngjinmo.github.io/tags/livestudy/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Int형 나누기 결과를 소수점 2자리까지만 얻어오기</title>
-    <link href="http://youngjinmo.github.io/2021/02/string-format-with-casting/"/>
-    <id>http://youngjinmo.github.io/2021/02/string-format-with-casting/</id>
-    <published>2021-02-15T04:40:14.000Z</published>
-    <updated>2021-02-15T13:44:28.647Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://regmedia.co.uk/2013/01/30/java_logo.jpg?x=442&amp;y=293&amp;crop=1&quot;&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
-    
-    
-    <category term="casting" scheme="http://youngjinmo.github.io/tags/casting/"/>
-    
-    <category term="String" scheme="http://youngjinmo.github.io/tags/String/"/>
-    
-    <category term="formatting" scheme="http://youngjinmo.github.io/tags/formatting/"/>
     
   </entry>
   
