@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-05-23T12:56:28.246Z</updated>
+  <updated>2021-05-31T10:58:32.985Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>십진수와 이진수 서로 바꿔보기</title>
+    <link href="http://youngjinmo.github.io/2021/05/integer-to-binary/"/>
+    <id>http://youngjinmo.github.io/2021/05/integer-to-binary/</id>
+    <published>2021-05-31T01:55:20.000Z</published>
+    <updated>2021-05-31T10:58:32.985Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/120183043-23449e00-c24a-11eb-82f8-0d9987ea36b3.jpg&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;1-십진수를-이진수로-바꾸기&quot;&gt;&lt;a href=&quot;#1-십진수를-이진수로-바꾸기&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Quiz" scheme="http://youngjinmo.github.io/categories/Dev/Quiz/"/>
+    
+    
+    <category term="algorithms" scheme="http://youngjinmo.github.io/tags/algorithms/"/>
+    
+  </entry>
   
   <entry>
     <title>로그인 세션을 관리하는 법 (a.k.a.HttpSession)</title>
@@ -591,41 +619,6 @@
     
     
     <category term="http" scheme="http://youngjinmo.github.io/tags/http/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Live Study 8주차 - 인터페이스</title>
-    <link href="http://youngjinmo.github.io/2021/02/livestudy-week-08/"/>
-    <id>http://youngjinmo.github.io/2021/02/livestudy-week-08/</id>
-    <published>2021-02-16T03:53:48.000Z</published>
-    <updated>2021-04-28T14:31:39.882Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#interface&quot;&gt;인터페이스 정의하는 방법&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#purpose&quot;&gt;인터페이스 목적 : 느슨한 결합&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
-    
-    
-    <category term="oop" scheme="http://youngjinmo.github.io/tags/oop/"/>
-    
-    <category term="livestudy" scheme="http://youngjinmo.github.io/tags/livestudy/"/>
     
   </entry>
   
