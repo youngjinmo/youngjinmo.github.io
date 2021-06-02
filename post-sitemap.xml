@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/2019/06/docker-for-oracle/</loc>
+        <lastmod>2021-06-02T09:35:12.032Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/2021/05/integer-to-binary/</loc>
         <lastmod>2021-05-31T10:58:32.985Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -587,14 +595,6 @@
     <url>
         <loc>http://youngjinmo.github.io/2019/08/oracle-groupby/</loc>
         <lastmod>2020-12-21T07:57:37.609Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2019/06/docker-for-oracle/</loc>
-        <lastmod>2020-12-09T05:56:04.820Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

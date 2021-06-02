@@ -3,15 +3,29 @@
 
 
     <url>
-        <loc>http://youngjinmo.github.io/tags/algorithms/</loc>
-        <lastmod>2021-05-31T10:58:32.985Z</lastmod>
+        <loc>http://youngjinmo.github.io/tags/docker/</loc>
+        <lastmod>2021-06-02T09:35:12.032Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://youngjinmo.github.io/tags/docker/</loc>
-        <lastmod>2021-05-30T08:50:40.034Z</lastmod>
+        <loc>http://youngjinmo.github.io/tags/tutorial/</loc>
+        <lastmod>2021-06-02T09:35:12.032Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/tags/oracle/</loc>
+        <lastmod>2021-06-02T09:35:12.032Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/tags/algorithms/</loc>
+        <lastmod>2021-05-31T10:58:32.985Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -32,13 +46,6 @@
 
     <url>
         <loc>http://youngjinmo.github.io/tags/mysql/</loc>
-        <lastmod>2021-05-19T07:09:58.542Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/tags/tutorial/</loc>
         <lastmod>2021-05-19T07:09:58.542Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -144,13 +151,6 @@
 
     <url>
         <loc>http://youngjinmo.github.io/tags/mybatis/</loc>
-        <lastmod>2021-05-05T14:25:58.931Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/tags/oracle/</loc>
         <lastmod>2021-05-05T14:25:58.931Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
