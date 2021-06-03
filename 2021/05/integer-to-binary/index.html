@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="algorithms" />
     
-    <meta name="description" content="1. 십진수를 이진수로 바꾸기1234567891011121314151617181920public class NumericChange &amp;#123;   public static void main(String[] args) &amp;#123;      System.out.println(IntegerToBinary(16));   &amp;#125;     static int">
+    <meta name="description" content="1. 십진수를 이진수로 바꾸기십진수를 이진수로 바꾸는 방법부터 정리한다.   십진수를 2 미만이 될때까지 2로 계속 나누고, 나눌때마다 발생하는 나머지를 이진수로 저장하는 원리이다. 위의 문장만으로 벌써 반복문 조건이 완성된다.  1234567int[] binaries &#x3D; new int[32];int &#x3D; 0;while(integer&gt;&#x3D;2) &amp;#123">
 <meta property="og:type" content="article">
 <meta property="og:title" content="십진수와 이진수 서로 바꿔보기">
 <meta property="og:url" content="http://youngjinmo.github.io/2021/05/integer-to-binary/index.html">
 <meta property="og:site_name" content="기록하는개발자 | DevAndy">
-<meta property="og:description" content="1. 십진수를 이진수로 바꾸기1234567891011121314151617181920public class NumericChange &amp;#123;   public static void main(String[] args) &amp;#123;      System.out.println(IntegerToBinary(16));   &amp;#125;     static int">
+<meta property="og:description" content="1. 십진수를 이진수로 바꾸기십진수를 이진수로 바꾸는 방법부터 정리한다.   십진수를 2 미만이 될때까지 2로 계속 나누고, 나눌때마다 발생하는 나머지를 이진수로 저장하는 원리이다. 위의 문장만으로 벌써 반복문 조건이 완성된다.  1234567int[] binaries &#x3D; new int[32];int &#x3D; 0;while(integer&gt;&#x3D;2) &amp;#123">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://user-images.githubusercontent.com/33862991/120183043-23449e00-c24a-11eb-82f8-0d9987ea36b3.jpg">
 <meta property="article:published_time" content="2021-05-31T01:55:20.000Z">
-<meta property="article:modified_time" content="2021-05-31T10:58:32.985Z">
+<meta property="article:modified_time" content="2021-06-03T03:12:00.228Z">
 <meta property="article:author" content="Youngjin Mo">
 <meta property="article:tag" content="algorithms">
 <meta name="twitter:card" content="summary">
@@ -204,7 +204,7 @@ ga('send', 'pageview');
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="" class="article-date">
-     <time datetime="2021-05-31T10:58:32.985Z" itemprop="dateModified">2021-05-31</time>
+     <time datetime="2021-06-03T03:12:00.228Z" itemprop="dateModified">2021-06-03</time>
   </a>
 </div>
 
@@ -213,7 +213,7 @@ ga('send', 'pageview');
 
 				<!-- 	count-time		 -->
 				<span class="reading-time" style="margin-left: 20px;">
-					⏱ 5 min.
+					⏱ 9 min.
 				</span>
                 
     <div class="article-tag">
@@ -236,7 +236,18 @@ ga('send', 'pageview');
             
 
             <p><img src="https://user-images.githubusercontent.com/33862991/120183043-23449e00-c24a-11eb-82f8-0d9987ea36b3.jpg"></p>
-<h2 id="1-십진수를-이진수로-바꾸기"><a href="#1-십진수를-이진수로-바꾸기" class="headerlink" title="1. 십진수를 이진수로 바꾸기"></a>1. 십진수를 이진수로 바꾸기</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NumericChange</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      System.out.println(IntegerToBinary(<span class="number">16</span>));</span><br><span class="line">   &#125;</span><br><span class="line">  </span><br><span class="line">   <span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">IntegerToBinary</span><span class="params">(<span class="keyword">int</span> integer)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">int</span>[] binaries = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">32</span>];</span><br><span class="line">      <span class="keyword">while</span>(integer!=<span class="number">1</span>) &#123;</span><br><span class="line">         binaries[i] = integer%<span class="number">2</span>;</span><br><span class="line">         integer/=<span class="number">2</span>;</span><br><span class="line">         i++;</span><br><span class="line">      &#125;</span><br><span class="line">      binaries[i] = integer;</span><br><span class="line">      StringBuffer result = <span class="keyword">new</span> StringBuffer(<span class="string">&quot;&quot;</span>);</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> j=i; j&gt;=<span class="number">0</span>; j--) &#123;</span><br><span class="line">         result.append(binaries[j]);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> Integer.parseInt(String.valueOf(result));</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="1-십진수를-이진수로-바꾸기"><a href="#1-십진수를-이진수로-바꾸기" class="headerlink" title="1. 십진수를 이진수로 바꾸기"></a>1. 십진수를 이진수로 바꾸기</h2><p>십진수를 이진수로 바꾸는 방법부터 정리한다.</p>
+<img src="https://user-images.githubusercontent.com/33862991/120579411-6e38fe00-c462-11eb-9f08-161eee04fb6a.png" style="zoom:50%;" />
+
+<p>십진수를 2 미만이 될때까지 2로 계속 나누고, 나눌때마다 발생하는 나머지를 이진수로 저장하는 원리이다.</p>
+<p>위의 문장만으로 벌써 반복문 조건이 완성된다. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] binaries = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">32</span>];</span><br><span class="line"><span class="keyword">int</span> = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span>(integer&gt;=<span class="number">2</span>) &#123;</span><br><span class="line">   binaries[i] = integer%<span class="number">2</span>;</span><br><span class="line">   integer/=<span class="number">2</span>;</span><br><span class="line">   i++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>그리고 이를 StringBuilder에 저장하는데, 이진수 값을 저장한 배열은 우리가 생각한 이진수의 반대로 저장되었으므로 StringBuilder 타입에 담을때엔 iterator를 거꾸로 돌리면 된다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">StringBuffer result = <span class="keyword">new</span> StringBuffer(<span class="string">&quot;&quot;</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> j=i; j&gt;=<span class="number">0</span>; j--) &#123;</span><br><span class="line">   result.append(binaries[j]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>완성된 코드는 아래와 같다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NumericChange</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      System.out.println(IntegerToBinary(<span class="number">16</span>));</span><br><span class="line">   &#125;</span><br><span class="line">  </span><br><span class="line">   <span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">IntegerToBinary</span><span class="params">(<span class="keyword">int</span> integer)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">int</span>[] binaries = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">32</span>];</span><br><span class="line">      <span class="keyword">while</span>(integer&gt;=<span class="number">2</span>) &#123;</span><br><span class="line">         binaries[i] = integer%<span class="number">2</span>;</span><br><span class="line">         integer/=<span class="number">2</span>;</span><br><span class="line">         i++;</span><br><span class="line">      &#125;</span><br><span class="line">      binaries[i] = integer;</span><br><span class="line">      StringBuffer result = <span class="keyword">new</span> StringBuffer(<span class="string">&quot;&quot;</span>);</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> j=i; j&gt;=<span class="number">0</span>; j--) &#123;</span><br><span class="line">         result.append(binaries[j]);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> Integer.parseInt(String.valueOf(result));</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>사실 십진수를 이진수로 바꾸는 방법은 <code>Integer</code> 클래스의 메소드를 이용해서 간단히 할 수 있다.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Integer.toBinaryString(integer);</span><br></pre></td></tr></table></figure>
@@ -246,9 +257,19 @@ ga('send', 'pageview');
 
 <br>
 
-<h2 id="2-이진수를-십진수로-바꾸기"><a href="#2-이진수를-십진수로-바꾸기" class="headerlink" title="2. 이진수를 십진수로 바꾸기"></a>2. 이진수를 십진수로 바꾸기</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NumericChange</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      System.out.println(IntegerToBinary(<span class="number">16</span>));</span><br><span class="line">   &#125;</span><br><span class="line">  </span><br><span class="line">   <span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">BinaryToInteger</span><span class="params">(<span class="keyword">int</span> binary)</span> </span>&#123;</span><br><span class="line">      String temp = String.valueOf(binary);</span><br><span class="line">      String[] arr = temp.split(<span class="string">&quot;&quot;</span>);</span><br><span class="line">      List&lt;String&gt; list = Arrays.asList(arr);</span><br><span class="line">      Collections.reverse(list);</span><br><span class="line">     </span><br><span class="line">      <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;list.size(); i++) &#123;</span><br><span class="line">         <span class="keyword">if</span>(list.get(i).equals(<span class="string">&quot;1&quot;</span>)) &#123;</span><br><span class="line">            result += Math.pow(<span class="number">2</span>, i);</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> result;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-이진수를-십진수로-바꾸기"><a href="#2-이진수를-십진수로-바꾸기" class="headerlink" title="2. 이진수를 십진수로 바꾸기"></a>2. 이진수를 십진수로 바꾸기</h2><p>이진수를 십진수로 바꾸는 원리를 알아보자.</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/120580513-48acf400-c464-11eb-809d-dea28ab6955f.png"></p>
+<p>이진수의 자릿수에서 1이 있는 인덱스마다 2의 지수2의 지수만큼을 합산하면 된다.</p>
+<p>위의 원리대로 풀어가려면 일단 정수형 타입으로 가져오는 이진수를 자릿수마다 분리해서 배열로 담아야 한다. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String temp = String.valueOf(binary);</span><br><span class="line">String[] splitted = temp.split(<span class="string">&quot;&quot;</span>);</span><br></pre></td></tr></table></figure>
 
-<p>이진수를 십진수로 바꾸는 과정은 더 단순했는데, 그 과정에서 캐스팅을 많이 하였다. 더 나은 방법이 있을지 계속 고민해봐야할 듯 하다.</p>
+<p>일단 문자열 타입의 배열에 담아둔다.</p>
+<p>그리고 반복문을 돌려서 배열의 값이 <code>&quot;1&quot;</code> 이면, 그에 해당하는 인덱스를 지수로 갖는 2를 더하면 된다. 이 때 역시 우리의 의도대로 인덱스를 가져오려면 배열을 거꾸로 돌려야 하며, iterator를 하나 더 사용해야 한다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = splitted.length-<span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">   <span class="keyword">if</span>(splitted[i].equals(<span class="string">&quot;1&quot;</span>)) &#123;</span><br><span class="line">      result+=Math.pow(<span class="number">2</span>, j);</span><br><span class="line">   &#125;</span><br><span class="line">   j++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>완성된 코드는 다음과 같다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NumericChange</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      System.out.println(IntegerToBinary(<span class="number">16</span>));</span><br><span class="line">   &#125;</span><br><span class="line">  </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">BinaryToInteger</span><span class="params">(<span class="keyword">int</span> binary)</span> </span>&#123;</span><br><span class="line">      String temp = String.valueOf(binary);</span><br><span class="line">      String[] splitted = temp.split(<span class="string">&quot;&quot;</span>);</span><br><span class="line">      <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> i = splitted.length-<span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">         <span class="keyword">if</span>(splitted[i].equals(<span class="string">&quot;1&quot;</span>)) &#123;</span><br><span class="line">            result+=Math.pow(<span class="number">2</span>, j);</span><br><span class="line">         &#125;</span><br><span class="line">         j++;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> result;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
         </div>
     </div>
@@ -282,11 +303,16 @@ ga('send', 'pageview');
         "genre": "Dev Quiz",
         "datePublished": "2021-05-31",
         "dateCreated": "2021-05-31",
-        "dateModified": "2021-05-31",
+        "dateModified": "2021-06-03",
         "url": "../../../http:/youngjinmo.github.io/2021/05/integer-to-binary/",
         "description": "
-1. 십진수를 이진수로 바꾸기1234567891011121314151617181920public class NumericChange &#123;   public static void main(String[] args) &#123;      System.out.println(IntegerToBinary(16));   &#125;     static int ",
-        "wordCount": 490
+1. 십진수를 이진수로 바꾸기십진수를 이진수로 바꾸는 방법부터 정리한다.
+
+
+십진수를 2 미만이 될때까지 2로 계속 나누고, 나눌때마다 발생하는 나머지를 이진수로 저장하는 원리이다.
+위의 문장만으로 벌써 반복문 조건이 완성된다. 
+1234567int[] binaries = new int[32];int = 0;while(integer&gt;=2) &#123",
+        "wordCount": 739
     }
 </script>
 
