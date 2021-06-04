@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>래퍼 클래스(Wrapper Class) | 기록하는개발자 | DevAndy</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="" />
+    
+    <meta name="description" content="Wrapper Class자바의 자료형은 크게 기본형과 참조형으로 구분된다. 참조형은 참조 주소를 가리키는 데이터 타입이고, 기본형은 실제 값을 갖는 데이터 타입이다. 참고 : DevAndy - 자바 데이터 타입, 변수 그리고 배열 기본형 타입을 객체로 사용해야할 때가 있는데, 이 때 사용되는 데이터 타입이 Wrapper Class이다. 다른 말로 포장객체">
+<meta property="og:type" content="article">
+<meta property="og:title" content="래퍼 클래스(Wrapper Class)">
+<meta property="og:url" content="http://youngjinmo.github.io/2021/06/wrapper-class/index.html">
+<meta property="og:site_name" content="기록하는개발자 | DevAndy">
+<meta property="og:description" content="Wrapper Class자바의 자료형은 크게 기본형과 참조형으로 구분된다. 참조형은 참조 주소를 가리키는 데이터 타입이고, 기본형은 실제 값을 갖는 데이터 타입이다. 참고 : DevAndy - 자바 데이터 타입, 변수 그리고 배열 기본형 타입을 객체로 사용해야할 때가 있는데, 이 때 사용되는 데이터 타입이 Wrapper Class이다. 다른 말로 포장객체">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/33862991/120760573-378ce180-c54f-11eb-98c7-296113c0c0ad.jpg">
+<meta property="article:published_time" content="2021-06-03T22:11:57.000Z">
+<meta property="article:modified_time" content="2021-06-04T07:14:16.814Z">
+<meta property="article:author" content="Youngjin Mo">
+<meta property="article:tag" content="java, spring boot, spring framework, developer, programmer, 개발자, 스프링부트, 자바">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/33862991/120760573-378ce180-c54f-11eb-98c7-296113c0c0ad.jpg">
+<meta name="twitter:creator" content="@devandy_yj">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="기록하는개발자 | DevAndy" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="../../../css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="../../../libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="../../../libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="../../../libs/source-code-pro/styles.css">
+
+    
+<link rel="stylesheet" href="../../../css/style.css">
+
+	
+<link rel="stylesheet" href="../../../https:/cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+	<style type="text/css">
+		@font-face {
+		  font-family: 'NanumSquareRound';
+		  font-style: normal;
+		  font-weight: 400;
+		}
+	</style>
+
+    
+<script src="../../../libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-177850483-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../index.html">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Articles/">Articles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/">Dev</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Front-end/">Front-end</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Network/">Network</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Others/">Others</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Quiz/">Quiz</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Spring/">Spring</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Review/">Review</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Thought/">Thought</a></li></ul></li></ul>
+                                
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="../../../js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Java/">Java</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-wrapper-class" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        래퍼 클래스(Wrapper Class)
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta" style="margin-bottom: 1em;">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="" class="article-date">
+       <time datetime="2021-06-03T22:11:57.000Z" itemprop="datePublished">2021-06-04</time>
+    </a>
+  </div>
+
+<!-- 
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="" class="article-date">
+     <time datetime="2021-06-04T07:14:16.814Z" itemprop="dateModified">2021-06-04</time>
+  </a>
+</div>
+
+ -->
+                
+
+				<!-- 	count-time		 -->
+				<span class="reading-time" style="margin-left: 20px;">
+					⏱ 9 min.
+				</span>
+                
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="https://user-images.githubusercontent.com/33862991/120760573-378ce180-c54f-11eb-98c7-296113c0c0ad.jpg"></p>
+<h1 id="Wrapper-Class"><a href="#Wrapper-Class" class="headerlink" title="Wrapper Class"></a>Wrapper Class</h1><p>자바의 자료형은 크게 기본형과 참조형으로 구분된다. 참조형은 참조 주소를 가리키는 데이터 타입이고, 기본형은 실제 값을 갖는 데이터 타입이다.</p>
+<p>참고 : <a href="https://youngjinmo.github.io/2021/01/livestudy-week-02/#reference">DevAndy - 자바 데이터 타입, 변수 그리고 배열</a></p>
+<p><mark>기본형 타입을 객체로 사용해야할 때</mark>가 있는데, 이 때 사용되는 데이터 타입이 <u>Wrapper Class</u>이다. 다른 말로 <b>포장객체</b>라고도 한다.</p>
+<p>Wrapper Class는 참조형 타입에 해당한다. 아래의 테이블을 통해서 기본형과 Wrapper 클래스를 구분하도록 하자.</p>
+<table id="wrapper-table">
+  <tr>
+    <th style="text-align: center; width: 20%">기본형</th>
+    <th style="text-align: center; width: 30%">Wrapper Class</th>
+  </tr>
+  <tr>
+    <td style="text-align: center;">byte</td>
+    <td style="text-align: center;">Byte</td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">char</td>
+    <td style="text-align: center;">Character</td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">int</td>
+    <td style="text-align: center;">Integer</td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">float</td>
+    <td style="text-align: center;">Float</td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">double</td>
+    <td style="text-align: center;">Double</td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">boolean</td>
+    <td style="text-align: center;">Boolean</td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">long</td>
+    <td style="text-align: center;">Long</td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">short</td>
+    <td style="text-align: center;">Short</td>
+  </tr>
+</table>
+
+<p>출처 : <a target="_blank" rel="noopener" href="https://coding-factory.tistory.com/547">코딩팩토리 - 래퍼 클래스란 무엇인가 (박싱, 언박싱)</a></p>
+<br>
+
+<h1 id="Boxing-UnBoxing"><a href="#Boxing-UnBoxing" class="headerlink" title="Boxing, UnBoxing"></a>Boxing, UnBoxing</h1><p>포장객체(Wrapper Class)란, 기본형 타입의 데이터를 객체형 타입으로 감싼걸 의미한다. 이 과정을 Boxing이라고 한다.</p>
+<ul>
+<li><strong>Boxing</strong> ➡️ 기본형 타입의 데이터 값을 객체화하는 과정</li>
+<li><strong>UnBoxing</strong> ➡️ 포장객체에서 기본 타입의 값을 얻어오는 과정</li>
+</ul>
+<br>
+
+<h1 id="사용-예제"><a href="#사용-예제" class="headerlink" title="사용 예제"></a>사용 예제</h1><p>아래의 코드를 통해 확인해보자.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DevAndy</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      String str1 = <span class="keyword">new</span> String(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">      String str2 = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">      String str3 = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">     </span><br><span class="line">      System.out.println(str1==str2);</span><br><span class="line">      System.out.println(str2==str3);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>위의 코드에서 main 메소드를 실행하면 콘솔에 어떻게 출력될까?</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">false</span><br><span class="line">true</span><br></pre></td></tr></table></figure>
+
+<p><code>str1==str2</code>는 <code>false</code>를 반환했고, <code>str2==str3</code>는 <code>true</code>를 반환했다. 이유를 알아보자.</p>
+<p><code>==</code> 연산자는 객체의 주소값을 비교하는 연산자인데, <code>false</code> 를 반환했다는 것은 비교하는 두 객체의 주소값이 달랐을것으로 추론된다. 실제로 주소값을 콘솔에서 확인해보자.</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DevAndy</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      String str1 = <span class="keyword">new</span> String(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">      String str2 = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">      String str3 = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">      <span class="comment">// System.out.println(str1==str2);</span></span><br><span class="line">      <span class="comment">// System.out.println(str2==str3);</span></span><br><span class="line">      System.out.println(<span class="string">&quot;str1 identity hashcode : &quot;</span>+System.identityHashCode(str1));</span><br><span class="line">      System.out.println(<span class="string">&quot;str2 identity hashcode : &quot;</span>+System.identityHashCode(str2));</span><br><span class="line">      System.out.println(<span class="string">&quot;str3 identity hashcode : &quot;</span>+System.identityHashCode(str3));</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">str1 identity hashcode : 1057941451</span><br><span class="line">str2 identity hashcode : 434091818</span><br><span class="line">str3 identity hashcode : 434091818</span><br></pre></td></tr></table></figure>
+
+<p>정말 주소값이 달랐다. 그래서 포장객체와 기본형 타입의 값을 비교했을때, <code>false</code> 를 반환한 것이다. 이럴땐 어떻게 비교해야할까? <code>String</code> 클래스에는 값만을 비교할때 사용하는 <code>equals()</code>가 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DevAndy</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      String str1 = <span class="keyword">new</span> String(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">      String str2 = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">      String str3 = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">     </span><br><span class="line">      System.out.println(str1.equals(str2));</span><br><span class="line">      System.out.println(str2.equals(str3));</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">true</span><br><span class="line">true</span><br></pre></td></tr></table></figure>
+
+<p>이번엔 모두 <code>true</code>를 반환받을 수 있었다.</p>
+<p>이유는 위의 변수들중 포장객체와 기본형 변수의 identity hashcode는 서로 달랐지만, hashCode는 같았기 때문이다. 이게 무슨 말일까?</p>
+<ul>
+<li><code>System.identityHashCode(str)</code><ul>
+<li>identity hashcode는 파라미터로 들어온 객체의 <span style="color: red;">고유한 값</span>을 반환한다.</li>
+</ul>
+</li>
+<li><code>str.hashCode()</code><ul>
+<li>Object에서 정의하고 있는 메소드로써 String 클래스에서 <code>hahsCode()</code>를 오버라이딩하기 때문에 고유한 값이 다르더라도 값이 같다면, 같은 주소값을 공유하게 된다.</li>
+</ul>
+</li>
+</ul>
+<p>즉 <code>identityHashCode()</code>는 재정의(Override)되지 않는 고유한 주소값을 반환하는 함수이고, <code>hashCode()</code>는 String 클래스에서 재정의한 주소값을 공유하기 때문에 타입이 달라도 <code>equals()</code>로 기대한 결과를 반환받을 수 있던 것이다.</p>
+<p>출처 : <a target="_blank" rel="noopener" href="https://codechacha.com/ko/java-system-identityhashcode/">chacha - System.identityHashCode()와 hashCode()의 차이점</a></p>
+<p><code>hashCode()</code>는 아래와 같은 로직으로 String 내부에서 오버라이딩된다고 한다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   <span class="keyword">int</span> h = hash;</span><br><span class="line">   <span class="keyword">if</span>(h==<span class="number">0</span> &amp;&amp; value.length&gt;<span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">char</span> val[] = value;</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;value.length; i++) &#123;</span><br><span class="line">         h = <span class="number">31</span> * h + val[i];</span><br><span class="line">      &#125;</span><br><span class="line">      hash = h;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> h;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><hr>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://coding-factory.tistory.com/547">코딩팩토리 - 래퍼 클래스란 무엇인가 (박싱, 언박싱)</a></li>
+<li><a target="_blank" rel="noopener" href="https://codechacha.com/ko/java-system-identityhashcode/">chacha - System.identityHashCode()와 hashCode()의 차이점</a></li>
+</ul>
+<br>
+        </div>
+    </div>
+	<div class="ads" style="margin-top: 10px;margin-bottom:10px;">
+		<script src="https://ads-partners.coupang.com/g.js"></script>
+<script>
+	new PartnersCoupang.G({"id":434728,"template":"carousel","trackingCode":"AF1391980","width":"100%","height":"100"});
+</script>
+	</div>
+	<footer class="article-footer">
+		<script src="https://utteranc.es/client.js"
+        repo="youngjinmo/githubpages-comment"
+        issue-term="url"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+	</footer>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Youngjin Mo"
+        },
+        "headline": "래퍼 클래스(Wrapper Class)",
+        "image": "../../../http:/youngjinmo.github.iohttps:/user-images.githubusercontent.com/33862991/120760573-378ce180-c54f-11eb-98c7-296113c0c0ad.jpg",
+        "keywords": "",
+        "genre": "Dev Java",
+        "datePublished": "2021-06-04",
+        "dateCreated": "2021-06-04",
+        "dateModified": "2021-06-04",
+        "url": "../../../http:/youngjinmo.github.io/2021/06/wrapper-class/",
+        "description": "
+Wrapper Class자바의 자료형은 크게 기본형과 참조형으로 구분된다. 참조형은 참조 주소를 가리키는 데이터 타입이고, 기본형은 실제 값을 갖는 데이터 타입이다.
+참고 : DevAndy - 자바 데이터 타입, 변수 그리고 배열
+기본형 타입을 객체로 사용해야할 때가 있는데, 이 때 사용되는 데이터 타입이 Wrapper Class이다. 다른 말로 포장객체",
+        "wordCount": 895
+    }
+</script>
+
+</article>
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="../../../https:/github.com/youngjinmo" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../atom.xml" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="../change-jdk/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">맥에서 JDK 버전 변경하기</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/33862991/120760573-378ce180-c54f-11eb-98c7-296113c0c0ad.jpg)" alt="래퍼 클래스(Wrapper Class)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="" class="title">래퍼 클래스(Wrapper Class)</a></p>
+                            <p class="item-date"><time datetime="2021-06-03T22:11:57.000Z" itemprop="datePublished">2021-06-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../change-jdk/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/33862991/120467013-aeed3480-c3da-11eb-8495-5558c88b4531.jpg)" alt="맥에서 JDK 버전 변경하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../change-jdk/" class="title">맥에서 JDK 버전 변경하기</a></p>
+                            <p class="item-date"><time datetime="2021-06-02T01:39:08.000Z" itemprop="datePublished">2021-06-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../05/integer-to-binary/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/33862991/120183043-23449e00-c24a-11eb-82f8-0d9987ea36b3.jpg)" alt="십진수와 이진수 서로 바꿔보기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Quiz/">Quiz</a></p>
+                            <p class="item-title"><a href="../../05/integer-to-binary/" class="title">십진수와 이진수 서로 바꿔보기</a></p>
+                            <p class="item-date"><time datetime="2021-05-31T01:55:20.000Z" itemprop="datePublished">2021-05-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../05/httpsession/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/33862991/119260845-a8f39880-bc0f-11eb-8301-60ae3567d380.jpg)" alt="로그인 세션을 관리하는 법 (a.k.a.HttpSession)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Spring/">Spring</a></p>
+                            <p class="item-title"><a href="../../05/httpsession/" class="title">로그인 세션을 관리하는 법 (a.k.a.HttpSession)</a></p>
+                            <p class="item-date"><time datetime="2021-05-23T03:45:13.000Z" itemprop="datePublished">2021-05-23</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../05/passwordencoder/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/33862991/118250347-54e70680-b4e1-11eb-8c33-c92c246a14fe.jpg)" alt="스프링부트에 패스워드 암호화 적용하기 (a.k.a PasswordEncoder)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../../05/passwordencoder/" class="title">스프링부트에 패스워드 암호화 적용하기 (a.k.a PasswordEncoder)</a></p>
+                            <p class="item-date"><time datetime="2021-05-14T00:24:45.000Z" itemprop="datePublished">2021-05-14</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../tags/BufferedReader/" style="font-size: 10px;">BufferedReader</a> <a href="../../../tags/BufferedWriter/" style="font-size: 10px;">BufferedWriter</a> <a href="../../../tags/IO/" style="font-size: 10px;">IO</a> <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/String/" style="font-size: 10px;">String</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 11.67px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/annotation/" style="font-size: 10.83px;">annotation</a> <a href="../../../tags/api/" style="font-size: 10px;">api</a> <a href="../../../tags/array/" style="font-size: 10.83px;">array</a> <a href="../../../tags/aws/" style="font-size: 12.5px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/blacklivesmatter/" style="font-size: 10px;">blacklivesmatter</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 11.67px;">career</a> <a href="../../../tags/casting/" style="font-size: 13.33px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/clean-code/" style="font-size: 10px;">clean code</a> <a href="../../../tags/cloud/" style="font-size: 11.67px;">cloud</a> <a href="../../../tags/collection/" style="font-size: 10.83px;">collection</a> <a href="../../../tags/contribution/" style="font-size: 10px;">contribution</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/coupang/" style="font-size: 10px;">coupang</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/datastructure/" style="font-size: 13.33px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 14.17px;">docker</a> <a href="../../../tags/documentation/" style="font-size: 10px;">documentation</a> <a href="../../../tags/domain/" style="font-size: 10px;">domain</a> <a href="../../../tags/dto/" style="font-size: 10px;">dto</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enum/" style="font-size: 10px;">enum</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/equals/" style="font-size: 10px;">equals</a> <a href="../../../tags/error/" style="font-size: 11.67px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/formatting/" style="font-size: 10px;">formatting</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generics/" style="font-size: 10.83px;">generics</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 12.5px;">github</a> <a href="../../../tags/gitignore/" style="font-size: 10px;">gitignore</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/h2database/" style="font-size: 10px;">h2database</a> <a href="../../../tags/hashCode/" style="font-size: 10px;">hashCode</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 15px;">http</a> <a href="../../../tags/httpsession/" style="font-size: 10px;">httpsession</a> <a href="../../../tags/ide/" style="font-size: 10.83px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inheritance/" style="font-size: 10px;">inheritance</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 12.5px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 10.83px;">interface</a> <a href="../../../tags/investment/" style="font-size: 10.83px;">investment</a> <a href="../../../tags/io/" style="font-size: 11.67px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/java/" style="font-size: 14.17px;">java</a> <a href="../../../tags/java5/" style="font-size: 10px;">java5</a> <a href="../../../tags/java8/" style="font-size: 10px;">java8</a> <a href="../../../tags/javascript/" style="font-size: 14.17px;">javascript</a> <a href="../../../tags/javscript/" style="font-size: 10px;">javscript</a> <a href="../../../tags/jdk/" style="font-size: 10px;">jdk</a> <a href="../../../tags/jquery/" style="font-size: 10.83px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/junit/" style="font-size: 10px;">junit</a> <a href="../../../tags/jvm/" style="font-size: 11.67px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 10.83px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="../../../tags/license/" style="font-size: 10px;">license</a> <a href="../../../tags/livereload/" style="font-size: 10px;">livereload</a> <a href="../../../tags/livestudy/" style="font-size: 16.67px;">livestudy</a> <a href="../../../tags/macos/" style="font-size: 10.83px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 10.83px;">mustache</a> <a href="../../../tags/mybatis/" style="font-size: 10.83px;">mybatis</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 18.33px;">oop</a> <a href="../../../tags/operator/" style="font-size: 10px;">operator</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/passwordencoder/" style="font-size: 10px;">passwordencoder</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/privacy/" style="font-size: 10px;">privacy</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/readme/" style="font-size: 10px;">readme</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/servlet/" style="font-size: 11.67px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10.83px;">session</a> <a href="../../../tags/springboot/" style="font-size: 13.33px;">springboot</a> <a href="../../../tags/springmvc/" style="font-size: 10px;">springmvc</a> <a href="../../../tags/springsecurity/" style="font-size: 10px;">springsecurity</a> <a href="../../../tags/sql/" style="font-size: 17.5px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/string/" style="font-size: 15px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/terminal/" style="font-size: 10px;">terminal</a> <a href="../../../tags/tip/" style="font-size: 15.83px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 19.17px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 10.83px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/vo/" style="font-size: 10px;">vo</a> <a href="../../../tags/vue/" style="font-size: 10px;">vue</a> <a href="../../../tags/was/" style="font-size: 10px;">was</a> <a href="../../../tags/weekly-review/" style="font-size: 17.5px;">weekly-review</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+	<div class="ads">
+		<a target="_blank" rel="noopener" href="http://bit.ly/donatemozila_devnady">
+	<img src="https://user-images.githubusercontent.com/33862991/106721036-7b2a1a00-6647-11eb-9722-30275f20b4ba.png" style="width: 100%; display:block; margin-left: auto; margin-right: auto;">
+</a>
+		<a target="_blank" rel="noopener" href="http://bit.ly/livesmarter_devandy">
+	<img src="https://user-images.githubusercontent.com/33862991/106847989-5be8c680-66f3-11eb-9dd3-fd17c8a1009f.jpg" style="width: 250px; display:block; margin-left: auto; margin-right: auto; margin-top: 20px;">
+</a>
+	</div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2021 Youngjin Mo</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+    
+        
+<script src="../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="../../../js/main.js"></script>
+
+
+</body>
+</html>

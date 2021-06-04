@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-06-02T10:43:17.880Z</updated>
+  <updated>2021-06-04T07:14:16.814Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>래퍼 클래스(Wrapper Class)</title>
+    <link href="http://youngjinmo.github.io/2021/06/wrapper-class/"/>
+    <id>http://youngjinmo.github.io/2021/06/wrapper-class/</id>
+    <published>2021-06-03T22:11:57.000Z</published>
+    <updated>2021-06-04T07:14:16.814Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/120760573-378ce180-c54f-11eb-98c7-296113c0c0ad.jpg&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;Wrapper-Class&quot;&gt;&lt;a href=&quot;#Wrapper-Class&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>맥에서 JDK 버전 변경하기</title>
@@ -589,38 +615,6 @@
     <category term="livestudy" scheme="http://youngjinmo.github.io/tags/livestudy/"/>
     
     <category term="generics" scheme="http://youngjinmo.github.io/tags/generics/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Live Study 9주차 - 예외 처리</title>
-    <link href="http://youngjinmo.github.io/2021/02/livestudy-week-09/"/>
-    <id>http://youngjinmo.github.io/2021/02/livestudy-week-09/</id>
-    <published>2021-02-25T01:33:23.000Z</published>
-    <updated>2021-04-28T14:31:48.442Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#exception&quot;&gt;자바에서 예외 처리 방법 (try, catch, throw, throws, finally)&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
-    
-    
-    <category term="livestudy" scheme="http://youngjinmo.github.io/tags/livestudy/"/>
-    
-    <category term="exception" scheme="http://youngjinmo.github.io/tags/exception/"/>
     
   </entry>
   
