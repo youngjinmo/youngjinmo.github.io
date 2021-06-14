@@ -3,6 +3,20 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/tags/enum/</loc>
+        <lastmod>2021-06-14T04:11:29.827Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/tags/livestudy/</loc>
+        <lastmod>2021-06-14T04:11:29.827Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/tags/algorithms/</loc>
         <lastmod>2021-06-03T03:12:00.228Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -10,14 +24,14 @@
     </url>
 
     <url>
-        <loc>http://youngjinmo.github.io/tags/jdk/</loc>
+        <loc>http://youngjinmo.github.io/tags/macos/</loc>
         <lastmod>2021-06-02T10:43:17.880Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://youngjinmo.github.io/tags/macos/</loc>
+        <loc>http://youngjinmo.github.io/tags/jdk/</loc>
         <lastmod>2021-06-02T10:43:17.880Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -31,14 +45,14 @@
     </url>
 
     <url>
-        <loc>http://youngjinmo.github.io/tags/tutorial/</loc>
+        <loc>http://youngjinmo.github.io/tags/oracle/</loc>
         <lastmod>2021-06-02T09:56:57.393Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://youngjinmo.github.io/tags/oracle/</loc>
+        <loc>http://youngjinmo.github.io/tags/tutorial/</loc>
         <lastmod>2021-06-02T09:56:57.393Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -220,22 +234,8 @@
     </url>
 
     <url>
-        <loc>http://youngjinmo.github.io/tags/livestudy/</loc>
-        <lastmod>2021-04-28T14:31:58.690Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://youngjinmo.github.io/tags/annotation/</loc>
         <lastmod>2021-04-28T14:31:54.638Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/tags/enum/</loc>
-        <lastmod>2021-04-28T14:31:51.866Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -367,14 +367,14 @@
     </url>
 
     <url>
-        <loc>http://youngjinmo.github.io/tags/java/</loc>
+        <loc>http://youngjinmo.github.io/tags/sql/</loc>
         <lastmod>2021-03-06T01:20:39.268Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://youngjinmo.github.io/tags/sql/</loc>
+        <loc>http://youngjinmo.github.io/tags/java/</loc>
         <lastmod>2021-03-06T01:20:39.268Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>

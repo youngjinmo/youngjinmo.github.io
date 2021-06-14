@@ -67,9 +67,9 @@
     <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
     
     
-    <category term="macos" scheme="http://youngjinmo.github.io/tags/macos/"/>
-    
     <category term="jdk" scheme="http://youngjinmo.github.io/tags/jdk/"/>
+    
+    <category term="macos" scheme="http://youngjinmo.github.io/tags/macos/"/>
     
   </entry>
   
@@ -483,9 +483,9 @@
     <category term="Git" scheme="http://youngjinmo.github.io/categories/Dev/Git/"/>
     
     
-    <category term="tutorial" scheme="http://youngjinmo.github.io/tags/tutorial/"/>
-    
     <category term="gitignore" scheme="http://youngjinmo.github.io/tags/gitignore/"/>
+    
+    <category term="tutorial" scheme="http://youngjinmo.github.io/tags/tutorial/"/>
     
   </entry>
   
@@ -546,9 +546,9 @@
     <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
     
     
-    <category term="annotation" scheme="http://youngjinmo.github.io/tags/annotation/"/>
-    
     <category term="livestudy" scheme="http://youngjinmo.github.io/tags/livestudy/"/>
+    
+    <category term="annotation" scheme="http://youngjinmo.github.io/tags/annotation/"/>
     
   </entry>
   
@@ -557,7 +557,7 @@
     <link href="http://youngjinmo.github.io/2021/03/livestudy-week-11/"/>
     <id>http://youngjinmo.github.io/2021/03/livestudy-week-11/</id>
     <published>2021-03-02T00:15:07.000Z</published>
-    <updated>2021-04-28T14:31:51.866Z</updated>
+    <updated>2021-06-14T04:11:29.827Z</updated>
     
     
       

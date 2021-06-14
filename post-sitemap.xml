@@ -9,6 +9,22 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/2021/03/livestudy-week-11/</loc>
+        <lastmod>2021-06-14T04:11:29.827Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/2020/02/git-switch-t/</loc>
+        <lastmod>2021-06-10T08:13:18.336Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/2021/06/wrapper-class/</loc>
         <lastmod>2021-06-04T07:14:16.814Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -203,14 +219,6 @@
     <url>
         <loc>http://youngjinmo.github.io/2021/03/livestudy-week-12/</loc>
         <lastmod>2021-04-28T14:31:54.638Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2021/03/livestudy-week-11/</loc>
-        <lastmod>2021-04-28T14:31:51.866Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -1051,14 +1059,6 @@
     <url>
         <loc>http://youngjinmo.github.io/2019/07/git-graph-log/</loc>
         <lastmod>2020-09-13T01:53:28.896Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2020/02/git-pull-upstream-branch/</loc>
-        <lastmod>2020-09-13T01:53:28.876Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
