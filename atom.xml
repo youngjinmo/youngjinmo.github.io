@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-06-04T07:14:16.814Z</updated>
+  <updated>2021-06-15T04:53:11.385Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Bean과 Component 차이</title>
+    <link href="http://youngjinmo.github.io/2021/06/bean-component/"/>
+    <id>http://youngjinmo.github.io/2021/06/bean-component/</id>
+    <published>2021-06-14T19:48:21.000Z</published>
+    <updated>2021-06-15T04:53:11.385Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/121993643-d5e63600-cdde-11eb-9e53-727f00dba587.jpg&quot; alt=&quot;출처 : Unsplash @hoachld&quot;&gt;&lt;/p&gt;
+&lt;p&gt;스프링은 개발의 제어권이 스프링 컨테이너(IoC 컨테이너)에 있다고 한다. 그래서</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+    <category term="bean" scheme="http://youngjinmo.github.io/tags/bean/"/>
+    
+    <category term="spring" scheme="http://youngjinmo.github.io/tags/spring/"/>
+    
+  </entry>
   
   <entry>
     <title>래퍼 클래스(Wrapper Class)</title>
@@ -377,7 +407,7 @@
     <link href="http://youngjinmo.github.io/2021/04/principles-of-oop/"/>
     <id>http://youngjinmo.github.io/2021/04/principles-of-oop/</id>
     <published>2021-04-08T22:12:52.000Z</published>
-    <updated>2021-06-14T05:37:18.668Z</updated>
+    <updated>2021-06-14T05:55:07.875Z</updated>
     
     
       
@@ -582,39 +612,6 @@
     <category term="livestudy" scheme="http://youngjinmo.github.io/tags/livestudy/"/>
     
     <category term="enum" scheme="http://youngjinmo.github.io/tags/enum/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Live Study 14주차 - 제네릭</title>
-    <link href="http://youngjinmo.github.io/2021/03/livestudy-week-14/"/>
-    <id>http://youngjinmo.github.io/2021/03/livestudy-week-14/</id>
-    <published>2021-03-01T08:55:00.000Z</published>
-    <updated>2021-04-28T14:31:58.690Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#generics&quot;&gt;제네릭&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#use-generics&quot;&gt;제네릭 사용법&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#type-variable&quot;&gt;제네릭 타입</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
-    
-    
-    <category term="livestudy" scheme="http://youngjinmo.github.io/tags/livestudy/"/>
-    
-    <category term="generics" scheme="http://youngjinmo.github.io/tags/generics/"/>
     
   </entry>
   
