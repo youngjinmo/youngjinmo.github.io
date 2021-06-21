@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-06-15T05:07:27.978Z</updated>
+  <updated>2021-06-21T06:36:11.849Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HTML Table에서 버튼 클릭해서 다른 컬럼 텍스트값 가져오기</title>
+    <link href="http://youngjinmo.github.io/2021/06/js-get-text-from-table/"/>
+    <id>http://youngjinmo.github.io/2021/06/js-get-text-from-table/</id>
+    <published>2021-06-20T21:26:43.000Z</published>
+    <updated>2021-06-21T06:36:11.849Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;프로젝트를 진행하던중 사용자 목록이 정의된 테이블에서 각 로우마다 있는 버튼을 클릭하면 해당 사용자를 삭제할 수 있는 기능을 개발하는 경험을 해보았다.&lt;/p&gt;
+&lt;p&gt;자바스크립트로 이런것도 가능하구나 싶어서 정리해본다.&lt;/p&gt;
+&lt;p&gt;예제 코드를 아래처럼 정리해보았다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;HTML 코드&lt;/strong&gt;&lt;/p&gt;
+&lt;figure</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="JavaScript" scheme="http://youngjinmo.github.io/categories/Dev/JavaScript/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Bean과 Component 차이</title>
@@ -579,39 +608,6 @@
     <category term="livestudy" scheme="http://youngjinmo.github.io/tags/livestudy/"/>
     
     <category term="annotation" scheme="http://youngjinmo.github.io/tags/annotation/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Live Study 11주차 - Enum</title>
-    <link href="http://youngjinmo.github.io/2021/03/livestudy-week-11/"/>
-    <id>http://youngjinmo.github.io/2021/03/livestudy-week-11/</id>
-    <published>2021-03-02T00:15:07.000Z</published>
-    <updated>2021-06-14T04:11:29.827Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#enum&quot;&gt;enum 이란&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#use-enum&quot;&gt;enum 정의하는 방법&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
-    
-    
-    <category term="livestudy" scheme="http://youngjinmo.github.io/tags/livestudy/"/>
-    
-    <category term="enum" scheme="http://youngjinmo.github.io/tags/enum/"/>
     
   </entry>
   
