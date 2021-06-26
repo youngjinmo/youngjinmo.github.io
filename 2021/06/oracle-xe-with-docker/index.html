@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>맥(MacOS)에서 오라클(11g) 실습환경 구축하기 | 기록하는개발자 | DevAndy</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="oracle,tutorial,docker" />
+    
+    <meta name="description" content="처음 국비교육 받을때 오라클을 사용하기 위해서 도커 컨테이너 사용법을 익혔는데, 그 때 다른 윈도우 컴퓨터 환경의 친구들과 달리 실습환경인 scott 계정이 없어서 난감했던 기억이 있다.  그 때 결국 학원 다른 친구들과 똑같은 환경(Windows)에서 실습을 따라했던 기억이 있는데, 맥에서도 똑같이 할 수 있는 환경을 만드는법을 공유하기 위해 작성해본다.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="맥(MacOS)에서 오라클(11g) 실습환경 구축하기">
+<meta property="og:url" content="http://youngjinmo.github.io/2021/06/oracle-xe-with-docker/index.html">
+<meta property="og:site_name" content="기록하는개발자 | DevAndy">
+<meta property="og:description" content="처음 국비교육 받을때 오라클을 사용하기 위해서 도커 컨테이너 사용법을 익혔는데, 그 때 다른 윈도우 컴퓨터 환경의 친구들과 달리 실습환경인 scott 계정이 없어서 난감했던 기억이 있다.  그 때 결국 학원 다른 친구들과 똑같은 환경(Windows)에서 실습을 따라했던 기억이 있는데, 맥에서도 똑같이 할 수 있는 환경을 만드는법을 공유하기 위해 작성해본다.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://docs.docker.com/docker-for-mac/images/docker-app-drag.png">
+<meta property="article:published_time" content="2021-06-26T01:36:04.000Z">
+<meta property="article:modified_time" content="2021-06-26T10:56:13.928Z">
+<meta property="article:author" content="Youngjin Mo">
+<meta property="article:tag" content="oracle">
+<meta property="article:tag" content="tutorial">
+<meta property="article:tag" content="docker">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://docs.docker.com/docker-for-mac/images/docker-app-drag.png">
+<meta name="twitter:creator" content="@devandy_yj">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="기록하는개발자 | DevAndy" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="../../../css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="../../../libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="../../../libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="../../../libs/source-code-pro/styles.css">
+
+    
+<link rel="stylesheet" href="../../../css/style.css">
+
+	
+<link rel="stylesheet" href="../../../https:/cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+	<style type="text/css">
+		@font-face {
+		  font-family: 'NanumSquareRound';
+		  font-style: normal;
+		  font-weight: 400;
+		}
+	</style>
+
+    
+<script src="../../../libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-177850483-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../index.html">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Articles/">Articles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/">Dev</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Front-end/">Front-end</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/JavaScript/">JavaScript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Network/">Network</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Others/">Others</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Quiz/">Quiz</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Spring/">Spring</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Review/">Review</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Thought/">Thought</a></li></ul></li></ul>
+                                
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="../../../js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Database/">Database</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-oracle-xe-with-docker" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner" style="word-break: keep-all">
+        
+            <header class="article-header" style="word-break: keep-all">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        맥(MacOS)에서 오라클(11g) 실습환경 구축하기
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta" style="margin-bottom: 1em;">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="" class="article-date">
+       <time datetime="2021-06-26T01:36:04.000Z" itemprop="datePublished">2021-06-26</time>
+    </a>
+  </div>
+
+<!-- 
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="" class="article-date">
+     <time datetime="2021-06-26T10:56:13.928Z" itemprop="dateModified">2021-06-26</time>
+  </a>
+</div>
+
+ -->
+                
+
+				<!-- 	count-time		 -->
+				<span class="reading-time" style="margin-left: 20px;">
+					⏱ 7 min.
+				</span>
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="../../../tags/docker/" rel="tag">docker</a>, <a class="tag-link-link" href="../../../tags/oracle/" rel="tag">oracle</a>, <a class="tag-link-link" href="../../../tags/tutorial/" rel="tag">tutorial</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p>처음 국비교육 받을때 오라클을 사용하기 위해서 도커 컨테이너 사용법을 익혔는데, 그 때 다른 윈도우 컴퓨터 환경의 친구들과 달리 실습환경인 scott 계정이 없어서 난감했던 기억이 있다. </p>
+<p>그 때 결국 학원 다른 친구들과 똑같은 환경(Windows)에서 실습을 따라했던 기억이 있는데, 맥에서도 똑같이 할 수 있는 환경을 만드는법을 공유하기 위해 작성해본다. 절차는 아래와 같다. </p>
+<p>맥에서 실습 환경 구축하기라고 이름 짓긴 했지만, 사실 윈도우에서도 똑같이 할 수 있다.</p>
+<ol>
+<li><a href="#01">Docker 설치하기</a></li>
+<li><a href="#02">오라클 도커 이미지 내려받기</a></li>
+<li><a href="#03">도커 컨테이너 생성 및 실행하기</a></li>
+<li><a href="#04">클라이언트로 오라클 DB 접속하기</a></li>
+<li><a href="#05">SCOTT 계정 생성하기</a></li>
+<li><a href="#06">SQL 파일 생성하여 테이블 및 데이터 쿼리 작성하기</a></li>
+<li><a href="#07">SQL 파일로 한번에 insert하고, commit하기</a></li>
+</ol>
+<hr>
+<h2 id="1-Docker-설치하기"><a href="#1-Docker-설치하기" class="headerlink" title="1. Docker 설치하기"></a><a name="01"></a>1. Docker 설치하기</h2><p><a target="_blank" rel="noopener" href="https://docs.docker.com/docker-for-mac/install/">도커 공식 웹 사이트</a>에서 도커를 설치한다. </p>
+<p><img src="https://docs.docker.com/docker-for-mac/images/docker-app-drag.png" alt="출처 : Docker Docs"></p>
+<br>
+
+<h2 id="2-오라클-도커-이미지-내려받기"><a href="#2-오라클-도커-이미지-내려받기" class="headerlink" title="2. 오라클 도커 이미지 내려받기"></a><a name="02"></a>2. 오라클 도커 이미지 내려받기</h2><p>11g 버전의 오라클 환경을 구축하려고 한다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker search oracle-xe-11g</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/33862991/123506886-7969fd00-d6a1-11eb-9f16-e07cc5469464.png"></p>
+<p>stars가 가장 많은 이미지는 <code>oracleinanutshell/oracle-xe-11g</code>이다. 보통 stars가 가장 많은 이미지를 사용해도 될텐데 필자는 <code>wnameless/oracle-xe-11g-r2</code> 를 내려받았다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker pull wnameless/oracle-xe-11g-r2</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="3-도커-컨테이너-생성-및-실행하기"><a href="#3-도커-컨테이너-생성-및-실행하기" class="headerlink" title="3. 도커 컨테이너 생성 및 실행하기"></a><a name="03"></a>3. 도커 컨테이너 생성 및 실행하기</h2><p>도커 이미지를 내려받았으므로, 이미지를 기반으로 컨테이너를 생성할 차례이다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker run -d --name oracle-xe-11g -p 1521:1521 [oracle-image-name]</span><br></pre></td></tr></table></figure>
+
+<p><code>--name</code>은 컨테이너 이름을 지정할 때 사용하는 명령어이다.</p>
+<p>아래 명령어를 입력하면 방금 생성된 컨테이너를 확인할 수 있다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker ps -a</span><br></pre></td></tr></table></figure>
+
+<p><code>-a</code> 옵션을 추가하면 모든 컨테이너 목록을 보여주며, <code>-a</code> 옵션이 없으면 실행중인 컨테이너만 보여준다.</p>
+<p>이제 컨테이너를 실행해준다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker start oracle-xe-11g</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/33862991/123507172-f77ad380-d6a2-11eb-8e07-c61cb0a0814f.png"></p>
+<br>
+
+<h2 id="4-클라이언트로-오라클-DB-접속하기"><a href="#4-클라이언트로-오라클-DB-접속하기" class="headerlink" title="4. 클라이언트로 오라클 DB 접속하기"></a><a name="04"></a>4. 클라이언트로 오라클 DB 접속하기</h2><p>인텔리제이 유료 버전(Ultimate)에서는 RDBMS를 지원하기 때문에 IDE에서 바로 사용할 수 있다.</p>
+<p>아래 동욱님 블로그에서 사용 방법을 알 수 있다.</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://jojoldu.tistory.com/169">기억보단 기록을 - 맥북에서 오라클 사용하기 (docker + intelliJ)</a></li>
+</ul>
+<p>필자는 무료 DB 클라이언트인 DBeaver Community Edition을 이용했다.</p>
+<p><a target="_blank" rel="noopener" href="https://dbeaver.io/download/">링크</a>에서 Community Edition을 설치한다.</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/123507911-3b6fd780-d6a7-11eb-8343-0e98aade68e9.png"></p>
+<p>설치가 끝나고 실행하면, 아래의 이미지처럼 연결할 DB 클라이언트를 선택할 수 있다.</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/123508164-b1c10980-d6a8-11eb-8f5b-4d94fb9ad9d2.png"></p>
+<p>오라클을 선택했다면, 아래의 이미지처럼 폼을 채우고 OK 버튼을 클릭하면 도커 컨테이너의 오라클과 DBeaver 클라이언트가 연결이 된다.</p>
+<p>Database는 XE로, Username은 system, Password는 oracle로 입력하면 접속할 수 있다.</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/123508456-95be6780-d6aa-11eb-9595-dab231723da7.png"> </p>
+<p>필요한 드라이버를 설치할 수도 있다.</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/123508170-b84f8100-d6a8-11eb-97ab-d542821ff0c4.png"></p>
+<p>연결이 되었다면, SQL script를 추가해서 여기서 쿼리를 작성할 수 있다.</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/123508278-54798800-d6a9-11eb-8b04-dadefbf137b7.png"></p>
+<p>쿼리를 실행해보니 잘 조회가 된다. 아래의 결과는 이미 실습환경이 셋팅되었기 때문에 조회가 되는 것이다.</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/123508279-56dbe200-d6a9-11eb-9f05-61586128b789.png"></p>
+<br>
+
+<h2 id="5-SCOTT-계정-생성하기"><a href="#5-SCOTT-계정-생성하기" class="headerlink" title="5. SCOTT 계정 생성하기"></a><a name="05"></a>5. SCOTT 계정 생성하기</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> scott identified <span class="keyword">by</span> tiger;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">CONNECT</span>, resource, dba <span class="keyword">TO</span> scott;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/33862991/123508763-614bab00-d6ac-11eb-8263-05cb17a71294.png"></p>
+<br>
+
+<h2 id="6-SQL-파일-생성하여-테이블-및-데이터-쿼리-작성하기"><a href="#6-SQL-파일-생성하여-테이블-및-데이터-쿼리-작성하기" class="headerlink" title="6. SQL 파일 생성하여 테이블 및 데이터 쿼리 작성하기"></a><a name="06"></a>6. SQL 파일 생성하여 테이블 및 데이터 쿼리 작성하기</h2><p>실습환경을 구축하는데 필요한 DDL, DML 쿼리가 담긴 파일을 구글 드라이브에 저장해두었다. 이 파일을 도커 컨테이너에서 <code>wget</code>을 이용해서 가져올 것이다.</p>
+<p>먼저 패키지 매니저인 apt-get을 업데이트하고, wget을 설치해준다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ apt-get update</span><br><span class="line">$ apt-get install wget</span><br></pre></td></tr></table></figure>
+
+<p>이제 wget을 이용해서 구글 드라이브의 공유링크를 이용해서 파일을 다운받을 것이다.</p>
+<p>구글 드라이브 공유링크는 아래와 같다.</p>
+<p><a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1KL0ssoVJVlLslu3kQvdbbH4jAGHw5jZv/view?usp=sharing">https://drive.google.com/file/d/1KL0ssoVJVlLslu3kQvdbbH4jAGHw5jZv/view?usp=sharing</a></p>
+<p>위의 링크에서 필요한 부분은 파일의 id만 필요하다. id는 <code>d/</code>와 <code>/view</code> 사이의 문자열이 파일의 id에 해당한다.</p>
+<p>이걸 <code>https://drive.google.com/uc?export=download&amp;id=</code>에 조합하면 된다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ $ wget --no-check-certificate -O demobld.sql <span class="string">&#x27;https://drive.google.com/uc?export=download&amp;id=1KL0ssoVJVlLslu3kQvdbbH4jAGHw5jZv&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>그리고 잘 다운로드 되었는지 파일을 확인해보자.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat demobld.sql</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/33862991/123509340-d40a5580-d6af-11eb-9975-1f8ec4b027f7.png"></p>
+<p>사실 구글 드라이브 링크를 통해 파일을 다운받고, 파일의 쿼리를 클립보드에 저장해서 도커 컨테이너 내부에선 Vim 에디터에서 붙여넣는 방식으로 파일을 생성할 수도 있었으나 <code>wget</code>을 사용하는 경험을 위해 위의 방법을 사용했다.</p>
+<br>
+
+<h2 id="7-SQL-파일로-한번에-insert하고-commit하기"><a href="#7-SQL-파일로-한번에-insert하고-commit하기" class="headerlink" title="7. SQL 파일로 한번에 insert하고, commit하기"></a><a name="07"></a>7. SQL 파일로 한번에 insert하고, commit하기</h2><p>위에서 작성한 SQL 파일(demobld.sql)을 한 번에 커밋까지 쿼리를 실행할 차례이다.</p>
+<p>도커 컨테이너에 bash 모드로 진입하고, SQL플러스를 실행한다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker <span class="built_in">exec</span> -it oracle-xe-11g bash</span><br><span class="line">$ sqlplus</span><br></pre></td></tr></table></figure>
+
+<p>로그인까지 해서 오라클에 연결되었다면, 이제 컨테이너 내부에 있는 파일속 쿼리를 한 번에 실행할 차례이다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ START demobld.sql</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/33862991/123510122-ad9ae900-d6b4-11eb-9374-35700653581e.png"></p>
+<p>이제 전체 테이블을 조회해보면 실습에 필요한 테이블이 조회될 것이다. 이제 실습환경이 구축되었다!</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/123510191-1d10d880-d6b5-11eb-9a1a-243f48a0122e.png"></p>
+<p><img src="https://user-images.githubusercontent.com/33862991/123510262-66f9be80-d6b5-11eb-8472-274fc9572401.png"></p>
+
+        </div>
+    </div>
+	<div class="ads" style="margin-top: 10px; margin-bottom:10px;">
+		<a target="_blank" rel="noopener" href="https://bit.ly/2Ulc5Wv" style="text-decoration: none; color: black;">
+	<div style="width: 100%; display:block; margin-left: auto; margin-right: auto;">
+		<p style="border: 3pt black; font-size: 20px; background-color: black; padding-top: 0.5em; padding-bottom: 0.5em;" align="center">
+			<span style="color: white;">> donate opentutorials.org</span>
+		</p>
+	</div>
+</a>
+	</div>
+	<footer class="article-footer">
+		<script src="https://utteranc.es/client.js"
+        repo="youngjinmo/githubpages-comment"
+        issue-term="pathname"
+		label="포스팅에 잘못된 부분이 있거나 다른 의견이 있으시다면, 댓글로 알려주시면 감사하겠습니다! 저뿐만 아니라 이 글을 보시는 다른 분들께도 도움이 될겁니다!"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+	</footer>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Youngjin Mo"
+        },
+        "headline": "맥(MacOS)에서 오라클(11g) 실습환경 구축하기",
+        "image": "../../../http:/youngjinmo.github.iohttps:/docs.docker.com/docker-for-mac/images/docker-app-drag.png",
+        "keywords": "oracle tutorial docker",
+        "genre": "Dev Database",
+        "datePublished": "2021-06-26",
+        "dateCreated": "2021-06-26",
+        "dateModified": "2021-06-26",
+        "url": "../../../http:/youngjinmo.github.io/2021/06/oracle-xe-with-docker/",
+        "description": "처음 국비교육 받을때 오라클을 사용하기 위해서 도커 컨테이너 사용법을 익혔는데, 그 때 다른 윈도우 컴퓨터 환경의 친구들과 달리 실습환경인 scott 계정이 없어서 난감했던 기억이 있다. 
+그 때 결국 학원 다른 친구들과 똑같은 환경(Windows)에서 실습을 따라했던 기억이 있는데, 맥에서도 똑같이 할 수 있는 환경을 만드는법을 공유하기 위해 작성해본다.",
+        "wordCount": 627
+    }
+</script>
+
+</article>
+                        </div>
+                    </section>
+                    <aside id="sidebar" style="word-break: keep-all">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="../../../https:/github.com/youngjinmo" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../atom.xml" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="../js-get-text-from-table/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">HTML Table에서 버튼 클릭해서 다른 컬럼 텍스트값 가져오기</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://docs.docker.com/docker-for-mac/images/docker-app-drag.png)" alt="맥(MacOS)에서 오라클(11g) 실습환경 구축하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Database/">Database</a></p>
+                            <p class="item-title"><a href="" class="title">맥(MacOS)에서 오라클(11g) 실습환경 구축하기</a></p>
+                            <p class="item-date"><time datetime="2021-06-26T01:36:04.000Z" itemprop="datePublished">2021-06-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../js-get-text-from-table/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/33862991/122713864-51455d00-d2a1-11eb-915d-21f72523048f.png)" alt="HTML Table에서 버튼 클릭해서 다른 컬럼 텍스트값 가져오기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="../js-get-text-from-table/" class="title">HTML Table에서 버튼 클릭해서 다른 컬럼 텍스트값 가져오기</a></p>
+                            <p class="item-date"><time datetime="2021-06-20T21:26:43.000Z" itemprop="datePublished">2021-06-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../bean-component/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/33862991/121993643-d5e63600-cdde-11eb-9e53-727f00dba587.jpg)" alt="Bean과 Component 차이" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../bean-component/" class="title">Bean과 Component 차이</a></p>
+                            <p class="item-date"><time datetime="2021-06-14T19:48:21.000Z" itemprop="datePublished">2021-06-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../wrapper-class/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/33862991/120760573-378ce180-c54f-11eb-98c7-296113c0c0ad.jpg)" alt="래퍼 클래스(Wrapper Class)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../wrapper-class/" class="title">래퍼 클래스(Wrapper Class)</a></p>
+                            <p class="item-date"><time datetime="2021-06-03T22:11:57.000Z" itemprop="datePublished">2021-06-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../change-jdk/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/33862991/120467013-aeed3480-c3da-11eb-8495-5558c88b4531.jpg)" alt="맥에서 JDK 버전 변경하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../change-jdk/" class="title">맥에서 JDK 버전 변경하기</a></p>
+                            <p class="item-date"><time datetime="2021-06-02T01:39:08.000Z" itemprop="datePublished">2021-06-02</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../tags/BufferedReader/" style="font-size: 10px;">BufferedReader</a> <a href="../../../tags/BufferedWriter/" style="font-size: 10px;">BufferedWriter</a> <a href="../../../tags/IO/" style="font-size: 10px;">IO</a> <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/String/" style="font-size: 10px;">String</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 11.67px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/annotation/" style="font-size: 10.83px;">annotation</a> <a href="../../../tags/api/" style="font-size: 10px;">api</a> <a href="../../../tags/array/" style="font-size: 10.83px;">array</a> <a href="../../../tags/aws/" style="font-size: 12.5px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/bean/" style="font-size: 10px;">bean</a> <a href="../../../tags/blacklivesmatter/" style="font-size: 10px;">blacklivesmatter</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 11.67px;">career</a> <a href="../../../tags/casting/" style="font-size: 13.33px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/clean-code/" style="font-size: 10px;">clean code</a> <a href="../../../tags/cloud/" style="font-size: 11.67px;">cloud</a> <a href="../../../tags/collection/" style="font-size: 10.83px;">collection</a> <a href="../../../tags/contribution/" style="font-size: 10px;">contribution</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/coupang/" style="font-size: 10px;">coupang</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/datastructure/" style="font-size: 13.33px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 15px;">docker</a> <a href="../../../tags/documentation/" style="font-size: 10px;">documentation</a> <a href="../../../tags/domain/" style="font-size: 10px;">domain</a> <a href="../../../tags/dto/" style="font-size: 10px;">dto</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enum/" style="font-size: 10px;">enum</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/equals/" style="font-size: 10px;">equals</a> <a href="../../../tags/error/" style="font-size: 11.67px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/formatting/" style="font-size: 10px;">formatting</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generics/" style="font-size: 10.83px;">generics</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 12.5px;">github</a> <a href="../../../tags/gitignore/" style="font-size: 10px;">gitignore</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/h2database/" style="font-size: 10px;">h2database</a> <a href="../../../tags/hashCode/" style="font-size: 10px;">hashCode</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 15px;">http</a> <a href="../../../tags/httpsession/" style="font-size: 10px;">httpsession</a> <a href="../../../tags/ide/" style="font-size: 10.83px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inheritance/" style="font-size: 10px;">inheritance</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 12.5px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 10.83px;">interface</a> <a href="../../../tags/investment/" style="font-size: 10.83px;">investment</a> <a href="../../../tags/io/" style="font-size: 11.67px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/java/" style="font-size: 14.17px;">java</a> <a href="../../../tags/java5/" style="font-size: 10px;">java5</a> <a href="../../../tags/java8/" style="font-size: 10px;">java8</a> <a href="../../../tags/javascript/" style="font-size: 13.33px;">javascript</a> <a href="../../../tags/javscript/" style="font-size: 10px;">javscript</a> <a href="../../../tags/jdk/" style="font-size: 10px;">jdk</a> <a href="../../../tags/jquery/" style="font-size: 10.83px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/junit/" style="font-size: 10px;">junit</a> <a href="../../../tags/jvm/" style="font-size: 11.67px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 10.83px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="../../../tags/license/" style="font-size: 10px;">license</a> <a href="../../../tags/livereload/" style="font-size: 10px;">livereload</a> <a href="../../../tags/livestudy/" style="font-size: 16.67px;">livestudy</a> <a href="../../../tags/macos/" style="font-size: 10.83px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 10.83px;">mustache</a> <a href="../../../tags/mybatis/" style="font-size: 10.83px;">mybatis</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 18.33px;">oop</a> <a href="../../../tags/operator/" style="font-size: 10px;">operator</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/privacy/" style="font-size: 10px;">privacy</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/readme/" style="font-size: 10px;">readme</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/servlet/" style="font-size: 11.67px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10.83px;">session</a> <a href="../../../tags/spring/" style="font-size: 10px;">spring</a> <a href="../../../tags/springboot/" style="font-size: 13.33px;">springboot</a> <a href="../../../tags/springmvc/" style="font-size: 10px;">springmvc</a> <a href="../../../tags/springsecurity/" style="font-size: 10px;">springsecurity</a> <a href="../../../tags/sql/" style="font-size: 17.5px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/string/" style="font-size: 15px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/terminal/" style="font-size: 10px;">terminal</a> <a href="../../../tags/tip/" style="font-size: 15.83px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 19.17px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 10.83px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/vo/" style="font-size: 10px;">vo</a> <a href="../../../tags/was/" style="font-size: 10px;">was</a> <a href="../../../tags/weekly-review/" style="font-size: 17.5px;">weekly-review</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+	<div class="ads">
+		<a target="_blank" rel="noopener" href="http://bit.ly/donatemozila_devnady">
+	<img src="https://user-images.githubusercontent.com/33862991/106721036-7b2a1a00-6647-11eb-9722-30275f20b4ba.png" style="width: 100%; display:block; margin-left: auto; margin-right: auto;">
+</a>
+		<a target="_blank" rel="noopener" href="http://bit.ly/livesmarter_devandy">
+	<img src="https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F8d5ddf1e-b92a-4448-b7b3-ebde41230954%2F___-___1.png&blockId=7e7f939e-e716-4418-8818-56f0dca05801" style="width: 250px; display:block; margin-left: auto; margin-right: auto; margin-top: 20px;">
+</a>
+	</div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2021 Youngjin Mo</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+    
+        
+<script src="../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="../../../js/main.js"></script>
+
+
+</body>
+</html>

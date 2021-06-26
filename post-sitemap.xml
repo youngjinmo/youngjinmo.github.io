@@ -9,6 +9,22 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/2021/06/oracle-xe-with-docker/</loc>
+        <lastmod>2021-06-26T10:56:13.928Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/2020/02/wget/</loc>
+        <lastmod>2021-06-26T10:37:37.656Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/2021/05/passwordencoder/</loc>
         <lastmod>2021-06-24T09:55:32.143Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -1065,7 +1081,7 @@
     </url>
 
     <url>
-        <loc>http://youngjinmo.github.io/2019/12/git-credential/</loc>
+        <loc>http://youngjinmo.github.io/2019/07/git-graph-log/</loc>
         <lastmod>2020-09-13T01:53:28.896Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1073,7 +1089,7 @@
     </url>
 
     <url>
-        <loc>http://youngjinmo.github.io/2019/07/git-graph-log/</loc>
+        <loc>http://youngjinmo.github.io/2019/12/git-credential/</loc>
         <lastmod>2020-09-13T01:53:28.896Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1515,14 +1531,6 @@
     <url>
         <loc>http://youngjinmo.github.io/2019/03/startree-02/</loc>
         <lastmod>2020-09-13T01:53:28.072Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/2020/02/wget/</loc>
-        <lastmod>2020-09-13T01:53:28.032Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

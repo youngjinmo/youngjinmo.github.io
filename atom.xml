@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-06-21T06:36:11.849Z</updated>
+  <updated>2021-06-26T10:56:13.928Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>맥(MacOS)에서 오라클(11g) 실습환경 구축하기</title>
+    <link href="http://youngjinmo.github.io/2021/06/oracle-xe-with-docker/"/>
+    <id>http://youngjinmo.github.io/2021/06/oracle-xe-with-docker/</id>
+    <published>2021-06-26T01:36:04.000Z</published>
+    <updated>2021-06-26T10:56:13.928Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;처음 국비교육 받을때 오라클을 사용하기 위해서 도커 컨테이너 사용법을 익혔는데, 그 때 다른 윈도우 컴퓨터 환경의 친구들과 달리 실습환경인 scott 계정이 없어서 난감했던 기억이 있다. &lt;/p&gt;
+&lt;p&gt;그 때 결국 학원 다른 친구들과 똑같은 환경(Windows)에서 실습을 따라했던 기억이 있는데, 맥에서도 똑같이 할 수 있는 환경을 만드는법을</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Database" scheme="http://youngjinmo.github.io/categories/Dev/Database/"/>
+    
+    
+    <category term="oracle" scheme="http://youngjinmo.github.io/tags/oracle/"/>
+    
+    <category term="tutorial" scheme="http://youngjinmo.github.io/tags/tutorial/"/>
+    
+    <category term="docker" scheme="http://youngjinmo.github.io/tags/docker/"/>
+    
+  </entry>
   
   <entry>
     <title>HTML Table에서 버튼 클릭해서 다른 컬럼 텍스트값 가져오기</title>
@@ -540,9 +572,9 @@
     <category term="Git" scheme="http://youngjinmo.github.io/categories/Dev/Git/"/>
     
     
-    <category term="gitignore" scheme="http://youngjinmo.github.io/tags/gitignore/"/>
-    
     <category term="tutorial" scheme="http://youngjinmo.github.io/tags/tutorial/"/>
+    
+    <category term="gitignore" scheme="http://youngjinmo.github.io/tags/gitignore/"/>
     
   </entry>
   
@@ -573,39 +605,6 @@
     <category term="oop" scheme="http://youngjinmo.github.io/tags/oop/"/>
     
     <category term="clean code" scheme="http://youngjinmo.github.io/tags/clean-code/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Live Study 12주차 - Annotation</title>
-    <link href="http://youngjinmo.github.io/2021/03/livestudy-week-12/"/>
-    <id>http://youngjinmo.github.io/2021/03/livestudy-week-12/</id>
-    <published>2021-03-03T20:55:38.000Z</published>
-    <updated>2021-04-28T14:31:54.638Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.ytimg.com/vi/peEXNN-oob4/maxresdefault.jpg&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#annotation&quot;&gt;애노테이션 정의하는 방법&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#java-annotation&quot;&gt;자바 표준 애노테이션&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
-    
-    
-    <category term="livestudy" scheme="http://youngjinmo.github.io/tags/livestudy/"/>
-    
-    <category term="annotation" scheme="http://youngjinmo.github.io/tags/annotation/"/>
     
   </entry>
   
