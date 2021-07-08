@@ -3,6 +3,27 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/tags/%EC%B5%9C%EB%B2%94%EA%B7%A0/</loc>
+        <lastmod>2021-07-08T09:35:35.863Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/tags/inflearn/</loc>
+        <lastmod>2021-07-08T09:35:35.863Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://youngjinmo.github.io/tags/oop/</loc>
+        <lastmod>2021-07-08T09:35:35.863Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/tags/docker/</loc>
         <lastmod>2021-06-26T10:56:13.928Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -40,13 +61,6 @@
     <url>
         <loc>http://youngjinmo.github.io/tags/string/</loc>
         <lastmod>2021-06-24T09:06:56.030Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/tags/oop/</loc>
-        <lastmod>2021-06-24T08:33:11.913Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

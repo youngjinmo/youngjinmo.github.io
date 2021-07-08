@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-06-26T10:56:13.928Z</updated>
+  <updated>2021-07-08T09:35:35.863Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>인프런 강의 후기 최범균님 &lt;객체지향 프로그래밍 입문&gt;</title>
+    <link href="http://youngjinmo.github.io/2021/07/review-inflearn-oop/"/>
+    <id>http://youngjinmo.github.io/2021/07/review-inflearn-oop/</id>
+    <published>2021-07-08T00:23:14.000Z</published>
+    <updated>2021-07-08T09:35:35.863Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/124898707-67317c80-e01a-11eb-8608-ec1b23e628f3.jpg&quot; alt=&quot;출처 : Anthony DELANOIX&quot;&gt;&lt;/p&gt;
+&lt;p&gt;인프런에서 최범균님의 &lt;a href=&quot;https://inf.run/8i2h&quot;&gt;객체지향</summary>
+        
+      
+    
+    
+    
+    <category term="Life" scheme="http://youngjinmo.github.io/categories/Life/"/>
+    
+    <category term="Review" scheme="http://youngjinmo.github.io/categories/Life/Review/"/>
+    
+    
+    <category term="oop" scheme="http://youngjinmo.github.io/tags/oop/"/>
+    
+    <category term="inflearn" scheme="http://youngjinmo.github.io/tags/inflearn/"/>
+    
+    <category term="최범균" scheme="http://youngjinmo.github.io/tags/%EC%B5%9C%EB%B2%94%EA%B7%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>맥(MacOS)에서 오라클(11g) 실습환경 구축하기</title>
@@ -575,36 +607,6 @@
     <category term="tutorial" scheme="http://youngjinmo.github.io/tags/tutorial/"/>
     
     <category term="gitignore" scheme="http://youngjinmo.github.io/tags/gitignore/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>디미터 법칙(Law of Demeter)</title>
-    <link href="http://youngjinmo.github.io/2021/03/law-of-demeter/"/>
-    <id>http://youngjinmo.github.io/2021/03/law-of-demeter/</id>
-    <published>2021-03-21T06:20:36.000Z</published>
-    <updated>2021-05-06T13:17:13.307Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/111910191-b2437600-8aa3-11eb-997a-b37de936e1c5.jpg&quot;&gt;&lt;/p&gt;
-&lt;p&gt;클린코드과정에서 코드리뷰를 통해 알게된 원칙이다. 흥미로운 원칙이기도 하고, &lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Others" scheme="http://youngjinmo.github.io/categories/Dev/Others/"/>
-    
-    
-    <category term="oop" scheme="http://youngjinmo.github.io/tags/oop/"/>
-    
-    <category term="clean code" scheme="http://youngjinmo.github.io/tags/clean-code/"/>
     
   </entry>
   

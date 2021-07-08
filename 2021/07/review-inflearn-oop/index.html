@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>인프런 강의 후기 최범균님 &lt;객체지향 프로그래밍 입문&gt; | 기록하는개발자 | DevAndy</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="oop,inflearn,최범균" />
+    
+    <meta name="description" content="인프런에서 최범균님의 객체지향 프로그래밍 입문 강의를 듣고, 정리한 포스팅이다.  간단하게 정리했기 때문에 이 포스팅을 보는것만으로 OOP를 이해할 수 있다고 생각하지는 않는다. 아직 OOP가 익숙하지 않다면, 꼭 강의를 듣고 다시 이 포스팅을 보면서 정리하면 좋을것 같다.  캡슐화 추상화 상속보단 조립 기능&#x2F;책임 분리 DI, Dependency Inje">
+<meta property="og:type" content="article">
+<meta property="og:title" content="인프런 강의 후기 최범균님 &lt;객체지향 프로그래밍 입문&gt;">
+<meta property="og:url" content="http://youngjinmo.github.io/2021/07/review-inflearn-oop/index.html">
+<meta property="og:site_name" content="기록하는개발자 | DevAndy">
+<meta property="og:description" content="인프런에서 최범균님의 객체지향 프로그래밍 입문 강의를 듣고, 정리한 포스팅이다.  간단하게 정리했기 때문에 이 포스팅을 보는것만으로 OOP를 이해할 수 있다고 생각하지는 않는다. 아직 OOP가 익숙하지 않다면, 꼭 강의를 듣고 다시 이 포스팅을 보면서 정리하면 좋을것 같다.  캡슐화 추상화 상속보단 조립 기능&#x2F;책임 분리 DI, Dependency Inje">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/33862991/124898707-67317c80-e01a-11eb-8608-ec1b23e628f3.jpg">
+<meta property="article:published_time" content="2021-07-08T00:23:14.000Z">
+<meta property="article:modified_time" content="2021-07-08T09:35:35.863Z">
+<meta property="article:author" content="Youngjin Mo">
+<meta property="article:tag" content="oop">
+<meta property="article:tag" content="inflearn">
+<meta property="article:tag" content="최범균">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/33862991/124898707-67317c80-e01a-11eb-8608-ec1b23e628f3.jpg">
+<meta name="twitter:creator" content="@devandy_yj">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="기록하는개발자 | DevAndy" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="../../../css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="../../../libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="../../../libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="../../../libs/source-code-pro/styles.css">
+
+    
+<link rel="stylesheet" href="../../../css/style.css">
+
+	
+<link rel="stylesheet" href="../../../https:/cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+	<style type="text/css">
+		@font-face {
+		  font-family: 'NanumSquareRound';
+		  font-style: normal;
+		  font-weight: 400;
+		}
+	</style>
+
+    
+<script src="../../../libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="../../../libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-177850483-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="../../../index.html" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="../../../index.html">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Articles/">Articles</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/">Dev</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Database/">Database</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/DevOps/">DevOps</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Front-end/">Front-end</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/JavaScript/">JavaScript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Linux/">Linux</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Network/">Network</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Others/">Others</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Quiz/">Quiz</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Dev/Spring/">Spring</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Review/">Review</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="../../../categories/Life/Thought/">Thought</a></li></ul></li></ul>
+                                
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="../../../js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="../../../categories/Life/">Life</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Life/Review/">Review</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-review-inflearn-oop" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner" style="word-break: keep-all">
+        
+            <header class="article-header" style="word-break: keep-all">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        인프런 강의 후기 최범균님 &lt;객체지향 프로그래밍 입문&gt;
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta" style="margin-bottom: 1em;">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="" class="article-date">
+       <time datetime="2021-07-08T00:23:14.000Z" itemprop="datePublished">2021-07-08</time>
+    </a>
+  </div>
+
+<!-- 
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="" class="article-date">
+     <time datetime="2021-07-08T09:35:35.863Z" itemprop="dateModified">2021-07-08</time>
+  </a>
+</div>
+
+ -->
+                
+
+				<!-- 	count-time		 -->
+				<span class="reading-time" style="margin-left: 20px;">
+					⏱ 3 min.
+				</span>
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="../../../tags/inflearn/" rel="tag">inflearn</a>, <a class="tag-link-link" href="../../../tags/oop/" rel="tag">oop</a>, <a class="tag-link-link" href="../../../tags/%EC%B5%9C%EB%B2%94%EA%B7%A0/" rel="tag">최범균</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="https://user-images.githubusercontent.com/33862991/124898707-67317c80-e01a-11eb-8608-ec1b23e628f3.jpg" alt="출처 : Anthony DELANOIX"></p>
+<p>인프런에서 최범균님의 <a target="_blank" rel="noopener" href="https://inf.run/8i2h">객체지향 프로그래밍 입문 강의</a>를 듣고, 정리한 포스팅이다. </p>
+<p>간단하게 정리했기 때문에 이 포스팅을 보는것만으로 OOP를 이해할 수 있다고 생각하지는 않는다. 아직 OOP가 익숙하지 않다면, 꼭 강의를 듣고 다시 이 포스팅을 보면서 정리하면 좋을것 같다.</p>
+<ul>
+<li><a href="#capsulation">캡슐화</a></li>
+<li><a href="#abstraction">추상화</a></li>
+<li><a href="#assembly">상속보단 조립</a></li>
+<li><a href="#separation">기능/책임 분리</a></li>
+<li><a href="#di">DI, Dependency Injection</a></li>
+<li><a href="#review">강의 후기</a></li>
+</ul>
+<br>
+
+<p><a name="capsulation"><h2>캡슐화</h2></a></p>
+<ul>
+<li>내부 구현 감춤</li>
+<li>내부 구현 변경에 따른 외부 영향을 최소화하기 위함.</li>
+</ul>
+<p><a name="abstraction"><h2>추상화</h2></a></p>
+<ul>
+<li>여러 구현체(하위 객체)의 공통점을 상위 타입으로 도출</li>
+<li>객체간 의존도를 낮추고(느슨한 결합), 재사용성을 높힘</li>
+</ul>
+<p><a name="assembly"><h2>상속보단 조립</h2></a></p>
+<h3 id="상속의-단점"><a href="#상속의-단점" class="headerlink" title="상속의 단점"></a>상속의 단점</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">inheritanceCons</span> </span>&#123;</span><br><span class="line">   <span class="keyword">private</span> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>상위 클래스 변경시 하위 클래스에 영향이 전파됨.</li>
+<li>다중상속관계에서는 리팩토링시 간단한 변경사항임에도 많은 클래스를 생성해야 할 수 있음.</li>
+<li>하위 객체에서 상위 객체 메소드 호출시 같은 이름의 다른 메소드를 오용할 가능성 존재</li>
+</ul>
+<h3 id="조립"><a href="#조립" class="headerlink" title="조립"></a>조립</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">inflearnOOP</span> </span>&#123;</span><br><span class="line">   <span class="keyword">private</span> Lecture lecture = <span class="keyword">new</span> Lecture(); <span class="comment">// 조립</span></span><br><span class="line">  </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      Author author = lecture.getAuthor();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>필드를 선언해서 필요한 기능을 갖고있는 객체를 참조하는 방식으로 사용</li>
+<li>필요한 시점에 인스턴스를 호출하는 방식으로 사용.</li>
+<li>상속보다는 조립의 이점이 많으므로 상속보다 우선적으로 검토하고, 하위 타입에 해당하는 클래스만 상속으로 구현.</li>
+</ul>
+<p><a name="assembly"><h2>기능/책임 분리</h2></a></p>
+<ul>
+<li>기능은 곧 책임.</li>
+<li>메소드가 많은 기능을 갖거나 클래스가 많은 메소드를 가질 경우, 리팩토링의 비용이 높아짐.</li>
+<li>객체가 최소한의 책임을 갖도록 잘게 분리하는 것이 중요.</li>
+<li>분리가 잘되어 있는 코드는 리팩토링뿐 아니라 테스트에도 유리.</li>
+</ul>
+<p><a name="di"><h2>DI, Dependency Injection</h2></a></p>
+<ul>
+<li>의존하는 객체를 외부에서 주입해서 사용하는 방식</li>
+<li>의존하는 대상이 바뀌더라도 조립기에서만 변경하면 됨.</li>
+<li>테스트시 대역 객체(테스트를 위한 객체)를 생성해서 사용하는 것이 가능하다.</li>
+</ul>
+<p><a name="review"><h2>강의 후기</h2></a></p>
+<p>클린코드 과정을 통해 TDD를 경험해보면서 OOP에 대한 이해가 부족하다는 판단이 들어 듣게된 강의였다. </p>
+<p>구입한 건 훨씬 오래 전이었는데, 짧은 강의다보니 집중해서 보기보다 졸렵거나 잠깐 잠깐 강의 하나씩 듣다보니 이제서야 완강하게 되었다.</p>
+<p>2시간 30분 정도 되는 러닝타임에 강의는 11개로 구성되어 있고, 강의료 또한 약 2만원에 불과해 이렇게 가성비좋은 강의가 또 있을까 싶다.</p>
+<p>아래에 해당하는 사람들에게 추천하고 싶은 강의이다.</p>
+<ul>
+<li>스프링 프레임워크를 왜 사용하는지 이해하고 싶은 사람</li>
+<li>클린코드가 무엇인지 궁금한 사람</li>
+<li>테스트 코드를 배우기 시작한 사람</li>
+<li>1년 미만의 신입 개발자</li>
+</ul>
+<p>리팩토링 책의 코드를 일부 인용하시면서 매우 친절하게 설명해주시는 덕분에 출퇴근길에 지하철에서 보기에도 좋은 강의라고 생각된다. 인프런을 보면 아직 수강생이 1천명이 안되는데, 더 많은 분들이 수강하시고 조금 더 성장하시는 계기가 되었으면 좋겠다. 나도.</p>
+<p>강의 들으러 가기 ➡️ <a target="_blank" rel="noopener" href="https://inf.run/8i2h">https://inf.run/8i2h</a></p>
+<p><span style="color: grey;"><i>어떠한 댓가가 없는 포스팅이며, 위의 링크로 접속하더라도 저에게 어떠한 이익이 발생하지 않습니다.</i></span></p>
+
+        </div>
+    </div>
+	<div class="ads" style="margin-top: 10px; margin-bottom:10px;">
+		<a target="_blank" rel="noopener" href="https://bit.ly/2Ulc5Wv" style="text-decoration: none; color: black;">
+	<div style="width: 100%; display:block; margin-left: auto; margin-right: auto;">
+		<p style="border: 3pt black; font-size: 20px; background-color: black; padding-top: 0.5em; padding-bottom: 0.5em;" align="center">
+			<span style="color: white;">> donate opentutorials.org</span>
+		</p>
+	</div>
+</a>
+	</div>
+	<footer class="article-footer">
+		<script src="https://utteranc.es/client.js"
+        repo="youngjinmo/githubpages-comment"
+        issue-term="pathname"
+		label="포스팅에 잘못된 부분이 있거나 다른 의견이 있으시다면, 댓글로 알려주시면 감사하겠습니다! 저뿐만 아니라 이 글을 보시는 다른 분들께도 도움이 될겁니다!"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+	</footer>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Youngjin Mo"
+        },
+        "headline": "인프런 강의 후기 최범균님 &lt;객체지향 프로그래밍 입문&gt;",
+        "image": "../../../http:/youngjinmo.github.iohttps:/user-images.githubusercontent.com/33862991/124898707-67317c80-e01a-11eb-8608-ec1b23e628f3.jpg",
+        "keywords": "oop inflearn 최범균",
+        "genre": "Life Review",
+        "datePublished": "2021-07-08",
+        "dateCreated": "2021-07-08",
+        "dateModified": "2021-07-08",
+        "url": "../../../http:/youngjinmo.github.io/2021/07/review-inflearn-oop/",
+        "description": "
+인프런에서 최범균님의 객체지향 프로그래밍 입문 강의를 듣고, 정리한 포스팅이다. 
+간단하게 정리했기 때문에 이 포스팅을 보는것만으로 OOP를 이해할 수 있다고 생각하지는 않는다. 아직 OOP가 익숙하지 않다면, 꼭 강의를 듣고 다시 이 포스팅을 보면서 정리하면 좋을것 같다.
+
+캡슐화
+추상화
+상속보단 조립
+기능/책임 분리
+DI, Dependency Inje",
+        "wordCount": 390
+    }
+</script>
+
+</article>
+                        </div>
+                    </section>
+                    <aside id="sidebar" style="word-break: keep-all">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="../../../https:/github.com/youngjinmo" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="../../../atom.xml" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="../../06/oracle-xe-with-docker/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">맥(MacOS)에서 오라클(11g) 실습환경 구축하기</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/33862991/124898707-67317c80-e01a-11eb-8608-ec1b23e628f3.jpg)" alt="인프런 강의 후기 최범균님 &lt;객체지향 프로그래밍 입문&gt;" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Life/">Life</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Life/Review/">Review</a></p>
+                            <p class="item-title"><a href="" class="title">인프런 강의 후기 최범균님 &lt;객체지향 프로그래밍 입문&gt;</a></p>
+                            <p class="item-date"><time datetime="2021-07-08T00:23:14.000Z" itemprop="datePublished">2021-07-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../06/oracle-xe-with-docker/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://docs.docker.com/docker-for-mac/images/docker-app-drag.png)" alt="맥(MacOS)에서 오라클(11g) 실습환경 구축하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Database/">Database</a></p>
+                            <p class="item-title"><a href="../../06/oracle-xe-with-docker/" class="title">맥(MacOS)에서 오라클(11g) 실습환경 구축하기</a></p>
+                            <p class="item-date"><time datetime="2021-06-26T01:36:04.000Z" itemprop="datePublished">2021-06-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../06/js-get-text-from-table/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/33862991/122713864-51455d00-d2a1-11eb-915d-21f72523048f.png)" alt="HTML Table에서 버튼 클릭해서 다른 컬럼 텍스트값 가져오기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="../../06/js-get-text-from-table/" class="title">HTML Table에서 버튼 클릭해서 다른 컬럼 텍스트값 가져오기</a></p>
+                            <p class="item-date"><time datetime="2021-06-20T21:26:43.000Z" itemprop="datePublished">2021-06-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../06/bean-component/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/33862991/121993643-d5e63600-cdde-11eb-9e53-727f00dba587.jpg)" alt="Bean과 Component 차이" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../../06/bean-component/" class="title">Bean과 Component 차이</a></p>
+                            <p class="item-date"><time datetime="2021-06-14T19:48:21.000Z" itemprop="datePublished">2021-06-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="../../06/wrapper-class/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/33862991/120760573-378ce180-c54f-11eb-98c7-296113c0c0ad.jpg)" alt="래퍼 클래스(Wrapper Class)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
+                            <p class="item-title"><a href="../../06/wrapper-class/" class="title">래퍼 클래스(Wrapper Class)</a></p>
+                            <p class="item-date"><time datetime="2021-06-03T22:11:57.000Z" itemprop="datePublished">2021-06-04</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="../../../tags/BufferedReader/" style="font-size: 10px;">BufferedReader</a> <a href="../../../tags/BufferedWriter/" style="font-size: 10px;">BufferedWriter</a> <a href="../../../tags/IO/" style="font-size: 10px;">IO</a> <a href="../../../tags/IoT/" style="font-size: 10px;">IoT</a> <a href="../../../tags/String/" style="font-size: 10px;">String</a> <a href="../../../tags/ai/" style="font-size: 10px;">ai</a> <a href="../../../tags/algorithms/" style="font-size: 11.67px;">algorithms</a> <a href="../../../tags/alphago/" style="font-size: 10px;">alphago</a> <a href="../../../tags/annotation/" style="font-size: 10.83px;">annotation</a> <a href="../../../tags/api/" style="font-size: 10px;">api</a> <a href="../../../tags/array/" style="font-size: 10.83px;">array</a> <a href="../../../tags/aws/" style="font-size: 12.5px;">aws</a> <a href="../../../tags/baekjoon/" style="font-size: 10px;">baekjoon</a> <a href="../../../tags/bean/" style="font-size: 10px;">bean</a> <a href="../../../tags/blacklivesmatter/" style="font-size: 10px;">blacklivesmatter</a> <a href="../../../tags/blockchain/" style="font-size: 10px;">blockchain</a> <a href="../../../tags/cache/" style="font-size: 10px;">cache</a> <a href="../../../tags/career/" style="font-size: 11.67px;">career</a> <a href="../../../tags/casting/" style="font-size: 13.33px;">casting</a> <a href="../../../tags/chrome/" style="font-size: 10px;">chrome</a> <a href="../../../tags/clean-code/" style="font-size: 10px;">clean code</a> <a href="../../../tags/cloud/" style="font-size: 11.67px;">cloud</a> <a href="../../../tags/collection/" style="font-size: 10.83px;">collection</a> <a href="../../../tags/contribution/" style="font-size: 10px;">contribution</a> <a href="../../../tags/cookie/" style="font-size: 10px;">cookie</a> <a href="../../../tags/coupang/" style="font-size: 10px;">coupang</a> <a href="../../../tags/database/" style="font-size: 10px;">database</a> <a href="../../../tags/datastructure/" style="font-size: 13.33px;">datastructure</a> <a href="../../../tags/docker/" style="font-size: 15px;">docker</a> <a href="../../../tags/documentation/" style="font-size: 10px;">documentation</a> <a href="../../../tags/domain/" style="font-size: 10px;">domain</a> <a href="../../../tags/dto/" style="font-size: 10px;">dto</a> <a href="../../../tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="../../../tags/enum/" style="font-size: 10px;">enum</a> <a href="../../../tags/enumeration/" style="font-size: 10px;">enumeration</a> <a href="../../../tags/equals/" style="font-size: 10px;">equals</a> <a href="../../../tags/error/" style="font-size: 11.67px;">error</a> <a href="../../../tags/exception/" style="font-size: 10px;">exception</a> <a href="../../../tags/extension/" style="font-size: 10px;">extension</a> <a href="../../../tags/fill/" style="font-size: 10px;">fill</a> <a href="../../../tags/formatting/" style="font-size: 10px;">formatting</a> <a href="../../../tags/functional-interface/" style="font-size: 10px;">functional interface</a> <a href="../../../tags/gadget/" style="font-size: 10px;">gadget</a> <a href="../../../tags/generics/" style="font-size: 10.83px;">generics</a> <a href="../../../tags/git/" style="font-size: 10px;">git</a> <a href="../../../tags/github/" style="font-size: 12.5px;">github</a> <a href="../../../tags/gitignore/" style="font-size: 10px;">gitignore</a> <a href="../../../tags/go/" style="font-size: 10px;">go</a> <a href="../../../tags/gradle/" style="font-size: 10px;">gradle</a> <a href="../../../tags/h2database/" style="font-size: 10px;">h2database</a> <a href="../../../tags/hashCode/" style="font-size: 10px;">hashCode</a> <a href="../../../tags/healthcare/" style="font-size: 10px;">healthcare</a> <a href="../../../tags/hexo/" style="font-size: 10px;">hexo</a> <a href="../../../tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="../../../tags/http/" style="font-size: 15px;">http</a> <a href="../../../tags/httpsession/" style="font-size: 10px;">httpsession</a> <a href="../../../tags/ide/" style="font-size: 10.83px;">ide</a> <a href="../../../tags/indexof/" style="font-size: 10px;">indexof</a> <a href="../../../tags/inflearn/" style="font-size: 10px;">inflearn</a> <a href="../../../tags/inheritance/" style="font-size: 10px;">inheritance</a> <a href="../../../tags/inner-class/" style="font-size: 10px;">inner class</a> <a href="../../../tags/intellij/" style="font-size: 12.5px;">intellij</a> <a href="../../../tags/interface/" style="font-size: 10.83px;">interface</a> <a href="../../../tags/investment/" style="font-size: 10.83px;">investment</a> <a href="../../../tags/io/" style="font-size: 11.67px;">io</a> <a href="../../../tags/ios/" style="font-size: 10px;">ios</a> <a href="../../../tags/ipad/" style="font-size: 10px;">ipad</a> <a href="../../../tags/iterator/" style="font-size: 10px;">iterator</a> <a href="../../../tags/java/" style="font-size: 14.17px;">java</a> <a href="../../../tags/java5/" style="font-size: 10px;">java5</a> <a href="../../../tags/java8/" style="font-size: 10px;">java8</a> <a href="../../../tags/javascript/" style="font-size: 13.33px;">javascript</a> <a href="../../../tags/javscript/" style="font-size: 10px;">javscript</a> <a href="../../../tags/jdk/" style="font-size: 10px;">jdk</a> <a href="../../../tags/jquery/" style="font-size: 10.83px;">jquery</a> <a href="../../../tags/json/" style="font-size: 10px;">json</a> <a href="../../../tags/junit/" style="font-size: 10px;">junit</a> <a href="../../../tags/jvm/" style="font-size: 11.67px;">jvm</a> <a href="../../../tags/lambda/" style="font-size: 10.83px;">lambda</a> <a href="../../../tags/leesedol/" style="font-size: 10px;">leesedol</a> <a href="../../../tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="../../../tags/license/" style="font-size: 10px;">license</a> <a href="../../../tags/livereload/" style="font-size: 10px;">livereload</a> <a href="../../../tags/livestudy/" style="font-size: 16.67px;">livestudy</a> <a href="../../../tags/macos/" style="font-size: 10.83px;">macos</a> <a href="../../../tags/markup/" style="font-size: 10px;">markup</a> <a href="../../../tags/math/" style="font-size: 10px;">math</a> <a href="../../../tags/mustache/" style="font-size: 10.83px;">mustache</a> <a href="../../../tags/mybatis/" style="font-size: 10.83px;">mybatis</a> <a href="../../../tags/mysql/" style="font-size: 10px;">mysql</a> <a href="../../../tags/netflix/" style="font-size: 10px;">netflix</a> <a href="../../../tags/normalization/" style="font-size: 10px;">normalization</a> <a href="../../../tags/object/" style="font-size: 10px;">object</a> <a href="../../../tags/oop/" style="font-size: 18.33px;">oop</a> <a href="../../../tags/operator/" style="font-size: 10px;">operator</a> <a href="../../../tags/oracle/" style="font-size: 20px;">oracle</a> <a href="../../../tags/php/" style="font-size: 10px;">php</a> <a href="../../../tags/privacy/" style="font-size: 10px;">privacy</a> <a href="../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../tags/readme/" style="font-size: 10px;">readme</a> <a href="../../../tags/reg/" style="font-size: 10px;">reg</a> <a href="../../../tags/rest/" style="font-size: 10px;">rest</a> <a href="../../../tags/servlet/" style="font-size: 11.67px;">servlet</a> <a href="../../../tags/session/" style="font-size: 10.83px;">session</a> <a href="../../../tags/spring/" style="font-size: 10px;">spring</a> <a href="../../../tags/springboot/" style="font-size: 13.33px;">springboot</a> <a href="../../../tags/springmvc/" style="font-size: 10px;">springmvc</a> <a href="../../../tags/springsecurity/" style="font-size: 10px;">springsecurity</a> <a href="../../../tags/sql/" style="font-size: 17.5px;">sql</a> <a href="../../../tags/stash/" style="font-size: 10px;">stash</a> <a href="../../../tags/string/" style="font-size: 15px;">string</a> <a href="../../../tags/stringbuffer/" style="font-size: 10px;">stringbuffer</a> <a href="../../../tags/terminal/" style="font-size: 10px;">terminal</a> <a href="../../../tags/tip/" style="font-size: 15.83px;">tip</a> <a href="../../../tags/tutorial/" style="font-size: 19.17px;">tutorial</a> <a href="../../../tags/ubuntu/" style="font-size: 10.83px;">ubuntu</a> <a href="../../../tags/vim/" style="font-size: 10px;">vim</a> <a href="../../../tags/vo/" style="font-size: 10px;">vo</a> <a href="../../../tags/was/" style="font-size: 10px;">was</a> <a href="../../../tags/weekly-review/" style="font-size: 17.5px;">weekly-review</a> <a href="../../../tags/xml/" style="font-size: 10px;">xml</a> <a href="../../../tags/%EC%B5%9C%EB%B2%94%EA%B7%A0/" style="font-size: 10px;">최범균</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+	<div class="ads">
+		<a target="_blank" rel="noopener" href="http://bit.ly/donatemozila_devnady">
+	<img src="https://user-images.githubusercontent.com/33862991/106721036-7b2a1a00-6647-11eb-9722-30275f20b4ba.png" style="width: 100%; display:block; margin-left: auto; margin-right: auto;">
+</a>
+		<a target="_blank" rel="noopener" href="http://bit.ly/livesmarter_devandy">
+	<img src="https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F8d5ddf1e-b92a-4448-b7b3-ebde41230954%2F___-___1.png&blockId=7e7f939e-e716-4418-8818-56f0dca05801" style="width: 250px; display:block; margin-left: auto; margin-right: auto; margin-top: 20px;">
+</a>
+	</div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="../../../index.html" class="logo"></a>
+                </h1>
+                <p>&copy; 2021 Youngjin Mo</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+    
+        
+<script src="../../../libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="../../../libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="../../../libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="../../../js/main.js"></script>
+
+
+</body>
+</html>
