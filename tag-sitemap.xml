@@ -3,6 +3,13 @@
 
 
     <url>
+        <loc>http://youngjinmo.github.io/tags/git/</loc>
+        <lastmod>2021-07-09T15:43:26.878Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://youngjinmo.github.io/tags/%EC%B5%9C%EB%B2%94%EA%B7%A0/</loc>
         <lastmod>2021-07-08T09:35:35.863Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -712,13 +719,6 @@
     <url>
         <loc>http://youngjinmo.github.io/tags/netflix/</loc>
         <lastmod>2020-09-13T01:53:28.944Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://youngjinmo.github.io/tags/git/</loc>
-        <lastmod>2020-09-13T01:53:28.928Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

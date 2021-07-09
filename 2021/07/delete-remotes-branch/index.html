@@ -6,20 +6,26 @@
     
 
     
-    <title>Archive: 2020/9 | 기록하는개발자 | DevAndy</title>
+    <title>원격 저장소 브랜치 삭제하는 방법 | 기록하는개발자 | DevAndy</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="description" content="기억하기 위해 기록하는 개발 블로그">
-<meta property="og:type" content="website">
-<meta property="og:title" content="기록하는개발자 | DevAndy">
-<meta property="og:url" content="http://youngjinmo.github.io/archives/2020/09/index.html">
+    <meta name="keywords" content="git" />
+    
+    <meta name="description" content="로컬에서 브랜치를 삭제했지만, 원격 저장소(github)에는 여전히 브랜치가 남아있을때, 이를 삭제하는 방법이다.  현재 로컬에서는 브랜치가 3개가 있고, 원격 저장소에는 upstream 저장소의 브랜치를 제외한 5개의 브랜치가 존재한다. 이 중 앞으로 사용하지 않을 브랜치 chapter3 를 삭제하려고 한다. 1git push origin --dele">
+<meta property="og:type" content="article">
+<meta property="og:title" content="원격 저장소 브랜치 삭제하는 방법">
+<meta property="og:url" content="http://youngjinmo.github.io/2021/07/delete-remotes-branch/index.html">
 <meta property="og:site_name" content="기록하는개발자 | DevAndy">
-<meta property="og:description" content="기억하기 위해 기록하는 개발 블로그">
+<meta property="og:description" content="로컬에서 브랜치를 삭제했지만, 원격 저장소(github)에는 여전히 브랜치가 남아있을때, 이를 삭제하는 방법이다.  현재 로컬에서는 브랜치가 3개가 있고, 원격 저장소에는 upstream 저장소의 브랜치를 제외한 5개의 브랜치가 존재한다. 이 중 앞으로 사용하지 않을 브랜치 chapter3 를 삭제하려고 한다. 1git push origin --dele">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/33862991/125103772-a72a5980-e117-11eb-85e7-4e47b2367044.jpg">
+<meta property="article:published_time" content="2021-07-09T06:38:23.000Z">
+<meta property="article:modified_time" content="2021-07-09T15:43:26.878Z">
 <meta property="article:author" content="Youngjin Mo">
-<meta property="article:tag" content="java, spring boot, spring framework, developer, programmer, 개발자, 스프링부트, 자바">
+<meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/33862991/125103772-a72a5980-e117-11eb-85e7-4e47b2367044.jpg">
 <meta name="twitter:creator" content="@devandy_yj">
     
 
@@ -166,185 +172,127 @@ ga('send', 'pageview');
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-archive"></i>Archive: 2020/9
+    <a class="page-title-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="../../../categories/Dev/Java/">Java</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            
-
-    
-    
+                            <article id="post-delete-remotes-branch" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner" style="word-break: keep-all">
         
-        
-        <section class="archives-wrap" style="word-break: keep-all">
-            <div class="archive-year-wrap">
-                <a href=".." class="archive-year"><i class="icon fa fa-calendar-o"></i>2020</a>
-            </div>
-            <div class="archives">
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="../../../2020/09/why-i-invested-nyt/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://i0.wp.com/digiday.com/wp-content/uploads/2014/04/Nytimes_hq.jpg?fit=1600,1064&ssl=1)" alt="뉴욕타임즈에 투자하다" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span><a href="http://youngjinmo.github.io/2020/09/why-i-invested-nyt/#isso-thread"></a></span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="../../../categories/Life/">Life</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Life/Thought/">Thought</a>
-            </div>
-            <div class="date"><time datetime="2020-09-22T12:03:28.000Z" itemprop="datePublished">2020-09-22</time></div>
-        </div>
-        
+            <header class="article-header" style="word-break: keep-all">
+                
     
         <h1 class="article-title" itemprop="name">
-        <a href="../../../2020/09/why-i-invested-nyt/">뉴욕타임즈에 투자하다</a>
+        원격 저장소 브랜치 삭제하는 방법
         </h1>
     
 
-        <p class="article-excerpt">
-            
-어젯밤 오랜만에 주식을 좀 샀다. 국내증시는 너무 올랐고, 미국증시도 만만찮게 올랐는데 평소에 관심있게 보던 회사의 기사가 자꾸 생각나서 소액 투자해보았다.
-새로운 시대가 요구하는 미디어지난 달에 이런 기사를 읽었다.조선비즈 - 美 유료구독 1위 뉴욕타임스, 디지털 매출이 종이신문 추월
-뉴욕타임즈가 이번 2분기 실적에서 최초로 디지털 부문 매출이 종이신문
-        </p>
+            </header>
+        
+        
+            <div class="article-meta" style="margin-bottom: 1em;">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="" class="article-date">
+       <time datetime="2021-07-09T06:38:23.000Z" itemprop="datePublished">2021-07-09</time>
+    </a>
+  </div>
+
+<!-- 
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="" class="article-date">
+     <time datetime="2021-07-09T15:43:26.878Z" itemprop="dateModified">2021-07-10</time>
+  </a>
+</div>
+
+ -->
+                
+
+				<!-- 	count-time		 -->
+				<span class="reading-time" style="margin-left: 20px;">
+					⏱ 1 min.
+				</span>
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="../../../tags/git/" rel="tag">git</a>
     </div>
-</article>
-    
 
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="../../../2020/09/github-contribution/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://opensource.guide/assets/images/cards/contribute.png)" alt="첫 오픈소스 기여" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span><a href="http://youngjinmo.github.io/2020/09/github-contribution/#isso-thread"></a></span>
-    
-</span>
+                
 
+                
 
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Git/">Git</a>
             </div>
-            <div class="date"><time datetime="2020-09-18T06:20:21.000Z" itemprop="datePublished">2020-09-18</time></div>
-        </div>
         
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="../../../2020/09/github-contribution/">첫 오픈소스 기여</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
+        
+        <div class="article-entry" itemprop="articleBody">
             
-뭐 엄청 작은부분이지만, 그래도 첫 오픈소스 기여를 기념하여 그 과정을 기록한다.
-오픈소스를 기여하는 방법은 4가지 정도로 생각할 수 있다.
 
-오픈소스 프로젝트 후원하기
-문서 번역하기
-버그 수정해서 PR하기
-새로운 기능 제안하기
+            
 
-난 이 중 2번인 문서 번역을 선택했다. 막연히 오픈소스에 기여해보고 싶던차에 1년 넘게 잘 사용하고 있는 깃헙 블로그 테마인
-        </p>
-    </div>
-</article>
-    
+            
+
+            <img src="https://user-images.githubusercontent.com/33862991/125103772-a72a5980-e117-11eb-85e7-4e47b2367044.jpg" alt="출처 : Unsplash, Jordan Rowland" style="zoom:70%;" />
+
+<p>로컬에서 브랜치를 삭제했지만, 원격 저장소(github)에는 여전히 브랜치가 남아있을때, 이를 삭제하는 방법이다.</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/125102437-3cc4e980-e116-11eb-8df5-b3ad58cc5ddb.png"></p>
+<p>현재 로컬에서는 브랜치가 3개가 있고, 원격 저장소에는 upstream 저장소의 브랜치를 제외한 5개의 브랜치가 존재한다. 이 중 앞으로 사용하지 않을 브랜치 <code>chapter3</code> 를 삭제하려고 한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin --delete chapter3</span><br></pre></td></tr></table></figure>
+
+<p>저장소에 동기화하는 명령어인 <code>git push origin</code>과 함께 <code>--delete</code> 옵션으로 브랜치명을 입력하면, 원격 저장소에 있는 저장소를 삭제한다.</p>
+<p><img src="https://user-images.githubusercontent.com/33862991/125102452-40587080-e116-11eb-9ca4-67d468af3b9b.png"></p>
+
         </div>
-    
-
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="../../../2020/09/xml-json-xmlhttprequest/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://lh3.googleusercontent.com/pw/ACtC-3f3uUiEllt7yZ2cz-TBQE53mDoXAvAbilDnTHnb0gUIYnX86czSpvvAGNC1uwJN3Mm543ae8FVwBXvYPyOcYzNVH-5fg0VXSmiORlQSYChhlqdO1jLRs_XhVOQYcySp_K_S3JbhAK4jHpeyRpXmh45Gqg=w640-h405-no?authuser=2)" alt="XML, JSON 그리고 XMLHttpRequest" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span><a href="http://youngjinmo.github.io/2020/09/xml-json-xmlhttprequest/#isso-thread"></a></span>
-    
-</span>
-
-
-    
+    </div>
+	<div class="ads" style="margin-top: 10px; margin-bottom:10px;">
+		<a target="_blank" rel="noopener" href="https://bit.ly/2Ulc5Wv" style="text-decoration: none; color: black;">
+	<div style="width: 100%; display:block; margin-left: auto; margin-right: auto;">
+		<p style="border: 3pt black; font-size: 20px; background-color: black; padding-top: 0.5em; padding-bottom: 0.5em;" align="center">
+			<span style="color: white;">> donate opentutorials.org</span>
+		</p>
+	</div>
 </a>
+	</div>
+	<footer class="article-footer">
+		<script src="https://utteranc.es/client.js"
+        repo="youngjinmo/githubpages-comment"
+        issue-term="pathname"
+		label="포스팅에 잘못된 부분이 있거나 다른 의견이 있으시다면, 댓글로 알려주시면 감사하겠습니다! 저뿐만 아니라 이 글을 보시는 다른 분들께도 도움이 될겁니다!"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+	</footer>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Youngjin Mo"
+        },
+        "headline": "원격 저장소 브랜치 삭제하는 방법",
+        "image": "../../../http:/youngjinmo.github.iohttps:/user-images.githubusercontent.com/33862991/125103772-a72a5980-e117-11eb-85e7-4e47b2367044.jpg",
+        "keywords": "git",
+        "genre": "Dev Java",
+        "datePublished": "2021-07-09",
+        "dateCreated": "2021-07-09",
+        "dateModified": "2021-07-10",
+        "url": "../../../http:/youngjinmo.github.io/2021/07/delete-remotes-branch/",
+        "description": "
 
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Others/">Others</a>
-            </div>
-            <div class="date"><time datetime="2020-09-01T03:00:59.000Z" itemprop="datePublished">2020-09-01</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="../../../2020/09/xml-json-xmlhttprequest/">XML, JSON 그리고 XMLHttpRequest</a>
-        </h1>
-    
+로컬에서 브랜치를 삭제했지만, 원격 저장소(github)에는 여전히 브랜치가 남아있을때, 이를 삭제하는 방법이다.
 
-        <p class="article-excerpt">
-            
-웹에서 API로 통신을 할 때 데이터를 전달받는 형식이 있다. XML과 JSON이 그 형식들이다. Ajax나 API로 요청하고 데이터를 받을때, JSON으로 데이터가 넘어오고 하는데, 한 번 정리하고 넘어가고 싶어서 정리한 글이다.
-JSON과 XML은 데이터 통신을 위해 고안된 형식이라고 한다. 그래서 자바, 파이썬 같은 프로그래밍 언어에 의해 파싱될 수
-        </p>
-    </div>
+현재 로컬에서는 브랜치가 3개가 있고, 원격 저장소에는 upstream 저장소의 브랜치를 제외한 5개의 브랜치가 존재한다. 이 중 앞으로 사용하지 않을 브랜치 chapter3 를 삭제하려고 한다.
+1git push origin --dele",
+        "wordCount": 69
+    }
+</script>
+
 </article>
-    
-        </div>
-    
-
-
-    </div></section>
-
-
                         </div>
                     </section>
                     <aside id="sidebar" style="word-break: keep-all">
@@ -372,6 +320,19 @@ JSON과 XML은 데이터 통신을 위해 고안된 형식이라고 한다. 그�
         </ul>
     </div>
     
+        
+<nav id="article-nav">
+    
+    
+        <a href="../review-inflearn-oop/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">인프런 강의 후기 최범균님 &lt;객체지향 프로그래밍 입문&gt;</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
     <div class="widgets-container">
         
             
@@ -387,7 +348,7 @@ JSON과 XML은 데이터 통신을 위해 고안된 형식이라고 한다. 그�
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="../../../2021/07/delete-remotes-branch/" class="thumbnail">
+                            <a href="" class="thumbnail">
     
     
         <span style="background-image:url(https://user-images.githubusercontent.com/33862991/125103772-a72a5980-e117-11eb-85e7-4e47b2367044.jpg)" alt="원격 저장소 브랜치 삭제하는 방법" class="thumbnail-image"></span>
@@ -399,7 +360,7 @@ JSON과 XML은 데이터 통신을 위해 고안된 형식이라고 한다. 그�
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
-                            <p class="item-title"><a href="../../../2021/07/delete-remotes-branch/" class="title">원격 저장소 브랜치 삭제하는 방법</a></p>
+                            <p class="item-title"><a href="" class="title">원격 저장소 브랜치 삭제하는 방법</a></p>
                             <p class="item-date"><time datetime="2021-07-09T06:38:23.000Z" itemprop="datePublished">2021-07-09</time></p>
                         </div>
                     </li>
@@ -407,7 +368,7 @@ JSON과 XML은 데이터 통신을 위해 고안된 형식이라고 한다. 그�
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="../../../2021/07/review-inflearn-oop/" class="thumbnail">
+                            <a href="../review-inflearn-oop/" class="thumbnail">
     
     
         <span style="background-image:url(https://user-images.githubusercontent.com/33862991/124898707-67317c80-e01a-11eb-8608-ec1b23e628f3.jpg)" alt="인프런 강의 후기 최범균님 &lt;객체지향 프로그래밍 입문&gt;" class="thumbnail-image"></span>
@@ -419,7 +380,7 @@ JSON과 XML은 데이터 통신을 위해 고안된 형식이라고 한다. 그�
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Life/">Life</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Life/Review/">Review</a></p>
-                            <p class="item-title"><a href="../../../2021/07/review-inflearn-oop/" class="title">인프런 강의 후기 최범균님 &lt;객체지향 프로그래밍 입문&gt;</a></p>
+                            <p class="item-title"><a href="../review-inflearn-oop/" class="title">인프런 강의 후기 최범균님 &lt;객체지향 프로그래밍 입문&gt;</a></p>
                             <p class="item-date"><time datetime="2021-07-08T00:23:14.000Z" itemprop="datePublished">2021-07-08</time></p>
                         </div>
                     </li>
@@ -427,7 +388,7 @@ JSON과 XML은 데이터 통신을 위해 고안된 형식이라고 한다. 그�
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="../../../2021/06/oracle-xe-with-docker/" class="thumbnail">
+                            <a href="../../06/oracle-xe-with-docker/" class="thumbnail">
     
     
         <span style="background-image:url(https://docs.docker.com/docker-for-mac/images/docker-app-drag.png)" alt="맥(MacOS)에서 오라클(11g) 실습환경 구축하기" class="thumbnail-image"></span>
@@ -439,7 +400,7 @@ JSON과 XML은 데이터 통신을 위해 고안된 형식이라고 한다. 그�
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Database/">Database</a></p>
-                            <p class="item-title"><a href="../../../2021/06/oracle-xe-with-docker/" class="title">맥(MacOS)에서 오라클(11g) 실습환경 구축하기</a></p>
+                            <p class="item-title"><a href="../../06/oracle-xe-with-docker/" class="title">맥(MacOS)에서 오라클(11g) 실습환경 구축하기</a></p>
                             <p class="item-date"><time datetime="2021-06-26T01:36:04.000Z" itemprop="datePublished">2021-06-26</time></p>
                         </div>
                     </li>
@@ -447,7 +408,7 @@ JSON과 XML은 데이터 통신을 위해 고안된 형식이라고 한다. 그�
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="../../../2021/06/js-get-text-from-table/" class="thumbnail">
+                            <a href="../../06/js-get-text-from-table/" class="thumbnail">
     
     
         <span style="background-image:url(https://user-images.githubusercontent.com/33862991/122713864-51455d00-d2a1-11eb-915d-21f72523048f.png)" alt="HTML Table에서 버튼 클릭해서 다른 컬럼 텍스트값 가져오기" class="thumbnail-image"></span>
@@ -459,7 +420,7 @@ JSON과 XML은 데이터 통신을 위해 고안된 형식이라고 한다. 그�
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/JavaScript/">JavaScript</a></p>
-                            <p class="item-title"><a href="../../../2021/06/js-get-text-from-table/" class="title">HTML Table에서 버튼 클릭해서 다른 컬럼 텍스트값 가져오기</a></p>
+                            <p class="item-title"><a href="../../06/js-get-text-from-table/" class="title">HTML Table에서 버튼 클릭해서 다른 컬럼 텍스트값 가져오기</a></p>
                             <p class="item-date"><time datetime="2021-06-20T21:26:43.000Z" itemprop="datePublished">2021-06-21</time></p>
                         </div>
                     </li>
@@ -467,7 +428,7 @@ JSON과 XML은 데이터 통신을 위해 고안된 형식이라고 한다. 그�
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="../../../2021/06/bean-component/" class="thumbnail">
+                            <a href="../../06/bean-component/" class="thumbnail">
     
     
         <span style="background-image:url(https://user-images.githubusercontent.com/33862991/121993643-d5e63600-cdde-11eb-9e53-727f00dba587.jpg)" alt="Bean과 Component 차이" class="thumbnail-image"></span>
@@ -479,7 +440,7 @@ JSON과 XML은 데이터 통신을 위해 고안된 형식이라고 한다. 그�
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="../../../categories/Dev/">Dev</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="../../../categories/Dev/Java/">Java</a></p>
-                            <p class="item-title"><a href="../../../2021/06/bean-component/" class="title">Bean과 Component 차이</a></p>
+                            <p class="item-title"><a href="../../06/bean-component/" class="title">Bean과 Component 차이</a></p>
                             <p class="item-date"><time datetime="2021-06-14T19:48:21.000Z" itemprop="datePublished">2021-06-15</time></p>
                         </div>
                     </li>

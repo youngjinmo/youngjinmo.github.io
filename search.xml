@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>원격 저장소 브랜치 삭제하는 방법</title>
+      <link href="2021/07/delete-remotes-branch/"/>
+      <url>2021/07/delete-remotes-branch/</url>
+      
+        <content type="html"><![CDATA[<img src="https://user-images.githubusercontent.com/33862991/125103772-a72a5980-e117-11eb-85e7-4e47b2367044.jpg" alt="출처 : Unsplash, Jordan Rowland" style="zoom:70%;" /><p>로컬에서 브랜치를 삭제했지만, 원격 저장소(github)에는 여전히 브랜치가 남아있을때, 이를 삭제하는 방법이다.</p><p><img src="https://user-images.githubusercontent.com/33862991/125102437-3cc4e980-e116-11eb-8df5-b3ad58cc5ddb.png"></p><p>현재 로컬에서는 브랜치가 3개가 있고, 원격 저장소에는 upstream 저장소의 브랜치를 제외한 5개의 브랜치가 존재한다. 이 중 앞으로 사용하지 않을 브랜치 <code>chapter3</code> 를 삭제하려고 한다.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin --delete chapter3</span><br></pre></td></tr></table></figure><p>저장소에 동기화하는 명령어인 <code>git push origin</code>과 함께 <code>--delete</code> 옵션으로 브랜치명을 입력하면, 원격 저장소에 있는 저장소를 삭제한다.</p><p><img src="https://user-images.githubusercontent.com/33862991/125102452-40587080-e116-11eb-9ca4-67d468af3b9b.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Dev </category>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>인프런 강의 후기 최범균님 &lt;객체지향 프로그래밍 입문&gt;</title>
       <link href="2021/07/review-inflearn-oop/"/>
       <url>2021/07/review-inflearn-oop/</url>

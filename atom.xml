@@ -6,7 +6,7 @@
   <link href="http://youngjinmo.github.io/atom.xml" rel="self"/>
   
   <link href="http://youngjinmo.github.io/"/>
-  <updated>2021-07-08T09:35:35.863Z</updated>
+  <updated>2021-07-09T15:43:26.878Z</updated>
   <id>http://youngjinmo.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>원격 저장소 브랜치 삭제하는 방법</title>
+    <link href="http://youngjinmo.github.io/2021/07/delete-remotes-branch/"/>
+    <id>http://youngjinmo.github.io/2021/07/delete-remotes-branch/</id>
+    <published>2021-07-09T06:38:23.000Z</published>
+    <updated>2021-07-09T15:43:26.878Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/125103772-a72a5980-e117-11eb-85e7-4e47b2367044.jpg&quot; alt=&quot;출처 : Unsplash, Jordan Rowland&quot; style=&quot;zoom:70%;&quot; /&gt;
+
+&lt;p&gt;로컬에서 브랜치를 삭제했지만, 원격</summary>
+        
+      
+    
+    
+    
+    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
+    
+    <category term="Java" scheme="http://youngjinmo.github.io/categories/Dev/Java/"/>
+    
+    
+    <category term="git" scheme="http://youngjinmo.github.io/tags/git/"/>
+    
+  </entry>
   
   <entry>
     <title>인프런 강의 후기 최범균님 &lt;객체지향 프로그래밍 입문&gt;</title>
@@ -577,36 +606,6 @@
     <category term="inheritance" scheme="http://youngjinmo.github.io/tags/inheritance/"/>
     
     <category term="oop" scheme="http://youngjinmo.github.io/tags/oop/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Gitignore 새로 반영하기</title>
-    <link href="http://youngjinmo.github.io/2021/03/apply-new-gitignore/"/>
-    <id>http://youngjinmo.github.io/2021/03/apply-new-gitignore/</id>
-    <published>2021-03-21T20:36:00.000Z</published>
-    <updated>2021-03-22T05:37:21.289Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/33862991/111944820-d5aa0780-8b1b-11eb-9a44-f604ed1f4a97.jpg&quot;&gt;&lt;/p&gt;
-&lt;p&gt;이미 변경관리에 의해 관리되고 있는 파일이라면 이후에 gitignore에 추가하더라도 변경관리에서 계속 추적이 될 수 있다. 이 때</summary>
-        
-      
-    
-    
-    
-    <category term="Dev" scheme="http://youngjinmo.github.io/categories/Dev/"/>
-    
-    <category term="Git" scheme="http://youngjinmo.github.io/categories/Dev/Git/"/>
-    
-    
-    <category term="tutorial" scheme="http://youngjinmo.github.io/tags/tutorial/"/>
-    
-    <category term="gitignore" scheme="http://youngjinmo.github.io/tags/gitignore/"/>
     
   </entry>
   
